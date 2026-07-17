@@ -17,7 +17,7 @@ Ce dépôt est le lieu de travail principal du **cercle scientifique** de TLC. I
 ## Format des fichiers
 
 Tous les fichiers sont en **Markdown** (`.md`) pour une lecture aisée par les humains et par l’IA.  
-Les formules mathématiques sont saisies en **LaTeX** encadré par `$$` (bloc) ou `$` (inline) selon la taille.
+Les formules mathématiques sont saisies en **LaTeX** encadré par `$$` (bloc) ou `$` (inline) selon la taille
 
 Exemple :
 ```markdown
