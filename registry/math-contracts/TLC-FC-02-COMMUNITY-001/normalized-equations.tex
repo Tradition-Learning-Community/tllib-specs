@@ -1,0 +1,19 @@
+% Candidate mathematical contract TLC-MC-TLC-FC-02-COMMUNITY-001
+\section*{C1 -- Existence de valeurs partagees}
+\textbf{Source (maths/02-community.md, lines 81--83, commit 68a4d4c):}
+\begin{quote}
+Il existe un noyau $\nu^*\subset\mathcal{V}_c$ de mesure positive tel que
+$\pi_{\nu}(a)\in\nu^*$ pour tout acteur $a$. Ce noyau a une coherence minimale
+$\epsilon_{\mathrm{coh}}>0$.
+\end{quote}
+\textbf{Normalized expression:}
+\[
+\exists\,\nu^*\subset\mathcal{V}_c:\quad
+\operatorname{measure}(\nu^*)>0,\quad
+\forall a\;(\pi_\nu(a)\in\nu^*),\quad
+\operatorname{coherence}(\nu^*)\geq\epsilon_{\mathrm{coh}}>0.
+\]
+\textbf{Equivalence status: unresolved.}
+The quantifiers and named operators expose the prose structure, but the source does
+not define the measure, actor domain, coherence function, or the exact comparator
+encoded by ``coherence minimale''; therefore this is not asserted as an equivalent equation.
