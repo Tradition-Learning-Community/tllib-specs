@@ -73,4 +73,4 @@ Les symboles sont enregistrés lorsqu’ils sont présents dans l’énoncé sou
 
 ## Fichiers et Git
 
-Six fichiers sont créés pour ce paquet. Le commit et le push sont effectués globalement après validation des quatorze paquets; leur résultat est consigné dans `decision_required.yaml` lors de la finalisation.
+Six fichiers ont été créés et validés pour ce paquet. Commit global : `e0cb0ab9dc10983fd7af3f67b5dee8402bfc39f1`. Push normal vers `origin/main` : réussi (`68a4d4c..e0cb0ab main -> main`). Git a signalé l’absence de `credential-manager-core`, sans empêcher le push.
