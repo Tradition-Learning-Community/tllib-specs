@@ -27,7 +27,7 @@ generator_role: TLC_SCIENTIFIC_OBJECT_EXTRACTOR
 - État Git initial : arbre de travail propre; branche `main` en avance d’un commit utilisateur (`fe8b990`, modification de `README.md`) sur `origin/main`.
 - Remote : `https://github.com/Tradition-Learning-Community/tllib-specs.git`
 
-Le commit utilisateur préexistant n’a été ni modifié, ni réécrit, ni supprimé. La source scientifique n’a pas été modifiée.
+Le commit utilisateur préexistant n’a été ni modifié, ni réécrit, ni supprimé. La source scientifique n’a pas été modifiée. Le push normal a publié ce commit antérieur avec le commit d’extraction, conformément à l’état de `main`.
 
 ## Résumé quantitatif
 
@@ -115,10 +115,11 @@ Sections non traitées : aucune dans le fichier. Les fichiers consacrés au Disc
 
 ## Fichiers produits
 
-Six artefacts sont produits dans les dossiers propres à `master`. Le résultat final des validations, du commit et du push est enregistré dans `decision_required.yaml` après exécution des opérations Git.
+Six artefacts sont produits dans les dossiers propres à `master`. Les validations, le commit et le push ont réussi.
 
 ## Git
 
-- Commit de l’extraction : sera créé après inclusion de ce rapport finalisé.
-- Push : sera tenté après création du commit.
-- Attention : un push de `main` inclut nécessairement le commit utilisateur préexistant `fe8b990` déjà en avance sur `origin/main`.
+- Commit de l’extraction : `2cfe79b5489bbbc85564c5dc75b85b197b6cc0c2` (`Add candidate scientific extraction for master`).
+- Push : réussi vers `origin/main` (`fe8b990..2cfe79b`).
+- Avertissement non bloquant : Git a signalé que `credential-manager-core` n’était pas installé, sans empêcher le push.
+- Le push a inclus le commit utilisateur préexistant `fe8b990`, qui était déjà en avance sur `origin/main` avant l’extraction.
