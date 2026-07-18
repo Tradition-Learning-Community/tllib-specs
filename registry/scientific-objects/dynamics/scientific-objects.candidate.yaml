@@ -1,0 +1,1081 @@
+artifact:
+  artifact_id: TLC-SCI-DYNAMICS-SCIENTIFIC_OBJECT_REGISTRY-001
+  artifact_type: scientific_object_registry
+  version: candidate-1
+  status: candidate
+  source_slug: dynamics
+  source_repository: Tradition-Learning-Community/tllib-specs
+  source_path: maths/05-dynamics.md
+  source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+  source_branch: main
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+  generated_at: '2026-07-18T00:00:00+02:00'
+  generator_role: TLC_SCIENTIFIC_OBJECT_EXTRACTOR
+objects:
+- provisional_object_id: TLC-SO-DYNAMICS-001
+  object_type: Concept
+  canonical_name: Équations dynamiques (Dynamics)
+  source_name: Équations dynamiques (Dynamics)
+  source_statement: Les entités fondamentales de Tradition Learning — Maître, Disciple, Communauté — ne sont pas statiques.
+    Leur évolution temporelle est régie par des systèmes d’équations différentielles stochastiques (EDS) couplées, qui traduisent
+    l’interaction entre processus internes (affinement, maturation) et influences externes (relations, environnement, aléas).
+    Ce chapitre rassemble les principales équations dynamiques présentées dans les fichiers précédents, afin d’offrir une
+    vision synthétique des mécanismes en jeu.
+  concise_description: Objet scientifique explicitement présenté comme « Équations dynamiques (Dynamics) » dans la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations dynamiques (Dynamics)
+    subsection: null
+    start_line: 1
+    end_line: 5
+  symbols_mentioned: []
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: candidate
+  extraction_confidence: high
+  issues: []
+- provisional_object_id: TLC-SO-DYNAMICS-002
+  object_type: Concept
+  canonical_name: Équations du Maître
+  source_name: Équations du Maître
+  source_statement: Le Maître $\mathcal{M} = (\mathcal{K},\nu,\mathcal{E},\mathcal{P},\mathcal{A},\mathcal{R},\mathcal{S})$
+    évolue selon les équations suivantes.
+  concise_description: Objet scientifique explicitement présenté comme « Équations du Maître » dans la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations du Maître
+    subsection: null
+    start_line: 7
+    end_line: 9
+  symbols_mentioned:
+  - \mathcal{M} = (\mathcal{K},\nu,\mathcal{E},\mathcal{P},\mathcal{A},\mathcal{R},\mathcal{S})
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: unresolved
+  extraction_confidence: medium
+  issues:
+  - issue_id: TLC-ISS-DYNAMICS-002
+    issue_type: classification_inferred_from_document_structure
+    description: La source nomme cet objet sans lui attribuer explicitement un type scientifique autorisé; Concept est une
+      classification candidate.
+    severity: minor
+    status: unresolved
+- provisional_object_id: TLC-SO-DYNAMICS-003
+  object_type: Concept
+  canonical_name: Évolution de la connaissance $\mathcal{K}$
+  source_name: Évolution de la connaissance $\mathcal{K}$
+  source_statement: '\[
+
+    \begin{aligned}
+
+    d\mathcal{K}(t) =&\ \underbrace{\alpha\cdot\nabla_{\mathcal{K}}R(\mathcal{K},\nu)}_{\text{affinement interne}}\,dt \\
+
+    &+ \underbrace{\beta\cdot\mathbb{E}_{\mathcal{D}\sim\mu_t}[\delta\mathcal{K}_{\mathrm{ped}}(\mathcal{D})]}_{\text{rétroaction
+    pédagogique}}\,dt \\
+
+    &+ \underbrace{\gamma\cdot I_{\mathrm{ext}}(t)}_{\text{apport externe}}\,dt + \underbrace{\sigma_{\mathcal{K}}\,dW_{\mathcal{K}}(t)}_{\text{bruit
+    exploratoire}}
+
+    \end{aligned}
+
+    \]'
+  concise_description: Objet scientifique explicitement présenté comme « Évolution de la connaissance $\mathcal{K}$ » dans
+    la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations du Maître
+    subsection: Évolution de la connaissance $\mathcal{K}$
+    start_line: 11
+    end_line: 19
+  symbols_mentioned:
+  - \mathcal
+  - \alpha
+  - \nabla_{\mathcal{K}
+  - \nu
+  - \beta
+  - \mathbb
+  - \mu_t
+  - \delta
+  - \mathrm
+  - \gamma
+  - \sigma_{\mathcal{K}
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: unresolved
+  extraction_confidence: medium
+  issues:
+  - issue_id: TLC-ISS-DYNAMICS-003
+    issue_type: classification_inferred_from_document_structure
+    description: La source nomme cet objet sans lui attribuer explicitement un type scientifique autorisé; Concept est une
+      classification candidate.
+    severity: minor
+    status: unresolved
+- provisional_object_id: TLC-SO-DYNAMICS-004
+  object_type: Concept
+  canonical_name: Dynamique de l’exemplarité $\mathcal{E}$
+  source_name: Dynamique de l’exemplarité $\mathcal{E}$
+  source_statement: '\[
+
+    \frac{d^2\mathcal{E}}{dt^2} + \zeta\frac{d\mathcal{E}}{dt} + \omega_0^2\mathcal{E} = F_{\mathrm{contexte}}(t) + \eta_{\mathcal{E}}(t)
+
+    \]'
+  concise_description: Objet scientifique explicitement présenté comme « Dynamique de l’exemplarité $\mathcal{E}$ » dans la
+    source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations du Maître
+    subsection: Dynamique de l’exemplarité $\mathcal{E}$
+    start_line: 26
+    end_line: 30
+  symbols_mentioned:
+  - \mathcal
+  - \zeta
+  - \omega_0
+  - \mathrm
+  - \eta_{\mathcal{E}
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: unresolved
+  extraction_confidence: medium
+  issues:
+  - issue_id: TLC-ISS-DYNAMICS-004
+    issue_type: classification_inferred_from_document_structure
+    description: La source nomme cet objet sans lui attribuer explicitement un type scientifique autorisé; Concept est une
+      classification candidate.
+    severity: minor
+    status: unresolved
+- provisional_object_id: TLC-SO-DYNAMICS-005
+  object_type: Concept
+  canonical_name: Dynamique du système de valeurs $\nu$
+  source_name: Dynamique du système de valeurs $\nu$
+  source_statement: '\[
+
+    \frac{\partial\rho(\sigma,t)}{\partial t} = D\Delta_{\nu}\rho(\sigma,t) - \nabla_{\nu}\cdot\big(\rho(\sigma,t)\vec{v}(\sigma,t)\big)
+
+    \]'
+  concise_description: Objet scientifique explicitement présenté comme « Dynamique du système de valeurs $\nu$ » dans la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations du Maître
+    subsection: Dynamique du système de valeurs $\nu$
+    start_line: 37
+    end_line: 41
+  symbols_mentioned:
+  - \rho(\sigma,t)
+  - \Delta_{\nu}
+  - \nabla_{\nu}
+  - \vec
+  - \sigma
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: unresolved
+  extraction_confidence: medium
+  issues:
+  - issue_id: TLC-ISS-DYNAMICS-005
+    issue_type: classification_inferred_from_document_structure
+    description: La source nomme cet objet sans lui attribuer explicitement un type scientifique autorisé; Concept est une
+      classification candidate.
+    severity: minor
+    status: unresolved
+- provisional_object_id: TLC-SO-DYNAMICS-006
+  object_type: Concept
+  canonical_name: Évolution de l’autorité $\mathcal{A}$
+  source_name: Évolution de l’autorité $\mathcal{A}$
+  source_statement: '\[
+
+    \frac{d\mathcal{A}}{dt} = \lambda_{\mathcal{A}}(\mathcal{E}(t)-\mathcal{A}(t)) + \mu_{\mathcal{A}}\frac{d\bar{\mathcal{Q}}}{dt}
+    + \nu_{\mathcal{A}}\frac{d\mathcal{S}}{dt} + \xi_{\mathcal{A}}(t)
+
+    \]'
+  concise_description: Objet scientifique explicitement présenté comme « Évolution de l’autorité $\mathcal{A}$ » dans la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations du Maître
+    subsection: Évolution de l’autorité $\mathcal{A}$
+    start_line: 48
+    end_line: 52
+  symbols_mentioned:
+  - \mathcal
+  - \lambda_{\mathcal{A}
+  - \mu_{\mathcal{A}
+  - \bar
+  - \nu_{\mathcal{A}
+  - \xi_{\mathcal{A}
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: unresolved
+  extraction_confidence: medium
+  issues:
+  - issue_id: TLC-ISS-DYNAMICS-006
+    issue_type: classification_inferred_from_document_structure
+    description: La source nomme cet objet sans lui attribuer explicitement un type scientifique autorisé; Concept est une
+      classification candidate.
+    severity: minor
+    status: unresolved
+- provisional_object_id: TLC-SO-DYNAMICS-007
+  object_type: Concept
+  canonical_name: Équations du Disciple
+  source_name: Équations du Disciple
+  source_statement: Le Disciple $\mathcal{D} = (\mathcal{S}_0,\mathcal{P},\mathcal{R},\mathcal{T},\mathcal{F},\mathcal{G},\mathcal{A},\mathcal{C})$
+    évolue selon les équations suivantes.
+  concise_description: Objet scientifique explicitement présenté comme « Équations du Disciple » dans la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations du Disciple
+    subsection: null
+    start_line: 58
+    end_line: 60
+  symbols_mentioned:
+  - \mathcal{D} = (\mathcal{S}_0,\mathcal{P},\mathcal{R},\mathcal{T},\mathcal{F},\mathcal{G},\mathcal{A},\mathcal{C})
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: unresolved
+  extraction_confidence: medium
+  issues:
+  - issue_id: TLC-ISS-DYNAMICS-007
+    issue_type: classification_inferred_from_document_structure
+    description: La source nomme cet objet sans lui attribuer explicitement un type scientifique autorisé; Concept est une
+      classification candidate.
+    severity: minor
+    status: unresolved
+- provisional_object_id: TLC-SO-DYNAMICS-008
+  object_type: Concept
+  canonical_name: Évolution par trajectoire $\mathcal{T}$
+  source_name: Évolution par trajectoire $\mathcal{T}$
+  source_statement: '\[
+
+    \begin{aligned}
+
+    d\mathcal{P}(t) =&\ \underbrace{\nabla_{\mathcal{P}}U(\mathcal{P},\mathcal{M})}_{\text{potentiel de guidage}}\,dt \\
+
+    &+ \underbrace{\Gamma(\mathcal{P})\circ(\mathcal{M}-\Pi_{\mathcal{M}}(\mathcal{P}))}_{\text{attraction vers le Maître}}\,dt
+    \\
+
+    &+ \underbrace{D\Delta_{\mathcal{P}}\mathcal{P}}_{\text{diffusion exploratoire}}\,dt + \underbrace{\sigma_{\mathcal{P}}(\mathcal{P})\,dW_{\mathcal{P}}(t)}_{\text{fluctuations
+    aléatoires}}
+
+    \end{aligned}
+
+    \]'
+  concise_description: Objet scientifique explicitement présenté comme « Évolution par trajectoire $\mathcal{T}$ » dans la
+    source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations du Disciple
+    subsection: Évolution par trajectoire $\mathcal{T}$
+    start_line: 62
+    end_line: 70
+  symbols_mentioned:
+  - \mathcal
+  - \nabla_{\mathcal{P}
+  - \Pi_{\mathcal{M}
+  - \Delta_{\mathcal{P}
+  - \sigma_{\mathcal{P}
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: unresolved
+  extraction_confidence: medium
+  issues:
+  - issue_id: TLC-ISS-DYNAMICS-008
+    issue_type: classification_inferred_from_document_structure
+    description: La source nomme cet objet sans lui attribuer explicitement un type scientifique autorisé; Concept est une
+      classification candidate.
+    severity: minor
+    status: unresolved
+- provisional_object_id: TLC-SO-DYNAMICS-009
+  object_type: Concept
+  canonical_name: Dynamique de génération d’identité $\mathcal{G}$
+  source_name: Dynamique de génération d’identité $\mathcal{G}$
+  source_statement: '\[
+
+    \frac{\partial\mathcal{I}}{\partial t} = \underbrace{\alpha\Delta\mathcal{I}}_{\text{diffusion}} + \underbrace{\beta\mathcal{I}(1-\mathcal{I})(\mathcal{I}-\theta)}_{\text{cristallisation}}
+    + \underbrace{\gamma(\mathcal{M}_{\mathcal{I}}-\mathcal{I})}_{\text{influence du Maître}} + \eta_{\mathcal{I}}(t)
+
+    \]'
+  concise_description: Objet scientifique explicitement présenté comme « Dynamique de génération d’identité $\mathcal{G}$
+    » dans la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations du Disciple
+    subsection: Dynamique de génération d’identité $\mathcal{G}$
+    start_line: 77
+    end_line: 81
+  symbols_mentioned:
+  - \mathcal
+  - \alpha
+  - \Delta
+  - \beta
+  - \theta
+  - \gamma(\mathcal{M}_{\mathcal{I}}-\mathcal{I})
+  - \eta_{\mathcal{I}
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: unresolved
+  extraction_confidence: medium
+  issues:
+  - issue_id: TLC-ISS-DYNAMICS-009
+    issue_type: classification_inferred_from_document_structure
+    description: La source nomme cet objet sans lui attribuer explicitement un type scientifique autorisé; Concept est une
+      classification candidate.
+    severity: minor
+    status: unresolved
+- provisional_object_id: TLC-SO-DYNAMICS-010
+  object_type: Concept
+  canonical_name: Évolution de la réceptivité $\mathcal{R}$
+  source_name: Évolution de la réceptivité $\mathcal{R}$
+  source_statement: '\[
+
+    \frac{d\mathcal{R}_k}{dt} = r_k\mathcal{R}_k\left(1-\frac{\mathcal{R}_k}{K_k}\right) - \sum_{j\neq k}\alpha_{kj}\mathcal{R}_k\mathcal{R}_j
+    + \beta_k\mathcal{F}_k(\mathcal{M},\mathcal{D}) + \xi_k(t)
+
+    \]'
+  concise_description: Objet scientifique explicitement présenté comme « Évolution de la réceptivité $\mathcal{R}$ » dans
+    la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations du Disciple
+    subsection: Évolution de la réceptivité $\mathcal{R}$
+    start_line: 88
+    end_line: 92
+  symbols_mentioned:
+  - \mathcal
+  - \alpha_{kj}
+  - \beta_k
+  - \xi_k(t)
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: unresolved
+  extraction_confidence: medium
+  issues:
+  - issue_id: TLC-ISS-DYNAMICS-010
+    issue_type: classification_inferred_from_document_structure
+    description: La source nomme cet objet sans lui attribuer explicitement un type scientifique autorisé; Concept est une
+      classification candidate.
+    severity: minor
+    status: unresolved
+- provisional_object_id: TLC-SO-DYNAMICS-011
+  object_type: Concept
+  canonical_name: Traitement du feedback $\mathcal{F}$
+  source_name: Traitement du feedback $\mathcal{F}$
+  source_statement: '\[
+
+    \mathcal{F}[\mathcal{I}_{\mathrm{ext}}](t) = \int_{-\infty}^t K(t-\tau;\mathcal{R},\mathcal{P})\cdot\mathcal{I}_{\mathrm{ext}}(\tau)\,d\tau
+    + \mathcal{F}_{\mathrm{int}}(\mathcal{D})
+
+    \]
+
+    avec noyau multi‑exponentiel
+
+    \[
+
+    K(t) = \sum_{m=1}^{M} A_m e^{-\lambda_m t}\cos(\omega_m t+\phi_m)
+
+    \]
+
+    (intégration multi‑échelle des retours).'
+  concise_description: Objet scientifique explicitement présenté comme « Traitement du feedback $\mathcal{F}$ » dans la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations du Disciple
+    subsection: Traitement du feedback $\mathcal{F}$
+    start_line: 101
+    end_line: 110
+  symbols_mentioned:
+  - \mathcal
+  - \mathrm
+  - \lambda_m
+  - \omega_m
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: unresolved
+  extraction_confidence: medium
+  issues:
+  - issue_id: TLC-ISS-DYNAMICS-011
+    issue_type: classification_inferred_from_document_structure
+    description: La source nomme cet objet sans lui attribuer explicitement un type scientifique autorisé; Concept est une
+      classification candidate.
+    severity: minor
+    status: unresolved
+- provisional_object_id: TLC-SO-DYNAMICS-012
+  object_type: Concept
+  canonical_name: Équations de la Communauté
+  source_name: Équations de la Communauté
+  source_statement: La Communauté $\mathcal{C} = (\mathcal{A},\mathcal{R},\mathcal{V}_c,\mathcal{N},\mathcal{T},\mathcal{M},\mathcal{E},\mathcal{G})$
+    évolue selon le système couplé suivant.
+  concise_description: Objet scientifique explicitement présenté comme « Équations de la Communauté » dans la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations de la Communauté
+    subsection: null
+    start_line: 112
+    end_line: 114
+  symbols_mentioned:
+  - \mathcal{C} = (\mathcal{A},\mathcal{R},\mathcal{V}_c,\mathcal{N},\mathcal{T},\mathcal{M},\mathcal{E},\mathcal{G})
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: unresolved
+  extraction_confidence: medium
+  issues:
+  - issue_id: TLC-ISS-DYNAMICS-012
+    issue_type: classification_inferred_from_document_structure
+    description: La source nomme cet objet sans lui attribuer explicitement un type scientifique autorisé; Concept est une
+      classification candidate.
+    severity: minor
+    status: unresolved
+- provisional_object_id: TLC-SO-DYNAMICS-013
+  object_type: Concept
+  canonical_name: Système d’évolution couplé
+  source_name: Système d’évolution couplé
+  source_statement: '\[
+
+    \begin{cases}
+
+    \displaystyle\frac{d\mathcal{A}}{dt} = F_A(\mathcal{A},\mathcal{R},\mathcal{V}_c) + \sigma_A dW_A(t)\\[1.2em]
+
+    \displaystyle\frac{d\mathcal{R}}{dt} = L\mathcal{R} + B(\mathcal{A},\mathcal{V}_c) + \sigma_R dW_R(t)\\[1.2em]
+
+    \displaystyle\frac{d\mathcal{V}_c}{dt} = -\alpha(\mathcal{V}_c-\mathcal{V}_{\mathrm{consensus}}) + \beta\nabla\mathcal{N}
+    + \sigma_V dW_V(t)\\[1.2em]
+
+    \displaystyle\frac{d\mathcal{N}}{dt} = \mathcal{T}(\mathcal{A},\mathcal{E}_{\mathrm{exp}}) - \gamma\mathcal{N} + \sigma_N
+    dW_N(t)\\[1.2em]
+
+    \displaystyle\frac{d\mathcal{I}_{\mathrm{coll}}}{dt} = \mathcal{G}(\mathcal{A},\mathcal{V}_c,\mathcal{N}) + \sigma_I dW_I(t)
+
+    \end{cases}
+
+    \]'
+  concise_description: Objet scientifique explicitement présenté comme « Système d’évolution couplé » dans la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations de la Communauté
+    subsection: Système d’évolution couplé
+    start_line: 116
+    end_line: 126
+  symbols_mentioned:
+  - \mathcal
+  - \sigma_A
+  - \sigma_R
+  - \alpha
+  - \mathrm
+  - \beta
+  - \nabla
+  - \sigma_V
+  - \gamma
+  - \sigma_N
+  - \sigma_I
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: unresolved
+  extraction_confidence: medium
+  issues:
+  - issue_id: TLC-ISS-DYNAMICS-013
+    issue_type: classification_inferred_from_document_structure
+    description: La source nomme cet objet sans lui attribuer explicitement un type scientifique autorisé; Concept est une
+      classification candidate.
+    severity: minor
+    status: unresolved
+- provisional_object_id: TLC-SO-DYNAMICS-014
+  object_type: Operator
+  canonical_name: Interactions avec le Maître et le Disciple
+  source_name: Interactions avec le Maître et le Disciple
+  source_statement: 'Les dynamiques communautaires sont modulées par des opérateurs d’interaction :
+
+    \[
+
+    \begin{aligned}
+
+    \frac{d\mathcal{A}}{dt} &\ni I_{\mathcal{M}\to\mathcal{C}}(\mathcal{M},\mathcal{A}) + I_{\mathcal{D}\to\mathcal{C}}(\mathcal{D},\mathcal{A})\\
+
+    \frac{d\mathcal{R}}{dt} &\ni J_{\mathcal{M}\to\mathcal{C}}(\mathcal{M},\mathcal{R}) + J_{\mathcal{D}\to\mathcal{C}}(\mathcal{D},\mathcal{R})\\
+
+    \frac{d\mathcal{V}_c}{dt} &\ni K_{\mathcal{M}\to\mathcal{C}}(\mathcal{M},\mathcal{V}_c) + K_{\mathcal{D}\to\mathcal{C}}(\mathcal{D},\mathcal{V}_c)
+
+    \end{aligned}
+
+    \]'
+  concise_description: Objet scientifique explicitement présenté comme « Interactions avec le Maître et le Disciple » dans
+    la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations de la Communauté
+    subsection: Interactions avec le Maître et le Disciple
+    start_line: 136
+    end_line: 145
+  symbols_mentioned:
+  - \mathcal
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: candidate
+  extraction_confidence: high
+  issues: []
+- provisional_object_id: TLC-SO-DYNAMICS-015
+  object_type: Constraint
+  canonical_name: Contraintes de viabilité
+  source_name: Contraintes de viabilité
+  source_statement: 'La dynamique doit respecter des bornes structurelles :
+
+    - $|\mathcal{A}(t)| \ge N_{\min}$ (taille minimale).
+
+    - $\lambda_2(L(\mathcal{R}(t))) \ge \lambda_{\min}$ (connectivité).
+
+    - $\|\mathcal{V}_c(t) - \mathcal{V}_{\mathrm{core}}\| \le \Delta_{\max}$ (cohérence des valeurs).
+
+    - $\int_0^t \|\mathcal{N}(\tau) - \mathcal{N}_{\mathrm{essentiel}}\| d\tau \le M_{\max}$ (conservation de la mémoire).'
+  concise_description: Objet scientifique explicitement présenté comme « Contraintes de viabilité » dans la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations de la Communauté
+    subsection: Contraintes de viabilité
+    start_line: 147
+    end_line: 153
+  symbols_mentioned:
+  - '|\mathcal{A}(t)| \ge N_{\min}'
+  - \lambda_2(L(\mathcal{R}(t))) \ge \lambda_{\min}
+  - \|\mathcal{V}_c(t) - \mathcal{V}_{\mathrm{core}}\| \le \Delta_{\max}
+  - \int_0^t \|\mathcal{N}(\tau) - \mathcal{N}_{\mathrm{essentiel}}\| d\tau \le M_{\max}
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: candidate
+  extraction_confidence: high
+  issues: []
+- provisional_object_id: TLC-SO-DYNAMICS-016
+  object_type: StochasticEquation
+  canonical_name: Équation — Évolution de la connaissance $\mathcal{K}$
+  source_name: Équation — Évolution de la connaissance $\mathcal{K}$
+  source_statement: '\[
+
+    \begin{aligned}
+
+    d\mathcal{K}(t) =&\ \underbrace{\alpha\cdot\nabla_{\mathcal{K}}R(\mathcal{K},\nu)}_{\text{affinement interne}}\,dt \\
+
+    &+ \underbrace{\beta\cdot\mathbb{E}_{\mathcal{D}\sim\mu_t}[\delta\mathcal{K}_{\mathrm{ped}}(\mathcal{D})]}_{\text{rétroaction
+    pédagogique}}\,dt \\
+
+    &+ \underbrace{\gamma\cdot I_{\mathrm{ext}}(t)}_{\text{apport externe}}\,dt + \underbrace{\sigma_{\mathcal{K}}\,dW_{\mathcal{K}}(t)}_{\text{bruit
+    exploratoire}}
+
+    \end{aligned}
+
+    \]'
+  concise_description: Objet scientifique explicitement présenté comme « Équation — Évolution de la connaissance $\mathcal{K}$
+    » dans la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations du Maître
+    subsection: Évolution de la connaissance $\mathcal{K}$
+    start_line: 13
+    end_line: 19
+  symbols_mentioned:
+  - \mathcal
+  - \alpha
+  - \nabla_{\mathcal{K}
+  - \nu
+  - \beta
+  - \mathbb
+  - \mu_t
+  - \delta
+  - \mathrm
+  - \gamma
+  - \sigma_{\mathcal{K}
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: candidate
+  extraction_confidence: high
+  issues: []
+- provisional_object_id: TLC-SO-DYNAMICS-017
+  object_type: DifferentialEquation
+  canonical_name: Équation — Dynamique de l’exemplarité $\mathcal{E}$
+  source_name: Équation — Dynamique de l’exemplarité $\mathcal{E}$
+  source_statement: '\[
+
+    \frac{d^2\mathcal{E}}{dt^2} + \zeta\frac{d\mathcal{E}}{dt} + \omega_0^2\mathcal{E} = F_{\mathrm{contexte}}(t) + \eta_{\mathcal{E}}(t)
+
+    \]'
+  concise_description: Objet scientifique explicitement présenté comme « Équation — Dynamique de l’exemplarité $\mathcal{E}$
+    » dans la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations du Maître
+    subsection: Dynamique de l’exemplarité $\mathcal{E}$
+    start_line: 28
+    end_line: 30
+  symbols_mentioned:
+  - \mathcal
+  - \zeta
+  - \omega_0
+  - \mathrm
+  - \eta_{\mathcal{E}
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: candidate
+  extraction_confidence: high
+  issues: []
+- provisional_object_id: TLC-SO-DYNAMICS-018
+  object_type: DifferentialEquation
+  canonical_name: Équation — Dynamique du système de valeurs $\nu$
+  source_name: Équation — Dynamique du système de valeurs $\nu$
+  source_statement: '\[
+
+    \frac{\partial\rho(\sigma,t)}{\partial t} = D\Delta_{\nu}\rho(\sigma,t) - \nabla_{\nu}\cdot\big(\rho(\sigma,t)\vec{v}(\sigma,t)\big)
+
+    \]'
+  concise_description: Objet scientifique explicitement présenté comme « Équation — Dynamique du système de valeurs $\nu$
+    » dans la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations du Maître
+    subsection: Dynamique du système de valeurs $\nu$
+    start_line: 39
+    end_line: 41
+  symbols_mentioned:
+  - \rho(\sigma,t)
+  - \Delta_{\nu}
+  - \nabla_{\nu}
+  - \vec
+  - \sigma
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: candidate
+  extraction_confidence: high
+  issues: []
+- provisional_object_id: TLC-SO-DYNAMICS-019
+  object_type: DifferentialEquation
+  canonical_name: Équation — Évolution de l’autorité $\mathcal{A}$
+  source_name: Équation — Évolution de l’autorité $\mathcal{A}$
+  source_statement: '\[
+
+    \frac{d\mathcal{A}}{dt} = \lambda_{\mathcal{A}}(\mathcal{E}(t)-\mathcal{A}(t)) + \mu_{\mathcal{A}}\frac{d\bar{\mathcal{Q}}}{dt}
+    + \nu_{\mathcal{A}}\frac{d\mathcal{S}}{dt} + \xi_{\mathcal{A}}(t)
+
+    \]'
+  concise_description: Objet scientifique explicitement présenté comme « Équation — Évolution de l’autorité $\mathcal{A}$
+    » dans la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations du Maître
+    subsection: Évolution de l’autorité $\mathcal{A}$
+    start_line: 50
+    end_line: 52
+  symbols_mentioned:
+  - \mathcal
+  - \lambda_{\mathcal{A}
+  - \mu_{\mathcal{A}
+  - \bar
+  - \nu_{\mathcal{A}
+  - \xi_{\mathcal{A}
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: candidate
+  extraction_confidence: high
+  issues: []
+- provisional_object_id: TLC-SO-DYNAMICS-020
+  object_type: StochasticEquation
+  canonical_name: Équation — Évolution par trajectoire $\mathcal{T}$
+  source_name: Équation — Évolution par trajectoire $\mathcal{T}$
+  source_statement: '\[
+
+    \begin{aligned}
+
+    d\mathcal{P}(t) =&\ \underbrace{\nabla_{\mathcal{P}}U(\mathcal{P},\mathcal{M})}_{\text{potentiel de guidage}}\,dt \\
+
+    &+ \underbrace{\Gamma(\mathcal{P})\circ(\mathcal{M}-\Pi_{\mathcal{M}}(\mathcal{P}))}_{\text{attraction vers le Maître}}\,dt
+    \\
+
+    &+ \underbrace{D\Delta_{\mathcal{P}}\mathcal{P}}_{\text{diffusion exploratoire}}\,dt + \underbrace{\sigma_{\mathcal{P}}(\mathcal{P})\,dW_{\mathcal{P}}(t)}_{\text{fluctuations
+    aléatoires}}
+
+    \end{aligned}
+
+    \]'
+  concise_description: Objet scientifique explicitement présenté comme « Équation — Évolution par trajectoire $\mathcal{T}$
+    » dans la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations du Disciple
+    subsection: Évolution par trajectoire $\mathcal{T}$
+    start_line: 64
+    end_line: 70
+  symbols_mentioned:
+  - \mathcal
+  - \nabla_{\mathcal{P}
+  - \Pi_{\mathcal{M}
+  - \Delta_{\mathcal{P}
+  - \sigma_{\mathcal{P}
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: candidate
+  extraction_confidence: high
+  issues: []
+- provisional_object_id: TLC-SO-DYNAMICS-021
+  object_type: DifferentialEquation
+  canonical_name: Équation — Dynamique de génération d’identité $\mathcal{G}$
+  source_name: Équation — Dynamique de génération d’identité $\mathcal{G}$
+  source_statement: '\[
+
+    \frac{\partial\mathcal{I}}{\partial t} = \underbrace{\alpha\Delta\mathcal{I}}_{\text{diffusion}} + \underbrace{\beta\mathcal{I}(1-\mathcal{I})(\mathcal{I}-\theta)}_{\text{cristallisation}}
+    + \underbrace{\gamma(\mathcal{M}_{\mathcal{I}}-\mathcal{I})}_{\text{influence du Maître}} + \eta_{\mathcal{I}}(t)
+
+    \]'
+  concise_description: Objet scientifique explicitement présenté comme « Équation — Dynamique de génération d’identité $\mathcal{G}$
+    » dans la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations du Disciple
+    subsection: Dynamique de génération d’identité $\mathcal{G}$
+    start_line: 79
+    end_line: 81
+  symbols_mentioned:
+  - \mathcal
+  - \alpha
+  - \Delta
+  - \beta
+  - \theta
+  - \gamma(\mathcal{M}_{\mathcal{I}}-\mathcal{I})
+  - \eta_{\mathcal{I}
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: candidate
+  extraction_confidence: high
+  issues: []
+- provisional_object_id: TLC-SO-DYNAMICS-022
+  object_type: DifferentialEquation
+  canonical_name: Équation — Évolution de la réceptivité $\mathcal{R}$
+  source_name: Équation — Évolution de la réceptivité $\mathcal{R}$
+  source_statement: '\[
+
+    \frac{d\mathcal{R}_k}{dt} = r_k\mathcal{R}_k\left(1-\frac{\mathcal{R}_k}{K_k}\right) - \sum_{j\neq k}\alpha_{kj}\mathcal{R}_k\mathcal{R}_j
+    + \beta_k\mathcal{F}_k(\mathcal{M},\mathcal{D}) + \xi_k(t)
+
+    \]'
+  concise_description: Objet scientifique explicitement présenté comme « Équation — Évolution de la réceptivité $\mathcal{R}$
+    » dans la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations du Disciple
+    subsection: Évolution de la réceptivité $\mathcal{R}$
+    start_line: 90
+    end_line: 92
+  symbols_mentioned:
+  - \mathcal
+  - \alpha_{kj}
+  - \beta_k
+  - \xi_k(t)
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: candidate
+  extraction_confidence: high
+  issues: []
+- provisional_object_id: TLC-SO-DYNAMICS-023
+  object_type: Equation
+  canonical_name: Équation — Traitement du feedback $\mathcal{F}$
+  source_name: Équation — Traitement du feedback $\mathcal{F}$
+  source_statement: '\[
+
+    \mathcal{F}[\mathcal{I}_{\mathrm{ext}}](t) = \int_{-\infty}^t K(t-\tau;\mathcal{R},\mathcal{P})\cdot\mathcal{I}_{\mathrm{ext}}(\tau)\,d\tau
+    + \mathcal{F}_{\mathrm{int}}(\mathcal{D})
+
+    \]'
+  concise_description: Objet scientifique explicitement présenté comme « Équation — Traitement du feedback $\mathcal{F}$ »
+    dans la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations du Disciple
+    subsection: Traitement du feedback $\mathcal{F}$
+    start_line: 103
+    end_line: 105
+  symbols_mentioned:
+  - \mathcal
+  - \mathrm
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: candidate
+  extraction_confidence: high
+  issues: []
+- provisional_object_id: TLC-SO-DYNAMICS-024
+  object_type: Equation
+  canonical_name: Équation — Traitement du feedback $\mathcal{F}$
+  source_name: Équation — Traitement du feedback $\mathcal{F}$
+  source_statement: '\[
+
+    K(t) = \sum_{m=1}^{M} A_m e^{-\lambda_m t}\cos(\omega_m t+\phi_m)
+
+    \]'
+  concise_description: Objet scientifique explicitement présenté comme « Équation — Traitement du feedback $\mathcal{F}$ »
+    dans la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations du Disciple
+    subsection: Traitement du feedback $\mathcal{F}$
+    start_line: 107
+    end_line: 109
+  symbols_mentioned:
+  - \lambda_m
+  - \omega_m
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: candidate
+  extraction_confidence: high
+  issues: []
+- provisional_object_id: TLC-SO-DYNAMICS-025
+  object_type: StochasticEquation
+  canonical_name: Équation — Système d’évolution couplé
+  source_name: Équation — Système d’évolution couplé
+  source_statement: '\[
+
+    \begin{cases}
+
+    \displaystyle\frac{d\mathcal{A}}{dt} = F_A(\mathcal{A},\mathcal{R},\mathcal{V}_c) + \sigma_A dW_A(t)\\[1.2em]
+
+    \displaystyle\frac{d\mathcal{R}}{dt} = L\mathcal{R} + B(\mathcal{A},\mathcal{V}_c) + \sigma_R dW_R(t)\\[1.2em]
+
+    \displaystyle\frac{d\mathcal{V}_c}{dt} = -\alpha(\mathcal{V}_c-\mathcal{V}_{\mathrm{consensus}}) + \beta\nabla\mathcal{N}
+    + \sigma_V dW_V(t)\\[1.2em]
+
+    \displaystyle\frac{d\mathcal{N}}{dt} = \mathcal{T}(\mathcal{A},\mathcal{E}_{\mathrm{exp}}) - \gamma\mathcal{N} + \sigma_N
+    dW_N(t)\\[1.2em]
+
+    \displaystyle\frac{d\mathcal{I}_{\mathrm{coll}}}{dt} = \mathcal{G}(\mathcal{A},\mathcal{V}_c,\mathcal{N}) + \sigma_I dW_I(t)
+
+    \end{cases}
+
+    \]'
+  concise_description: Objet scientifique explicitement présenté comme « Équation — Système d’évolution couplé » dans la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations de la Communauté
+    subsection: Système d’évolution couplé
+    start_line: 118
+    end_line: 126
+  symbols_mentioned:
+  - \mathcal
+  - \sigma_A
+  - \sigma_R
+  - \alpha
+  - \mathrm
+  - \beta
+  - \nabla
+  - \sigma_V
+  - \gamma
+  - \sigma_N
+  - \sigma_I
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: candidate
+  extraction_confidence: high
+  issues: []
+- provisional_object_id: TLC-SO-DYNAMICS-026
+  object_type: DifferentialEquation
+  canonical_name: Équation — Interactions avec le Maître et le Disciple
+  source_name: Équation — Interactions avec le Maître et le Disciple
+  source_statement: '\[
+
+    \begin{aligned}
+
+    \frac{d\mathcal{A}}{dt} &\ni I_{\mathcal{M}\to\mathcal{C}}(\mathcal{M},\mathcal{A}) + I_{\mathcal{D}\to\mathcal{C}}(\mathcal{D},\mathcal{A})\\
+
+    \frac{d\mathcal{R}}{dt} &\ni J_{\mathcal{M}\to\mathcal{C}}(\mathcal{M},\mathcal{R}) + J_{\mathcal{D}\to\mathcal{C}}(\mathcal{D},\mathcal{R})\\
+
+    \frac{d\mathcal{V}_c}{dt} &\ni K_{\mathcal{M}\to\mathcal{C}}(\mathcal{M},\mathcal{V}_c) + K_{\mathcal{D}\to\mathcal{C}}(\mathcal{D},\mathcal{V}_c)
+
+    \end{aligned}
+
+    \]'
+  concise_description: Objet scientifique explicitement présenté comme « Équation — Interactions avec le Maître et le Disciple
+    » dans la source.
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/05-dynamics.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
+    document_title: Équations dynamiques (Dynamics)
+    section: Équations de la Communauté
+    subsection: Interactions avec le Maître et le Disciple
+    start_line: 139
+    end_line: 145
+  symbols_mentioned:
+  - \mathcal
+  related_objects: []
+  explicit_dependencies: []
+  candidate_dependencies: []
+  validation_status: candidate
+  extraction_confidence: high
+  issues: []

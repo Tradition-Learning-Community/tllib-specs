@@ -1,0 +1,43 @@
+artifact:
+  artifact_id: TLC-SCI-INVARIANTS-SCIENTIFIC_EXTRACTION_DECISION_REQUEST-001
+  artifact_type: scientific_extraction_decision_request
+  version: candidate-1
+  status: candidate
+  source_slug: invariants
+  source_repository: Tradition-Learning-Community/tllib-specs
+  source_path: maths/04-invariants.md
+  source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/04-invariants.md
+  source_branch: main
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  source_blob_sha: 5bddc38b4a74465c2bc3b1d2e9f8aac004e86800
+  generated_at: '2026-07-18T00:00:00+02:00'
+  generator_role: TLC_SCIENTIFIC_OBJECT_EXTRACTOR
+work_item_id: TLC-SCI-INVARIANTS-001
+source_slug: invariants
+stage: scientific_object_extraction
+artifacts_produced:
+- registry/scientific-objects/invariants/scientific-objects.candidate.yaml
+- registry/scientific-objects/invariants/scientific-relations.candidate.yaml
+- registry/scientific-objects/invariants/unresolved-terms.yaml
+- registry/scientific-objects/invariants/duplicate-candidates.yaml
+- reports/scientific-extraction/invariants/scientific-extraction-report.md
+- reports/scientific-extraction/invariants/decision_required.yaml
+blocking_issues: []
+non_blocking_issues:
+- issue_id: NB-INVARIANTS-001
+  description: Les classifications non explicites restent candidates et non résolues.
+  status: unresolved
+unresolved_terms_count: 12
+duplicate_candidates_count: 11
+questions_for_human:
+- question_id: Q-INVARIANTS-001
+  question: Confirmer les classifications candidates signalées comme non résolues.
+recommended_decision: revise
+allowed_decisions:
+- approved
+- approved_with_reservations
+- revise
+- rejected
+git_status: pending_global_validation
+commit_status: pending
+push_status: pending

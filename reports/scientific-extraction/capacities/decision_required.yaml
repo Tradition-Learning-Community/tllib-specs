@@ -1,0 +1,43 @@
+artifact:
+  artifact_id: TLC-SCI-CAPACITIES-SCIENTIFIC_EXTRACTION_DECISION_REQUEST-001
+  artifact_type: scientific_extraction_decision_request
+  version: candidate-1
+  status: candidate
+  source_slug: capacities
+  source_repository: Tradition-Learning-Community/tllib-specs
+  source_path: maths/11-capacities.md
+  source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/11-capacities.md
+  source_branch: main
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  source_blob_sha: e4eca460df250a1479c6c6aff45bb39119fcd6e1
+  generated_at: '2026-07-18T00:00:00+02:00'
+  generator_role: TLC_SCIENTIFIC_OBJECT_EXTRACTOR
+work_item_id: TLC-SCI-CAPACITIES-001
+source_slug: capacities
+stage: scientific_object_extraction
+artifacts_produced:
+- registry/scientific-objects/capacities/scientific-objects.candidate.yaml
+- registry/scientific-objects/capacities/scientific-relations.candidate.yaml
+- registry/scientific-objects/capacities/unresolved-terms.yaml
+- registry/scientific-objects/capacities/duplicate-candidates.yaml
+- reports/scientific-extraction/capacities/scientific-extraction-report.md
+- reports/scientific-extraction/capacities/decision_required.yaml
+blocking_issues: []
+non_blocking_issues:
+- issue_id: NB-CAPACITIES-001
+  description: Les classifications non explicites restent candidates et non résolues.
+  status: unresolved
+unresolved_terms_count: 54
+duplicate_candidates_count: 1
+questions_for_human:
+- question_id: Q-CAPACITIES-001
+  question: Confirmer les classifications candidates signalées comme non résolues.
+recommended_decision: revise
+allowed_decisions:
+- approved
+- approved_with_reservations
+- revise
+- rejected
+git_status: pending_global_validation
+commit_status: pending
+push_status: pending
