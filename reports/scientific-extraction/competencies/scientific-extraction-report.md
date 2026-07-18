@@ -66,9 +66,9 @@ Les symboles sont enregistrés lorsqu’ils sont présents dans l’énoncé sou
 - Références internes : réussie.
 - Lignes citées : dans les limites du fichier source.
 - Équations : conservées textuellement, sans simplification.
-- YAML : validation automatique prévue avant commit global.
+- YAML : validation réussie avec PyYAML.
 - Fonctionnalités logicielles produites : aucune.
 
 ## Fichiers et Git
 
-Six fichiers sont créés pour ce paquet. Le commit et le push sont effectués globalement après validation des quatorze paquets; leur résultat est consigné dans `decision_required.yaml` lors de la finalisation.
+Six fichiers ont été créés et validés pour ce paquet. Commit local de l’extraction : `9910b424555120fb9aa43886a5ff5c7b45d5941c`. Le push vers `origin/main` a échoué après blocage du gestionnaire d’identifiants puis nouvelle tentative sans interface interactive. Message final : `fatal: could not read Username for 'https://github.com': No such file or directory`. Le commit local est conservé et doit être poussé depuis VS Code ou après réauthentification de Git.
