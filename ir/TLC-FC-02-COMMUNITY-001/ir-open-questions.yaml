@@ -1,0 +1,44 @@
+feature_id: TLC-FC-02-COMMUNITY-001
+source_contract_commit: 2e0858acc21bd97fe6c59db50b2598fb73971e52
+status: candidate
+questions:
+  - question_id: UNRES-MEASURE
+    source_contract_reference: registry/math-contracts/TLC-FC-02-COMMUNITY-001/open-math-questions.yaml#UNRES-MEASURE
+    description: Which measure and measurable space define positive measure for nu-star?
+    affected_ir_variants: [semantic, functional, compute]
+    affected_nodes: [N-CON-C1-MEASURE, N-SYM-NU-STAR]
+    required_decision: Supply or reference the scientific measure definition and measurable space.
+    decision_authority: scientific_review
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    status: unresolved
+  - question_id: UNRES-COHERENCE
+    source_contract_reference: registry/math-contracts/TLC-FC-02-COMMUNITY-001/open-math-questions.yaml#UNRES-COHERENCE
+    description: What is the coherence function and exact minimum-coherence predicate?
+    affected_ir_variants: [semantic, functional, compute]
+    affected_nodes: [N-CON-C1-COHERENCE, N-SYM-NU-STAR, N-SYM-EPS-COH]
+    required_decision: Define the scientific coherence function and comparator.
+    decision_authority: scientific_review
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    status: unresolved
+  - question_id: UNRES-ACTOR-DOMAIN
+    source_contract_reference: registry/math-contracts/TLC-FC-02-COMMUNITY-001/open-math-questions.yaml#UNRES-ACTOR-DOMAIN
+    description: What authorized set is quantified by every actor a?
+    affected_ir_variants: [semantic, functional, compute]
+    affected_nodes: [N-SYM-A, N-SYM-PI-NU, N-CON-C1-MEMBERSHIP]
+    required_decision: Provide an authorized actor-set reference.
+    decision_authority: scientific_review
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    status: unresolved
+  - question_id: UNRES-OUTPUT
+    source_contract_reference: registry/math-contracts/TLC-FC-02-COMMUNITY-001/open-math-questions.yaml#UNRES-OUTPUT
+    description: What mathematical object constitutes the candidate evaluation result?
+    affected_ir_variants: [semantic, functional, compute]
+    affected_nodes: [N-OUT-C1-EVALUATION, N-POST-TRACEABLE]
+    required_decision: Define result semantics at scientific-contract review.
+    decision_authority: contract_revision
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    status: unresolved
