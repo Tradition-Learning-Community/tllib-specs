@@ -1,0 +1,114 @@
+contract_id: TLC-MC-TLC-FC-08-PRINCIPLE-002
+feature_id: TLC-FC-08-PRINCIPLE-002
+canonical_name: "Équation — Évolution temporelle et dynamique"
+status: candidate
+provenance:
+  source_commit: 7f73fd908ff887e6ab3b7d184ca46f0c8477ad68
+  source_branch: planning/math-contract-entry
+  input_artifact_versions:
+    - {path: registry/math-contract-entry/contractable-features.yaml, version: 7f73fd9}
+    - {path: registry/math-contract-entry/contract-dependencies.yaml, version: 7f73fd9}
+    - {path: registry/math-contract-entry/oracle-basis.yaml, version: 7f73fd9}
+    - {path: registry/math-contract-entry/contract-wave-1.yaml, version: 7f73fd9}
+    - {path: registry/features/revised/feature-candidates.yaml, version: db7ae4f54ecfb637de52e353d566412b2dceaf06}
+    - {path: registry/features/revised/feature-lineage.yaml, version: db7ae4f54ecfb637de52e353d566412b2dceaf06}
+    - {path: registry/functional-decomposition/decomposition-input-snapshot.yaml, version: a92f6dfe905c102c5688cc6843b65673e5bea088}
+  scientific_sources:
+    - {source_path: maths/08-principle.md, document_title: Principes (Principles), section: Évolution temporelle et dynamique, start_line: 198, end_line: 200, source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e}
+purpose: Evaluate the evolution law expressed by the cited differential equation without selecting a numerical realization.
+scientific_purpose: Preserve and expose the source law dP/dt = E(P,D,t) as a candidate mathematical contract.
+scope: One differential equation and its explicitly occurring symbols.
+exclusions:
+  - Meanings stated outside the authorized source range
+  - Initial or boundary conditions not present in the source range
+  - Discretization, solver, implementation, executable tests, and executable oracle
+scientific_objects:
+  - {object_id: TLC-SO-PRINCIPLE-087, object_type: DifferentialEquation, status: candidate}
+scientific_relations: []
+spaces: []
+sets: []
+variables:
+  - {symbol_id: SYM-P, role: state, status: unresolved}
+  - {symbol_id: SYM-D, role: input, status: unresolved}
+  - {symbol_id: SYM-t, role: variable, status: unresolved}
+constants: []
+parameters: []
+states: [SYM-P]
+inputs: [SYM-D, SYM-t]
+outputs: [SYM-dPdt]
+functions: []
+operators: [SYM-E, SYM-dPdt]
+equations:
+  - equation_id: EQ-PRINCIPLE-EVOLUTION-001
+    source_form: "\\frac{dP}{dt} = \\mathcal{E}(P,D,t)"
+    normalized_latex: "\\frac{dP}{dt} = \\mathcal{E}(P,D,t)"
+    normalization_description: Exact copy with display delimiters omitted.
+    equivalence_status: exact_copy
+    mathematical_class: differential
+    symbols_used: [SYM-P, SYM-D, SYM-t, SYM-E, SYM-dPdt]
+    inputs: [SYM-D, SYM-t]
+    outputs: [SYM-dPdt]
+    states: [SYM-P]
+    parameters: []
+    constants: []
+    domain: {status: unresolved}
+    codomain: {status: unresolved}
+    temporal_character: continuous_derivative_notation
+    determinism: unspecified
+    initial_conditions: []
+    boundary_conditions: []
+    constraints: []
+    invariants: []
+    hypotheses: []
+    contract_dependencies: []
+    source_evidence: &source {source_path: maths/08-principle.md, section: Évolution temporelle et dynamique, start_line: 198, end_line: 200, source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e, scientific_object_id: TLC-SO-PRINCIPLE-087}
+    classification: normative_from_source
+    verification_status: verified_exact_text
+    status: candidate
+preconditions: []
+postconditions:
+  - postcondition_id: POST-EQUATION-SATISFIED-001
+    statement: The reported evolution derivative satisfies the cited equality whenever all symbols are defined.
+    symbols_used: [SYM-P, SYM-D, SYM-t, SYM-E, SYM-dPdt]
+    source_evidence: *source
+    classification: derived_without_semantic_change
+    status: candidate
+constraints: []
+invariants: []
+hypotheses: []
+properties: []
+behavior:
+  primary_behavior: Evaluate the right-hand side and preserve equality with the derivative represented on the left-hand side.
+  determinism: unspecified
+  stochasticity: unspecified
+  temporal_character: continuous_derivative_notation
+  undefined_behavior: [Evaluation when the domains of P, D, t, or E are not established.]
+  mathematical_error_conditions: [E is undefined for the supplied arguments., The derivative dP/dt does not exist.]
+  boundary_cases: []
+dependencies:
+  required_contracts: []
+  shared_definitions: []
+  unresolved_dependencies: [Definitions and mathematical spaces of P, D, t, and E are absent from the authorized source range.]
+oracle_basis:
+  equations: [EQ-PRINCIPLE-EVOLUTION-001]
+  invariants: []
+  constraints: []
+  theorems: []
+  properties: []
+  examples: []
+  structural_rules: []
+  missing_elements: [No independent expected value, invariant, theorem, property, or example is attached.]
+executable_oracle: {status: not_produced}
+implementation_choices_required: [IMPL-DEC-001, IMPL-DEC-002]
+unresolved_items: [UNRESOLVED-SYMBOL-SEMANTICS-001, UNRESOLVED-DOMAIN-001, UNRESOLVED-INITIAL-CONDITION-001]
+source_traceability:
+  - contract_elements: [EQ-PRINCIPLE-EVOLUTION-001, SYM-P, SYM-D, SYM-t, SYM-E, SYM-dPdt]
+    feature_id: TLC-FC-08-PRINCIPLE-002
+    scientific_object_id: TLC-SO-PRINCIPLE-087
+    scientific_relation_id: null
+    source_path: maths/08-principle.md
+    section: Évolution temporelle et dynamique
+    start_line: 198
+    end_line: 200
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    classification: normative_from_source

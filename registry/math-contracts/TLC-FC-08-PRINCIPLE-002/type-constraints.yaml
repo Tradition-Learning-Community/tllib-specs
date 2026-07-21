@@ -1,0 +1,24 @@
+contract_id: TLC-MC-TLC-FC-08-PRINCIPLE-002
+feature_id: TLC-FC-08-PRINCIPLE-002
+status: candidate
+mathematical_types:
+  - {type_id: TYPE-E-OPERATOR, kind: mapping, applies_to: [SYM-E], status: unresolved}
+  - {type_id: TYPE-DERIVATIVE, kind: derivative, applies_to: [SYM-dPdt], status: candidate}
+sets: []
+spaces: []
+domains: [{element_ids: [SYM-P, SYM-D, SYM-t, SYM-E, SYM-dPdt], status: unresolved}]
+codomains: [{element_ids: [SYM-E, SYM-dPdt], status: unresolved}]
+shapes: [{element_ids: [SYM-P, SYM-D, SYM-t, SYM-E, SYM-dPdt], status: unresolved}]
+dimensions: [{element_ids: [SYM-P, SYM-D, SYM-t, SYM-E, SYM-dPdt], status: unresolved}]
+units: [{element_ids: [SYM-P, SYM-D, SYM-t, SYM-E, SYM-dPdt], status: unresolved}]
+membership_constraints: []
+sign_constraints: []
+order_constraints: []
+cardinality_constraints: []
+operand_compatibilities:
+  - compatibility_id: COMP-E-ARGS-001
+    statement: E must accept the ordered arguments P, D, and t and return a value comparable with dP/dt.
+    symbols_used: [SYM-P, SYM-D, SYM-t, SYM-E, SYM-dPdt]
+    classification: derived_without_semantic_change
+    status: candidate
+ambiguities: [Mathematical spaces, shapes, dimensions, and units are not supplied in the authorized passage.]

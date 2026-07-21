@@ -1,0 +1,24 @@
+contract_id: TLC-MC-TLC-FC-08-PRINCIPLE-002
+feature_id: TLC-FC-08-PRINCIPLE-002
+status: candidate
+decisions:
+  - decision_id: IMPL-DEC-001
+    topic: unresolved_type_mapping
+    reason_required: A later IR must represent P, D, t, E, and dP/dt, while their mathematical spaces are unresolved.
+    scientific_constraints: [Preserve the argument order E(P,D,t), Preserve equality with dP/dt]
+    allowed_information: [Future approved mathematical definitions]
+    prohibited_assumptions: [Scalarity, vector shape, units, finite representation]
+    blocking_for_ir: true
+    blocking_for_implementation: true
+    source_evidence: {source_path: maths/08-principle.md, start_line: 198, end_line: 200}
+    status: candidate
+  - decision_id: IMPL-DEC-002
+    topic: numerical_method
+    reason_required: Executing a differential evolution law eventually requires a method not specified by the source.
+    scientific_constraints: [Do not alter the source equation]
+    allowed_information: [A later approved implementation specification]
+    prohibited_assumptions: [Time step, integrator, tolerance, precision, solver]
+    blocking_for_ir: false
+    blocking_for_implementation: true
+    source_evidence: {source_path: maths/08-principle.md, start_line: 198, end_line: 200}
+    status: candidate
