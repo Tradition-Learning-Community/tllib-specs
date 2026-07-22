@@ -1,0 +1,77 @@
+{
+  "ir_id": "TLC-IR-TLC-FC-01-DISCIPLE-010",
+  "feature_id": "TLC-FC-01-DISCIPLE-010",
+  "contract_ref": "registry/math-contracts/TLC-FC-01-DISCIPLE-010/contract.yaml",
+  "contract_id": "TLC-MC-TLC-FC-01-DISCIPLE-010",
+  "ir_version": "candidate-1",
+  "ir_kind": "structural",
+  "engineering_status": "engineering_candidate",
+  "execution_semantics": "unresolved_not_executable",
+  "dependency_semantics": "external_master_symbols_only",
+  "unresolved_semantics": "explicit_metadata_and_opaque_structural_elements",
+  "nodes": [
+    {
+      "node_id": "TLC-FC-01-DISCIPLE-010-NODE-001",
+      "kind": "structural",
+      "scientific_object_refs": [
+        "TLC-SO-DISCIPLE-015"
+      ],
+      "relation_refs": [
+        "TLC-SR-DISCIPLE-014"
+      ],
+      "executable": false
+    }
+  ],
+  "data": [
+    "TLC-SO-DISCIPLE-015"
+  ],
+  "operations": [],
+  "relations": [
+    "TLC-SR-DISCIPLE-014"
+  ],
+  "constraints": [
+    "Do not infer definitions, types, dimensions, aliases, or numerical methods."
+  ],
+  "invariants": [
+    "Provisionally separated scientific objects remain distinct."
+  ],
+  "external_dependencies": [
+    {
+      "dependency_id": "TLC-DDEP-DISCIPLE-MASTER-004",
+      "domain": "master",
+      "required_level": "symbol_only",
+      "master_object_ids": [
+        "TLC-SO-MASTER-001"
+      ],
+      "master_feature_ids": [
+        "TLC-FC-00-MASTER-016"
+      ],
+      "contract_dependencies": [],
+      "ir_dependencies": [],
+      "execution_effect": "blocks_execution_only"
+    }
+  ],
+  "master_symbol_dependencies": [
+    "TLC-SO-MASTER-001"
+  ],
+  "master_subsymbols_unresolved": [
+    "\\Pi_{\\mathcal{M}}"
+  ],
+  "unresolved": [
+    "TLC-UT-DISCIPLE-007"
+  ],
+  "source_provenance": [
+    {
+      "source_path": "maths/01-disciple.md",
+      "section": "Équations dynamiques du Disciple",
+      "subsection": "Évolution par trajectoire $\\mathcal{T}$",
+      "start_line": 151,
+      "end_line": 159,
+      "source_commit": "68a4d4c728bab655631543b3e1788d4f0da31e8e"
+    }
+  ],
+  "validation_status": "validated_structurally_with_reservations",
+  "implementation_planning_readiness": false,
+  "execution_ready": false,
+  "code_generation_readiness": false
+}

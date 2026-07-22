@@ -1,0 +1,387 @@
+domain_id: disciple
+reconciliation_status: reconciliation_complete_with_reservations
+master_commit: eb977485b7314e32e643e52461e086eb3a753724
+master_status: complete_to_ir_with_reservations
+generated_at: '2026-07-22T14:22:22+00:00'
+contracts_produced: 0
+irs_produced: 0
+candidates_before: 4
+summary:
+  confirmed: 4
+  rejected_not_a_dependency: 0
+  inferred_candidate: 0
+  unresolved: 0
+dependencies:
+- dependency_id: TLC-DDEP-DISCIPLE-MASTER-001
+  from_domain: disciple
+  to_domain: master
+  affected_feature_ids:
+  - TLC-FC-01-DISCIPLE-002
+  affected_object_ids:
+  - TLC-SO-DISCIPLE-002
+  affected_relation_ids: []
+  master_object_ids:
+  - TLC-SO-MASTER-001
+  master_feature_ids:
+  - TLC-FC-00-MASTER-016
+  master_contract_ids: []
+  master_ir_ids: []
+  dependency_type: entity_dependency
+  source_evidence:
+  - 'Dans le cadre de Tradition Learning (TL), le Disciple est l’entité dynamique et évolutive qui subit une transformation
+    profonde par l’interaction guidée avec le Maître. Il n’est pas un simple récepteur passif de connaissances,
+    mais un système complexe capable de réorganisation et de croissance. Le Disciple incarne ce que les psychologues
+    de l’éducation appellent la « zone de développement proximal » : l’espace entre les capacités actuelles et le
+    potentiel réalisable grâce à un guidage approprié.'
+  master_evidence:
+    canonical_object: TLC-SO-MASTER-001
+    canonical_statement: Le Maître est une entité catalytique capable d’induire et de guider une transformation
+      d’état chez un Disciple.
+    symbolic_feature: TLC-FC-00-MASTER-016
+    contract_path_consulted: registry/math-contracts/TLC-FC-00-MASTER-016/contract.yaml
+    ir_path_consulted: ir/TLC-FC-00-MASTER-016/ir.candidate.json
+  evidence_locations:
+  - repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/01-disciple.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/01-disciple.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 15c89903defb39e65f0d9a482257e844c4e5912b
+    document_title: Le Disciple (Disciple)
+    section: Définition conceptuelle
+    subsection: null
+    start_line: 3
+    end_line: 5
+  - path: registry/scientific-objects/master/scientific-objects.candidate.yaml
+    object_id: TLC-SO-MASTER-001
+  - path: registry/domain-progress/master/feature-status.yaml
+    feature_id: TLC-FC-00-MASTER-016
+  dependency_status: confirmed
+  strength: required
+  required_master_level: symbol_only
+  production_effect: blocks_execution_only
+  reconciliation_reason: generic Master entity in conceptual definition; exact Master entity and symbolic feature
+    now exist canonically
+  notes: The Master contract and IR were consulted as evidence but are not required dependencies for Disciple contract
+    drafting.
+- dependency_id: TLC-DDEP-DISCIPLE-MASTER-002
+  from_domain: disciple
+  to_domain: master
+  affected_feature_ids:
+  - TLC-FC-01-DISCIPLE-004
+  affected_object_ids:
+  - TLC-SO-DISCIPLE-052
+  affected_relation_ids: []
+  master_object_ids:
+  - TLC-SO-MASTER-001
+  master_feature_ids:
+  - TLC-FC-00-MASTER-016
+  master_contract_ids: []
+  master_ir_ids: []
+  dependency_type: entity_dependency
+  source_evidence:
+  - '\[
+
+    \begin{aligned}
+
+    d\mathcal{P}(t) =&\ \underbrace{\nabla_{\mathcal{P}}U(\mathcal{P},\mathcal{M})}_{\text{potentiel de guidage}}\,dt
+    \\
+
+    &+ \underbrace{\Gamma(\mathcal{P})\circ(\mathcal{M}-\Pi_{\mathcal{M}}(\mathcal{P}))}_{\text{attraction vers
+    le Maître}}\,dt \\
+
+    &+ \underbrace{D\Delta_{\mathcal{P}}\mathcal{P}}_{\text{diffusion exploratoire}}\,dt + \underbrace{\sigma_{\mathcal{P}}(\mathcal{P})\,dW_{\mathcal{P}}(t)}_{\text{fluctuations
+    aléatoires}}
+
+    \end{aligned}
+
+    \]'
+  master_evidence:
+    canonical_object: TLC-SO-MASTER-001
+    canonical_statement: Le Maître est une entité catalytique capable d’induire et de guider une transformation
+      d’état chez un Disciple.
+    symbolic_feature: TLC-FC-00-MASTER-016
+    contract_path_consulted: registry/math-contracts/TLC-FC-00-MASTER-016/contract.yaml
+    ir_path_consulted: ir/TLC-FC-00-MASTER-016/ir.candidate.json
+  evidence_locations:
+  - repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/01-disciple.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/01-disciple.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 15c89903defb39e65f0d9a482257e844c4e5912b
+    document_title: Le Disciple (Disciple)
+    section: Équations dynamiques du Disciple
+    subsection: Évolution par trajectoire $\mathcal{T}$
+    start_line: 152
+    end_line: 158
+  - path: registry/scientific-objects/master/scientific-objects.candidate.yaml
+    object_id: TLC-SO-MASTER-001
+  - path: registry/domain-progress/master/feature-status.yaml
+    feature_id: TLC-FC-00-MASTER-016
+  dependency_status: confirmed
+  strength: required
+  required_master_level: symbol_only
+  production_effect: blocks_execution_only
+  reconciliation_reason: Master entity symbol in trajectory equation; exact Master entity and symbolic feature now
+    exist canonically
+  notes: The Master contract and IR were consulted as evidence but are not required dependencies for Disciple contract
+    drafting.
+- dependency_id: TLC-DDEP-DISCIPLE-MASTER-003
+  from_domain: disciple
+  to_domain: master
+  affected_feature_ids:
+  - TLC-FC-01-DISCIPLE-009
+  affected_object_ids:
+  - TLC-SO-DISCIPLE-001
+  - TLC-SO-DISCIPLE-016
+  - TLC-SO-DISCIPLE-017
+  - TLC-SO-DISCIPLE-025
+  - TLC-SO-DISCIPLE-026
+  - TLC-SO-DISCIPLE-062
+  - TLC-SO-DISCIPLE-065
+  - TLC-SO-DISCIPLE-066
+  - TLC-SO-DISCIPLE-067
+  affected_relation_ids: []
+  master_object_ids:
+  - TLC-SO-MASTER-001
+  master_feature_ids:
+  - TLC-FC-00-MASTER-016
+  master_contract_ids: []
+  master_ir_ids: []
+  dependency_type: entity_dependency
+  source_evidence:
+  - 'Dans le cadre de Tradition Learning (TL), le Disciple est l’entité dynamique et évolutive qui subit une transformation
+    profonde par l’interaction guidée avec le Maître. Il n’est pas un simple récepteur passif de connaissances,
+    mais un système complexe capable de réorganisation et de croissance. Le Disciple incarne ce que les psychologues
+    de l’éducation appellent la « zone de développement proximal » : l’espace entre les capacités actuelles et le
+    potentiel réalisable grâce à un guidage approprié.'
+  - '\[
+
+    \frac{\partial\mathcal{I}}{\partial t} = \alpha\Delta\mathcal{I} + \beta\mathcal{I}(1-\mathcal{I})(\mathcal{I}-\theta)
+    + \gamma(\mathcal{M}_{\mathcal{I}}-\mathcal{I}) + \eta_{\mathcal{I}}(t)
+
+    \]
+
+    - $\alpha\Delta\mathcal{I}$ : diffusion identitaire.
+
+    - $\beta\mathcal{I}(1-\mathcal{I})(\mathcal{I}-\theta)$ : cristallisation (équation de Fisher‑KPP) avec seuil
+    $\theta$.
+
+    - $\gamma(\mathcal{M}_{\mathcal{I}}-\mathcal{I})$ : influence du Maître.'
+  - '\[
+
+    \frac{d\mathcal{R}_k}{dt} = r_k\mathcal{R}_k\left(1-\frac{\mathcal{R}_k}{K_k}\right) - \sum_{j\neq k}\alpha_{kj}\mathcal{R}_k\mathcal{R}_j
+    + \beta_k\mathcal{F}_k(\mathcal{M},\mathcal{D}) + \xi_k(t)
+
+    \]
+
+    Compétition de type Lotka‑Volterra entre les bandes de réceptivité, avec modulation par le Maître.'
+  - '- **Phase de formation** : $\frac{d\mathcal{P}}{dt} = \alpha_{\mathrm{form}}I_{\mathrm{ext}} + \beta_{\mathrm{form}}R(\mathcal{P},\mathcal{P}_{\mathrm{Maître}})
+    - \gamma_{\mathrm{form}}\mathcal{P}$.
+
+    - **Émergence de compétence** : $\dim(\mathcal{P}_{\mathrm{actualisé}}) > \frac12\dim(\mathcal{P}_{\mathrm{Maître}})$
+    et stratégies d’apprentissage autonomes.
+
+    - **Pic d’apprentissage** : $\frac{d\mathcal{P}}{dt} = \alpha_{\mathrm{peak}}\nabla U$, $\mathcal{R}$ stable,
+    trajectoire optimale, spectre à partie réelle négative.
+
+    - **Déclin** : acquisition ralentie, préservation des compétences intégrées, réceptivité stable ou décroissante,
+    identité consolidée.
+
+    - **États terminaux** : maîtrise ($\mathcal{D}\to\mathcal{M}$), plateau ($\frac{d\mathcal{P}}{dt}\to0$), régression
+    ($\frac{d\mathcal{P}}{dt}<0$, fragmentation identitaire).'
+  - 'Le Disciple se distingue de l’expert et du Maître : il est orienté vers l’apprentissage, non vers la performance
+    ou l’enseignement. Son rôle est de recevoir et d’incarner la tradition, avec une plasticité élevée. Il est le
+    substrat dynamique sur lequel le Maître agit, et c’est par sa transformation que la tradition se perpétue.'
+  - '- **Apprenti** : équilibre potentiel/compétences, réceptivité focalisée, début de convergence vers le Maître.'
+  - '- **Fidèle dévoué** : connaissance strictement bornée par le Maître, imitatif, identité alignée.'
+  - '- **Phase de formation** : $\frac{d\mathcal{P}}{dt} = \alpha_{\mathrm{form}}I_{\mathrm{ext}} + \beta_{\mathrm{form}}R(\mathcal{P},\mathcal{P}_{\mathrm{Maître}})
+    - \gamma_{\mathrm{form}}\mathcal{P}$.'
+  - '- **Émergence de compétence** : $\dim(\mathcal{P}_{\mathrm{actualisé}}) > \frac12\dim(\mathcal{P}_{\mathrm{Maître}})$
+    et stratégies d’apprentissage autonomes.'
+  master_evidence:
+    canonical_object: TLC-SO-MASTER-001
+    canonical_statement: Le Maître est une entité catalytique capable d’induire et de guider une transformation
+      d’état chez un Disciple.
+    symbolic_feature: TLC-FC-00-MASTER-016
+    contract_path_consulted: registry/math-contracts/TLC-FC-00-MASTER-016/contract.yaml
+    ir_path_consulted: ir/TLC-FC-00-MASTER-016/ir.candidate.json
+  evidence_locations:
+  - repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/01-disciple.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/01-disciple.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 15c89903defb39e65f0d9a482257e844c4e5912b
+    document_title: Le Disciple (Disciple)
+    section: Le Disciple (Disciple)
+    subsection: null
+    start_line: 1
+    end_line: 5
+  - repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/01-disciple.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/01-disciple.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 15c89903defb39e65f0d9a482257e844c4e5912b
+    document_title: Le Disciple (Disciple)
+    section: Équations dynamiques du Disciple
+    subsection: Dynamique de génération d’identité
+    start_line: 161
+    end_line: 167
+  - repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/01-disciple.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/01-disciple.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 15c89903defb39e65f0d9a482257e844c4e5912b
+    document_title: Le Disciple (Disciple)
+    section: Équations dynamiques du Disciple
+    subsection: Évolution de la réceptivité
+    start_line: 169
+    end_line: 173
+  - repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/01-disciple.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/01-disciple.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 15c89903defb39e65f0d9a482257e844c4e5912b
+    document_title: Le Disciple (Disciple)
+    section: Cycle de vie du Disciple
+    subsection: null
+    start_line: 215
+    end_line: 221
+  - repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/01-disciple.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/01-disciple.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 15c89903defb39e65f0d9a482257e844c4e5912b
+    document_title: Le Disciple (Disciple)
+    section: Considérations épistémologiques
+    subsection: null
+    start_line: 223
+    end_line: 225
+  - repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/01-disciple.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/01-disciple.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 15c89903defb39e65f0d9a482257e844c4e5912b
+    document_title: Le Disciple (Disciple)
+    section: Typologie des Disciples
+    subsection: null
+    start_line: 208
+    end_line: 208
+  - repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/01-disciple.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/01-disciple.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 15c89903defb39e65f0d9a482257e844c4e5912b
+    document_title: Le Disciple (Disciple)
+    section: Typologie des Disciples
+    subsection: null
+    start_line: 211
+    end_line: 211
+  - repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/01-disciple.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/01-disciple.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 15c89903defb39e65f0d9a482257e844c4e5912b
+    document_title: Le Disciple (Disciple)
+    section: Cycle de vie du Disciple
+    subsection: null
+    start_line: 217
+    end_line: 217
+  - repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/01-disciple.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/01-disciple.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 15c89903defb39e65f0d9a482257e844c4e5912b
+    document_title: Le Disciple (Disciple)
+    section: Cycle de vie du Disciple
+    subsection: null
+    start_line: 218
+    end_line: 218
+  - path: registry/scientific-objects/master/scientific-objects.candidate.yaml
+    object_id: TLC-SO-MASTER-001
+  - path: registry/domain-progress/master/feature-status.yaml
+    feature_id: TLC-FC-00-MASTER-016
+  dependency_status: confirmed
+  strength: required
+  required_master_level: symbol_only
+  production_effect: blocks_execution_only
+  reconciliation_reason: generic Master entity across Disciple state and lifecycle descriptions; exact Master entity
+    and symbolic feature now exist canonically
+  notes: The Master contract and IR were consulted as evidence but are not required dependencies for Disciple contract
+    drafting.
+- dependency_id: TLC-DDEP-DISCIPLE-MASTER-004
+  from_domain: disciple
+  to_domain: master
+  affected_feature_ids:
+  - TLC-FC-01-DISCIPLE-010
+  affected_object_ids:
+  - TLC-SO-DISCIPLE-015
+  affected_relation_ids: []
+  master_object_ids:
+  - TLC-SO-MASTER-001
+  master_feature_ids:
+  - TLC-FC-00-MASTER-016
+  master_contract_ids: []
+  master_ir_ids: []
+  dependency_type: entity_dependency
+  source_evidence:
+  - '\[
+
+    \begin{aligned}
+
+    d\mathcal{P}(t) =&\ \underbrace{\nabla_{\mathcal{P}}U(\mathcal{P},\mathcal{M})}_{\text{potentiel de guidage}}\,dt
+    \\
+
+    &+ \underbrace{\Gamma(\mathcal{P})\circ(\mathcal{M}-\Pi_{\mathcal{M}}(\mathcal{P}))}_{\text{attraction vers
+    le Maître}}\,dt \\
+
+    &+ \underbrace{D\Delta_{\mathcal{P}}\mathcal{P}}_{\text{diffusion exploratoire}}\,dt + \underbrace{\sigma_{\mathcal{P}}(\mathcal{P})\,dW_{\mathcal{P}}(t)}_{\text{fluctuations
+    aléatoires}}
+
+    \end{aligned}
+
+    \]
+
+    $U$ est un potentiel de guidage, $\Gamma$ un tenseur de couplage adaptatif, $D\Delta_{\mathcal{P}}$ une diffusion,
+    $W_{\mathcal{P}}$ un bruit blanc cylindrique.'
+  master_evidence:
+    canonical_object: TLC-SO-MASTER-001
+    canonical_statement: Le Maître est une entité catalytique capable d’induire et de guider une transformation
+      d’état chez un Disciple.
+    symbolic_feature: TLC-FC-00-MASTER-016
+    contract_path_consulted: registry/math-contracts/TLC-FC-00-MASTER-016/contract.yaml
+    ir_path_consulted: ir/TLC-FC-00-MASTER-016/ir.candidate.json
+  evidence_locations:
+  - repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/01-disciple.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/01-disciple.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 15c89903defb39e65f0d9a482257e844c4e5912b
+    document_title: Le Disciple (Disciple)
+    section: Équations dynamiques du Disciple
+    subsection: Évolution par trajectoire $\mathcal{T}$
+    start_line: 151
+    end_line: 159
+  - path: registry/scientific-objects/master/scientific-objects.candidate.yaml
+    object_id: TLC-SO-MASTER-001
+  - path: registry/domain-progress/master/feature-status.yaml
+    feature_id: TLC-FC-00-MASTER-016
+  dependency_status: confirmed
+  strength: required
+  required_master_level: symbol_only
+  production_effect: blocks_execution_only
+  reconciliation_reason: Master entity symbol in trajectory state; exact Master entity and symbolic feature now
+    exist canonically
+  notes: The Master contract and IR were consulted as evidence but are not required dependencies for Disciple contract
+    drafting.
