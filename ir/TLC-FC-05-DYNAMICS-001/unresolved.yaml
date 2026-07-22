@@ -1,0 +1,12 @@
+ir_id: TLC-IR-TLC-FC-05-DYNAMICS-001
+status: engineering_candidate
+items:
+  - {unresolved_id: UNRES-TIME, propagated_as: [IR-TYPE-TIME, IR-T, IR-TAU, IR-INTEGRAL], blocks: [concrete_type_lowering, executable_integral], status: unresolved}
+  - {unresolved_id: UNRES-L, propagated_as: [IR-TYPE-RELATIONAL-STRUCTURE, IR-L, IR-LAMBDA2, IR-CON-CONNECTIVITY], blocks: [operator_lowering, executable_connectivity], status: unresolved}
+  - {unresolved_id: UNRES-NORM, propagated_as: [IR-NORM-VALUES, IR-NORM-MEMORY, IR-CON-VALUES, IR-CON-MEMORY], blocks: [operator_lowering, dimensional_validation], status: unresolved}
+  - {unresolved_id: UNRES-MEMORY-NOTATION, propagated_as: [IR-TYPE-MEMORY, IR-N, IR-NESS, IR-CON-MEMORY], blocks: [semantic_aliasing], status: unresolved}
+  - {unresolved_id: UNRES-OUTPUT, propagated_as: [IR-TYPE-PREDICATE-RESULT, IR-TYPE-VIABILITY-RESULT, IR-EVALUATE-VIABILITY, IR-VIABILITY-RESULT], blocks: [aggregation_lowering, public_result_type], status: unresolved}
+policy:
+  may_be_carried_by_candidate_ir: true
+  may_be_silently_resolved: false
+  requires_scientific_validation_before_concrete_lowering: true

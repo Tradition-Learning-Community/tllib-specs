@@ -1,0 +1,40 @@
+ir_id: TLC-IR-TLC-FC-05-DYNAMICS-001
+status: engineering_candidate
+predicates:
+  - predicate_id: IR-CON-SIZE
+    source_constraint_id: CON-SIZE
+    expression: "cardinality(IR-A(IR-T)) >= IR-NMIN"
+    operands: [IR-A, IR-T, IR-NMIN]
+    operations: [IR-CARDINALITY]
+    comparator: greater_or_equal
+    result_type: IR-TYPE-PREDICATE-RESULT
+    status: engineering_candidate
+  - predicate_id: IR-CON-CONNECTIVITY
+    source_constraint_id: CON-CONNECTIVITY
+    expression: "IR-LAMBDA2(IR-L(IR-R(IR-T))) >= IR-LAMBDAMIN"
+    operands: [IR-R, IR-T, IR-LAMBDAMIN]
+    operations: [IR-L, IR-LAMBDA2]
+    comparator: greater_or_equal
+    result_type: IR-TYPE-PREDICATE-RESULT
+    status: unresolved
+    unresolved_from: UNRES-L
+  - predicate_id: IR-CON-VALUES
+    source_constraint_id: CON-VALUES
+    expression: "IR-NORM-VALUES(IR-VC(IR-T), IR-VCORE) <= IR-DELTAMAX"
+    operands: [IR-VC, IR-T, IR-VCORE, IR-DELTAMAX]
+    operations: [IR-NORM-VALUES]
+    comparator: less_or_equal
+    result_type: IR-TYPE-PREDICATE-RESULT
+    status: unresolved
+    unresolved_from: UNRES-NORM
+  - predicate_id: IR-CON-MEMORY
+    source_constraint_id: CON-MEMORY
+    expression: "IR-INTEGRAL(0, IR-T, IR-NORM-MEMORY(IR-N(IR-TAU), IR-NESS)) <= IR-MMAX"
+    operands: [IR-T, IR-TAU, IR-N, IR-NESS, IR-MMAX]
+    operations: [IR-NORM-MEMORY, IR-INTEGRAL]
+    comparator: less_or_equal
+    result_type: IR-TYPE-PREDICATE-RESULT
+    status: unresolved
+    unresolved_from: [UNRES-TIME, UNRES-NORM, UNRES-MEMORY-NOTATION]
+invariants:
+  - {invariant_id: IR-INV-CONSTRAINT-IDENTITY, statement: Four source constraints remain independently identifiable, source_invariant_id: INV-OBJECT-DISTINCT, status: engineering_candidate}
