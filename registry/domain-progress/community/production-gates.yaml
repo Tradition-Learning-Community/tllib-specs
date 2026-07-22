@@ -1,55 +1,23 @@
 domain_id: community
 status: preparation_complete_with_reservations
-baseline_tag: tlc-scientific-pipeline-v1
-baseline_commit: 9aef7ab424f3cf998c47caaa9ed4402302e96031
-working_base_commit: eb977485b7314e32e643e52461e086eb3a753724
-generated_at: '2026-07-22T13:28:30+00:00'
+working_base_commit: 448e01170e123472f3c82b60fff076242ec4a093
+upstream_reconciliation: complete_with_reservations
 scope: preparation_only_no_new_contract_or_ir
-master_gate:
-  accepted_statuses:
-  - complete_to_ir
-  - complete_to_ir_with_reservations
-  required_artifacts:
-  - registry/domain-progress/master
-  required_contracts: feature_specific
-  required_irs: feature_specific
-  required_symbols: feature_specific
-  required_validations:
-  - master_domain_validation
-disciple_gate:
-  accepted_statuses:
-  - preparation_complete
-  - preparation_complete_with_reservations
-  - complete_to_ir
-  - complete_to_ir_with_reservations
-  minimum_required_level: symbols_only
-  required_artifacts:
-  - accepted_disciple_symbol_mapping
-  required_features: TLC-FC-02-COMMUNITY-008_dependency_mapping_only
-  required_contracts: []
-  required_irs: []
-  required_validations:
-  - disciple_dependency_reconciliation
-other_domain_gates: []
-community_preparation_gate:
-  inventory_complete: true
-  scientific_coverage_complete: true
-  feature_coverage_complete: true
-  dependency_graph_complete: true
-  classification_complete: true
-  production_order_complete: true
-  unresolved_classified: true
-  pilot_assessed: true
-  contract_plan_complete: true
-  ir_plan_complete: true
-blocking_conditions:
-- TLC-FC-02-COMMUNITY-006 requires scientific decision before its contract
-non_blocking_reservations:
-- Master and Disciple mappings for TLC-FC-02-COMMUNITY-008 remain inferred candidates
-- Community-Relations cycle is advisory and lexical
-ready_for_contract_generation_after_master: true
-ready_for_contract_generation_after_disciple: true
-ready_for_full_contract_generation: false
+upstream_status:
+  master:
+    status: complete_to_ir_with_reservations
+    available: true
+  disciple:
+    status: complete_to_ir_with_reservations
+    available: true
+pilot_audit_complete: true
+community_006_status: contract_plannable_with_unresolved
+community_008_status: upstream_gate_satisfied_structure_only
+ready_for_contract_generation_now: true
+ready_for_full_contract_generation: true
 ready_for_ir_generation: false
 ready_for_implementation_planning: false
 ready_for_code_generation: false
+non_blocking_reservations:
+- Community-006 execution semantics remain unresolved
+- Community-008 mappings are symbol-only and do not make it executable

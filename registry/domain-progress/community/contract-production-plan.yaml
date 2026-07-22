@@ -2,7 +2,7 @@ domain_id: community
 status: preparation_complete_with_reservations
 baseline_tag: tlc-scientific-pipeline-v1
 baseline_commit: 9aef7ab424f3cf998c47caaa9ed4402302e96031
-working_base_commit: eb977485b7314e32e643e52461e086eb3a753724
+working_base_commit: 448e01170e123472f3c82b60fff076242ec4a093
 generated_at: '2026-07-22T13:28:30+00:00'
 scope: preparation_only_no_new_contract_or_ir
 contracts_created: 0
@@ -25,8 +25,9 @@ features:
   expected_other_dependencies: []
   known_unresolved: []
   required_evidence_before_generation:
-  - no_upstream_gate
-  contract_generation_gate: no_upstream_gate
+  - canonical_master_and_disciple_available
+  - preserve_unresolved
+  contract_generation_gate: reconciled
   contract_generation_priority: 1
   notes: Future plan only.
 - feature_id: TLC-FC-02-COMMUNITY-003
@@ -49,8 +50,9 @@ features:
   expected_other_dependencies: []
   known_unresolved: []
   required_evidence_before_generation:
-  - no_upstream_gate
-  contract_generation_gate: no_upstream_gate
+  - canonical_master_and_disciple_available
+  - preserve_unresolved
+  contract_generation_gate: reconciled
   contract_generation_priority: 2
   notes: Future plan only.
 - feature_id: TLC-FC-02-COMMUNITY-004
@@ -73,8 +75,9 @@ features:
   expected_other_dependencies: []
   known_unresolved: []
   required_evidence_before_generation:
-  - no_upstream_gate
-  contract_generation_gate: no_upstream_gate
+  - canonical_master_and_disciple_available
+  - preserve_unresolved
+  contract_generation_gate: reconciled
   contract_generation_priority: 3
   notes: Future plan only.
 - feature_id: TLC-FC-02-COMMUNITY-005
@@ -99,8 +102,9 @@ features:
   expected_other_dependencies: []
   known_unresolved: []
   required_evidence_before_generation:
-  - no_upstream_gate
-  contract_generation_gate: no_upstream_gate
+  - canonical_master_and_disciple_available
+  - preserve_unresolved
+  contract_generation_gate: reconciled
   contract_generation_priority: 4
   notes: Future plan only.
 - feature_id: TLC-FC-02-COMMUNITY-006
@@ -122,8 +126,9 @@ features:
   known_unresolved:
   - The cited local scientific blockers must be resolved before contract derivation.
   required_evidence_before_generation:
-  - scientific_decision_required
-  contract_generation_gate: scientific_decision_required
+  - canonical_master_and_disciple_available
+  - preserve_unresolved
+  contract_generation_gate: reconciled
   contract_generation_priority: 5
   notes: Future plan only.
 - feature_id: TLC-FC-02-COMMUNITY-007
@@ -145,8 +150,9 @@ features:
   expected_other_dependencies: []
   known_unresolved: []
   required_evidence_before_generation:
-  - no_upstream_gate
-  contract_generation_gate: no_upstream_gate
+  - canonical_master_and_disciple_available
+  - preserve_unresolved
+  contract_generation_gate: reconciled
   contract_generation_priority: 6
   notes: Future plan only.
 - feature_id: TLC-FC-02-COMMUNITY-008
@@ -171,8 +177,9 @@ features:
   expected_other_dependencies: []
   known_unresolved: []
   required_evidence_before_generation:
-  - master_and_disciple_complete_to_ir
-  contract_generation_gate: master_and_disciple_complete_to_ir
+  - canonical_master_and_disciple_available
+  - preserve_unresolved
+  contract_generation_gate: reconciled
   contract_generation_priority: 7
   notes: Future plan only.
 - feature_id: TLC-FC-02-COMMUNITY-009
@@ -195,7 +202,11 @@ features:
   expected_other_dependencies: []
   known_unresolved: []
   required_evidence_before_generation:
-  - no_upstream_gate
-  contract_generation_gate: no_upstream_gate
+  - canonical_master_and_disciple_available
+  - preserve_unresolved
+  contract_generation_gate: reconciled
   contract_generation_priority: 8
   notes: Future plan only.
+upstream_reconciliation: complete_with_reservations
+plans_total: 8
+ready_for_full_contract_generation: true
