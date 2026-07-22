@@ -1,0 +1,77 @@
+{
+  "ir_id": "TLC-IR-TLC-FC-00-MASTER-014",
+  "feature_id": "TLC-FC-00-MASTER-014",
+  "contract_ref": "registry/math-contracts/TLC-FC-00-MASTER-014/contract.yaml",
+  "ir_version": "candidate-1",
+  "engineering_status": "engineering_candidate",
+  "variant": "semantic",
+  "representation": "constraint_or_operation_candidate",
+  "nodes": [
+    {
+      "node_id": "TLC-FC-00-MASTER-014-NODE-001",
+      "kind": "constraint_or_operation_candidate",
+      "scientific_object_refs": [
+        "TLC-SO-MASTER-003"
+      ],
+      "relation_refs": [
+        "TLC-SR-MASTER-002",
+        "TLC-SR-MASTER-029"
+      ],
+      "executable": false
+    }
+  ],
+  "data": [
+    "TLC-SO-MASTER-003"
+  ],
+  "operations": [
+    {
+      "operation_id": "TLC-FC-00-MASTER-014-OP-UNRESOLVED",
+      "status": "unresolved",
+      "behavior": "Evaluate the cited scientific relations without inferring endpoint identity."
+    }
+  ],
+  "constraints": [
+    "Do not infer definitions, types, dimensions, aliases, or numerical methods."
+  ],
+  "invariants": [
+    "Provisionally separated scientific objects remain distinct."
+  ],
+  "metadata": {
+    "source_provenance": [
+      {
+        "source_path": "maths/00-master.md",
+        "section": "1. Définition conceptuelle",
+        "subsection": "Plan relationnel",
+        "start_line": 7,
+        "end_line": 11,
+        "source_commit": "fe8b990d7560869889b153cc8422b5d6918678e6"
+      }
+    ],
+    "scientific_status": "candidate"
+  },
+  "unresolved": [
+    "TLC-GU-00343",
+    "TLC-RELISS-MASTER-002",
+    "TLC-UT-MASTER-026"
+  ],
+  "external_dependencies": [
+    {
+      "domain": "disciple",
+      "status": "external_dependency_available_as_symbol",
+      "blocking": true,
+      "evidence": [
+        {
+          "source_path": "maths/00-master.md",
+          "section": "1. Définition conceptuelle",
+          "subsection": "Plan relationnel",
+          "start_line": 7,
+          "end_line": 11,
+          "source_commit": "fe8b990d7560869889b153cc8422b5d6918678e6"
+        }
+      ]
+    }
+  ],
+  "validation_status": "validated_structurally_with_reservations",
+  "ready_for_implementation_planning": false,
+  "ready_for_code_generation": false
+}

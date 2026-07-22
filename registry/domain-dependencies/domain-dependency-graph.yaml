@@ -1,0 +1,46 @@
+graph_id: TLC-DOMAIN-DEPENDENCY-GRAPH-001
+baseline_commit: 9aef7ab424f3cf998c47caaa9ed4402302e96031
+baseline_tag: tlc-scientific-pipeline-v1
+domains:
+- domain_id: master
+  source_file: maths/00-master.md
+- domain_id: disciple
+  source_file: maths/01-disciple.md
+- domain_id: community
+  source_file: maths/02-community.md
+- domain_id: huit-dimensions-de-tl
+  source_file: maths/03-huit-dimensions-de-tl.md
+- domain_id: invariants
+  source_file: maths/04-invariants.md
+- domain_id: dynamics
+  source_file: maths/05-dynamics.md
+- domain_id: theorems
+  source_file: maths/06-theorems.md
+- domain_id: message
+  source_file: maths/07-message.md
+- domain_id: principle
+  source_file: maths/08-principle.md
+- domain_id: values
+  source_file: maths/09-values.md
+- domain_id: virtues
+  source_file: maths/10-virtues.md
+- domain_id: capacities
+  source_file: maths/11-capacities.md
+- domain_id: competencies
+  source_file: maths/12-competencies.md
+- domain_id: practice
+  source_file: maths/13-practice.md
+- domain_id: lived-experience
+  source_file: maths/14-lived-experience.md
+- domain_id: relations
+  source_file: maths/15-relations.md
+edges_ref: registry/domain-dependencies/domain-dependency-edges.yaml
+confirmed_edges: 2
+inferred_candidate_edges: 12
+unresolved_edges: 0
+cycles:
+- - community
+  - relations
+- - capacities
+  - competencies
+status: candidate_with_explicit_evidence

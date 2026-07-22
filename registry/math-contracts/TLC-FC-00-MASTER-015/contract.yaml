@@ -1,0 +1,60 @@
+contract_id: TLC-MC-TLC-FC-00-MASTER-015
+feature_id: TLC-FC-00-MASTER-015
+canonical_name: '00-master: state (admissible)'
+contract_version: candidate-1
+scientific_status: candidate_with_unresolved
+computational_status: non_computational
+representation: symbolic_type
+source_provenance: &id001
+- source_path: maths/00-master.md
+  section: 3. Structure interne du Maître
+  subsection: 3.2 Système de valeurs
+  start_line: 62
+  end_line: 71
+  source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+- source_path: maths/00-master.md
+  section: 3. Structure interne du Maître
+  subsection: 3.7 Statut symbolique
+  start_line: 115
+  end_line: 123
+  source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+input_objects:
+- TLC-SO-MASTER-010
+- TLC-SO-MASTER-016
+output_objects: not_specified
+variables: not_specified
+parameters: not_specified
+constants: not_specified
+state: not_applicable
+spaces: not_specified
+equations: source_references_only
+relations:
+- TLC-SR-MASTER-009
+- TLC-SR-MASTER-015
+- TLC-SR-MASTER-018
+- TLC-SR-MASTER-020
+- TLC-SR-MASTER-027
+constraints:
+- Do not infer definitions, types, dimensions, aliases, or numerical methods.
+invariants:
+- Provisionally separated scientific objects remain distinct.
+assumptions:
+- All cited scientific objects remain candidate and distinct.
+preconditions:
+- Cited scientific inputs are supplied under candidate status.
+postconditions:
+- Result remains candidate and traceable to every cited object.
+failure_conditions: unresolved
+determinism: not_specified
+stochasticity: not_specified
+dimensional_information: not_specified
+unresolved: []
+external_dependencies:
+- domain: community
+  status: external_dependency_available_as_symbol
+  blocking: false
+  evidence: *id001
+validation_status: validated_structurally_with_reservations
+execution_ready: false
+ready_for_implementation_planning: true
+ready_for_code_generation: false

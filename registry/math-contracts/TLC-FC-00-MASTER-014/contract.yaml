@@ -1,0 +1,53 @@
+contract_id: TLC-MC-TLC-FC-00-MASTER-014
+feature_id: TLC-FC-00-MASTER-014
+canonical_name: '00-master: relation (blocked_locally)'
+contract_version: candidate-1
+scientific_status: candidate_with_unresolved
+computational_status: unresolved
+representation: constraint_or_operation_candidate
+source_provenance: &id001
+- source_path: maths/00-master.md
+  section: 1. Définition conceptuelle
+  subsection: Plan relationnel
+  start_line: 7
+  end_line: 11
+  source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+input_objects:
+- TLC-SO-MASTER-003
+output_objects: not_specified
+variables: not_specified
+parameters: not_specified
+constants: not_specified
+state: not_specified
+spaces: not_specified
+equations: source_references_only
+relations:
+- TLC-SR-MASTER-002
+- TLC-SR-MASTER-029
+constraints:
+- Do not infer definitions, types, dimensions, aliases, or numerical methods.
+invariants:
+- Provisionally separated scientific objects remain distinct.
+assumptions:
+- All cited scientific objects remain candidate and distinct.
+preconditions:
+- Cited scientific inputs are supplied under candidate status.
+postconditions:
+- Result remains candidate and traceable to every cited object.
+failure_conditions: unresolved
+determinism: not_specified
+stochasticity: not_specified
+dimensional_information: not_specified
+unresolved:
+- TLC-GU-00343
+- TLC-RELISS-MASTER-002
+- TLC-UT-MASTER-026
+external_dependencies:
+- domain: disciple
+  status: external_dependency_available_as_symbol
+  blocking: true
+  evidence: *id001
+validation_status: validated_structurally_with_reservations
+execution_ready: false
+ready_for_implementation_planning: false
+ready_for_code_generation: false

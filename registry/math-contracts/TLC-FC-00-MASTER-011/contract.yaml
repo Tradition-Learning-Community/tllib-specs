@@ -1,0 +1,69 @@
+contract_id: TLC-MC-TLC-FC-00-MASTER-011
+feature_id: TLC-FC-00-MASTER-011
+canonical_name: '00-master: metric (blocked_locally)'
+contract_version: candidate-1
+scientific_status: candidate_with_unresolved
+computational_status: unresolved
+representation: constraint_or_operation_candidate
+source_provenance:
+- source_path: maths/00-master.md
+  section: 2. Conditions théoriques pour la maîtrise
+  subsection: R2
+  start_line: 23
+  end_line: 27
+  source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+- source_path: maths/00-master.md
+  section: 3. Structure interne du Maître
+  subsection: 3.3 État d’exemplarité
+  start_line: 73
+  end_line: 79
+  source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+- source_path: maths/00-master.md
+  section: 7. Limites et capacités du Maître
+  subsection: 7.2 Limites d’interprétation
+  start_line: 206
+  end_line: 207
+  source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+input_objects:
+- TLC-SO-MASTER-005
+- TLC-SO-MASTER-011
+- TLC-SO-MASTER-030
+output_objects: not_specified
+variables: not_specified
+parameters: not_specified
+constants: not_specified
+state: not_specified
+spaces: not_specified
+equations: source_references_only
+relations:
+- TLC-SR-MASTER-004
+- TLC-SR-MASTER-010
+- TLC-SR-MASTER-026
+- TLC-SR-MASTER-029
+constraints:
+- Do not infer definitions, types, dimensions, aliases, or numerical methods.
+invariants:
+- Provisionally separated scientific objects remain distinct.
+assumptions:
+- All cited scientific objects remain candidate and distinct.
+preconditions:
+- Cited scientific inputs are supplied under candidate status.
+postconditions:
+- Result remains candidate and traceable to every cited object.
+failure_conditions: unresolved
+determinism: not_specified
+stochasticity: not_specified
+dimensional_information: not_specified
+unresolved:
+- TLC-GU-00320
+- TLC-GU-00324
+- TLC-GU-00337
+- TLC-RELISS-MASTER-002
+- TLC-UT-MASTER-003
+- TLC-UT-MASTER-007
+- TLC-UT-MASTER-020
+external_dependencies: []
+validation_status: validated_structurally_with_reservations
+execution_ready: false
+ready_for_implementation_planning: false
+ready_for_code_generation: false
