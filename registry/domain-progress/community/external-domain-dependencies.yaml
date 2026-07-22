@@ -1,0 +1,28 @@
+domain_id: community
+status: preparation_complete_with_reservations
+baseline_tag: tlc-scientific-pipeline-v1
+baseline_commit: 9aef7ab424f3cf998c47caaa9ed4402302e96031
+working_base_commit: eb977485b7314e32e643e52461e086eb3a753724
+generated_at: '2026-07-22T13:28:30+00:00'
+scope: preparation_only_no_new_contract_or_ir
+dependencies:
+- dependency_id: TLC-DD-003
+  from_domain: community
+  to_domain: relations
+  dependency_type: implementation_order_candidate
+  source_evidence: The source explicitly mentions the relations concept; semantic dependency strength remains unadjudicated.
+  evidence_locations:
+  - maths/02-community.md
+  affected_objects: []
+  affected_features: &id001 []
+  dependency_status: inferred_candidate
+  strength: advisory
+  notes: Lexical evidence only; not promoted to a required dependency.
+  production_effect: informational_only
+  affected_feature_ids: *id001
+  cycle_membership: community-relations
+community_relations_cycle:
+  status: inferred_candidate_advisory_cycle
+  community_to_relations: 1
+  relations_to_community: 1
+  blocks_production: false

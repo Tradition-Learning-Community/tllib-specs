@@ -1,0 +1,48 @@
+domain_id: community
+status: preparation_complete_with_reservations
+baseline_tag: tlc-scientific-pipeline-v1
+baseline_commit: 9aef7ab424f3cf998c47caaa9ed4402302e96031
+working_base_commit: eb977485b7314e32e643e52461e086eb3a753724
+generated_at: '2026-07-22T13:28:30+00:00'
+scope: preparation_only_no_new_contract_or_ir
+dependencies:
+- dependency_id: TLC-COMMUNITY-MASTER-001
+  from_domain: community
+  to_domain: master
+  affected_feature_ids:
+  - TLC-FC-02-COMMUNITY-008
+  affected_object_ids:
+  - TLC-SO-COMMUNITY-018
+  - TLC-SO-COMMUNITY-019
+  affected_relation_ids: []
+  dependency_type: entity_dependency
+  evidence: Explicit source statement uses the upstream entity.
+  evidence_locations:
+  - repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/02-community.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/02-community.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: d8327b5ebb8b1638cd40017e0bc188fa2cd01d7a
+    document_title: La Communauté (Community)
+    section: Introduction et rôle
+    subsection: null
+    start_line: 9
+    end_line: 9
+  - repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/02-community.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/02-community.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: d8327b5ebb8b1638cd40017e0bc188fa2cd01d7a
+    document_title: La Communauté (Community)
+    section: Introduction et rôle
+    subsection: null
+    start_line: 10
+    end_line: 10
+  dependency_status: inferred_candidate
+  strength: conditional
+  production_effect: blocks_execution_only
+  notes: No canonical cross-domain target identifier is declared in the merged feature catalogue.
+confirmed_count: 0
+candidate_count: 1
