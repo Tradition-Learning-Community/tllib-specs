@@ -1,0 +1,25 @@
+feature_id: TLC-FC-08-PRINCIPLE-002
+source_contract_commit: 3db96ff560ff110ccd0a0fbf7e30997ac3264aa7
+contract_elements:
+  - {contract_reference: contract.yaml#TLC-SO-PRINCIPLE-087, element_kind: scientific_object, ir_variant: semantic, ir_node_or_constraint: N-EQ, coverage_status: fully_represented, notes: DifferentialEquation preserved.}
+  - {contract_reference: contract.yaml#SYM-P, element_kind: state, ir_variant: semantic|functional|dynamic, ir_node_or_constraint: N-P|F-P|D-P, coverage_status: represented_as_opaque, notes: Role preserved; semantics and type unresolved.}
+  - {contract_reference: contract.yaml#SYM-D, element_kind: input, ir_variant: semantic|functional|dynamic, ir_node_or_constraint: N-D|F-D|D-D, coverage_status: represented_as_opaque, notes: Role preserved; semantics and type unresolved.}
+  - {contract_reference: contract.yaml#SYM-t, element_kind: input, ir_variant: semantic|functional|dynamic, ir_node_or_constraint: N-t|F-t|D-t, coverage_status: represented_as_opaque, notes: Evolution-variable label preserved without a type.}
+  - {contract_reference: contract.yaml#SYM-E, element_kind: operator, ir_variant: semantic|functional|dynamic, ir_node_or_constraint: N-E|F-E|D-E, coverage_status: represented_as_opaque, notes: Argument order preserved; mapping spaces unresolved.}
+  - {contract_reference: contract.yaml#SYM-dPdt, element_kind: output, ir_variant: semantic|functional|dynamic, ir_node_or_constraint: N-dPdt|F-OUT|D-OUT, coverage_status: represented_as_opaque, notes: Derivative role preserved; domain and shape unresolved.}
+  - {contract_reference: contract.yaml#EQ-PRINCIPLE-EVOLUTION-001, element_kind: equation, ir_variant: semantic|functional|dynamic, ir_node_or_constraint: EQ-PRINCIPLE-EVOLUTION-001, coverage_status: fully_represented, notes: Exact normalized equality preserved.}
+  - {contract_reference: contract.yaml#POST-EQUATION-SATISFIED-001, element_kind: postcondition, ir_variant: semantic|functional|dynamic, ir_node_or_constraint: POST-EQUATION-SATISFIED-001, coverage_status: fully_represented, notes: Failure semantics remain unresolved.}
+  - {contract_reference: type-constraints.yaml#COMP-E-ARGS-001, element_kind: operand_compatibility, ir_variant: semantic|functional|dynamic, ir_node_or_constraint: N-E|F-E|D-E, coverage_status: fully_represented, notes: Ordered inputs and comparability requirement preserved.}
+  - {contract_reference: contract.yaml#oracle_basis, element_kind: oracle_basis, ir_variant: semantic|functional|dynamic, ir_node_or_constraint: EQ-PRINCIPLE-EVOLUTION-001, coverage_status: fully_represented, notes: Equation is the sole oracle basis; no executable oracle claimed.}
+  - {contract_reference: open-math-questions.yaml#UNRESOLVED-SYMBOL-SEMANTICS-001, element_kind: unresolved, ir_variant: semantic|functional|dynamic, ir_node_or_constraint: ir-open-questions.yaml, coverage_status: unresolved, notes: Propagated without resolution.}
+  - {contract_reference: open-math-questions.yaml#UNRESOLVED-DOMAIN-001, element_kind: unresolved, ir_variant: semantic|functional|dynamic, ir_node_or_constraint: ir-open-questions.yaml, coverage_status: unresolved, notes: Propagated without resolution.}
+  - {contract_reference: open-math-questions.yaml#UNRESOLVED-INITIAL-CONDITION-001, element_kind: unresolved, ir_variant: dynamic, ir_node_or_constraint: ir-open-questions.yaml, coverage_status: unresolved, notes: No initial condition invented.}
+  - {contract_reference: implementation-decisions-required.yaml#IMPL-DEC-001, element_kind: implementation_choice, ir_variant: semantic|functional|dynamic, ir_node_or_constraint: implementation-decisions-required.yaml, coverage_status: unresolved, notes: Deferred.}
+  - {contract_reference: implementation-decisions-required.yaml#IMPL-DEC-002, element_kind: implementation_choice, ir_variant: dynamic, ir_node_or_constraint: implementation-decisions-required.yaml, coverage_status: unresolved, notes: No numerical method selected.}
+coverage_summary:
+  total_contract_elements: 15
+  fully_represented: 5
+  represented_as_opaque: 5
+  unresolved: 5
+  omitted_with_justification: 0
+  missing: 0

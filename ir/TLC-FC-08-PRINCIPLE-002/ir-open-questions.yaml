@@ -1,0 +1,49 @@
+feature_id: TLC-FC-08-PRINCIPLE-002
+source_contract_commit: 3db96ff560ff110ccd0a0fbf7e30997ac3264aa7
+status: candidate
+questions:
+  - question_id: UNRESOLVED-SYMBOL-SEMANTICS-001
+    source_contract_reference: registry/math-contracts/TLC-FC-08-PRINCIPLE-002/open-math-questions.yaml
+    description: What are the exact source-authorized meanings and mathematical types of P, D, t, and E?
+    affected_ir_variants: [semantic, functional, dynamic]
+    affected_nodes: [N-P, N-D, N-t, N-E, F-P, F-D, F-t, F-E, D-P, D-D, D-t, D-E]
+    required_decision: Supply approved definitions and mathematical types without assuming scalarity, shape, units, or finite representation.
+    decision_authority: scientific_review
+    blocking_for_semantic_ir: false
+    blocking_for_functional_ir: false
+    blocking_for_compute_ir: true
+    blocking_for_dynamic_ir: false
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    resolution_authority: scientific_review
+    status: unresolved
+  - question_id: UNRESOLVED-DOMAIN-001
+    source_contract_reference: registry/math-contracts/TLC-FC-08-PRINCIPLE-002/open-math-questions.yaml
+    description: What evolution domain and regularity make dP/dt and E(P,D,t) well-defined?
+    affected_ir_variants: [semantic, functional, dynamic]
+    affected_nodes: [N-E, N-dPdt, N-EQ, F-E, F-OUT, F-VALIDATE, D-E, D-EQ, D-OUT]
+    required_decision: Supply an approved domain and regularity conditions.
+    decision_authority: scientific_review
+    blocking_for_semantic_ir: false
+    blocking_for_functional_ir: false
+    blocking_for_compute_ir: true
+    blocking_for_dynamic_ir: false
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    resolution_authority: scientific_review
+    status: unresolved
+  - question_id: UNRESOLVED-INITIAL-CONDITION-001
+    source_contract_reference: registry/math-contracts/TLC-FC-08-PRINCIPLE-002/open-math-questions.yaml
+    description: Is an initial condition required, and if so what source defines it?
+    affected_ir_variants: [dynamic]
+    affected_nodes: [N-P, N-EQ, D-P, D-EQ]
+    required_decision: Cite an approved source for any initial condition or explicitly confirm its exclusion.
+    decision_authority: contract_revision
+    blocking_for_semantic_ir: false
+    blocking_for_functional_ir: false
+    blocking_for_compute_ir: true
+    blocking_for_dynamic_ir: false
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    resolution_authority: contract_revision
+    status: unresolved
