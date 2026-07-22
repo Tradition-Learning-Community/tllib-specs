@@ -1,0 +1,37 @@
+domain_id: community
+status: preparation_complete_with_reservations
+working_base_commit: 448e01170e123472f3c82b60fff076242ec4a093
+upstream_reconciliation: complete_with_reservations
+scope: preparation_only_no_new_contract_or_ir
+mappings:
+- mapping_id: TLC-COMMUNITY-UPSTREAM-SYMBOL-001
+  community_source_term: Maître
+  community_object_ids:
+  - TLC-SO-COMMUNITY-018
+  - TLC-SO-COMMUNITY-019
+  community_feature_ids:
+  - TLC-FC-02-COMMUNITY-008
+  target_domain: master
+  target_canonical_object_id: TLC-SO-MASTER-001
+  target_feature_ids: []
+  mapping_status: confirmed
+  required_level: symbol_only
+  evidence: Explicit source entity aligned with canonical master object.
+  notes: Identity mapping only; no executable semantics imported.
+- mapping_id: TLC-COMMUNITY-UPSTREAM-SYMBOL-002
+  community_source_term: Disciple
+  community_object_ids:
+  - TLC-SO-COMMUNITY-018
+  - TLC-SO-COMMUNITY-019
+  community_feature_ids:
+  - TLC-FC-02-COMMUNITY-008
+  target_domain: disciple
+  target_canonical_object_id: TLC-SO-DISCIPLE-001
+  target_feature_ids: []
+  mapping_status: confirmed
+  required_level: symbol_only
+  evidence: Explicit source entity aligned with canonical disciple object.
+  notes: Identity mapping only; no executable semantics imported.
+confirmed: 2
+candidate: 0
+unresolved: 0
