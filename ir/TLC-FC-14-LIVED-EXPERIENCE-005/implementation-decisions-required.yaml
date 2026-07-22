@@ -1,0 +1,34 @@
+feature_id: TLC-FC-14-LIVED-EXPERIENCE-005
+source_contract_commit: 1ff27ea31bae784a64ac3eee534404ce2ce322fa
+status: engineering_candidate
+decisions:
+  - decision_id: TLC-IR-IMPL-LIVED-005-001
+    source_contract_reference: IMPL-COLLECTION
+    description: "Choisir une représentation finie de la collection et du résultat après résolution des types scientifiques."
+    allowed_scope: "Représentation d'ingénierie conforme à l'équation et aux types futurs."
+    forbidden_assumptions: ["type scalaire", "dimension", "unité", "ordre de stockage", "définition de Synergie"]
+    affected_variants: [semantic, functional]
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    decision_authority: implementation_specification
+    status: unresolved
+  - decision_id: TLC-IR-IMPL-LIVED-005-002
+    source_contract_reference: IMPL-TYPE-MAPPING
+    description: "Mapper les types mathématiques et la signature de Synergie seulement après révision contractuelle."
+    allowed_scope: "Encodage des types scientifiques autorisés, sans précision ou tolérance implicite."
+    forbidden_assumptions: ["type numérique concret", "précision", "tolérance", "bibliothèque"]
+    affected_variants: [semantic, functional]
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    decision_authority: implementation_specification
+    status: unresolved
+  - decision_id: TLC-IR-IMPL-LIVED-005-003
+    source_contract_reference: UNRES-N
+    description: "Définir la politique d'échec pour N nul et pour incompatibilité des opérandes."
+    allowed_scope: "Signalement d'échec sans altérer N != 0 ni la compatibilité exigée."
+    forbidden_assumptions: ["valeur par défaut", "coercition automatique", "tolérance implicite"]
+    affected_variants: [semantic, functional]
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    decision_authority: implementation_specification
+    status: unresolved

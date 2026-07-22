@@ -1,0 +1,31 @@
+work_item_id: TLC-IR-TLC-FC-14-LIVED-EXPERIENCE-005-RECOVERY
+stage: intermediate_representation
+feature_id: TLC-FC-14-LIVED-EXPERIENCE-005
+source_contract_branch: contract/TLC-FC-14-LIVED-EXPERIENCE-005
+source_contract_commit: 1ff27ea31bae784a64ac3eee534404ce2ce322fa
+source_contract_status: candidate
+source_contract_ready_for_ir: false
+progression_mode: candidate_with_preserved_reservations
+artifacts_produced:
+  - ir/TLC-FC-14-LIVED-EXPERIENCE-005/ir-semantic.candidate.json
+  - ir/TLC-FC-14-LIVED-EXPERIENCE-005/ir-functional.candidate.json
+  - ir/TLC-FC-14-LIVED-EXPERIENCE-005/ir-comparison.md
+  - ir/TLC-FC-14-LIVED-EXPERIENCE-005/ir-validation-report.md
+  - ir/TLC-FC-14-LIVED-EXPERIENCE-005/ir-open-questions.yaml
+  - ir/TLC-FC-14-LIVED-EXPERIENCE-005/ir-coverage.yaml
+  - ir/TLC-FC-14-LIVED-EXPERIENCE-005/implementation-decisions-required.yaml
+  - reports/ir/TLC-FC-14-LIVED-EXPERIENCE-005/ir-report.md
+  - reports/ir/TLC-FC-14-LIVED-EXPERIENCE-005/decision_required.yaml
+  - tools/ir/TLC-FC-14-LIVED-EXPERIENCE-005/validate_ir.py
+  - tools/ir/TLC-FC-14-LIVED-EXPERIENCE-005/README.md
+variants_produced: [semantic, functional]
+blocking_issues: [ISSUE-N, ISSUE-TYPES, ISSUE-SYNERGY]
+non_blocking_issues: [ISSUE-SIGMA]
+unresolved_propagated: [UNRES-SYNERGY, UNRES-N, UNRES-EXPERIENCE-TYPE, UNRES-SIGMA]
+questions_for_human: [TLC-IR-QUESTION-LIVED-005-001, TLC-IR-QUESTION-LIVED-005-002, TLC-IR-QUESTION-LIVED-005-003, TLC-IR-QUESTION-LIVED-005-004]
+ready_for_implementation_planning: false
+ready_for_code_generation: false
+recommended_decision:
+  value: revise
+  justification: "L'IR préserve l'équation et ses réserves, mais Synergie, N et les types mathématiques restent non résolus."
+allowed_decisions: [approved, approved_with_reservations, revise, rejected]
