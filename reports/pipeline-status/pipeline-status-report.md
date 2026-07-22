@@ -22,3 +22,12 @@ Publish validated branches, open the integration PR, review the documented reser
 - Master: `complete_to_ir_with_reservations`; dependency order validated for this wave.
 - Five existing contract/IR features: retained as `historical_pilot`; their domains are not declared complete.
 - No non-Master domain was produced in this wave.
+
+
+## Disciple domain wave
+
+- Status: `complete_to_ir_with_reservations`
+- Features/contracts/IRs: 10/10/10
+- Unresolved propagated: 32
+- Ready for Community reconciliation: `true`
+- Ready for code generation: `false`
