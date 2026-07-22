@@ -1,0 +1,48 @@
+domain_id: master
+internal_confirmed: 0
+external_confirmed: 2
+unresolved: 26
+external_dependencies:
+- dependency_id: TLC-DD-001
+  from_domain: master
+  to_domain: disciple
+  dependency_type: entity_dependency
+  source_evidence: Master definition, R3, pedagogy, transmission and limits use Disciple state.
+  evidence_locations:
+  - maths/00-master.md:5
+  - maths/00-master.md:29
+  - maths/00-master.md:81
+  - maths/00-master.md:250
+  affected_objects:
+  - TLC-SO-MASTER-001
+  - TLC-SO-MASTER-003
+  - TLC-SO-MASTER-006
+  - TLC-SO-MASTER-012
+  affected_features:
+  - TLC-FC-00-MASTER-004
+  - TLC-FC-00-MASTER-014
+  - TLC-FC-00-MASTER-016
+  dependency_status: confirmed
+  strength: conditional
+  notes: Required for executable behavior; available as an external symbol for structural IR.
+- dependency_id: TLC-DD-002
+  from_domain: master
+  to_domain: community
+  dependency_type: entity_dependency
+  source_evidence: R4, authority and symbolic status explicitly use Community.
+  evidence_locations:
+  - maths/00-master.md:35
+  - maths/00-master.md:92
+  - maths/00-master.md:114
+  - maths/00-master.md:250
+  affected_objects:
+  - TLC-SO-MASTER-007
+  - TLC-SO-MASTER-014
+  - TLC-SO-MASTER-016
+  affected_features:
+  - TLC-FC-00-MASTER-003
+  - TLC-FC-00-MASTER-012
+  - TLC-FC-00-MASTER-015
+  dependency_status: confirmed
+  strength: conditional
+  notes: Required for executable authority/status behavior; available as an external symbol for structural IR.
