@@ -1,0 +1,80 @@
+feature_id: TLC-FC-09-VALUES-018
+source_contract_commit: 7daa8758945e63feb0e64a2865acbb43dfab75dd
+status: candidate
+questions:
+  - question_id: UNRES-M
+    unresolved_id: UNRES-M
+    source_contract_reference: symbols.SYM-M
+    source_contract_item: symbols.SYM-M
+    property: domain
+    description: What is the domain and meaning of m?
+    affected_ir_variants: [semantic, functional]
+    affected_nodes: [SEM-PARAM-M, FUN-PARAM-M, SEM-CON-SQUARE, FUN-VALIDATE-SHAPE]
+    affected_edges: [SEM-EDGE-M-SHAPE, FUN-EDGE-M-SHAPE]
+    required_decision: Supply the authorized domain and meaning of m.
+    decision_authority: scientific_review
+    resolution_authority: scientific_review
+    blocking_for_semantic_ir: false
+    blocking_for_functional_ir: false
+    blocking_for_compute_ir: true
+    blocking_for_dynamic_ir: false
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    status: unresolved
+  - question_id: UNRES-ENDPOINTS
+    unresolved_id: UNRES-ENDPOINTS
+    source_contract_reference: symbols.SYM-C.domain
+    source_contract_item: symbols.SYM-C.domain
+    property: endpoint_identity_and_index_set
+    description: Which values index rows and columns?
+    affected_ir_variants: [semantic, functional]
+    affected_nodes: [SEM-INPUT-C, FUN-INPUT-C, SEM-OBJECT-VALUES-047, FUN-EVALUATE-RELATION]
+    affected_edges: [SEM-EDGE-C-RESULT, FUN-EDGE-C-EVAL]
+    required_decision: Supply the authorized endpoint identities and index set.
+    decision_authority: scientific_review
+    resolution_authority: scientific_review
+    blocking_for_semantic_ir: false
+    blocking_for_functional_ir: true
+    blocking_for_compute_ir: true
+    blocking_for_dynamic_ir: false
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    status: unresolved
+  - question_id: UNRES-CATEGORIES
+    unresolved_id: UNRES-CATEGORIES
+    source_contract_reference: properties.PROP-RELATION-CATEGORIES
+    source_contract_item: properties.PROP-RELATION-CATEGORIES
+    property: category_mapping
+    description: How do numeric entries map to compatibility, tension, and opposition?
+    affected_ir_variants: [semantic, functional]
+    affected_nodes: [SEM-PROPERTY-CATEGORIES, FUN-EVALUATE-RELATION]
+    affected_edges: [SEM-EDGE-C-CATEGORIES, FUN-EDGE-C-EVAL]
+    required_decision: Supply an authorized category mapping, if category evaluation is intended.
+    decision_authority: scientific_review
+    resolution_authority: scientific_review
+    blocking_for_semantic_ir: false
+    blocking_for_functional_ir: true
+    blocking_for_compute_ir: true
+    blocking_for_dynamic_ir: false
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    status: unresolved
+  - question_id: UNRES-OUTPUT
+    unresolved_id: UNRES-OUTPUT
+    source_contract_reference: outputs.OUT-RELATION-EVALUATION
+    source_contract_item: outputs.OUT-RELATION-EVALUATION
+    property: mathematical_result
+    description: What is the mathematical evaluation result?
+    affected_ir_variants: [semantic, functional]
+    affected_nodes: [SEM-OUTPUT-EVALUATION, FUN-EVALUATE-RELATION, FUN-OUTPUT-RESULT]
+    affected_edges: [SEM-EDGE-C-RESULT, FUN-EDGE-EVAL-RESULT]
+    required_decision: Supply authorized evaluation-result semantics and mathematical type.
+    decision_authority: scientific_review
+    resolution_authority: scientific_review
+    blocking_for_semantic_ir: false
+    blocking_for_functional_ir: true
+    blocking_for_compute_ir: true
+    blocking_for_dynamic_ir: false
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    status: unresolved
