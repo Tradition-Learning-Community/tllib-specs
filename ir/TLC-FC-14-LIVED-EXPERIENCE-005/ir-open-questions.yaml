@@ -1,0 +1,44 @@
+feature_id: TLC-FC-14-LIVED-EXPERIENCE-005
+source_contract_commit: 1ff27ea31bae784a64ac3eee534404ce2ce322fa
+status: candidate
+questions:
+  - question_id: TLC-IR-QUESTION-LIVED-005-001
+    source_contract_reference: UNRES-SYNERGY
+    description: "Quelle définition, quel domaine et quel codomaine normatifs faut-il attribuer à Synergie ?"
+    affected_ir_variants: [semantic, functional]
+    affected_nodes: [SEM-SYNERGIE, SEM-EQUATION, FUN-SYNERGIE, FUN-MULTIPLY]
+    required_decision: "Réviser le contrat avec une définition scientifique normative de Synergie."
+    decision_authority: scientific_review
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    status: unresolved
+  - question_id: TLC-IR-QUESTION-LIVED-005-002
+    source_contract_reference: UNRES-N
+    description: "Quel est le domaine de N et quelle relation impose-t-il avec la cardinalité de {ell_i} ?"
+    affected_ir_variants: [semantic, functional]
+    affected_nodes: [SEM-N, SEM-COLLECTION, SEM-EQUATION, FUN-N, FUN-SUM, FUN-DIVIDE]
+    required_decision: "Réviser le contrat avec le domaine de N et la règle de cardinalité."
+    decision_authority: scientific_review
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    status: unresolved
+  - question_id: TLC-IR-QUESTION-LIVED-005-003
+    source_contract_reference: UNRES-EXPERIENCE-TYPE
+    description: "Quels sont les espaces, formes, dimensions et unités de ell_i, ell_col et sigma ?"
+    affected_ir_variants: [semantic, functional]
+    affected_nodes: [SEM-ELL-I, SEM-SIGMA, SEM-ELL-COL, FUN-ELL-I, FUN-SIGMA, FUN-ELL-COL, FUN-ADD]
+    required_decision: "Réviser le contrat avec les types mathématiques et les règles de compatibilité."
+    decision_authority: scientific_review
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    status: unresolved
+  - question_id: TLC-IR-QUESTION-LIVED-005-004
+    source_contract_reference: UNRES-N
+    description: "Quelle politique d'échec doit s'appliquer lorsque N est nul ou que les opérandes sont incompatibles ?"
+    affected_ir_variants: [semantic, functional]
+    affected_nodes: [SEM-N-NONZERO, FUN-N-VALIDATE, FUN-DIVIDE, FUN-ADD]
+    required_decision: "Définir la politique d'échec sans modifier les conditions mathématiques."
+    decision_authority: implementation_specification
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    status: unresolved

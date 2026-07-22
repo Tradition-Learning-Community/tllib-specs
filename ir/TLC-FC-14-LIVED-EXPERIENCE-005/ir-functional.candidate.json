@@ -1,0 +1,1124 @@
+{
+  "ir_id": "TLC-IR-FUNCTIONAL-TLC-FC-14-LIVED-EXPERIENCE-005",
+  "feature_id": "TLC-FC-14-LIVED-EXPERIENCE-005",
+  "variant": "functional",
+  "status": "engineering_candidate",
+  "provenance": {
+    "source_contract_branch": "contract/TLC-FC-14-LIVED-EXPERIENCE-005",
+    "source_contract_commit": "1ff27ea31bae784a64ac3eee534404ce2ce322fa",
+    "source_contract_id": "TLC-MC-TLC-FC-14-LIVED-EXPERIENCE-005",
+    "source_contract_status": "candidate",
+    "scientific_sources": [
+      {
+        "path": "maths/14-lived-experience.md",
+        "lines": "140-142",
+        "commit": "68a4d4c728bab655631543b3e1788d4f0da31e8e"
+      }
+    ]
+  },
+  "validation": {
+    "scientific_validation": "pending",
+    "source_contract_ready_for_ir": false,
+    "progression_mode": "candidate_with_preserved_reservations",
+    "contains_unresolved": true,
+    "ready_for_implementation_planning": false,
+    "ready_for_code_generation": false
+  },
+  "purpose": "Rendre explicite la composition fonctionnelle strictement visible dans l'équation, tout en maintenant Synergie et tous les types comme opaques.",
+  "preserved_semantics": [
+    "Expression EQ-COLLECTIVE-MEMORY conservée sans modification.",
+    "Sommation indexée de 1 à N, division par N, appel opaque à Synergie, multiplication par sigma et addition finale."
+  ],
+  "explicit_engineering_structure": [
+    "Ports symboliques.",
+    "Opérateurs algébriques explicitement présents dans la source.",
+    "Validation N != 0 séparée."
+  ],
+  "excluded_decisions": [
+    "ordre d'évaluation",
+    "algorithme de sommation",
+    "définition de Synergie",
+    "types numériques",
+    "politique d'erreur",
+    "optimisation",
+    "solveur",
+    "discrétisation"
+  ],
+  "nodes": [
+    {
+      "node_id": "FUN-ELL-I",
+      "node_kind": "Input",
+      "semantic_name": "ell_i",
+      "description": "Collection indexée d'expériences individuelles.",
+      "input_ports": [],
+      "output_ports": [
+        {
+          "port_id": "FUN-ELL-I-OUT",
+          "semantic_name": "{ell_i}",
+          "direction": "output",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": {
+            "status": "unresolved"
+          },
+          "required": true,
+          "source_reference": "SYM-ELL-I",
+          "unresolved_properties": []
+        }
+      ],
+      "mathematical_type": {
+        "status": "unresolved"
+      },
+      "shape": {
+        "status": "unresolved"
+      },
+      "units": {
+        "status": "unresolved"
+      },
+      "constraints": [],
+      "purity": "pure",
+      "state_effects": [
+        "none"
+      ],
+      "determinism": {
+        "status": "unresolved"
+      },
+      "temporal_character": {
+        "status": "unresolved"
+      },
+      "source_contract_reference": "SYM-ELL-I",
+      "source_scientific_reference": "maths/14-lived-experience.md:140-142",
+      "classification": "normative_from_contract",
+      "unresolved_properties": [],
+      "status": "engineering_candidate"
+    },
+    {
+      "node_id": "FUN-N",
+      "node_kind": "Parameter",
+      "semantic_name": "N",
+      "description": "Borne de sommation et diviseur.",
+      "input_ports": [],
+      "output_ports": [
+        {
+          "port_id": "FUN-N-OUT",
+          "semantic_name": "N",
+          "direction": "output",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": 1,
+          "required": true,
+          "source_reference": "SYM-N",
+          "unresolved_properties": []
+        }
+      ],
+      "mathematical_type": {
+        "status": "unresolved"
+      },
+      "shape": {
+        "status": "unresolved"
+      },
+      "units": {
+        "status": "unresolved"
+      },
+      "constraints": [
+        "UNRES-N"
+      ],
+      "purity": "pure",
+      "state_effects": [
+        "none"
+      ],
+      "determinism": {
+        "status": "unresolved"
+      },
+      "temporal_character": {
+        "status": "unresolved"
+      },
+      "source_contract_reference": "SYM-N",
+      "source_scientific_reference": "maths/14-lived-experience.md:140-142",
+      "classification": "derived_without_semantic_change",
+      "unresolved_properties": [],
+      "status": "engineering_candidate"
+    },
+    {
+      "node_id": "FUN-SIGMA",
+      "node_kind": "Parameter",
+      "semantic_name": "sigma",
+      "description": "Coefficient du terme de synergie.",
+      "input_ports": [],
+      "output_ports": [
+        {
+          "port_id": "FUN-SIGMA-OUT",
+          "semantic_name": "sigma",
+          "direction": "output",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": 1,
+          "required": true,
+          "source_reference": "SYM-SIGMA",
+          "unresolved_properties": []
+        }
+      ],
+      "mathematical_type": {
+        "status": "unresolved"
+      },
+      "shape": {
+        "status": "unresolved"
+      },
+      "units": {
+        "status": "unresolved"
+      },
+      "constraints": [],
+      "purity": "pure",
+      "state_effects": [
+        "none"
+      ],
+      "determinism": {
+        "status": "unresolved"
+      },
+      "temporal_character": {
+        "status": "unresolved"
+      },
+      "source_contract_reference": "SYM-SIGMA",
+      "source_scientific_reference": "maths/14-lived-experience.md:140-142",
+      "classification": "derived_without_semantic_change",
+      "unresolved_properties": [],
+      "status": "engineering_candidate"
+    },
+    {
+      "node_id": "FUN-SUM",
+      "node_kind": "Reduction",
+      "semantic_name": "somme indexée",
+      "description": "Somme de ell_i pour i de 1 à N, telle qu'écrite dans la source.",
+      "input_ports": [
+        {
+          "port_id": "FUN-SUM-VALUES",
+          "semantic_name": "{ell_i}",
+          "direction": "input",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": {
+            "status": "unresolved"
+          },
+          "required": true,
+          "source_reference": "EQ-COLLECTIVE-MEMORY",
+          "unresolved_properties": []
+        },
+        {
+          "port_id": "FUN-SUM-N",
+          "semantic_name": "N",
+          "direction": "input",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": 1,
+          "required": true,
+          "source_reference": "SYM-N",
+          "unresolved_properties": []
+        }
+      ],
+      "output_ports": [
+        {
+          "port_id": "FUN-SUM-OUT",
+          "semantic_name": "sum ell_i",
+          "direction": "output",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": 1,
+          "required": true,
+          "source_reference": "EQ-COLLECTIVE-MEMORY",
+          "unresolved_properties": []
+        }
+      ],
+      "mathematical_type": {
+        "status": "unresolved"
+      },
+      "shape": {
+        "status": "unresolved"
+      },
+      "units": {
+        "status": "unresolved"
+      },
+      "constraints": [
+        "indice i de 1 à N"
+      ],
+      "purity": "pure",
+      "state_effects": [
+        "none"
+      ],
+      "determinism": {
+        "status": "unresolved"
+      },
+      "temporal_character": {
+        "status": "unresolved"
+      },
+      "source_contract_reference": "EQ-COLLECTIVE-MEMORY",
+      "source_scientific_reference": "maths/14-lived-experience.md:140-142",
+      "classification": "structural_encoding",
+      "unresolved_properties": [
+        {
+          "property": "evaluation_method",
+          "reason": "Aucun algorithme de sommation n'est spécifié.",
+          "source_reference": "EQ-COLLECTIVE-MEMORY",
+          "blocking_for_lowering": true
+        }
+      ],
+      "status": "engineering_candidate"
+    },
+    {
+      "node_id": "FUN-DIVIDE",
+      "node_kind": "Operator",
+      "semantic_name": "division par N",
+      "description": "Forme (1/N) * somme, sans choix numérique.",
+      "input_ports": [
+        {
+          "port_id": "FUN-DIVIDE-SUM",
+          "semantic_name": "somme",
+          "direction": "input",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": 1,
+          "required": true,
+          "source_reference": "EQ-COLLECTIVE-MEMORY",
+          "unresolved_properties": []
+        },
+        {
+          "port_id": "FUN-DIVIDE-N",
+          "semantic_name": "N",
+          "direction": "input",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": 1,
+          "required": true,
+          "source_reference": "SYM-N",
+          "unresolved_properties": []
+        }
+      ],
+      "output_ports": [
+        {
+          "port_id": "FUN-DIVIDE-OUT",
+          "semantic_name": "moyenne",
+          "direction": "output",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": 1,
+          "required": true,
+          "source_reference": "EQ-COLLECTIVE-MEMORY",
+          "unresolved_properties": []
+        }
+      ],
+      "mathematical_type": {
+        "status": "unresolved"
+      },
+      "shape": {
+        "status": "unresolved"
+      },
+      "units": {
+        "status": "unresolved"
+      },
+      "constraints": [
+        "N != 0"
+      ],
+      "purity": "pure",
+      "state_effects": [
+        "error_possible"
+      ],
+      "determinism": {
+        "status": "unresolved"
+      },
+      "temporal_character": {
+        "status": "unresolved"
+      },
+      "source_contract_reference": "EQ-COLLECTIVE-MEMORY",
+      "source_scientific_reference": "maths/14-lived-experience.md:140-142",
+      "classification": "structural_encoding",
+      "unresolved_properties": [
+        {
+          "property": "failure_semantics",
+          "reason": "Non définie.",
+          "source_reference": "UNRES-N",
+          "blocking_for_lowering": true
+        }
+      ],
+      "status": "engineering_candidate"
+    },
+    {
+      "node_id": "FUN-SYNERGIE",
+      "node_kind": "OpaqueOperator",
+      "semantic_name": "Synergie",
+      "description": "Opérateur opaque strictement conservé.",
+      "input_ports": [
+        {
+          "port_id": "FUN-SYNERGIE-IN",
+          "semantic_name": "{ell_i}",
+          "direction": "input",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": {
+            "status": "unresolved"
+          },
+          "required": true,
+          "source_reference": "SYM-SYNERGY",
+          "unresolved_properties": []
+        }
+      ],
+      "output_ports": [
+        {
+          "port_id": "FUN-SYNERGIE-OUT",
+          "semantic_name": "résultat de Synergie",
+          "direction": "output",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": 1,
+          "required": true,
+          "source_reference": "SYM-SYNERGY",
+          "unresolved_properties": []
+        }
+      ],
+      "mathematical_type": "mapping",
+      "shape": {
+        "status": "unresolved"
+      },
+      "units": {
+        "status": "unresolved"
+      },
+      "constraints": [],
+      "purity": "unknown",
+      "state_effects": [
+        "unresolved"
+      ],
+      "determinism": {
+        "status": "unresolved"
+      },
+      "temporal_character": {
+        "status": "unresolved"
+      },
+      "source_contract_reference": "SYM-SYNERGY",
+      "source_scientific_reference": "maths/14-lived-experience.md:140-142",
+      "classification": "unresolved",
+      "unresolved_properties": [
+        {
+          "property": "definition_domain_codomain",
+          "reason": "Absents du contrat.",
+          "source_reference": "UNRES-SYNERGY",
+          "blocking_for_lowering": true
+        }
+      ],
+      "status": "unresolved"
+    },
+    {
+      "node_id": "FUN-MULTIPLY",
+      "node_kind": "Operator",
+      "semantic_name": "pondération par sigma",
+      "description": "Multiplication de sigma par le résultat opaque de Synergie.",
+      "input_ports": [
+        {
+          "port_id": "FUN-MULTIPLY-SIGMA",
+          "semantic_name": "sigma",
+          "direction": "input",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": 1,
+          "required": true,
+          "source_reference": "SYM-SIGMA",
+          "unresolved_properties": []
+        },
+        {
+          "port_id": "FUN-MULTIPLY-SYNERGIE",
+          "semantic_name": "Synergie({ell_i})",
+          "direction": "input",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": 1,
+          "required": true,
+          "source_reference": "SYM-SYNERGY",
+          "unresolved_properties": []
+        }
+      ],
+      "output_ports": [
+        {
+          "port_id": "FUN-MULTIPLY-OUT",
+          "semantic_name": "terme de synergie pondéré",
+          "direction": "output",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": 1,
+          "required": true,
+          "source_reference": "EQ-COLLECTIVE-MEMORY",
+          "unresolved_properties": []
+        }
+      ],
+      "mathematical_type": {
+        "status": "unresolved"
+      },
+      "shape": {
+        "status": "unresolved"
+      },
+      "units": {
+        "status": "unresolved"
+      },
+      "constraints": [],
+      "purity": "pure",
+      "state_effects": [
+        "none"
+      ],
+      "determinism": {
+        "status": "unresolved"
+      },
+      "temporal_character": {
+        "status": "unresolved"
+      },
+      "source_contract_reference": "EQ-COLLECTIVE-MEMORY",
+      "source_scientific_reference": "maths/14-lived-experience.md:140-142",
+      "classification": "structural_encoding",
+      "unresolved_properties": [],
+      "status": "engineering_candidate"
+    },
+    {
+      "node_id": "FUN-ADD",
+      "node_kind": "Operator",
+      "semantic_name": "addition finale",
+      "description": "Addition de la moyenne et du terme de synergie pondéré.",
+      "input_ports": [
+        {
+          "port_id": "FUN-ADD-MEAN",
+          "semantic_name": "moyenne",
+          "direction": "input",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": 1,
+          "required": true,
+          "source_reference": "EQ-COLLECTIVE-MEMORY",
+          "unresolved_properties": []
+        },
+        {
+          "port_id": "FUN-ADD-SYNERGY",
+          "semantic_name": "terme de synergie pondéré",
+          "direction": "input",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": 1,
+          "required": true,
+          "source_reference": "EQ-COLLECTIVE-MEMORY",
+          "unresolved_properties": []
+        }
+      ],
+      "output_ports": [
+        {
+          "port_id": "FUN-ADD-OUT",
+          "semantic_name": "ell_col",
+          "direction": "output",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": 1,
+          "required": true,
+          "source_reference": "SYM-ELL-COL",
+          "unresolved_properties": []
+        }
+      ],
+      "mathematical_type": {
+        "status": "unresolved"
+      },
+      "shape": {
+        "status": "unresolved"
+      },
+      "units": {
+        "status": "unresolved"
+      },
+      "constraints": [
+        "UNRES-EXPERIENCE-TYPE"
+      ],
+      "purity": "pure",
+      "state_effects": [
+        "error_possible"
+      ],
+      "determinism": {
+        "status": "unresolved"
+      },
+      "temporal_character": {
+        "status": "unresolved"
+      },
+      "source_contract_reference": "EQ-COLLECTIVE-MEMORY",
+      "source_scientific_reference": "maths/14-lived-experience.md:140-142",
+      "classification": "structural_encoding",
+      "unresolved_properties": [
+        {
+          "property": "operand_compatibility",
+          "reason": "Types, formes, dimensions et unités absents.",
+          "source_reference": "UNRES-EXPERIENCE-TYPE",
+          "blocking_for_lowering": true
+        }
+      ],
+      "status": "engineering_candidate"
+    },
+    {
+      "node_id": "FUN-N-VALIDATE",
+      "node_kind": "Validation",
+      "semantic_name": "N non nul",
+      "description": "Validation symbolique N != 0.",
+      "input_ports": [
+        {
+          "port_id": "FUN-N-VALIDATE-IN",
+          "semantic_name": "N",
+          "direction": "input",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": 1,
+          "required": true,
+          "source_reference": "UNRES-N",
+          "unresolved_properties": []
+        }
+      ],
+      "output_ports": [],
+      "mathematical_type": {
+        "status": "unresolved"
+      },
+      "shape": {
+        "status": "unresolved"
+      },
+      "units": {
+        "status": "unresolved"
+      },
+      "constraints": [
+        "N != 0"
+      ],
+      "purity": "validation_only",
+      "state_effects": [
+        "none"
+      ],
+      "determinism": {
+        "status": "unresolved"
+      },
+      "temporal_character": {
+        "status": "unresolved"
+      },
+      "source_contract_reference": "UNRES-N",
+      "source_scientific_reference": "maths/14-lived-experience.md:140-142",
+      "classification": "derived_without_semantic_change",
+      "unresolved_properties": [
+        {
+          "property": "failure_semantics",
+          "reason": "Non définie.",
+          "source_reference": "UNRES-N",
+          "blocking_for_lowering": true
+        }
+      ],
+      "status": "engineering_candidate"
+    },
+    {
+      "node_id": "FUN-ELL-COL",
+      "node_kind": "Output",
+      "semantic_name": "ell_col",
+      "description": "Résultat satisfaisant l'expression source lorsque les opérandes sont définis.",
+      "input_ports": [
+        {
+          "port_id": "FUN-ELL-COL-IN",
+          "semantic_name": "ell_col",
+          "direction": "input",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": 1,
+          "required": true,
+          "source_reference": "SYM-ELL-COL",
+          "unresolved_properties": []
+        }
+      ],
+      "output_ports": [],
+      "mathematical_type": {
+        "status": "unresolved"
+      },
+      "shape": {
+        "status": "unresolved"
+      },
+      "units": {
+        "status": "unresolved"
+      },
+      "constraints": [
+        "POST-TRACEABLE"
+      ],
+      "purity": "pure",
+      "state_effects": [
+        "none"
+      ],
+      "determinism": {
+        "status": "unresolved"
+      },
+      "temporal_character": {
+        "status": "unresolved"
+      },
+      "source_contract_reference": "SYM-ELL-COL",
+      "source_scientific_reference": "maths/14-lived-experience.md:140-142",
+      "classification": "normative_from_contract",
+      "unresolved_properties": [],
+      "status": "engineering_candidate"
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "FUN-E1",
+      "source_node": "FUN-ELL-I",
+      "source_port": "FUN-ELL-I-OUT",
+      "target_node": "FUN-SUM",
+      "target_port": "FUN-SUM-VALUES",
+      "data_type": {
+        "status": "unresolved"
+      },
+      "dependency_kind": "data",
+      "constraint": null,
+      "source_reference": "EQ-COLLECTIVE-MEMORY",
+      "classification": "structural_encoding",
+      "unresolved_properties": []
+    },
+    {
+      "edge_id": "FUN-E2",
+      "source_node": "FUN-N",
+      "source_port": "FUN-N-OUT",
+      "target_node": "FUN-SUM",
+      "target_port": "FUN-SUM-N",
+      "data_type": {
+        "status": "unresolved"
+      },
+      "dependency_kind": "data",
+      "constraint": null,
+      "source_reference": "EQ-COLLECTIVE-MEMORY",
+      "classification": "structural_encoding",
+      "unresolved_properties": []
+    },
+    {
+      "edge_id": "FUN-E3",
+      "source_node": "FUN-SUM",
+      "source_port": "FUN-SUM-OUT",
+      "target_node": "FUN-DIVIDE",
+      "target_port": "FUN-DIVIDE-SUM",
+      "data_type": {
+        "status": "unresolved"
+      },
+      "dependency_kind": "data",
+      "constraint": null,
+      "source_reference": "EQ-COLLECTIVE-MEMORY",
+      "classification": "structural_encoding",
+      "unresolved_properties": []
+    },
+    {
+      "edge_id": "FUN-E4",
+      "source_node": "FUN-N",
+      "source_port": "FUN-N-OUT",
+      "target_node": "FUN-DIVIDE",
+      "target_port": "FUN-DIVIDE-N",
+      "data_type": {
+        "status": "unresolved"
+      },
+      "dependency_kind": "data",
+      "constraint": "N != 0",
+      "source_reference": "UNRES-N",
+      "classification": "structural_encoding",
+      "unresolved_properties": []
+    },
+    {
+      "edge_id": "FUN-E5",
+      "source_node": "FUN-ELL-I",
+      "source_port": "FUN-ELL-I-OUT",
+      "target_node": "FUN-SYNERGIE",
+      "target_port": "FUN-SYNERGIE-IN",
+      "data_type": {
+        "status": "unresolved"
+      },
+      "dependency_kind": "unresolved",
+      "constraint": null,
+      "source_reference": "EQ-COLLECTIVE-MEMORY",
+      "classification": "unresolved",
+      "unresolved_properties": [
+        {
+          "property": "operator_semantics",
+          "reason": "Synergie non définie.",
+          "source_reference": "UNRES-SYNERGY",
+          "blocking_for_lowering": true
+        }
+      ]
+    },
+    {
+      "edge_id": "FUN-E6",
+      "source_node": "FUN-SIGMA",
+      "source_port": "FUN-SIGMA-OUT",
+      "target_node": "FUN-MULTIPLY",
+      "target_port": "FUN-MULTIPLY-SIGMA",
+      "data_type": {
+        "status": "unresolved"
+      },
+      "dependency_kind": "data",
+      "constraint": null,
+      "source_reference": "EQ-COLLECTIVE-MEMORY",
+      "classification": "structural_encoding",
+      "unresolved_properties": []
+    },
+    {
+      "edge_id": "FUN-E7",
+      "source_node": "FUN-SYNERGIE",
+      "source_port": "FUN-SYNERGIE-OUT",
+      "target_node": "FUN-MULTIPLY",
+      "target_port": "FUN-MULTIPLY-SYNERGIE",
+      "data_type": {
+        "status": "unresolved"
+      },
+      "dependency_kind": "unresolved",
+      "constraint": null,
+      "source_reference": "EQ-COLLECTIVE-MEMORY",
+      "classification": "unresolved",
+      "unresolved_properties": []
+    },
+    {
+      "edge_id": "FUN-E8",
+      "source_node": "FUN-DIVIDE",
+      "source_port": "FUN-DIVIDE-OUT",
+      "target_node": "FUN-ADD",
+      "target_port": "FUN-ADD-MEAN",
+      "data_type": {
+        "status": "unresolved"
+      },
+      "dependency_kind": "data",
+      "constraint": "UNRES-EXPERIENCE-TYPE",
+      "source_reference": "EQ-COLLECTIVE-MEMORY",
+      "classification": "structural_encoding",
+      "unresolved_properties": []
+    },
+    {
+      "edge_id": "FUN-E9",
+      "source_node": "FUN-MULTIPLY",
+      "source_port": "FUN-MULTIPLY-OUT",
+      "target_node": "FUN-ADD",
+      "target_port": "FUN-ADD-SYNERGY",
+      "data_type": {
+        "status": "unresolved"
+      },
+      "dependency_kind": "data",
+      "constraint": "UNRES-EXPERIENCE-TYPE",
+      "source_reference": "EQ-COLLECTIVE-MEMORY",
+      "classification": "structural_encoding",
+      "unresolved_properties": []
+    },
+    {
+      "edge_id": "FUN-E10",
+      "source_node": "FUN-ADD",
+      "source_port": "FUN-ADD-OUT",
+      "target_node": "FUN-ELL-COL",
+      "target_port": "FUN-ELL-COL-IN",
+      "data_type": {
+        "status": "unresolved"
+      },
+      "dependency_kind": "data",
+      "constraint": "POST-TRACEABLE",
+      "source_reference": "EQ-COLLECTIVE-MEMORY",
+      "classification": "structural_encoding",
+      "unresolved_properties": []
+    },
+    {
+      "edge_id": "FUN-E11",
+      "source_node": "FUN-N",
+      "source_port": "FUN-N-OUT",
+      "target_node": "FUN-N-VALIDATE",
+      "target_port": "FUN-N-VALIDATE-IN",
+      "data_type": {
+        "status": "unresolved"
+      },
+      "dependency_kind": "validation",
+      "constraint": "N != 0",
+      "source_reference": "UNRES-N",
+      "classification": "derived_without_semantic_change",
+      "unresolved_properties": []
+    }
+  ],
+  "contract_constraints": [
+    {
+      "constraint_id": "UNRES-N",
+      "contract_reference": "UNRES-N",
+      "expression": "N != 0",
+      "applies_to_nodes": [
+        "FUN-N",
+        "FUN-DIVIDE",
+        "FUN-N-VALIDATE"
+      ],
+      "validation_stage": "before_division",
+      "failure_semantics": {
+        "status": "unresolved"
+      },
+      "classification": "derived_without_semantic_change",
+      "unresolved_properties": []
+    },
+    {
+      "constraint_id": "UNRES-EXPERIENCE-TYPE",
+      "contract_reference": "UNRES-EXPERIENCE-TYPE",
+      "expression": "La moyenne et sigma * Synergie({ell_i}) doivent être additionnables.",
+      "applies_to_nodes": [
+        "FUN-ADD"
+      ],
+      "validation_stage": "before_addition",
+      "failure_semantics": {
+        "status": "unresolved"
+      },
+      "classification": "derived_without_semantic_change",
+      "unresolved_properties": [
+        {
+          "property": "compatibility",
+          "reason": "Types absents.",
+          "source_reference": "UNRES-EXPERIENCE-TYPE",
+          "blocking_for_lowering": true
+        }
+      ]
+    },
+    {
+      "constraint_id": "POST-TRACEABLE",
+      "contract_reference": "POST-TRACEABLE",
+      "expression": "Le résultat satisfait exactement l'expression source pour des opérandes mathématiquement définis.",
+      "applies_to_nodes": [
+        "FUN-ADD",
+        "FUN-ELL-COL"
+      ],
+      "validation_stage": "postcondition",
+      "failure_semantics": {
+        "status": "unresolved"
+      },
+      "classification": "derived_without_semantic_change",
+      "unresolved_properties": []
+    }
+  ],
+  "unresolved_properties": [
+    {
+      "unresolved_id": "UNRES-SYNERGY",
+      "source_contract_item": "functions.Synergie",
+      "property": "definition_domain_codomain",
+      "description": "Définition, domaine et codomaine de Synergie absents.",
+      "affected_nodes": [
+        "FUN-SYNERGIE",
+        "FUN-MULTIPLY"
+      ],
+      "affected_edges": [
+        "FUN-E5",
+        "FUN-E7"
+      ],
+      "blocking_for_semantic_ir": false,
+      "blocking_for_functional_ir": false,
+      "blocking_for_compute_ir": true,
+      "blocking_for_dynamic_ir": true,
+      "blocking_for_implementation_planning": true,
+      "blocking_for_code_generation": true,
+      "resolution_authority": "contract_revision",
+      "status": "unresolved"
+    },
+    {
+      "unresolved_id": "UNRES-N",
+      "source_contract_item": "symbols.N",
+      "property": "domain_and_cardinality",
+      "description": "Domaine de N et lien avec {ell_i} absents.",
+      "affected_nodes": [
+        "FUN-N",
+        "FUN-SUM",
+        "FUN-DIVIDE"
+      ],
+      "affected_edges": [
+        "FUN-E2",
+        "FUN-E4"
+      ],
+      "blocking_for_semantic_ir": false,
+      "blocking_for_functional_ir": false,
+      "blocking_for_compute_ir": true,
+      "blocking_for_dynamic_ir": true,
+      "blocking_for_implementation_planning": true,
+      "blocking_for_code_generation": true,
+      "resolution_authority": "contract_revision",
+      "status": "unresolved"
+    },
+    {
+      "unresolved_id": "UNRES-EXPERIENCE-TYPE",
+      "source_contract_item": "type_constraints",
+      "property": "spaces_shapes_dimensions_units",
+      "description": "Types, formes, dimensions et unités absents.",
+      "affected_nodes": [
+        "FUN-ELL-I",
+        "FUN-N",
+        "FUN-SIGMA",
+        "FUN-SUM",
+        "FUN-DIVIDE",
+        "FUN-SYNERGIE",
+        "FUN-MULTIPLY",
+        "FUN-ADD",
+        "FUN-ELL-COL"
+      ],
+      "affected_edges": [],
+      "blocking_for_semantic_ir": false,
+      "blocking_for_functional_ir": false,
+      "blocking_for_compute_ir": true,
+      "blocking_for_dynamic_ir": true,
+      "blocking_for_implementation_planning": true,
+      "blocking_for_code_generation": true,
+      "resolution_authority": "contract_revision",
+      "status": "unresolved"
+    },
+    {
+      "unresolved_id": "UNRES-SIGMA",
+      "source_contract_item": "symbols.SYM-SIGMA",
+      "property": "type_sign_units",
+      "description": "The type, sign, and units of sigma are not stated.",
+      "affected_nodes": [
+        "FUN-SIGMA"
+      ],
+      "affected_edges": [],
+      "blocking_for_semantic_ir": false,
+      "blocking_for_functional_ir": false,
+      "blocking_for_compute_ir": true,
+      "blocking_for_dynamic_ir": true,
+      "blocking_for_implementation_planning": true,
+      "blocking_for_code_generation": true,
+      "resolution_authority": "contract_revision",
+      "status": "unresolved"
+    }
+  ],
+  "implementation_choices_required": [
+    "IMPL-COLLECTION",
+    "IMPL-TYPE-MAPPING"
+  ],
+  "source_traceability": [
+    {
+      "trace_id": "COV-EQUATION",
+      "contract_id": "TLC-MC-TLC-FC-14-LIVED-EXPERIENCE-005",
+      "feature_id": "TLC-FC-14-LIVED-EXPERIENCE-005",
+      "object_id": "TLC-SO-LIVED-EXPERIENCE-065",
+      "relation_id": "TLC-SR-LIVED-EXPERIENCE-064",
+      "source_path": "maths/14-lived-experience.md",
+      "lines": "140-142",
+      "source_commit": "68a4d4c728bab655631543b3e1788d4f0da31e8e",
+      "classification": "normative_from_contract"
+    }
+  ],
+  "work_item_id": "TLC-IR-TLC-FC-14-LIVED-EXPERIENCE-005-RECOVERY"
+}
