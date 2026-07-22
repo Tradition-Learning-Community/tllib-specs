@@ -1,0 +1,31 @@
+contract_id: TLC-MC-TLC-FC-14-LIVED-EXPERIENCE-005
+feature_id: TLC-FC-14-LIVED-EXPERIENCE-005
+status: candidate
+equations:
+  - equation_id: EQ-COLLECTIVE-MEMORY
+    source_form: "\\ell_{\\mathrm{col}} = \\frac{1}{N}\\sum_{i=1}^{N} \\ell_i + \\sigma \\cdot \\mathrm{Synergie}(\\{\\ell_i\\})"
+    normalized_latex: "\\ell_{\\mathrm{col}} = \\frac{1}{N}\\sum_{i=1}^{N} \\ell_i + \\sigma \\cdot \\operatorname{Synergie}(\\{\\ell_i\\}_{i=1}^{N})"
+    normalization_description: Operator typography and explicit collection index only.
+    equivalence_status: syntactic_normalization_only
+    mathematical_class: algebraic_transformation_with_finite_sum
+    symbols_used: [SYM-ELL-COL, SYM-N, SYM-I, SYM-ELL-I, SYM-ELL-SET, SYM-SIGMA, SYM-SYNERGY]
+    inputs: [SYM-N, SYM-ELL-I, SYM-ELL-SET, SYM-SIGMA, SYM-SYNERGY]
+    outputs: [SYM-ELL-COL]
+    states: []
+    parameters: [SYM-N, SYM-SIGMA]
+    constants: []
+    domain: {status: unresolved}
+    codomain: {status: unresolved}
+    temporal_character: not_specified
+    determinism: {status: unresolved}
+    initial_conditions: []
+    boundary_conditions: []
+    constraints: []
+    invariants: []
+    hypotheses: []
+    contract_dependencies: []
+    source_evidence: "maths/14-lived-experience.md:140-142"
+    classification: normative_from_source
+    verification_status: exact_source_form_verified
+    status: candidate
+ambiguities: [{field: N, finding: domain and nonzero condition unstated, status: unresolved}, {field: experience_type, finding: addition averaging and scalar multiplication types unstated, status: unresolved}, {field: synergy, finding: operator domain codomain and definition unstated, status: unresolved}, {field: sigma, finding: type sign and units unstated, status: unresolved}]
