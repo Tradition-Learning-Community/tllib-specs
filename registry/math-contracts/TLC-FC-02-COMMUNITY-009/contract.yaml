@@ -1,8 +1,10 @@
-feature_id: TLC-FC-02-COMMUNITY-001
-canonical_name: '02-community: constraint (admissible)'
+feature_id: TLC-FC-02-COMMUNITY-009
+canonical_name: '02-community: relation (admissible)'
 source_file: maths/02-community.md
 source_objects:
-- TLC-SO-COMMUNITY-008
+- TLC-SO-COMMUNITY-004
+- TLC-SO-COMMUNITY-026
+- TLC-SO-COMMUNITY-032
 source_relations: &id001 []
 source_locations:
 - repository: Tradition-Learning-Community/tllib-specs
@@ -12,12 +14,34 @@ source_locations:
   source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
   source_blob_sha: d8327b5ebb8b1638cd40017e0bc188fa2cd01d7a
   document_title: La Communauté (Community)
+  section: Définition formelle et espaces
+  subsection: Réseau relationnel $\mathcal{R}$
+  start_line: 36
+  end_line: 37
+- repository: Tradition-Learning-Community/tllib-specs
+  source_path: maths/02-community.md
+  source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/02-community.md
+  source_branch: main
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  source_blob_sha: d8327b5ebb8b1638cd40017e0bc188fa2cd01d7a
+  document_title: La Communauté (Community)
+  section: Définition formelle et espaces
+  subsection: Réseau relationnel $\mathcal{R}$
+  start_line: 39
+  end_line: 41
+- repository: Tradition-Learning-Community/tllib-specs
+  source_path: maths/02-community.md
+  source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/02-community.md
+  source_branch: main
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  source_blob_sha: d8327b5ebb8b1638cd40017e0bc188fa2cd01d7a
+  document_title: La Communauté (Community)
   section: Axiomes fondamentaux de la Communauté
   subsection: null
-  start_line: 81
-  end_line: 83
+  start_line: 85
+  end_line: 85
 scientific_status: candidate_with_reservations
-contract_kind: validation
+contract_kind: relational
 computational_status: structurally_representable_not_executable
 inputs: not_specified
 outputs: not_specified
@@ -133,7 +157,7 @@ unresolved:
 - unresolved_id: TLC-UT-COMMUNITY-029
   scope: community_domain_reservation
   status: unresolved
-special_handling: regenerated_from_current_plan_historical_schema_preserved
+special_handling: standard
 execution_readiness: false
 implementation_planning_readiness: false
 code_generation_readiness: false
