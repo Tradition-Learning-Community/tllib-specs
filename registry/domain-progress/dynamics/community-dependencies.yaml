@@ -1,0 +1,8 @@
+domain_id: dynamics
+authority_status: preparation_only_non_authoritative
+dependencies:
+  - {dependency_id: DYN-COMMUNITY-001, affected_feature_ids: [TLC-FC-05-DYNAMICS-001, TLC-FC-05-DYNAMICS-002, TLC-FC-05-DYNAMICS-005, TLC-FC-05-DYNAMICS-006], affected_object_ids: [TLC-SO-DYNAMICS-012, TLC-SO-DYNAMICS-013, TLC-SO-DYNAMICS-014, TLC-SO-DYNAMICS-015, TLC-SO-DYNAMICS-025, TLC-SO-DYNAMICS-026], dependency_status: confirmed_from_dynamics_source_target_reconciliation_unresolved, required_level: symbol_only, source_evidence: "maths/05-dynamics.md:112-153", production_effect: blocks_execution_only, notes: "Community is not canonical in origin/main."}
+future_reconciliation_required: true
+production_effect: blocks_execution_only
+reconciliation_trigger: "Community contracts and IR merged into origin/main"
+summary: {confirmed: 1, inferred_candidate: 0, rejected: 0, unresolved: 1, blocking_contract_generation: 0, blocking_ir_generation: 0, blocking_execution_only: 1}
