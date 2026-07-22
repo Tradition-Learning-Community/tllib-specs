@@ -1,0 +1,31 @@
+feature_id: TLC-FC-14-LIVED-EXPERIENCE-005
+source_contract_commit: 1ff27ea31bae784a64ac3eee534404ce2ce322fa
+contract_elements:
+  - {contract_reference: TLC-SO-LIVED-EXPERIENCE-065, element_kind: scientific_object, ir_variant: semantic, ir_node_or_constraint: SEM-EQUATION, coverage_status: fully_represented, notes: "Objet Ã©quation conservÃ©."}
+  - {contract_reference: SYM-ELL-SET, element_kind: set, ir_variant: semantic, ir_node_or_constraint: SEM-COLLECTION, coverage_status: represented_as_opaque, notes: "Appartenance et cardinalitÃ© non rÃ©solues."}
+  - {contract_reference: SYM-ELL-COL, element_kind: symbol, ir_variant: semantic, ir_node_or_constraint: SEM-ELL-COL, coverage_status: fully_represented, notes: "Type conservÃ© unresolved."}
+  - {contract_reference: SYM-ELL-I, element_kind: symbol, ir_variant: semantic, ir_node_or_constraint: SEM-ELL-I, coverage_status: fully_represented, notes: "Type conservÃ© unresolved."}
+  - {contract_reference: SYM-N, element_kind: symbol, ir_variant: semantic, ir_node_or_constraint: SEM-N, coverage_status: fully_represented, notes: "Domaine conservÃ© unresolved."}
+  - {contract_reference: SYM-I, element_kind: symbol, ir_variant: semantic, ir_node_or_constraint: SEM-I, coverage_status: fully_represented, notes: "Indice 1 Ã  N conservÃ©."}
+  - {contract_reference: SYM-SIGMA, element_kind: symbol, ir_variant: semantic, ir_node_or_constraint: SEM-SIGMA, coverage_status: fully_represented, notes: "Type conservÃ© unresolved."}
+  - {contract_reference: SYM-SYNERGY, element_kind: operator, ir_variant: semantic, ir_node_or_constraint: SEM-SYNERGIE, coverage_status: represented_as_opaque, notes: "Aucune dÃ©finition inventÃ©e."}
+  - {contract_reference: EQ-COLLECTIVE-MEMORY, element_kind: equation, ir_variant: functional, ir_node_or_constraint: "FUN-SUM,FUN-DIVIDE,FUN-SYNERGIE,FUN-MULTIPLY,FUN-ADD", coverage_status: fully_represented, notes: "Composition strictement issue de l'expression."}
+  - {contract_reference: UNRES-N, element_kind: constraint, ir_variant: functional, ir_node_or_constraint: FUN-N-VALIDATE, coverage_status: unresolved, notes: "Le domaine et la condition de validité de N restent non résolus; aucune politique d'échec n'est ajoutée."}
+  - {contract_reference: UNRES-EXPERIENCE-TYPE, element_kind: constraint, ir_variant: functional, ir_node_or_constraint: FUN-ADD, coverage_status: represented_as_opaque, notes: "CompatibilitÃ© non vÃ©rifiable faute de types."}
+  - {contract_reference: POST-TRACEABLE, element_kind: postcondition, ir_variant: semantic, ir_node_or_constraint: SEM-ELL-COL, coverage_status: fully_represented, notes: "Ã‰galitÃ© Ã  l'expression conservÃ©e."}
+  - {contract_reference: dependencies, element_kind: dependencies, ir_variant: semantic, ir_node_or_constraint: source_traceability, coverage_status: fully_represented, notes: "Aucun contrat requis; dÃ©pendance contextuelle non normative conservÃ©e."}
+  - {contract_reference: oracle_basis, element_kind: oracle_basis, ir_variant: semantic, ir_node_or_constraint: SEM-EQUATION, coverage_status: fully_represented, notes: "Ã‰quation, contrainte et rÃ¨gle structurelle conservÃ©es; oracle exÃ©cutable absent."}
+  - {contract_reference: UNRES-SYNERGY, element_kind: unresolved, ir_variant: semantic, ir_node_or_constraint: SEM-SYNERGIE, coverage_status: unresolved, notes: "PropagÃ©."}
+  - {contract_reference: UNRES-N, element_kind: unresolved, ir_variant: semantic, ir_node_or_constraint: SEM-N, coverage_status: unresolved, notes: "PropagÃ©."}
+  - {contract_reference: UNRES-EXPERIENCE-TYPE, element_kind: unresolved, ir_variant: semantic, ir_node_or_constraint: SEM-EQUATION, coverage_status: unresolved, notes: "PropagÃ©."}
+  - {contract_reference: UNRES-SIGMA, element_kind: unresolved, ir_variant: semantic, ir_node_or_constraint: SEM-SIGMA, coverage_status: unresolved, notes: "Type, signe et unités propagés sans hypothèse."}
+  - {contract_reference: IMPL-COLLECTION, element_kind: implementation_choice, ir_variant: semantic, ir_node_or_constraint: TLC-IR-IMPL-LIVED-005-001, coverage_status: unresolved, notes: "DiffÃ©rÃ©."}
+  - {contract_reference: IMPL-TYPE-MAPPING, element_kind: implementation_choice, ir_variant: semantic, ir_node_or_constraint: TLC-IR-IMPL-LIVED-005-002, coverage_status: unresolved, notes: "DiffÃ©rÃ©."}
+  - {contract_reference: COV-EQUATION, element_kind: source_traceability, ir_variant: semantic, ir_node_or_constraint: source_traceability, coverage_status: fully_represented, notes: "Source, lignes et commit conservÃ©s."}
+coverage_summary:
+  total_contract_elements: 21
+  fully_represented: 11
+  represented_as_opaque: 3
+  unresolved: 7
+  omitted_with_justification: 0
+  missing: 0

@@ -1,0 +1,753 @@
+{
+  "ir_id": "TLC-IR-SEMANTIC-TLC-FC-14-LIVED-EXPERIENCE-005",
+  "feature_id": "TLC-FC-14-LIVED-EXPERIENCE-005",
+  "variant": "semantic",
+  "status": "engineering_candidate",
+  "provenance": {
+    "source_contract_branch": "contract/TLC-FC-14-LIVED-EXPERIENCE-005",
+    "source_contract_commit": "1ff27ea31bae784a64ac3eee534404ce2ce322fa",
+    "source_contract_id": "TLC-MC-TLC-FC-14-LIVED-EXPERIENCE-005",
+    "source_contract_status": "candidate",
+    "scientific_sources": [
+      {
+        "path": "maths/14-lived-experience.md",
+        "lines": "140-142",
+        "commit": "68a4d4c728bab655631543b3e1788d4f0da31e8e"
+      }
+    ]
+  },
+  "validation": {
+    "scientific_validation": "pending",
+    "source_contract_ready_for_ir": false,
+    "progression_mode": "candidate_with_preserved_reservations",
+    "contains_unresolved": true,
+    "ready_for_implementation_planning": false,
+    "ready_for_code_generation": false
+  },
+  "purpose": "Préserver l'équation de mémoire collective émergente, ses symboles, sa contrainte et ses incertitudes sans imposer de représentation calculatoire.",
+  "preserved_semantics": [
+    "ell_col est exprimée comme la moyenne de N termes ell_i augmentée de sigma fois Synergie({ell_i}).",
+    "N doit être non nul pour que l'expression soit définie.",
+    "Les deux termes du membre droit doivent être additionnables.",
+    "La relation TLC-SR-LIVED-EXPERIENCE-064 est contextuelle et non normative."
+  ],
+  "explicit_engineering_structure": [
+    "Symboles représentés comme nœuds indépendants.",
+    "Synergie représentée comme opérateur opaque.",
+    "Contraintes représentées comme nœuds de validation."
+  ],
+  "excluded_decisions": [
+    "définition de Synergie",
+    "types mathématiques",
+    "domaines et codomaines",
+    "formes, dimensions et unités",
+    "représentation finie",
+    "politique d'erreur",
+    "langage cible"
+  ],
+  "nodes": [
+    {
+      "node_id": "SEM-COLLECTION",
+      "node_kind": "Set",
+      "semantic_name": "collection des expériences individuelles",
+      "description": "Collection {ell_i} utilisée par la somme et par Synergie.",
+      "input_ports": [],
+      "output_ports": [],
+      "mathematical_type": {
+        "status": "unresolved"
+      },
+      "shape": {
+        "status": "unresolved"
+      },
+      "units": {
+        "status": "unresolved"
+      },
+      "constraints": [],
+      "purity": "unknown",
+      "state_effects": [
+        "none"
+      ],
+      "determinism": {
+        "status": "unresolved"
+      },
+      "temporal_character": {
+        "status": "unresolved"
+      },
+      "source_contract_reference": "SYM-ELL-SET",
+      "source_scientific_reference": "maths/14-lived-experience.md:140-142",
+      "classification": "derived_without_semantic_change",
+      "unresolved_properties": [
+        {
+          "property": "membership_and_cardinality",
+          "reason": "Non définies par le contrat.",
+          "source_reference": "SYM-ELL-SET",
+          "blocking_for_lowering": true
+        }
+      ],
+      "status": "engineering_candidate"
+    },
+    {
+      "node_id": "SEM-ELL-I",
+      "node_kind": "Input",
+      "semantic_name": "expérience individuelle indexée",
+      "description": "Symbole ell_i.",
+      "input_ports": [],
+      "output_ports": [
+        {
+          "port_id": "SEM-ELL-I-OUT",
+          "semantic_name": "ell_i",
+          "direction": "output",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": {
+            "status": "unresolved"
+          },
+          "required": true,
+          "source_reference": "SYM-ELL-I",
+          "unresolved_properties": []
+        }
+      ],
+      "mathematical_type": {
+        "status": "unresolved"
+      },
+      "shape": {
+        "status": "unresolved"
+      },
+      "units": {
+        "status": "unresolved"
+      },
+      "constraints": [],
+      "purity": "pure",
+      "state_effects": [
+        "none"
+      ],
+      "determinism": {
+        "status": "unresolved"
+      },
+      "temporal_character": {
+        "status": "unresolved"
+      },
+      "source_contract_reference": "SYM-ELL-I",
+      "source_scientific_reference": "maths/14-lived-experience.md:140-142",
+      "classification": "normative_from_contract",
+      "unresolved_properties": [
+        {
+          "property": "type_shape_dimensions_units",
+          "reason": "Absents du contrat.",
+          "source_reference": "UNRES-EXPERIENCE-TYPE",
+          "blocking_for_lowering": true
+        }
+      ],
+      "status": "engineering_candidate"
+    },
+    {
+      "node_id": "SEM-N",
+      "node_kind": "Parameter",
+      "semantic_name": "N",
+      "description": "Borne supérieure et diviseur de la moyenne.",
+      "input_ports": [],
+      "output_ports": [
+        {
+          "port_id": "SEM-N-OUT",
+          "semantic_name": "N",
+          "direction": "output",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": 1,
+          "required": true,
+          "source_reference": "SYM-N",
+          "unresolved_properties": []
+        }
+      ],
+      "mathematical_type": {
+        "status": "unresolved"
+      },
+      "shape": {
+        "status": "unresolved"
+      },
+      "units": {
+        "status": "unresolved"
+      },
+      "constraints": [
+        "UNRES-N"
+      ],
+      "purity": "pure",
+      "state_effects": [
+        "none"
+      ],
+      "determinism": {
+        "status": "unresolved"
+      },
+      "temporal_character": {
+        "status": "unresolved"
+      },
+      "source_contract_reference": "SYM-N",
+      "source_scientific_reference": "maths/14-lived-experience.md:140-142",
+      "classification": "derived_without_semantic_change",
+      "unresolved_properties": [
+        {
+          "property": "domain_and_cardinality_relation",
+          "reason": "Le domaine de N et son lien avec {ell_i} ne sont pas définis.",
+          "source_reference": "UNRES-N",
+          "blocking_for_lowering": true
+        }
+      ],
+      "status": "engineering_candidate"
+    },
+    {
+      "node_id": "SEM-SIGMA",
+      "node_kind": "Parameter",
+      "semantic_name": "sigma",
+      "description": "Coefficient du terme de synergie.",
+      "input_ports": [],
+      "output_ports": [
+        {
+          "port_id": "SEM-SIGMA-OUT",
+          "semantic_name": "sigma",
+          "direction": "output",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": 1,
+          "required": true,
+          "source_reference": "SYM-SIGMA",
+          "unresolved_properties": []
+        }
+      ],
+      "mathematical_type": {
+        "status": "unresolved"
+      },
+      "shape": {
+        "status": "unresolved"
+      },
+      "units": {
+        "status": "unresolved"
+      },
+      "constraints": [],
+      "purity": "pure",
+      "state_effects": [
+        "none"
+      ],
+      "determinism": {
+        "status": "unresolved"
+      },
+      "temporal_character": {
+        "status": "unresolved"
+      },
+      "source_contract_reference": "SYM-SIGMA",
+      "source_scientific_reference": "maths/14-lived-experience.md:140-142",
+      "classification": "derived_without_semantic_change",
+      "unresolved_properties": [
+        {
+          "property": "type_shape_dimensions_units",
+          "reason": "Absents du contrat.",
+          "source_reference": "UNRES-EXPERIENCE-TYPE",
+          "blocking_for_lowering": true
+        }
+      ],
+      "status": "engineering_candidate"
+    },
+    {
+      "node_id": "SEM-I",
+      "node_kind": "Parameter",
+      "semantic_name": "indice i",
+      "description": "Indice de sommation de 1 à N.",
+      "input_ports": [],
+      "output_ports": [],
+      "mathematical_type": {
+        "status": "unresolved"
+      },
+      "shape": {
+        "status": "unresolved"
+      },
+      "units": {
+        "status": "unresolved"
+      },
+      "constraints": [
+        "1 à N selon la notation"
+      ],
+      "purity": "pure",
+      "state_effects": [
+        "none"
+      ],
+      "determinism": {
+        "status": "unresolved"
+      },
+      "temporal_character": {
+        "status": "unresolved"
+      },
+      "source_contract_reference": "SYM-I",
+      "source_scientific_reference": "maths/14-lived-experience.md:140-142",
+      "classification": "normative_from_contract",
+      "unresolved_properties": [
+        {
+          "property": "mathematical_type",
+          "reason": "Non défini par le contrat.",
+          "source_reference": "SYM-I",
+          "blocking_for_lowering": true
+        }
+      ],
+      "status": "engineering_candidate"
+    },
+    {
+      "node_id": "SEM-SYNERGIE",
+      "node_kind": "OpaqueOperator",
+      "semantic_name": "Synergie",
+      "description": "Opérateur cité mais scientifiquement non défini.",
+      "input_ports": [
+        {
+          "port_id": "SEM-SYNERGIE-IN",
+          "semantic_name": "{ell_i}",
+          "direction": "input",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": {
+            "status": "unresolved"
+          },
+          "required": true,
+          "source_reference": "SYM-SYNERGY",
+          "unresolved_properties": []
+        }
+      ],
+      "output_ports": [
+        {
+          "port_id": "SEM-SYNERGIE-OUT",
+          "semantic_name": "résultat de Synergie",
+          "direction": "output",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": 1,
+          "required": true,
+          "source_reference": "SYM-SYNERGY",
+          "unresolved_properties": []
+        }
+      ],
+      "mathematical_type": "mapping",
+      "shape": {
+        "status": "unresolved"
+      },
+      "units": {
+        "status": "unresolved"
+      },
+      "constraints": [],
+      "purity": "unknown",
+      "state_effects": [
+        "unresolved"
+      ],
+      "determinism": {
+        "status": "unresolved"
+      },
+      "temporal_character": {
+        "status": "unresolved"
+      },
+      "source_contract_reference": "SYM-SYNERGY",
+      "source_scientific_reference": "maths/14-lived-experience.md:140-142",
+      "classification": "unresolved",
+      "unresolved_properties": [
+        {
+          "property": "definition_domain_codomain",
+          "reason": "Synergie n'est pas définie dans le passage autorisé.",
+          "source_reference": "UNRES-SYNERGY",
+          "blocking_for_lowering": true
+        }
+      ],
+      "status": "unresolved"
+    },
+    {
+      "node_id": "SEM-EQUATION",
+      "node_kind": "Constraint",
+      "semantic_name": "équation de mémoire collective émergente",
+      "description": "ell_col = (1/N) sum_{i=1}^N ell_i + sigma * Synergie({ell_i}).",
+      "input_ports": [],
+      "output_ports": [],
+      "mathematical_type": {
+        "status": "unresolved"
+      },
+      "shape": {
+        "status": "unresolved"
+      },
+      "units": {
+        "status": "unresolved"
+      },
+      "constraints": [
+        "EQ-COLLECTIVE-MEMORY"
+      ],
+      "purity": "validation_only",
+      "state_effects": [
+        "none"
+      ],
+      "determinism": {
+        "status": "unresolved"
+      },
+      "temporal_character": {
+        "status": "unresolved"
+      },
+      "source_contract_reference": "EQ-COLLECTIVE-MEMORY",
+      "source_scientific_reference": "maths/14-lived-experience.md:140-142",
+      "classification": "normative_from_contract",
+      "unresolved_properties": [],
+      "status": "engineering_candidate"
+    },
+    {
+      "node_id": "SEM-N-NONZERO",
+      "node_kind": "Validation",
+      "semantic_name": "N non nul",
+      "description": "Validation de définissabilité du dénominateur.",
+      "input_ports": [
+        {
+          "port_id": "SEM-N-NONZERO-IN",
+          "semantic_name": "N",
+          "direction": "input",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": 1,
+          "required": true,
+          "source_reference": "UNRES-N",
+          "unresolved_properties": []
+        }
+      ],
+      "output_ports": [],
+      "mathematical_type": {
+        "status": "unresolved"
+      },
+      "shape": {
+        "status": "unresolved"
+      },
+      "units": {
+        "status": "unresolved"
+      },
+      "constraints": [
+        "N != 0"
+      ],
+      "purity": "validation_only",
+      "state_effects": [
+        "none"
+      ],
+      "determinism": {
+        "status": "unresolved"
+      },
+      "temporal_character": {
+        "status": "unresolved"
+      },
+      "source_contract_reference": "UNRES-N",
+      "source_scientific_reference": "maths/14-lived-experience.md:140-142",
+      "classification": "derived_without_semantic_change",
+      "unresolved_properties": [
+        {
+          "property": "failure_semantics",
+          "reason": "Politique d'erreur absente du contrat.",
+          "source_reference": "UNRES-N",
+          "blocking_for_lowering": true
+        }
+      ],
+      "status": "engineering_candidate"
+    },
+    {
+      "node_id": "SEM-ELL-COL",
+      "node_kind": "Output",
+      "semantic_name": "expérience collective",
+      "description": "Symbole de sortie ell_col.",
+      "input_ports": [
+        {
+          "port_id": "SEM-ELL-COL-IN",
+          "semantic_name": "ell_col",
+          "direction": "input",
+          "mathematical_type": {
+            "status": "unresolved"
+          },
+          "shape": {
+            "status": "unresolved"
+          },
+          "units": {
+            "status": "unresolved"
+          },
+          "multiplicity": 1,
+          "required": true,
+          "source_reference": "SYM-ELL-COL",
+          "unresolved_properties": []
+        }
+      ],
+      "output_ports": [],
+      "mathematical_type": {
+        "status": "unresolved"
+      },
+      "shape": {
+        "status": "unresolved"
+      },
+      "units": {
+        "status": "unresolved"
+      },
+      "constraints": [
+        "POST-TRACEABLE"
+      ],
+      "purity": "pure",
+      "state_effects": [
+        "none"
+      ],
+      "determinism": {
+        "status": "unresolved"
+      },
+      "temporal_character": {
+        "status": "unresolved"
+      },
+      "source_contract_reference": "SYM-ELL-COL",
+      "source_scientific_reference": "maths/14-lived-experience.md:140-142",
+      "classification": "normative_from_contract",
+      "unresolved_properties": [
+        {
+          "property": "type_shape_dimensions_units",
+          "reason": "Absents du contrat.",
+          "source_reference": "UNRES-EXPERIENCE-TYPE",
+          "blocking_for_lowering": true
+        }
+      ],
+      "status": "engineering_candidate"
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "SEM-EDGE-COL-SYN",
+      "source_node": "SEM-COLLECTION",
+      "source_port": null,
+      "target_node": "SEM-SYNERGIE",
+      "target_port": "SEM-SYNERGIE-IN",
+      "data_type": {
+        "status": "unresolved"
+      },
+      "dependency_kind": "semantic",
+      "constraint": null,
+      "source_reference": "EQ-COLLECTIVE-MEMORY",
+      "classification": "structural_encoding",
+      "unresolved_properties": []
+    },
+    {
+      "edge_id": "SEM-EDGE-N-VALID",
+      "source_node": "SEM-N",
+      "source_port": "SEM-N-OUT",
+      "target_node": "SEM-N-NONZERO",
+      "target_port": "SEM-N-NONZERO-IN",
+      "data_type": {
+        "status": "unresolved"
+      },
+      "dependency_kind": "validation",
+      "constraint": "N != 0",
+      "source_reference": "UNRES-N",
+      "classification": "derived_without_semantic_change",
+      "unresolved_properties": []
+    },
+    {
+      "edge_id": "SEM-EDGE-EQ-OUT",
+      "source_node": "SEM-EQUATION",
+      "source_port": null,
+      "target_node": "SEM-ELL-COL",
+      "target_port": "SEM-ELL-COL-IN",
+      "data_type": {
+        "status": "unresolved"
+      },
+      "dependency_kind": "semantic",
+      "constraint": "EQ-COLLECTIVE-MEMORY",
+      "source_reference": "EQ-COLLECTIVE-MEMORY",
+      "classification": "structural_encoding",
+      "unresolved_properties": []
+    }
+  ],
+  "contract_constraints": [
+    {
+      "constraint_id": "UNRES-N",
+      "contract_reference": "UNRES-N",
+      "expression": "N != 0",
+      "applies_to_nodes": [
+        "SEM-N",
+        "SEM-N-NONZERO"
+      ],
+      "validation_stage": "symbolic_definedness",
+      "failure_semantics": {
+        "status": "unresolved"
+      },
+      "classification": "derived_without_semantic_change",
+      "unresolved_properties": []
+    },
+    {
+      "constraint_id": "UNRES-EXPERIENCE-TYPE",
+      "contract_reference": "UNRES-EXPERIENCE-TYPE",
+      "expression": "La moyenne et sigma * Synergie({ell_i}) doivent être additionnables.",
+      "applies_to_nodes": [
+        "SEM-EQUATION",
+        "SEM-SYNERGIE"
+      ],
+      "validation_stage": "type_compatibility",
+      "failure_semantics": {
+        "status": "unresolved"
+      },
+      "classification": "derived_without_semantic_change",
+      "unresolved_properties": [
+        {
+          "property": "compatibility_check",
+          "reason": "Types absents.",
+          "source_reference": "UNRES-EXPERIENCE-TYPE",
+          "blocking_for_lowering": true
+        }
+      ]
+    },
+    {
+      "constraint_id": "POST-TRACEABLE",
+      "contract_reference": "POST-TRACEABLE",
+      "expression": "Le résultat satisfait exactement l'expression source pour des opérandes mathématiquement définis.",
+      "applies_to_nodes": [
+        "SEM-EQUATION",
+        "SEM-ELL-COL"
+      ],
+      "validation_stage": "postcondition",
+      "failure_semantics": {
+        "status": "unresolved"
+      },
+      "classification": "derived_without_semantic_change",
+      "unresolved_properties": []
+    }
+  ],
+  "unresolved_properties": [
+    {
+      "unresolved_id": "UNRES-SYNERGY",
+      "source_contract_item": "functions.Synergie",
+      "property": "definition_domain_codomain",
+      "description": "Définition mathématique, domaine et codomaine de Synergie absents.",
+      "affected_nodes": [
+        "SEM-SYNERGIE",
+        "SEM-EQUATION"
+      ],
+      "affected_edges": [
+        "SEM-EDGE-COL-SYN"
+      ],
+      "blocking_for_semantic_ir": false,
+      "blocking_for_functional_ir": false,
+      "blocking_for_compute_ir": true,
+      "blocking_for_dynamic_ir": true,
+      "blocking_for_implementation_planning": true,
+      "blocking_for_code_generation": true,
+      "resolution_authority": "contract_revision",
+      "status": "unresolved"
+    },
+    {
+      "unresolved_id": "UNRES-N",
+      "source_contract_item": "symbols.N",
+      "property": "domain_and_cardinality",
+      "description": "Domaine de N et lien avec la cardinalité de {ell_i} absents.",
+      "affected_nodes": [
+        "SEM-N",
+        "SEM-COLLECTION",
+        "SEM-EQUATION"
+      ],
+      "affected_edges": [
+        "SEM-EDGE-N-VALID"
+      ],
+      "blocking_for_semantic_ir": false,
+      "blocking_for_functional_ir": false,
+      "blocking_for_compute_ir": true,
+      "blocking_for_dynamic_ir": true,
+      "blocking_for_implementation_planning": true,
+      "blocking_for_code_generation": true,
+      "resolution_authority": "contract_revision",
+      "status": "unresolved"
+    },
+    {
+      "unresolved_id": "UNRES-EXPERIENCE-TYPE",
+      "source_contract_item": "type_constraints",
+      "property": "spaces_shapes_dimensions_units",
+      "description": "Types, formes, dimensions et unités des opérandes absents.",
+      "affected_nodes": [
+        "SEM-ELL-I",
+        "SEM-N",
+        "SEM-SIGMA",
+        "SEM-SYNERGIE",
+        "SEM-ELL-COL",
+        "SEM-EQUATION"
+      ],
+      "affected_edges": [],
+      "blocking_for_semantic_ir": false,
+      "blocking_for_functional_ir": false,
+      "blocking_for_compute_ir": true,
+      "blocking_for_dynamic_ir": true,
+      "blocking_for_implementation_planning": true,
+      "blocking_for_code_generation": true,
+      "resolution_authority": "contract_revision",
+      "status": "unresolved"
+    },
+    {
+      "unresolved_id": "UNRES-SIGMA",
+      "source_contract_item": "symbols.SYM-SIGMA",
+      "property": "type_sign_units",
+      "description": "The type, sign, and units of sigma are not stated.",
+      "affected_nodes": [
+        "SEM-SIGMA"
+      ],
+      "affected_edges": [],
+      "blocking_for_semantic_ir": false,
+      "blocking_for_functional_ir": false,
+      "blocking_for_compute_ir": true,
+      "blocking_for_dynamic_ir": true,
+      "blocking_for_implementation_planning": true,
+      "blocking_for_code_generation": true,
+      "resolution_authority": "contract_revision",
+      "status": "unresolved"
+    }
+  ],
+  "implementation_choices_required": [
+    "IMPL-COLLECTION",
+    "IMPL-TYPE-MAPPING"
+  ],
+  "source_traceability": [
+    {
+      "trace_id": "COV-EQUATION",
+      "contract_id": "TLC-MC-TLC-FC-14-LIVED-EXPERIENCE-005",
+      "feature_id": "TLC-FC-14-LIVED-EXPERIENCE-005",
+      "object_id": "TLC-SO-LIVED-EXPERIENCE-065",
+      "relation_id": "TLC-SR-LIVED-EXPERIENCE-064",
+      "source_path": "maths/14-lived-experience.md",
+      "lines": "140-142",
+      "source_commit": "68a4d4c728bab655631543b3e1788d4f0da31e8e",
+      "classification": "normative_from_contract"
+    }
+  ],
+  "work_item_id": "TLC-IR-TLC-FC-14-LIVED-EXPERIENCE-005-RECOVERY"
+}

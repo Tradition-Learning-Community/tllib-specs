@@ -1,0 +1,64 @@
+work_item_id: TLC-FUNCTIONAL-DECOMPOSITION-REVISION-001
+stage: functional_decomposition_revision
+status: candidate
+input:
+  decomposition_commit: d0d1e26ef6a488aa291e1f4e616b9b2748ff2370
+  review_commit: 94683f9a8a762b3afe735b8442e1dfff6a624368
+summary:
+  original_feature_candidates: 224
+  retained_features: 140
+  retained_with_reservations: 66
+  converted_candidates: 84
+  rejected_as_features: 44
+  active_functional_dependencies: 0
+  scientific_context_relations: 811
+  rejected_dependencies: 554
+  unresolved_dependencies: 0
+  boundary_corrections_applied: 0
+  boundary_decisions_pending: 17
+  oracle_ready: 21
+  oracle_incomplete: 203
+  contract_wave_1: 0
+  contract_wave_2: 0
+  contract_wave_3: 0
+  deferred: 224
+blocking_issues:
+- 17 boundary decisions remain pending
+- Explicit oracle information is absent
+- Two critical candidates require scientific relation decisions
+non_blocking_issues:
+- Three variants are not structurally materialized
+questions_for_human:
+- TLC-HBD-001
+- TLC-HBD-002
+- TLC-HBD-003
+- TLC-HBD-004
+- TLC-HBD-005
+- TLC-HBD-006
+- TLC-HBD-007
+- TLC-HBD-008
+- TLC-HBD-009
+- TLC-HBD-010
+- TLC-HBD-011
+- TLC-HBD-012
+- TLC-HBD-013
+- TLC-HBD-014
+- TLC-HBD-015
+- TLC-HBD-016
+- TLC-HBD-017
+- TLC-HSD-MASTER-003
+- TLC-HSD-MASTER-007
+- TLC-HOD-CONTRACT-WAVE-1
+recommended_decision:
+  value: revise
+  justification: The deterministic cleanup is complete, but scientific boundary and oracle decisions remain.
+allowed_decisions:
+- approved
+- approved_with_reservations
+- revise
+- rejected
+readiness:
+  ready_for_human_validation: false
+  ready_for_contract_wave_1: false
+  ready_for_ir: false
+  ready_for_implementation: false

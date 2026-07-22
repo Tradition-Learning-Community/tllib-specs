@@ -1,0 +1,69 @@
+policy_id: TLC-SCIENTIFIC-REVIEW-POLICY-V1
+status: candidate
+purpose: >-
+  Réduire la charge de revue sans introduire de connaissance scientifique,
+  sans modifier les registres et en conservant une piste d'audit complète.
+principles:
+  - non_invention
+  - conservative_separation
+  - explicit_evidence_only
+  - reversibility
+  - complete_traceability
+risk_levels:
+  AUTO:
+    description: Décision réversible, non destructive et explicitement vérifiable.
+  AUTO_WITH_SECOND_REVIEW:
+    description: Décision admissible seulement après deux passes automatiques concordantes.
+  HUMAN_REQUIRED:
+    description: Décision ambiguë, contradictoire, risquée ou insuffisamment documentée.
+automatic_rules:
+  minimum_confidence: 0.98
+  required_properties: [reversible, non_destructive, no_new_scientific_interpretation, explicit_evidence, no_contradiction]
+  allowed_actions:
+    - request_targeted_reextraction
+    - mark_unresolved
+    - keep_separate_on_explicit_incompatibility
+    - resolve_mechanical_reference
+    - resolve_term_from_explicit_identical_traceable_definition
+double_review_rules:
+  applies_to: [merge, declare_alias, rapprochement]
+  required_passes: [positive_identity_analysis, contradictory_difference_analysis]
+  divergence_result: HUMAN_REQUIRED
+  concordance_required: true
+mandatory_human_review_rules:
+  - confidence_below_threshold
+  - contradictory_evidence
+  - destructive_merge
+  - non_exact_identity_of_axiom_invariant_or_theorem
+  - important_functional_consequence
+  - insufficient_data
+confidence_thresholds:
+  automatic: 0.98
+  automatic_merge: 0.98
+  automatic_alias: 0.95
+  near_threshold_margin: 0.02
+sampling_policy:
+  automatic_merges: 1.0
+  automatic_aliases: 0.2
+  automatic_keep_separate: 0.1
+  automatic_term_resolutions: 0.1
+  coverage_requirements: [at_least_one_per_source, at_least_one_per_scientific_type, all_near_threshold]
+rollback_policy:
+  method: Remove candidate outputs and rerun from unchanged source artifacts.
+  registry_changes_permitted: false
+  automatic_results_status: candidate
+prohibited_automatic_actions:
+  - modify_maths
+  - modify_algorithms
+  - modify_individual_extractions
+  - modify_candidate_scientific_registries
+  - modify_existing_human_decisions
+  - modify_decision_ledger
+  - invent_definition_relation_equation_feature_ir_or_business_code
+  - merge_by_name_only
+  - convert_uncertainty_to_certainty
+human_approval:
+  status: pending
+  approved_by: null
+  approved_at: null
+  reservations: []

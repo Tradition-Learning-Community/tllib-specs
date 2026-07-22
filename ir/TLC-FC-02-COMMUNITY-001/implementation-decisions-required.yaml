@@ -1,0 +1,24 @@
+feature_id: TLC-FC-02-COMMUNITY-001
+source_contract_commit: 2e0858acc21bd97fe6c59db50b2598fb73971e52
+status: candidate
+decisions:
+  - decision_id: IMPL-RESULT-REPRESENTATION
+    source_contract_reference: registry/math-contracts/TLC-FC-02-COMMUNITY-001/implementation-decisions-required.yaml#IMPL-RESULT-REPRESENTATION
+    description: Select a finite representation only after mathematical result semantics are approved.
+    allowed_scope: Representation of approved result semantics.
+    forbidden_assumptions: [boolean_result, tolerance, exception_policy]
+    affected_variants: [functional, compute]
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    decision_authority: implementation_specification
+    status: unresolved
+  - decision_id: IMPL-MATH-TYPE-MAPPING
+    source_contract_reference: registry/math-contracts/TLC-FC-02-COMMUNITY-001/implementation-decisions-required.yaml#IMPL-MATH-TYPE-MAPPING
+    description: Map approved mathematical sets, mapping, and scalar to implementation representations.
+    allowed_scope: Preserve membership and strict positivity after mathematical types are approved.
+    forbidden_assumptions: [target_language_type, library, storage_layout]
+    affected_variants: [semantic, functional, compute]
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    decision_authority: implementation_specification
+    status: unresolved

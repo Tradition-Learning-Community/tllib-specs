@@ -1,0 +1,24 @@
+feature_id: TLC-FC-09-VALUES-018
+source_contract_commit: 7daa8758945e63feb0e64a2865acbb43dfab75dd
+status: engineering_candidate
+decisions:
+  - decision_id: IMPL-MATRIX-REPRESENTATION
+    source_contract_reference: implementation_choices_required.IMPL-MATRIX-REPRESENTATION
+    description: The abstract matrix eventually needs a finite representation.
+    allowed_scope: Select a representation only after m and the endpoint set are approved while preserving square shape and closed entry range.
+    forbidden_assumptions: [storage_layout, numeric_precision, library, target_language]
+    affected_variants: [semantic, functional]
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    decision_authority: implementation_specification
+    status: unresolved
+  - decision_id: IMPL-RESULT
+    source_contract_reference: implementation_choices_required.IMPL-RESULT
+    description: The evaluation output needs a representation after its semantics are approved.
+    allowed_scope: Select a result representation only from approved output semantics while preserving traceability.
+    forbidden_assumptions: [boolean_result, thresholds, target_language]
+    affected_variants: [semantic, functional]
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    decision_authority: implementation_specification
+    status: unresolved

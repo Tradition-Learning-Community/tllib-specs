@@ -1,0 +1,25 @@
+ir_id: TLC-IR-TLC-FC-05-DYNAMICS-001
+feature_id: TLC-FC-05-DYNAMICS-001
+status: engineering_candidate
+scientific_validation: pending
+entrypoint: IR-EVALUATE-VIABILITY
+inputs: [IR-T, IR-A, IR-R, IR-VC, IR-N, IR-NMIN, IR-LAMBDAMIN, IR-VCORE, IR-DELTAMAX, IR-NESS, IR-MMAX]
+states: [IR-A, IR-R, IR-VC, IR-N]
+parameters: [IR-NMIN, IR-LAMBDAMIN, IR-VCORE, IR-DELTAMAX, IR-NESS, IR-MMAX]
+operators: [IR-CARDINALITY, IR-L, IR-LAMBDA2, IR-NORM-VALUES, IR-NORM-MEMORY, IR-INTEGRAL]
+predicates: [IR-CON-SIZE, IR-CON-CONNECTIVITY, IR-CON-VALUES, IR-CON-MEMORY]
+outputs: [IR-VIABILITY-RESULT]
+control_flow:
+  - step_id: IR-STEP-BIND
+    operation: bind_abstract_inputs
+    produces: [IR-T, IR-A, IR-R, IR-VC, IR-N, IR-NMIN, IR-LAMBDAMIN, IR-VCORE, IR-DELTAMAX, IR-NESS, IR-MMAX]
+  - step_id: IR-STEP-EVALUATE
+    operation: evaluate_named_predicates_without_aggregation_policy
+    consumes: [IR-CON-SIZE, IR-CON-CONNECTIVITY, IR-CON-VALUES, IR-CON-MEMORY]
+    produces: [IR-VIABILITY-RESULT]
+semantics:
+  constraint_identity_preserved: true
+  equality_at_bounds_admissible: true
+  output_aggregation: {status: unresolved, source_unresolved_id: UNRES-OUTPUT}
+  temporal_domain: {status: unresolved, source_unresolved_id: UNRES-TIME}
+executable: false

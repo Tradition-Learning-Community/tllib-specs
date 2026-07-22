@@ -1,0 +1,10 @@
+contract_id: TLC-MC-TLC-FC-09-VALUES-018
+feature_id: TLC-FC-09-VALUES-018
+status: candidate
+spaces: [{space_id: SPACE-RELATION-MATRIX, mathematical_type: matrix, shape: "m x m", entry_set: SET-ENTRY-RANGE, status: candidate}]
+sets: [{set_id: SET-ENTRY-RANGE, expression: "[-1,1]", status: candidate}]
+constraints:
+  - {constraint_id: CON-SQUARE-SHAPE, expression: "shape(C) = m x m", referenced_symbols: [SYM-C, SYM-M], classification: normative_from_source, status: candidate}
+  - {constraint_id: CON-ENTRY-RANGE, expression: "C_ij in [-1,1]", referenced_symbols: [SYM-C], classification: derived_without_semantic_change, premises: [matrix_values_in_closed_interval], transformation: elementwise_membership_expansion, status: candidate}
+properties: [{property_id: PROP-RELATION-CATEGORIES, statement: Matrix entries describe relations between values including compatibility tension and opposition, referenced_symbols: [SYM-C], classification: normative_from_source, status: candidate}]
+ambiguities: [{field: m, finding: cardinality and index set are undefined, status: unresolved}, {field: endpoints, finding: row and column identities are undefined and must not be inferred, status: unresolved}, {field: category_mapping, finding: no numeric ranges map entries to the three relation categories, status: unresolved}]
