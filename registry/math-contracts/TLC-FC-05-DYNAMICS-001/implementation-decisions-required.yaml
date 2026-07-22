@@ -1,0 +1,6 @@
+contract_id: TLC-MC-TLC-FC-05-DYNAMICS-001
+feature_id: TLC-FC-05-DYNAMICS-001
+status: candidate
+decisions:
+  - {decision_id: IMPL-RESULT, topic: error_representation, reason_required: Approved evaluation semantics will require a finite result representation, scientific_constraints: [preserve_four_constraint_identities, preserve_candidate_status], allowed_information: [approved_output_semantics], prohibited_assumptions: [boolean_aggregation, tolerance, exception_policy], blocking_for_ir: true, blocking_for_implementation: true, source_evidence: "registry/math-contract-entry/contractable-features.yaml:1021-1024", status: candidate}
+  - {decision_id: IMPL-TYPE-MAPPING, topic: unresolved_type_mapping, reason_required: Mathematical states operators and thresholds eventually require representations, scientific_constraints: [preserve_inequality_semantics], allowed_information: [approved_mathematical_types], prohibited_assumptions: [C++_type, Python_type, library, storage_layout, discretization], blocking_for_ir: false, blocking_for_implementation: true, source_evidence: "maths/05-dynamics.md:150-153", status: candidate}

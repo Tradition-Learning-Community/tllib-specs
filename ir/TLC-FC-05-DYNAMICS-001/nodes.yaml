@@ -1,0 +1,16 @@
+ir_id: TLC-IR-TLC-FC-05-DYNAMICS-001
+status: engineering_candidate
+nodes:
+  - {node_id: IR-T, source_symbol_id: SYM-T, role: input, type_id: IR-TYPE-TIME, status: unresolved}
+  - {node_id: IR-TAU, source_symbol_id: SYM-TAU, role: bound_variable, type_id: IR-TYPE-TIME, status: unresolved}
+  - {node_id: IR-A, source_symbol_id: SYM-A, role: state, type_id: IR-TYPE-ACTOR-COLLECTION, status: engineering_candidate}
+  - {node_id: IR-R, source_symbol_id: SYM-R, role: state, type_id: IR-TYPE-RELATIONAL-STRUCTURE, status: unresolved}
+  - {node_id: IR-VC, source_symbol_id: SYM-VC, role: state, type_id: IR-TYPE-COMMUNITY-VALUES, status: unresolved}
+  - {node_id: IR-N, source_symbol_id: SYM-N, role: state, type_id: IR-TYPE-MEMORY, status: unresolved}
+  - {node_id: IR-NMIN, source_symbol_id: SYM-NMIN, role: parameter, type_id: IR-TYPE-THRESHOLD, status: engineering_candidate}
+  - {node_id: IR-LAMBDAMIN, source_symbol_id: SYM-LAMBDAMIN, role: parameter, type_id: IR-TYPE-THRESHOLD, status: engineering_candidate}
+  - {node_id: IR-VCORE, source_symbol_id: SYM-VCORE, role: parameter, type_id: IR-TYPE-COMMUNITY-VALUES, status: unresolved}
+  - {node_id: IR-DELTAMAX, source_symbol_id: SYM-DELTAMAX, role: parameter, type_id: IR-TYPE-THRESHOLD, status: engineering_candidate}
+  - {node_id: IR-NESS, source_symbol_id: SYM-NESS, role: parameter, type_id: IR-TYPE-MEMORY, status: unresolved}
+  - {node_id: IR-MMAX, source_symbol_id: SYM-MMAX, role: parameter, type_id: IR-TYPE-THRESHOLD, status: engineering_candidate}
+  - {node_id: IR-VIABILITY-RESULT, source_symbol_id: null, role: output, type_id: IR-TYPE-VIABILITY-RESULT, status: unresolved, unresolved_from: UNRES-OUTPUT}
