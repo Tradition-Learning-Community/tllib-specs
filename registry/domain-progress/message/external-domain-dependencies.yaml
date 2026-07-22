@@ -1,0 +1,38 @@
+domain: message
+preparation_only: true
+canonical_baseline: origin/main
+authority_rule: canonical_only
+dependencies:
+- domain: master
+  status: confirmed_symbol_only
+  authority: canonical_complete
+- domain: disciple
+  status: candidate
+  authority: canonical_complete
+- domain: community
+  status: candidate
+  authority: canonical_preparation_incomplete
+- domain: huit-dimensions
+  status: candidate
+  authority: noncanonical_parallel_work
+- domain: invariants
+  status: candidate
+  authority: noncanonical_parallel_work
+- domain: dynamics
+  status: candidate
+  authority: noncanonical_parallel_work
+- domain: theorems
+  status: none
+  authority: noncanonical_parallel_work
+- domain: principle
+  status: candidate
+  authority: historical_pilot_only
+hard_dependencies:
+- master
+candidate_dependencies:
+- disciple
+- community
+- huit-dimensions
+- invariants
+- dynamics
+- principle
