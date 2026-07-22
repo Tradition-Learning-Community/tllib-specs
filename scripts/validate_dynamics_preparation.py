@@ -13,7 +13,7 @@ import yaml
 
 
 DOMAIN = "dynamics"
-BASELINE = "448e01170e123472f3c82b60fff076242ec4a093"
+BASELINE = "ffbcbb66e6fa3fe809d9b94e47ef9c8bf8d19ddb"
 FEATURE_PREFIX = "TLC-FC-05-DYNAMICS-"
 OBJECT_PREFIX = "TLC-SO-DYNAMICS-"
 RELATION_PREFIX = "TLC-SR-DYNAMICS-"
@@ -191,7 +191,7 @@ def main() -> int:
     require(gates.get("ready_for_code_generation") is False, "code generation must remain false")
 
     status_lines = git(root, "status", "--porcelain", "--untracked-files=all").splitlines()
-    changed_paths = {line[3:].replace("\\", "/") for line in status_lines if len(line) > 3}
+    changed_paths = {line.strip().split(maxsplit=1)[-1].replace("\\", "/") for line in status_lines if line.strip()}
     committed_paths = set(git(root, "diff", "--name-only", "origin/main...HEAD").splitlines())
     all_paths = {path for path in changed_paths | committed_paths if path}
     allowed = lambda path: (

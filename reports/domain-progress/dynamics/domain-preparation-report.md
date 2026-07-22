@@ -2,7 +2,7 @@
 
 ## Baseline et autorité
 
-La préparation part exclusivement de `origin/main` au commit `448e01170e123472f3c82b60fff076242ec4a093`. Master et Disciple sont canoniques. Community, Huit Dimensions, Invariants et Theorems ne sont pas utilisés comme autorités lorsqu'ils ne sont pas fusionnés.
+La préparation part exclusivement de `origin/main` au commit `ffbcbb66e6fa3fe809d9b94e47ef9c8bf8d19ddb`. Master, Disciple et Community sont canoniques. Huit Dimensions, Invariants et Theorems ne sont pas utilisés comme autorités lorsqu'ils ne sont pas fusionnés.
 
 ## Inventaire et couverture
 

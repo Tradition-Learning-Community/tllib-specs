@@ -1,5 +1,5 @@
 # Dépendances Dynamics vers Community
 
-Community n'est pas fusionné dans `origin/main`; sa branche parallèle n'est donc pas une autorité scientifique. La dépendance est explicite dans la source Dynamics, mais l'identité des symboles cibles reste à réconcilier.
+Community est canonique dans `origin/main` au baseline `ffbcbb6`, avec 8 contrats et 8 IR validés sous réserves. La dépendance Dynamics est explicite et les fonctionnalités Community pertinentes sont maintenant des cibles canoniques.
 
-La préparation courante n'est pas bloquée. Une réconciliation future est obligatoire après fusion des contrats, IR et du statut Community; l'exécution reste bloquée jusque-là.
+La préparation et les futurs contrats structurels ne sont pas bloqués. Une réconciliation fine des identités de symboles reste obligatoire avant toute prétention d'exécution.
