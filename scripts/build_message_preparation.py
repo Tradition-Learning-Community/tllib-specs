@@ -63,7 +63,7 @@ dump("message-structure.yaml", {**meta, "structure":{"identity":"required","cont
 deps = {
  "master":("confirmed_symbol_only","canonical_complete","Role du Maître is explicit; reuse only canonical exported symbols."),
  "disciple":("candidate","canonical_complete","Receptive/understanding concepts suggest a dependency but no receiver interface is proven."),
- "community":("candidate","canonical_preparation_incomplete","Collective/cultural context is insufficient for a hard dependency."),
+ "community":("candidate","canonical_complete","Collective/cultural context is insufficient for a hard dependency."),
  "huit-dimensions":("candidate","noncanonical_parallel_work","Eight discourses are not assumed identical to the Huit Dimensions domain."),
  "invariants":("candidate","noncanonical_parallel_work","An invariant object exists but no upstream symbol is canonical."),
  "dynamics":("candidate","noncanonical_parallel_work","Process and cycle vocabulary do not prove a runtime dependency."),
