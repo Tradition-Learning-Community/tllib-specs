@@ -1,5 +1,3 @@
 # Disciple preparation — completion report
 
-Status: **preparation complete with reservations**.
-
-All ten stable feature identifiers are covered. Cross-domain Master links remain candidates. No mathematical contract, executable IR, pilot, Master artifact, or global manifest was changed. A proposal file records the future manifest update.
+Status: **reconciliation complete with reservations**. Master is canonical, all four prior candidates were reconciled, all ten features are ready for conservative contract generation, and execution/code readiness remains false.
