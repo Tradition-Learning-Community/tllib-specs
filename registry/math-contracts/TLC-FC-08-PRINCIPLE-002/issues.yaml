@@ -1,0 +1,43 @@
+contract_id: TLC-MC-TLC-FC-08-PRINCIPLE-002
+feature_id: TLC-FC-08-PRINCIPLE-002
+status: candidate
+issues:
+  - contract_issue_id: ISSUE-UNDEFINED-SYMBOLS-001
+    severity: major
+    type: undefined_symbol
+    artifact_field: symbol-table
+    object_ids: [TLC-SO-PRINCIPLE-087]
+    relation_ids: []
+    source_evidence: {source_path: maths/08-principle.md, start_line: 198, end_line: 200}
+    finding: The authorized passage uses P, D, t, and E without defining their mathematical domains, codomains, shapes, dimensions, or units.
+    consequence: Type, dimensional, and operand compatibility cannot be fully verified.
+    proposed_action: Obtain source-authorized definitions before IR typing.
+    human_required: true
+    classification: unresolved
+    status: candidate
+  - contract_issue_id: ISSUE-MISSING-CONDITIONS-001
+    severity: major
+    type: missing_condition
+    artifact_field: behavior
+    object_ids: [TLC-SO-PRINCIPLE-087]
+    relation_ids: []
+    source_evidence: {source_path: maths/08-principle.md, start_line: 198, end_line: 200}
+    finding: No initial condition, evolution domain, regularity condition, or stopping condition is present in the authorized passage.
+    consequence: The differential law alone does not define a uniquely evaluable evolution problem.
+    proposed_action: Scientific review must determine whether additional authorized source evidence exists.
+    human_required: true
+    classification: unresolved
+    status: candidate
+  - contract_issue_id: ISSUE-ORACLE-LIMITED-001
+    severity: minor
+    type: unverified_claim
+    artifact_field: oracle_basis
+    object_ids: [TLC-SO-PRINCIPLE-087]
+    relation_ids: []
+    source_evidence: {source_path: registry/math-contract-entry/oracle-basis.yaml, start_line: 1232, end_line: 1253}
+    finding: The oracle basis contains only the equation and no independent expected value, invariant, theorem, property, or example.
+    consequence: It supports structural conformance but not independent numeric correctness.
+    proposed_action: Preserve as a limitation; do not manufacture an executable oracle.
+    human_required: false
+    classification: normative_from_source
+    status: candidate
