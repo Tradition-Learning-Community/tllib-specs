@@ -1,23 +1,38 @@
-domain: disciple
-status: preparation_complete_with_reservations
-baseline_tag: tlc-scientific-pipeline-v1
-baseline_commit: 9aef7ab424f3cf998c47caaa9ed4402302e96031
-generated_at: '2026-07-22T12:58:47+00:00'
-scope_rule: preparation_only_no_contract_or_ir
-gates:
-- gate: all_stable_disciple_features_covered
-  passed: true
-- gate: source_objects_and_relations_inventory_present
-  passed: true
-- gate: master_dependencies_not_overstated
-  passed: true
-- gate: no_contract_generated
-  passed: true
-- gate: no_ir_generated
-  passed: true
-- gate: ready_for_contract_generation_after_master
-  passed: true
-  with_reservations: true
-- gate: ready_for_ir_generation
-  passed: false
-  reason: Disciple contracts and required Master mappings do not yet exist.
+domain_id: disciple
+reconciliation_status: reconciliation_complete_with_reservations
+master_commit: eb977485b7314e32e643e52461e086eb3a753724
+master_status: complete_to_ir_with_reservations
+generated_at: '2026-07-22T14:22:22+00:00'
+contracts_produced: 0
+irs_produced: 0
+master_gate:
+  actual_master_status: complete_to_ir_with_reservations
+  accepted: true
+  master_commit: eb977485b7314e32e643e52461e086eb3a753724
+  required_symbols:
+  - TLC-SO-MASTER-001
+  - TLC-FC-00-MASTER-016
+  required_contracts: []
+  required_irs: []
+  unresolved_master_dependencies: []
+disciple_preparation_gate:
+  inventory_complete: true
+  scientific_coverage_complete: true
+  feature_coverage_complete: true
+  dependency_graph_complete: true
+  master_reconciliation_complete: true
+  classification_complete: true
+  production_order_complete: true
+  unresolved_classified: true
+  contract_plan_complete: true
+  ir_plan_complete: true
+blocking_conditions: []
+non_blocking_reservations:
+- 32 local unresolved records must be propagated
+- three Master sub-symbol mappings remain unresolved
+- execution semantics are not validated
+ready_for_contract_generation_now: true
+ready_for_full_contract_generation: true
+ready_for_ir_generation: false
+ready_for_implementation_planning: false
+ready_for_code_generation: false

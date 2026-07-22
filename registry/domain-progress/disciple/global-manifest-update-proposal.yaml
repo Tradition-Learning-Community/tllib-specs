@@ -1,14 +1,19 @@
-domain: disciple
-status: preparation_complete_with_reservations
-baseline_tag: tlc-scientific-pipeline-v1
-baseline_commit: 9aef7ab424f3cf998c47caaa9ed4402302e96031
-generated_at: '2026-07-22T12:58:47+00:00'
-scope_rule: preparation_only_no_contract_or_ir
+domain_id: disciple
+reconciliation_status: reconciliation_complete_with_reservations
+master_commit: eb977485b7314e32e643e52461e086eb3a753724
+master_status: complete_to_ir_with_reservations
+generated_at: '2026-07-22T14:22:22+00:00'
+contracts_produced: 0
+irs_produced: 0
 proposal_only: true
-updates:
-- domain: disciple
-  proposed_status: preparation_complete_with_reservations
-  feature_count: 10
-  contract_count: 0
-  ir_count: 0
-  merge_condition: review after Master branch compatibility check
+proposed_update:
+  domain_id: disciple
+  preparation_status: preparation_complete_with_reservations
+  master_reconciliation_status: reconciliation_complete_with_reservations
+  features_total: 10
+  contracts_produced: 0
+  irs_produced: 0
+  ready_for_contract_generation_now: true
+  ready_for_full_contract_generation: true
+  ready_for_ir_generation: false
+  ready_for_code_generation: false
