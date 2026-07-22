@@ -1,0 +1,297 @@
+domain_id: disciple
+reconciliation_status: reconciliation_complete_with_reservations
+master_commit: eb977485b7314e32e643e52461e086eb3a753724
+master_status: complete_to_ir_with_reservations
+generated_at: '2026-07-22T14:22:22+00:00'
+contracts_produced: 0
+irs_produced: 0
+features:
+- feature_id: TLC-FC-01-DISCIPLE-001
+  canonical_name: '01-disciple: constraint (admissible)'
+  source_objects:
+  - TLC-SO-DISCIPLE-012
+  - TLC-SO-DISCIPLE-040
+  - TLC-SO-DISCIPLE-041
+  - TLC-SO-DISCIPLE-042
+  - TLC-SO-DISCIPLE-043
+  - TLC-SO-DISCIPLE-044
+  - TLC-SO-DISCIPLE-045
+  - TLC-SO-DISCIPLE-046
+  source_relations: []
+  master_dependencies: []
+  internal_dependencies:
+  - TLC-FC-01-DISCIPLE-009
+  scientific_unresolved: []
+  contract_classification: validation_contract
+  future_contract_status: ready_now
+  future_ir_status: eligible_after_contract
+  contract_generation_gate: no_master_gate
+  ir_generation_gate: contract_validated
+  execution_readiness: false
+  reconciliation_status: no_master_dependency
+  blocking_reason: null
+  notes: Contract planning is allowed; no executable claim is made.
+- feature_id: TLC-FC-01-DISCIPLE-002
+  canonical_name: '01-disciple: definition (provisionally_separated)'
+  source_objects:
+  - TLC-SO-DISCIPLE-002
+  source_relations: []
+  master_dependencies:
+  - TLC-DDEP-DISCIPLE-MASTER-001
+  internal_dependencies:
+  - TLC-FC-01-DISCIPLE-009
+  scientific_unresolved:
+  - Exact data fields, types, dimensions, and public representation remain unresolved.
+  - The cited objects must remain distinct; any identity or alias decision requires scientific review.
+  contract_classification: not_yet_determinable
+  future_contract_status: ready_now
+  future_ir_status: eligible_after_contract
+  contract_generation_gate: master_symbols_available
+  ir_generation_gate: contract_validated
+  execution_readiness: false
+  reconciliation_status: reconciled_with_master_with_reservations
+  blocking_reason: null
+  notes: Contract planning is allowed; no executable claim is made.
+- feature_id: TLC-FC-01-DISCIPLE-003
+  canonical_name: '01-disciple: dynamics (admissible)'
+  source_objects:
+  - TLC-SO-DISCIPLE-037
+  - TLC-SO-DISCIPLE-053
+  - TLC-SO-DISCIPLE-054
+  - TLC-SO-DISCIPLE-060
+  source_relations: []
+  master_dependencies: []
+  internal_dependencies:
+  - TLC-FC-01-DISCIPLE-009
+  scientific_unresolved: []
+  contract_classification: computational_contract
+  future_contract_status: ready_now
+  future_ir_status: eligible_after_contract
+  contract_generation_gate: no_master_gate
+  ir_generation_gate: contract_validated
+  execution_readiness: false
+  reconciliation_status: no_master_dependency
+  blocking_reason: null
+  notes: Contract planning is allowed; no executable claim is made.
+- feature_id: TLC-FC-01-DISCIPLE-004
+  canonical_name: '01-disciple: dynamics (blocked_locally)'
+  source_objects:
+  - TLC-SO-DISCIPLE-052
+  source_relations: []
+  master_dependencies:
+  - TLC-DDEP-DISCIPLE-MASTER-002
+  internal_dependencies:
+  - TLC-FC-01-DISCIPLE-009
+  scientific_unresolved:
+  - The cited local scientific blockers must be resolved before contract derivation.
+  contract_classification: not_yet_determinable
+  future_contract_status: ready_with_propagated_unresolved
+  future_ir_status: structural_ir_plannable_with_unresolved
+  contract_generation_gate: unresolved_but_contract_plannable
+  ir_generation_gate: contract_validated
+  execution_readiness: false
+  reconciliation_status: reconciled_with_master_with_reservations
+  blocking_reason: execution semantics remain unresolved
+  notes: Contract planning is allowed; no executable claim is made.
+- feature_id: TLC-FC-01-DISCIPLE-005
+  canonical_name: '01-disciple: equation (admissible)'
+  source_objects:
+  - TLC-SO-DISCIPLE-031
+  - TLC-SO-DISCIPLE-034
+  - TLC-SO-DISCIPLE-035
+  - TLC-SO-DISCIPLE-036
+  - TLC-SO-DISCIPLE-039
+  - TLC-SO-DISCIPLE-055
+  - TLC-SO-DISCIPLE-056
+  source_relations: []
+  master_dependencies: []
+  internal_dependencies:
+  - TLC-FC-01-DISCIPLE-009
+  scientific_unresolved: []
+  contract_classification: computational_contract
+  future_contract_status: ready_now
+  future_ir_status: eligible_after_contract
+  contract_generation_gate: no_master_gate
+  ir_generation_gate: contract_validated
+  execution_readiness: false
+  reconciliation_status: no_master_dependency
+  blocking_reason: null
+  notes: Contract planning is allowed; no executable claim is made.
+- feature_id: TLC-FC-01-DISCIPLE-006
+  canonical_name: '01-disciple: invariant (admissible)'
+  source_objects:
+  - TLC-SO-DISCIPLE-047
+  - TLC-SO-DISCIPLE-048
+  - TLC-SO-DISCIPLE-049
+  - TLC-SO-DISCIPLE-050
+  - TLC-SO-DISCIPLE-051
+  source_relations: []
+  master_dependencies: []
+  internal_dependencies:
+  - TLC-FC-01-DISCIPLE-009
+  scientific_unresolved: []
+  contract_classification: validation_contract
+  future_contract_status: ready_now
+  future_ir_status: eligible_after_contract
+  contract_generation_gate: no_master_gate
+  ir_generation_gate: contract_validated
+  execution_readiness: false
+  reconciliation_status: no_master_dependency
+  blocking_reason: null
+  notes: Contract planning is allowed; no executable claim is made.
+- feature_id: TLC-FC-01-DISCIPLE-007
+  canonical_name: '01-disciple: invariant (blocked_locally)'
+  source_objects:
+  - TLC-SO-DISCIPLE-013
+  source_relations: []
+  master_dependencies: []
+  internal_dependencies:
+  - TLC-FC-01-DISCIPLE-009
+  scientific_unresolved:
+  - The cited local scientific blockers must be resolved before contract derivation.
+  contract_classification: not_yet_determinable
+  future_contract_status: ready_with_propagated_unresolved
+  future_ir_status: structural_ir_plannable_with_unresolved
+  contract_generation_gate: unresolved_but_contract_plannable
+  ir_generation_gate: contract_validated
+  execution_readiness: false
+  reconciliation_status: blocked_by_local_scientific_ambiguity
+  blocking_reason: execution semantics remain unresolved
+  notes: Contract planning is allowed; no executable claim is made.
+- feature_id: TLC-FC-01-DISCIPLE-008
+  canonical_name: '01-disciple: operator (admissible)'
+  source_objects:
+  - TLC-SO-DISCIPLE-010
+  - TLC-SO-DISCIPLE-038
+  source_relations: []
+  master_dependencies: []
+  internal_dependencies:
+  - TLC-FC-01-DISCIPLE-009
+  scientific_unresolved: []
+  contract_classification: structural_contract
+  future_contract_status: ready_now
+  future_ir_status: eligible_after_contract
+  contract_generation_gate: no_master_gate
+  ir_generation_gate: contract_validated
+  execution_readiness: false
+  reconciliation_status: no_master_dependency
+  blocking_reason: null
+  notes: Contract planning is allowed; no executable claim is made.
+- feature_id: TLC-FC-01-DISCIPLE-009
+  canonical_name: '01-disciple: state (admissible)'
+  source_objects:
+  - TLC-SO-DISCIPLE-001
+  - TLC-SO-DISCIPLE-003
+  - TLC-SO-DISCIPLE-004
+  - TLC-SO-DISCIPLE-005
+  - TLC-SO-DISCIPLE-006
+  - TLC-SO-DISCIPLE-007
+  - TLC-SO-DISCIPLE-008
+  - TLC-SO-DISCIPLE-009
+  - TLC-SO-DISCIPLE-011
+  - TLC-SO-DISCIPLE-014
+  - TLC-SO-DISCIPLE-016
+  - TLC-SO-DISCIPLE-017
+  - TLC-SO-DISCIPLE-018
+  - TLC-SO-DISCIPLE-019
+  - TLC-SO-DISCIPLE-020
+  - TLC-SO-DISCIPLE-021
+  - TLC-SO-DISCIPLE-022
+  - TLC-SO-DISCIPLE-023
+  - TLC-SO-DISCIPLE-024
+  - TLC-SO-DISCIPLE-025
+  - TLC-SO-DISCIPLE-026
+  - TLC-SO-DISCIPLE-027
+  - TLC-SO-DISCIPLE-028
+  - TLC-SO-DISCIPLE-029
+  - TLC-SO-DISCIPLE-030
+  - TLC-SO-DISCIPLE-032
+  - TLC-SO-DISCIPLE-033
+  - TLC-SO-DISCIPLE-057
+  - TLC-SO-DISCIPLE-058
+  - TLC-SO-DISCIPLE-059
+  - TLC-SO-DISCIPLE-061
+  - TLC-SO-DISCIPLE-062
+  - TLC-SO-DISCIPLE-063
+  - TLC-SO-DISCIPLE-064
+  - TLC-SO-DISCIPLE-065
+  - TLC-SO-DISCIPLE-066
+  - TLC-SO-DISCIPLE-067
+  - TLC-SO-DISCIPLE-068
+  - TLC-SO-DISCIPLE-069
+  - TLC-SO-DISCIPLE-070
+  source_relations:
+  - TLC-SR-DISCIPLE-002
+  - TLC-SR-DISCIPLE-003
+  - TLC-SR-DISCIPLE-004
+  - TLC-SR-DISCIPLE-005
+  - TLC-SR-DISCIPLE-006
+  - TLC-SR-DISCIPLE-007
+  - TLC-SR-DISCIPLE-008
+  - TLC-SR-DISCIPLE-010
+  - TLC-SR-DISCIPLE-013
+  - TLC-SR-DISCIPLE-015
+  - TLC-SR-DISCIPLE-016
+  - TLC-SR-DISCIPLE-017
+  - TLC-SR-DISCIPLE-018
+  - TLC-SR-DISCIPLE-019
+  - TLC-SR-DISCIPLE-020
+  - TLC-SR-DISCIPLE-021
+  - TLC-SR-DISCIPLE-022
+  - TLC-SR-DISCIPLE-023
+  - TLC-SR-DISCIPLE-024
+  - TLC-SR-DISCIPLE-025
+  - TLC-SR-DISCIPLE-026
+  - TLC-SR-DISCIPLE-027
+  - TLC-SR-DISCIPLE-028
+  - TLC-SR-DISCIPLE-029
+  - TLC-SR-DISCIPLE-031
+  - TLC-SR-DISCIPLE-032
+  - TLC-SR-DISCIPLE-056
+  - TLC-SR-DISCIPLE-057
+  - TLC-SR-DISCIPLE-058
+  - TLC-SR-DISCIPLE-060
+  - TLC-SR-DISCIPLE-061
+  - TLC-SR-DISCIPLE-062
+  - TLC-SR-DISCIPLE-063
+  - TLC-SR-DISCIPLE-064
+  - TLC-SR-DISCIPLE-065
+  - TLC-SR-DISCIPLE-066
+  - TLC-SR-DISCIPLE-067
+  - TLC-SR-DISCIPLE-068
+  - TLC-SR-DISCIPLE-069
+  master_dependencies:
+  - TLC-DDEP-DISCIPLE-MASTER-003
+  internal_dependencies: []
+  scientific_unresolved:
+  - Exact data fields, types, dimensions, and public representation remain unresolved.
+  contract_classification: structural_contract
+  future_contract_status: ready_with_propagated_unresolved
+  future_ir_status: structural_ir_plannable_with_unresolved
+  contract_generation_gate: unresolved_but_contract_plannable
+  ir_generation_gate: contract_validated
+  execution_readiness: false
+  reconciliation_status: reconciled_with_master_with_reservations
+  blocking_reason: execution semantics remain unresolved
+  notes: Contract planning is allowed; no executable claim is made.
+- feature_id: TLC-FC-01-DISCIPLE-010
+  canonical_name: '01-disciple: state (blocked_locally)'
+  source_objects:
+  - TLC-SO-DISCIPLE-015
+  source_relations: []
+  master_dependencies:
+  - TLC-DDEP-DISCIPLE-MASTER-004
+  internal_dependencies:
+  - TLC-FC-01-DISCIPLE-009
+  scientific_unresolved:
+  - Exact data fields, types, dimensions, and public representation remain unresolved.
+  - The cited local scientific blockers must be resolved before contract derivation.
+  contract_classification: not_yet_determinable
+  future_contract_status: ready_with_propagated_unresolved
+  future_ir_status: structural_ir_plannable_with_unresolved
+  contract_generation_gate: unresolved_but_contract_plannable
+  ir_generation_gate: contract_validated
+  execution_readiness: false
+  reconciliation_status: reconciled_with_master_with_reservations
+  blocking_reason: execution semantics remain unresolved
+  notes: Contract planning is allowed; no executable claim is made.
