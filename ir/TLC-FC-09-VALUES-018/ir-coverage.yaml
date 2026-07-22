@@ -1,0 +1,26 @@
+feature_id: TLC-FC-09-VALUES-018
+source_contract_commit: 7daa8758945e63feb0e64a2865acbb43dfab75dd
+contract_elements:
+  - {contract_reference: scientific_objects.TLC-SO-VALUES-047, element_kind: scientific_object, ir_variant: semantic, ir_node_or_constraint: SEM-OBJECT-VALUES-047, coverage_status: fully_represented, notes: Sole authorized object.}
+  - {contract_reference: spaces.SPACE-RELATION-MATRIX, element_kind: space, ir_variant: semantic, ir_node_or_constraint: SEM-INPUT-C, coverage_status: fully_represented, notes: Matrix space represented through C with unresolved endpoints preserved.}
+  - {contract_reference: sets.SET-ENTRY-RANGE, element_kind: set, ir_variant: semantic, ir_node_or_constraint: SEM-SET-ENTRY-RANGE, coverage_status: fully_represented, notes: Closed interval preserved.}
+  - {contract_reference: variables.SYM-C, element_kind: variable, ir_variant: semantic, ir_node_or_constraint: SEM-INPUT-C, coverage_status: fully_represented, notes: Matrix type and shape preserved.}
+  - {contract_reference: variables.SYM-M, element_kind: variable, ir_variant: semantic, ir_node_or_constraint: SEM-PARAM-M, coverage_status: represented_as_opaque, notes: Scalar and dimensionless status preserved; domain remains unresolved.}
+  - {contract_reference: constants.-1, element_kind: constant, ir_variant: semantic, ir_node_or_constraint: SEM-SET-ENTRY-RANGE, coverage_status: fully_represented, notes: Lower closed bound.}
+  - {contract_reference: constants.1, element_kind: constant, ir_variant: semantic, ir_node_or_constraint: SEM-SET-ENTRY-RANGE, coverage_status: fully_represented, notes: Upper closed bound.}
+  - {contract_reference: inputs.SYM-C, element_kind: input, ir_variant: functional, ir_node_or_constraint: FUN-INPUT-C, coverage_status: fully_represented, notes: Explicit input.}
+  - {contract_reference: inputs.SYM-M, element_kind: input, ir_variant: functional, ir_node_or_constraint: FUN-PARAM-M, coverage_status: represented_as_opaque, notes: Explicit parameter input with unresolved domain.}
+  - {contract_reference: outputs.OUT-RELATION-EVALUATION, element_kind: output, ir_variant: functional, ir_node_or_constraint: FUN-OUTPUT-RESULT, coverage_status: represented_as_opaque, notes: Type and semantics remain unresolved.}
+  - {contract_reference: constraints.CON-SQUARE-SHAPE, element_kind: constraint, ir_variant: functional, ir_node_or_constraint: FUN-VALIDATE-SHAPE, coverage_status: fully_represented, notes: Exact contract expression preserved.}
+  - {contract_reference: constraints.CON-ENTRY-RANGE, element_kind: constraint, ir_variant: functional, ir_node_or_constraint: FUN-VALIDATE-RANGE, coverage_status: fully_represented, notes: Derived-without-semantic-change expression preserved.}
+  - {contract_reference: preconditions.PRE-CANDIDATE, element_kind: precondition, ir_variant: semantic, ir_node_or_constraint: SEM-PRE-CANDIDATE, coverage_status: fully_represented, notes: Candidate input status preserved.}
+  - {contract_reference: postconditions.POST-TRACEABLE, element_kind: postcondition, ir_variant: semantic, ir_node_or_constraint: SEM-POST-TRACEABLE, coverage_status: fully_represented, notes: Candidate traceability requirement preserved.}
+  - {contract_reference: invariants.INV-DISTINCT, element_kind: invariant, ir_variant: semantic, ir_node_or_constraint: SEM-INV-DISTINCT, coverage_status: fully_represented, notes: Distinctness invariant preserved.}
+  - {contract_reference: properties.PROP-RELATION-CATEGORIES, element_kind: property, ir_variant: semantic, ir_node_or_constraint: SEM-PROPERTY-CATEGORIES, coverage_status: represented_as_opaque, notes: Category names preserved; mapping remains unresolved.}
+coverage_summary:
+  total_contract_elements: 16
+  fully_represented: 12
+  represented_as_opaque: 4
+  unresolved: 4
+  omitted_with_justification: 0
+  missing: 0

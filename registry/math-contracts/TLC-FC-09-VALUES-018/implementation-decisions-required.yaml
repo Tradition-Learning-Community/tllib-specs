@@ -1,0 +1,6 @@
+contract_id: TLC-MC-TLC-FC-09-VALUES-018
+feature_id: TLC-FC-09-VALUES-018
+status: candidate
+decisions:
+  - {decision_id: IMPL-MATRIX-REPRESENTATION, topic: finite_representation, reason_required: The abstract matrix eventually needs finite storage, scientific_constraints: [square_shape, closed_entry_range], allowed_information: [approved_m_and_endpoint_set], prohibited_assumptions: [storage_layout, numeric_precision, library], blocking_for_ir: false, blocking_for_implementation: true, source_evidence: "maths/09-values.md:23", status: candidate}
+  - {decision_id: IMPL-RESULT, topic: unresolved_type_mapping, reason_required: Evaluation output needs representation after semantics are approved, scientific_constraints: [preserve_traceability], allowed_information: [approved_output_semantics], prohibited_assumptions: [boolean_result, thresholds], blocking_for_ir: true, blocking_for_implementation: true, source_evidence: "registry/math-contract-entry/contractable-features.yaml:1997-2000", status: candidate}
