@@ -9,7 +9,7 @@ for p in files:
     with open(p,encoding='utf-8') as f: docs.append(yaml.safe_load(f))
 assert docs[0]['count']==16
 assert docs[1]['count']==224
-assert docs[3]['pilot_count_expected']==5 and docs[3]['pilot_contracts_present']==5 and docs[3]['pilot_irs_present']==4
+assert docs[3]['pilot_count_expected']==5 and docs[3]['pilot_contracts_present']==5 and docs[3]['pilot_irs_present']==5
 ids=[x['feature_id'] for x in docs[1]['features']]
 assert len(ids)==len(set(ids))
-print('pipeline-status validation: PASS (16 sources, 224 features, 5 contracts, 4 available IRs)')
+print('pipeline-status validation: PASS (16 sources, 224 features, 5 contracts, 5 available IRs)')

@@ -1,6 +1,6 @@
 pilot_count_expected: 5
 pilot_contracts_present: 5
-pilot_irs_present: 4
+pilot_irs_present: 5
 recommended_common_schema:
 - feature_id
 - source_contract_commit
@@ -140,22 +140,31 @@ pilots:
 - feature_id: TLC-FC-14-LIVED-EXPERIENCE-005
   contract_branch: contract/TLC-FC-14-LIVED-EXPERIENCE-005
   contract_commit: 1ff27ea31bae784a64ac3eee534404ce2ce322fa
-  ir_branch: null
-  ir_commit: null
-  status: missing_ir
-  files: []
-  variants_considered: []
-  variants_produced: []
+  ir_branch: ir/TLC-FC-14-LIVED-EXPERIENCE-005
+  ir_commit: 59691fac57675c0eab0db2f13a8b02b78839a80a
+  status: ir_candidate
+  files:
+  - ir/TLC-FC-14-LIVED-EXPERIENCE-005/implementation-decisions-required.yaml
+  - ir/TLC-FC-14-LIVED-EXPERIENCE-005/ir-comparison.md
+  - ir/TLC-FC-14-LIVED-EXPERIENCE-005/ir-coverage.yaml
+  - ir/TLC-FC-14-LIVED-EXPERIENCE-005/ir-functional.candidate.json
+  - ir/TLC-FC-14-LIVED-EXPERIENCE-005/ir-open-questions.yaml
+  - ir/TLC-FC-14-LIVED-EXPERIENCE-005/ir-semantic.candidate.json
+  - ir/TLC-FC-14-LIVED-EXPERIENCE-005/ir-validation-report.md
+  variants_considered: &id004
+  - ir-functional.candidate.json
+  - ir-semantic.candidate.json
+  variants_produced: *id004
   variants_rejected: []
   node_types: schema_specific
   edge_types: schema_specific
-  coverage_status: not_available
-  unresolved_received: false
-  unresolved_propagated: false
-  deferred_decisions: false
-  engineering_questions: false
-  validator_status: not_available_non_blocking
+  coverage_status: complete_with_explicit_unresolved
+  unresolved_received: true
+  unresolved_propagated: true
+  deferred_decisions: true
+  engineering_questions: true
+  validator_status: passed
   ready_for_implementation_planning: false
   ready_for_code_generation: false
-  divergence_classification: missing_validation
-  schema_notes: No IR artifact exists; no scientific content was invented.
+  divergence_classification: naming_difference
+  schema_notes: Pilot schemas differ structurally; differences are documented and non-blocking.

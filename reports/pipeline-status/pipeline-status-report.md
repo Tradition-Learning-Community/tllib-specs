@@ -4,14 +4,14 @@
 - Competencies: extraction present, explicitly included in consolidation and functional catalogue.
 - Consolidated scientific objects: 1383; relations: 1365.
 - Functional features: 224 original stable identifiers; revised candidate set records 140 retained candidates and 224 deferred review entries without renumbering.
-- Pilot contracts: 5; pilot IRs: 4 of 5. The missing TLC-FC-14-LIVED-EXPERIENCE-005 IR was not fabricated.
+- Pilot contracts: 5; pilot IRs: 5 of 5. TLC-FC-14-LIVED-EXPERIENCE-005 was recovered, remapped to the current contract, and validated without resolving scientific reservations.
 - Ready for code: 0. All pilot IRs retain unresolved scientific or engineering decisions.
 - Publication: remote publication was not performed during manifest generation; see git-publication-status.yaml.
 - Recovery: dangling commits were inspected and classified as superseded amended/intermediate versions; no recovery branch was needed.
 
 ## Reservations
 
-Scientific unresolved items remain propagated. Pilot IR schemas have non-blocking naming/shape differences. The fifth pilot IR is absent. Human decisions are required before implementation planning or code generation.
+Scientific unresolved items remain propagated. Pilot IR schemas have non-blocking naming/shape differences. The fifth pilot IR was recovered with all scientific reservations preserved. Human decisions are required before implementation planning or code generation.
 
 ## Next actions
 

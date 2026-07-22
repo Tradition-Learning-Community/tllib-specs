@@ -7387,15 +7387,17 @@ features:
     validator_status: passed
     unresolved_count: 4
   ir:
-    status: not_started
-    branch: null
-    commit: null
-    validator_status: not_available
-    variants: []
-    coverage_status: not_available
-    unresolved_received: false
-    unresolved_propagated: false
-    recommended_decision: not_available
+    status: candidate
+    branch: ir/TLC-FC-14-LIVED-EXPERIENCE-005
+    commit: 59691fac57675c0eab0db2f13a8b02b78839a80a
+    validator_status: passed
+    variants:
+    - ir-functional.candidate.json
+    - ir-semantic.candidate.json
+    coverage_status: candidate_with_unresolved
+    unresolved_received: true
+    unresolved_propagated: true
+    recommended_decision: retain_candidate_with_reservations
   implementation_planning:
     status: not_started
   developer_package:
@@ -7405,7 +7407,7 @@ features:
     python_binding_status: not_started
   tests:
     status: not_started
-  overall_status: contract_candidate
+  overall_status: ir_candidate
 - feature_id: TLC-FC-14-LIVED-EXPERIENCE-006
   source_domains:
   - lived-experience
