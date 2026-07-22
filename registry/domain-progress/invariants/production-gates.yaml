@@ -1,0 +1,72 @@
+domain_id: invariants
+baseline_gate:
+  main_commit: 448e01170e123472f3c82b60fff076242ec4a093
+  source_present: true
+  extraction_present: true
+  consolidation_present: true
+  catalogue_present: true
+  baseline_valid: true
+upstream_status:
+  master:
+    canonical: true
+    complete_to_ir: true
+  disciple:
+    canonical: true
+    complete_to_ir: true
+  community:
+    canonical: false
+    complete_to_ir: false
+  huit_dimensions:
+    canonical: false
+    complete_to_ir: false
+  dynamics:
+    canonical: false
+    complete_to_ir: false
+  theorems:
+    canonical: false
+    complete_to_ir: false
+inventory_gate:
+  objects_verified: 69
+  relations_verified: 68
+  unresolved_verified: 12
+  source_coverage_complete: true
+feature_gate:
+  catalogue_features: 10
+  inventoried_features: 10
+  feature_coverage_complete: true
+  missing_features: 0
+  orphan_features: 0
+semantic_gate:
+  invariants_identified: 37
+  scopes_classified: 37
+  invariant_constraint_separation_complete: true
+  unresolved_semantics: 12
+dependency_gate:
+  master_analyzed: true
+  disciple_analyzed: true
+  community_analyzed: true
+  huit_dimensions_analyzed: true
+  dynamics_analyzed: true
+  theorems_analyzed: true
+  other_domains_analyzed: true
+  internal_graph_complete: true
+  unresolved_dependencies: 1
+classification_gate:
+  features_classified: 10
+  not_yet_determinable: 0
+  classification_complete: true
+planning_gate:
+  contract_plans: 10
+  ir_plans: 10
+  production_order_complete: true
+  unresolved_classified: 12
+  historical_artifacts_assessed: true
+blocking_conditions: []
+non_blocking_reservations:
+- Community, Huit Dimensions, Dynamics, and Theorems require future reconciliation.
+- Twelve unresolved items block execution and code-generation claims.
+ready_for_contract_generation_now: true
+ready_for_full_contract_generation: true
+ready_for_ir_generation: false
+ready_for_implementation_planning: false
+ready_for_code_generation: false
