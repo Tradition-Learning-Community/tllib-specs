@@ -1,0 +1,56 @@
+domain: disciple
+status: preparation_complete_with_reservations
+baseline_tag: tlc-scientific-pipeline-v1
+baseline_commit: 9aef7ab424f3cf998c47caaa9ed4402302e96031
+generated_at: '2026-07-22T12:58:47+00:00'
+scope_rule: preparation_only_no_contract_or_ir
+policy: lexical_or_formula_evidence_does_not_confirm_a_cross_domain_edge
+dependencies:
+- dependency_id: TLC-DDEP-DISCIPLE-MASTER-001
+  disciple_feature_id: TLC-FC-01-DISCIPLE-002
+  target_domain: master
+  target_feature_or_object_id: null
+  status: inferred_candidate
+  strength: conditional
+  evidence_disciple_object_ids:
+  - TLC-SO-DISCIPLE-002
+  production_effect: blocks_execution_signature_not_structural_preparation
+  resolution_needed: Map the explicit Master reference to an accepted Master contract or IR identifier.
+- dependency_id: TLC-DDEP-DISCIPLE-MASTER-002
+  disciple_feature_id: TLC-FC-01-DISCIPLE-004
+  target_domain: master
+  target_feature_or_object_id: null
+  status: inferred_candidate
+  strength: conditional
+  evidence_disciple_object_ids:
+  - TLC-SO-DISCIPLE-052
+  production_effect: blocks_execution_signature_not_structural_preparation
+  resolution_needed: Map the explicit Master reference to an accepted Master contract or IR identifier.
+- dependency_id: TLC-DDEP-DISCIPLE-MASTER-003
+  disciple_feature_id: TLC-FC-01-DISCIPLE-009
+  target_domain: master
+  target_feature_or_object_id: null
+  status: inferred_candidate
+  strength: conditional
+  evidence_disciple_object_ids:
+  - TLC-SO-DISCIPLE-001
+  - TLC-SO-DISCIPLE-016
+  - TLC-SO-DISCIPLE-017
+  - TLC-SO-DISCIPLE-025
+  - TLC-SO-DISCIPLE-026
+  - TLC-SO-DISCIPLE-062
+  - TLC-SO-DISCIPLE-065
+  - TLC-SO-DISCIPLE-066
+  - TLC-SO-DISCIPLE-067
+  production_effect: blocks_execution_signature_not_structural_preparation
+  resolution_needed: Map the explicit Master reference to an accepted Master contract or IR identifier.
+- dependency_id: TLC-DDEP-DISCIPLE-MASTER-004
+  disciple_feature_id: TLC-FC-01-DISCIPLE-010
+  target_domain: master
+  target_feature_or_object_id: null
+  status: inferred_candidate
+  strength: conditional
+  evidence_disciple_object_ids:
+  - TLC-SO-DISCIPLE-015
+  production_effect: blocks_execution_signature_not_structural_preparation
+  resolution_needed: Map the explicit Master reference to an accepted Master contract or IR identifier.
