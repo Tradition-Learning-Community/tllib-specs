@@ -1,0 +1,23 @@
+domain: disciple
+status: preparation_complete_with_reservations
+baseline_tag: tlc-scientific-pipeline-v1
+baseline_commit: 9aef7ab424f3cf998c47caaa9ed4402302e96031
+generated_at: '2026-07-22T12:58:47+00:00'
+scope_rule: preparation_only_no_contract_or_ir
+gates:
+- gate: all_stable_disciple_features_covered
+  passed: true
+- gate: source_objects_and_relations_inventory_present
+  passed: true
+- gate: master_dependencies_not_overstated
+  passed: true
+- gate: no_contract_generated
+  passed: true
+- gate: no_ir_generated
+  passed: true
+- gate: ready_for_contract_generation_after_master
+  passed: true
+  with_reservations: true
+- gate: ready_for_ir_generation
+  passed: false
+  reason: Disciple contracts and required Master mappings do not yet exist.
