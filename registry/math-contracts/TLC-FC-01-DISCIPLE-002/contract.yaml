@@ -1,0 +1,63 @@
+contract_id: TLC-MC-TLC-FC-01-DISCIPLE-002
+feature_id: TLC-FC-01-DISCIPLE-002
+canonical_name: '01-disciple: definition (provisionally_separated)'
+source_file: maths/01-disciple.md
+contract_version: candidate-1
+source_provenance:
+- source_path: maths/01-disciple.md
+  section: Définition conceptuelle
+  subsection: null
+  start_line: 3
+  end_line: 5
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+source_objects:
+- TLC-SO-DISCIPLE-002
+source_relations: &id001
+- TLC-SR-DISCIPLE-001
+scientific_status: candidate_with_unresolved
+computational_status: non_computational
+representation: declarative
+inputs: not_specified
+outputs: not_specified
+variables: not_specified
+parameters: not_specified
+constants: not_specified
+states: not_specified
+spaces: not_specified
+sets: not_specified
+functions: not_specified
+operators: source_references_only
+relations: *id001
+equations: source_references_only
+constraints:
+- Do not infer definitions, types, dimensions, aliases, or numerical methods.
+invariants:
+- Provisionally separated scientific objects remain distinct.
+assumptions:
+- Scientific objects remain candidate and retain their source identities.
+preconditions:
+- Cited scientific inputs are supplied under candidate status.
+postconditions:
+- Result remains candidate and traceable to every cited object.
+failure_conditions: unresolved
+determinism: not_specified
+stochasticity: not_specified
+dimensional_information: not_specified
+master_symbol_dependencies:
+- TLC-SO-MASTER-001
+master_subsymbols_unresolved: []
+external_dependencies:
+- dependency_id: TLC-DDEP-DISCIPLE-MASTER-001
+  domain: master
+  required_level: symbol_only
+  master_object_ids:
+  - TLC-SO-MASTER-001
+  master_feature_ids:
+  - TLC-FC-00-MASTER-016
+  contract_dependencies: []
+  ir_dependencies: []
+  execution_effect: blocks_execution_only
+unresolved: []
+execution_readiness: false
+code_generation_readiness: false
+validation_status: validated_structurally_with_reservations
