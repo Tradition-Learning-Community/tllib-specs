@@ -1,0 +1,535 @@
+domain_id: master
+features:
+- feature_id: TLC-FC-00-MASTER-001
+  catalogue_status: deferred_for_targeted_extraction
+  review_decision: REQUIRES_TARGETED_EXTRACTION
+  classification: declaration
+  source_objects:
+  - TLC-SO-MASTER-040
+  source_relations:
+  - TLC-SR-MASTER-037
+  internal_dependencies: []
+  external_dependencies: []
+  unresolved: []
+  contract_status: non_computational_documented
+  ir_status: engineering_candidate_validated_with_reservations
+  ready_for_code_generation: false
+- feature_id: TLC-FC-00-MASTER-002
+  catalogue_status: deferred_for_scientific_decision
+  review_decision: REQUIRES_SCIENTIFIC_DECISION
+  classification: declaration
+  source_objects:
+  - TLC-SO-MASTER-039
+  source_relations:
+  - TLC-SR-MASTER-036
+  internal_dependencies: []
+  external_dependencies: []
+  unresolved:
+  - TLC-GU-00329
+  - TLC-UT-MASTER-012
+  contract_status: non_computational_documented
+  ir_status: engineering_candidate_validated_with_reservations
+  ready_for_code_generation: false
+- feature_id: TLC-FC-00-MASTER-003
+  catalogue_status: deferred_for_scientific_decision
+  review_decision: REQUIRES_SCIENTIFIC_DECISION
+  classification: constraint_or_operation_candidate
+  source_objects:
+  - TLC-SO-MASTER-007
+  - TLC-SO-MASTER-032
+  - TLC-SO-MASTER-033
+  source_relations:
+  - TLC-SR-MASTER-006
+  - TLC-SR-MASTER-030
+  internal_dependencies: []
+  external_dependencies:
+  - domain: community
+    status: external_dependency_available_as_symbol
+    blocking: true
+    evidence:
+    - source_path: maths/00-master.md
+      section: 2. Conditions théoriques pour la maîtrise
+      subsection: R4
+      start_line: 35
+      end_line: 39
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+    - source_path: maths/00-master.md
+      section: 7. Limites et capacités du Maître
+      subsection: 7.3 Scénarios de rupture
+      start_line: 211
+      end_line: 211
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+    - source_path: maths/00-master.md
+      section: 7. Limites et capacités du Maître
+      subsection: 7.3 Scénarios de rupture
+      start_line: 212
+      end_line: 212
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+  unresolved: []
+  contract_status: contract_and_ir_complete
+  ir_status: engineering_candidate_validated_with_reservations
+  ready_for_code_generation: false
+- feature_id: TLC-FC-00-MASTER-004
+  catalogue_status: deferred_for_scientific_decision
+  review_decision: REQUIRES_SCIENTIFIC_DECISION
+  classification: constraint_or_operation_candidate
+  source_objects:
+  - TLC-SO-MASTER-004
+  - TLC-SO-MASTER-006
+  - TLC-SO-MASTER-017
+  - TLC-SO-MASTER-018
+  - TLC-SO-MASTER-019
+  - TLC-SO-MASTER-020
+  - TLC-SO-MASTER-021
+  - TLC-SO-MASTER-034
+  source_relations:
+  - TLC-SR-MASTER-003
+  - TLC-SR-MASTER-005
+  - TLC-SR-MASTER-016
+  - TLC-SR-MASTER-017
+  - TLC-SR-MASTER-018
+  - TLC-SR-MASTER-019
+  - TLC-SR-MASTER-020
+  - TLC-SR-MASTER-031
+  - TLC-SR-MASTER-036
+  - TLC-SR-MASTER-037
+  internal_dependencies: []
+  external_dependencies:
+  - domain: disciple
+    status: external_dependency_available_as_symbol
+    blocking: true
+    evidence:
+    - source_path: maths/00-master.md
+      section: 2. Conditions théoriques pour la maîtrise
+      subsection: R1
+      start_line: 15
+      end_line: 21
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+    - source_path: maths/00-master.md
+      section: 2. Conditions théoriques pour la maîtrise
+      subsection: R3
+      start_line: 29
+      end_line: 33
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+    - source_path: maths/00-master.md
+      section: 4. Axiomes de la définition du Maître
+      subsection: Axiome 1
+      start_line: 125
+      end_line: 129
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+    - source_path: maths/00-master.md
+      section: 4. Axiomes de la définition du Maître
+      subsection: Axiome 2
+      start_line: 131
+      end_line: 131
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+    - source_path: maths/00-master.md
+      section: 4. Axiomes de la définition du Maître
+      subsection: Axiome 3
+      start_line: 133
+      end_line: 133
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+    - source_path: maths/00-master.md
+      section: 4. Axiomes de la définition du Maître
+      subsection: Axiome 4
+      start_line: 135
+      end_line: 135
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+    - source_path: maths/00-master.md
+      section: 4. Axiomes de la définition du Maître
+      subsection: Axiome 5
+      start_line: 137
+      end_line: 137
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+    - source_path: maths/00-master.md
+      section: 7. Limites et capacités du Maître
+      subsection: 7.4 Borne supérieure de transmission
+      start_line: 214
+      end_line: 218
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+  unresolved:
+  - TLC-GU-00319
+  - TLC-GU-00321
+  - TLC-GU-00328
+  - TLC-GU-00329
+  - TLC-GU-00330
+  - TLC-GU-00332
+  - TLC-GU-00339
+  - TLC-RELISS-MASTER-003
+  - TLC-UT-MASTER-002
+  - TLC-UT-MASTER-004
+  - TLC-UT-MASTER-011
+  - TLC-UT-MASTER-012
+  - TLC-UT-MASTER-013
+  - TLC-UT-MASTER-015
+  - TLC-UT-MASTER-022
+  contract_status: contract_and_ir_complete
+  ir_status: engineering_candidate_validated_with_reservations
+  ready_for_code_generation: false
+- feature_id: TLC-FC-00-MASTER-005
+  catalogue_status: deferred_for_targeted_extraction
+  review_decision: REQUIRES_TARGETED_EXTRACTION
+  classification: declaration
+  source_objects:
+  - TLC-SO-MASTER-008
+  source_relations:
+  - TLC-SR-MASTER-007
+  - TLC-SR-MASTER-008
+  - TLC-SR-MASTER-009
+  - TLC-SR-MASTER-010
+  - TLC-SR-MASTER-011
+  internal_dependencies: []
+  external_dependencies: []
+  unresolved: []
+  contract_status: non_computational_documented
+  ir_status: engineering_candidate_validated_with_reservations
+  ready_for_code_generation: false
+- feature_id: TLC-FC-00-MASTER-006
+  catalogue_status: deferred_for_scientific_decision
+  review_decision: REQUIRES_SCIENTIFIC_DECISION
+  classification: declaration
+  source_objects:
+  - TLC-SO-MASTER-002
+  source_relations:
+  - TLC-SR-MASTER-001
+  internal_dependencies: []
+  external_dependencies: []
+  unresolved:
+  - TLC-GU-00318
+  - TLC-UT-MASTER-001
+  contract_status: non_computational_documented
+  ir_status: engineering_candidate_validated_with_reservations
+  ready_for_code_generation: false
+- feature_id: TLC-FC-00-MASTER-007
+  catalogue_status: deferred_for_scientific_decision
+  review_decision: REQUIRES_SCIENTIFIC_DECISION
+  classification: constraint_or_operation_candidate
+  source_objects:
+  - TLC-SO-MASTER-026
+  - TLC-SO-MASTER-036
+  source_relations:
+  - TLC-SR-MASTER-026
+  - TLC-SR-MASTER-033
+  internal_dependencies: []
+  external_dependencies: []
+  unresolved: []
+  contract_status: contract_and_ir_complete
+  ir_status: engineering_candidate_validated_with_reservations
+  ready_for_code_generation: false
+- feature_id: TLC-FC-00-MASTER-008
+  catalogue_status: deferred_for_scientific_decision
+  review_decision: REQUIRES_SCIENTIFIC_DECISION
+  classification: constraint_or_operation_candidate
+  source_objects:
+  - TLC-SO-MASTER-025
+  - TLC-SO-MASTER-027
+  - TLC-SO-MASTER-028
+  source_relations:
+  - TLC-SR-MASTER-025
+  - TLC-SR-MASTER-027
+  - TLC-SR-MASTER-028
+  internal_dependencies: []
+  external_dependencies: []
+  unresolved:
+  - TLC-GU-00333
+  - TLC-GU-00334
+  - TLC-GU-00335
+  - TLC-UT-MASTER-016
+  - TLC-UT-MASTER-017
+  - TLC-UT-MASTER-018
+  contract_status: contract_and_ir_complete
+  ir_status: engineering_candidate_validated_with_reservations
+  ready_for_code_generation: false
+- feature_id: TLC-FC-00-MASTER-009
+  catalogue_status: deferred_for_scientific_decision
+  review_decision: REQUIRES_SCIENTIFIC_DECISION
+  classification: constraint_or_operation_candidate
+  source_objects:
+  - TLC-SO-MASTER-031
+  source_relations: []
+  internal_dependencies: []
+  external_dependencies: []
+  unresolved:
+  - TLC-GU-00338
+  - TLC-UT-MASTER-021
+  contract_status: contract_and_ir_complete
+  ir_status: engineering_candidate_validated_with_reservations
+  ready_for_code_generation: false
+- feature_id: TLC-FC-00-MASTER-010
+  catalogue_status: deferred_for_scientific_decision
+  review_decision: REQUIRES_SCIENTIFIC_DECISION
+  classification: constraint_or_operation_candidate
+  source_objects:
+  - TLC-SO-MASTER-022
+  - TLC-SO-MASTER-023
+  - TLC-SO-MASTER-024
+  source_relations:
+  - TLC-SR-MASTER-021
+  - TLC-SR-MASTER-022
+  - TLC-SR-MASTER-023
+  - TLC-SR-MASTER-024
+  - TLC-SR-MASTER-031
+  internal_dependencies: []
+  external_dependencies: []
+  unresolved:
+  - TLC-GU-00331
+  - TLC-GU-00332
+  - TLC-RELISS-MASTER-001
+  - TLC-RELISS-MASTER-003
+  - TLC-UT-MASTER-014
+  - TLC-UT-MASTER-015
+  contract_status: contract_and_ir_complete
+  ir_status: engineering_candidate_validated_with_reservations
+  ready_for_code_generation: false
+- feature_id: TLC-FC-00-MASTER-011
+  catalogue_status: deferred_for_scientific_decision
+  review_decision: REQUIRES_SCIENTIFIC_DECISION
+  classification: constraint_or_operation_candidate
+  source_objects:
+  - TLC-SO-MASTER-005
+  - TLC-SO-MASTER-011
+  - TLC-SO-MASTER-030
+  source_relations:
+  - TLC-SR-MASTER-004
+  - TLC-SR-MASTER-010
+  - TLC-SR-MASTER-026
+  - TLC-SR-MASTER-029
+  internal_dependencies: []
+  external_dependencies: []
+  unresolved:
+  - TLC-GU-00320
+  - TLC-GU-00324
+  - TLC-GU-00337
+  - TLC-RELISS-MASTER-002
+  - TLC-UT-MASTER-003
+  - TLC-UT-MASTER-007
+  - TLC-UT-MASTER-020
+  contract_status: contract_and_ir_complete
+  ir_status: engineering_candidate_validated_with_reservations
+  ready_for_code_generation: false
+- feature_id: TLC-FC-00-MASTER-012
+  catalogue_status: deferred_for_scientific_decision
+  review_decision: REQUIRES_SCIENTIFIC_DECISION
+  classification: constraint_or_operation_candidate
+  source_objects:
+  - TLC-SO-MASTER-013
+  - TLC-SO-MASTER-014
+  - TLC-SO-MASTER-029
+  source_relations:
+  - TLC-SR-MASTER-012
+  - TLC-SR-MASTER-013
+  - TLC-SR-MASTER-028
+  internal_dependencies: []
+  external_dependencies:
+  - domain: community
+    status: external_dependency_available_as_symbol
+    blocking: true
+    evidence:
+    - source_path: maths/00-master.md
+      section: 3. Structure interne du Maître
+      subsection: 3.4 Modèle pédagogique
+      start_line: 87
+      end_line: 90
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+    - source_path: maths/00-master.md
+      section: 3. Structure interne du Maître
+      subsection: 3.5 Fonction d’autorité
+      start_line: 92
+      end_line: 102
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+    - source_path: maths/00-master.md
+      section: 7. Limites et capacités du Maître
+      subsection: 7.1 Horizon de compétence
+      start_line: 203
+      end_line: 204
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+  unresolved:
+  - TLC-GU-00321
+  - TLC-GU-00325
+  - TLC-GU-00326
+  - TLC-GU-00328
+  - TLC-GU-00336
+  - TLC-UT-MASTER-004
+  - TLC-UT-MASTER-008
+  - TLC-UT-MASTER-009
+  - TLC-UT-MASTER-011
+  - TLC-UT-MASTER-019
+  contract_status: contract_and_ir_complete
+  ir_status: engineering_candidate_validated_with_reservations
+  ready_for_code_generation: false
+- feature_id: TLC-FC-00-MASTER-013
+  catalogue_status: deferred_for_scientific_decision
+  review_decision: REQUIRES_SCIENTIFIC_DECISION
+  classification: predicate
+  source_objects:
+  - TLC-SO-MASTER-038
+  source_relations:
+  - TLC-SR-MASTER-035
+  internal_dependencies: []
+  external_dependencies: []
+  unresolved:
+  - TLC-GU-00342
+  - TLC-UT-MASTER-025
+  contract_status: non_computational_documented
+  ir_status: engineering_candidate_validated_with_reservations
+  ready_for_code_generation: false
+- feature_id: TLC-FC-00-MASTER-014
+  catalogue_status: deferred_for_scientific_decision
+  review_decision: REQUIRES_SCIENTIFIC_DECISION
+  classification: constraint_or_operation_candidate
+  source_objects:
+  - TLC-SO-MASTER-003
+  source_relations:
+  - TLC-SR-MASTER-002
+  - TLC-SR-MASTER-029
+  internal_dependencies: []
+  external_dependencies:
+  - domain: disciple
+    status: external_dependency_available_as_symbol
+    blocking: true
+    evidence:
+    - source_path: maths/00-master.md
+      section: 1. Définition conceptuelle
+      subsection: Plan relationnel
+      start_line: 7
+      end_line: 11
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+  unresolved:
+  - TLC-GU-00343
+  - TLC-RELISS-MASTER-002
+  - TLC-UT-MASTER-026
+  contract_status: contract_and_ir_complete
+  ir_status: engineering_candidate_validated_with_reservations
+  ready_for_code_generation: false
+- feature_id: TLC-FC-00-MASTER-015
+  catalogue_status: deferred_for_targeted_extraction
+  review_decision: REQUIRES_TARGETED_EXTRACTION
+  classification: symbolic_type
+  source_objects:
+  - TLC-SO-MASTER-010
+  - TLC-SO-MASTER-016
+  source_relations:
+  - TLC-SR-MASTER-009
+  - TLC-SR-MASTER-015
+  - TLC-SR-MASTER-018
+  - TLC-SR-MASTER-020
+  - TLC-SR-MASTER-027
+  internal_dependencies: []
+  external_dependencies:
+  - domain: community
+    status: external_dependency_available_as_symbol
+    blocking: false
+    evidence:
+    - source_path: maths/00-master.md
+      section: 3. Structure interne du Maître
+      subsection: 3.2 Système de valeurs
+      start_line: 62
+      end_line: 71
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+    - source_path: maths/00-master.md
+      section: 3. Structure interne du Maître
+      subsection: 3.7 Statut symbolique
+      start_line: 115
+      end_line: 123
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+  unresolved: []
+  contract_status: non_computational_documented
+  ir_status: engineering_candidate_validated_with_reservations
+  ready_for_code_generation: false
+- feature_id: TLC-FC-00-MASTER-016
+  catalogue_status: deferred_for_scientific_decision
+  review_decision: REQUIRES_SCIENTIFIC_DECISION
+  classification: symbolic_type
+  source_objects:
+  - TLC-SO-MASTER-001
+  - TLC-SO-MASTER-009
+  - TLC-SO-MASTER-012
+  - TLC-SO-MASTER-015
+  - TLC-SO-MASTER-035
+  - TLC-SO-MASTER-037
+  source_relations:
+  - TLC-SR-MASTER-001
+  - TLC-SR-MASTER-002
+  - TLC-SR-MASTER-003
+  - TLC-SR-MASTER-004
+  - TLC-SR-MASTER-005
+  - TLC-SR-MASTER-006
+  - TLC-SR-MASTER-007
+  - TLC-SR-MASTER-008
+  - TLC-SR-MASTER-011
+  - TLC-SR-MASTER-012
+  - TLC-SR-MASTER-013
+  - TLC-SR-MASTER-014
+  - TLC-SR-MASTER-015
+  - TLC-SR-MASTER-016
+  - TLC-SR-MASTER-017
+  - TLC-SR-MASTER-019
+  - TLC-SR-MASTER-021
+  - TLC-SR-MASTER-022
+  - TLC-SR-MASTER-023
+  - TLC-SR-MASTER-025
+  - TLC-SR-MASTER-030
+  - TLC-SR-MASTER-032
+  - TLC-SR-MASTER-033
+  - TLC-SR-MASTER-034
+  - TLC-SR-MASTER-035
+  internal_dependencies: []
+  external_dependencies:
+  - domain: disciple
+    status: external_dependency_available_as_symbol
+    blocking: false
+    evidence:
+    - source_path: maths/00-master.md
+      section: 1. Définition conceptuelle
+      subsection: null
+      start_line: 3
+      end_line: 11
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+    - source_path: maths/00-master.md
+      section: 3. Structure interne du Maître
+      subsection: 3.1 Base de connaissances
+      start_line: 49
+      end_line: 60
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+    - source_path: maths/00-master.md
+      section: 3. Structure interne du Maître
+      subsection: 3.4 Modèle pédagogique
+      start_line: 81
+      end_line: 90
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+    - source_path: maths/00-master.md
+      section: 3. Structure interne du Maître
+      subsection: 3.6 Capacité relationnelle
+      start_line: 104
+      end_line: 112
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+    - source_path: maths/00-master.md
+      section: 8. Typologie des Maîtres
+      subsection: null
+      start_line: 220
+      end_line: 230
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+    - source_path: maths/00-master.md
+      section: 9. Cycle de vie d’un Maître
+      subsection: null
+      start_line: 232
+      end_line: 238
+      source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+  unresolved:
+  - TLC-GU-00321
+  - TLC-GU-00322
+  - TLC-GU-00323
+  - TLC-GU-00327
+  - TLC-GU-00340
+  - TLC-GU-00341
+  - TLC-GU-00343
+  - TLC-UT-MASTER-004
+  - TLC-UT-MASTER-005
+  - TLC-UT-MASTER-006
+  - TLC-UT-MASTER-010
+  - TLC-UT-MASTER-023
+  - TLC-UT-MASTER-024
+  - TLC-UT-MASTER-026
+  contract_status: non_computational_documented
+  ir_status: engineering_candidate_validated_with_reservations
+  ready_for_code_generation: false

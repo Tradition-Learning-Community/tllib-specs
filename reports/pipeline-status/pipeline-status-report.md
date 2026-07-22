@@ -16,3 +16,9 @@ Scientific unresolved items remain propagated. Pilot IR schemas have non-blockin
 ## Next actions
 
 Publish validated branches, open the integration PR, review the documented reservations, and decide separately whether to plan a next wave. No next wave is started here.
+
+## Domain progression
+
+- Master: `complete_to_ir_with_reservations`; dependency order validated for this wave.
+- Five existing contract/IR features: retained as `historical_pilot`; their domains are not declared complete.
+- No non-Master domain was produced in this wave.

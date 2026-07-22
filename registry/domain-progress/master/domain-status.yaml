@@ -1,0 +1,29 @@
+domain_id: master
+source_file: maths/00-master.md
+source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+baseline_tag: tlc-scientific-pipeline-v1
+features:
+  total: 16
+  contract_required: 16
+  contract_complete: 16
+  contract_non_computational: 7
+  contract_blocked: 0
+  ir_required: 16
+  ir_complete: 16
+  ir_non_computational: 7
+  ir_blocked: 0
+dependencies:
+  internal_confirmed: 0
+  external_confirmed: 2
+  unresolved: 26
+validation:
+  extraction: pass
+  consolidation: pass_existing
+  catalogue: pass_existing
+  contracts: pass_with_reservations
+  irs: pass_with_reservations
+  domain_audit: pass_with_reservations
+domain_status: complete_to_ir_with_reservations
+ready_for_disciple_domain: true
+ready_for_implementation_planning: false
+ready_for_code_generation: false

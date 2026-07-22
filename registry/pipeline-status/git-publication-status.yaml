@@ -143,3 +143,19 @@ branches:
   clean: true
   category: integration
   validation_status: pending_final_validation
+domain_progress:
+  master:
+    role: domain_wave
+    dependency_order_validated: true
+    domain_complete_to_ir: true
+    status: complete_to_ir_with_reservations
+  historical_pilots:
+    role: historical_pilot
+    dependency_order_validated: false
+    domain_complete_to_ir: false
+    feature_ids:
+    - TLC-FC-02-COMMUNITY-001
+    - TLC-FC-05-DYNAMICS-001
+    - TLC-FC-08-PRINCIPLE-002
+    - TLC-FC-09-VALUES-018
+    - TLC-FC-14-LIVED-EXPERIENCE-005
