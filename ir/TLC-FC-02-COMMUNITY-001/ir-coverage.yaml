@@ -1,34 +1,14 @@
 feature_id: TLC-FC-02-COMMUNITY-001
-source_contract_commit: 2e0858acc21bd97fe6c59db50b2598fb73971e52
-contract_elements:
-  - {contract_reference: contract.yaml#scientific_purpose, element_kind: purpose, ir_variant: semantic, ir_node_or_constraint: purpose, coverage_status: fully_represented, notes: Preserved without executable interpretation.}
-  - {contract_reference: symbol-table.yaml#SYM-NU-STAR, element_kind: set_variable_input, ir_variant: semantic, ir_node_or_constraint: N-SYM-NU-STAR, coverage_status: fully_represented, notes: Unknown properties preserved.}
-  - {contract_reference: symbol-table.yaml#SYM-VC, element_kind: space_input, ir_variant: semantic, ir_node_or_constraint: N-SYM-VC, coverage_status: fully_represented, notes: Definition remains unresolved.}
-  - {contract_reference: symbol-table.yaml#SYM-PI-NU, element_kind: operator_input, ir_variant: semantic, ir_node_or_constraint: N-SYM-PI-NU, coverage_status: fully_represented, notes: Domain and operational semantics remain unresolved.}
-  - {contract_reference: symbol-table.yaml#SYM-A, element_kind: variable_input, ir_variant: semantic, ir_node_or_constraint: N-SYM-A, coverage_status: represented_as_opaque, notes: Actor domain and mathematical type are unresolved.}
-  - {contract_reference: symbol-table.yaml#SYM-EPS-COH, element_kind: parameter_input, ir_variant: semantic, ir_node_or_constraint: N-SYM-EPS-COH, coverage_status: fully_represented, notes: Positive scalar constraint retained.}
-  - {contract_reference: contract.yaml#OUT-C1-EVALUATION, element_kind: output, ir_variant: semantic, ir_node_or_constraint: N-OUT-C1-EVALUATION, coverage_status: represented_as_opaque, notes: Mathematical type and semantics are unresolved.}
-  - {contract_reference: type-constraints.yaml#CON-C1-SUBSET, element_kind: constraint, ir_variant: semantic, ir_node_or_constraint: N-CON-C1-SUBSET, coverage_status: fully_represented, notes: Normative subset relation retained.}
-  - {contract_reference: type-constraints.yaml#CON-C1-MEASURE, element_kind: constraint, ir_variant: semantic, ir_node_or_constraint: N-CON-C1-MEASURE, coverage_status: represented_as_opaque, notes: Undefined measure and space preserved.}
-  - {contract_reference: type-constraints.yaml#CON-C1-MEMBERSHIP, element_kind: constraint, ir_variant: semantic, ir_node_or_constraint: N-CON-C1-MEMBERSHIP, coverage_status: fully_represented, notes: Universal membership retained with unresolved actor domain.}
-  - {contract_reference: type-constraints.yaml#CON-C1-COHERENCE, element_kind: constraint, ir_variant: semantic, ir_node_or_constraint: N-CON-C1-COHERENCE, coverage_status: represented_as_opaque, notes: Undefined function and comparator preserved.}
-  - {contract_reference: contract.yaml#PRE-INPUTS-CANDIDATE, element_kind: precondition, ir_variant: semantic, ir_node_or_constraint: N-PRE-INPUTS-CANDIDATE, coverage_status: fully_represented, notes: Candidate status retained.}
-  - {contract_reference: contract.yaml#POST-TRACEABLE, element_kind: postcondition, ir_variant: semantic, ir_node_or_constraint: N-POST-TRACEABLE, coverage_status: fully_represented, notes: Traceability obligation retained.}
-  - {contract_reference: contract.yaml#INV-OBJECT-DISTINCT, element_kind: invariant, ir_variant: semantic, ir_node_or_constraint: N-INV-OBJECT-DISTINCT, coverage_status: fully_represented, notes: Object separation retained.}
-  - {contract_reference: contract.yaml#behavior, element_kind: behavior, ir_variant: semantic, ir_node_or_constraint: validation, coverage_status: fully_represented, notes: Candidate evaluation purpose and all undefined behavior entries retained through unresolved properties.}
-  - {contract_reference: contract.yaml#dependencies, element_kind: dependencies, ir_variant: semantic, ir_node_or_constraint: source_traceability, coverage_status: fully_represented, notes: No required contracts or unresolved dependencies.}
-  - {contract_reference: contract.yaml#oracle_basis, element_kind: oracle_basis, ir_variant: semantic, ir_node_or_constraint: contract_constraints, coverage_status: fully_represented, notes: Constraint-only basis retained; no executable oracle.}
-  - {contract_reference: open-math-questions.yaml#UNRES-MEASURE, element_kind: unresolved, ir_variant: semantic, ir_node_or_constraint: N-CON-C1-MEASURE, coverage_status: unresolved, notes: Propagated.}
-  - {contract_reference: open-math-questions.yaml#UNRES-COHERENCE, element_kind: unresolved, ir_variant: semantic, ir_node_or_constraint: N-CON-C1-COHERENCE, coverage_status: unresolved, notes: Propagated.}
-  - {contract_reference: open-math-questions.yaml#UNRES-ACTOR-DOMAIN, element_kind: unresolved, ir_variant: semantic, ir_node_or_constraint: N-SYM-A, coverage_status: unresolved, notes: Propagated.}
-  - {contract_reference: open-math-questions.yaml#UNRES-OUTPUT, element_kind: unresolved, ir_variant: semantic, ir_node_or_constraint: N-OUT-C1-EVALUATION, coverage_status: unresolved, notes: Propagated.}
-  - {contract_reference: implementation-decisions-required.yaml#IMPL-RESULT-REPRESENTATION, element_kind: implementation_choice, ir_variant: semantic, ir_node_or_constraint: implementation_choices_required, coverage_status: fully_represented, notes: Deferred.}
-  - {contract_reference: implementation-decisions-required.yaml#IMPL-MATH-TYPE-MAPPING, element_kind: implementation_choice, ir_variant: semantic, ir_node_or_constraint: implementation_choices_required, coverage_status: fully_represented, notes: Deferred.}
-  - {contract_reference: contract.yaml#source_traceability, element_kind: traceability, ir_variant: semantic, ir_node_or_constraint: source_traceability, coverage_status: fully_represented, notes: Source path lines commits object and classifications retained.}
-coverage_summary:
-  total_contract_elements: 24
-  fully_represented: 16
-  represented_as_opaque: 4
-  unresolved: 4
-  omitted_with_justification: 0
-  missing: 0
+contract_path: registry/math-contracts/TLC-FC-02-COMMUNITY-001/contract.yaml
+ir_path: ir/TLC-FC-02-COMMUNITY-001/ir.candidate.json
+contract_elements_total: 1
+ir_elements_mapped: 1
+missing_elements: []
+extra_ir_elements: []
+unresolved_total: 29
+unresolved_mapped: 29
+master_dependencies_total: 0
+master_dependencies_mapped: 0
+disciple_dependencies_total: 0
+disciple_dependencies_mapped: 0
+coverage_status: complete_with_reservations
