@@ -1,0 +1,969 @@
+domain_id: values
+baseline_commit: d8e616c71173495b9a014d4a5909df9f30e2a7ae
+features:
+- feature_id: TLC-FC-09-VALUES-001
+  canonical_name: '09-values: constraint (blocked_locally)'
+  source_objects:
+  - TLC-SO-VALUES-038
+  source_relations: []
+  source_unresolved: []
+  purpose: Evaluate the cited constraints, axioms, assumptions, and hypotheses as
+    candidate checks.
+  scientific_scope:
+    included:
+    - Fondements axiomatiques
+    excluded: &id001
+    - scientific approval
+    - object fusion
+    - mathematical contract
+    - implementation type
+    - public API
+  candidate_inputs:
+  - 'Scientific quantities referenced by: Fondements axiomatiques'
+  candidate_outputs:
+  - 'Candidate evaluation result for: Fondements axiomatiques'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  invariants:
+  - Provisionally separated scientific objects remain distinct.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-VALUES-038
+    data_dependencies: []
+    unresolved_dependencies: &id002 []
+  exclusions: *id001
+  readiness:
+    status: deferred_for_scientific_decision
+    blocking_object_ids:
+    - TLC-SO-VALUES-038
+    blocking_relation_ids:
+    - TLC-SR-VALUES-037
+    blocking_decision_ids:
+    - TLC-HR-0073
+    blocking_terms: *id002
+  blockers:
+  - TLC-SO-VALUES-038
+  - TLC-SR-VALUES-037
+  future_reconciliation_required: true
+  status: inventoried
+- feature_id: TLC-FC-09-VALUES-003
+  canonical_name: '09-values: dynamics (admissible)'
+  source_objects:
+  - TLC-SO-VALUES-093
+  - TLC-SO-VALUES-095
+  - TLC-SO-VALUES-096
+  - TLC-SO-VALUES-099
+  source_relations: []
+  source_unresolved: []
+  purpose: Evaluate the evolution laws expressed by the cited differential or stochastic
+    equations.
+  scientific_scope:
+    included:
+    - Équation — Dynamique à court terme
+    - Équation — Adaptation aux contextes changeants
+    - Équation — Adaptation aux contextes changeants
+    - Équation — Impact sur la dynamique de groupe et les normes
+    excluded: &id003
+    - scientific approval
+    - object fusion
+    - mathematical contract
+    - implementation type
+    - public API
+  candidate_inputs:
+  - 'Scientific quantities referenced by: Équation — Dynamique à court terme'
+  - 'Scientific quantities referenced by: Équation — Adaptation aux contextes changeants'
+  - 'Scientific quantities referenced by: Équation — Adaptation aux contextes changeants'
+  - 'Scientific quantities referenced by: Équation — Impact sur la dynamique de groupe
+    et les normes'
+  candidate_outputs:
+  - 'Candidate evaluation result for: Équation — Dynamique à court terme'
+  - 'Candidate evaluation result for: Équation — Adaptation aux contextes changeants'
+  - 'Candidate evaluation result for: Équation — Adaptation aux contextes changeants'
+  - 'Candidate evaluation result for: Équation — Impact sur la dynamique de groupe
+    et les normes'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  invariants:
+  - Provisionally separated scientific objects remain distinct.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-VALUES-093
+    - TLC-SO-VALUES-095
+    - TLC-SO-VALUES-096
+    - TLC-SO-VALUES-099
+    data_dependencies: []
+    unresolved_dependencies: &id004 []
+  exclusions: *id003
+  readiness:
+    status: retained_with_reservations
+    blocking_object_ids: []
+    blocking_relation_ids: []
+    blocking_decision_ids: []
+    blocking_terms: *id004
+  blockers: []
+  future_reconciliation_required: true
+  status: inventoried
+- feature_id: TLC-FC-09-VALUES-004
+  canonical_name: '09-values: dynamics (blocked_locally)'
+  source_objects:
+  - TLC-SO-VALUES-094
+  - TLC-SO-VALUES-098
+  - TLC-SO-VALUES-101
+  source_relations: []
+  source_unresolved: []
+  purpose: Evaluate the evolution laws expressed by the cited differential or stochastic
+    equations.
+  scientific_scope:
+    included:
+    - Équation — Consolidation à long terme
+    - Équation — Moteurs motivationnels et engagement
+    - Équation — Boucles de rétroaction dans l’apprentissage collectif
+    excluded: &id005
+    - scientific approval
+    - object fusion
+    - mathematical contract
+    - implementation type
+    - public API
+  candidate_inputs:
+  - 'Scientific quantities referenced by: Équation — Consolidation à long terme'
+  - 'Scientific quantities referenced by: Équation — Moteurs motivationnels et engagement'
+  - 'Scientific quantities referenced by: Équation — Boucles de rétroaction dans l’apprentissage
+    collectif'
+  candidate_outputs:
+  - 'Candidate evaluation result for: Équation — Consolidation à long terme'
+  - 'Candidate evaluation result for: Équation — Moteurs motivationnels et engagement'
+  - 'Candidate evaluation result for: Équation — Boucles de rétroaction dans l’apprentissage
+    collectif'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  invariants:
+  - Provisionally separated scientific objects remain distinct.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-VALUES-094
+    - TLC-SO-VALUES-098
+    - TLC-SO-VALUES-101
+    data_dependencies: []
+    unresolved_dependencies: &id006 []
+  exclusions: *id005
+  readiness:
+    status: deferred_for_scientific_decision
+    blocking_object_ids:
+    - TLC-SO-VALUES-094
+    - TLC-SO-VALUES-098
+    - TLC-SO-VALUES-101
+    blocking_relation_ids:
+    - TLC-SR-VALUES-093
+    - TLC-SR-VALUES-097
+    - TLC-SR-VALUES-100
+    blocking_decision_ids:
+    - TLC-HR-0047
+    - TLC-HR-0049
+    - TLC-HR-0056
+    blocking_terms: *id006
+  blockers:
+  - TLC-SO-VALUES-094
+  - TLC-SO-VALUES-098
+  - TLC-SO-VALUES-101
+  - TLC-SR-VALUES-093
+  - TLC-SR-VALUES-097
+  - TLC-SR-VALUES-100
+  future_reconciliation_required: true
+  status: inventoried
+- feature_id: TLC-FC-09-VALUES-005
+  canonical_name: '09-values: dynamics (provisionally_separated)'
+  source_objects:
+  - TLC-SO-VALUES-102
+  source_relations: []
+  source_unresolved: []
+  purpose: Evaluate the evolution laws expressed by the cited differential or stochastic
+    equations.
+  scientific_scope:
+    included:
+    - Équation — Fondements axiomatiques
+    excluded: &id007
+    - scientific approval
+    - object fusion
+    - mathematical contract
+    - implementation type
+    - public API
+  candidate_inputs:
+  - 'Scientific quantities referenced by: Équation — Fondements axiomatiques'
+  candidate_outputs:
+  - 'Candidate evaluation result for: Équation — Fondements axiomatiques'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  invariants:
+  - Provisionally separated scientific objects remain distinct.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-VALUES-102
+    data_dependencies: []
+    unresolved_dependencies: &id008 []
+  exclusions: *id007
+  readiness:
+    status: deferred_for_scientific_decision
+    blocking_object_ids: []
+    blocking_relation_ids: []
+    blocking_decision_ids:
+    - TLC-HR-0053
+    blocking_terms: *id008
+  blockers: []
+  future_reconciliation_required: true
+  status: inventoried
+- feature_id: TLC-FC-09-VALUES-006
+  canonical_name: '09-values: equation (admissible)'
+  source_objects:
+  - TLC-SO-VALUES-097
+  - TLC-SO-VALUES-100
+  source_relations: []
+  source_unresolved: []
+  purpose: Evaluate the transformations expressed by the cited equations once their
+    mathematical contract is selected.
+  scientific_scope:
+    included:
+    - Équation — Influence sur la décision et le comportement
+    - Équation — Compréhension émergente et intelligence collective
+    excluded: &id009
+    - scientific approval
+    - object fusion
+    - mathematical contract
+    - implementation type
+    - public API
+  candidate_inputs:
+  - 'Scientific quantities referenced by: Équation — Influence sur la décision et
+    le comportement'
+  - 'Scientific quantities referenced by: Équation — Compréhension émergente et intelligence
+    collective'
+  candidate_outputs:
+  - 'Candidate evaluation result for: Équation — Influence sur la décision et le comportement'
+  - 'Candidate evaluation result for: Équation — Compréhension émergente et intelligence
+    collective'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  invariants:
+  - Provisionally separated scientific objects remain distinct.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-VALUES-097
+    - TLC-SO-VALUES-100
+    data_dependencies: []
+    unresolved_dependencies: &id010 []
+  exclusions: *id009
+  readiness:
+    status: retained_with_reservations
+    blocking_object_ids: []
+    blocking_relation_ids: []
+    blocking_decision_ids: []
+    blocking_terms: *id010
+  blockers: []
+  future_reconciliation_required: true
+  status: inventoried
+- feature_id: TLC-FC-09-VALUES-007
+  canonical_name: '09-values: equation (blocked_locally)'
+  source_objects:
+  - TLC-SO-VALUES-061
+  source_relations: []
+  source_unresolved: []
+  purpose: Evaluate the transformations expressed by the cited equations once their
+    mathematical contract is selected.
+  scientific_scope:
+    included:
+    - Équation — Domaines de validité
+    excluded: &id011
+    - scientific approval
+    - object fusion
+    - mathematical contract
+    - implementation type
+    - public API
+  candidate_inputs:
+  - 'Scientific quantities referenced by: Équation — Domaines de validité'
+  candidate_outputs:
+  - 'Candidate evaluation result for: Équation — Domaines de validité'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  invariants:
+  - Provisionally separated scientific objects remain distinct.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-VALUES-061
+    data_dependencies: []
+    unresolved_dependencies: &id012 []
+  exclusions: *id011
+  readiness:
+    status: deferred_for_scientific_decision
+    blocking_object_ids:
+    - TLC-SO-VALUES-061
+    blocking_relation_ids:
+    - TLC-SR-VALUES-060
+    blocking_decision_ids:
+    - TLC-HR-0051
+    blocking_terms: *id012
+  blockers:
+  - TLC-SO-VALUES-061
+  - TLC-SR-VALUES-060
+  future_reconciliation_required: true
+  status: inventoried
+- feature_id: TLC-FC-09-VALUES-008
+  canonical_name: '09-values: invariant (admissible)'
+  source_objects:
+  - TLC-SO-VALUES-041
+  source_relations: []
+  source_unresolved: []
+  purpose: Check the cited scientific invariants.
+  scientific_scope:
+    included:
+    - $\mathcal{P}$ (Principe fondamental)
+    excluded: &id013
+    - scientific approval
+    - object fusion
+    - mathematical contract
+    - implementation type
+    - public API
+  candidate_inputs:
+  - 'Scientific quantities referenced by: $\mathcal{P}$ (Principe fondamental)'
+  candidate_outputs:
+  - 'Candidate evaluation result for: $\mathcal{P}$ (Principe fondamental)'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  invariants:
+  - Provisionally separated scientific objects remain distinct.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-VALUES-041
+    data_dependencies: []
+    unresolved_dependencies: &id014 []
+  exclusions: *id013
+  readiness:
+    status: retained_with_reservations
+    blocking_object_ids: []
+    blocking_relation_ids: []
+    blocking_decision_ids: []
+    blocking_terms: *id014
+  blockers: []
+  future_reconciliation_required: true
+  status: inventoried
+- feature_id: TLC-FC-09-VALUES-009
+  canonical_name: '09-values: invariant (blocked_locally)'
+  source_objects:
+  - TLC-SO-VALUES-051
+  source_relations: []
+  source_unresolved: []
+  purpose: Check the cited scientific invariants.
+  scientific_scope:
+    included:
+    - Invariance partielle
+    excluded: &id015
+    - scientific approval
+    - object fusion
+    - mathematical contract
+    - implementation type
+    - public API
+  candidate_inputs:
+  - 'Scientific quantities referenced by: Invariance partielle'
+  candidate_outputs:
+  - 'Candidate evaluation result for: Invariance partielle'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  invariants:
+  - Provisionally separated scientific objects remain distinct.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-VALUES-051
+    data_dependencies: []
+    unresolved_dependencies: &id016 []
+  exclusions: *id015
+  readiness:
+    status: deferred_for_scientific_decision
+    blocking_object_ids:
+    - TLC-SO-VALUES-051
+    blocking_relation_ids:
+    - TLC-SR-VALUES-050
+    blocking_decision_ids:
+    - TLC-HR-0090
+    blocking_terms: *id016
+  blockers:
+  - TLC-SO-VALUES-051
+  - TLC-SR-VALUES-050
+  future_reconciliation_required: true
+  status: inventoried
+- feature_id: TLC-FC-09-VALUES-010
+  canonical_name: '09-values: invariant (provisionally_separated)'
+  source_objects:
+  - TLC-SO-VALUES-003
+  source_relations: []
+  source_unresolved: []
+  purpose: Check the cited scientific invariants.
+  scientific_scope:
+    included:
+    - Propriétés essentielles
+    excluded: &id017
+    - scientific approval
+    - object fusion
+    - mathematical contract
+    - implementation type
+    - public API
+  candidate_inputs:
+  - 'Scientific quantities referenced by: Propriétés essentielles'
+  candidate_outputs:
+  - 'Candidate evaluation result for: Propriétés essentielles'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  invariants:
+  - Provisionally separated scientific objects remain distinct.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-VALUES-003
+    data_dependencies: []
+    unresolved_dependencies: &id018 []
+  exclusions: *id017
+  readiness:
+    status: deferred_for_scientific_decision
+    blocking_object_ids: []
+    blocking_relation_ids: []
+    blocking_decision_ids:
+    - TLC-HR-0116
+    blocking_terms: *id018
+  blockers: []
+  future_reconciliation_required: true
+  status: inventoried
+- feature_id: TLC-FC-09-VALUES-011
+  canonical_name: '09-values: metric (blocked_locally)'
+  source_objects:
+  - TLC-SO-VALUES-017
+  source_relations: []
+  source_unresolved: []
+  purpose: Evaluate the cited scientific metrics.
+  scientific_scope:
+    included:
+    - Mesures quantitatives
+    excluded: &id019
+    - scientific approval
+    - object fusion
+    - mathematical contract
+    - implementation type
+    - public API
+  candidate_inputs:
+  - 'Scientific quantities referenced by: Mesures quantitatives'
+  candidate_outputs:
+  - 'Candidate evaluation result for: Mesures quantitatives'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  invariants:
+  - Provisionally separated scientific objects remain distinct.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-VALUES-017
+    data_dependencies: []
+    unresolved_dependencies: &id020 []
+  exclusions: *id019
+  readiness:
+    status: deferred_for_scientific_decision
+    blocking_object_ids:
+    - TLC-SO-VALUES-017
+    blocking_relation_ids:
+    - TLC-SR-VALUES-016
+    blocking_decision_ids:
+    - TLC-HR-0101
+    blocking_terms: *id020
+  blockers:
+  - TLC-SO-VALUES-017
+  - TLC-SR-VALUES-016
+  future_reconciliation_required: true
+  status: inventoried
+- feature_id: TLC-FC-09-VALUES-012
+  canonical_name: '09-values: metric (provisionally_separated)'
+  source_objects:
+  - TLC-SO-VALUES-037
+  source_relations: []
+  source_unresolved: []
+  purpose: Evaluate the cited scientific metrics.
+  scientific_scope:
+    included:
+    - Espaces et structures
+    excluded: &id021
+    - scientific approval
+    - object fusion
+    - mathematical contract
+    - implementation type
+    - public API
+  candidate_inputs:
+  - 'Scientific quantities referenced by: Espaces et structures'
+  candidate_outputs:
+  - 'Candidate evaluation result for: Espaces et structures'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  invariants:
+  - Provisionally separated scientific objects remain distinct.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-VALUES-037
+    data_dependencies: []
+    unresolved_dependencies: &id022 []
+  exclusions: *id021
+  readiness:
+    status: deferred_for_scientific_decision
+    blocking_object_ids: []
+    blocking_relation_ids: []
+    blocking_decision_ids:
+    - TLC-HR-0060
+    blocking_terms: *id022
+  blockers: []
+  future_reconciliation_required: true
+  status: inventoried
+- feature_id: TLC-FC-09-VALUES-013
+  canonical_name: '09-values: operator (admissible)'
+  source_objects:
+  - TLC-SO-VALUES-009
+  - TLC-SO-VALUES-043
+  - TLC-SO-VALUES-046
+  - TLC-SO-VALUES-073
+  source_relations: []
+  source_unresolved: []
+  purpose: Evaluate the cited scientific functions and operators.
+  scientific_scope:
+    included:
+    - Valeurs professionnelles/fonctionnelles
+    - $\mathcal{W}$ (Poids décisionnel)
+    - $\mathcal{T}$ (Système de transmission)
+    - Numériques
+    excluded: &id023
+    - scientific approval
+    - object fusion
+    - mathematical contract
+    - implementation type
+    - public API
+  candidate_inputs:
+  - 'Scientific quantities referenced by: Valeurs professionnelles/fonctionnelles'
+  - 'Scientific quantities referenced by: $\mathcal{W}$ (Poids décisionnel)'
+  - 'Scientific quantities referenced by: $\mathcal{T}$ (Système de transmission)'
+  - 'Scientific quantities referenced by: Numériques'
+  candidate_outputs:
+  - 'Candidate evaluation result for: Valeurs professionnelles/fonctionnelles'
+  - 'Candidate evaluation result for: $\mathcal{W}$ (Poids décisionnel)'
+  - 'Candidate evaluation result for: $\mathcal{T}$ (Système de transmission)'
+  - 'Candidate evaluation result for: Numériques'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  invariants:
+  - Provisionally separated scientific objects remain distinct.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-VALUES-009
+    - TLC-SO-VALUES-043
+    - TLC-SO-VALUES-046
+    - TLC-SO-VALUES-073
+    data_dependencies: []
+    unresolved_dependencies: &id024 []
+  exclusions: *id023
+  readiness:
+    status: retained_with_reservations
+    blocking_object_ids: []
+    blocking_relation_ids: []
+    blocking_decision_ids: []
+    blocking_terms: *id024
+  blockers: []
+  future_reconciliation_required: true
+  status: inventoried
+- feature_id: TLC-FC-09-VALUES-014
+  canonical_name: '09-values: operator (provisionally_separated)'
+  source_objects:
+  - TLC-SO-VALUES-014
+  - TLC-SO-VALUES-080
+  source_relations: []
+  source_unresolved: []
+  purpose: Evaluate the cited scientific functions and operators.
+  scientific_scope:
+    included:
+    - Mémoire et stockage
+    - Intégration
+    excluded: &id025
+    - scientific approval
+    - object fusion
+    - mathematical contract
+    - implementation type
+    - public API
+  candidate_inputs:
+  - 'Scientific quantities referenced by: Mémoire et stockage'
+  - 'Scientific quantities referenced by: Intégration'
+  candidate_outputs:
+  - 'Candidate evaluation result for: Mémoire et stockage'
+  - 'Candidate evaluation result for: Intégration'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  invariants:
+  - Provisionally separated scientific objects remain distinct.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-VALUES-014
+    - TLC-SO-VALUES-080
+    data_dependencies: []
+    unresolved_dependencies: &id026 []
+  exclusions: *id025
+  readiness:
+    status: deferred_for_scientific_decision
+    blocking_object_ids: []
+    blocking_relation_ids: []
+    blocking_decision_ids:
+    - TLC-HR-0083
+    - TLC-HR-0097
+    blocking_terms: *id026
+  blockers: []
+  future_reconciliation_required: true
+  status: inventoried
+- feature_id: TLC-FC-09-VALUES-018
+  canonical_name: '09-values: relation (admissible)'
+  source_objects:
+  - TLC-SO-VALUES-047
+  source_relations: []
+  source_unresolved: []
+  purpose: Evaluate the cited scientific relations without inferring endpoint identity.
+  scientific_scope:
+    included:
+    - $\mathcal{C}$ (Cohérence systémique)
+    excluded: &id027
+    - scientific approval
+    - object fusion
+    - mathematical contract
+    - implementation type
+    - public API
+  candidate_inputs:
+  - 'Scientific quantities referenced by: $\mathcal{C}$ (Cohérence systémique)'
+  candidate_outputs:
+  - 'Candidate evaluation result for: $\mathcal{C}$ (Cohérence systémique)'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  invariants:
+  - Provisionally separated scientific objects remain distinct.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-VALUES-047
+    data_dependencies: []
+    unresolved_dependencies: &id028 []
+  exclusions: *id027
+  readiness:
+    status: retained_with_reservations
+    blocking_object_ids: []
+    blocking_relation_ids: []
+    blocking_decision_ids: []
+    blocking_terms: *id028
+  blockers: []
+  future_reconciliation_required: true
+  status: inventoried
+catalogue_gap_candidates:
+- object_id: TLC-SO-VALUES-001
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-002
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-004
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-005
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-006
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-007
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-008
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-010
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-011
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-012
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-013
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-015
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-016
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-018
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-019
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-020
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-021
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-022
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-023
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-024
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-025
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-026
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-027
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-028
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-029
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-030
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-031
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-032
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-033
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-034
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-035
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-036
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-039
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-040
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-042
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-044
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-045
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-048
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-049
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-050
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-052
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-053
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-054
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-055
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-056
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-057
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-058
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-059
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-060
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-062
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-063
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-064
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-065
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-066
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-067
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-068
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-069
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-070
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-071
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-072
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-074
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-075
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-076
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-077
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-078
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-079
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-081
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-082
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-083
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-084
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-085
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-086
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-087
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-088
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-089
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-090
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-091
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-092
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-VALUES-103
+  status: candidate
+  reason: Canonical revised catalogue does not cite this extracted object.
+summary:
+  catalogue_features: 14
+  inventoried_features: 14
+  missing_features: 0
+  orphan_features: 0
+  catalogue_objects: 24
+  catalogue_relations: 0
+  catalogue_gap_candidates: 79
+status: complete_with_reservations
