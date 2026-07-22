@@ -1,7 +1,7 @@
 # Invariants source inventory
 
 - Source: `maths/04-invariants.md`
-- Baseline: `448e01170e123472f3c82b60fff076242ec4a093`
+- Baseline: `4a42d88ee71e3660fba02c7a780246e8d755c901`
 - Objects: 69
 - Relations: 68
 - Unresolved: 12

@@ -1,6 +1,6 @@
 # Invariants domain preparation
 
-Baseline: `448e01170e123472f3c82b60fff076242ec4a093`
+Baseline: `4a42d88ee71e3660fba02c7a780246e8d755c901`
 Source: `maths/04-invariants.md`
 Objects / relations / unresolved / features: 69 / 68 / 12 / 10
 Semantic invariant objects: 37

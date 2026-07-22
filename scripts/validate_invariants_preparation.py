@@ -13,7 +13,7 @@ import yaml
 
 
 ROOT = Path(__file__).resolve().parents[1]
-BASELINE = "448e01170e123472f3c82b60fff076242ec4a093"
+BASELINE = "4a42d88ee71e3660fba02c7a780246e8d755c901"
 PREFIX = "TLC-FC-04-INVARIANTS-"
 REG = ROOT / "registry/domain-progress/invariants"
 REP = ROOT / "reports/domain-progress/invariants"
