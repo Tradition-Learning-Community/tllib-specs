@@ -1,0 +1,22 @@
+domain_id: dynamics
+baseline_gate: {main_commit: ffbcbb66e6fa3fe809d9b94e47ef9c8bf8d19ddb, source_present: true, extraction_present: true, consolidation_present: true, catalogue_present: true, baseline_valid: true}
+upstream_status:
+  master: {canonical: true, complete_to_ir: true}
+  disciple: {canonical: true, complete_to_ir: true}
+  community: {canonical: true, complete_to_ir: true}
+  huit_dimensions: {canonical: false, complete_to_ir: false}
+  invariants: {canonical: false, complete_to_ir: false}
+  theorems: {canonical: false, complete_to_ir: false}
+inventory_gate: {objects_verified: 26, relations_verified: 25, unresolved_verified: 12, source_coverage_complete: true}
+feature_gate: {catalogue_features: 7, inventoried_features: 7, feature_coverage_complete: true, missing_features: 0, orphan_features: 0}
+semantic_gate: {states_classified: true, transitions_classified: true, time_semantics_classified: true, determinism_classified: true, stochasticity_classified: true, execution_semantics_classified: true, unresolved_semantics: 12}
+dependency_gate: {master_analyzed: true, disciple_analyzed: true, community_analyzed: true, huit_dimensions_analyzed: true, invariants_analyzed: true, theorems_analyzed: true, other_domains_analyzed: true, internal_graph_complete: true, unresolved_dependencies: 6}
+classification_gate: {features_classified: 7, not_yet_determinable: 0, classification_complete: true}
+planning_gate: {contract_plans: 7, ir_plans: 7, production_order_complete: true, unresolved_classified: 12, historical_pilot_assessed: true}
+blocking_conditions: ["TLC-FC-05-DYNAMICS-003 and 007 require scientific decisions", "operator signatures absent for feature 005", "all executable semantics require unresolved resolution"]
+non_blocking_reservations: ["Community, Huit Dimensions, Invariants and Theorems require future reconciliation", "9 duplicate candidates remain unmerged", "historical pilot is comparison-only"]
+ready_for_contract_generation_now: true
+ready_for_full_contract_generation: false
+ready_for_ir_generation: false
+ready_for_implementation_planning: false
+ready_for_code_generation: false

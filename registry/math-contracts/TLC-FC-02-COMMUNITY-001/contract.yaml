@@ -1,72 +1,140 @@
-contract_id: TLC-MC-TLC-FC-02-COMMUNITY-001
 feature_id: TLC-FC-02-COMMUNITY-001
-canonical_name: "02-community: constraint (admissible)"
-source_names: [Axiomes fondamentaux de la Communaute, C1 - Existence de valeurs partagees]
-status: candidate
-provenance:
-  source_commit: 7f73fd908ff887e6ab3b7d184ca46f0c8477ad68
-  source_branch: planning/math-contract-entry
-  input_artifact_versions:
-    - {path: registry/math-contract-entry/contractable-features.yaml, version: 7f73fd9}
-    - {path: registry/features/revised/feature-candidates.yaml, version: db7ae4f54ecfb637de52e353d566412b2dceaf06}
-    - {path: registry/functional-decomposition/decomposition-input-snapshot.yaml, version: a92f6dfe905c102c5688cc6843b65673e5bea088}
-  scientific_sources:
-    - {path: maths/02-community.md, document_title: La Communaute (Community), section: Axiomes fondamentaux de la Communaute, lines: 81-83, commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e}
-purpose: Evaluate the cited C1 axiom as a candidate check without resolving missing semantics.
-scientific_purpose: Require existence of a positive-measure shared-values core containing every actor's value projection and having positive minimum coherence.
-scope: C1 only, exactly as cited at lines 81-83.
-exclusions: [C2, C3, C4, scientific_approval, implementation, IR, numerical_method, executable_oracle]
-scientific_objects: [TLC-SO-COMMUNITY-008]
-scientific_relations: []
-spaces: [SYM-VC]
-sets: [SYM-NU-STAR]
-variables: [SYM-NU-STAR, SYM-A]
+canonical_name: '02-community: constraint (admissible)'
+source_file: maths/02-community.md
+source_objects:
+- TLC-SO-COMMUNITY-008
+source_relations: &id001 []
+source_locations:
+- repository: Tradition-Learning-Community/tllib-specs
+  source_path: maths/02-community.md
+  source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/02-community.md
+  source_branch: main
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  source_blob_sha: d8327b5ebb8b1638cd40017e0bc188fa2cd01d7a
+  document_title: La Communauté (Community)
+  section: Axiomes fondamentaux de la Communauté
+  subsection: null
+  start_line: 81
+  end_line: 83
+scientific_status: candidate_with_reservations
+contract_kind: validation
+computational_status: structurally_representable_not_executable
+inputs: not_specified
+outputs: not_specified
+variables: []
+parameters: []
 constants: []
-parameters: [SYM-EPS-COH]
 states: []
-inputs: [SYM-VC, SYM-PI-NU, SYM-A, SYM-EPS-COH]
-outputs:
-  - output_id: OUT-C1-EVALUATION
-    description: candidate evaluation result for C1
-    mathematical_type: {status: unresolved}
-    classification: unresolved
-    status: unresolved
+spaces: []
+sets: []
 functions: []
-operators: [SYM-PI-NU]
+operators: []
+relations: *id001
 equations: []
-preconditions:
-  - {precondition_id: PRE-INPUTS-CANDIDATE, statement: Cited scientific inputs are supplied under candidate status, source: registry/features/revised/feature-candidates.yaml, lines: 1910-1911, classification: normative_from_source, status: candidate}
-postconditions:
-  - {postcondition_id: POST-TRACEABLE, statement: Result remains candidate and traceable to every cited object, source: registry/features/revised/feature-candidates.yaml, lines: 1912-1913, classification: normative_from_source, status: candidate}
-constraints: [CON-C1-SUBSET, CON-C1-MEASURE, CON-C1-MEMBERSHIP, CON-C1-COHERENCE]
-invariants:
-  - {invariant_id: INV-OBJECT-DISTINCT, statement: Provisionally separated scientific objects remain distinct, source: registry/features/revised/feature-candidates.yaml, lines: 1916-1917, classification: normative_from_source, status: candidate}
-hypotheses: []
-properties: []
-behavior:
-  primary_behavior: Evaluate the cited axiom as a candidate check.
-  determinism: {status: unresolved}
-  stochasticity: {status: unresolved}
-  temporal_character: not_specified
-  undefined_behavior: [undefined_measure, undefined_coherence, undefined_actor_domain, undefined_output_semantics]
-  mathematical_error_conditions: [input_does_not_support_cited_membership_or_positivity_checks]
-  boundary_cases: [zero_measure_core_fails, nonpositive_coherence_threshold_fails]
-dependencies:
-  required_contracts: []
-  shared_definitions: []
-  unresolved_dependencies: []
-  autonomy_evidence: No immediate feature dependency is declared and the authorized local basis contains one object with no authorized relation.
-oracle_basis:
-  equations: []
-  invariants: []
-  constraints: [TLC-SO-COMMUNITY-008]
-  theorems: []
-  properties: []
-  examples: []
-  structural_rules: []
-  missing_elements: [executable_truth_value_semantics, measure_definition, coherence_definition]
-executable_oracle: {status: not_produced}
-implementation_choices_required: [IMPL-RESULT-REPRESENTATION, IMPL-MATH-TYPE-MAPPING]
-unresolved_items: [UNRES-MEASURE, UNRES-COHERENCE, UNRES-ACTOR-DOMAIN, UNRES-OUTPUT]
-source_traceability:
-  - {contract_elements: [scientific_purpose, CON-C1-SUBSET, CON-C1-MEASURE, CON-C1-MEMBERSHIP, CON-C1-COHERENCE], object_id: TLC-SO-COMMUNITY-008, relation_id: null, source: maths/02-community.md, section: Axiomes fondamentaux de la Communaute, lines: 81-83, commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e, classification: normative_from_source}
+constraints: []
+invariants: []
+assumptions: []
+preconditions: not_specified
+postconditions: not_specified
+failure_conditions:
+- unresolved_scientific_semantics
+- unsupported_execution_request
+determinism: not_yet_determinable
+stochasticity: not_specified
+dimensional_information: not_specified
+master_dependencies: []
+disciple_dependencies: []
+external_dependencies: []
+unresolved:
+- unresolved_id: TLC-UT-COMMUNITY-001
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-002
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-003
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-004
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-005
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-006
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-007
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-008
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-009
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-010
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-011
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-012
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-013
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-014
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-015
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-016
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-017
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-018
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-019
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-020
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-021
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-022
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-023
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-024
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-025
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-026
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-027
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-028
+  scope: community_domain_reservation
+  status: unresolved
+- unresolved_id: TLC-UT-COMMUNITY-029
+  scope: community_domain_reservation
+  status: unresolved
+special_handling: regenerated_from_current_plan_historical_schema_preserved
+execution_readiness: false
+implementation_planning_readiness: false
+code_generation_readiness: false
+validation_status: validated_with_reservations
