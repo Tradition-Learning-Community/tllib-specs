@@ -1,0 +1,58 @@
+domain_id: theorems
+canonical_name: Theorems
+source_file: maths/06-theorems.md
+baseline_commit: 4a42d88ee71e3660fba02c7a780246e8d755c901
+preparation_status: preparation_complete_with_reservations
+inventory:
+  objects: 30
+  relations: 29
+  unresolved: 12
+  features: 9
+logical_elements:
+  theorems: 7
+  propositions: 0
+  lemmas: 0
+  corollaries: 0
+  proofs: 6
+  complete_proofs: 0
+  partial_proofs: 6
+  missing_proofs: 1
+  axioms_referenced: 1
+  hypotheses_referenced: 11
+  invariants_referenced: 1
+  equations_referenced: 7
+coverage:
+  scientific: complete_with_reservations
+  functional: complete_with_reservations
+  missing_features: 0
+dependencies:
+  master: analyzed
+  disciple: analyzed
+  community: analyzed_reconciliation_required
+  huit_dimensions: analyzed_reconciliation_required
+  invariants: analyzed_reconciliation_required
+  dynamics: analyzed_reconciliation_required
+  message_principle: analyzed_reconciliation_required
+  other: analyzed_reconciliation_required
+plans:
+  contracts: 9
+  irs: 9
+contracts_produced: 0
+irs_produced: 0
+proofs_invented: 0
+blocking_conditions:
+- proofs incomplete or absent
+- upstream Huit Dimensions, Invariants, and Dynamics not canonical
+- twelve unresolved classifications
+- one theorem/axiom extraction conflict
+non_blocking_reservations:
+- Preparation can complete before upstream production reconciliation.
+ready_for_contract_generation_now: true
+ready_for_full_contract_generation: false
+ready_for_ir_generation: false
+ready_for_proof_mechanical_verification: false
+ready_for_implementation_planning: false
+ready_for_code_generation: false
+next_required_gate: reconcile canonical upstream domains and obtain missing proof sources
+final_decision: theorems_preparation_complete_locally
+next_task: reconcile_theorems_after_required_upstream_domains
