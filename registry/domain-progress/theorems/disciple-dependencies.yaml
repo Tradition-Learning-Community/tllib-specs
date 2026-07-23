@@ -1,0 +1,25 @@
+domain_id: theorems
+target_domain: disciple
+baseline_commit: 4a42d88ee71e3660fba02c7a780246e8d755c901
+dependencies:
+- dependency_id: DEP-THEOREMS-DISCIPLE-001
+  affected_feature_ids:
+  - TLC-FC-06-THEOREMS-006
+  affected_object_ids:
+  - TLC-SO-THEOREMS-004
+  - TLC-SO-THEOREMS-008
+  - TLC-SO-THEOREMS-009
+  - TLC-SO-THEOREMS-010
+  source_evidence: maths/06-theorems.md:49-139
+  target_evidence: maths/01-disciple.md
+  dependency_status: confirmed
+  required_level: symbol_only
+  proof_role: definition
+  production_effect: blocks_proof_representation
+  notes: Disciple is canonical but execution is not assumed.
+summary:
+  confirmed: 1
+  inferred_candidate: 0
+  rejected: 0
+  unresolved: 0
+status: complete_with_reservations

@@ -1,0 +1,46 @@
+domain: message
+preparation_only: true
+canonical_baseline: origin/main
+authority_rule: canonical_only
+features:
+- feature_id: TLC-FC-07-MESSAGE-001
+  class: definition
+  canonical_status: blocked_locally
+  depends_on:
+  - TLC-FC-07-MESSAGE-006
+  planned_contract: contracts/message/tlc-fc-07-message-001.schema.yaml
+  planned_ir: ir/message/tlc-fc-07-message-001.ir.yaml
+- feature_id: TLC-FC-07-MESSAGE-002
+  class: validation_contract
+  canonical_status: admissible
+  depends_on:
+  - TLC-FC-07-MESSAGE-006
+  planned_contract: contracts/message/tlc-fc-07-message-002.schema.yaml
+  planned_ir: ir/message/tlc-fc-07-message-002.ir.yaml
+- feature_id: TLC-FC-07-MESSAGE-003
+  class: validation_contract
+  canonical_status: admissible
+  depends_on:
+  - TLC-FC-07-MESSAGE-006
+  planned_contract: contracts/message/tlc-fc-07-message-003.schema.yaml
+  planned_ir: ir/message/tlc-fc-07-message-003.ir.yaml
+- feature_id: TLC-FC-07-MESSAGE-004
+  class: message_structure_contract
+  canonical_status: admissible
+  depends_on:
+  - TLC-FC-07-MESSAGE-006
+  planned_contract: contracts/message/tlc-fc-07-message-004.schema.yaml
+  planned_ir: ir/message/tlc-fc-07-message-004.ir.yaml
+- feature_id: TLC-FC-07-MESSAGE-005
+  class: state_contract
+  canonical_status: blocked_locally
+  depends_on:
+  - TLC-FC-07-MESSAGE-006
+  planned_contract: contracts/message/tlc-fc-07-message-005.schema.yaml
+  planned_ir: ir/message/tlc-fc-07-message-005.ir.yaml
+- feature_id: TLC-FC-07-MESSAGE-006
+  class: message_declaration_contract
+  canonical_status: provisionally_separated
+  depends_on: []
+  planned_contract: contracts/message/tlc-fc-07-message-006.schema.yaml
+  planned_ir: ir/message/tlc-fc-07-message-006.ir.yaml
