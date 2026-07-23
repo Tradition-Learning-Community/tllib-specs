@@ -1,0 +1,102 @@
+domain_id: theorems
+baseline_commit: 4a42d88ee71e3660fba02c7a780246e8d755c901
+nodes:
+- node_id: RESULT-THEOREMS-001
+  node_kind: result
+  source_location: maths/06-theorems.md:13-26
+- node_id: RESULT-THEOREMS-002
+  node_kind: result
+  source_location: maths/06-theorems.md:31-47
+- node_id: RESULT-THEOREMS-003
+  node_kind: result
+  source_location: maths/06-theorems.md:49-90
+- node_id: RESULT-THEOREMS-004
+  node_kind: result
+  source_location: maths/06-theorems.md:92-112
+- node_id: RESULT-THEOREMS-005
+  node_kind: result
+  source_location: maths/06-theorems.md:114-127
+- node_id: RESULT-THEOREMS-006
+  node_kind: result
+  source_location: maths/06-theorems.md:129-139
+- node_id: RESULT-THEOREMS-007
+  node_kind: result
+  source_location: maths/06-theorems.md:141-147
+- node_id: PROOF-THEOREMS-001
+  node_kind: proof
+  source_location: maths/06-theorems.md:27-29
+- node_id: PROOF-THEOREMS-002
+  node_kind: proof
+  source_location: maths/06-theorems.md:45-47
+- node_id: PROOF-THEOREMS-003
+  node_kind: proof
+  source_location: maths/06-theorems.md:54-90
+- node_id: PROOF-THEOREMS-004
+  node_kind: proof
+  source_location: maths/06-theorems.md:106-112
+- node_id: PROOF-THEOREMS-005
+  node_kind: proof
+  source_location: maths/06-theorems.md:137-139
+- node_id: PROOF-THEOREMS-006
+  node_kind: proof
+  source_location: maths/06-theorems.md:146-147
+edges:
+- edge_id: PROOF-EDGE-001
+  from_result_or_proof_id: PROOF-THEOREMS-001
+  to_result_or_proof_id: RESULT-THEOREMS-001
+  dependency_kind: proof_step
+  strength: explicit
+  source_evidence: maths/06-theorems.md:27-29
+  notes: Links local proof prose to its stated result only.
+- edge_id: PROOF-EDGE-002
+  from_result_or_proof_id: PROOF-THEOREMS-002
+  to_result_or_proof_id: RESULT-THEOREMS-002
+  dependency_kind: proof_step
+  strength: explicit
+  source_evidence: maths/06-theorems.md:45-47
+  notes: Links local proof prose to its stated result only.
+- edge_id: PROOF-EDGE-003
+  from_result_or_proof_id: PROOF-THEOREMS-003
+  to_result_or_proof_id: RESULT-THEOREMS-003
+  dependency_kind: proof_step
+  strength: explicit
+  source_evidence: maths/06-theorems.md:54-90
+  notes: Links local proof prose to its stated result only.
+- edge_id: PROOF-EDGE-004
+  from_result_or_proof_id: PROOF-THEOREMS-004
+  to_result_or_proof_id: RESULT-THEOREMS-004
+  dependency_kind: proof_step
+  strength: explicit
+  source_evidence: maths/06-theorems.md:106-112
+  notes: Links local proof prose to its stated result only.
+- edge_id: PROOF-EDGE-005
+  from_result_or_proof_id: PROOF-THEOREMS-005
+  to_result_or_proof_id: RESULT-THEOREMS-006
+  dependency_kind: proof_step
+  strength: explicit
+  source_evidence: maths/06-theorems.md:137-139
+  notes: Links local proof prose to its stated result only.
+- edge_id: PROOF-EDGE-006
+  from_result_or_proof_id: PROOF-THEOREMS-006
+  to_result_or_proof_id: RESULT-THEOREMS-007
+  dependency_kind: proof_step
+  strength: explicit
+  source_evidence: maths/06-theorems.md:146-147
+  notes: Links local proof prose to its stated result only.
+results_without_proof:
+- RESULT-THEOREMS-005
+proofs_without_target: []
+missing_dependency_targets: []
+circularity_candidates: []
+summary:
+  nodes: 13
+  edges: 6
+  result_nodes: 7
+  proof_nodes: 6
+  premise_edges: 0
+  lemma_edges: 0
+  theorem_edges: 0
+  invariant_edges: 0
+  unresolved_edges: 0
+  cycles: 0
+status: complete_with_reservations

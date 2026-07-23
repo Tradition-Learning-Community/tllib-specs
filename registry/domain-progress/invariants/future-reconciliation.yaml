@@ -1,0 +1,68 @@
+domain_id: invariants
+reconciliations:
+- target_domain: community
+  current_authority_status: canonical_in_main
+  dependency_count: 1
+  affected_feature_ids:
+  - TLC-FC-04-INVARIANTS-002
+  - TLC-FC-04-INVARIANTS-003
+  - TLC-FC-04-INVARIANTS-006
+  - TLC-FC-04-INVARIANTS-007
+  - TLC-FC-04-INVARIANTS-008
+  - TLC-FC-04-INVARIANTS-009
+  required_future_artifacts:
+  - validated contracts
+  - validated IR
+  reconciliation_trigger: community_complete_to_ir
+  blocking_current_preparation: false
+  blocking_future_contracts: false
+  blocking_future_irs: false
+  blocking_execution: true
+  notes: []
+- target_domain: huit-dimensions
+  current_authority_status: preparation_only_non_authoritative
+  dependency_count: 0
+  affected_feature_ids: []
+  required_future_artifacts:
+  - dependency re-audit
+  reconciliation_trigger: huit_dimensions_complete_to_ir
+  blocking_current_preparation: false
+  blocking_future_contracts: false
+  blocking_future_irs: false
+  blocking_execution: false
+  notes: []
+- target_domain: dynamics
+  current_authority_status: source_only
+  dependency_count: 1
+  affected_feature_ids:
+  - TLC-FC-04-INVARIANTS-001
+  - TLC-FC-04-INVARIANTS-002
+  - TLC-FC-04-INVARIANTS-003
+  - TLC-FC-04-INVARIANTS-004
+  - TLC-FC-04-INVARIANTS-005
+  - TLC-FC-04-INVARIANTS-006
+  - TLC-FC-04-INVARIANTS-007
+  - TLC-FC-04-INVARIANTS-008
+  - TLC-FC-04-INVARIANTS-009
+  - TLC-FC-04-INVARIANTS-010
+  required_future_artifacts:
+  - validated contracts
+  - validated IR
+  reconciliation_trigger: dynamics_complete_to_ir
+  blocking_current_preparation: false
+  blocking_future_contracts: false
+  blocking_future_irs: false
+  blocking_execution: true
+  notes: []
+- target_domain: theorems
+  current_authority_status: source_only
+  dependency_count: 0
+  affected_feature_ids: []
+  required_future_artifacts:
+  - evidence re-audit
+  reconciliation_trigger: theorems_complete_to_ir
+  blocking_current_preparation: false
+  blocking_future_contracts: false
+  blocking_future_irs: false
+  blocking_execution: false
+  notes: []

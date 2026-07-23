@@ -1,0 +1,36 @@
+domain: message
+preparation_only: true
+canonical_baseline: origin/main
+authority_rule: canonical_only
+claims:
+- claim: message_as_entity
+  status: supported
+  evidence: The canonical extraction types one Message object as Entity.
+- claim: message_as_structure
+  status: supported
+  evidence: The source distinguishes structure and states of Message.
+- claim: message_as_content
+  status: supported
+  evidence: Content is represented in the scientific objects.
+- claim: message_as_transmission
+  status: candidate
+  evidence: Transmission language does not define a transport protocol.
+- claim: message_as_interpretation
+  status: supported
+  evidence: Understanding and revelation are described scientifically.
+- claim: sender_role
+  status: unresolved
+  evidence: No canonical sender interface or role symbol exists.
+- claim: receiver_role
+  status: unresolved
+  evidence: No canonical receiver interface or role symbol exists.
+- claim: encoding
+  status: unresolved
+  evidence: No canonical encoding is specified.
+- claim: transport
+  status: unresolved
+  evidence: No canonical transport is specified.
+- claim: execution
+  status: rejected
+  evidence: Message is not treated as executable code.
+rule: absence_of_protocol_is_not_permission_to_invent_one

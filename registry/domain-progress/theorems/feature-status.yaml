@@ -1,0 +1,354 @@
+domain_id: theorems
+baseline_commit: 4a42d88ee71e3660fba02c7a780246e8d755c901
+features:
+- feature_id: TLC-FC-06-THEOREMS-001
+  canonical_name: '06-theorems: constraint (admissible)'
+  inventory_status: inventoried
+  source_coverage: complete
+  scientific_coverage: complete_with_reservations
+  result_semantics_status: prepared_with_reservations
+  proof_status: partial_or_absent
+  internal_dependencies: []
+  proof_dependencies:
+  - PROOF-THEOREMS-006
+  master_dependencies: []
+  disciple_dependencies: []
+  community_dependencies: []
+  huit_dimensions_dependencies: []
+  invariants_dependencies: []
+  dynamics_dependencies: []
+  message_dependencies: []
+  principle_dependencies: []
+  other_domain_dependencies: []
+  scientific_unresolved: []
+  classification: not_yet_determinable
+  planned_contract_status: planned
+  planned_ir_status: planned
+  contract_generation_gate: local_scientific_decision_required
+  ir_generation_gate: local_scientific_decision_required
+  proof_representation_possible: false
+  mechanical_verification_possible: false
+  structural_representation_possible: true
+  execution_readiness: false
+  implementation_readiness: false
+  code_generation_readiness: false
+  preparation_status: prepared_with_reservations
+  blocking_reason: Identify a source-grounded oracle or correction property in the mathematical contract.
+  reservations:
+  - retained_with_reservations
+  notes: Preparation does not change canonical feature status.
+- feature_id: TLC-FC-06-THEOREMS-002
+  canonical_name: '06-theorems: dynamics (admissible)'
+  inventory_status: inventoried
+  source_coverage: complete
+  scientific_coverage: complete_with_reservations
+  result_semantics_status: prepared_with_reservations
+  proof_status: partial_or_absent
+  internal_dependencies: []
+  proof_dependencies: []
+  master_dependencies: []
+  disciple_dependencies: []
+  community_dependencies: []
+  huit_dimensions_dependencies: []
+  invariants_dependencies: []
+  dynamics_dependencies:
+  - DEP-THEOREMS-DYNAMICS-001
+  message_dependencies: []
+  principle_dependencies: []
+  other_domain_dependencies: []
+  scientific_unresolved: []
+  classification: dynamic_property_theorem_contract
+  planned_contract_status: planned
+  planned_ir_status: planned
+  contract_generation_gate: dynamics_contract_required
+  ir_generation_gate: dynamics_ir_available
+  proof_representation_possible: false
+  mechanical_verification_possible: false
+  structural_representation_possible: true
+  execution_readiness: false
+  implementation_readiness: false
+  code_generation_readiness: false
+  preparation_status: prepared_with_reservations
+  blocking_reason: Identify a source-grounded oracle or correction property in the mathematical contract.
+  reservations:
+  - retained_with_reservations
+  notes: Preparation does not change canonical feature status.
+- feature_id: TLC-FC-06-THEOREMS-003
+  canonical_name: '06-theorems: equation (admissible)'
+  inventory_status: inventoried
+  source_coverage: complete
+  scientific_coverage: complete_with_reservations
+  result_semantics_status: prepared_with_reservations
+  proof_status: partial_or_absent
+  internal_dependencies: []
+  proof_dependencies: []
+  master_dependencies: []
+  disciple_dependencies: []
+  community_dependencies: []
+  huit_dimensions_dependencies: []
+  invariants_dependencies: []
+  dynamics_dependencies:
+  - DEP-THEOREMS-DYNAMICS-001
+  message_dependencies: []
+  principle_dependencies: []
+  other_domain_dependencies: []
+  scientific_unresolved: []
+  classification: structural_contract
+  planned_contract_status: planned
+  planned_ir_status: planned
+  contract_generation_gate: multiple_domains_required
+  ir_generation_gate: multiple_dependencies_available
+  proof_representation_possible: false
+  mechanical_verification_possible: false
+  structural_representation_possible: true
+  execution_readiness: false
+  implementation_readiness: false
+  code_generation_readiness: false
+  preparation_status: prepared_with_reservations
+  blocking_reason: Identify a source-grounded oracle or correction property in the mathematical contract.
+  reservations:
+  - retained_with_reservations
+  notes: Preparation does not change canonical feature status.
+- feature_id: TLC-FC-06-THEOREMS-004
+  canonical_name: '06-theorems: operator (admissible)'
+  inventory_status: inventoried
+  source_coverage: complete
+  scientific_coverage: complete_with_reservations
+  result_semantics_status: prepared_with_reservations
+  proof_status: partial_or_absent
+  internal_dependencies: []
+  proof_dependencies: []
+  master_dependencies: []
+  disciple_dependencies: []
+  community_dependencies: []
+  huit_dimensions_dependencies: []
+  invariants_dependencies: []
+  dynamics_dependencies:
+  - DEP-THEOREMS-DYNAMICS-001
+  message_dependencies: []
+  principle_dependencies: []
+  other_domain_dependencies: []
+  scientific_unresolved: []
+  classification: validation_contract
+  planned_contract_status: planned
+  planned_ir_status: planned
+  contract_generation_gate: dynamics_symbols_required
+  ir_generation_gate: dynamics_contract_available
+  proof_representation_possible: false
+  mechanical_verification_possible: false
+  structural_representation_possible: true
+  execution_readiness: false
+  implementation_readiness: false
+  code_generation_readiness: false
+  preparation_status: prepared_with_reservations
+  blocking_reason: Identify a source-grounded oracle or correction property in the mathematical contract.
+  reservations:
+  - retained_with_reservations
+  notes: Preparation does not change canonical feature status.
+- feature_id: TLC-FC-06-THEOREMS-005
+  canonical_name: '06-theorems: operator (blocked_locally)'
+  inventory_status: inventoried
+  source_coverage: complete
+  scientific_coverage: complete_with_reservations
+  result_semantics_status: prepared_with_reservations
+  proof_status: partial_or_absent
+  internal_dependencies: []
+  proof_dependencies: []
+  master_dependencies: []
+  disciple_dependencies: []
+  community_dependencies: []
+  huit_dimensions_dependencies:
+  - DEP-THEOREMS-HUIT-001
+  invariants_dependencies: []
+  dynamics_dependencies: []
+  message_dependencies:
+  - DEP-THEOREMS-MESSAGE-001
+  principle_dependencies:
+  - DEP-THEOREMS-PRINCIPLE-001
+  other_domain_dependencies: []
+  scientific_unresolved: []
+  classification: structural_contract
+  planned_contract_status: planned
+  planned_ir_status: planned
+  contract_generation_gate: local_scientific_decision_required
+  ir_generation_gate: local_scientific_decision_required
+  proof_representation_possible: false
+  mechanical_verification_possible: false
+  structural_representation_possible: true
+  execution_readiness: false
+  implementation_readiness: false
+  code_generation_readiness: false
+  preparation_status: prepared_with_reservations
+  blocking_reason: Resolve only the listed blocking objects, relations, decisions, or terms.
+  reservations:
+  - deferred_for_scientific_decision
+  notes: Preparation does not change canonical feature status.
+- feature_id: TLC-FC-06-THEOREMS-006
+  canonical_name: '06-theorems: oracle (admissible)'
+  inventory_status: inventoried
+  source_coverage: complete
+  scientific_coverage: complete_with_reservations
+  result_semantics_status: prepared_with_reservations
+  proof_status: partial_or_absent
+  internal_dependencies: []
+  proof_dependencies:
+  - PROOF-THEOREMS-001
+  - PROOF-THEOREMS-002
+  - PROOF-THEOREMS-003
+  - PROOF-THEOREMS-004
+  - PROOF-THEOREMS-005
+  master_dependencies:
+  - DEP-THEOREMS-MASTER-001
+  disciple_dependencies:
+  - DEP-THEOREMS-DISCIPLE-001
+  community_dependencies:
+  - DEP-THEOREMS-COMMUNITY-001
+  huit_dimensions_dependencies:
+  - DEP-THEOREMS-HUIT-001
+  invariants_dependencies: []
+  dynamics_dependencies:
+  - DEP-THEOREMS-DYNAMICS-001
+  message_dependencies:
+  - DEP-THEOREMS-MESSAGE-001
+  principle_dependencies:
+  - DEP-THEOREMS-PRINCIPLE-001
+  other_domain_dependencies: []
+  scientific_unresolved: []
+  classification: theorem_declaration_contract
+  planned_contract_status: planned
+  planned_ir_status: planned
+  contract_generation_gate: proof_source_required
+  ir_generation_gate: proof_source_available
+  proof_representation_possible: false
+  mechanical_verification_possible: false
+  structural_representation_possible: true
+  execution_readiness: false
+  implementation_readiness: false
+  code_generation_readiness: false
+  preparation_status: prepared_with_reservations
+  blocking_reason: Re-examine the cited source range; do not infer missing fields, types, or behavior.
+  reservations:
+  - deferred_for_targeted_extraction
+  notes: Preparation does not change canonical feature status.
+- feature_id: TLC-FC-06-THEOREMS-007
+  canonical_name: '06-theorems: state (admissible)'
+  inventory_status: inventoried
+  source_coverage: complete
+  scientific_coverage: complete_with_reservations
+  result_semantics_status: prepared_with_reservations
+  proof_status: partial_or_absent
+  internal_dependencies: []
+  proof_dependencies: []
+  master_dependencies: []
+  disciple_dependencies: []
+  community_dependencies: []
+  huit_dimensions_dependencies: []
+  invariants_dependencies: []
+  dynamics_dependencies: []
+  message_dependencies: []
+  principle_dependencies: []
+  other_domain_dependencies: []
+  scientific_unresolved:
+  - TLC-UT-THEOREMS-002
+  - TLC-UT-THEOREMS-003
+  - TLC-UT-THEOREMS-004
+  classification: structural_contract
+  planned_contract_status: planned
+  planned_ir_status: planned
+  contract_generation_gate: missing_source_evidence
+  ir_generation_gate: not_yet_assessable
+  proof_representation_possible: false
+  mechanical_verification_possible: false
+  structural_representation_possible: true
+  execution_readiness: false
+  implementation_readiness: false
+  code_generation_readiness: false
+  preparation_status: prepared_with_reservations
+  blocking_reason: Re-examine the cited source range; do not infer missing fields, types, or behavior.
+  reservations:
+  - deferred_for_targeted_extraction
+  notes: Preparation does not change canonical feature status.
+- feature_id: TLC-FC-06-THEOREMS-008
+  canonical_name: '06-theorems: state (blocked_locally)'
+  inventory_status: inventoried
+  source_coverage: complete
+  scientific_coverage: complete_with_reservations
+  result_semantics_status: prepared_with_reservations
+  proof_status: partial_or_absent
+  internal_dependencies: []
+  proof_dependencies: []
+  master_dependencies: []
+  disciple_dependencies: []
+  community_dependencies: []
+  huit_dimensions_dependencies:
+  - DEP-THEOREMS-HUIT-001
+  invariants_dependencies: []
+  dynamics_dependencies: []
+  message_dependencies:
+  - DEP-THEOREMS-MESSAGE-001
+  principle_dependencies: []
+  other_domain_dependencies: []
+  scientific_unresolved:
+  - TLC-UT-THEOREMS-001
+  - TLC-UT-THEOREMS-005
+  - TLC-UT-THEOREMS-007
+  - TLC-UT-THEOREMS-008
+  - TLC-UT-THEOREMS-009
+  - TLC-UT-THEOREMS-010
+  - TLC-UT-THEOREMS-011
+  - TLC-UT-THEOREMS-012
+  classification: non_computational_contract
+  planned_contract_status: planned
+  planned_ir_status: planned
+  contract_generation_gate: local_scientific_decision_required
+  ir_generation_gate: multiple_dependencies_available
+  proof_representation_possible: false
+  mechanical_verification_possible: false
+  structural_representation_possible: true
+  execution_readiness: false
+  implementation_readiness: false
+  code_generation_readiness: false
+  preparation_status: prepared_with_reservations
+  blocking_reason: Recommend convert_to_state_definition; no transformation is applied by this review.
+  reservations:
+  - rejected_as_feature
+  notes: Preparation does not change canonical feature status.
+- feature_id: TLC-FC-06-THEOREMS-009
+  canonical_name: '06-theorems: state (provisionally_separated)'
+  inventory_status: inventoried
+  source_coverage: complete
+  scientific_coverage: complete_with_reservations
+  result_semantics_status: prepared_with_reservations
+  proof_status: partial_or_absent
+  internal_dependencies: []
+  proof_dependencies: []
+  master_dependencies: []
+  disciple_dependencies: []
+  community_dependencies: []
+  huit_dimensions_dependencies:
+  - DEP-THEOREMS-HUIT-001
+  invariants_dependencies: []
+  dynamics_dependencies: []
+  message_dependencies: []
+  principle_dependencies:
+  - DEP-THEOREMS-PRINCIPLE-001
+  other_domain_dependencies: []
+  scientific_unresolved:
+  - TLC-UT-THEOREMS-006
+  classification: non_computational_contract
+  planned_contract_status: planned
+  planned_ir_status: planned
+  contract_generation_gate: local_scientific_decision_required
+  ir_generation_gate: local_scientific_decision_required
+  proof_representation_possible: false
+  mechanical_verification_possible: false
+  structural_representation_possible: true
+  execution_readiness: false
+  implementation_readiness: false
+  code_generation_readiness: false
+  preparation_status: prepared_with_reservations
+  blocking_reason: Recommend convert_to_state_definition; no transformation is applied by this review.
+  reservations:
+  - rejected_as_feature
+  notes: Preparation does not change canonical feature status.
+status: complete_with_reservations
