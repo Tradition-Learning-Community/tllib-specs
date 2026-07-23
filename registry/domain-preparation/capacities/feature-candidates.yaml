@@ -1,0 +1,88 @@
+features:
+  - id: TLC-FC-11-CAP-001
+    name: "Modélisation de l'espace de potentiel"
+    description: "Structure l'espace de Hilbert des capacités avec ses quatre composantes orthogonales (inné, acquis, latent, émergent)."
+    status: candidate
+    wave: 1
+    dependencies: []
+    scientific_objects:
+      - TLC-SO-CAPACITIES-001
+      - TLC-SO-CAPACITIES-002
+      - TLC-SO-CAPACITIES-003
+
+  - id: TLC-FC-11-CAP-002
+    name: "Gestion des propriétés essentielles"
+    description: "Implémente les propriétés de latence, activatibilité, structuralité et évolutivité des capacités."
+    status: candidate
+    wave: 1
+    dependencies: [TLC-FC-11-CAP-001]
+    scientific_objects:
+      - TLC-SO-CAPACITIES-005
+      - TLC-SO-CAPACITIES-008
+
+  - id: TLC-FC-11-CAP-003
+    name: "Évaluation de la structure riemannienne"
+    description: "Modélise la métrique riemannienne et les géodésiques de développement dans l'espace des capacités."
+    status: candidate
+    wave: 1
+    dependencies: [TLC-FC-11-CAP-001]
+    scientific_objects:
+      - TLC-SO-CAPACITIES-010
+
+  - id: TLC-FC-11-CAP-004
+    name: "Vérification des conditions d'existence"
+    description: "Contrôle les conditions opérationnelles d'existence d'une capacité (potentiel, activation, mesurabilité, reconnaissance)."
+    status: candidate
+    wave: 1
+    dependencies: [TLC-FC-11-CAP-002]
+    scientific_objects:
+      - TLC-SO-CAPACITIES-013
+
+  - id: TLC-FC-11-CAP-005
+    name: "Classification par types de capacités"
+    description: "Gère les catégories cognitives, émotionnelles, physiques et sociales."
+    status: candidate
+    wave: 1
+    dependencies: []
+    scientific_objects:
+      - TLC-SO-CAPACITIES-021
+      - TLC-SO-CAPACITIES-022
+
+  - id: TLC-FC-11-CAP-006
+    name: "Dynamique d'évolution temporelle"
+    description: "Simule l'évolution des capacités via des équations différentielles stochastiques intégrant pratique et transmission."
+    status: candidate
+    wave: 2
+    dependencies: [TLC-FC-11-CAP-002]
+    scientific_objects:
+      - TLC-SO-CAPACITIES-042
+      - TLC-SO-CAPACITIES-051
+
+  - id: TLC-FC-11-CAP-007
+    name: "Interaction avec les Valeurs et Vertus"
+    description: "Modélise l'influence des finalités (Valeurs) et de l'éthique (Vertus) sur le développement des capacités."
+    status: candidate
+    wave: 2
+    dependencies: [TLC-FC-11-CAP-006]
+    scientific_objects:
+      - TLC-SO-CAPACITIES-049
+      - TLC-SO-CAPACITIES-050
+
+  - id: TLC-FC-11-CAP-008
+    name: "Calcul de l'indice composite de capacité"
+    description: "Calcule l'indicateur de progression globale intégrant l'acquis, le latent et l'émergent."
+    status: candidate
+    wave: 2
+    dependencies: [TLC-FC-11-CAP-001]
+    scientific_objects:
+      - TLC-SO-CAPACITIES-070
+
+  - id: TLC-FC-11-CAP-009
+    name: "Modélisation des capacités collectives"
+    description: "Évalue l'émergence de capacités collectives à partir des interactions entre individus et synergie."
+    status: candidate
+    wave: 2
+    dependencies: [TLC-FC-11-CAP-001]
+    scientific_objects:
+      - TLC-SO-CAPACITIES-086
+      - TLC-SO-CAPACITIES-087
