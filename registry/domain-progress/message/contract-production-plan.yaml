@@ -1,0 +1,48 @@
+domain: message
+preparation_only: true
+canonical_baseline: origin/main
+authority_rule: canonical_only
+contracts:
+- feature_id: TLC-FC-07-MESSAGE-001
+  class: definition
+  status: blocked_pending_local_resolution
+  must_not_define:
+  - transport_protocol
+  - encoding_protocol
+  - execution_semantics
+- feature_id: TLC-FC-07-MESSAGE-002
+  class: validation_contract
+  status: ready_with_reservations
+  must_not_define:
+  - transport_protocol
+  - encoding_protocol
+  - execution_semantics
+- feature_id: TLC-FC-07-MESSAGE-003
+  class: validation_contract
+  status: ready_with_reservations
+  must_not_define:
+  - transport_protocol
+  - encoding_protocol
+  - execution_semantics
+- feature_id: TLC-FC-07-MESSAGE-004
+  class: message_structure_contract
+  status: ready_with_reservations
+  must_not_define:
+  - transport_protocol
+  - encoding_protocol
+  - execution_semantics
+- feature_id: TLC-FC-07-MESSAGE-005
+  class: state_contract
+  status: blocked_pending_local_resolution
+  must_not_define:
+  - transport_protocol
+  - encoding_protocol
+  - execution_semantics
+- feature_id: TLC-FC-07-MESSAGE-006
+  class: message_declaration_contract
+  status: ready_with_reservations
+  must_not_define:
+  - transport_protocol
+  - encoding_protocol
+  - execution_semantics
+contract_files_created: false

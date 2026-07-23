@@ -1,0 +1,20 @@
+domain: message
+preparation_only: true
+canonical_baseline: origin/main
+authority_rule: canonical_only
+sources:
+- path: maths/07-message.md
+  role: primary_scientific_source
+  canonical: true
+- path: registry/scientific-objects/message/scientific-objects.candidate.yaml
+  role: candidate_objects
+  count: 72
+- path: registry/scientific-objects/message/scientific-relations.candidate.yaml
+  role: candidate_relations
+  count: 71
+- path: registry/scientific-objects/message/unresolved-terms.yaml
+  role: unresolved_terms
+  count: 61
+- path: registry/feature-catalog.yaml
+  role: canonical_feature_catalog
+  feature_count: 6
