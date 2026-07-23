@@ -1,0 +1,26 @@
+domain_id: theorems
+target_domain: community
+baseline_commit: 4a42d88ee71e3660fba02c7a780246e8d755c901
+dependencies:
+- dependency_id: DEP-THEOREMS-COMMUNITY-001
+  affected_feature_ids:
+  - TLC-FC-06-THEOREMS-006
+  affected_object_ids:
+  - TLC-SO-THEOREMS-002
+  - TLC-SO-THEOREMS-003
+  source_evidence: maths/06-theorems.md:13-47
+  target_evidence: maths/02-community.md
+  dependency_status: confirmed
+  required_level: reviewed_feature
+  proof_role: definition
+  production_effect: blocks_proof_representation
+  authority_status: canonical_in_main
+  future_reconciliation_required: true
+  reconciliation_trigger: Community contracts and IRs become canonical in main
+  notes: Community preparation is canonical; complete contract/IR coverage is not.
+summary:
+  confirmed: 1
+  inferred_candidate: 0
+  rejected: 0
+  unresolved: 0
+status: complete_with_reservations

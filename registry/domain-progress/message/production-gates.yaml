@@ -1,0 +1,20 @@
+domain: message
+preparation_only: true
+canonical_baseline: origin/main
+authority_rule: canonical_only
+gates:
+- gate: source_inventory
+  status: pass
+- gate: scientific_coverage
+  status: pass
+- gate: concept_separation
+  status: pass_with_reservations
+- gate: upstream_symbol_reconciliation
+  status: blocked
+- gate: contract_generation
+  status: ready_with_reservations
+- gate: ir_generation
+  status: blocked
+- gate: implementation
+  status: blocked
+no_premature_implementation: true
