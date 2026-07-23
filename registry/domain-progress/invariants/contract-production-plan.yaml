@@ -1,0 +1,1111 @@
+domain_id: invariants
+contracts_produced: 0
+plans:
+- feature_id: TLC-FC-04-INVARIANTS-001
+  canonical_name: '04-invariants: constraint (admissible)'
+  planned_contract_type: constraint_contract
+  source_objects: &id002
+  - TLC-SO-INVARIANTS-010
+  - TLC-SO-INVARIANTS-032
+  - TLC-SO-INVARIANTS-033
+  - TLC-SO-INVARIANTS-046
+  source_relations: &id001
+  - TLC-SR-INVARIANTS-009
+  - TLC-SR-INVARIANTS-031
+  - TLC-SR-INVARIANTS-032
+  - TLC-SR-INVARIANTS-045
+  source_locations:
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Invariant de résonance $\mathcal{I}_{\mathrm{res}}$
+    start_line: 89
+    end_line: 100
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Conditions de rupture des invariants du Maître
+    start_line: 55
+    end_line: 55
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Conditions de rupture des invariants du Maître
+    start_line: 56
+    end_line: 56
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Invariant de résonance $\mathcal{I}_{\mathrm{res}}$
+    start_line: 92
+    end_line: 92
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  expected_inputs: source_defined_only
+  expected_outputs: not_specified
+  expected_states: not_specified
+  expected_transitions: not_specified
+  expected_spaces: source_defined_only
+  expected_sets: source_defined_only
+  expected_variables: source_defined_only
+  expected_parameters: source_defined_only
+  expected_constants: source_defined_only
+  expected_predicates: source_defined_only
+  expected_functions: source_defined_only
+  expected_operators: source_defined_only
+  expected_relations: *id001
+  expected_equations: source_defined_only
+  expected_constraints: source_defined_only
+  expected_invariants: *id002
+  expected_quantifiers: not_specified
+  expected_scope: source_reference
+  expected_preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  expected_postconditions:
+  - Result remains candidate and traceable to every cited object.
+  expected_failure_conditions: not_specified
+  master_dependencies:
+  - TLC-INV-DEP-MASTER-001
+  disciple_dependencies:
+  - TLC-INV-DEP-DISCIPLE-001
+  community_dependencies: []
+  huit_dimensions_dependencies: []
+  dynamics_dependencies:
+  - TLC-INV-DEP-DYNAMICS-001
+  theorems_dependencies: []
+  other_external_dependencies: []
+  known_unresolved: []
+  required_evidence_before_generation:
+  - preserve source semantics
+  - propagate unresolved
+  contract_generation_gate: multiple_domains_required
+  contract_generation_priority: planned
+  contract_generation_ready: true
+  execution_readiness_expected: false
+  code_generation_readiness_expected: false
+  notes: Plan only; no contract produced.
+- feature_id: TLC-FC-04-INVARIANTS-002
+  canonical_name: '04-invariants: definition (provisionally_separated)'
+  planned_contract_type: structural_contract
+  source_objects: &id004
+  - TLC-SO-INVARIANTS-017
+  - TLC-SO-INVARIANTS-022
+  - TLC-SO-INVARIANTS-027
+  - TLC-SO-INVARIANTS-035
+  - TLC-SO-INVARIANTS-040
+  - TLC-SO-INVARIANTS-045
+  - TLC-SO-INVARIANTS-053
+  - TLC-SO-INVARIANTS-058
+  - TLC-SO-INVARIANTS-062
+  source_relations: &id003
+  - TLC-SR-INVARIANTS-016
+  - TLC-SR-INVARIANTS-021
+  - TLC-SR-INVARIANTS-026
+  - TLC-SR-INVARIANTS-034
+  - TLC-SR-INVARIANTS-039
+  - TLC-SR-INVARIANTS-044
+  - TLC-SR-INVARIANTS-052
+  - TLC-SR-INVARIANTS-057
+  - TLC-SR-INVARIANTS-061
+  source_locations:
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Invariant éthique $\mathcal{I}_{\mathrm{eth}}$
+    start_line: 13
+    end_line: 13
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Invariant de transmission $\mathcal{I}_{\mathrm{trans}}$
+    start_line: 26
+    end_line: 26
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Invariant structural $\mathcal{I}_{\mathrm{struct}}$
+    start_line: 40
+    end_line: 40
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Invariant de plasticité $\mathcal{I}_{\mathrm{plas}}$
+    start_line: 65
+    end_line: 65
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Invariant de conservation de l’identité $\mathcal{I}_{\mathrm{ident}}$
+    start_line: 78
+    end_line: 78
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Invariant de résonance $\mathcal{I}_{\mathrm{res}}$
+    start_line: 91
+    end_line: 91
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Invariant éthique collectif $\mathcal{I}_{\mathrm{eth,c}}$
+    start_line: 116
+    end_line: 116
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Invariant de transmission collectif $\mathcal{I}_{\mathrm{trans,c}}$
+    start_line: 130
+    end_line: 130
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Invariant relationnel $\mathcal{I}_{\mathrm{rel,c}}$
+    start_line: 140
+    end_line: 140
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  expected_inputs: source_defined_only
+  expected_outputs: not_specified
+  expected_states: not_specified
+  expected_transitions: not_specified
+  expected_spaces: source_defined_only
+  expected_sets: source_defined_only
+  expected_variables: source_defined_only
+  expected_parameters: source_defined_only
+  expected_constants: source_defined_only
+  expected_predicates: source_defined_only
+  expected_functions: source_defined_only
+  expected_operators: source_defined_only
+  expected_relations: *id003
+  expected_equations: source_defined_only
+  expected_constraints: source_defined_only
+  expected_invariants: *id004
+  expected_quantifiers: not_specified
+  expected_scope: source_reference
+  expected_preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  expected_postconditions:
+  - Result remains candidate and traceable to every cited object.
+  expected_failure_conditions: not_specified
+  master_dependencies:
+  - TLC-INV-DEP-MASTER-001
+  disciple_dependencies:
+  - TLC-INV-DEP-DISCIPLE-001
+  community_dependencies:
+  - TLC-INV-DEP-COMMUNITY-001
+  huit_dimensions_dependencies: []
+  dynamics_dependencies:
+  - TLC-INV-DEP-DYNAMICS-001
+  theorems_dependencies: []
+  other_external_dependencies: []
+  known_unresolved: []
+  required_evidence_before_generation:
+  - preserve source semantics
+  - propagate unresolved
+  contract_generation_gate: multiple_domains_required
+  contract_generation_priority: planned
+  contract_generation_ready: true
+  execution_readiness_expected: false
+  code_generation_readiness_expected: false
+  notes: Plan only; no contract produced.
+- feature_id: TLC-FC-04-INVARIANTS-003
+  canonical_name: '04-invariants: invariant (admissible)'
+  planned_contract_type: invariant_validation_contract
+  source_objects: &id006
+  - TLC-SO-INVARIANTS-002
+  - TLC-SO-INVARIANTS-003
+  - TLC-SO-INVARIANTS-004
+  - TLC-SO-INVARIANTS-005
+  - TLC-SO-INVARIANTS-006
+  - TLC-SO-INVARIANTS-008
+  - TLC-SO-INVARIANTS-009
+  - TLC-SO-INVARIANTS-011
+  - TLC-SO-INVARIANTS-012
+  - TLC-SO-INVARIANTS-014
+  - TLC-SO-INVARIANTS-015
+  - TLC-SO-INVARIANTS-016
+  - TLC-SO-INVARIANTS-018
+  - TLC-SO-INVARIANTS-019
+  - TLC-SO-INVARIANTS-020
+  - TLC-SO-INVARIANTS-023
+  - TLC-SO-INVARIANTS-024
+  - TLC-SO-INVARIANTS-025
+  - TLC-SO-INVARIANTS-028
+  - TLC-SO-INVARIANTS-029
+  - TLC-SO-INVARIANTS-030
+  - TLC-SO-INVARIANTS-034
+  - TLC-SO-INVARIANTS-036
+  - TLC-SO-INVARIANTS-037
+  - TLC-SO-INVARIANTS-038
+  - TLC-SO-INVARIANTS-042
+  - TLC-SO-INVARIANTS-043
+  - TLC-SO-INVARIANTS-047
+  - TLC-SO-INVARIANTS-048
+  - TLC-SO-INVARIANTS-055
+  - TLC-SO-INVARIANTS-056
+  - TLC-SO-INVARIANTS-060
+  - TLC-SO-INVARIANTS-064
+  source_relations: &id005
+  - TLC-SR-INVARIANTS-001
+  - TLC-SR-INVARIANTS-002
+  - TLC-SR-INVARIANTS-003
+  - TLC-SR-INVARIANTS-004
+  - TLC-SR-INVARIANTS-005
+  - TLC-SR-INVARIANTS-007
+  - TLC-SR-INVARIANTS-008
+  - TLC-SR-INVARIANTS-010
+  - TLC-SR-INVARIANTS-011
+  - TLC-SR-INVARIANTS-013
+  - TLC-SR-INVARIANTS-014
+  - TLC-SR-INVARIANTS-015
+  - TLC-SR-INVARIANTS-017
+  - TLC-SR-INVARIANTS-018
+  - TLC-SR-INVARIANTS-019
+  - TLC-SR-INVARIANTS-022
+  - TLC-SR-INVARIANTS-023
+  - TLC-SR-INVARIANTS-024
+  - TLC-SR-INVARIANTS-027
+  - TLC-SR-INVARIANTS-028
+  - TLC-SR-INVARIANTS-029
+  - TLC-SR-INVARIANTS-033
+  - TLC-SR-INVARIANTS-035
+  - TLC-SR-INVARIANTS-036
+  - TLC-SR-INVARIANTS-037
+  - TLC-SR-INVARIANTS-041
+  - TLC-SR-INVARIANTS-042
+  - TLC-SR-INVARIANTS-046
+  - TLC-SR-INVARIANTS-047
+  - TLC-SR-INVARIANTS-054
+  - TLC-SR-INVARIANTS-055
+  - TLC-SR-INVARIANTS-059
+  - TLC-SR-INVARIANTS-063
+  source_locations:
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: null
+    start_line: 7
+    end_line: 9
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Invariant éthique $\mathcal{I}_{\mathrm{eth}}$
+    start_line: 11
+    end_line: 22
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Invariant de transmission $\mathcal{I}_{\mathrm{trans}}$
+    start_line: 24
+    end_line: 36
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Invariant structural $\mathcal{I}_{\mathrm{struct}}$
+    start_line: 38
+    end_line: 49
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Conditions de rupture des invariants du Maître
+    start_line: 51
+    end_line: 53
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Invariant de plasticité $\mathcal{I}_{\mathrm{plas}}$
+    start_line: 63
+    end_line: 74
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Invariant de conservation de l’identité $\mathcal{I}_{\mathrm{ident}}$
+    start_line: 76
+    end_line: 87
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Conditions de rupture des invariants du Disciple
+    start_line: 102
+    end_line: 106
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: null
+    start_line: 110
+    end_line: 112
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Invariant de transmission collectif $\mathcal{I}_{\mathrm{trans,c}}$
+    start_line: 128
+    end_line: 136
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Invariant relationnel $\mathcal{I}_{\mathrm{rel,c}}$
+    start_line: 138
+    end_line: 146
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Conditions de rupture des invariants communautaires
+    start_line: 148
+    end_line: 153
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Invariant éthique $\mathcal{I}_{\mathrm{eth}}$
+    start_line: 14
+    end_line: 14
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Invariant éthique $\mathcal{I}_{\mathrm{eth}}$
+    start_line: 15
+    end_line: 17
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Invariant éthique $\mathcal{I}_{\mathrm{eth}}$
+    start_line: 19
+    end_line: 21
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Invariant de transmission $\mathcal{I}_{\mathrm{trans}}$
+    start_line: 27
+    end_line: 27
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Invariant de transmission $\mathcal{I}_{\mathrm{trans}}$
+    start_line: 28
+    end_line: 30
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Invariant de transmission $\mathcal{I}_{\mathrm{trans}}$
+    start_line: 32
+    end_line: 34
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Invariant structural $\mathcal{I}_{\mathrm{struct}}$
+    start_line: 41
+    end_line: 41
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Invariant structural $\mathcal{I}_{\mathrm{struct}}$
+    start_line: 42
+    end_line: 44
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Invariant structural $\mathcal{I}_{\mathrm{struct}}$
+    start_line: 46
+    end_line: 48
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Conditions de rupture des invariants du Maître
+    start_line: 57
+    end_line: 57
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Invariant de plasticité $\mathcal{I}_{\mathrm{plas}}$
+    start_line: 66
+    end_line: 66
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Invariant de plasticité $\mathcal{I}_{\mathrm{plas}}$
+    start_line: 67
+    end_line: 69
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Invariant de plasticité $\mathcal{I}_{\mathrm{plas}}$
+    start_line: 71
+    end_line: 73
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Invariant de conservation de l’identité $\mathcal{I}_{\mathrm{ident}}$
+    start_line: 80
+    end_line: 82
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Invariant de conservation de l’identité $\mathcal{I}_{\mathrm{ident}}$
+    start_line: 84
+    end_line: 86
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Invariant de résonance $\mathcal{I}_{\mathrm{res}}$
+    start_line: 93
+    end_line: 95
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Invariant de résonance $\mathcal{I}_{\mathrm{res}}$
+    start_line: 97
+    end_line: 99
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Invariant éthique collectif $\mathcal{I}_{\mathrm{eth,c}}$
+    start_line: 118
+    end_line: 120
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Invariant éthique collectif $\mathcal{I}_{\mathrm{eth,c}}$
+    start_line: 122
+    end_line: 124
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Invariant de transmission collectif $\mathcal{I}_{\mathrm{trans,c}}$
+    start_line: 132
+    end_line: 134
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Invariant relationnel $\mathcal{I}_{\mathrm{rel,c}}$
+    start_line: 142
+    end_line: 144
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  expected_inputs: source_defined_only
+  expected_outputs: not_specified
+  expected_states: not_specified
+  expected_transitions: not_specified
+  expected_spaces: source_defined_only
+  expected_sets: source_defined_only
+  expected_variables: source_defined_only
+  expected_parameters: source_defined_only
+  expected_constants: source_defined_only
+  expected_predicates: source_defined_only
+  expected_functions: source_defined_only
+  expected_operators: source_defined_only
+  expected_relations: *id005
+  expected_equations: source_defined_only
+  expected_constraints: source_defined_only
+  expected_invariants: *id006
+  expected_quantifiers: not_specified
+  expected_scope: source_reference
+  expected_preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  expected_postconditions:
+  - Result remains candidate and traceable to every cited object.
+  expected_failure_conditions: not_specified
+  master_dependencies:
+  - TLC-INV-DEP-MASTER-001
+  disciple_dependencies:
+  - TLC-INV-DEP-DISCIPLE-001
+  community_dependencies:
+  - TLC-INV-DEP-COMMUNITY-001
+  huit_dimensions_dependencies: []
+  dynamics_dependencies:
+  - TLC-INV-DEP-DYNAMICS-001
+  theorems_dependencies: []
+  other_external_dependencies: []
+  known_unresolved: []
+  required_evidence_before_generation:
+  - preserve source semantics
+  - propagate unresolved
+  contract_generation_gate: multiple_domains_required
+  contract_generation_priority: planned
+  contract_generation_ready: true
+  execution_readiness_expected: false
+  code_generation_readiness_expected: false
+  notes: Plan only; no contract produced.
+- feature_id: TLC-FC-04-INVARIANTS-004
+  canonical_name: '04-invariants: invariant (blocked_locally)'
+  planned_contract_type: invariant_validation_contract
+  source_objects: &id008
+  - TLC-SO-INVARIANTS-007
+  source_relations: &id007
+  - TLC-SR-INVARIANTS-006
+  source_locations:
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: null
+    start_line: 59
+    end_line: 61
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  expected_inputs: source_defined_only
+  expected_outputs: not_specified
+  expected_states: not_specified
+  expected_transitions: not_specified
+  expected_spaces: source_defined_only
+  expected_sets: source_defined_only
+  expected_variables: source_defined_only
+  expected_parameters: source_defined_only
+  expected_constants: source_defined_only
+  expected_predicates: source_defined_only
+  expected_functions: source_defined_only
+  expected_operators: source_defined_only
+  expected_relations: *id007
+  expected_equations: source_defined_only
+  expected_constraints: source_defined_only
+  expected_invariants: *id008
+  expected_quantifiers: not_specified
+  expected_scope: source_reference
+  expected_preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  expected_postconditions:
+  - Result remains candidate and traceable to every cited object.
+  expected_failure_conditions: not_specified
+  master_dependencies: []
+  disciple_dependencies:
+  - TLC-INV-DEP-DISCIPLE-001
+  community_dependencies: []
+  huit_dimensions_dependencies: []
+  dynamics_dependencies:
+  - TLC-INV-DEP-DYNAMICS-001
+  theorems_dependencies: []
+  other_external_dependencies: []
+  known_unresolved: []
+  required_evidence_before_generation:
+  - preserve source semantics
+  - propagate unresolved
+  contract_generation_gate: disciple_symbols_available
+  contract_generation_priority: planned
+  contract_generation_ready: true
+  execution_readiness_expected: false
+  code_generation_readiness_expected: false
+  notes: Plan only; no contract produced.
+- feature_id: TLC-FC-04-INVARIANTS-005
+  canonical_name: '04-invariants: invariant (provisionally_separated)'
+  planned_contract_type: invariant_declaration_contract
+  source_objects: &id010
+  - TLC-SO-INVARIANTS-031
+  - TLC-SO-INVARIANTS-044
+  - TLC-SO-INVARIANTS-049
+  source_relations: &id009
+  - TLC-SR-INVARIANTS-030
+  - TLC-SR-INVARIANTS-043
+  - TLC-SR-INVARIANTS-048
+  source_locations:
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Invariant structural $\mathcal{I}_{\mathrm{struct}}$
+    start_line: 49
+    end_line: 49
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Invariant de conservation de l’identité $\mathcal{I}_{\mathrm{ident}}$
+    start_line: 87
+    end_line: 87
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Invariant de résonance $\mathcal{I}_{\mathrm{res}}$
+    start_line: 100
+    end_line: 100
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  expected_inputs: source_defined_only
+  expected_outputs: not_specified
+  expected_states: not_specified
+  expected_transitions: not_specified
+  expected_spaces: source_defined_only
+  expected_sets: source_defined_only
+  expected_variables: source_defined_only
+  expected_parameters: source_defined_only
+  expected_constants: source_defined_only
+  expected_predicates: source_defined_only
+  expected_functions: source_defined_only
+  expected_operators: source_defined_only
+  expected_relations: *id009
+  expected_equations: source_defined_only
+  expected_constraints: source_defined_only
+  expected_invariants: *id010
+  expected_quantifiers: not_specified
+  expected_scope: source_reference
+  expected_preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  expected_postconditions:
+  - Result remains candidate and traceable to every cited object.
+  expected_failure_conditions: not_specified
+  master_dependencies:
+  - TLC-INV-DEP-MASTER-001
+  disciple_dependencies:
+  - TLC-INV-DEP-DISCIPLE-001
+  community_dependencies: []
+  huit_dimensions_dependencies: []
+  dynamics_dependencies:
+  - TLC-INV-DEP-DYNAMICS-001
+  theorems_dependencies: []
+  other_external_dependencies: []
+  known_unresolved: []
+  required_evidence_before_generation:
+  - preserve source semantics
+  - propagate unresolved
+  contract_generation_gate: multiple_domains_required
+  contract_generation_priority: planned
+  contract_generation_ready: true
+  execution_readiness_expected: false
+  code_generation_readiness_expected: false
+  notes: Plan only; no contract produced.
+- feature_id: TLC-FC-04-INVARIANTS-006
+  canonical_name: '04-invariants: oracle (admissible)'
+  planned_contract_type: invariant_predicate_contract
+  source_objects: &id012
+  - TLC-SO-INVARIANTS-013
+  - TLC-SO-INVARIANTS-057
+  source_relations: &id011
+  - TLC-SR-INVARIANTS-012
+  - TLC-SR-INVARIANTS-056
+  source_locations:
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Invariant éthique collectif $\mathcal{I}_{\mathrm{eth,c}}$
+    start_line: 114
+    end_line: 126
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Invariant éthique collectif $\mathcal{I}_{\mathrm{eth,c}}$
+    start_line: 126
+    end_line: 126
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  expected_inputs: source_defined_only
+  expected_outputs: not_specified
+  expected_states: not_specified
+  expected_transitions: not_specified
+  expected_spaces: source_defined_only
+  expected_sets: source_defined_only
+  expected_variables: source_defined_only
+  expected_parameters: source_defined_only
+  expected_constants: source_defined_only
+  expected_predicates: source_defined_only
+  expected_functions: source_defined_only
+  expected_operators: source_defined_only
+  expected_relations: *id011
+  expected_equations: source_defined_only
+  expected_constraints: source_defined_only
+  expected_invariants: *id012
+  expected_quantifiers: not_specified
+  expected_scope: source_reference
+  expected_preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  expected_postconditions:
+  - Result remains candidate and traceable to every cited object.
+  expected_failure_conditions: not_specified
+  master_dependencies: []
+  disciple_dependencies: []
+  community_dependencies:
+  - TLC-INV-DEP-COMMUNITY-001
+  huit_dimensions_dependencies: []
+  dynamics_dependencies:
+  - TLC-INV-DEP-DYNAMICS-001
+  theorems_dependencies: []
+  other_external_dependencies: []
+  known_unresolved: []
+  required_evidence_before_generation:
+  - preserve source semantics
+  - propagate unresolved
+  contract_generation_gate: community_symbols_required
+  contract_generation_priority: planned
+  contract_generation_ready: true
+  execution_readiness_expected: false
+  code_generation_readiness_expected: false
+  notes: Plan only; no contract produced.
+- feature_id: TLC-FC-04-INVARIANTS-007
+  canonical_name: '04-invariants: relation (admissible)'
+  planned_contract_type: relational_contract
+  source_objects: &id014
+  - TLC-SO-INVARIANTS-068
+  source_relations: &id013
+  - TLC-SR-INVARIANTS-067
+  source_locations:
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Conditions de rupture des invariants communautaires
+    start_line: 152
+    end_line: 152
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  expected_inputs: source_defined_only
+  expected_outputs: not_specified
+  expected_states: not_specified
+  expected_transitions: not_specified
+  expected_spaces: source_defined_only
+  expected_sets: source_defined_only
+  expected_variables: source_defined_only
+  expected_parameters: source_defined_only
+  expected_constants: source_defined_only
+  expected_predicates: source_defined_only
+  expected_functions: source_defined_only
+  expected_operators: source_defined_only
+  expected_relations: *id013
+  expected_equations: source_defined_only
+  expected_constraints: source_defined_only
+  expected_invariants: *id014
+  expected_quantifiers: not_specified
+  expected_scope: source_reference
+  expected_preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  expected_postconditions:
+  - Result remains candidate and traceable to every cited object.
+  expected_failure_conditions: not_specified
+  master_dependencies: []
+  disciple_dependencies: []
+  community_dependencies:
+  - TLC-INV-DEP-COMMUNITY-001
+  huit_dimensions_dependencies: []
+  dynamics_dependencies:
+  - TLC-INV-DEP-DYNAMICS-001
+  theorems_dependencies: []
+  other_external_dependencies: []
+  known_unresolved: []
+  required_evidence_before_generation:
+  - preserve source semantics
+  - propagate unresolved
+  contract_generation_gate: community_symbols_required
+  contract_generation_priority: planned
+  contract_generation_ready: true
+  execution_readiness_expected: false
+  code_generation_readiness_expected: false
+  notes: Plan only; no contract produced.
+- feature_id: TLC-FC-04-INVARIANTS-008
+  canonical_name: '04-invariants: state (admissible)'
+  planned_contract_type: state_invariant_contract
+  source_objects: &id016
+  - TLC-SO-INVARIANTS-001
+  - TLC-SO-INVARIANTS-041
+  - TLC-SO-INVARIANTS-050
+  - TLC-SO-INVARIANTS-051
+  - TLC-SO-INVARIANTS-052
+  - TLC-SO-INVARIANTS-054
+  - TLC-SO-INVARIANTS-059
+  - TLC-SO-INVARIANTS-061
+  - TLC-SO-INVARIANTS-063
+  - TLC-SO-INVARIANTS-066
+  - TLC-SO-INVARIANTS-067
+  - TLC-SO-INVARIANTS-069
+  source_relations: &id015
+  - TLC-SR-INVARIANTS-001
+  - TLC-SR-INVARIANTS-002
+  - TLC-SR-INVARIANTS-003
+  - TLC-SR-INVARIANTS-004
+  - TLC-SR-INVARIANTS-005
+  - TLC-SR-INVARIANTS-006
+  - TLC-SR-INVARIANTS-007
+  - TLC-SR-INVARIANTS-008
+  - TLC-SR-INVARIANTS-009
+  - TLC-SR-INVARIANTS-010
+  - TLC-SR-INVARIANTS-011
+  - TLC-SR-INVARIANTS-012
+  - TLC-SR-INVARIANTS-013
+  - TLC-SR-INVARIANTS-014
+  - TLC-SR-INVARIANTS-015
+  - TLC-SR-INVARIANTS-016
+  - TLC-SR-INVARIANTS-017
+  - TLC-SR-INVARIANTS-018
+  - TLC-SR-INVARIANTS-019
+  - TLC-SR-INVARIANTS-020
+  - TLC-SR-INVARIANTS-021
+  - TLC-SR-INVARIANTS-022
+  - TLC-SR-INVARIANTS-023
+  - TLC-SR-INVARIANTS-024
+  - TLC-SR-INVARIANTS-025
+  - TLC-SR-INVARIANTS-026
+  - TLC-SR-INVARIANTS-027
+  - TLC-SR-INVARIANTS-028
+  - TLC-SR-INVARIANTS-029
+  - TLC-SR-INVARIANTS-030
+  - TLC-SR-INVARIANTS-031
+  - TLC-SR-INVARIANTS-032
+  - TLC-SR-INVARIANTS-033
+  - TLC-SR-INVARIANTS-034
+  - TLC-SR-INVARIANTS-035
+  - TLC-SR-INVARIANTS-036
+  - TLC-SR-INVARIANTS-037
+  - TLC-SR-INVARIANTS-038
+  - TLC-SR-INVARIANTS-039
+  - TLC-SR-INVARIANTS-040
+  - TLC-SR-INVARIANTS-041
+  - TLC-SR-INVARIANTS-042
+  - TLC-SR-INVARIANTS-043
+  - TLC-SR-INVARIANTS-044
+  - TLC-SR-INVARIANTS-045
+  - TLC-SR-INVARIANTS-046
+  - TLC-SR-INVARIANTS-047
+  - TLC-SR-INVARIANTS-048
+  - TLC-SR-INVARIANTS-049
+  - TLC-SR-INVARIANTS-050
+  - TLC-SR-INVARIANTS-051
+  - TLC-SR-INVARIANTS-052
+  - TLC-SR-INVARIANTS-053
+  - TLC-SR-INVARIANTS-054
+  - TLC-SR-INVARIANTS-055
+  - TLC-SR-INVARIANTS-056
+  - TLC-SR-INVARIANTS-057
+  - TLC-SR-INVARIANTS-058
+  - TLC-SR-INVARIANTS-059
+  - TLC-SR-INVARIANTS-060
+  - TLC-SR-INVARIANTS-061
+  - TLC-SR-INVARIANTS-062
+  - TLC-SR-INVARIANTS-063
+  - TLC-SR-INVARIANTS-064
+  - TLC-SR-INVARIANTS-065
+  - TLC-SR-INVARIANTS-066
+  - TLC-SR-INVARIANTS-067
+  - TLC-SR-INVARIANTS-068
+  source_locations:
+  - source_path: maths/04-invariants.md
+    section: Invariants de la maîtrise, du disciple et de la communauté
+    subsection: null
+    start_line: 1
+    end_line: 5
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Invariant de conservation de l’identité $\mathcal{I}_{\mathrm{ident}}$
+    start_line: 79
+    end_line: 79
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Conditions de rupture des invariants du Disciple
+    start_line: 104
+    end_line: 104
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Conditions de rupture des invariants du Disciple
+    start_line: 105
+    end_line: 105
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Conditions de rupture des invariants du Disciple
+    start_line: 106
+    end_line: 106
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Invariant éthique collectif $\mathcal{I}_{\mathrm{eth,c}}$
+    start_line: 117
+    end_line: 117
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Invariant de transmission collectif $\mathcal{I}_{\mathrm{trans,c}}$
+    start_line: 131
+    end_line: 131
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Invariant de transmission collectif $\mathcal{I}_{\mathrm{trans,c}}$
+    start_line: 136
+    end_line: 136
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Invariant relationnel $\mathcal{I}_{\mathrm{rel,c}}$
+    start_line: 141
+    end_line: 141
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Conditions de rupture des invariants communautaires
+    start_line: 150
+    end_line: 150
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Conditions de rupture des invariants communautaires
+    start_line: 151
+    end_line: 151
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Conditions de rupture des invariants communautaires
+    start_line: 153
+    end_line: 153
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  expected_inputs: source_defined_only
+  expected_outputs: not_specified
+  expected_states: not_specified
+  expected_transitions: not_specified
+  expected_spaces: source_defined_only
+  expected_sets: source_defined_only
+  expected_variables: source_defined_only
+  expected_parameters: source_defined_only
+  expected_constants: source_defined_only
+  expected_predicates: source_defined_only
+  expected_functions: source_defined_only
+  expected_operators: source_defined_only
+  expected_relations: *id015
+  expected_equations: source_defined_only
+  expected_constraints: source_defined_only
+  expected_invariants: *id016
+  expected_quantifiers: not_specified
+  expected_scope: source_reference
+  expected_preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  expected_postconditions:
+  - Result remains candidate and traceable to every cited object.
+  expected_failure_conditions: not_specified
+  master_dependencies: []
+  disciple_dependencies:
+  - TLC-INV-DEP-DISCIPLE-001
+  community_dependencies:
+  - TLC-INV-DEP-COMMUNITY-001
+  huit_dimensions_dependencies: []
+  dynamics_dependencies:
+  - TLC-INV-DEP-DYNAMICS-001
+  theorems_dependencies: []
+  other_external_dependencies: []
+  known_unresolved:
+  - TLC-UT-INVARIANTS-001
+  - TLC-UT-INVARIANTS-002
+  - TLC-UT-INVARIANTS-003
+  - TLC-UT-INVARIANTS-004
+  - TLC-UT-INVARIANTS-005
+  - TLC-UT-INVARIANTS-006
+  - TLC-UT-INVARIANTS-007
+  - TLC-UT-INVARIANTS-008
+  - TLC-UT-INVARIANTS-010
+  - TLC-UT-INVARIANTS-011
+  - TLC-UT-INVARIANTS-012
+  required_evidence_before_generation:
+  - preserve source semantics
+  - propagate unresolved
+  contract_generation_gate: unresolved_but_contract_plannable
+  contract_generation_priority: planned
+  contract_generation_ready: true
+  execution_readiness_expected: false
+  code_generation_readiness_expected: false
+  notes: Plan only; no contract produced.
+- feature_id: TLC-FC-04-INVARIANTS-009
+  canonical_name: '04-invariants: state (blocked_locally)'
+  planned_contract_type: state_invariant_contract
+  source_objects: &id018
+  - TLC-SO-INVARIANTS-065
+  source_relations: &id017
+  - TLC-SR-INVARIANTS-064
+  source_locations:
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Invariant relationnel $\mathcal{I}_{\mathrm{rel,c}}$
+    start_line: 146
+    end_line: 146
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  expected_inputs: source_defined_only
+  expected_outputs: not_specified
+  expected_states: not_specified
+  expected_transitions: not_specified
+  expected_spaces: source_defined_only
+  expected_sets: source_defined_only
+  expected_variables: source_defined_only
+  expected_parameters: source_defined_only
+  expected_constants: source_defined_only
+  expected_predicates: source_defined_only
+  expected_functions: source_defined_only
+  expected_operators: source_defined_only
+  expected_relations: *id017
+  expected_equations: source_defined_only
+  expected_constraints: source_defined_only
+  expected_invariants: *id018
+  expected_quantifiers: not_specified
+  expected_scope: source_reference
+  expected_preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  expected_postconditions:
+  - Result remains candidate and traceable to every cited object.
+  expected_failure_conditions: not_specified
+  master_dependencies: []
+  disciple_dependencies: []
+  community_dependencies:
+  - TLC-INV-DEP-COMMUNITY-001
+  huit_dimensions_dependencies: []
+  dynamics_dependencies:
+  - TLC-INV-DEP-DYNAMICS-001
+  theorems_dependencies: []
+  other_external_dependencies: []
+  known_unresolved:
+  - TLC-UT-INVARIANTS-009
+  required_evidence_before_generation:
+  - preserve source semantics
+  - propagate unresolved
+  contract_generation_gate: unresolved_but_contract_plannable
+  contract_generation_priority: planned
+  contract_generation_ready: true
+  execution_readiness_expected: false
+  code_generation_readiness_expected: false
+  notes: Plan only; no contract produced.
+- feature_id: TLC-FC-04-INVARIANTS-010
+  canonical_name: '04-invariants: state (provisionally_separated)'
+  planned_contract_type: state_invariant_contract
+  source_objects: &id020
+  - TLC-SO-INVARIANTS-021
+  - TLC-SO-INVARIANTS-026
+  - TLC-SO-INVARIANTS-039
+  source_relations: &id019
+  - TLC-SR-INVARIANTS-020
+  - TLC-SR-INVARIANTS-025
+  - TLC-SR-INVARIANTS-038
+  source_locations:
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Invariant éthique $\mathcal{I}_{\mathrm{eth}}$
+    start_line: 22
+    end_line: 22
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Invariant de transmission $\mathcal{I}_{\mathrm{trans}}$
+    start_line: 36
+    end_line: 36
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Invariant de plasticité $\mathcal{I}_{\mathrm{plas}}$
+    start_line: 74
+    end_line: 74
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  expected_inputs: source_defined_only
+  expected_outputs: not_specified
+  expected_states: not_specified
+  expected_transitions: not_specified
+  expected_spaces: source_defined_only
+  expected_sets: source_defined_only
+  expected_variables: source_defined_only
+  expected_parameters: source_defined_only
+  expected_constants: source_defined_only
+  expected_predicates: source_defined_only
+  expected_functions: source_defined_only
+  expected_operators: source_defined_only
+  expected_relations: *id019
+  expected_equations: source_defined_only
+  expected_constraints: source_defined_only
+  expected_invariants: *id020
+  expected_quantifiers: not_specified
+  expected_scope: source_reference
+  expected_preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  expected_postconditions:
+  - Result remains candidate and traceable to every cited object.
+  expected_failure_conditions: not_specified
+  master_dependencies:
+  - TLC-INV-DEP-MASTER-001
+  disciple_dependencies:
+  - TLC-INV-DEP-DISCIPLE-001
+  community_dependencies: []
+  huit_dimensions_dependencies: []
+  dynamics_dependencies:
+  - TLC-INV-DEP-DYNAMICS-001
+  theorems_dependencies: []
+  other_external_dependencies: []
+  known_unresolved: []
+  required_evidence_before_generation:
+  - preserve source semantics
+  - propagate unresolved
+  contract_generation_gate: multiple_domains_required
+  contract_generation_priority: planned
+  contract_generation_ready: true
+  execution_readiness_expected: false
+  code_generation_readiness_expected: false
+  notes: Plan only; no contract produced.
