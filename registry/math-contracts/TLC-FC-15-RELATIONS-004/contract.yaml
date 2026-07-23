@@ -1,0 +1,81 @@
+schema_version: 1
+contract_id: TLC-LC-TLC-FC-15-RELATIONS-004-001
+feature_id: TLC-FC-15-RELATIONS-004
+domain: relations
+canonical_name: "15-relations: operator (admissible)"
+contract_kind: limited_contract
+limited_contract: true
+status: candidate_with_reservations
+version: 0.1.0
+provenance:
+  authority: origin/main
+  source_commit: ff800dd1e8e87bb8a89d855d8a45c1ff6bbd8cff
+  scientific_source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  targeted_review_commit: a54889e5957941e9576293a2f7439139680ca569
+  generated_on: 2026-07-23
+  sources:
+    - registry/domain-progress/relations/feature-inventory.yaml
+    - registry/domain-progress/relations/feature-classification.yaml
+    - registry/domain-progress/relations/feature-readiness.yaml
+    - registry/domain-progress/relations/contract-production-plan.yaml
+    - registry/global-reconciliation/targeted-readiness-review.yaml
+    - registry/global-reconciliation/dependency-scientific-review.yaml
+    - registry/global-reconciliation/cycle-scientific-review.yaml
+    - registry/scientific-objects/relations/scientific-objects.candidate.yaml
+    - registry/scientific-objects/relations/scientific-relations.candidate.yaml
+    - registry/scientific-objects/relations/unresolved-terms.yaml
+    - registry/scientific-objects/relations/duplicate-candidates.yaml
+    - maths/15-relations.md
+scientific_objects_covered: [TLC-SO-RELATIONS-004, TLC-SO-RELATIONS-017, TLC-SO-RELATIONS-023]
+scientific_relations_covered: []
+contextual_relations_not_covered: [TLC-SR-RELATIONS-003, TLC-SR-RELATIONS-016, TLC-SR-RELATIONS-022]
+unresolved_received: {source: registry/math-contracts/TLC-FC-15-RELATIONS-004/unresolved.yaml, count: 31}
+unresolved_propagated: {source: registry/math-contracts/TLC-FC-15-RELATIONS-004/unresolved.yaml, count: 31}
+limited_functional_purpose: Preserve the three cited candidate function blocks as distinct, traceable, opaque contract inputs and expose only candidate evaluation results without defining evaluation semantics.
+inputs:
+  - {input_id: INPUT-RELATIONS-004-004, scientific_object_id: TLC-SO-RELATIONS-004, description: Opaque quantities referenced by the Relation Maître‑Message function block.}
+  - {input_id: INPUT-RELATIONS-004-017, scientific_object_id: TLC-SO-RELATIONS-017, description: Opaque quantities referenced by the Relation Maître‑Valeur function block.}
+  - {input_id: INPUT-RELATIONS-004-023, scientific_object_id: TLC-SO-RELATIONS-023, description: Opaque quantities referenced by the Relation Maître‑Capacité function block.}
+outputs:
+  - {output_id: OUTPUT-RELATIONS-004-004, description: Candidate result traceable to TLC-SO-RELATIONS-004; representation and semantics remain unspecified.}
+  - {output_id: OUTPUT-RELATIONS-004-017, description: Candidate result traceable to TLC-SO-RELATIONS-017; representation and semantics remain unspecified.}
+  - {output_id: OUTPUT-RELATIONS-004-023, description: Candidate result traceable to TLC-SO-RELATIONS-023; representation and semantics remain unspecified.}
+preconditions:
+  - {id: PRE-RELATIONS-004-CANDIDATE, statement: Each covered object is supplied under candidate status with source identity preserved.}
+  - {id: PRE-RELATIONS-004-OPAQUE, statement: Missing types, signatures, directions, cardinalities, temporal properties, and operation semantics remain opaque.}
+  - {id: PRE-RELATIONS-004-UNRESOLVED, statement: Every item in unresolved.yaml remains attached to the contract context.}
+postconditions:
+  - {id: POST-RELATIONS-004-TRACEABLE, statement: Each output remains candidate and traceable to exactly one covered object.}
+  - {id: POST-RELATIONS-004-NO-PROMOTION, statement: No unresolved item, duplicate, documentary dependency, or contextual relation is promoted.}
+invariants:
+  - {id: INV-RELATIONS-004-DISTINCT, statement: The three covered objects remain distinct.}
+  - {id: INV-RELATIONS-004-SOURCE, statement: Source wording and ranges remain unchanged.}
+  - {id: INV-RELATIONS-004-LIMITED, statement: The contract remains a limited_contract and not a complete Relations contract.}
+constraints:
+  - No definition, type, dimension, signature, orientation, cardinality, symmetry, transitivity, temporality, equation, algorithm, numerical method, execution structure, or oracle may be invented.
+  - TLC-DUP-RELATIONS-002 must not be automatically merged.
+  - Contextual relations are traceability evidence only, not covered behavior.
+failure_states:
+  - {id: FAIL-RELATIONS-004-MISSING-SOURCE, condition: A covered object or exact source reference is missing.}
+  - {id: FAIL-RELATIONS-004-UNRESOLVED-DROPPED, condition: A received unresolved item is not propagated.}
+  - {id: FAIL-RELATIONS-004-IDENTITY-MERGED, condition: Covered objects or duplicate candidates are merged without human decision.}
+  - {id: FAIL-RELATIONS-004-SEMANTIC-INVENTION, condition: An unspecified scientific or execution property is asserted.}
+determinism: {status: unresolved, guarantee: none, reason: No evaluation semantics or oracle is authorized.}
+dependencies: {strong_contractual_prerequisites: [], details: registry/math-contracts/TLC-FC-15-RELATIONS-004/dependencies.yaml}
+explicitly_authorized_hypotheses:
+  - The three covered objects exist as candidate objects at their cited source ranges.
+  - Candidate outputs are opaque, source-traceable placeholders for scientific review only.
+prohibited_decisions:
+  - Complete the meaning of a listed function.
+  - Select a signature, type, domain, dimension, orientation, cardinality, symmetry, transitivity, or temporality.
+  - Select a numerical method, execution structure, implementation type, or executable oracle.
+  - Merge TLC-DUP-RELATIONS-002 or a covered object automatically.
+  - Treat documentary references or the unresolved 12-domain cycle as guarantees.
+validation_criteria: registry/math-contracts/TLC-FC-15-RELATIONS-004/validation-criteria.yaml
+traceability: registry/math-contracts/TLC-FC-15-RELATIONS-004/traceability.yaml
+readiness:
+  ready_for_scientific_review: true
+  ready_for_full_contract_extension: false
+  ready_for_ir: false
+  ready_for_implementation_planning: false
+  rationale: Only a limited contract is authorized; no explicit oracle or complete semantics exists and the global cycle remains unresolved.
