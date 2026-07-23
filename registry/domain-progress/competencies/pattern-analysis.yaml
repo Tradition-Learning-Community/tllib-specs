@@ -1,0 +1,43 @@
+domain_id: competencies
+status: preparation_complete_with_reservations
+working_base_commit: d8e616c71173495b9a014d4a5909df9f30e2a7ae
+generated_at: '2026-07-23T12:08:35+00:00'
+scope: preparation_only_no_contract_no_ir_no_code
+patterns:
+- pattern_id: TLC-PAT-COMPETENCIES-001
+  name: capacity_to_competency_actualization
+  basis:
+  - maths/12-competencies.md:5-7
+  - maths/12-competencies.md:25-35
+  status: explicit_pattern_external_unreconciled
+  reservation: C_p semantics depend on unmerged Capacities
+- pattern_id: TLC-PAT-COMPETENCIES-002
+  name: five_component_product_and_direct_sum
+  basis:
+  - maths/12-competencies.md:11-23
+  - maths/12-competencies.md:213-219
+  status: explicit_but_representation_ambiguous
+  reservation: product versus orthogonal direct sum not reconciled
+- pattern_id: TLC-PAT-COMPETENCIES-003
+  name: practice_guidance_feedback_evolution
+  basis:
+  - maths/12-competencies.md:74-119
+  status: explicit_candidate
+  reservation: parameters, domains, units, and discretization absent
+- pattern_id: TLC-PAT-COMPETENCIES-004
+  name: measurement_validation_and_milestones
+  basis:
+  - maths/12-competencies.md:121-149
+  status: explicit_candidate
+  reservation: thresholds and qualitative aggregation rules absent
+- pattern_id: TLC-PAT-COMPETENCIES-005
+  name: collective_competency_emergence
+  basis:
+  - maths/12-competencies.md:184-204
+  status: explicit_candidate
+  reservation: Synergie and collective generator semantics absent
+non_invention_guards:
+- competency is not silently equated with capacity
+- no numerical choices added
+- no equation corrected
+- no executable semantics inferred

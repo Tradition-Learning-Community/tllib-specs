@@ -1,0 +1,12 @@
+domain: message
+preparation_only: true
+canonical_baseline: origin/main
+authority_rule: canonical_only
+mappings:
+- upstream_domain: master
+  local_concept: role_du_maitre
+  status: symbol_reconciliation_required
+  symbol: null
+forbidden:
+  lexical_binding: true
+  parallel_branch_authority: true

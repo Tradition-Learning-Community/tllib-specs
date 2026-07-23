@@ -1,0 +1,37 @@
+domain_id: capacities
+source_file: maths/11-capacities.md
+baseline_commit: d8e616c71173495b9a014d4a5909df9f30e2a7ae
+authority: origin/main
+status: preparation_complete_with_reservations
+scope: engineering_correction_of_goose_candidate
+goose_commits:
+- bea9572
+- 3fb1ad4
+detected_defects:
+- severity: major
+  defect: noncanonical_registry_path
+  evidence: registry/domain-preparation/capacities
+- severity: critical
+  defect: feature_identifier_namespace_mismatch
+  evidence: 9 TLC-FC-11-CAP-* candidates vs 15 canonical TLC-FC-11-CAPACITIES-* features
+- severity: major
+  defect: incomplete_feature_coverage
+  evidence: 9/15
+- severity: major
+  defect: contract_and_ir_plans_are_wave_lists_only
+  evidence: no per-feature traceable plan schemas
+- severity: major
+  defect: missing_object_relation_unresolved_coverage_maps
+  evidence: counts claimed but identifiers not mapped
+- severity: major
+  defect: missing_validator
+  evidence: no Capacities content validator
+- severity: major
+  defect: unqualified_readiness_claims
+  evidence: wave 1 marked ready without feature-level blockers
+- severity: minor
+  defect: dependency_records_lack_status_and_canonical_authority_fields
+  evidence: free-text dependencies only
+scientific_decisions_changed: false
+legacy_files_preserved: true
+legacy_classification: superseded_engineering_candidate_comparison_only

@@ -1,0 +1,22 @@
+domain_id: theorems
+target_domain: master
+baseline_commit: 4a42d88ee71e3660fba02c7a780246e8d755c901
+dependencies:
+- dependency_id: DEP-THEOREMS-MASTER-001
+  affected_feature_ids:
+  - TLC-FC-06-THEOREMS-006
+  affected_object_ids:
+  - TLC-SO-THEOREMS-008
+  source_evidence: maths/06-theorems.md:92-112
+  target_evidence: maths/00-master.md
+  dependency_status: confirmed
+  required_level: symbol_only
+  proof_role: definition
+  production_effect: blocks_proof_representation
+  notes: Master state is explicit; target identifier mapping is unresolved.
+summary:
+  confirmed: 1
+  inferred_candidate: 0
+  rejected: 0
+  unresolved: 0
+status: complete_with_reservations

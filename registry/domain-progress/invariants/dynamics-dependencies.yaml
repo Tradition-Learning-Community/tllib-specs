@@ -1,0 +1,102 @@
+domain_id: invariants
+target_domain: dynamics
+authority_status: source_only
+dependencies:
+- dependency_id: TLC-INV-DEP-DYNAMICS-001
+  affected_feature_ids:
+  - TLC-FC-04-INVARIANTS-001
+  - TLC-FC-04-INVARIANTS-002
+  - TLC-FC-04-INVARIANTS-003
+  - TLC-FC-04-INVARIANTS-004
+  - TLC-FC-04-INVARIANTS-005
+  - TLC-FC-04-INVARIANTS-006
+  - TLC-FC-04-INVARIANTS-007
+  - TLC-FC-04-INVARIANTS-008
+  - TLC-FC-04-INVARIANTS-009
+  - TLC-FC-04-INVARIANTS-010
+  affected_object_ids:
+  - TLC-SO-INVARIANTS-001
+  affected_relation_ids:
+  - TLC-SR-INVARIANTS-001
+  - TLC-SR-INVARIANTS-002
+  - TLC-SR-INVARIANTS-003
+  - TLC-SR-INVARIANTS-004
+  - TLC-SR-INVARIANTS-005
+  - TLC-SR-INVARIANTS-006
+  - TLC-SR-INVARIANTS-007
+  - TLC-SR-INVARIANTS-008
+  - TLC-SR-INVARIANTS-009
+  - TLC-SR-INVARIANTS-010
+  - TLC-SR-INVARIANTS-011
+  - TLC-SR-INVARIANTS-012
+  - TLC-SR-INVARIANTS-013
+  - TLC-SR-INVARIANTS-014
+  - TLC-SR-INVARIANTS-015
+  - TLC-SR-INVARIANTS-016
+  - TLC-SR-INVARIANTS-017
+  - TLC-SR-INVARIANTS-018
+  - TLC-SR-INVARIANTS-019
+  - TLC-SR-INVARIANTS-020
+  - TLC-SR-INVARIANTS-021
+  - TLC-SR-INVARIANTS-022
+  - TLC-SR-INVARIANTS-023
+  - TLC-SR-INVARIANTS-024
+  - TLC-SR-INVARIANTS-025
+  - TLC-SR-INVARIANTS-026
+  - TLC-SR-INVARIANTS-027
+  - TLC-SR-INVARIANTS-028
+  - TLC-SR-INVARIANTS-029
+  - TLC-SR-INVARIANTS-030
+  - TLC-SR-INVARIANTS-031
+  - TLC-SR-INVARIANTS-032
+  - TLC-SR-INVARIANTS-033
+  - TLC-SR-INVARIANTS-034
+  - TLC-SR-INVARIANTS-035
+  - TLC-SR-INVARIANTS-036
+  - TLC-SR-INVARIANTS-037
+  - TLC-SR-INVARIANTS-038
+  - TLC-SR-INVARIANTS-039
+  - TLC-SR-INVARIANTS-040
+  - TLC-SR-INVARIANTS-041
+  - TLC-SR-INVARIANTS-042
+  - TLC-SR-INVARIANTS-043
+  - TLC-SR-INVARIANTS-044
+  - TLC-SR-INVARIANTS-045
+  - TLC-SR-INVARIANTS-046
+  - TLC-SR-INVARIANTS-047
+  - TLC-SR-INVARIANTS-048
+  - TLC-SR-INVARIANTS-049
+  - TLC-SR-INVARIANTS-050
+  - TLC-SR-INVARIANTS-051
+  - TLC-SR-INVARIANTS-052
+  - TLC-SR-INVARIANTS-053
+  - TLC-SR-INVARIANTS-054
+  - TLC-SR-INVARIANTS-055
+  - TLC-SR-INVARIANTS-056
+  - TLC-SR-INVARIANTS-057
+  - TLC-SR-INVARIANTS-058
+  - TLC-SR-INVARIANTS-059
+  - TLC-SR-INVARIANTS-060
+  - TLC-SR-INVARIANTS-061
+  - TLC-SR-INVARIANTS-062
+  - TLC-SR-INVARIANTS-063
+  - TLC-SR-INVARIANTS-064
+  - TLC-SR-INVARIANTS-065
+  - TLC-SR-INVARIANTS-066
+  - TLC-SR-INVARIANTS-067
+  - TLC-SR-INVARIANTS-068
+  target_domain: dynamics
+  target_source_terms:
+  - système dynamique
+  - couplage dynamique
+  dependency_status: inferred_candidate
+  required_level: not_yet_determinable
+  production_effect: blocks_execution_only
+  contract_possible_before_dynamics: true
+  structural_ir_possible_before_dynamics: true
+  execution_possible_before_dynamics: false
+  future_reconciliation_required: true
+  evidence:
+  - maths/04-invariants.md:5
+  - maths/04-invariants.md:185
+  notes: The source mentions dynamics but does not prove transition semantics for every invariant.
