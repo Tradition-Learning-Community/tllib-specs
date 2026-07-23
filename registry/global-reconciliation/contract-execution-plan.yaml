@@ -1,0 +1,446 @@
+schema_version: 1
+authority: origin/main
+canonical_commit: 2cd5a3c6dfe8786926e58d49387b5f4846697a66
+generated_at: '2026-07-23T15:57:37+00:00'
+batches:
+- batch_id: TLC-GBATCH-01
+  order: 1
+  domains:
+  - huit-dimensions
+  - invariants
+  - message
+  features_included:
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013
+  - TLC-FC-04-INVARIANTS-001
+  - TLC-FC-04-INVARIANTS-002
+  - TLC-FC-04-INVARIANTS-003
+  - TLC-FC-04-INVARIANTS-004
+  - TLC-FC-04-INVARIANTS-005
+  - TLC-FC-04-INVARIANTS-006
+  - TLC-FC-04-INVARIANTS-007
+  - TLC-FC-04-INVARIANTS-008
+  - TLC-FC-04-INVARIANTS-009
+  - TLC-FC-04-INVARIANTS-010
+  - TLC-FC-07-MESSAGE-001
+  - TLC-FC-07-MESSAGE-002
+  - TLC-FC-07-MESSAGE-003
+  - TLC-FC-07-MESSAGE-004
+  - TLC-FC-07-MESSAGE-005
+  - TLC-FC-07-MESSAGE-006
+  features_excluded: []
+  prerequisites:
+  - global_dependency_semantic_review
+  blockers:
+  - TLC-GBLOCK-0035
+  - TLC-GBLOCK-0036
+  - TLC-GBLOCK-0037
+  - TLC-GBLOCK-0038
+  - TLC-GBLOCK-0039
+  - TLC-GBLOCK-0040
+  - TLC-GBLOCK-0041
+  - TLC-GBLOCK-0042
+  - TLC-GBLOCK-0043
+  - TLC-GBLOCK-0044
+  - TLC-GBLOCK-0045
+  - TLC-GBLOCK-0046
+  - TLC-GBLOCK-0047
+  - TLC-GBLOCK-0048
+  - TLC-GBLOCK-0049
+  - TLC-GBLOCK-0050
+  - TLC-GBLOCK-0051
+  - TLC-GBLOCK-0052
+  - TLC-GBLOCK-0053
+  - TLC-GBLOCK-0054
+  - TLC-GBLOCK-0055
+  - TLC-GBLOCK-0072
+  - TLC-GBLOCK-0073
+  - TLC-GBLOCK-0074
+  - TLC-GBLOCK-0075
+  - TLC-GBLOCK-0076
+  - TLC-GBLOCK-0077
+  contracts_to_produce: []
+  existing_contracts_to_review: []
+  sequential_steps:
+  - parallel_after_dependency_review
+  parallelizable_steps:
+  - independent_feature_contracts_after_prerequisites
+  synchronization_point: scientific_contract_review
+  recommended_branch: contracts/global-batch-01
+  size: medium
+  risk: medium
+  relative_context: medium
+  completion_criterion: all included contracts validated or explicitly deferred with blockers
+  mode: parallel_after_dependency_review
+- batch_id: TLC-GBATCH-02
+  order: 2
+  domains:
+  - dynamics
+  - theorems
+  features_included:
+  - TLC-FC-05-DYNAMICS-001
+  - TLC-FC-05-DYNAMICS-002
+  - TLC-FC-05-DYNAMICS-003
+  - TLC-FC-05-DYNAMICS-004
+  - TLC-FC-05-DYNAMICS-005
+  - TLC-FC-05-DYNAMICS-006
+  - TLC-FC-05-DYNAMICS-007
+  - TLC-FC-06-THEOREMS-001
+  - TLC-FC-06-THEOREMS-002
+  - TLC-FC-06-THEOREMS-003
+  - TLC-FC-06-THEOREMS-004
+  - TLC-FC-06-THEOREMS-005
+  - TLC-FC-06-THEOREMS-006
+  - TLC-FC-06-THEOREMS-007
+  - TLC-FC-06-THEOREMS-008
+  - TLC-FC-06-THEOREMS-009
+  features_excluded: []
+  prerequisites:
+  - global_dependency_semantic_review
+  blockers:
+  - TLC-GBLOCK-0056
+  - TLC-GBLOCK-0057
+  - TLC-GBLOCK-0058
+  - TLC-GBLOCK-0059
+  - TLC-GBLOCK-0060
+  - TLC-GBLOCK-0061
+  - TLC-GBLOCK-0062
+  - TLC-GBLOCK-0063
+  - TLC-GBLOCK-0064
+  - TLC-GBLOCK-0065
+  - TLC-GBLOCK-0066
+  - TLC-GBLOCK-0067
+  - TLC-GBLOCK-0068
+  - TLC-GBLOCK-0069
+  - TLC-GBLOCK-0070
+  - TLC-GBLOCK-0071
+  contracts_to_produce: []
+  existing_contracts_to_review:
+  - TLC-FC-05-DYNAMICS-001
+  sequential_steps:
+  - sequential_sync_then_parallel_features
+  parallelizable_steps:
+  - independent_feature_contracts_after_prerequisites
+  synchronization_point: scientific_contract_review
+  recommended_branch: contracts/global-batch-02
+  size: large
+  risk: high
+  relative_context: large
+  completion_criterion: all included contracts validated or explicitly deferred with blockers
+  mode: sequential_sync_then_parallel_features
+- batch_id: TLC-GBATCH-03
+  order: 3
+  domains:
+  - principle
+  - values
+  - virtues
+  features_included:
+  - TLC-FC-08-PRINCIPLE-001
+  - TLC-FC-08-PRINCIPLE-002
+  - TLC-FC-08-PRINCIPLE-003
+  - TLC-FC-08-PRINCIPLE-004
+  - TLC-FC-08-PRINCIPLE-005
+  - TLC-FC-08-PRINCIPLE-006
+  - TLC-FC-08-PRINCIPLE-007
+  - TLC-FC-08-PRINCIPLE-008
+  - TLC-FC-08-PRINCIPLE-010
+  - TLC-FC-08-PRINCIPLE-011
+  - TLC-FC-09-VALUES-001
+  - TLC-FC-09-VALUES-003
+  - TLC-FC-09-VALUES-004
+  - TLC-FC-09-VALUES-005
+  - TLC-FC-09-VALUES-006
+  - TLC-FC-09-VALUES-007
+  - TLC-FC-09-VALUES-008
+  - TLC-FC-09-VALUES-009
+  - TLC-FC-09-VALUES-010
+  - TLC-FC-09-VALUES-011
+  - TLC-FC-09-VALUES-012
+  - TLC-FC-09-VALUES-013
+  - TLC-FC-09-VALUES-014
+  - TLC-FC-09-VALUES-018
+  - TLC-FC-10-VIRTUES-001
+  - TLC-FC-10-VIRTUES-002
+  - TLC-FC-10-VIRTUES-005
+  - TLC-FC-10-VIRTUES-006
+  - TLC-FC-10-VIRTUES-007
+  - TLC-FC-10-VIRTUES-008
+  - TLC-FC-10-VIRTUES-009
+  - TLC-FC-10-VIRTUES-010
+  - TLC-FC-10-VIRTUES-011
+  - TLC-FC-10-VIRTUES-014
+  features_excluded: []
+  prerequisites:
+  - global_dependency_semantic_review
+  blockers:
+  - TLC-GBLOCK-0078
+  - TLC-GBLOCK-0079
+  - TLC-GBLOCK-0080
+  - TLC-GBLOCK-0081
+  - TLC-GBLOCK-0082
+  - TLC-GBLOCK-0083
+  - TLC-GBLOCK-0084
+  - TLC-GBLOCK-0085
+  - TLC-GBLOCK-0086
+  - TLC-GBLOCK-0087
+  - TLC-GBLOCK-0088
+  - TLC-GBLOCK-0089
+  - TLC-GBLOCK-0090
+  - TLC-GBLOCK-0091
+  - TLC-GBLOCK-0092
+  - TLC-GBLOCK-0093
+  - TLC-GBLOCK-0094
+  - TLC-GBLOCK-0095
+  - TLC-GBLOCK-0096
+  - TLC-GBLOCK-0097
+  - TLC-GBLOCK-0098
+  - TLC-GBLOCK-0099
+  - TLC-GBLOCK-0100
+  - TLC-GBLOCK-0101
+  - TLC-GBLOCK-0102
+  - TLC-GBLOCK-0103
+  - TLC-GBLOCK-0104
+  - TLC-GBLOCK-0105
+  - TLC-GBLOCK-0106
+  - TLC-GBLOCK-0107
+  - TLC-GBLOCK-0108
+  - TLC-GBLOCK-0109
+  - TLC-GBLOCK-0110
+  - TLC-GBLOCK-0111
+  contracts_to_produce: []
+  existing_contracts_to_review:
+  - TLC-FC-08-PRINCIPLE-002
+  - TLC-FC-09-VALUES-018
+  sequential_steps:
+  - dependency_review_then_parallel
+  parallelizable_steps:
+  - independent_feature_contracts_after_prerequisites
+  synchronization_point: scientific_contract_review
+  recommended_branch: contracts/global-batch-03
+  size: large
+  risk: high
+  relative_context: large
+  completion_criterion: all included contracts validated or explicitly deferred with blockers
+  mode: dependency_review_then_parallel
+- batch_id: TLC-GBATCH-04
+  order: 4
+  domains:
+  - capacities
+  - competencies
+  features_included:
+  - TLC-FC-11-CAP-001
+  - TLC-FC-11-CAP-002
+  - TLC-FC-11-CAP-003
+  - TLC-FC-11-CAP-004
+  - TLC-FC-11-CAP-005
+  - TLC-FC-11-CAP-006
+  - TLC-FC-11-CAP-007
+  - TLC-FC-11-CAP-008
+  - TLC-FC-11-CAP-009
+  - TLC-FC-11-CAPACITIES-001
+  - TLC-FC-11-CAPACITIES-002
+  - TLC-FC-11-CAPACITIES-003
+  - TLC-FC-11-CAPACITIES-005
+  - TLC-FC-11-CAPACITIES-006
+  - TLC-FC-11-CAPACITIES-007
+  - TLC-FC-11-CAPACITIES-008
+  - TLC-FC-11-CAPACITIES-009
+  - TLC-FC-11-CAPACITIES-010
+  - TLC-FC-11-CAPACITIES-011
+  - TLC-FC-11-CAPACITIES-012
+  - TLC-FC-11-CAPACITIES-013
+  - TLC-FC-11-CAPACITIES-014
+  - TLC-FC-11-CAPACITIES-015
+  - TLC-FC-11-CAPACITIES-018
+  - TLC-FC-12-COMPETENCIES-001
+  - TLC-FC-12-COMPETENCIES-002
+  - TLC-FC-12-COMPETENCIES-004
+  - TLC-FC-12-COMPETENCIES-005
+  - TLC-FC-12-COMPETENCIES-006
+  - TLC-FC-12-COMPETENCIES-007
+  - TLC-FC-12-COMPETENCIES-008
+  - TLC-FC-12-COMPETENCIES-009
+  - TLC-FC-12-COMPETENCIES-010
+  - TLC-FC-12-COMPETENCIES-011
+  - TLC-FC-12-COMPETENCIES-012
+  - TLC-FC-12-COMPETENCIES-013
+  - TLC-FC-12-COMPETENCIES-016
+  features_excluded: []
+  prerequisites:
+  - global_dependency_semantic_review
+  blockers:
+  - TLC-GBLOCK-0112
+  - TLC-GBLOCK-0113
+  - TLC-GBLOCK-0114
+  - TLC-GBLOCK-0115
+  - TLC-GBLOCK-0116
+  - TLC-GBLOCK-0117
+  - TLC-GBLOCK-0118
+  - TLC-GBLOCK-0119
+  - TLC-GBLOCK-0120
+  - TLC-GBLOCK-0121
+  - TLC-GBLOCK-0122
+  - TLC-GBLOCK-0123
+  - TLC-GBLOCK-0124
+  - TLC-GBLOCK-0125
+  - TLC-GBLOCK-0126
+  - TLC-GBLOCK-0127
+  - TLC-GBLOCK-0128
+  - TLC-GBLOCK-0129
+  - TLC-GBLOCK-0130
+  - TLC-GBLOCK-0131
+  - TLC-GBLOCK-0132
+  - TLC-GBLOCK-0133
+  - TLC-GBLOCK-0134
+  - TLC-GBLOCK-0135
+  - TLC-GBLOCK-0136
+  - TLC-GBLOCK-0137
+  - TLC-GBLOCK-0138
+  - TLC-GBLOCK-0139
+  - TLC-GBLOCK-0140
+  - TLC-GBLOCK-0141
+  - TLC-GBLOCK-0142
+  - TLC-GBLOCK-0143
+  - TLC-GBLOCK-0144
+  - TLC-GBLOCK-0145
+  - TLC-GBLOCK-0146
+  - TLC-GBLOCK-0147
+  - TLC-GBLOCK-0148
+  contracts_to_produce: []
+  existing_contracts_to_review: []
+  sequential_steps:
+  - capacities_before_competencies
+  parallelizable_steps:
+  - independent_feature_contracts_after_prerequisites
+  synchronization_point: scientific_contract_review
+  recommended_branch: contracts/global-batch-04
+  size: medium
+  risk: high
+  relative_context: medium
+  completion_criterion: all included contracts validated or explicitly deferred with blockers
+  mode: capacities_before_competencies
+- batch_id: TLC-GBATCH-05
+  order: 5
+  domains:
+  - practice
+  - lived-experience
+  features_included:
+  - TLC-FC-13-PRACTICE-001
+  - TLC-FC-13-PRACTICE-003
+  - TLC-FC-13-PRACTICE-004
+  - TLC-FC-13-PRACTICE-005
+  - TLC-FC-13-PRACTICE-006
+  - TLC-FC-13-PRACTICE-007
+  - TLC-FC-13-PRACTICE-008
+  - TLC-FC-13-PRACTICE-009
+  - TLC-FC-13-PRACTICE-010
+  - TLC-FC-13-PRACTICE-012
+  - TLC-FC-14-LIVED-EXPERIENCE-001
+  - TLC-FC-14-LIVED-EXPERIENCE-002
+  - TLC-FC-14-LIVED-EXPERIENCE-004
+  - TLC-FC-14-LIVED-EXPERIENCE-005
+  - TLC-FC-14-LIVED-EXPERIENCE-006
+  - TLC-FC-14-LIVED-EXPERIENCE-007
+  - TLC-FC-14-LIVED-EXPERIENCE-008
+  - TLC-FC-14-LIVED-EXPERIENCE-009
+  - TLC-FC-14-LIVED-EXPERIENCE-010
+  - TLC-FC-14-LIVED-EXPERIENCE-011
+  - TLC-FC-14-LIVED-EXPERIENCE-012
+  - TLC-FC-14-LIVED-EXPERIENCE-013
+  features_excluded: []
+  prerequisites:
+  - global_dependency_semantic_review
+  blockers:
+  - TLC-GBLOCK-0149
+  - TLC-GBLOCK-0150
+  - TLC-GBLOCK-0151
+  - TLC-GBLOCK-0152
+  - TLC-GBLOCK-0153
+  - TLC-GBLOCK-0154
+  - TLC-GBLOCK-0155
+  - TLC-GBLOCK-0156
+  - TLC-GBLOCK-0157
+  - TLC-GBLOCK-0158
+  - TLC-GBLOCK-0159
+  - TLC-GBLOCK-0160
+  - TLC-GBLOCK-0161
+  - TLC-GBLOCK-0162
+  - TLC-GBLOCK-0163
+  - TLC-GBLOCK-0164
+  - TLC-GBLOCK-0165
+  - TLC-GBLOCK-0166
+  - TLC-GBLOCK-0167
+  - TLC-GBLOCK-0168
+  - TLC-GBLOCK-0169
+  - TLC-GBLOCK-0170
+  contracts_to_produce: []
+  existing_contracts_to_review:
+  - TLC-FC-14-LIVED-EXPERIENCE-005
+  sequential_steps:
+  - cycle_review_before_generation
+  parallelizable_steps:
+  - independent_feature_contracts_after_prerequisites
+  synchronization_point: scientific_contract_review
+  recommended_branch: contracts/global-batch-05
+  size: large
+  risk: high
+  relative_context: large
+  completion_criterion: all included contracts validated or explicitly deferred with blockers
+  mode: cycle_review_before_generation
+- batch_id: TLC-GBATCH-06
+  order: 6
+  domains:
+  - relations
+  features_included:
+  - TLC-FC-15-RELATIONS-002
+  - TLC-FC-15-RELATIONS-003
+  - TLC-FC-15-RELATIONS-004
+  - TLC-FC-15-RELATIONS-007
+  - TLC-FC-15-RELATIONS-008
+  features_excluded: []
+  prerequisites:
+  - global_dependency_semantic_review
+  blockers:
+  - TLC-GBLOCK-0171
+  - TLC-GBLOCK-0172
+  - TLC-GBLOCK-0173
+  - TLC-GBLOCK-0174
+  - TLC-GBLOCK-0175
+  contracts_to_produce:
+  - TLC-FC-15-RELATIONS-004
+  - TLC-FC-15-RELATIONS-007
+  existing_contracts_to_review: []
+  sequential_steps:
+  - final_cross_domain_sync
+  parallelizable_steps:
+  - independent_feature_contracts_after_prerequisites
+  synchronization_point: scientific_contract_review
+  recommended_branch: contracts/global-batch-06
+  size: medium
+  risk: high
+  relative_context: medium
+  completion_criterion: all included contracts validated or explicitly deferred with blockers
+  mode: final_cross_domain_sync
+features_ready_now:
+- TLC-FC-15-RELATIONS-004
+- TLC-FC-15-RELATIONS-007
+minimum_reasonable_codex_tasks: 8
+economic_variant:
+  tasks: 8
+  description: two global synchronization tasks plus six batches
+safer_variant:
+  tasks: 14
+  description: dependency review, six contract batches, six scientific reviews, final synchronization
+synchronization_points:
+- global dependency semantic review
+- cycle review
+- contract validation before IR
