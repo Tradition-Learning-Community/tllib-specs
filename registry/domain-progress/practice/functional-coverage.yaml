@@ -1,0 +1,643 @@
+domain: practice
+source: maths/13-practice.md
+baseline_commit: d8e616c71173495b9a014d4a5909df9f30e2a7ae
+authority: origin/main
+features:
+- feature_id: TLC-FC-13-PRACTICE-001
+  canonical_name: '13-practice: constraint (admissible)'
+  source_objects:
+  - TLC-SO-PRACTICE-045
+  source_relations: []
+  source_unresolved: []
+  purpose: Evaluate the cited constraints, axioms, assumptions, and hypotheses as
+    candidate checks.
+  candidate_inputs:
+  - 'Scientific quantities referenced by: Interaction avec les influences externes
+    et les contraintes'
+  candidate_outputs:
+  - 'Candidate evaluation result for: Interaction avec les influences externes et
+    les contraintes'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-PRACTICE-045
+    data_dependencies: []
+    unresolved_dependencies: &id001 []
+  readiness:
+    status: retained_with_reservations
+    blocking_object_ids: []
+    blocking_relation_ids: []
+    blocking_decision_ids: []
+    blocking_terms: *id001
+  review_classification: retained_with_reservations
+  future_reconciliation_required: true
+  status: inventoried
+- feature_id: TLC-FC-13-PRACTICE-003
+  canonical_name: '13-practice: dynamics (admissible)'
+  source_objects:
+  - TLC-SO-PRACTICE-070
+  - TLC-SO-PRACTICE-077
+  - TLC-SO-PRACTICE-084
+  - TLC-SO-PRACTICE-092
+  source_relations: []
+  source_unresolved: []
+  purpose: Evaluate the evolution laws expressed by the cited differential or stochastic
+    equations.
+  candidate_inputs:
+  - 'Scientific quantities referenced by: Équation — Répétition et raffinement itératif'
+  - 'Scientific quantities referenced by: Équation — Dynamique de l’acquisition et
+    de la consolidation'
+  - 'Scientific quantities referenced by: Équation — Dynamique d’apprentissage à court
+    terme'
+  - 'Scientific quantities referenced by: Équation — Boucles de rétroaction dans la
+    pratique collective'
+  candidate_outputs:
+  - 'Candidate evaluation result for: Équation — Répétition et raffinement itératif'
+  - 'Candidate evaluation result for: Équation — Dynamique de l’acquisition et de
+    la consolidation'
+  - 'Candidate evaluation result for: Équation — Dynamique d’apprentissage à court
+    terme'
+  - 'Candidate evaluation result for: Équation — Boucles de rétroaction dans la pratique
+    collective'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-PRACTICE-070
+    - TLC-SO-PRACTICE-077
+    - TLC-SO-PRACTICE-084
+    - TLC-SO-PRACTICE-092
+    data_dependencies: []
+    unresolved_dependencies: &id002 []
+  readiness:
+    status: retained_with_reservations
+    blocking_object_ids: []
+    blocking_relation_ids: []
+    blocking_decision_ids: []
+    blocking_terms: *id002
+  review_classification: retained_with_reservations
+  future_reconciliation_required: true
+  status: inventoried
+- feature_id: TLC-FC-13-PRACTICE-004
+  canonical_name: '13-practice: dynamics (blocked_locally)'
+  source_objects:
+  - TLC-SO-PRACTICE-068
+  - TLC-SO-PRACTICE-085
+  - TLC-SO-PRACTICE-086
+  - TLC-SO-PRACTICE-088
+  source_relations: []
+  source_unresolved: []
+  purpose: Evaluate the evolution laws expressed by the cited differential or stochastic
+    equations.
+  candidate_inputs:
+  - 'Scientific quantities referenced by: Équation — Instruction directe et mentorat'
+  - 'Scientific quantities referenced by: Équation — Consolidation à long terme'
+  - 'Scientific quantities referenced by: Équation — Adaptation à de nouveaux contextes'
+  - 'Scientific quantities referenced by: Équation — Moteurs motivationnels et engagement'
+  candidate_outputs:
+  - 'Candidate evaluation result for: Équation — Instruction directe et mentorat'
+  - 'Candidate evaluation result for: Équation — Consolidation à long terme'
+  - 'Candidate evaluation result for: Équation — Adaptation à de nouveaux contextes'
+  - 'Candidate evaluation result for: Équation — Moteurs motivationnels et engagement'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-PRACTICE-068
+    - TLC-SO-PRACTICE-085
+    - TLC-SO-PRACTICE-086
+    - TLC-SO-PRACTICE-088
+    data_dependencies: []
+    unresolved_dependencies: &id003 []
+  readiness:
+    status: deferred_for_scientific_decision
+    blocking_object_ids:
+    - TLC-SO-PRACTICE-068
+    - TLC-SO-PRACTICE-085
+    - TLC-SO-PRACTICE-086
+    - TLC-SO-PRACTICE-088
+    blocking_relation_ids:
+    - TLC-SR-PRACTICE-067
+    - TLC-SR-PRACTICE-084
+    - TLC-SR-PRACTICE-085
+    - TLC-SR-PRACTICE-087
+    blocking_decision_ids:
+    - TLC-HR-0046
+    - TLC-HR-0049
+    - TLC-HR-0055
+    - TLC-HR-0056
+    blocking_terms: *id003
+  review_classification: deferred_for_scientific_decision
+  future_reconciliation_required: true
+  status: inventoried
+- feature_id: TLC-FC-13-PRACTICE-005
+  canonical_name: '13-practice: equation (admissible)'
+  source_objects:
+  - TLC-SO-PRACTICE-069
+  - TLC-SO-PRACTICE-087
+  - TLC-SO-PRACTICE-089
+  - TLC-SO-PRACTICE-090
+  source_relations: []
+  source_unresolved: []
+  purpose: Evaluate the transformations expressed by the cited equations once their
+    mathematical contract is selected.
+  candidate_inputs:
+  - 'Scientific quantities referenced by: Équation — Apprentissage observationnel
+    / imitation'
+  - 'Scientific quantities referenced by: Équation — Influence des Valeurs, Vertus
+    et Principes sur la pratique'
+  - 'Scientific quantities referenced by: Équation — Charge cognitive, effets de mémoire
+    et insight'
+  - 'Scientific quantities referenced by: Équation — Formation comportementale et
+    d’habitudes'
+  candidate_outputs:
+  - 'Candidate evaluation result for: Équation — Apprentissage observationnel / imitation'
+  - 'Candidate evaluation result for: Équation — Influence des Valeurs, Vertus et
+    Principes sur la pratique'
+  - 'Candidate evaluation result for: Équation — Charge cognitive, effets de mémoire
+    et insight'
+  - 'Candidate evaluation result for: Équation — Formation comportementale et d’habitudes'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-PRACTICE-069
+    - TLC-SO-PRACTICE-087
+    - TLC-SO-PRACTICE-089
+    - TLC-SO-PRACTICE-090
+    data_dependencies: []
+    unresolved_dependencies: &id004 []
+  readiness:
+    status: retained_with_reservations
+    blocking_object_ids: []
+    blocking_relation_ids: []
+    blocking_decision_ids: []
+    blocking_terms: *id004
+  review_classification: retained_with_reservations
+  future_reconciliation_required: true
+  status: inventoried
+- feature_id: TLC-FC-13-PRACTICE-006
+  canonical_name: '13-practice: equation (blocked_locally)'
+  source_objects:
+  - TLC-SO-PRACTICE-062
+  - TLC-SO-PRACTICE-091
+  source_relations: []
+  source_unresolved: []
+  purpose: Evaluate the transformations expressed by the cited equations once their
+    mathematical contract is selected.
+  candidate_inputs:
+  - 'Scientific quantities referenced by: Équation — Domaines de validité'
+  - 'Scientific quantities referenced by: Équation — Cohérence et coordination entre
+    Disciples'
+  candidate_outputs:
+  - 'Candidate evaluation result for: Équation — Domaines de validité'
+  - 'Candidate evaluation result for: Équation — Cohérence et coordination entre Disciples'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-PRACTICE-062
+    - TLC-SO-PRACTICE-091
+    data_dependencies: []
+    unresolved_dependencies: &id005 []
+  readiness:
+    status: deferred_for_scientific_decision
+    blocking_object_ids:
+    - TLC-SO-PRACTICE-062
+    - TLC-SO-PRACTICE-091
+    blocking_relation_ids:
+    - TLC-SR-PRACTICE-061
+    - TLC-SR-PRACTICE-090
+    blocking_decision_ids:
+    - TLC-HR-0048
+    - TLC-HR-0051
+    blocking_terms: *id005
+  review_classification: deferred_for_scientific_decision
+  future_reconciliation_required: true
+  status: inventoried
+- feature_id: TLC-FC-13-PRACTICE-007
+  canonical_name: '13-practice: metric (admissible)'
+  source_objects:
+  - TLC-SO-PRACTICE-021
+  - TLC-SO-PRACTICE-034
+  source_relations: []
+  source_unresolved: []
+  purpose: Evaluate the cited scientific metrics.
+  candidate_inputs:
+  - 'Scientific quantities referenced by: Évaluation et métriques de la Pratique'
+  - 'Scientific quantities referenced by: Charge cognitive, effets de mémoire et insight'
+  candidate_outputs:
+  - 'Candidate evaluation result for: Évaluation et métriques de la Pratique'
+  - 'Candidate evaluation result for: Charge cognitive, effets de mémoire et insight'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-PRACTICE-021
+    - TLC-SO-PRACTICE-034
+    data_dependencies: []
+    unresolved_dependencies: &id006 []
+  readiness:
+    status: retained_with_reservations
+    blocking_object_ids: []
+    blocking_relation_ids: []
+    blocking_decision_ids: []
+    blocking_terms: *id006
+  review_classification: retained_with_reservations
+  future_reconciliation_required: true
+  status: inventoried
+- feature_id: TLC-FC-13-PRACTICE-008
+  canonical_name: '13-practice: metric (blocked_locally)'
+  source_objects:
+  - TLC-SO-PRACTICE-022
+  source_relations: []
+  source_unresolved: []
+  purpose: Evaluate the cited scientific metrics.
+  candidate_inputs:
+  - 'Scientific quantities referenced by: Mesures quantitatives'
+  candidate_outputs:
+  - 'Candidate evaluation result for: Mesures quantitatives'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-PRACTICE-022
+    data_dependencies: []
+    unresolved_dependencies: &id007 []
+  readiness:
+    status: deferred_for_scientific_decision
+    blocking_object_ids:
+    - TLC-SO-PRACTICE-022
+    blocking_relation_ids:
+    - TLC-SR-PRACTICE-021
+    blocking_decision_ids:
+    - TLC-HR-0101
+    blocking_terms: *id007
+  review_classification: deferred_for_scientific_decision
+  future_reconciliation_required: true
+  status: inventoried
+- feature_id: TLC-FC-13-PRACTICE-009
+  canonical_name: '13-practice: operator (admissible)'
+  source_objects:
+  - TLC-SO-PRACTICE-024
+  - TLC-SO-PRACTICE-074
+  - TLC-SO-PRACTICE-075
+  - TLC-SO-PRACTICE-076
+  source_relations: []
+  source_unresolved: []
+  purpose: Evaluate the cited scientific functions and operators.
+  candidate_inputs:
+  - 'Scientific quantities referenced by: Fonctions de performance et seuils'
+  - 'Scientific quantities referenced by: Opérateur d’actualisation'
+  - 'Scientific quantities referenced by: Opérateur de pratique'
+  - 'Scientific quantities referenced by: Opérateur de transfert'
+  candidate_outputs:
+  - 'Candidate evaluation result for: Fonctions de performance et seuils'
+  - 'Candidate evaluation result for: Opérateur d’actualisation'
+  - 'Candidate evaluation result for: Opérateur de pratique'
+  - 'Candidate evaluation result for: Opérateur de transfert'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-PRACTICE-024
+    - TLC-SO-PRACTICE-074
+    - TLC-SO-PRACTICE-075
+    - TLC-SO-PRACTICE-076
+    data_dependencies: []
+    unresolved_dependencies: &id008 []
+  readiness:
+    status: retained_with_reservations
+    blocking_object_ids: []
+    blocking_relation_ids: []
+    blocking_decision_ids: []
+    blocking_terms: *id008
+  review_classification: retained_with_reservations
+  future_reconciliation_required: true
+  status: inventoried
+- feature_id: TLC-FC-13-PRACTICE-010
+  canonical_name: '13-practice: operator (blocked_locally)'
+  source_objects:
+  - TLC-SO-PRACTICE-018
+  source_relations: []
+  source_unresolved: []
+  purpose: Evaluate the cited scientific functions and operators.
+  candidate_inputs:
+  - 'Scientific quantities referenced by: Opérateurs et transformations'
+  candidate_outputs:
+  - 'Candidate evaluation result for: Opérateurs et transformations'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-PRACTICE-018
+    data_dependencies: []
+    unresolved_dependencies: &id009 []
+  readiness:
+    status: deferred_for_scientific_decision
+    blocking_object_ids:
+    - TLC-SO-PRACTICE-018
+    blocking_relation_ids:
+    - TLC-SR-PRACTICE-017
+    blocking_decision_ids:
+    - TLC-HR-0108
+    blocking_terms: *id009
+  review_classification: deferred_for_scientific_decision
+  future_reconciliation_required: true
+  status: inventoried
+- feature_id: TLC-FC-13-PRACTICE-012
+  canonical_name: '13-practice: relation (provisionally_separated)'
+  source_objects:
+  - TLC-SO-PRACTICE-061
+  source_relations: []
+  source_unresolved: []
+  purpose: Evaluate the cited scientific relations without inferring endpoint identity.
+  candidate_inputs:
+  - 'Scientific quantities referenced by: Mesurabilité'
+  candidate_outputs:
+  - 'Candidate evaluation result for: Mesurabilité'
+  preconditions:
+  - Cited scientific inputs are supplied under candidate status.
+  postconditions:
+  - Result remains candidate and traceable to every cited object.
+  constraints:
+  - Do not infer definitions, types, dimensions, aliases, or numerical methods.
+  dependencies:
+    immediate_feature_candidates: []
+    scientific_dependencies:
+    - TLC-SO-PRACTICE-061
+    data_dependencies: []
+    unresolved_dependencies: &id010 []
+  readiness:
+    status: deferred_for_scientific_decision
+    blocking_object_ids: []
+    blocking_relation_ids: []
+    blocking_decision_ids:
+    - TLC-HR-0100
+    blocking_terms: *id010
+  review_classification: deferred_for_scientific_decision
+  future_reconciliation_required: true
+  status: inventoried
+catalogue_gap_candidates:
+- object_id: TLC-SO-PRACTICE-001
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-002
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-003
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-004
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-005
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-006
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-007
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-008
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-009
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-010
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-011
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-012
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-013
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-014
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-015
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-016
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-017
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-019
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-020
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-023
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-025
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-026
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-027
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-028
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-029
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-030
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-031
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-032
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-033
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-035
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-036
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-037
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-038
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-039
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-040
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-041
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-042
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-043
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-044
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-046
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-047
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-048
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-049
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-050
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-051
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-052
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-053
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-054
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-055
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-056
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-057
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-058
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-059
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-060
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-063
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-064
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-065
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-066
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-067
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-071
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-072
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-073
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-078
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-079
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-080
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-081
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-082
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-083
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+- object_id: TLC-SO-PRACTICE-093
+  status: candidate
+  reason: The revised catalogue does not cite this extracted object.
+summary:
+  catalogue_features: 10
+  inventoried_features: 10
+  missing_features: 0
+  orphan_features: 0
+  catalogue_objects: 24
+  catalogue_relations: 0
+  catalogue_gap_candidates: 69
+status: complete_with_reservations

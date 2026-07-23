@@ -1,0 +1,14 @@
+domain: message
+preparation_only: true
+canonical_baseline: origin/main
+authority_rule: canonical_only
+triggers:
+- upstream domain becomes canonical
+- global manifest accepts Message proposal
+- unresolved term is adjudicated
+- contract is generated
+actions:
+- re-run dependency audit
+- reconcile symbols by canonical identifier
+- revalidate feature graph
+- update readiness without rewriting history

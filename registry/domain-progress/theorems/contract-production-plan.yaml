@@ -1,0 +1,529 @@
+domain_id: theorems
+baseline_commit: 4a42d88ee71e3660fba02c7a780246e8d755c901
+features:
+- feature_id: TLC-FC-06-THEOREMS-001
+  canonical_name: '06-theorems: constraint (admissible)'
+  planned_contract_type: not_yet_determinable
+  source_objects:
+  - TLC-SO-THEOREMS-011
+  source_relations: []
+  source_locations:
+  - maths/06-theorems.md:141-144
+  result_kind: theorem
+  expected_statement: preserve_source_statement
+  expected_hypotheses: preserve_explicit_only
+  expected_axioms: preserve_explicit_only
+  expected_definitions: not_yet_determinable
+  expected_variables: extract_without_inference
+  expected_parameters: extract_without_inference
+  expected_constants: extract_without_inference
+  expected_sets: extract_without_inference
+  expected_spaces: extract_without_inference
+  expected_quantifiers: preserve_explicit_only
+  expected_relations: preserve_explicit_only
+  expected_equations: preserve_explicit_only
+  expected_constraints: preserve_explicit_only
+  expected_invariants: preserve_explicit_only
+  expected_conclusion: preserve_explicit_only
+  expected_exceptions: not_specified
+  expected_proof_status: partial_or_absent
+  expected_proof_elements:
+  - PROOF-THEOREMS-006
+  expected_preconditions: not_yet_determinable
+  expected_postconditions: not_yet_determinable
+  expected_failure_conditions: not_specified
+  master_dependencies: []
+  disciple_dependencies: []
+  community_dependencies: []
+  huit_dimensions_dependencies: []
+  invariants_dependencies: []
+  dynamics_dependencies: []
+  message_dependencies: []
+  principle_dependencies: []
+  other_external_dependencies: []
+  known_unresolved: []
+  required_evidence_before_generation:
+  - Identify a source-grounded oracle or correction property in the mathematical contract.
+  contract_generation_gate: local_scientific_decision_required
+  contract_generation_priority: after_required_gate
+  contract_generation_ready: false
+  mechanical_verification_readiness_expected: false
+  execution_readiness_expected: false
+  code_generation_readiness_expected: false
+  notes: Plan only; no contract is produced.
+- feature_id: TLC-FC-06-THEOREMS-002
+  canonical_name: '06-theorems: dynamics (admissible)'
+  planned_contract_type: dynamic_property_theorem_contract
+  source_objects:
+  - TLC-SO-THEOREMS-027
+  - TLC-SO-THEOREMS-028
+  - TLC-SO-THEOREMS-030
+  source_relations: []
+  source_locations:
+  - maths/06-theorems.md:109-111
+  - maths/06-theorems.md:118-120
+  - maths/06-theorems.md:133-135
+  result_kind: evolution_dynamics
+  expected_statement: preserve_source_statement
+  expected_hypotheses: preserve_explicit_only
+  expected_axioms: preserve_explicit_only
+  expected_definitions: not_yet_determinable
+  expected_variables: extract_without_inference
+  expected_parameters: extract_without_inference
+  expected_constants: extract_without_inference
+  expected_sets: extract_without_inference
+  expected_spaces: extract_without_inference
+  expected_quantifiers: preserve_explicit_only
+  expected_relations: preserve_explicit_only
+  expected_equations: preserve_explicit_only
+  expected_constraints: preserve_explicit_only
+  expected_invariants: preserve_explicit_only
+  expected_conclusion: preserve_explicit_only
+  expected_exceptions: not_specified
+  expected_proof_status: partial_or_absent
+  expected_proof_elements: []
+  expected_preconditions: not_yet_determinable
+  expected_postconditions: not_yet_determinable
+  expected_failure_conditions: not_specified
+  master_dependencies: []
+  disciple_dependencies: []
+  community_dependencies: []
+  huit_dimensions_dependencies: []
+  invariants_dependencies: []
+  dynamics_dependencies:
+  - DEP-THEOREMS-DYNAMICS-001
+  message_dependencies: []
+  principle_dependencies: []
+  other_external_dependencies: []
+  known_unresolved: []
+  required_evidence_before_generation:
+  - Identify a source-grounded oracle or correction property in the mathematical contract.
+  contract_generation_gate: dynamics_contract_required
+  contract_generation_priority: after_required_gate
+  contract_generation_ready: false
+  mechanical_verification_readiness_expected: false
+  execution_readiness_expected: false
+  code_generation_readiness_expected: false
+  notes: Plan only; no contract is produced.
+- feature_id: TLC-FC-06-THEOREMS-003
+  canonical_name: '06-theorems: equation (admissible)'
+  planned_contract_type: structural_contract
+  source_objects:
+  - TLC-SO-THEOREMS-016
+  - TLC-SO-THEOREMS-017
+  - TLC-SO-THEOREMS-026
+  - TLC-SO-THEOREMS-029
+  source_relations: []
+  source_locations:
+  - maths/06-theorems.md:24-26
+  - maths/06-theorems.md:35-37
+  - maths/06-theorems.md:102-104
+  - maths/06-theorems.md:122-124
+  result_kind: transformation
+  expected_statement: preserve_source_statement
+  expected_hypotheses: preserve_explicit_only
+  expected_axioms: preserve_explicit_only
+  expected_definitions: not_yet_determinable
+  expected_variables: extract_without_inference
+  expected_parameters: extract_without_inference
+  expected_constants: extract_without_inference
+  expected_sets: extract_without_inference
+  expected_spaces: extract_without_inference
+  expected_quantifiers: preserve_explicit_only
+  expected_relations: preserve_explicit_only
+  expected_equations: preserve_explicit_only
+  expected_constraints: preserve_explicit_only
+  expected_invariants: preserve_explicit_only
+  expected_conclusion: preserve_explicit_only
+  expected_exceptions: not_specified
+  expected_proof_status: partial_or_absent
+  expected_proof_elements: []
+  expected_preconditions: not_yet_determinable
+  expected_postconditions: not_yet_determinable
+  expected_failure_conditions: not_specified
+  master_dependencies: []
+  disciple_dependencies: []
+  community_dependencies: []
+  huit_dimensions_dependencies: []
+  invariants_dependencies: []
+  dynamics_dependencies:
+  - DEP-THEOREMS-DYNAMICS-001
+  message_dependencies: []
+  principle_dependencies: []
+  other_external_dependencies: []
+  known_unresolved: []
+  required_evidence_before_generation:
+  - Identify a source-grounded oracle or correction property in the mathematical contract.
+  contract_generation_gate: multiple_domains_required
+  contract_generation_priority: after_required_gate
+  contract_generation_ready: false
+  mechanical_verification_readiness_expected: false
+  execution_readiness_expected: false
+  code_generation_readiness_expected: false
+  notes: Plan only; no contract is produced.
+- feature_id: TLC-FC-06-THEOREMS-004
+  canonical_name: '06-theorems: operator (admissible)'
+  planned_contract_type: validation_contract
+  source_objects:
+  - TLC-SO-THEOREMS-014
+  source_relations: []
+  source_locations:
+  - maths/06-theorems.md:20-20
+  result_kind: scientific_operator
+  expected_statement: preserve_source_statement
+  expected_hypotheses: preserve_explicit_only
+  expected_axioms: preserve_explicit_only
+  expected_definitions: not_yet_determinable
+  expected_variables: extract_without_inference
+  expected_parameters: extract_without_inference
+  expected_constants: extract_without_inference
+  expected_sets: extract_without_inference
+  expected_spaces: extract_without_inference
+  expected_quantifiers: preserve_explicit_only
+  expected_relations: preserve_explicit_only
+  expected_equations: preserve_explicit_only
+  expected_constraints: preserve_explicit_only
+  expected_invariants: preserve_explicit_only
+  expected_conclusion: preserve_explicit_only
+  expected_exceptions: not_specified
+  expected_proof_status: partial_or_absent
+  expected_proof_elements: []
+  expected_preconditions: not_yet_determinable
+  expected_postconditions: not_yet_determinable
+  expected_failure_conditions: not_specified
+  master_dependencies: []
+  disciple_dependencies: []
+  community_dependencies: []
+  huit_dimensions_dependencies: []
+  invariants_dependencies: []
+  dynamics_dependencies:
+  - DEP-THEOREMS-DYNAMICS-001
+  message_dependencies: []
+  principle_dependencies: []
+  other_external_dependencies: []
+  known_unresolved: []
+  required_evidence_before_generation:
+  - Identify a source-grounded oracle or correction property in the mathematical contract.
+  contract_generation_gate: dynamics_symbols_required
+  contract_generation_priority: after_required_gate
+  contract_generation_ready: false
+  mechanical_verification_readiness_expected: false
+  execution_readiness_expected: false
+  code_generation_readiness_expected: false
+  notes: Plan only; no contract is produced.
+- feature_id: TLC-FC-06-THEOREMS-005
+  canonical_name: '06-theorems: operator (blocked_locally)'
+  planned_contract_type: structural_contract
+  source_objects:
+  - TLC-SO-THEOREMS-005
+  - TLC-SO-THEOREMS-006
+  source_relations: []
+  source_locations:
+  - maths/06-theorems.md:54-55
+  - maths/06-theorems.md:66-67
+  result_kind: scientific_operator
+  expected_statement: preserve_source_statement
+  expected_hypotheses: preserve_explicit_only
+  expected_axioms: preserve_explicit_only
+  expected_definitions: not_yet_determinable
+  expected_variables: extract_without_inference
+  expected_parameters: extract_without_inference
+  expected_constants: extract_without_inference
+  expected_sets: extract_without_inference
+  expected_spaces: extract_without_inference
+  expected_quantifiers: preserve_explicit_only
+  expected_relations: preserve_explicit_only
+  expected_equations: preserve_explicit_only
+  expected_constraints: preserve_explicit_only
+  expected_invariants: preserve_explicit_only
+  expected_conclusion: preserve_explicit_only
+  expected_exceptions: not_specified
+  expected_proof_status: partial_or_absent
+  expected_proof_elements: []
+  expected_preconditions: not_yet_determinable
+  expected_postconditions: not_yet_determinable
+  expected_failure_conditions: not_specified
+  master_dependencies: []
+  disciple_dependencies: []
+  community_dependencies: []
+  huit_dimensions_dependencies:
+  - DEP-THEOREMS-HUIT-001
+  invariants_dependencies: []
+  dynamics_dependencies: []
+  message_dependencies:
+  - DEP-THEOREMS-MESSAGE-001
+  principle_dependencies:
+  - DEP-THEOREMS-PRINCIPLE-001
+  other_external_dependencies: []
+  known_unresolved: []
+  required_evidence_before_generation:
+  - Resolve only the listed blocking objects, relations, decisions, or terms.
+  contract_generation_gate: local_scientific_decision_required
+  contract_generation_priority: after_required_gate
+  contract_generation_ready: false
+  mechanical_verification_readiness_expected: false
+  execution_readiness_expected: false
+  code_generation_readiness_expected: false
+  notes: Plan only; no contract is produced.
+- feature_id: TLC-FC-06-THEOREMS-006
+  canonical_name: '06-theorems: oracle (admissible)'
+  planned_contract_type: theorem_declaration_contract
+  source_objects:
+  - TLC-SO-THEOREMS-002
+  - TLC-SO-THEOREMS-003
+  - TLC-SO-THEOREMS-004
+  - TLC-SO-THEOREMS-008
+  - TLC-SO-THEOREMS-009
+  - TLC-SO-THEOREMS-010
+  source_relations: []
+  source_locations:
+  - maths/06-theorems.md:13-16
+  - maths/06-theorems.md:31-38
+  - maths/06-theorems.md:49-52
+  - maths/06-theorems.md:92-95
+  - maths/06-theorems.md:114-124
+  - maths/06-theorems.md:129-136
+  result_kind: theorem
+  expected_statement: preserve_source_statement
+  expected_hypotheses: preserve_explicit_only
+  expected_axioms: preserve_explicit_only
+  expected_definitions: not_yet_determinable
+  expected_variables: extract_without_inference
+  expected_parameters: extract_without_inference
+  expected_constants: extract_without_inference
+  expected_sets: extract_without_inference
+  expected_spaces: extract_without_inference
+  expected_quantifiers: preserve_explicit_only
+  expected_relations: preserve_explicit_only
+  expected_equations: preserve_explicit_only
+  expected_constraints: preserve_explicit_only
+  expected_invariants: preserve_explicit_only
+  expected_conclusion: preserve_explicit_only
+  expected_exceptions: not_specified
+  expected_proof_status: partial_or_absent
+  expected_proof_elements:
+  - PROOF-THEOREMS-001
+  - PROOF-THEOREMS-002
+  - PROOF-THEOREMS-003
+  - PROOF-THEOREMS-004
+  - PROOF-THEOREMS-005
+  expected_preconditions: not_yet_determinable
+  expected_postconditions: not_yet_determinable
+  expected_failure_conditions: not_specified
+  master_dependencies:
+  - DEP-THEOREMS-MASTER-001
+  disciple_dependencies:
+  - DEP-THEOREMS-DISCIPLE-001
+  community_dependencies:
+  - DEP-THEOREMS-COMMUNITY-001
+  huit_dimensions_dependencies:
+  - DEP-THEOREMS-HUIT-001
+  invariants_dependencies: []
+  dynamics_dependencies:
+  - DEP-THEOREMS-DYNAMICS-001
+  message_dependencies:
+  - DEP-THEOREMS-MESSAGE-001
+  principle_dependencies:
+  - DEP-THEOREMS-PRINCIPLE-001
+  other_external_dependencies: []
+  known_unresolved: []
+  required_evidence_before_generation:
+  - Re-examine the cited source range; do not infer missing fields, types, or behavior.
+  contract_generation_gate: proof_source_required
+  contract_generation_priority: after_required_gate
+  contract_generation_ready: false
+  mechanical_verification_readiness_expected: false
+  execution_readiness_expected: false
+  code_generation_readiness_expected: false
+  notes: Plan only; no contract is produced.
+- feature_id: TLC-FC-06-THEOREMS-007
+  canonical_name: '06-theorems: state (admissible)'
+  planned_contract_type: structural_contract
+  source_objects:
+  - TLC-SO-THEOREMS-001
+  - TLC-SO-THEOREMS-012
+  - TLC-SO-THEOREMS-013
+  - TLC-SO-THEOREMS-015
+  source_relations:
+  - TLC-SR-THEOREMS-011
+  - TLC-SR-THEOREMS-012
+  - TLC-SR-THEOREMS-014
+  source_locations:
+  - maths/06-theorems.md:1-5
+  - maths/06-theorems.md:18-18
+  - maths/06-theorems.md:19-19
+  - maths/06-theorems.md:21-21
+  result_kind: state_representation
+  expected_statement: preserve_source_statement
+  expected_hypotheses: preserve_explicit_only
+  expected_axioms: preserve_explicit_only
+  expected_definitions: not_yet_determinable
+  expected_variables: extract_without_inference
+  expected_parameters: extract_without_inference
+  expected_constants: extract_without_inference
+  expected_sets: extract_without_inference
+  expected_spaces: extract_without_inference
+  expected_quantifiers: preserve_explicit_only
+  expected_relations: preserve_explicit_only
+  expected_equations: preserve_explicit_only
+  expected_constraints: preserve_explicit_only
+  expected_invariants: preserve_explicit_only
+  expected_conclusion: preserve_explicit_only
+  expected_exceptions: not_specified
+  expected_proof_status: partial_or_absent
+  expected_proof_elements: []
+  expected_preconditions: not_yet_determinable
+  expected_postconditions: not_yet_determinable
+  expected_failure_conditions: not_specified
+  master_dependencies: []
+  disciple_dependencies: []
+  community_dependencies: []
+  huit_dimensions_dependencies: []
+  invariants_dependencies: []
+  dynamics_dependencies: []
+  message_dependencies: []
+  principle_dependencies: []
+  other_external_dependencies: []
+  known_unresolved:
+  - TLC-UT-THEOREMS-002
+  - TLC-UT-THEOREMS-003
+  - TLC-UT-THEOREMS-004
+  required_evidence_before_generation:
+  - Re-examine the cited source range; do not infer missing fields, types, or behavior.
+  contract_generation_gate: missing_source_evidence
+  contract_generation_priority: after_required_gate
+  contract_generation_ready: false
+  mechanical_verification_readiness_expected: false
+  execution_readiness_expected: false
+  code_generation_readiness_expected: false
+  notes: Plan only; no contract is produced.
+- feature_id: TLC-FC-06-THEOREMS-008
+  canonical_name: '06-theorems: state (blocked_locally)'
+  planned_contract_type: non_computational_contract
+  source_objects:
+  - TLC-SO-THEOREMS-007
+  - TLC-SO-THEOREMS-018
+  - TLC-SO-THEOREMS-020
+  - TLC-SO-THEOREMS-021
+  - TLC-SO-THEOREMS-022
+  - TLC-SO-THEOREMS-023
+  - TLC-SO-THEOREMS-024
+  - TLC-SO-THEOREMS-025
+  source_relations: []
+  source_locations:
+  - maths/06-theorems.md:78-79
+  - maths/06-theorems.md:81-81
+  - maths/06-theorems.md:83-83
+  - maths/06-theorems.md:84-84
+  - maths/06-theorems.md:85-85
+  - maths/06-theorems.md:86-86
+  - maths/06-theorems.md:87-87
+  - maths/06-theorems.md:88-88
+  result_kind: state_representation
+  expected_statement: preserve_source_statement
+  expected_hypotheses: preserve_explicit_only
+  expected_axioms: preserve_explicit_only
+  expected_definitions: not_yet_determinable
+  expected_variables: extract_without_inference
+  expected_parameters: extract_without_inference
+  expected_constants: extract_without_inference
+  expected_sets: extract_without_inference
+  expected_spaces: extract_without_inference
+  expected_quantifiers: preserve_explicit_only
+  expected_relations: preserve_explicit_only
+  expected_equations: preserve_explicit_only
+  expected_constraints: preserve_explicit_only
+  expected_invariants: preserve_explicit_only
+  expected_conclusion: preserve_explicit_only
+  expected_exceptions: not_specified
+  expected_proof_status: partial_or_absent
+  expected_proof_elements: []
+  expected_preconditions: not_yet_determinable
+  expected_postconditions: not_yet_determinable
+  expected_failure_conditions: not_specified
+  master_dependencies: []
+  disciple_dependencies: []
+  community_dependencies: []
+  huit_dimensions_dependencies:
+  - DEP-THEOREMS-HUIT-001
+  invariants_dependencies: []
+  dynamics_dependencies: []
+  message_dependencies:
+  - DEP-THEOREMS-MESSAGE-001
+  principle_dependencies: []
+  other_external_dependencies: []
+  known_unresolved:
+  - TLC-UT-THEOREMS-001
+  - TLC-UT-THEOREMS-005
+  - TLC-UT-THEOREMS-007
+  - TLC-UT-THEOREMS-008
+  - TLC-UT-THEOREMS-009
+  - TLC-UT-THEOREMS-010
+  - TLC-UT-THEOREMS-011
+  - TLC-UT-THEOREMS-012
+  required_evidence_before_generation:
+  - Recommend convert_to_state_definition; no transformation is applied by this review.
+  contract_generation_gate: local_scientific_decision_required
+  contract_generation_priority: after_required_gate
+  contract_generation_ready: false
+  mechanical_verification_readiness_expected: false
+  execution_readiness_expected: false
+  code_generation_readiness_expected: false
+  notes: Plan only; no contract is produced.
+- feature_id: TLC-FC-06-THEOREMS-009
+  canonical_name: '06-theorems: state (provisionally_separated)'
+  planned_contract_type: non_computational_contract
+  source_objects:
+  - TLC-SO-THEOREMS-019
+  source_relations: []
+  source_locations:
+  - maths/06-theorems.md:82-82
+  result_kind: state_representation
+  expected_statement: preserve_source_statement
+  expected_hypotheses: preserve_explicit_only
+  expected_axioms: preserve_explicit_only
+  expected_definitions: not_yet_determinable
+  expected_variables: extract_without_inference
+  expected_parameters: extract_without_inference
+  expected_constants: extract_without_inference
+  expected_sets: extract_without_inference
+  expected_spaces: extract_without_inference
+  expected_quantifiers: preserve_explicit_only
+  expected_relations: preserve_explicit_only
+  expected_equations: preserve_explicit_only
+  expected_constraints: preserve_explicit_only
+  expected_invariants: preserve_explicit_only
+  expected_conclusion: preserve_explicit_only
+  expected_exceptions: not_specified
+  expected_proof_status: partial_or_absent
+  expected_proof_elements: []
+  expected_preconditions: not_yet_determinable
+  expected_postconditions: not_yet_determinable
+  expected_failure_conditions: not_specified
+  master_dependencies: []
+  disciple_dependencies: []
+  community_dependencies: []
+  huit_dimensions_dependencies:
+  - DEP-THEOREMS-HUIT-001
+  invariants_dependencies: []
+  dynamics_dependencies: []
+  message_dependencies: []
+  principle_dependencies:
+  - DEP-THEOREMS-PRINCIPLE-001
+  other_external_dependencies: []
+  known_unresolved:
+  - TLC-UT-THEOREMS-006
+  required_evidence_before_generation:
+  - Recommend convert_to_state_definition; no transformation is applied by this review.
+  contract_generation_gate: local_scientific_decision_required
+  contract_generation_priority: after_required_gate
+  contract_generation_ready: false
+  mechanical_verification_readiness_expected: false
+  execution_readiness_expected: false
+  code_generation_readiness_expected: false
+  notes: Plan only; no contract is produced.
+summary:
+  planned_contracts: 9
+  ready_now: 0
+  code_ready: 0
+status: complete_with_reservations
