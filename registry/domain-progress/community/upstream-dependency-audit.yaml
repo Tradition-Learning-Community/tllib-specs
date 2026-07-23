@@ -1,0 +1,37 @@
+domain_id: community
+dependencies:
+- dependency_id: TLC-COMMUNITY-MASTER-001
+  target_domain: master
+  target_identifiers:
+  - TLC-SO-MASTER-001
+  evidence: maths/00-master.md and TLC-SO-MASTER-001
+  affected_feature_ids:
+  - TLC-FC-02-COMMUNITY-008
+  contract_presence:
+  - TLC-FC-02-COMMUNITY-008
+  ir_presence:
+  - TLC-FC-02-COMMUNITY-008
+  required_level: symbol_only
+  structural_effect: symbol_reference
+  execution_effect: none_imported
+  code_effect: blocked
+- dependency_id: TLC-COMMUNITY-DISCIPLE-001
+  target_domain: disciple
+  target_identifiers:
+  - TLC-SO-DISCIPLE-001
+  evidence: maths/01-disciple.md and TLC-SO-DISCIPLE-001
+  affected_feature_ids:
+  - TLC-FC-02-COMMUNITY-008
+  contract_presence:
+  - TLC-FC-02-COMMUNITY-008
+  ir_presence:
+  - TLC-FC-02-COMMUNITY-008
+  required_level: symbol_only
+  structural_effect: symbol_reference
+  execution_effect: none_imported
+  code_effect: blocked
+symbol_only_dependencies: 2
+contract_dependencies: 0
+ir_dependencies: 0
+execution_only_dependencies: 0
+audit_status: complete_with_reservations
