@@ -48,7 +48,10 @@ def git(*args: str) -> str:
 
 
 def main() -> int:
-    require(git("merge-base", "HEAD", "origin/main") == BASE_COMMIT, "wrong origin/main base")
+    require(
+        git("merge-base", "--is-ancestor", "origin/main", "HEAD") == "",
+        "origin/main is not an ancestor of HEAD",
+    )
     require(
         {path.name for path in REG.glob("*.yaml")} == EXPECTED_YAML,
         "unexpected or missing preparation YAML",
@@ -197,7 +200,7 @@ def main() -> int:
     ]
     require(not forbidden_paths, f"final contract or IR detected: {forbidden_paths}")
 
-    changed = git("diff", "--name-only", BASE_COMMIT).splitlines()
+    changed = git("diff", "--name-only", "origin/main...HEAD").splitlines()
     allowed_prefixes = (
         "registry/domain-progress/relations/",
         "reports/domain-progress/relations/",
