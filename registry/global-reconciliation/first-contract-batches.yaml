@@ -1,0 +1,36 @@
+schema_version: 1
+authority: origin/main
+source_commit: febec3e14a938adb2480bd09d257e6879ccf564e
+scope: targeted_scientific_dependency_review
+economic:
+  batch_id: TLC-FIRST-ECONOMIC-001
+  features_included:
+  - TLC-FC-15-RELATIONS-004
+  - TLC-FC-15-RELATIONS-007
+  features_excluded:
+  - TLC-FC-05-DYNAMICS-001
+  - TLC-FC-08-PRINCIPLE-002
+  - TLC-FC-09-VALUES-018
+  - TLC-FC-14-LIVED-EXPERIENCE-005
+  prerequisites:
+  - preserve limited-contract scope
+  - propagate all existing reservations
+  remaining_blockers: []
+  rationale: Two independent limited contracts can share one Relations context and review task.
+safest:
+  batch_id: TLC-FIRST-SAFE-001
+  features_included:
+  - TLC-FC-15-RELATIONS-004
+  features_excluded:
+  - TLC-FC-05-DYNAMICS-001
+  - TLC-FC-08-PRINCIPLE-002
+  - TLC-FC-09-VALUES-018
+  - TLC-FC-14-LIVED-EXPERIENCE-005
+  - TLC-FC-15-RELATIONS-007
+  prerequisites:
+  - preserve limited-contract scope
+  - propagate all existing reservations
+  remaining_blockers: []
+  rationale: Single-feature batch minimizes review surface before repeating the same pattern for -007.
+first_ir_batch: null
+first_ir_batch_blocker: No reviewed feature is ready_for_ir.
