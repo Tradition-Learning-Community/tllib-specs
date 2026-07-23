@@ -1,0 +1,73 @@
+domain_id: relations
+status: preparation_complete_with_reservations
+authority: origin/main
+working_base_commit: d8e616c71173495b9a014d4a5909df9f30e2a7ae
+generated_at: '2026-07-23T12:21:01+00:00'
+scope: preparation_only_no_contract_or_ir
+patterns:
+- pattern_id: TLC-PAT-RELATIONS-001
+  name: five_named_master_dimension_relations
+  source_ranges:
+  - 9-71
+  - 73-111
+  - 116-155
+  - 159-187
+  - 199-228
+  occurrences: 5
+  interpretation: source_explicit_structural_repetition
+  semantic_equivalence: unresolved
+  automatic_generalization_allowed: false
+- pattern_id: TLC-PAT-RELATIONS-002
+  name: tuple_formalizations
+  source_ranges:
+  - 54-66
+  - 99-109
+  - 143-153
+  - 183-185
+  - 224-226
+  occurrences: 5
+  interpretation: source_explicit_tuple_shape_only
+  tuple_types_and_component_types: unresolved
+  automatic_generalization_allowed: false
+- pattern_id: TLC-PAT-RELATIONS-003
+  name: theorem_or_optimum_claims
+  source_ranges:
+  - 68-71
+  - '111'
+  - '155'
+  - '187'
+  - '228'
+  occurrences: 5
+  interpretation: claims_preserved_verbatim_for_future_contract_review
+  proof_status: not_established_by_domain_preparation
+  automatic_generalization_allowed: false
+- pattern_id: TLC-PAT-RELATIONS-004
+  name: community_regulatory_roles
+  source_ranges:
+  - 47-52
+  - 93-97
+  - 136-140
+  - 177-180
+  - 220-222
+  occurrences: 5
+  interpretation: qualitative_source_pattern
+  relation_direction_cardinality_temporality: unresolved
+  automatic_generalization_allowed: false
+- pattern_id: TLC-PAT-RELATIONS-005
+  name: synthesis_interdependencies
+  source_ranges:
+  - 244-257
+  occurrences: 3
+  interpretation: explicit_prose_dependencies_requiring_later_reconciliation
+  automatic_generalization_allowed: false
+shared_ambiguities:
+- relation_kind
+- endpoint_identity
+- direction_beyond_written_orientation
+- cardinality
+- symmetry
+- transitivity
+- temporality
+- tuple_component_types
+- equation_domains_and_oracles
+pattern_analysis_status: complete_with_reservations

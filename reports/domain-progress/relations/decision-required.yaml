@@ -1,0 +1,52 @@
+domain_id: relations
+status: preparation_complete_with_reservations
+authority: origin/main
+working_base_commit: d8e616c71173495b9a014d4a5909df9f30e2a7ae
+generated_at: '2026-07-23T12:21:01+00:00'
+scope: preparation_only_no_contract_or_ir
+work_item_id: TLC-PREP-15-RELATIONS
+stage: domain_preparation
+artifacts_produced:
+- registry/domain-progress/relations/source-inventory.yaml
+- registry/domain-progress/relations/scientific-audit.yaml
+- registry/domain-progress/relations/pattern-analysis.yaml
+- registry/domain-progress/relations/feature-inventory.yaml
+- registry/domain-progress/relations/feature-classification.yaml
+- registry/domain-progress/relations/feature-dependencies.yaml
+- registry/domain-progress/relations/feature-readiness.yaml
+- registry/domain-progress/relations/contract-production-plan.yaml
+- registry/domain-progress/relations/ir-production-plan.yaml
+- registry/domain-progress/relations/domain-status.yaml
+- reports/domain-progress/relations/preparation-report.md
+- reports/domain-progress/relations/decision-required.yaml
+- scripts/build_relations_preparation.py
+- scripts/validate_relations_preparation.py
+blocking_issues:
+- TLC-FC-15-RELATIONS-002 requires scientific decision TLC-HR-0054
+- TLC-FC-15-RELATIONS-003 requires scientific decision TLC-HR-0074
+- TLC-FC-15-RELATIONS-008 requires scientific decision TLC-HR-0074
+- 61 source unresolved items remain open
+- 12 duplicate candidates remain unmerged
+external_unreconciled_dependencies:
+- 11-capacities
+- 12-competencies
+- 13-practice
+questions_for_human:
+- Resolve the 61 extraction uncertainties without bulk classification.
+- Review the 12 duplicate candidates without automatic merging.
+- Resolve TLC-HR-0054 and TLC-HR-0074 before blocked feature contracts.
+- Reconcile Capacities, Competencies, and Practice only after their work is merged.
+recommended_decision: approved_with_reservations
+allowed_decisions:
+- approved
+- approved_with_reservations
+- revise
+- rejected
+verdict: preparation_complete_with_reservations
+ready_for_contract_generation_now:
+- TLC-FC-15-RELATIONS-004
+- TLC-FC-15-RELATIONS-007
+ready_for_full_contract_generation: false
+ready_for_ir_generation: false
+ready_for_implementation_planning: false
+ready_for_code_generation: false
