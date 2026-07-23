@@ -151,7 +151,7 @@ if list((ROOT / "registry/math-contracts").glob("TLC-FC-04-INVARIANTS-*")):
 if list((ROOT / "ir").glob("TLC-FC-04-INVARIANTS-*")):
     errors.append("An Invariants IR directory was created")
 
-diff = subprocess.run(["git", "diff", "--name-only", BASELINE], cwd=ROOT, text=True, capture_output=True, check=True).stdout.splitlines()
+diff = subprocess.run(["git", "diff", "--name-only", "origin/main...HEAD"], cwd=ROOT, text=True, capture_output=True, check=True).stdout.splitlines()
 allowed_prefixes = ("registry/domain-progress/invariants/", "reports/domain-progress/invariants/")
 allowed_files = {"scripts/validate_invariants_preparation.py"}
 for path in diff:
