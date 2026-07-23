@@ -1,0 +1,104 @@
+domain_id: theorems
+baseline_commit: 4a42d88ee71e3660fba02c7a780246e8d755c901
+groups:
+- group_id: A_independent_statements
+  order: 1
+  feature_ids:
+  - TLC-FC-06-THEOREMS-006
+  contract_generation_allowed: true
+  blocking_conditions:
+  - targeted extraction
+  - proof reservations
+  internal_prerequisites: []
+  master_prerequisites: []
+  disciple_prerequisites: []
+  community_prerequisites: []
+  huit_dimensions_prerequisites: []
+  invariants_prerequisites: []
+  dynamics_prerequisites: []
+  message_prerequisites: []
+  principle_prerequisites: []
+  other_domain_prerequisites: []
+  structural_ir_generation_expected: false
+  proof_representation_expected: false
+  mechanical_verification_claim_allowed: false
+  execution_claim_allowed: false
+  future_reconciliation_required: false
+  notes: Preparation order only; no production occurs.
+- group_id: G_after_dynamics
+  order: 2
+  feature_ids:
+  - TLC-FC-06-THEOREMS-002
+  - TLC-FC-06-THEOREMS-003
+  - TLC-FC-06-THEOREMS-004
+  contract_generation_allowed: false
+  blocking_conditions:
+  - Dynamics reconciliation
+  internal_prerequisites: []
+  master_prerequisites: []
+  disciple_prerequisites: []
+  community_prerequisites: []
+  huit_dimensions_prerequisites: []
+  invariants_prerequisites: []
+  dynamics_prerequisites:
+  - canonical Dynamics artifacts
+  message_prerequisites: []
+  principle_prerequisites: []
+  other_domain_prerequisites: []
+  structural_ir_generation_expected: false
+  proof_representation_expected: false
+  mechanical_verification_claim_allowed: false
+  execution_claim_allowed: false
+  future_reconciliation_required: true
+  notes: Preparation order only; no production occurs.
+- group_id: J_multiple_domain_dependencies
+  order: 3
+  feature_ids:
+  - TLC-FC-06-THEOREMS-005
+  - TLC-FC-06-THEOREMS-008
+  - TLC-FC-06-THEOREMS-009
+  contract_generation_allowed: false
+  blocking_conditions:
+  - Huit Dimensions and dimension-domain reconciliation
+  - scientific review
+  internal_prerequisites: []
+  master_prerequisites: []
+  disciple_prerequisites: []
+  community_prerequisites: []
+  huit_dimensions_prerequisites: []
+  invariants_prerequisites: []
+  dynamics_prerequisites: []
+  message_prerequisites: []
+  principle_prerequisites: []
+  other_domain_prerequisites: []
+  structural_ir_generation_expected: false
+  proof_representation_expected: false
+  mechanical_verification_claim_allowed: false
+  execution_claim_allowed: false
+  future_reconciliation_required: true
+  notes: Preparation order only; no production occurs.
+- group_id: K_scientific_decision_required
+  order: 4
+  feature_ids:
+  - TLC-FC-06-THEOREMS-001
+  - TLC-FC-06-THEOREMS-007
+  contract_generation_allowed: false
+  blocking_conditions:
+  - classification conflict or targeted extraction
+  internal_prerequisites: []
+  master_prerequisites: []
+  disciple_prerequisites: []
+  community_prerequisites: []
+  huit_dimensions_prerequisites: []
+  invariants_prerequisites: []
+  dynamics_prerequisites: []
+  message_prerequisites: []
+  principle_prerequisites: []
+  other_domain_prerequisites: []
+  structural_ir_generation_expected: false
+  proof_representation_expected: false
+  mechanical_verification_claim_allowed: false
+  execution_claim_allowed: false
+  future_reconciliation_required: true
+  notes: Preparation order only; no production occurs.
+status: complete_with_reservations

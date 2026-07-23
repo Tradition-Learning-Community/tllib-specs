@@ -1,0 +1,35 @@
+domain_id: dynamics
+ir_defaults: &ir_defaults
+  planned_nodes_or_elements: not_yet_determinable
+  planned_states: not_yet_determinable
+  planned_transitions: []
+  planned_time_representation: opaque_time_symbol
+  planned_functions: not_yet_determinable
+  planned_operators: not_yet_determinable
+  planned_equations: []
+  planned_constraints: []
+  planned_invariants: []
+  planned_external_symbols: []
+  planned_unresolved_representation: opaque_nodes_and_properties
+  master_dependencies: []
+  disciple_dependencies: []
+  community_dependencies: []
+  huit_dimensions_dependencies: []
+  invariants_dependencies: []
+  theorems_dependencies: []
+  other_domain_dependencies: []
+  schema_candidate: domain_neutral_candidate
+  validator_candidate: scripts/validate_dynamics_preparation.py
+  contract_to_ir_coverage_strategy: one_to_one_traceability
+  structural_ir_possible: true
+  execution_ready_expected: false
+  implementation_planning_readiness_expected: false
+  code_generation_readiness_expected: false
+features:
+  - {<<: *ir_defaults, feature_id: TLC-FC-05-DYNAMICS-001, planned_contract_dependency: regenerated_validated_contract, planned_ir_kind: validation, planned_nodes_or_elements: [constraint, validation, opaque_values], planned_constraints: [viability_bounds], planned_external_symbols: [community, values, relations], invariants_dependencies: [future_reconciliation], ir_generation_gate: contract_validated, notes: "Historical IR is comparison-only."}
+  - {<<: *ir_defaults, feature_id: TLC-FC-05-DYNAMICS-002, planned_contract_dependency: per_equation_validated_contracts, planned_ir_kind: evolution, planned_nodes_or_elements: [differential_equation, stochastic_equation, opaque_process], planned_equations: 8_grouped_source_objects, planned_external_symbols: [master, disciple, community, values, relations, lived-experience], master_dependencies: [symbol_available], disciple_dependencies: [symbol_available], community_dependencies: [future_symbol_reconciliation], ir_generation_gate: multiple_dependencies_available, notes: "No solver or discretization."}
+  - {<<: *ir_defaults, feature_id: TLC-FC-05-DYNAMICS-003, planned_contract_dependency: scientific_decision_then_validated_contract, planned_ir_kind: stochastic_equation, planned_nodes_or_elements: [stochastic_equation, opaque_process], master_dependencies: [symbol_available], disciple_dependencies: [symbol_available], ir_generation_gate: local_scientific_decision_required, structural_ir_possible: false, notes: "Blocked locally."}
+  - {<<: *ir_defaults, feature_id: TLC-FC-05-DYNAMICS-004, planned_contract_dependency: validated_transformation_contract, planned_ir_kind: functional, planned_nodes_or_elements: [integral_operator, kernel_function, input, output], planned_functions: [F, K], planned_equations: [integral_feedback, multi_exponential_kernel], disciple_dependencies: [symbol_available], ir_generation_gate: contract_validated, notes: "Convergence and domains stay unresolved until contracted."}
+  - {<<: *ir_defaults, feature_id: TLC-FC-05-DYNAMICS-005, planned_contract_dependency: validated_relational_contract, planned_ir_kind: relational, planned_nodes_or_elements: [opaque_operator, entity_reference], planned_operators: [I, J, K], master_dependencies: [symbol_available], disciple_dependencies: [symbol_available], community_dependencies: [future_symbol_reconciliation], ir_generation_gate: local_scientific_decision_required, notes: "Opaque operators until signatures are defined."}
+  - {<<: *ir_defaults, feature_id: TLC-FC-05-DYNAMICS-006, planned_contract_dependency: validated_structural_contract, planned_ir_kind: structural, planned_nodes_or_elements: [entity, opaque_state_candidate, relation], planned_states: state_candidates_only, planned_external_symbols: [master, disciple, community], master_dependencies: [symbol_available], disciple_dependencies: [symbol_available], community_dependencies: [future_symbol_reconciliation], ir_generation_gate: contract_validated, notes: "No state space or transition invented."}
+  - {<<: *ir_defaults, feature_id: TLC-FC-05-DYNAMICS-007, planned_contract_dependency: scientific_decision_then_validated_contract, planned_ir_kind: not_yet_determinable, planned_nodes_or_elements: not_yet_determinable, planned_states: unresolved, master_dependencies: [symbol_available], disciple_dependencies: [symbol_available], ir_generation_gate: local_scientific_decision_required, structural_ir_possible: false, notes: "State/evolution boundary unresolved."}

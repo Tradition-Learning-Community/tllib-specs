@@ -1,0 +1,15 @@
+domain: message
+preparation_only: true
+canonical_baseline: origin/main
+authority_rule: canonical_only
+structure:
+  identity: required
+  content: required
+  state: required
+  provenance: candidate
+  audience: candidate
+  medium: unresolved
+  encoding: unresolved
+  transport: out_of_scope
+  execution: forbidden
+constraint: fields are planning concepts, not a definitive schema

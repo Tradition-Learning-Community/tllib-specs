@@ -1,0 +1,28 @@
+domain: huit-dimensions
+source: maths/03-huit-dimensions-de-tl.md
+baseline_commit: d8e616c71173495b9a014d4a5909df9f30e2a7ae
+status: prepared
+authority: origin/main
+gates:
+- gate: source_and_scientific_inventory
+  status: passed
+- gate: revised_feature_scope
+  status: passed
+- gate: community_canonical_handoff
+  status: passed_with_reservations
+  evidence: reports/domain-progress/community/post-merge-huit-dimensions-handoff.md
+- gate: independent_contract_subset
+  status: passed_with_5_candidates
+- gate: full_contract_generation
+  status: blocked
+  reason: six feature boundaries or identities remain indeterminate and non-Community upstream reconciliation is pending
+- gate: ir_generation
+  status: blocked
+  reason: no accepted contracts
+- gate: implementation_planning
+  status: blocked
+  reason: IR does not exist
+- gate: code_generation
+  status: blocked
+  reason: implementation planning is not authorized
+next_required_gate: reconcile remaining required upstream domains and close scientific identity/boundary questions
