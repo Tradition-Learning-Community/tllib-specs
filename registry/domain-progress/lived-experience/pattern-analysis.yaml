@@ -1,0 +1,48 @@
+domain_id: lived-experience
+source_file: maths/14-lived-experience.md
+baseline_commit: d8e616c71173495b9a014d4a5909df9f30e2a7ae
+authority: origin/main
+status: preparation_complete_with_reservations
+scope: preparation_only
+explicit_patterns:
+- pattern: lived_experience_pair
+  evidence: LE=(T,H)
+  status: explicit_structure
+  reservations:
+  - trace element types are source-level only
+  - holistic meaning space dimensions unresolved
+- pattern: temporal_trace
+  evidence: events represented as (t,s,a)
+  status: explicit
+  reservations:
+  - time unit unspecified
+  - state and action schemas unresolved
+- pattern: holistic_interpretation
+  evidence: H maps traces to multidimensional meaning space
+  status: explicit
+  reservations:
+  - linearity is asserted but executable representation unspecified
+- pattern: synthesis
+  evidence: Sigma extracts an experiential core
+  status: explicit
+  reservations:
+  - algorithm and invariant structure unspecified
+- pattern: memory_and_consolidation
+  evidence: living memory, repetition, reflection
+  status: descriptive_candidate
+  reservations:
+  - not equivalent to memory
+  - transition semantics unresolved
+- pattern: practical_immersion
+  evidence: practical situations and immersion
+  status: external_dependency_candidate
+  reservations:
+  - not equivalent to Practice domain
+- pattern: learning_transformation
+  evidence: exposure becomes embodied knowledge and judgment
+  status: descriptive_candidate
+  reservations:
+  - not an executable learning rule
+explicit_non_equivalences:
+- lived experience is not silently equated with practice, memory, state, perception, or learning
+equation_policy: preserve source equations verbatim through references; no silent correction
