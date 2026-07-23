@@ -69,7 +69,7 @@ if not errors:
     if status["ready_for_contract_generation_now"] is not True: errors.append("limited contract subset must be marked ready")
     if len(status["independent_ready_feature_ids"]) != 5: errors.append("independent ready subset must contain five features")
     if len(status["reconciliation_required_feature_ids"]) != 6: errors.append("reconciliation subset must contain six features")
-    if status["next_task"] != "reconcile_huit_dimensions_after_required_upstream_domains":
+    if status["next_task"] != "reconcile_huit_dimensions_after_remaining_required_upstream_domains":
         errors.append("unexpected next task")
 
 if errors:

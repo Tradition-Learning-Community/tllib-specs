@@ -1,14 +1,22 @@
 domain: huit-dimensions
 source: maths/03-huit-dimensions-de-tl.md
-baseline_commit: 448e01170e123472f3c82b60fff076242ec4a093
+baseline_commit: d8e616c71173495b9a014d4a5909df9f30e2a7ae
 status: prepared
 authority: origin/main
 upstream_domain: community
-dependency_status: explicit_source_dependency_candidate_non_authoritative_upstream
+upstream_authority_status: canonical_complete_to_ir_with_reservations
+upstream_merge_commit: ffbcbb66e6fa3fe809d9b94e47ef9c8bf8d19ddb
+handoff_commit: 4bae21380470bb823459060d0588ca869afd471b
+handoff_report: reports/domain-progress/community/post-merge-huit-dimensions-handoff.md
+dependency_status: explicit_source_dependency_candidate_requires_scientific_confirmation
 confirmed_feature_edges: []
 candidate_domain_edges:
 - from: huit-dimensions
   to: community
-  status: explicit_source_dependency_candidate_non_authoritative_upstream
-  evidence: Community occurs in local value and practice semantics; open draft work is not canonical.
-production_effect: reconcile before full contract generation
+  status: explicit_source_dependency_candidate_requires_scientific_confirmation
+  evidence: Community occurs in the canonical Huit Dimensions source; the canonical Community handoff supplies upstream artifacts but does not confirm this domain edge.
+upstream_reservations_preserved:
+- 29 Community unresolved records
+- Community-006 execution semantics
+- Community-008 symbol-only upstream semantics
+production_effect: community authority gate closed; candidate edge remains unresolved
