@@ -1,0 +1,57 @@
+schema_version: 2
+test_plan_id: TLC-TP-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011-PROTOTYPE-001
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011
+contract_id: TLC-LEC-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011-001
+ir_id: TLC-IR-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011-PROTOTYPE-001
+primary_operation: register_riemannian_metric_declaration
+scope: specialized_prototype_operation_without_scientific_evaluation
+tests:
+- id: TEST-011-NOMINAL
+  category: operation_nominal
+  operation: register_riemannian_metric_declaration
+  scenario: Register metric symbol g and the declared geodesic capability as an unevaluated declaration.
+  expected_structural_result: Returns a metric declaration whose metric tensor, carrier space, and geodesic operation remain
+    unresolved.
+- id: TEST-011-OPAQUE
+  category: opaque_boundary
+  operation: register_riemannian_metric_declaration
+  scenario: Accept an opaque carrier-space token without choosing dimension, coordinates, topology, or numerical representation.
+  expected_structural_result: Opaque payloads and unresolved operators are retained byte-for-byte and are not evaluated.
+- id: TEST-011-PRECONDITION
+  category: preconditions
+  operation: register_riemannian_metric_declaration
+  scenario: Omit the required role riemannian_metric_claim.
+  expected_error: FAIL-HUIT-011-MISSING-TRACE
+- id: TEST-011-FAILURE
+  category: operation_specific_error
+  operation: register_riemannian_metric_declaration
+  scenario: Reject geodesic computation or a concrete metric type when carrier-space and tensor semantics are absent.
+  expected_error: FAIL-HUIT-011-OPERATION
+- id: TEST-011-POSTCONDITION
+  category: postconditions
+  operation: register_riemannian_metric_declaration
+  scenario: Inspect the constructed specialized result.
+  expected_structural_result: The declaration retains the source claim and marks metric_tensor, carrier_space, and geodesic_operation
+    unresolved.
+- id: TEST-011-RESERVATIONS
+  category: reservation_propagation
+  operation: register_riemannian_metric_declaration
+  scenario: Construct the result with all 9 recorded reservation identifiers.
+  expected_structural_result: Every reservation remains present with unresolved status and no resolution claim.
+- id: TEST-011-ASSUMPTION
+  category: assumption_propagation
+  operation: register_riemannian_metric_declaration
+  scenario: Construct the result with the feature provisional engineering assumption.
+  expected_structural_result: The reversible provisional assumption identifier is preserved and not promoted to science.
+- id: TEST-011-DETERMINISM
+  category: determinism
+  operation: register_riemannian_metric_declaration
+  scenario: Invoke the operation twice with identical role bindings and opaque payloads.
+  expected_structural_result: Both results have identical structure, identifiers, role bindings, and opaque payloads.
+- id: TEST-011-CONFORMANCE
+  category: contract_ir_conformance
+  operation: register_riemannian_metric_declaration
+  scenario: Compare contract primary operation, IR software unit, output type, errors, reservations, and readiness.
+  expected_structural_result: Contract, IR, and test plan agree without introducing scientific behavior.
+numeric_expected_results: []
+implementation_status: planned_not_implemented

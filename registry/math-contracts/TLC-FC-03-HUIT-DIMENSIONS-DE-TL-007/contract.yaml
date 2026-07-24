@@ -8,7 +8,7 @@ scientific_authority: origin/main
 limited_engineering_contract: true
 complete_scientific_contract: false
 status: limited_engineering_contract_with_reservations
-version: 0.1.0
+version: 0.2.0
 provenance:
   source_commit: f0a9b6578087e61dd0c7799d95ff0050627f95d6
   generated_on: '2026-07-24'
@@ -32,12 +32,12 @@ scientific_relations_covered: []
 contextual_relations_not_covered:
 - TLC-SR-HUIT-DIMENSIONS-DE-TL-013
 - TLC-SR-HUIT-DIMENSIONS-DE-TL-034
-limited_functional_purpose: Preserve the cited candidate scientific objects as distinct opaque inputs and expose only source-traceable
-  candidate results; no missing scientific semantics are completed.
+limited_functional_purpose: Catalogue the two composite invariant groups without interpreting or proving their claims.
 inputs:
-- input_id: INPUT-HUIT-007-014
+- input_id: INPUT-HUIT-007-01
+  role: value_invariant_group
   scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-014
-  category: Invariant
+  type: OpaqueInvariantGroup
   representation: opaque_parameterized
   source_reference:
     repository: Tradition-Learning-Community/tllib-specs
@@ -51,9 +51,10 @@ inputs:
     subsection: Propriétés
     start_line: 106
     end_line: 111
-- input_id: INPUT-HUIT-007-035
+- input_id: INPUT-HUIT-007-02
+  role: lived_experience_invariant_group
   scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-035
-  category: Invariant
+  type: OpaqueInvariantGroup
   representation: opaque_parameterized
   source_reference:
     repository: Tradition-Learning-Community/tllib-specs
@@ -68,26 +69,26 @@ inputs:
     start_line: 250
     end_line: 255
 outputs:
-- output_id: OUTPUT-HUIT-007-014
-  scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-014
-  representation: opaque_candidate_result
-  semantics: unresolved
-- output_id: OUTPUT-HUIT-007-035
-  scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-035
-  representation: opaque_candidate_result
-  semantics: unresolved
+- output_id: OUTPUT-HUIT-007-001
+  role: specialized_structural_result
+  type: InvariantGroupCatalogue
+  representation: identity_preserving_unevaluated_record
+  observable_effect: Returns separate value and lived-experience invariant-group entries with proof status unresolved.
+  scientific_semantics: unresolved_not_evaluated
 preconditions:
-- id: PRE-HUIT-007-SOURCE
-  statement: Every covered object is supplied with its candidate identity and exact source reference preserved.
-- id: PRE-HUIT-007-OPAQUE
-  statement: Unspecified types, dimensions, units, order, aggregation, temporal and numerical semantics remain opaque.
-- id: PRE-HUIT-007-UNRESOLVED
-  statement: Every reservation in unresolved.yaml remains attached.
+- id: PRE-HUIT-007-REQUIRED-ROLES
+  statement: 'Inputs provide the required roles: value_invariant_group, lived_experience_invariant_group.'
+- id: PRE-HUIT-007-TRACE
+  statement: Every input retains its scientific object identifier and exact source reference.
+- id: PRE-HUIT-007-RESERVATIONS
+  statement: All contract reservations and the provisional engineering assumption remain attached.
 postconditions:
+- id: POST-HUIT-007-EFFECT
+  statement: The catalogue preserves two distinct groups, their dimension keys, source identifiers, and unresolved proof status.
+- id: POST-HUIT-007-OPAQUE
+  statement: No opaque scientific payload or operator is evaluated, coerced, completed, or declared canonical.
 - id: POST-HUIT-007-TRACE
-  statement: Every result remains candidate and traceable to one covered source object.
-- id: POST-HUIT-007-NO-PROMOTION
-  statement: No provisional assumption or unresolved reservation is promoted to canonical science.
+  statement: The result retains feature, contract, object, source, reservation, and assumption identifiers.
 invariants:
 - id: INV-HUIT-007-IDENTITY
   statement: Covered scientific object identities remain distinct.
@@ -96,12 +97,13 @@ invariants:
 - id: INV-HUIT-007-LIMITED
   statement: This artifact remains a limited engineering contract, never a complete scientific contract.
 undefined_or_error_cases:
-- id: FAIL-HUIT-007-MISSING-SOURCE
-  condition: A covered object or exact source range is missing.
-- id: FAIL-HUIT-007-DROPPED-RESERVATION
-  condition: A reservation is omitted or declared resolved without an explicit source.
-- id: FAIL-HUIT-007-INVENTION
-  condition: An unspecified scientific, numerical, temporal, ordering, unit or cardinality property is asserted.
+- id: FAIL-HUIT-007-OPERATION
+  condition: Reject merging the two groups or marking any contained statement proven.
+- id: FAIL-HUIT-007-MISSING-TRACE
+  condition: A required role, scientific object identifier, source reference, reservation, or assumption is missing.
+- id: FAIL-HUIT-007-SCIENTIFIC-INVENTION
+  condition: The caller requests or supplies unstated scientific, numeric, temporal, dimensional, ordering, aggregation, probabilistic,
+    or algorithmic semantics.
 unresolved_propagated:
   path: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007/unresolved.yaml
   count: 8
@@ -169,3 +171,9 @@ readiness:
   ready_for_reference_prototype: true
   human_validation_required_before_prototype_work: false
   human_validation_required_before_canonical_release: true
+software_responsibility: Catalogue the two composite invariant groups without interpreting or proving their claims.
+primary_operation:
+  name: catalogue_declared_invariant_groups
+  signature: catalogue_declared_invariant_groups(value_invariants, lived_experience_invariants) -> InvariantGroupCatalogue
+  behavior: Returns separate value and lived-experience invariant-group entries with proof status unresolved.
+  scientific_evaluation: not_performed

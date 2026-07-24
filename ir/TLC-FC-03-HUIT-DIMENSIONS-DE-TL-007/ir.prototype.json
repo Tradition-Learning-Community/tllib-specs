@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "ir_id": "TLC-IR-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007-PROTOTYPE-001",
+  "feature_id": "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007",
+  "contract_id": "TLC-LEC-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007-001",
+  "domain": "huit-dimensions",
+  "ir_kind": "prototype_ir_with_reservations",
+  "scientific_status": "noncanonical_engineering_prototype",
+  "catalogue_status_preserved": "retained_with_reservations",
+  "inputs": [
+    {
+      "id": "IR-IN-HUIT-007-01",
+      "role": "value_invariant_group",
+      "type": "OpaqueInvariantGroup",
+      "scientific_object_id": "TLC-SO-HUIT-DIMENSIONS-DE-TL-014",
+      "payload": "opaque"
+    },
+    {
+      "id": "IR-IN-HUIT-007-02",
+      "role": "lived_experience_invariant_group",
+      "type": "OpaqueInvariantGroup",
+      "scientific_object_id": "TLC-SO-HUIT-DIMENSIONS-DE-TL-035",
+      "payload": "opaque"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "IR-OUT-007-001",
+      "role": "specialized_structural_result",
+      "type": "InvariantGroupCatalogue",
+      "evaluated": false,
+      "observable_effect": "Returns separate value and lived-experience invariant-group entries with proof status unresolved."
+    }
+  ],
+  "opaque_types": [
+    "OpaqueInvariantGroup",
+    "InvariantGroupCatalogue"
+  ],
+  "parameterized_types": [
+    "InvariantGroupCatalogue[FeatureId, ScientificObjectId, ReservationId]"
+  ],
+  "operations": [
+    {
+      "operation_id": "IR-OP-HUIT-007-001",
+      "name": "catalogue_declared_invariant_groups",
+      "kind": "deterministic_identity_preserving_record_construction",
+      "input_roles": [
+        "value_invariant_group",
+        "lived_experience_invariant_group"
+      ],
+      "output_type": "InvariantGroupCatalogue",
+      "behavior": "Returns separate value and lived-experience invariant-group entries with proof status unresolved.",
+      "scientific_evaluation": "uninterpreted"
+    }
+  ],
+  "control_flow": [
+    {
+      "step_id": "IR-STEP-HUIT-007-VALIDATE",
+      "operation": "validate_required_roles_and_traceability",
+      "on_failure": "FAIL-HUIT-007-MISSING-TRACE"
+    },
+    {
+      "step_id": "IR-STEP-HUIT-007-CONSTRUCT",
+      "operation": "catalogue_declared_invariant_groups",
+      "produces": "IR-OUT-007-001"
+    },
+    {
+      "step_id": "IR-STEP-HUIT-007-VERIFY",
+      "operation": "verify_specialized_postcondition_and_reservation_propagation"
+    }
+  ],
+  "preconditions": [
+    {
+      "id": "PRE-HUIT-007-REQUIRED-ROLES",
+      "statement": "Inputs provide the required roles: value_invariant_group, lived_experience_invariant_group."
+    },
+    {
+      "id": "PRE-HUIT-007-TRACE",
+      "statement": "Every input retains its scientific object identifier and exact source reference."
+    },
+    {
+      "id": "PRE-HUIT-007-RESERVATIONS",
+      "statement": "All contract reservations and the provisional engineering assumption remain attached."
+    }
+  ],
+  "postconditions": [
+    {
+      "id": "POST-HUIT-007-EFFECT",
+      "statement": "The catalogue preserves two distinct groups, their dimension keys, source identifiers, and unresolved proof status."
+    },
+    {
+      "id": "POST-HUIT-007-OPAQUE",
+      "statement": "No opaque scientific payload or operator is evaluated, coerced, completed, or declared canonical."
+    },
+    {
+      "id": "POST-HUIT-007-TRACE",
+      "statement": "The result retains feature, contract, object, source, reservation, and assumption identifiers."
+    }
+  ],
+  "invariants": [
+    {
+      "id": "INV-HUIT-007-IDENTITY",
+      "statement": "Covered scientific object identities remain distinct.",
+      "status": "contract_invariant_preserved",
+      "source": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007/contract.yaml"
+    },
+    {
+      "id": "INV-HUIT-007-SOURCE",
+      "statement": "Source statements and line ranges remain unchanged.",
+      "status": "contract_invariant_preserved",
+      "source": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007/contract.yaml"
+    },
+    {
+      "id": "INV-HUIT-007-LIMITED",
+      "statement": "This artifact remains a limited engineering contract, never a complete scientific contract.",
+      "status": "contract_invariant_preserved",
+      "source": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007/contract.yaml"
+    }
+  ],
+  "errors": [
+    {
+      "id": "FAIL-HUIT-007-OPERATION",
+      "condition": "Reject merging the two groups or marking any contained statement proven."
+    },
+    {
+      "id": "FAIL-HUIT-007-MISSING-TRACE",
+      "condition": "A required role, scientific object identifier, source reference, reservation, or assumption is missing."
+    },
+    {
+      "id": "FAIL-HUIT-007-SCIENTIFIC-INVENTION",
+      "condition": "The caller requests or supplies unstated scientific, numeric, temporal, dimensional, ordering, aggregation, probabilistic, or algorithmic semantics."
+    }
+  ],
+  "unresolved_propagated": [
+    "TLC-UNRES-HUIT-007-TYPE",
+    "TLC-UNRES-HUIT-007-SIGNATURE",
+    "TLC-UNRES-HUIT-007-UNITS",
+    "TLC-UNRES-HUIT-007-ORDER",
+    "TLC-UNRES-HUIT-007-AGGREGATION",
+    "TLC-UNRES-HUIT-007-NUMERICS",
+    "TLC-UNRES-HUIT-007-ORACLE",
+    "TLC-UNRES-HUIT-007-BOUNDARY"
+  ],
+  "provisional_assumptions_propagated": [
+    "TLC-EA-HUIT-007-001"
+  ],
+  "traceability": {
+    "contract": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007/contract.yaml",
+    "contract_traceability": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007/traceability.yaml",
+    "source_objects": [
+      "TLC-SO-HUIT-DIMENSIONS-DE-TL-014",
+      "TLC-SO-HUIT-DIMENSIONS-DE-TL-035"
+    ],
+    "source_relations": [],
+    "contextual_relations_not_covered": [
+      "TLC-SR-HUIT-DIMENSIONS-DE-TL-013",
+      "TLC-SR-HUIT-DIMENSIONS-DE-TL-034"
+    ],
+    "source_commit": "f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa"
+  },
+  "determinism_status": "deterministic_record_construction_scientific_evaluation_not_performed",
+  "testability_status": "specialized_operation_behavior_and_traceability_tests_ready",
+  "implementation_constraints": [
+    "Implement only catalogue_declared_invariant_groups with the declared structural effect.",
+    "Treat every scientific payload and unresolved operator as opaque.",
+    "Do not add evaluation, solver, metric, proof, equivalence, convergence, ordering, aggregation, or numeric behavior.",
+    "Return stable identifiers and propagate every reservation and provisional assumption."
+  ],
+  "readiness": {
+    "ready_for_limited_engineering_contract": true,
+    "ready_for_prototype_ir": true,
+    "ready_for_reference_python": true,
+    "ready_for_cpp_prototype": true,
+    "ready_for_canonical_ir": false,
+    "ready_for_production_implementation": false
+  },
+  "blocks_all_prototype_progress": false,
+  "semantic_quality": "substantive_structural_operation",
+  "software_unit": {
+    "kind": "pure_function",
+    "signature": "catalogue_declared_invariant_groups(value_invariants, lived_experience_invariants) -> InvariantGroupCatalogue"
+  }
+}

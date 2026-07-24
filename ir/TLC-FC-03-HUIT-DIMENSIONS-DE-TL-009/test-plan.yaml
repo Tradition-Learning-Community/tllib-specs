@@ -1,0 +1,57 @@
+schema_version: 2
+test_plan_id: TLC-TP-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009-PROTOTYPE-001
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009
+contract_id: TLC-LEC-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009-001
+ir_id: TLC-IR-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009-PROTOTYPE-001
+primary_operation: compare_principle_invariance_declarations
+scope: specialized_prototype_operation_without_scientific_evaluation
+tests:
+- id: TEST-009-NOMINAL
+  category: operation_nominal
+  operation: compare_principle_invariance_declarations
+  scenario: Place the detailed Principle definition and introductory invariant-structure statement on separate comparison
+    sides.
+  expected_structural_result: Returns a two-sided comparison record with equivalence_status set to unresolved.
+- id: TEST-009-OPAQUE
+  category: opaque_boundary
+  operation: compare_principle_invariance_declarations
+  scenario: Allow lexically related opaque claims without deduplicating or declaring equivalence.
+  expected_structural_result: Opaque payloads and unresolved operators are retained byte-for-byte and are not evaluated.
+- id: TEST-009-PRECONDITION
+  category: preconditions
+  operation: compare_principle_invariance_declarations
+  scenario: Omit the required role principle_definition_invariance.
+  expected_error: FAIL-HUIT-009-MISSING-TRACE
+- id: TEST-009-FAILURE
+  category: operation_specific_error
+  operation: compare_principle_invariance_declarations
+  scenario: Reject automatic equivalence, duplicate elimination, or loss of either source location.
+  expected_error: FAIL-HUIT-009-OPERATION
+- id: TEST-009-POSTCONDITION
+  category: postconditions
+  operation: compare_principle_invariance_declarations
+  scenario: Inspect the constructed specialized result.
+  expected_structural_result: Both declarations remain present and equivalence_status plus feature_boundary_status remain
+    unresolved.
+- id: TEST-009-RESERVATIONS
+  category: reservation_propagation
+  operation: compare_principle_invariance_declarations
+  scenario: Construct the result with all 9 recorded reservation identifiers.
+  expected_structural_result: Every reservation remains present with unresolved status and no resolution claim.
+- id: TEST-009-ASSUMPTION
+  category: assumption_propagation
+  operation: compare_principle_invariance_declarations
+  scenario: Construct the result with the feature provisional engineering assumption.
+  expected_structural_result: The reversible provisional assumption identifier is preserved and not promoted to science.
+- id: TEST-009-DETERMINISM
+  category: determinism
+  operation: compare_principle_invariance_declarations
+  scenario: Invoke the operation twice with identical role bindings and opaque payloads.
+  expected_structural_result: Both results have identical structure, identifiers, role bindings, and opaque payloads.
+- id: TEST-009-CONFORMANCE
+  category: contract_ir_conformance
+  operation: compare_principle_invariance_declarations
+  scenario: Compare contract primary operation, IR software unit, output type, errors, reservations, and readiness.
+  expected_structural_result: Contract, IR, and test plan agree without introducing scientific behavior.
+numeric_expected_results: []
+implementation_status: planned_not_implemented
