@@ -1,3 +1,4 @@
+---
 domain_id: values
 baseline_commit: d8e616c71173495b9a014d4a5909df9f30e2a7ae
 artifacts:
@@ -83,4 +84,31 @@ summary:
   artifacts_found: 6
   modified: 0
   promoted: 0
-status: complete_with_reservations
+  active_replacement_irs: 1
+  historical_variants_preserved: 2
+status: complete_with_single_active_values_018_ir
+values_018_resolution:
+  feature_id: TLC-FC-09-VALUES-018
+  previous_pilot_classification: comparison_only
+  active_replacement_ir: registry/ir/TLC-FC-09-VALUES-018/ir.yaml
+  active_replacement_status: active_prototype
+  replacement_reason: The registry IR provides a single limited engineering prototype
+    for structural matrix validation and provenance preservation while avoiding unsourced
+    ordering, scoring, ranking, or scientific evaluation.
+  historical_variants:
+  - path: ir/TLC-FC-09-VALUES-018/ir-functional.candidate.json
+    previous_status: engineering_candidate
+    final_status: historical_comparison_only
+    active_replacement: registry/ir/TLC-FC-09-VALUES-018/ir.yaml
+  - path: ir/TLC-FC-09-VALUES-018/ir-semantic.candidate.json
+    previous_status: engineering_candidate
+    final_status: historical_comparison_only
+    active_replacement: registry/ir/TLC-FC-09-VALUES-018/ir.yaml
+  active_ir_count: 1
+  historical_ir_count: 2
+  non_invention_guards:
+  - no ordered comparison
+  - no ranking
+  - no score
+  - no metric
+  - no category threshold inference
