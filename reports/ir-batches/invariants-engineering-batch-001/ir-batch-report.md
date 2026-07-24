@@ -1,9 +1,10 @@
-# Invariants specialized prototype IR batch
+# Invariants final prototype IR batch
 
-- Specialized IR: 10
-- Substantive and implementable: 8
-- Semantically thin: 2
+- Final targeted features: 006, 009
+- Substantive and implementable IR: 10
+- Semantically thin IR: 0
 - Template or placeholder IR: 0
-- Ready for reference Python: 8
-- Ready for C++ prototype: 8
+- Ready for reference Python: 10
+- Ready for C++ prototype: 10
 - Ready for canonical IR: 0
+- New scientific assumptions: 0

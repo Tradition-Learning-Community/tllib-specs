@@ -1,10 +1,12 @@
-# Specialized limited engineering contract — TLC-FC-04-INVARIANTS-006
+# Final specialized contract — TLC-FC-04-INVARIANTS-006
 
-- Responsibility: Describe the collective-ethical oracle boundary without supplying an invocation signature or truth evaluator.
-- Callable: `describe_collective_ethics_oracle`
-- Input: `OracleEvidenceDescriptor`
-- Output: `UncallableOracleDescriptor`
-- Observable effect: Returns a descriptor marked uncallable with its lemma and manifestation evidence IDs.
-- Reference Python ready: no
-- C++ prototype ready: no
+- Responsibility: Construct the unevaluated symbolic expression for the collective ethical invariant and its two source-stated healthy-community constraints.
+- Callable: `construct_collective_ethics_invariant_expression`
+- Input: `CollectiveEthicsExpressionSymbols`
+- Output: `SymbolicCollectiveEthicsInvariant`
+- Observable effect: Produces an immutable symbolic AST for the cited integral plus derivative-equals-zero and gradient-equals-zero constraint ASTs, each carrying source provenance.
+- Opaque boundary: The value space, metric, scalar-curvature implementation, dimension, integration semantics, neighborhood, health criterion, and numerical evaluation remain opaque.
+- Reference Python ready: yes
+- C++ prototype ready: yes
+- Canonical IR and production ready: no
 - Scientific reservations: preserved

@@ -52,8 +52,8 @@ test_plan_ids:
 readiness_final:
   ready_for_limited_engineering_contract_count: 10
   ready_for_prototype_ir_count: 10
-  ready_for_reference_python_count: 8
-  ready_for_cpp_prototype_count: 8
+  ready_for_reference_python_count: 10
+  ready_for_cpp_prototype_count: 10
   ready_for_canonical_ir_count: 0
   ready_for_production_implementation_count: 0
 scientific_reservations_preserved: true
@@ -64,6 +64,15 @@ semantic_specialization:
   specialized_contracts: 10
   specialized_irs: 10
   specialized_test_plans: 10
-  substantive_and_implementable_ir_count: 8
-  semantically_thin_ir_count: 2
+  substantive_and_implementable_ir_count: 10
+  semantically_thin_ir_count: 0
   template_or_placeholder_ir_count: 0
+final_targeted_specialization:
+  features:
+  - TLC-FC-04-INVARIANTS-006
+  - TLC-FC-04-INVARIANTS-009
+  source_commit: 33bf8d3b7e3fa666d134714751dc5946050d83a4
+  classification:
+    TLC-FC-04-INVARIANTS-006: substantive_and_implementable
+    TLC-FC-04-INVARIANTS-009: substantive_and_implementable
+  forced_semantic_assumption_added: false

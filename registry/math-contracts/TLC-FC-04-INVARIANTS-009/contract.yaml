@@ -31,46 +31,57 @@ provenance:
     end_line: 146
     source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
 catalogue_status_preserved: rejected_as_feature
-scientific_objects_covered: &id001
+scientific_objects_covered:
 - TLC-SO-INVARIANTS-065
-scientific_relations_covered: &id002
+scientific_relations_covered:
 - TLC-SR-INVARIANTS-064
 contextual_relations_not_covered: []
-limited_functional_purpose: Preserve the isolated cohesion term as rejected evidence without defining a cohesion state.
+limited_functional_purpose: Construct the unevaluated symbolic interval constraint and the two source-stated out-of-interval
+  consequence annotations for community cohesion.
 inputs:
-- input_id: INPUT-INVARIANTS-009-SPECIALIZED
-  type: CohesionTermEvidence
-  covered_object_ids: *id001
-  covered_relation_ids: *id002
+- input_id: INPUT-INVARIANTS-009-SYMBOLS
+  type: CohesionIntervalSymbols
+  required_fields:
+  - relational_invariant_symbol
+  - lower_bound_symbol
+  - upper_bound_symbol
+  field_semantics: opaque_identifiers_only
 outputs:
-- output_id: OUTPUT-INVARIANTS-009-SPECIALIZED
-  type: RejectedStateEvidenceRecord
-  observable_effect: Returns a record marked rejected_as_feature and scientifically uncallable.
-  scientific_evaluation: not_performed
+- output_id: OUTPUT-INVARIANTS-009-SYMBOLIC
+  type: SymbolicCohesionIntervalConstraint
+  observable_effect: Produces an immutable symbolic AST for interval membership, a below-lower-bound fragmentation annotation,
+    and an above-upper-bound centralization-and-rigidity annotation, with TLC-UT-INVARIANTS-009 preserved.
+  expression_templates:
+  - member(relational_invariant_symbol, closed_interval(lower_bound_symbol, upper_bound_symbol))
+  - implies(below(relational_invariant_symbol, lower_bound_symbol), annotation(community_fragmentation_into_isolated_subgroups))
+  - implies(above(relational_invariant_symbol, upper_bound_symbol), annotation(community_overcentralized_and_rigid))
+  evaluated: false
 types:
-  operation_input: CohesionTermEvidence
-  operation_output: RejectedStateEvidenceRecord
-  opaque_fields:
-  - source_statement_body
-  - scientific_truth_conditions
+  operation_input: CohesionIntervalSymbols
+  operation_output: SymbolicCohesionIntervalConstraint
+  symbol_type: OpaqueSymbolId
+  expression_type: ImmutableSymbolicAst
 preconditions:
-- id: PRE-INVARIANTS-009-SPECIALIZED
-  statement: The evidence ID is TLC-SO-INVARIANTS-065 and unresolved TLC-UT-INVARIANTS-009 is attached.
+- id: PRE-INVARIANTS-009-SYMBOLS
+  statement: The three named symbols, TLC-SO-INVARIANTS-065, TLC-SR-INVARIANTS-064, and TLC-UT-INVARIANTS-009 are present.
 postconditions:
-- id: POST-INVARIANTS-009-EFFECT
-  statement: Returns a record marked rejected_as_feature and scientifically uncallable.
+- id: POST-INVARIANTS-009-AST
+  statement: Produces an immutable symbolic AST for interval membership, a below-lower-bound fragmentation annotation, and
+    an above-upper-bound centralization-and-rigidity annotation, with TLC-UT-INVARIANTS-009 preserved.
+- id: POST-INVARIANTS-009-NO-EVALUATION
+  statement: No symbolic node is numerically or scientifically evaluated.
 - id: POST-INVARIANTS-009-RESERVATIONS
-  statement: Catalogue status, unresolved IDs, and scientific reservations are unchanged.
+  statement: All source, unresolved, assumption, and catalogue-status references are unchanged.
 invariants_explicitly_sourced:
 - id: TLC-SO-INVARIANTS-065
   status: candidate_scientific_object_preserved
   source: registry/scientific-objects/invariants/scientific-objects.candidate.yaml
 undefined_or_error_cases:
-- id: FAIL-INVARIANTS-009-SPECIALIZED
-  condition: MissingCohesionReservation or FeatureStatusPromotion
-- id: FAIL-INVARIANTS-009-BOUNDARY
-  condition: 'An implementation attempts to resolve: State membership, measurement, transition, and equivalence semantics
-    are absent.'
+- id: FAIL-INVARIANTS-009-INPUT
+  condition: MissingIntervalSymbol or MissingCohesionReservation or MissingCohesionEvidence
+- id: FAIL-INVARIANTS-009-EVALUATION
+  condition: 'An implementation attempts scientific evaluation despite this opaque boundary: No numeric domain, comparator,
+    ordering implementation, bound values, metric, score, transition rule, or cohesion evaluator is supplied or inferred.'
 unresolved_propagated:
 - TLC-UT-INVARIANTS-009
 provisional_engineering_assumptions:
@@ -91,11 +102,14 @@ validation_criteria:
 readiness:
   ready_for_limited_engineering_contract: true
   ready_for_prototype_ir: true
-  ready_for_reference_python: false
-  ready_for_cpp_prototype: false
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
   ready_for_canonical_ir: false
   ready_for_production_implementation: false
 software_responsibility:
-  callable: preserve_cohesion_term_evidence
-  operation: Preserve the isolated cohesion term as rejected evidence without defining a cohesion state.
-  observable_effect: Returns a record marked rejected_as_feature and scientifically uncallable.
+  callable: construct_cohesion_interval_constraint
+  operation: Construct the unevaluated symbolic interval constraint and the two source-stated out-of-interval consequence
+    annotations for community cohesion.
+  observable_effect: Produces an immutable symbolic AST for interval membership, a below-lower-bound fragmentation annotation,
+    and an above-upper-bound centralization-and-rigidity annotation, with TLC-UT-INVARIANTS-009 preserved.
+  evaluation_policy: construct_symbolic_ast_only

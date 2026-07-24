@@ -9,47 +9,67 @@
   "catalogue_status_preserved": "deferred_for_targeted_extraction",
   "inputs": [
     {
-      "id": "IR-IN-006-SPECIALIZED",
-      "type": "OracleEvidenceDescriptor",
-      "required": true
+      "id": "IR-IN-006-SYMBOLS",
+      "type": "CollectiveEthicsExpressionSymbols",
+      "required_fields": [
+        "value_space_symbol",
+        "metric_symbol",
+        "scalar_curvature_operator_symbol",
+        "dimension_symbol",
+        "differential_symbol",
+        "time_symbol",
+        "gradient_operator_symbol"
+      ]
     }
   ],
   "outputs": [
     {
-      "id": "IR-OUT-006-SPECIALIZED",
-      "type": "UncallableOracleDescriptor",
-      "observable_effect": "Returns a descriptor marked uncallable with its lemma and manifestation evidence IDs."
+      "id": "IR-OUT-006-SYMBOLIC",
+      "type": "SymbolicCollectiveEthicsInvariant",
+      "observable_effect": "Produces an immutable symbolic AST for the cited integral plus derivative-equals-zero and gradient-equals-zero constraint ASTs, each carrying source provenance.",
+      "evaluated": false
     }
   ],
   "opaque_types": [
-    "OpaqueSourceStatement",
-    "OpaqueScientificTruthConditions"
+    "OpaqueSymbolId"
   ],
-  "parameterized_types": [],
+  "parameterized_types": [
+    "ImmutableSymbolicAst[OpaqueSymbolId]"
+  ],
   "operations": [
     {
-      "operation_id": "IR-OP-INVARIANTS-006-SPECIALIZED",
-      "name": "describe_collective_ethics_oracle",
-      "responsibility": "Describe the collective-ethical oracle boundary without supplying an invocation signature or truth evaluator.",
-      "observable_effect": "Returns a descriptor marked uncallable with its lemma and manifestation evidence IDs.",
+      "operation_id": "IR-OP-INVARIANTS-006-FINAL",
+      "name": "construct_collective_ethics_invariant_expression",
+      "responsibility": "Construct the unevaluated symbolic expression for the collective ethical invariant and its two source-stated healthy-community constraints.",
+      "technical_processing": "Validate required opaque identifiers, instantiate the source-defined AST templates, attach provenance and reservations, freeze the result.",
+      "expression_templates": [
+        "integral(value_space_symbol, multiply(apply(scalar_curvature_operator_symbol, metric_symbol), sqrt(det(metric_symbol))), differential(dimension_symbol, differential_symbol))",
+        "equals(derivative(collective_ethics_invariant, time_symbol), zero)",
+        "equals(apply(gradient_operator_symbol, collective_ethics_invariant), zero)"
+      ],
+      "observable_effect": "Produces an immutable symbolic AST for the cited integral plus derivative-equals-zero and gradient-equals-zero constraint ASTs, each carrying source provenance.",
       "scientific_evaluation": "prohibited"
     }
   ],
   "control_flow": [],
   "preconditions": [
     {
-      "id": "PRE-INVARIANTS-006-SPECIALIZED",
-      "statement": "Both covered evidence IDs and source references are present."
+      "id": "PRE-INVARIANTS-006-SYMBOLS",
+      "statement": "All seven named symbols are supplied as non-empty opaque identifiers and the two covered source evidence IDs are attached."
     }
   ],
   "postconditions": [
     {
-      "id": "POST-INVARIANTS-006-EFFECT",
-      "statement": "Returns a descriptor marked uncallable with its lemma and manifestation evidence IDs."
+      "id": "POST-INVARIANTS-006-AST",
+      "statement": "Produces an immutable symbolic AST for the cited integral plus derivative-equals-zero and gradient-equals-zero constraint ASTs, each carrying source provenance."
+    },
+    {
+      "id": "POST-INVARIANTS-006-NO-EVALUATION",
+      "statement": "No symbolic node is numerically or scientifically evaluated."
     },
     {
       "id": "POST-INVARIANTS-006-RESERVATIONS",
-      "statement": "Catalogue status, unresolved IDs, and scientific reservations are unchanged."
+      "statement": "All source, unresolved, assumption, and catalogue-status references are unchanged."
     }
   ],
   "invariants": [
@@ -66,12 +86,12 @@
   ],
   "errors": [
     {
-      "id": "FAIL-INVARIANTS-006-SPECIALIZED",
-      "condition": "MissingOracleEvidence"
+      "id": "FAIL-INVARIANTS-006-INPUT",
+      "condition": "MissingRequiredSymbol or MissingCollectiveEthicsEvidence"
     },
     {
-      "id": "FAIL-INVARIANTS-006-BOUNDARY",
-      "condition": "An implementation attempts to resolve: Arguments, return type, evaluation rule, failure semantics, and determinism are scientifically unspecified."
+      "id": "FAIL-INVARIANTS-006-EVALUATION",
+      "condition": "An implementation attempts scientific evaluation despite this opaque boundary: The value space, metric, scalar-curvature implementation, dimension, integration semantics, neighborhood, health criterion, and numerical evaluation remain opaque."
     }
   ],
   "unresolved_propagated": [],
@@ -89,8 +109,8 @@
       "TLC-SR-INVARIANTS-056"
     ]
   },
-  "determinism_status": "scientific_operation_unspecified_descriptor_construction_only",
-  "testability_status": "descriptor_structure_testable_but_scientific_operation_not_implementable",
+  "determinism_status": "deterministic_symbolic_ast_construction_for_identical_symbol_ids",
+  "testability_status": "operation_specific_ast_shape_provenance_and_non_evaluation_testable",
   "implementation_constraints": [
     "Do not evaluate scientific truth.",
     "Do not assign concrete numeric, temporal, probabilistic, dimensional, cardinality, unit, order, symmetry, or transitivity semantics.",
@@ -99,17 +119,26 @@
   "readiness": {
     "ready_for_limited_engineering_contract": true,
     "ready_for_prototype_ir": true,
-    "ready_for_reference_python": false,
-    "ready_for_cpp_prototype": false,
+    "ready_for_reference_python": true,
+    "ready_for_cpp_prototype": true,
     "ready_for_canonical_ir": false,
     "ready_for_production_implementation": false
   },
   "blocks_all_prototype_progress": false,
   "interface": {
-    "minimal_function_or_class": "describe_collective_ethics_oracle",
-    "input_type": "OracleEvidenceDescriptor",
-    "output_type": "UncallableOracleDescriptor"
+    "minimal_function_or_class": "construct_collective_ethics_invariant_expression",
+    "input_type": "CollectiveEthicsExpressionSymbols",
+    "input_fields": [
+      "value_space_symbol",
+      "metric_symbol",
+      "scalar_curvature_operator_symbol",
+      "dimension_symbol",
+      "differential_symbol",
+      "time_symbol",
+      "gradient_operator_symbol"
+    ],
+    "output_type": "SymbolicCollectiveEthicsInvariant"
   },
-  "semantic_quality": "structurally_complete_but_semantically_thin",
-  "remaining_opaque_boundary": "Arguments, return type, evaluation rule, failure semantics, and determinism are scientifically unspecified."
+  "semantic_quality": "substantive_and_implementable",
+  "remaining_opaque_boundary": "The value space, metric, scalar-curvature implementation, dimension, integration semantics, neighborhood, health criterion, and numerical evaluation remain opaque."
 }

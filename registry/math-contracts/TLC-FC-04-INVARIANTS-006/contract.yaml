@@ -37,39 +37,55 @@ provenance:
     end_line: 126
     source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
 catalogue_status_preserved: deferred_for_targeted_extraction
-scientific_objects_covered: &id001
+scientific_objects_covered:
 - TLC-SO-INVARIANTS-013
 - TLC-SO-INVARIANTS-057
-scientific_relations_covered: &id002
+scientific_relations_covered:
 - TLC-SR-INVARIANTS-012
 - TLC-SR-INVARIANTS-056
 contextual_relations_not_covered: []
-limited_functional_purpose: Describe the collective-ethical oracle boundary without supplying an invocation signature or truth
-  evaluator.
+limited_functional_purpose: Construct the unevaluated symbolic expression for the collective ethical invariant and its two
+  source-stated healthy-community constraints.
 inputs:
-- input_id: INPUT-INVARIANTS-006-SPECIALIZED
-  type: OracleEvidenceDescriptor
-  covered_object_ids: *id001
-  covered_relation_ids: *id002
+- input_id: INPUT-INVARIANTS-006-SYMBOLS
+  type: CollectiveEthicsExpressionSymbols
+  required_fields:
+  - value_space_symbol
+  - metric_symbol
+  - scalar_curvature_operator_symbol
+  - dimension_symbol
+  - differential_symbol
+  - time_symbol
+  - gradient_operator_symbol
+  field_semantics: opaque_identifiers_only
 outputs:
-- output_id: OUTPUT-INVARIANTS-006-SPECIALIZED
-  type: UncallableOracleDescriptor
-  observable_effect: Returns a descriptor marked uncallable with its lemma and manifestation evidence IDs.
-  scientific_evaluation: not_performed
+- output_id: OUTPUT-INVARIANTS-006-SYMBOLIC
+  type: SymbolicCollectiveEthicsInvariant
+  observable_effect: Produces an immutable symbolic AST for the cited integral plus derivative-equals-zero and gradient-equals-zero
+    constraint ASTs, each carrying source provenance.
+  expression_templates:
+  - integral(value_space_symbol, multiply(apply(scalar_curvature_operator_symbol, metric_symbol), sqrt(det(metric_symbol))),
+    differential(dimension_symbol, differential_symbol))
+  - equals(derivative(collective_ethics_invariant, time_symbol), zero)
+  - equals(apply(gradient_operator_symbol, collective_ethics_invariant), zero)
+  evaluated: false
 types:
-  operation_input: OracleEvidenceDescriptor
-  operation_output: UncallableOracleDescriptor
-  opaque_fields:
-  - source_statement_body
-  - scientific_truth_conditions
+  operation_input: CollectiveEthicsExpressionSymbols
+  operation_output: SymbolicCollectiveEthicsInvariant
+  symbol_type: OpaqueSymbolId
+  expression_type: ImmutableSymbolicAst
 preconditions:
-- id: PRE-INVARIANTS-006-SPECIALIZED
-  statement: Both covered evidence IDs and source references are present.
+- id: PRE-INVARIANTS-006-SYMBOLS
+  statement: All seven named symbols are supplied as non-empty opaque identifiers and the two covered source evidence IDs
+    are attached.
 postconditions:
-- id: POST-INVARIANTS-006-EFFECT
-  statement: Returns a descriptor marked uncallable with its lemma and manifestation evidence IDs.
+- id: POST-INVARIANTS-006-AST
+  statement: Produces an immutable symbolic AST for the cited integral plus derivative-equals-zero and gradient-equals-zero
+    constraint ASTs, each carrying source provenance.
+- id: POST-INVARIANTS-006-NO-EVALUATION
+  statement: No symbolic node is numerically or scientifically evaluated.
 - id: POST-INVARIANTS-006-RESERVATIONS
-  statement: Catalogue status, unresolved IDs, and scientific reservations are unchanged.
+  statement: All source, unresolved, assumption, and catalogue-status references are unchanged.
 invariants_explicitly_sourced:
 - id: TLC-SO-INVARIANTS-013
   status: candidate_scientific_object_preserved
@@ -78,11 +94,11 @@ invariants_explicitly_sourced:
   status: candidate_scientific_object_preserved
   source: registry/scientific-objects/invariants/scientific-objects.candidate.yaml
 undefined_or_error_cases:
-- id: FAIL-INVARIANTS-006-SPECIALIZED
-  condition: MissingOracleEvidence
-- id: FAIL-INVARIANTS-006-BOUNDARY
-  condition: 'An implementation attempts to resolve: Arguments, return type, evaluation rule, failure semantics, and determinism
-    are scientifically unspecified.'
+- id: FAIL-INVARIANTS-006-INPUT
+  condition: MissingRequiredSymbol or MissingCollectiveEthicsEvidence
+- id: FAIL-INVARIANTS-006-EVALUATION
+  condition: 'An implementation attempts scientific evaluation despite this opaque boundary: The value space, metric, scalar-curvature
+    implementation, dimension, integration semantics, neighborhood, health criterion, and numerical evaluation remain opaque.'
 unresolved_propagated: []
 provisional_engineering_assumptions:
 - TLC-EA-INVARIANTS-006-001
@@ -102,11 +118,14 @@ validation_criteria:
 readiness:
   ready_for_limited_engineering_contract: true
   ready_for_prototype_ir: true
-  ready_for_reference_python: false
-  ready_for_cpp_prototype: false
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
   ready_for_canonical_ir: false
   ready_for_production_implementation: false
 software_responsibility:
-  callable: describe_collective_ethics_oracle
-  operation: Describe the collective-ethical oracle boundary without supplying an invocation signature or truth evaluator.
-  observable_effect: Returns a descriptor marked uncallable with its lemma and manifestation evidence IDs.
+  callable: construct_collective_ethics_invariant_expression
+  operation: Construct the unevaluated symbolic expression for the collective ethical invariant and its two source-stated
+    healthy-community constraints.
+  observable_effect: Produces an immutable symbolic AST for the cited integral plus derivative-equals-zero and gradient-equals-zero
+    constraint ASTs, each carrying source provenance.
+  evaluation_policy: construct_symbolic_ast_only
