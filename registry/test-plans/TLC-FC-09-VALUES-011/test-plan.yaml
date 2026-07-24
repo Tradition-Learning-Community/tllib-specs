@@ -1,0 +1,54 @@
+test_plan_id: TLC-TP-TLC-FC-09-VALUES-011
+feature_id: TLC-FC-09-VALUES-011
+contract_id: TLC-MC-TLC-FC-09-VALUES-011
+ir_id: TLC-IR-TLC-FC-09-VALUES-011
+entrypoint: declare_quantitative_measure_catalog
+primary_operation: Validate unique metric identifiers and retain every formula, scale, and interpretation as opaque
+  metadata.
+inputs_under_test:
+- 'measure_declarations: Sequence[OpaqueMeasureDeclaration]'
+expected_output_or_effect: 'catalog: QuantitativeMeasureCatalog'
+cases:
+- case_id: VALUES-011-NOMINAL
+  kind: nominal
+  assertion: 'declare_quantitative_measure_catalog produces catalog: QuantitativeMeasureCatalog from valid source-addressable
+    inputs.'
+- case_id: VALUES-011-TYPE-SHAPE
+  kind: type_or_shape
+  assertion: Operation-specific required input roles and container shapes are validated before construction.
+- case_id: VALUES-011-OBSERVABLE
+  kind: observable_result
+  assertion: The catalog exposes the operation-specific structure described by the contract.
+- case_id: VALUES-011-POST
+  kind: postcondition
+  assertion: The catalog is produced by declare_quantitative_measure_catalog without scientific evaluation.
+- case_id: VALUES-011-PRECONDITION
+  kind: invalid_precondition
+  assertion: 'An invalid required input returns one of: duplicate_measure_identifier, missing_measure_provenance,
+    unknown_source_identifier.'
+- case_id: VALUES-011-OPAQUE
+  kind: opaque_value
+  assertion: Opaque payloads survive construction unchanged and are never scientifically evaluated.
+- case_id: VALUES-011-PROVENANCE
+  kind: provenance
+  assertion: Output retains feature TLC-FC-09-VALUES-011 and all covered object and relation identifiers.
+- case_id: VALUES-011-UNRESOLVED
+  kind: unresolved_propagation
+  assertion: 'Output retains unresolved items: metric_formulas, scales_and_units, comparison_semantics.'
+- case_id: VALUES-011-ASSUMPTION
+  kind: assumption_propagation
+  assertion: Output retains provisional assumption TLC-EA-TLC-FC-09-VALUES-011-001.
+- case_id: VALUES-011-NO-INVENTION
+  kind: scientific_non_evaluation
+  assertion: No absent formula, scale, ordering, threshold, aggregation, or scientific result is computed.
+- case_id: VALUES-011-CONFORMANCE
+  kind: contract_ir_conformance
+  assertion: Entrypoint, inputs, output, errors, unresolved, assumption, classification, and readiness match.
+- case_id: VALUES-011-INTEGRATION
+  kind: minimal_integration
+  assertion: Contract loader -> IR entrypoint -> provenance serializer preserves operation-specific structure.
+forbidden_expected_results:
+- invented numeric oracle
+- scientific approval
+- canonical semantics
+readiness: planned

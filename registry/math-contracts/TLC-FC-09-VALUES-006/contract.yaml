@@ -1,5 +1,5 @@
-contract_id: TLC-MC-TLC-FC-09-VALUES-018
-feature_id: TLC-FC-09-VALUES-018
+contract_id: TLC-MC-TLC-FC-09-VALUES-006
+feature_id: TLC-FC-09-VALUES-006
 contract_kind: limited_engineering_contract_with_reservations
 status: limited_engineering_contract_with_reservations
 scientific_authority:
@@ -8,22 +8,28 @@ scientific_authority:
   complete_scientific_contract: false
 source_references:
 - path: maths/09-values.md
-  lines: 23-23
-  object_id: TLC-SO-VALUES-047
+  lines: 167-169
+  object_id: TLC-SO-VALUES-097
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- path: maths/09-values.md
+  lines: 196-198
+  object_id: TLC-SO-VALUES-100
   source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
 covered_objects:
-- TLC-SO-VALUES-047
+- TLC-SO-VALUES-097
+- TLC-SO-VALUES-100
 covered_relations:
-- TLC-SR-VALUES-046
+- TLC-SR-VALUES-096
+- TLC-SR-VALUES-099
 contextual_relations: []
-functional_purpose: Validate the structural shape and closed entry range of the systemic-coherence matrix.
-primary_responsibility: Check square shape and entries in the sourced closed interval while leaving endpoint and
-  category semantics opaque.
+functional_purpose: Assemble the decision-influence and collective-understanding equations as two named symbolic
+  transformations.
+primary_responsibility: Produce a transformation AST with distinct decision and collective-intelligence branches.
 inputs:
-- 'matrix: Matrix[OpaqueScalar]'
-- 'declared_order: PositiveInteger'
+- 'decision_equation: SymbolicEquation'
+- 'collective_equation: SymbolicEquation'
 outputs:
-- 'result: CoherenceMatrixValidationResult'
+- 'transformation_ast: ValueTransformationAst'
 types:
   opaque:
   - OpaqueScalar
@@ -41,24 +47,22 @@ preconditions:
 - Every referenced scientific object and relation identifier exists in the Values preparation.
 - Every required operation-specific input is present and retains source provenance.
 postconditions:
-- The result is produced by validate_systemic_coherence_matrix_structure without scientific evaluation.
+- The transformation_ast is produced by assemble_value_transformation_ast without scientific evaluation.
 - All input source identifiers, unresolved items, and provisional assumptions remain traceable.
 explicitly_sourced_invariants:
 - statement: Provisionally separated scientific objects remain distinct.
   source: registry/domain-progress/values/functional-coverage.yaml
 errors:
-- declared_order_mismatch
-- non_square_matrix
-- entry_outside_closed_interval
+- missing_transformation_branch
+- branch_source_mismatch
+- unbound_symbol
 undefined_behaviors: &id001
-- UNRES-M
-- UNRES-ENDPOINTS
-- UNRES-CATEGORIES
-- UNRES-OUTPUT
+- input_output_domains
+- evaluation_algorithm
 propagated_unresolved: *id001
 provisional_engineering_assumptions:
-- assumption_id: TLC-EA-TLC-FC-09-VALUES-018-001
-  feature_id: TLC-FC-09-VALUES-018
+- assumption_id: TLC-EA-TLC-FC-09-VALUES-006-001
+  feature_id: TLC-FC-09-VALUES-006
   undefined_property: runtime carrier for symbolic or scientifically opaque values
   technical_need: The implementation needs a lossless carrier to validate structure and provenance.
   minimal_choice: immutable tagged opaque value or symbolic AST node
@@ -75,8 +79,8 @@ scientific_reservations:
 confirmed_dependencies: []
 traceability:
   source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
-  preparation_feature: TLC-FC-09-VALUES-018
-  revises_contract: TLC-MC-TLC-FC-09-VALUES-018 candidate contract
+  preparation_feature: TLC-FC-09-VALUES-006
+  revises_contract: null
 validation_criteria:
 - operation-specific inputs and output are present
 - all source identifiers resolve

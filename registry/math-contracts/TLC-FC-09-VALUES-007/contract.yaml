@@ -1,5 +1,5 @@
-contract_id: TLC-MC-TLC-FC-09-VALUES-018
-feature_id: TLC-FC-09-VALUES-018
+contract_id: TLC-MC-TLC-FC-09-VALUES-007
+feature_id: TLC-FC-09-VALUES-007
 contract_kind: limited_engineering_contract_with_reservations
 status: limited_engineering_contract_with_reservations
 scientific_authority:
@@ -8,22 +8,22 @@ scientific_authority:
   complete_scientific_contract: false
 source_references:
 - path: maths/09-values.md
-  lines: 23-23
-  object_id: TLC-SO-VALUES-047
+  lines: 49-51
+  object_id: TLC-SO-VALUES-061
   source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
 covered_objects:
-- TLC-SO-VALUES-047
+- TLC-SO-VALUES-061
 covered_relations:
-- TLC-SR-VALUES-046
+- TLC-SR-VALUES-060
 contextual_relations: []
-functional_purpose: Validate the structural shape and closed entry range of the systemic-coherence matrix.
-primary_responsibility: Check square shape and entries in the sourced closed interval while leaving endpoint and
-  category semantics opaque.
+functional_purpose: Compile the cited value-validity-domain set expression into a membership-query AST.
+primary_responsibility: Represent the tuple components and named membership predicates without deciding the opaque
+  carrier sets.
 inputs:
-- 'matrix: Matrix[OpaqueScalar]'
-- 'declared_order: PositiveInteger'
+- 'domain_expression: SymbolicSetExpression'
+- 'tuple_symbols: Sequence[SymbolId]'
 outputs:
-- 'result: CoherenceMatrixValidationResult'
+- 'membership_ast: ValidityDomainMembershipAst'
 types:
   opaque:
   - OpaqueScalar
@@ -41,24 +41,22 @@ preconditions:
 - Every referenced scientific object and relation identifier exists in the Values preparation.
 - Every required operation-specific input is present and retains source provenance.
 postconditions:
-- The result is produced by validate_systemic_coherence_matrix_structure without scientific evaluation.
+- The membership_ast is produced by compile_validity_domain_membership_ast without scientific evaluation.
 - All input source identifiers, unresolved items, and provisional assumptions remain traceable.
 explicitly_sourced_invariants:
 - statement: Provisionally separated scientific objects remain distinct.
   source: registry/domain-progress/values/functional-coverage.yaml
 errors:
-- declared_order_mismatch
-- non_square_matrix
-- entry_outside_closed_interval
+- missing_tuple_component
+- unknown_membership_predicate
+- expression_parse_error
 undefined_behaviors: &id001
-- UNRES-M
-- UNRES-ENDPOINTS
-- UNRES-CATEGORIES
-- UNRES-OUTPUT
+- carrier_set_definitions
+- membership_evaluation_policy
 propagated_unresolved: *id001
 provisional_engineering_assumptions:
-- assumption_id: TLC-EA-TLC-FC-09-VALUES-018-001
-  feature_id: TLC-FC-09-VALUES-018
+- assumption_id: TLC-EA-TLC-FC-09-VALUES-007-001
+  feature_id: TLC-FC-09-VALUES-007
   undefined_property: runtime carrier for symbolic or scientifically opaque values
   technical_need: The implementation needs a lossless carrier to validate structure and provenance.
   minimal_choice: immutable tagged opaque value or symbolic AST node
@@ -75,8 +73,8 @@ scientific_reservations:
 confirmed_dependencies: []
 traceability:
   source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
-  preparation_feature: TLC-FC-09-VALUES-018
-  revises_contract: TLC-MC-TLC-FC-09-VALUES-018 candidate contract
+  preparation_feature: TLC-FC-09-VALUES-007
+  revises_contract: null
 validation_criteria:
 - operation-specific inputs and output are present
 - all source identifiers resolve

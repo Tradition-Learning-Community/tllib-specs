@@ -1,0 +1,87 @@
+ir_id: TLC-IR-TLC-FC-09-VALUES-004
+feature_id: TLC-FC-09-VALUES-004
+contract_id: TLC-MC-TLC-FC-09-VALUES-004
+ir_kind: prototype_ir_with_reservations
+classification: substantive_and_implementable
+entrypoint: assemble_deferred_value_dynamics_ast
+primary_operation: Create three role-labelled dynamics nodes and retain each local blocker on the corresponding
+  node.
+inputs:
+- 'consolidation: SymbolicEquation'
+- 'motivation: SymbolicEquation'
+- 'collective_feedback: SymbolicEquation'
+outputs:
+- 'dynamics_ast: DeferredValueDynamicsAst'
+opaque_types:
+- OpaqueScalar
+- OpaqueScientificValue
+- ScientificObjectId
+parameterized_types:
+- Sequence[T]
+- Mapping[K,V]
+- Optional[T]
+symbolic_types:
+- SymbolicExpression
+- SymbolicClaim
+- SourceProvenance
+operations:
+- operation_id: OP-VALUES-004-VALIDATE-INPUTS
+  kind: validate_operation_inputs
+  observable_effect: named errors identify missing, duplicate, mismatched, or unknown inputs
+- operation_id: OP-VALUES-004-PRIMARY
+  kind: assemble_deferred_value_dynamics_ast
+  observable_effect: 'dynamics_ast: DeferredValueDynamicsAst'
+- operation_id: OP-VALUES-004-ATTACH-TRACE
+  kind: attach_source_traceability
+  observable_effect: result retains feature, object, relation, unresolved, and assumption IDs
+operation_sequence:
+- OP-VALUES-004-VALIDATE-INPUTS
+- OP-VALUES-004-PRIMARY
+- OP-VALUES-004-ATTACH-TRACE
+preconditions:
+- Every referenced scientific object and relation identifier exists in the Values preparation.
+- Every required operation-specific input is present and retains source provenance.
+postconditions:
+- The dynamics_ast is produced by assemble_deferred_value_dynamics_ast without scientific evaluation.
+- All input source identifiers, unresolved items, and provisional assumptions remain traceable.
+invariants:
+- statement: Provisionally separated scientific objects remain distinct.
+  source: registry/domain-progress/values/functional-coverage.yaml
+errors:
+- missing_required_role
+- source_role_mismatch
+- unknown_source_identifier
+undefined_behaviors: &id001
+- consolidation_semantics
+- motivation_semantics
+- collective_feedback_semantics
+propagated_unresolved: *id001
+propagated_provisional_assumptions:
+- TLC-EA-TLC-FC-09-VALUES-004-001
+traceability:
+  source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+  contract: registry/math-contracts/TLC-FC-09-VALUES-004/contract.yaml
+  source_objects:
+  - TLC-SO-VALUES-094
+  - TLC-SO-VALUES-098
+  - TLC-SO-VALUES-101
+  source_relations:
+  - TLC-SR-VALUES-093
+  - TLC-SR-VALUES-097
+  - TLC-SR-VALUES-100
+  replaces_historical_irs: []
+determinism_status: deterministic_for_structural_construction_and_validation
+testability_status: operation_specific_structural_tests_defined
+implementation_constraints:
+- Implement exactly the named construction or validation operation.
+- Preserve symbolic payloads and source order unless the contract explicitly states otherwise.
+- Do not evaluate formulas or invent scientific semantics.
+active_or_historical_status: active_prototype
+blocks_all_prototype_progress: false
+readiness:
+  ready_for_limited_engineering_contract: true
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false

@@ -1,0 +1,54 @@
+test_plan_id: TLC-TP-TLC-FC-09-VALUES-001
+feature_id: TLC-FC-09-VALUES-001
+contract_id: TLC-MC-TLC-FC-09-VALUES-001
+ir_id: TLC-IR-TLC-FC-09-VALUES-001
+entrypoint: compile_axiomatic_foundation_constraint_ast
+primary_operation: Reject unknown statements and preserve each accepted axiom or hypothesis as an unevaluated constraint
+  node.
+inputs_under_test:
+- 'statements: Sequence[AxiomaticStatement]'
+- 'provenance: SourceProvenance'
+expected_output_or_effect: 'constraint_ast: AxiomaticConstraintAst'
+cases:
+- case_id: VALUES-001-NOMINAL
+  kind: nominal
+  assertion: 'compile_axiomatic_foundation_constraint_ast produces constraint_ast: AxiomaticConstraintAst from valid
+    source-addressable inputs.'
+- case_id: VALUES-001-TYPE-SHAPE
+  kind: type_or_shape
+  assertion: Operation-specific required input roles and container shapes are validated before construction.
+- case_id: VALUES-001-OBSERVABLE
+  kind: observable_result
+  assertion: The constraint_ast exposes the operation-specific structure described by the contract.
+- case_id: VALUES-001-POST
+  kind: postcondition
+  assertion: The constraint_ast is produced by compile_axiomatic_foundation_constraint_ast without scientific evaluation.
+- case_id: VALUES-001-PRECONDITION
+  kind: invalid_precondition
+  assertion: 'An invalid required input returns one of: empty_statement_set, unknown_source_identifier, duplicate_statement_identifier.'
+- case_id: VALUES-001-OPAQUE
+  kind: opaque_value
+  assertion: Opaque payloads survive construction unchanged and are never scientifically evaluated.
+- case_id: VALUES-001-PROVENANCE
+  kind: provenance
+  assertion: Output retains feature TLC-FC-09-VALUES-001 and all covered object and relation identifiers.
+- case_id: VALUES-001-UNRESOLVED
+  kind: unresolved_propagation
+  assertion: 'Output retains unresolved items: axiom_scientific_status, constraint_truth_semantics.'
+- case_id: VALUES-001-ASSUMPTION
+  kind: assumption_propagation
+  assertion: Output retains provisional assumption TLC-EA-TLC-FC-09-VALUES-001-001.
+- case_id: VALUES-001-NO-INVENTION
+  kind: scientific_non_evaluation
+  assertion: No absent formula, scale, ordering, threshold, aggregation, or scientific result is computed.
+- case_id: VALUES-001-CONFORMANCE
+  kind: contract_ir_conformance
+  assertion: Entrypoint, inputs, output, errors, unresolved, assumption, classification, and readiness match.
+- case_id: VALUES-001-INTEGRATION
+  kind: minimal_integration
+  assertion: Contract loader -> IR entrypoint -> provenance serializer preserves operation-specific structure.
+forbidden_expected_results:
+- invented numeric oracle
+- scientific approval
+- canonical semantics
+readiness: planned

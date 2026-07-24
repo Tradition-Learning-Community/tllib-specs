@@ -1,0 +1,86 @@
+ir_id: TLC-IR-TLC-FC-09-VALUES-013
+feature_id: TLC-FC-09-VALUES-013
+contract_id: TLC-MC-TLC-FC-09-VALUES-013
+ir_kind: prototype_ir_with_reservations
+classification: substantive_and_implementable
+entrypoint: bind_value_function_operator_descriptors
+primary_operation: Create four distinct callable-descriptor entries without assigning signatures or evaluating them.
+inputs:
+- 'descriptors: Mapping[ValueOperatorRole, OpaqueOperatorDescriptor]'
+outputs:
+- 'registry: ValueOperatorRegistry'
+opaque_types:
+- OpaqueScalar
+- OpaqueScientificValue
+- ScientificObjectId
+parameterized_types:
+- Sequence[T]
+- Mapping[K,V]
+- Optional[T]
+symbolic_types:
+- SymbolicExpression
+- SymbolicClaim
+- SourceProvenance
+operations:
+- operation_id: OP-VALUES-013-VALIDATE-INPUTS
+  kind: validate_operation_inputs
+  observable_effect: named errors identify missing, duplicate, mismatched, or unknown inputs
+- operation_id: OP-VALUES-013-PRIMARY
+  kind: bind_value_function_operator_descriptors
+  observable_effect: 'registry: ValueOperatorRegistry'
+- operation_id: OP-VALUES-013-ATTACH-TRACE
+  kind: attach_source_traceability
+  observable_effect: result retains feature, object, relation, unresolved, and assumption IDs
+operation_sequence:
+- OP-VALUES-013-VALIDATE-INPUTS
+- OP-VALUES-013-PRIMARY
+- OP-VALUES-013-ATTACH-TRACE
+preconditions:
+- Every referenced scientific object and relation identifier exists in the Values preparation.
+- Every required operation-specific input is present and retains source provenance.
+postconditions:
+- The registry is produced by bind_value_function_operator_descriptors without scientific evaluation.
+- All input source identifiers, unresolved items, and provisional assumptions remain traceable.
+invariants:
+- statement: Provisionally separated scientific objects remain distinct.
+  source: registry/domain-progress/values/functional-coverage.yaml
+errors:
+- missing_operator_role
+- duplicate_operator_role
+- descriptor_source_mismatch
+undefined_behaviors: &id001
+- operator_signatures
+- numeric_representation
+- return_semantics
+propagated_unresolved: *id001
+propagated_provisional_assumptions:
+- TLC-EA-TLC-FC-09-VALUES-013-001
+traceability:
+  source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+  contract: registry/math-contracts/TLC-FC-09-VALUES-013/contract.yaml
+  source_objects:
+  - TLC-SO-VALUES-009
+  - TLC-SO-VALUES-043
+  - TLC-SO-VALUES-046
+  - TLC-SO-VALUES-073
+  source_relations:
+  - TLC-SR-VALUES-008
+  - TLC-SR-VALUES-042
+  - TLC-SR-VALUES-045
+  - TLC-SR-VALUES-072
+  replaces_historical_irs: []
+determinism_status: deterministic_for_structural_construction_and_validation
+testability_status: operation_specific_structural_tests_defined
+implementation_constraints:
+- Implement exactly the named construction or validation operation.
+- Preserve symbolic payloads and source order unless the contract explicitly states otherwise.
+- Do not evaluate formulas or invent scientific semantics.
+active_or_historical_status: active_prototype
+blocks_all_prototype_progress: false
+readiness:
+  ready_for_limited_engineering_contract: true
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false

@@ -1,0 +1,53 @@
+test_plan_id: TLC-TP-TLC-FC-09-VALUES-014
+feature_id: TLC-FC-09-VALUES-014
+contract_id: TLC-MC-TLC-FC-09-VALUES-014
+ir_id: TLC-IR-TLC-FC-09-VALUES-014
+entrypoint: compose_memory_integration_operator_descriptors
+primary_operation: Require the memory stage before the integration stage and preserve both opaque payload contracts.
+inputs_under_test:
+- 'memory_stage: OpaqueOperatorDescriptor'
+- 'integration_stage: OpaqueOperatorDescriptor'
+expected_output_or_effect: 'pipeline: MemoryIntegrationOperatorPipeline'
+cases:
+- case_id: VALUES-014-NOMINAL
+  kind: nominal
+  assertion: 'compose_memory_integration_operator_descriptors produces pipeline: MemoryIntegrationOperatorPipeline
+    from valid source-addressable inputs.'
+- case_id: VALUES-014-TYPE-SHAPE
+  kind: type_or_shape
+  assertion: Operation-specific required input roles and container shapes are validated before construction.
+- case_id: VALUES-014-OBSERVABLE
+  kind: observable_result
+  assertion: The pipeline exposes the operation-specific structure described by the contract.
+- case_id: VALUES-014-POST
+  kind: postcondition
+  assertion: The pipeline is produced by compose_memory_integration_operator_descriptors without scientific evaluation.
+- case_id: VALUES-014-PRECONDITION
+  kind: invalid_precondition
+  assertion: 'An invalid required input returns one of: missing_memory_stage, missing_integration_stage, invalid_stage_order.'
+- case_id: VALUES-014-OPAQUE
+  kind: opaque_value
+  assertion: Opaque payloads survive construction unchanged and are never scientifically evaluated.
+- case_id: VALUES-014-PROVENANCE
+  kind: provenance
+  assertion: Output retains feature TLC-FC-09-VALUES-014 and all covered object and relation identifiers.
+- case_id: VALUES-014-UNRESOLVED
+  kind: unresolved_propagation
+  assertion: 'Output retains unresolved items: memory_model, integration_semantics, stage_signatures.'
+- case_id: VALUES-014-ASSUMPTION
+  kind: assumption_propagation
+  assertion: Output retains provisional assumption TLC-EA-TLC-FC-09-VALUES-014-001.
+- case_id: VALUES-014-NO-INVENTION
+  kind: scientific_non_evaluation
+  assertion: No absent formula, scale, ordering, threshold, aggregation, or scientific result is computed.
+- case_id: VALUES-014-CONFORMANCE
+  kind: contract_ir_conformance
+  assertion: Entrypoint, inputs, output, errors, unresolved, assumption, classification, and readiness match.
+- case_id: VALUES-014-INTEGRATION
+  kind: minimal_integration
+  assertion: Contract loader -> IR entrypoint -> provenance serializer preserves operation-specific structure.
+forbidden_expected_results:
+- invented numeric oracle
+- scientific approval
+- canonical semantics
+readiness: planned
