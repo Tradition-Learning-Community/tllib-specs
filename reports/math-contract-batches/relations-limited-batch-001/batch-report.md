@@ -19,11 +19,11 @@ No batch validator is committed because the absolute scope requires absence of c
 
 ## Validation results
 
-- Thirteen generated YAML files parse successfully; all 42 repository JSON files parse successfully.
+- All thirteen YAML files in the batch parse successfully; the batch contains no JSON file.
 - Feature IDs, contract IDs, generated local IDs, exact source references, object coverage, empty covered-relation sets, unresolved counts, dependency classifications, limited-contract markers, and readiness flags pass targeted checks.
 - All 31 unresolved items for `TLC-FC-15-RELATIONS-004` and all 12 unresolved items for `TLC-FC-15-RELATIONS-007` are propagated.
 - No ambiguous or documentary dependency is promoted; no code, IR path, or `maths/` modification is present.
-- Python syntax checks pass for the existing Relations and targeted-review validators. Their execution rejects this downstream contract branch by design because those preparation/review validators prohibit any contract output; they are not batch-contract validators.
+- No batch-contract validator is present (`validator.produced: false` in the manifest), so validator syntax validation is not applicable.
 - `git diff --check` passes.
 
 ## Readiness
