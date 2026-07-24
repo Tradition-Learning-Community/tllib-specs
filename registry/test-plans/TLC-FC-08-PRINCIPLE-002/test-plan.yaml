@@ -1,0 +1,82 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-08-PRINCIPLE-002-PROTOTYPE-001
+feature_id: TLC-FC-08-PRINCIPLE-002
+contract_id: TLC-MC-TLC-FC-08-PRINCIPLE-002
+ir_id: TLC-IR-TLC-FC-08-PRINCIPLE-002-PROTOTYPE-001
+entrypoint: construct_principle_evolution_equation
+primary_operation: Construct the unevaluated differential-equation AST dP/dt = E(P,D,t) from caller-supplied opaque symbols.
+inputs_under_test:
+- PrincipleEvolutionSymbols
+expected_output: SymbolicPrincipleEvolutionEquation
+tests:
+- id: TEST-002-NOMINAL
+  category: nominal
+  invokes: construct_principle_evolution_equation
+  scenario: Supply valid opaque identifiers for PrincipleEvolutionSymbols.
+  expected: Produces one immutable equality AST whose derivative, evolution operator, argument order, object ID, and provenance
+    match the source.
+- id: TEST-002-SHAPE
+  category: type_and_shape
+  invokes: construct_principle_evolution_equation
+  scenario: Construct from valid ordered inputs.
+  expected: Result type is SymbolicPrincipleEvolutionEquation and templates equal ['equals(derivative(principle_state, time),
+    apply(evolution_operator, principle_state, discourse_input, time))'].
+- id: TEST-002-EFFECT
+  category: observable_effect
+  invokes: construct_principle_evolution_equation
+  scenario: Inspect the returned immutable result.
+  expected: Produces one immutable equality AST whose derivative, evolution operator, argument order, object ID, and provenance
+    match the source.
+- id: TEST-002-POST
+  category: postcondition
+  invokes: construct_principle_evolution_equation
+  scenario: Construct twice from identical ordered identifiers.
+  expected: Results are structurally equal and retain identical traceability.
+- id: TEST-002-PRE
+  category: invalid_precondition
+  invokes: construct_principle_evolution_equation
+  scenario: Omit one required opaque identifier.
+  expected_error: ERR-PRINCIPLE-002-MISSING
+- id: TEST-002-ERROR
+  category: error_policy
+  invokes: construct_principle_evolution_equation
+  scenario: Duplicate a covered scientific object ID.
+  expected_error: ERR-PRINCIPLE-002-DUPLICATE
+- id: TEST-002-OPAQUE
+  category: opaque_value
+  invokes: construct_principle_evolution_equation
+  scenario: 'Use identifiers with no runtime scientific implementation; boundary: Domains, codomain, derivative existence,
+    initial conditions, solver, discretization, determinism, and operator implementation remain opaque.'
+  expected: Construction succeeds without dereferencing or evaluating opaque values.
+- id: TEST-002-PROVENANCE
+  category: provenance
+  invokes: construct_principle_evolution_equation
+  scenario: Construct with all cited object IDs and source ranges.
+  expected: Every output node retains its exact object ID and source range.
+- id: TEST-002-UNRESOLVED
+  category: unresolved_propagation
+  invokes: construct_principle_evolution_equation
+  scenario: Construct with the contract unresolved set.
+  expected: Output unresolved set equals ['UNRESOLVED-SYMBOL-SEMANTICS-001', 'UNRESOLVED-DOMAIN-001', 'UNRESOLVED-INITIAL-CONDITION-001']
+    and no item is resolved.
+- id: TEST-002-ASSUMPTION
+  category: assumption_propagation
+  invokes: construct_principle_evolution_equation
+  scenario: Construct with the provisional representation assumption.
+  expected: Output assumption set equals [TLC-EA-PRINCIPLE-002-001].
+- id: TEST-002-NO-SCIENCE
+  category: non_evaluation
+  invokes: construct_principle_evolution_equation
+  scenario: Request only the defined construction operation.
+  expected: No numeric, logical, stochastic, metric, relational, differential, or scientific truth value is calculated.
+- id: TEST-002-CONFORMANCE
+  category: contract_ir_conformance
+  invokes: construct_principle_evolution_equation
+  scenario: Compare contract and IR interface, templates, errors, postconditions, classification, and readiness.
+  expected: All fields agree exactly.
+- id: TEST-002-INTEGRATION
+  category: minimal_integration
+  invokes: construct_principle_evolution_equation
+  scenario: Resolve feature, contract, IR, and test plan by stable IDs.
+  expected: The four artifacts form one unambiguous active chain.
+implementation_status: ready_for_specific_test_implementation

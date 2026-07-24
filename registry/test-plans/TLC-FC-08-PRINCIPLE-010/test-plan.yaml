@@ -1,0 +1,82 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-08-PRINCIPLE-010-PROTOTYPE-001
+feature_id: TLC-FC-08-PRINCIPLE-010
+contract_id: TLC-MC-TLC-FC-08-PRINCIPLE-010
+ir_id: TLC-IR-TLC-FC-08-PRINCIPLE-010-PROTOTYPE-001
+entrypoint: construct_principle_relation_catalog
+primary_operation: Construct symbolic records for analogy generation, master regulation, principle-discourse interaction,
+  satisfaction, and message interpretation relations.
+inputs_under_test:
+- PrincipleRelationSymbols
+expected_output: PrincipleRelationCatalog
+tests:
+- id: TEST-010-NOMINAL
+  category: nominal
+  invokes: construct_principle_relation_catalog
+  scenario: Supply valid opaque identifiers for PrincipleRelationSymbols.
+  expected: Produces eight source-keyed relation ASTs and annotations without inferring endpoints or evaluating any relation.
+- id: TEST-010-SHAPE
+  category: type_and_shape
+  invokes: construct_principle_relation_catalog
+  scenario: Construct from valid ordered inputs.
+  expected: Result type is PrincipleRelationCatalog and templates equal ['analogy_generation(discourse, message, analogous_discourse,
+    adapted_message)', 'master_regulation(exemplification, calibration, threshold_management)', 'bidirectional_non_reductive_interaction(principle,
+    discourse)', 'abstract_relation(succeeds_under_P)', 'relation(principle forces discourse)', 'member(apply(principle, discourse),
+    interpretation_space)', 'satisfies(discourse, principle)', 'equals(message, interpretation_operator(principle, discourse))'].
+- id: TEST-010-EFFECT
+  category: observable_effect
+  invokes: construct_principle_relation_catalog
+  scenario: Inspect the returned immutable result.
+  expected: Produces eight source-keyed relation ASTs and annotations without inferring endpoints or evaluating any relation.
+- id: TEST-010-POST
+  category: postcondition
+  invokes: construct_principle_relation_catalog
+  scenario: Construct twice from identical ordered identifiers.
+  expected: Results are structurally equal and retain identical traceability.
+- id: TEST-010-PRE
+  category: invalid_precondition
+  invokes: construct_principle_relation_catalog
+  scenario: Omit one required opaque identifier.
+  expected_error: ERR-PRINCIPLE-010-MISSING
+- id: TEST-010-ERROR
+  category: error_policy
+  invokes: construct_principle_relation_catalog
+  scenario: Duplicate a covered scientific object ID.
+  expected_error: ERR-PRINCIPLE-010-DUPLICATE
+- id: TEST-010-OPAQUE
+  category: opaque_value
+  invokes: construct_principle_relation_catalog
+  scenario: 'Use identifiers with no runtime scientific implementation; boundary: Endpoint concrete types, analogy, satisfaction,
+    forcing, symmetry, transitivity, causality, thresholds, and interpretation behavior remain opaque.'
+  expected: Construction succeeds without dereferencing or evaluating opaque values.
+- id: TEST-010-PROVENANCE
+  category: provenance
+  invokes: construct_principle_relation_catalog
+  scenario: Construct with all cited object IDs and source ranges.
+  expected: Every output node retains its exact object ID and source range.
+- id: TEST-010-UNRESOLVED
+  category: unresolved_propagation
+  invokes: construct_principle_relation_catalog
+  scenario: Construct with the contract unresolved set.
+  expected: Output unresolved set equals [] and no item is resolved.
+- id: TEST-010-ASSUMPTION
+  category: assumption_propagation
+  invokes: construct_principle_relation_catalog
+  scenario: Construct with the provisional representation assumption.
+  expected: Output assumption set equals [TLC-EA-PRINCIPLE-010-001].
+- id: TEST-010-NO-SCIENCE
+  category: non_evaluation
+  invokes: construct_principle_relation_catalog
+  scenario: Request only the defined construction operation.
+  expected: No numeric, logical, stochastic, metric, relational, differential, or scientific truth value is calculated.
+- id: TEST-010-CONFORMANCE
+  category: contract_ir_conformance
+  invokes: construct_principle_relation_catalog
+  scenario: Compare contract and IR interface, templates, errors, postconditions, classification, and readiness.
+  expected: All fields agree exactly.
+- id: TEST-010-INTEGRATION
+  category: minimal_integration
+  invokes: construct_principle_relation_catalog
+  scenario: Resolve feature, contract, IR, and test plan by stable IDs.
+  expected: The four artifacts form one unambiguous active chain.
+implementation_status: ready_for_specific_test_implementation

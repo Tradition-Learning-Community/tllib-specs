@@ -1,0 +1,82 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-08-PRINCIPLE-007-PROTOTYPE-001
+feature_id: TLC-FC-08-PRINCIPLE-007
+contract_id: TLC-MC-TLC-FC-08-PRINCIPLE-007
+ir_id: TLC-IR-TLC-FC-08-PRINCIPLE-007-PROTOTYPE-001
+entrypoint: describe_principle_metric_requirements
+primary_operation: Describe the four source-stated metric challenges without defining or computing a metric.
+inputs_under_test:
+- PrincipleMetricRequirementEvidence
+expected_output: UncomputablePrincipleMetricDescriptor
+tests:
+- id: TEST-007-NOMINAL
+  category: nominal
+  invokes: describe_principle_metric_requirements
+  scenario: Supply valid opaque identifiers for PrincipleMetricRequirementEvidence.
+  expected: Produces a descriptor for abstraction capture, dynamic reinterpretation, composability/non-redundance, and robust
+    generativity/interpretive-power measurement requirements.
+- id: TEST-007-SHAPE
+  category: type_and_shape
+  invokes: describe_principle_metric_requirements
+  scenario: Construct from valid ordered inputs.
+  expected: Result type is UncomputablePrincipleMetricDescriptor and templates equal ['metric_requirement(capture_abstraction_without_data_pattern_reduction)',
+    'metric_requirement(model_dynamic_evolution_and_contextual_reinterpretation)', 'metric_requirement(ensure_composability_and_non_redundance)',
+    'metric_requirement(define_robust_generative_and_interpretive_power_measures)'].
+- id: TEST-007-EFFECT
+  category: observable_effect
+  invokes: describe_principle_metric_requirements
+  scenario: Inspect the returned immutable result.
+  expected: Produces a descriptor for abstraction capture, dynamic reinterpretation, composability/non-redundance, and robust
+    generativity/interpretive-power measurement requirements.
+- id: TEST-007-POST
+  category: postcondition
+  invokes: describe_principle_metric_requirements
+  scenario: Construct twice from identical ordered identifiers.
+  expected: Results are structurally equal and retain identical traceability.
+- id: TEST-007-PRE
+  category: invalid_precondition
+  invokes: describe_principle_metric_requirements
+  scenario: Omit one required opaque identifier.
+  expected_error: ERR-PRINCIPLE-007-MISSING
+- id: TEST-007-ERROR
+  category: error_policy
+  invokes: describe_principle_metric_requirements
+  scenario: Duplicate a covered scientific object ID.
+  expected_error: ERR-PRINCIPLE-007-DUPLICATE
+- id: TEST-007-OPAQUE
+  category: opaque_value
+  invokes: describe_principle_metric_requirements
+  scenario: 'Use identifiers with no runtime scientific implementation; boundary: Metric signature, domain, codomain, scale,
+    units, score, distance, thresholds, aggregation, and calculation rule are absent.'
+  expected: Construction succeeds without dereferencing or evaluating opaque values.
+- id: TEST-007-PROVENANCE
+  category: provenance
+  invokes: describe_principle_metric_requirements
+  scenario: Construct with all cited object IDs and source ranges.
+  expected: Every output node retains its exact object ID and source range.
+- id: TEST-007-UNRESOLVED
+  category: unresolved_propagation
+  invokes: describe_principle_metric_requirements
+  scenario: Construct with the contract unresolved set.
+  expected: Output unresolved set equals [] and no item is resolved.
+- id: TEST-007-ASSUMPTION
+  category: assumption_propagation
+  invokes: describe_principle_metric_requirements
+  scenario: Construct with the provisional representation assumption.
+  expected: Output assumption set equals [TLC-EA-PRINCIPLE-007-001].
+- id: TEST-007-NO-SCIENCE
+  category: non_evaluation
+  invokes: describe_principle_metric_requirements
+  scenario: Request only the defined construction operation.
+  expected: No numeric, logical, stochastic, metric, relational, differential, or scientific truth value is calculated.
+- id: TEST-007-CONFORMANCE
+  category: contract_ir_conformance
+  invokes: describe_principle_metric_requirements
+  scenario: Compare contract and IR interface, templates, errors, postconditions, classification, and readiness.
+  expected: All fields agree exactly.
+- id: TEST-007-INTEGRATION
+  category: minimal_integration
+  invokes: describe_principle_metric_requirements
+  scenario: Resolve feature, contract, IR, and test plan by stable IDs.
+  expected: The four artifacts form one unambiguous active chain.
+implementation_status: specific_plan_defined_but_scientific_operation_not_implementable

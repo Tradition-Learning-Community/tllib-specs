@@ -1,0 +1,81 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-08-PRINCIPLE-005-PROTOTYPE-001
+feature_id: TLC-FC-08-PRINCIPLE-005
+contract_id: TLC-MC-TLC-FC-08-PRINCIPLE-005
+ir_id: TLC-IR-TLC-FC-08-PRINCIPLE-005-PROTOTYPE-001
+entrypoint: construct_principle_invariant_specification
+primary_operation: Construct an invariant specification containing the four cited learning characteristics, the invariant
+  formal essence, and the source evolution equation reference.
+inputs_under_test:
+- PrincipleInvariantEvidence
+expected_output: PrincipleInvariantSpecification
+tests:
+- id: TEST-005-NOMINAL
+  category: nominal
+  invokes: construct_principle_invariant_specification
+  scenario: Supply valid opaque identifiers for PrincipleInvariantEvidence.
+  expected: Produces an immutable invariant specification with six source-backed nodes and no truth-value computation.
+- id: TEST-005-SHAPE
+  category: type_and_shape
+  invokes: construct_principle_invariant_specification
+  scenario: Construct from valid ordered inputs.
+  expected: Result type is PrincipleInvariantSpecification and templates equal ['characteristic(accelerated_understanding)',
+    'characteristic(robust_generalization)', 'characteristic(adaptive_fidelity)', 'characteristic(progressive_depth)', 'invariant_formal_essence(F_P)',
+    'reference_equation(derivative(P,t) = evolution_operator(P,D,t))'].
+- id: TEST-005-EFFECT
+  category: observable_effect
+  invokes: construct_principle_invariant_specification
+  scenario: Inspect the returned immutable result.
+  expected: Produces an immutable invariant specification with six source-backed nodes and no truth-value computation.
+- id: TEST-005-POST
+  category: postcondition
+  invokes: construct_principle_invariant_specification
+  scenario: Construct twice from identical ordered identifiers.
+  expected: Results are structurally equal and retain identical traceability.
+- id: TEST-005-PRE
+  category: invalid_precondition
+  invokes: construct_principle_invariant_specification
+  scenario: Omit one required opaque identifier.
+  expected_error: ERR-PRINCIPLE-005-MISSING
+- id: TEST-005-ERROR
+  category: error_policy
+  invokes: construct_principle_invariant_specification
+  scenario: Duplicate a covered scientific object ID.
+  expected_error: ERR-PRINCIPLE-005-DUPLICATE
+- id: TEST-005-OPAQUE
+  category: opaque_value
+  invokes: construct_principle_invariant_specification
+  scenario: 'Use identifiers with no runtime scientific implementation; boundary: How characteristics are measured or verified,
+    what essential invariants contain, and how evolution preserves essence remain opaque.'
+  expected: Construction succeeds without dereferencing or evaluating opaque values.
+- id: TEST-005-PROVENANCE
+  category: provenance
+  invokes: construct_principle_invariant_specification
+  scenario: Construct with all cited object IDs and source ranges.
+  expected: Every output node retains its exact object ID and source range.
+- id: TEST-005-UNRESOLVED
+  category: unresolved_propagation
+  invokes: construct_principle_invariant_specification
+  scenario: Construct with the contract unresolved set.
+  expected: Output unresolved set equals [] and no item is resolved.
+- id: TEST-005-ASSUMPTION
+  category: assumption_propagation
+  invokes: construct_principle_invariant_specification
+  scenario: Construct with the provisional representation assumption.
+  expected: Output assumption set equals [TLC-EA-PRINCIPLE-005-001].
+- id: TEST-005-NO-SCIENCE
+  category: non_evaluation
+  invokes: construct_principle_invariant_specification
+  scenario: Request only the defined construction operation.
+  expected: No numeric, logical, stochastic, metric, relational, differential, or scientific truth value is calculated.
+- id: TEST-005-CONFORMANCE
+  category: contract_ir_conformance
+  invokes: construct_principle_invariant_specification
+  scenario: Compare contract and IR interface, templates, errors, postconditions, classification, and readiness.
+  expected: All fields agree exactly.
+- id: TEST-005-INTEGRATION
+  category: minimal_integration
+  invokes: construct_principle_invariant_specification
+  scenario: Resolve feature, contract, IR, and test plan by stable IDs.
+  expected: The four artifacts form one unambiguous active chain.
+implementation_status: ready_for_specific_test_implementation

@@ -1,0 +1,139 @@
+schema_version: 1
+ir_id: TLC-IR-TLC-FC-08-PRINCIPLE-001-PROTOTYPE-001
+feature_id: TLC-FC-08-PRINCIPLE-001
+contract_id: TLC-MC-TLC-FC-08-PRINCIPLE-001
+domain: principle
+ir_kind: prototype_ir_with_reservations
+entrypoint: construct_principle_constraint_specification
+primary_operation: Construct an immutable symbolic specification for the cited generative, coherence, propagation, analogy,
+  and conformity constraints.
+inputs:
+- id: IR-IN-PRINCIPLE-001
+  type: PrincipleConstraintSymbols
+  required: true
+outputs:
+- id: IR-OUT-PRINCIPLE-001
+  type: PrincipleConstraintSpecification
+  observable_effect: Produces five source-ordered symbolic constraint nodes with object IDs and provenance preserved.
+opaque_types:
+- OpaqueSymbolId
+- SourceProvenance
+parameterized_types: []
+symbolic_types:
+- ImmutableSymbolicAst
+operations:
+- operation_id: IR-OP-PRINCIPLE-001-001
+  name: construct_principle_constraint_specification
+  technical_processing: Validate opaque identifiers; instantiate the source-ordered templates; attach scientific object IDs,
+    source ranges, unresolved and assumption IDs; freeze the result.
+  templates:
+  - generative_support(principle, hypothesis_construction, latent_structure_identification, practice_or_solution_invention,
+    experience_reinterpretation)
+  - coherence_requires(formal_constraints)
+  - 'message_set_for_principle = set(message | exists discourse in principle_discourses: discourse succeeds_under principle
+    message)'
+  - implies(discourse succeeds_under principle message and analogous(discourse_prime, discourse), discourse_prime succeeds_under
+    principle message_prime)
+  - message_star = argmax(message, sum(principle_weight * conformity(message, principle)))
+  scientific_evaluation: prohibited
+operation_sequence:
+- validate_required_identifiers
+- instantiate_source_ordered_symbolic_templates
+- attach_traceability_and_reservations
+- freeze_and_return_result
+preconditions:
+- id: PRE-PRINCIPLE-001-IDS
+  statement: Every required opaque identifier is non-empty and every covered object ID is present exactly once.
+- id: PRE-PRINCIPLE-001-SOURCE
+  statement: Every symbolic template is bound to its cited source range.
+postconditions:
+- id: POST-PRINCIPLE-001-EFFECT
+  statement: Produces five source-ordered symbolic constraint nodes with object IDs and provenance preserved.
+- id: POST-PRINCIPLE-001-OPAQUE
+  statement: No opaque symbol, operator, predicate, relation, metric, or scientific statement is evaluated.
+- id: POST-PRINCIPLE-001-TRACE
+  statement: Object IDs, source ranges, unresolved IDs, assumption IDs, and reservations are preserved.
+invariants:
+- object_id: TLC-SO-PRINCIPLE-014
+  object_type: Hypothesis
+  source_statement_preserved: true
+- object_id: TLC-SO-PRINCIPLE-029
+  object_type: Constraint
+  source_statement_preserved: true
+- object_id: TLC-SO-PRINCIPLE-069
+  object_type: Constraint
+  source_statement_preserved: true
+- object_id: TLC-SO-PRINCIPLE-074
+  object_type: Constraint
+  source_statement_preserved: true
+- object_id: TLC-SO-PRINCIPLE-075
+  object_type: Constraint
+  source_statement_preserved: true
+errors:
+- id: ERR-PRINCIPLE-001-MISSING
+  condition: A required symbol, covered object ID, or source reference is missing.
+- id: ERR-PRINCIPLE-001-DUPLICATE
+  condition: A covered object ID occurs more than once.
+- id: ERR-PRINCIPLE-001-PROMOTION
+  condition: A caller requests evaluation or canonical scientific promotion.
+undefined_behaviors:
+- Types, domains, analogy, conformity, weights, optimization algorithm, cardinality, and executable truth conditions remain
+  opaque.
+propagated_unresolved: []
+propagated_provisional_assumptions:
+- TLC-EA-PRINCIPLE-001-001
+traceability:
+  scientific_objects:
+  - TLC-SO-PRINCIPLE-014
+  - TLC-SO-PRINCIPLE-029
+  - TLC-SO-PRINCIPLE-069
+  - TLC-SO-PRINCIPLE-074
+  - TLC-SO-PRINCIPLE-075
+  source_ranges:
+  - source_path: maths/08-principle.md
+    section: Rôle fonctionnel des Principes dans l’apprentissage
+    subsection: Pouvoir génératif
+    start_line: 82
+    end_line: 87
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/08-principle.md
+    section: Contraintes formelles et cohérence
+    subsection: null
+    start_line: 209
+    end_line: 211
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/08-principle.md
+    section: Dynamique Principe‑Message
+    subsection: Propagation de contraintes
+    start_line: 129
+    end_line: 131
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/08-principle.md
+    section: Dynamique Principe‑Message
+    subsection: Génération par analogie et satisfaction de contraintes
+    start_line: 147
+    end_line: 149
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/08-principle.md
+    section: Dynamique Principe‑Message
+    subsection: Génération par analogie et satisfaction de contraintes
+    start_line: 153
+    end_line: 155
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  historical_contract: null
+determinism_status: deterministic_symbolic_construction_for_identical_ordered_inputs
+testability_status: operation_specific_shape_effect_error_provenance_and_non_evaluation_tests_defined
+implementation_constraints:
+- Implement symbolic or descriptor construction only.
+- Do not evaluate scientific statements or opaque operators.
+- Do not infer absent semantics.
+active_or_historical_status: active
+classification: substantive_and_implementable
+blocks_all_prototype_progress: false
+readiness:
+  ready_for_limited_engineering_contract: true
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false

@@ -1,0 +1,93 @@
+schema_version: 1
+ir_id: TLC-IR-TLC-FC-08-PRINCIPLE-011-PROTOTYPE-001
+feature_id: TLC-FC-08-PRINCIPLE-011
+contract_id: TLC-MC-TLC-FC-08-PRINCIPLE-011
+domain: principle
+ir_kind: prototype_ir_with_reservations
+entrypoint: associate_principle_with_familiar_context
+primary_operation: Construct a provenance-bearing association between a principle and caller-identified familiar discourse
+  or situation references.
+inputs:
+- id: IR-IN-PRINCIPLE-011
+  type: PrincipleContextAssociationRequest
+  required: true
+outputs:
+- id: IR-OUT-PRINCIPLE-011
+  type: PrincipleInterpretationAssociation
+  observable_effect: Produces an immutable association containing one principle ID and at least one familiar-context ID, without
+    interpreting the relation.
+opaque_types:
+- OpaqueSymbolId
+- SourceProvenance
+parameterized_types: []
+symbolic_types:
+- ImmutableSymbolicAst
+operations:
+- operation_id: IR-OP-PRINCIPLE-011-001
+  name: associate_principle_with_familiar_context
+  technical_processing: Validate opaque identifiers; instantiate the source-ordered templates; attach scientific object IDs,
+    source ranges, unresolved and assumption IDs; freeze the result.
+  templates:
+  - interpretation_association(principle_id, non_empty(familiar_discourse_or_situation_ids))
+  scientific_evaluation: prohibited
+operation_sequence:
+- validate_required_identifiers
+- instantiate_source_ordered_symbolic_templates
+- attach_traceability_and_reservations
+- freeze_and_return_result
+preconditions:
+- id: PRE-PRINCIPLE-011-IDS
+  statement: Every required opaque identifier is non-empty and every covered object ID is present exactly once.
+- id: PRE-PRINCIPLE-011-SOURCE
+  statement: Every symbolic template is bound to its cited source range.
+postconditions:
+- id: POST-PRINCIPLE-011-EFFECT
+  statement: Produces an immutable association containing one principle ID and at least one familiar-context ID, without interpreting
+    the relation.
+- id: POST-PRINCIPLE-011-OPAQUE
+  statement: No opaque symbol, operator, predicate, relation, metric, or scientific statement is evaluated.
+- id: POST-PRINCIPLE-011-TRACE
+  statement: Object IDs, source ranges, unresolved IDs, assumption IDs, and reservations are preserved.
+invariants:
+- object_id: TLC-SO-PRINCIPLE-059
+  object_type: Relation
+  source_statement_preserved: true
+errors:
+- id: ERR-PRINCIPLE-011-MISSING
+  condition: A required symbol, covered object ID, or source reference is missing.
+- id: ERR-PRINCIPLE-011-DUPLICATE
+  condition: A covered object ID occurs more than once.
+- id: ERR-PRINCIPLE-011-PROMOTION
+  condition: A caller requests evaluation or canonical scientific promotion.
+undefined_behaviors:
+- Familiarity, interpretation meaning, ranking, similarity, validation, and effect on understanding remain opaque.
+propagated_unresolved: []
+propagated_provisional_assumptions:
+- TLC-EA-PRINCIPLE-011-001
+traceability:
+  scientific_objects:
+  - TLC-SO-PRINCIPLE-059
+  source_ranges:
+  - source_path: maths/08-principle.md
+    section: Transmission et réception des Principes
+    subsection: Réception et interprétation
+    start_line: 103
+    end_line: 103
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  historical_contract: null
+determinism_status: deterministic_symbolic_construction_for_identical_ordered_inputs
+testability_status: operation_specific_shape_effect_error_provenance_and_non_evaluation_tests_defined
+implementation_constraints:
+- Implement symbolic or descriptor construction only.
+- Do not evaluate scientific statements or opaque operators.
+- Do not infer absent semantics.
+active_or_historical_status: active
+classification: substantive_and_implementable
+blocks_all_prototype_progress: false
+readiness:
+  ready_for_limited_engineering_contract: true
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false
