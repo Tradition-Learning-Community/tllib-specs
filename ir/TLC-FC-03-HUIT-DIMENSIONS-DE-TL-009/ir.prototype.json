@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "ir_id": "TLC-IR-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009-PROTOTYPE-001",
+  "feature_id": "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009",
+  "contract_id": "TLC-LEC-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009-001",
+  "domain": "huit-dimensions",
+  "ir_kind": "prototype_ir_with_reservations",
+  "scientific_status": "noncanonical_engineering_prototype",
+  "catalogue_status_preserved": "deferred_for_scientific_decision",
+  "inputs": [
+    {
+      "id": "IR-IN-009",
+      "type": "OpaqueFeatureEvidence[ScientificObjectId, ScientificRelationId, ReservationId]"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "IR-OUT-009",
+      "type": "OpaquePrototypeResult[FeatureId]",
+      "evaluated": false
+    }
+  ],
+  "opaque_types": [
+    "ScientificObjectValue",
+    "ScientificRelationValue",
+    "ReservationValue",
+    "OpaquePrototypeResult"
+  ],
+  "parameterized_types": [
+    "OpaqueFeatureEvidence[ScientificObjectId, ScientificRelationId, ReservationId]",
+    "OpaquePrototypeResult[FeatureId]"
+  ],
+  "operations": [
+    {
+      "operation_id": "IR-OP-HUIT-009-001",
+      "kind": "preserve_opaque_unresolved_feature_record",
+      "evaluation": "uninterpreted",
+      "preserves": [
+        "feature identity including unresolved identity status",
+        "scientific identifiers",
+        "source references",
+        "catalogue status",
+        "unresolved identifiers",
+        "provisional assumption identifiers"
+      ]
+    }
+  ],
+  "control_flow": [],
+  "preconditions": [
+    {
+      "id": "PRE-HUIT-009-IDENTITY",
+      "statement": "Every supplied feature, object, relation, reservation, and assumption retains its recorded identifier."
+    },
+    {
+      "id": "PRE-HUIT-009-SOURCE",
+      "statement": "Every supplied identifier exists in the cited domain preparation or limited engineering contract."
+    }
+  ],
+  "postconditions": [
+    {
+      "id": "POST-HUIT-009-TRACE",
+      "statement": "The unevaluated result retains complete contract, source, object, relation, reservation, and assumption traceability."
+    },
+    {
+      "id": "POST-HUIT-009-NO-PROMOTION",
+      "statement": "The result does not assert scientific validity, determine a feature boundary, or resolve a reservation."
+    }
+  ],
+  "invariants": [
+    {
+      "id": "INV-HUIT-009-IDENTITY",
+      "statement": "Covered scientific object identities remain distinct.",
+      "status": "contract_invariant_preserved",
+      "source": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009/contract.yaml"
+    },
+    {
+      "id": "INV-HUIT-009-SOURCE",
+      "statement": "Source statements and line ranges remain unchanged.",
+      "status": "contract_invariant_preserved",
+      "source": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009/contract.yaml"
+    },
+    {
+      "id": "INV-HUIT-009-LIMITED",
+      "statement": "This artifact remains a limited engineering contract, never a complete scientific contract.",
+      "status": "contract_invariant_preserved",
+      "source": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009/contract.yaml"
+    }
+  ],
+  "errors": [
+    {
+      "id": "FAIL-HUIT-009-MISSING-SOURCE",
+      "condition": "A covered object or exact source range is missing."
+    },
+    {
+      "id": "FAIL-HUIT-009-DROPPED-RESERVATION",
+      "condition": "A reservation is omitted or declared resolved without an explicit source."
+    },
+    {
+      "id": "FAIL-HUIT-009-INVENTION",
+      "condition": "An unspecified scientific, numerical, temporal, ordering, unit or cardinality property is asserted."
+    }
+  ],
+  "unresolved_propagated": [
+    "TLC-UNRES-HUIT-009-TYPE",
+    "TLC-UNRES-HUIT-009-SIGNATURE",
+    "TLC-UNRES-HUIT-009-UNITS",
+    "TLC-UNRES-HUIT-009-ORDER",
+    "TLC-UNRES-HUIT-009-AGGREGATION",
+    "TLC-UNRES-HUIT-009-NUMERICS",
+    "TLC-UNRES-HUIT-009-ORACLE",
+    "TLC-UNRES-HUIT-009-BOUNDARY",
+    "TLC-UNRES-HUIT-009-IDENTITY"
+  ],
+  "provisional_assumptions_propagated": [
+    "TLC-EA-HUIT-009-001"
+  ],
+  "traceability": {
+    "contract": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009/contract.yaml",
+    "contract_traceability": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009/traceability.yaml",
+    "source_objects": [
+      "TLC-SO-HUIT-DIMENSIONS-DE-TL-008",
+      "TLC-SO-HUIT-DIMENSIONS-DE-TL-039"
+    ],
+    "source_relations": [],
+    "contextual_relations_not_covered": [
+      "TLC-SR-HUIT-DIMENSIONS-DE-TL-007",
+      "TLC-SR-HUIT-DIMENSIONS-DE-TL-038"
+    ],
+    "source_commit": "f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa"
+  },
+  "determinism_status": "deterministic_structure_only_scientific_evaluation_uninterpreted",
+  "testability_status": "structural_and_traceability_tests_ready",
+  "implementation_constraints": [
+    "Do not evaluate scientific truth or select an executable oracle.",
+    "Do not determine an unresolved scientific feature identity or cross-domain boundary.",
+    "Do not assign concrete numeric, temporal, probabilistic, dimensional, cardinality, unit, order, symmetry, transitivity, aggregation, or algorithmic semantics.",
+    "Reject loss of identifiers, reservations, assumptions, source references, or catalogue status."
+  ],
+  "readiness": {
+    "ready_for_limited_engineering_contract": true,
+    "ready_for_prototype_ir": true,
+    "ready_for_reference_python": true,
+    "ready_for_cpp_prototype": true,
+    "ready_for_canonical_ir": false,
+    "ready_for_production_implementation": false
+  },
+  "blocks_all_prototype_progress": false
+}

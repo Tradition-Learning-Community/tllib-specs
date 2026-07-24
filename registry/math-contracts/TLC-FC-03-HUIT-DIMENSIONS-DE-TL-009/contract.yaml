@@ -8,7 +8,7 @@ scientific_authority: origin/main
 limited_engineering_contract: true
 complete_scientific_contract: false
 status: limited_engineering_contract_with_reservations
-version: 0.1.0
+version: 0.1.1
 provenance:
   source_commit: f0a9b6578087e61dd0c7799d95ff0050627f95d6
   generated_on: '2026-07-24'
@@ -119,7 +119,7 @@ engineering_assumptions:
   - probability distribution
   - domain-specific concrete class
   impact:
-    prototype_ir: prototype IR remains deferred until feature identity is reviewed
+    prototype_ir: opaque structural IR preserves unresolved feature identity and boundary without scientific interpretation
     implementation: no production representation is authorized
   reversible: true
   status: provisional_engineering_assumption
@@ -165,8 +165,8 @@ readiness:
   ready_for_complete_scientific_contract: false
   ready_for_limited_engineering_contract: true
   ready_for_canonical_ir: false
-  ready_for_prototype_ir: false
+  ready_for_prototype_ir: true
   ready_for_production_implementation: false
-  ready_for_reference_prototype: false
-  human_validation_required_before_prototype_work: true
+  ready_for_reference_prototype: true
+  human_validation_required_before_prototype_work: false
   human_validation_required_before_canonical_release: true

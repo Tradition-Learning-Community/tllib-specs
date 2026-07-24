@@ -1,11 +1,11 @@
 schema_version: 1
 batch_id: TLC-LCEB-HUIT-DIMENSIONS-001
-status: targeted_plan_only_no_ir_created
+status: completed_with_prototype_ir_reservations
 features:
 - feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001
   contract_id: TLC-LEC-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001-001
   ready_for_prototype_ir: true
-  prototype_ir_kind: engineering_prototype_with_opaque_types
+  prototype_ir_kind: prototype_ir_with_reservations
   expected_operations:
   - opaque_constraint_check
   required_types:
@@ -24,10 +24,13 @@ features:
   blocking_reason: null
 - feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002
   contract_id: TLC-LEC-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002-001
-  ready_for_prototype_ir: false
-  prototype_ir_kind: null
-  expected_operations: []
-  required_types: []
+  ready_for_prototype_ir: true
+  prototype_ir_kind: prototype_ir_with_reservations
+  expected_operations:
+  - preserve_opaque_unresolved_feature_record
+  required_types:
+  - OpaqueFeatureEvidence[ScientificObjectId, ScientificRelationId, ReservationId]
+  - OpaquePrototypeResult[FeatureId]
   reservations_to_propagate:
   - TLC-UNRES-HUIT-002-TYPE
   - TLC-UNRES-HUIT-002-SIGNATURE
@@ -38,12 +41,12 @@ features:
   - TLC-UNRES-HUIT-002-ORACLE
   - TLC-UNRES-HUIT-002-BOUNDARY
   - TLC-UNRES-HUIT-002-IDENTITY
-  parallel_group: deferred-boundary-review
-  blocking_reason: scientific feature identity or boundary remains not_yet_determinable
+  parallel_group: prototype-ready-independent
+  blocking_reason: null
 - feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005
   contract_id: TLC-LEC-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005-001
   ready_for_prototype_ir: true
-  prototype_ir_kind: engineering_prototype_with_opaque_types
+  prototype_ir_kind: prototype_ir_with_reservations
   expected_operations:
   - opaque_evaluation
   required_types:
@@ -63,7 +66,7 @@ features:
 - feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006
   contract_id: TLC-LEC-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006-001
   ready_for_prototype_ir: true
-  prototype_ir_kind: engineering_prototype_with_opaque_types
+  prototype_ir_kind: prototype_ir_with_reservations
   expected_operations:
   - opaque_evaluation
   required_types:
@@ -83,7 +86,7 @@ features:
 - feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007
   contract_id: TLC-LEC-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007-001
   ready_for_prototype_ir: true
-  prototype_ir_kind: engineering_prototype_with_opaque_types
+  prototype_ir_kind: prototype_ir_with_reservations
   expected_operations:
   - opaque_invariant_check
   required_types:
@@ -102,10 +105,13 @@ features:
   blocking_reason: null
 - feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008
   contract_id: TLC-LEC-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008-001
-  ready_for_prototype_ir: false
-  prototype_ir_kind: null
-  expected_operations: []
-  required_types: []
+  ready_for_prototype_ir: true
+  prototype_ir_kind: prototype_ir_with_reservations
+  expected_operations:
+  - preserve_opaque_unresolved_feature_record
+  required_types:
+  - OpaqueFeatureEvidence[ScientificObjectId, ScientificRelationId, ReservationId]
+  - OpaquePrototypeResult[FeatureId]
   reservations_to_propagate:
   - TLC-UNRES-HUIT-008-TYPE
   - TLC-UNRES-HUIT-008-SIGNATURE
@@ -116,14 +122,17 @@ features:
   - TLC-UNRES-HUIT-008-ORACLE
   - TLC-UNRES-HUIT-008-BOUNDARY
   - TLC-UNRES-HUIT-008-IDENTITY
-  parallel_group: deferred-boundary-review
-  blocking_reason: scientific feature identity or boundary remains not_yet_determinable
+  parallel_group: prototype-ready-independent
+  blocking_reason: null
 - feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009
   contract_id: TLC-LEC-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009-001
-  ready_for_prototype_ir: false
-  prototype_ir_kind: null
-  expected_operations: []
-  required_types: []
+  ready_for_prototype_ir: true
+  prototype_ir_kind: prototype_ir_with_reservations
+  expected_operations:
+  - preserve_opaque_unresolved_feature_record
+  required_types:
+  - OpaqueFeatureEvidence[ScientificObjectId, ScientificRelationId, ReservationId]
+  - OpaquePrototypeResult[FeatureId]
   reservations_to_propagate:
   - TLC-UNRES-HUIT-009-TYPE
   - TLC-UNRES-HUIT-009-SIGNATURE
@@ -134,12 +143,12 @@ features:
   - TLC-UNRES-HUIT-009-ORACLE
   - TLC-UNRES-HUIT-009-BOUNDARY
   - TLC-UNRES-HUIT-009-IDENTITY
-  parallel_group: deferred-boundary-review
-  blocking_reason: scientific feature identity or boundary remains not_yet_determinable
+  parallel_group: prototype-ready-independent
+  blocking_reason: null
 - feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010
   contract_id: TLC-LEC-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010-001
   ready_for_prototype_ir: true
-  prototype_ir_kind: engineering_prototype_with_opaque_types
+  prototype_ir_kind: prototype_ir_with_reservations
   expected_operations:
   - opaque_evaluation
   required_types:
@@ -158,10 +167,13 @@ features:
   blocking_reason: null
 - feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011
   contract_id: TLC-LEC-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011-001
-  ready_for_prototype_ir: false
-  prototype_ir_kind: null
-  expected_operations: []
-  required_types: []
+  ready_for_prototype_ir: true
+  prototype_ir_kind: prototype_ir_with_reservations
+  expected_operations:
+  - preserve_opaque_unresolved_feature_record
+  required_types:
+  - OpaqueFeatureEvidence[ScientificObjectId, ScientificRelationId, ReservationId]
+  - OpaquePrototypeResult[FeatureId]
   reservations_to_propagate:
   - TLC-UNRES-HUIT-011-TYPE
   - TLC-UNRES-HUIT-011-SIGNATURE
@@ -172,14 +184,17 @@ features:
   - TLC-UNRES-HUIT-011-ORACLE
   - TLC-UNRES-HUIT-011-BOUNDARY
   - TLC-UNRES-HUIT-011-IDENTITY
-  parallel_group: deferred-boundary-review
-  blocking_reason: scientific feature identity or boundary remains not_yet_determinable
+  parallel_group: prototype-ready-independent
+  blocking_reason: null
 - feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012
   contract_id: TLC-LEC-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012-001
-  ready_for_prototype_ir: false
-  prototype_ir_kind: null
-  expected_operations: []
-  required_types: []
+  ready_for_prototype_ir: true
+  prototype_ir_kind: prototype_ir_with_reservations
+  expected_operations:
+  - preserve_opaque_unresolved_feature_record
+  required_types:
+  - OpaqueFeatureEvidence[ScientificObjectId, ScientificRelationId, ReservationId]
+  - OpaquePrototypeResult[FeatureId]
   reservations_to_propagate:
   - TLC-UNRES-HUIT-012-TYPE
   - TLC-UNRES-HUIT-012-SIGNATURE
@@ -190,14 +205,17 @@ features:
   - TLC-UNRES-HUIT-012-ORACLE
   - TLC-UNRES-HUIT-012-BOUNDARY
   - TLC-UNRES-HUIT-012-IDENTITY
-  parallel_group: deferred-boundary-review
-  blocking_reason: scientific feature identity or boundary remains not_yet_determinable
+  parallel_group: prototype-ready-independent
+  blocking_reason: null
 - feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013
   contract_id: TLC-LEC-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013-001
-  ready_for_prototype_ir: false
-  prototype_ir_kind: null
-  expected_operations: []
-  required_types: []
+  ready_for_prototype_ir: true
+  prototype_ir_kind: prototype_ir_with_reservations
+  expected_operations:
+  - preserve_opaque_unresolved_feature_record
+  required_types:
+  - OpaqueFeatureEvidence[ScientificObjectId, ScientificRelationId, ReservationId]
+  - OpaquePrototypeResult[FeatureId]
   reservations_to_propagate:
   - TLC-UNRES-HUIT-013-TYPE
   - TLC-UNRES-HUIT-013-SIGNATURE
@@ -208,13 +226,19 @@ features:
   - TLC-UNRES-HUIT-013-ORACLE
   - TLC-UNRES-HUIT-013-BOUNDARY
   - TLC-UNRES-HUIT-013-IDENTITY
-  parallel_group: deferred-boundary-review
-  blocking_reason: scientific feature identity or boundary remains not_yet_determinable
+  parallel_group: prototype-ready-independent
+  blocking_reason: null
 parallelizable_features:
 - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001
+- TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002
 - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005
 - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006
 - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007
+- TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008
+- TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009
 - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010
+- TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011
+- TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012
+- TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013
 canonical_ir_authorized: false
 production_implementation_authorized: false
