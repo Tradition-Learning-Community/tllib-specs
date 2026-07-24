@@ -1,0 +1,54 @@
+schema_version: 1
+contract_id: TLC-LEC-TLC-FC-06-THEOREMS-007-001
+feature_id: TLC-FC-06-THEOREMS-007
+contract_kind: limited_engineering_contract_with_reservations
+scientific_authority: origin/main@f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+status: prototype_boundary_only
+source_references: [maths/06-theorems.md:1-5, maths/06-theorems.md:18-21]
+objects_covered: [TLC-SO-THEOREMS-001, TLC-SO-THEOREMS-012, TLC-SO-THEOREMS-013, TLC-SO-THEOREMS-015]
+relations_covered: [TLC-SR-THEOREMS-011, TLC-SR-THEOREMS-012, TLC-SR-THEOREMS-014]
+relations_contextual_only: []
+inputs:
+  - {name: source_payload, type: "OpaqueScientificPayload<TLC-FC-06-THEOREMS-007>"}
+outputs:
+  - {name: candidate_result, type: "OpaqueCandidateResult<TLC-FC-06-THEOREMS-007>"}
+types:
+  opaque: [OpaqueScientificPayload, OpaqueCandidateResult]
+  parameterized: ["OpaqueScientificPayload<TFeature>", "OpaqueCandidateResult<TFeature>"]
+preconditions:
+  - Payload preserves its feature and source identity.
+postconditions:
+  - Result remains opaque and traceable; no scientific truth value is inferred.
+invariants_explicitly_sourced: []
+errors_or_undefined_behavior:
+  - Missing feature or source identity is an engineering validation error.
+  - Scientific evaluation, numeric value, ordering, cardinality, units and precision are undefined.
+unresolved_propagated: [TLC-UT-THEOREMS-002, TLC-UT-THEOREMS-003, TLC-UT-THEOREMS-004]
+provisional_assumptions: [TLC-EA-THEOREMS-007-001]
+scientific_reservations:
+  - Source semantics and proof completeness remain unchanged and unresolved.
+  - This contract does not promote candidate objects, relations, or theorem claims.
+strong_dependencies_explicitly_confirmed: []
+documentary_references:
+  - registry/domain-progress/theorems/feature-inventory.yaml
+  - registry/domain-progress/theorems/feature-status.yaml
+  - registry/domain-progress/theorems/result-semantics.yaml
+traceability:
+  feature_kind: state_representation
+  source_objects: [TLC-SO-THEOREMS-001, TLC-SO-THEOREMS-012, TLC-SO-THEOREMS-013, TLC-SO-THEOREMS-015]
+  source_relations: [TLC-SR-THEOREMS-011, TLC-SR-THEOREMS-012, TLC-SR-THEOREMS-014]
+validation_criteria:
+  - All identifiers resolve in the domain preparation.
+  - Every scientific unresolved attached to the feature is propagated unchanged.
+  - Contract and IR use only opaque, reversible engineering representations.
+readiness:
+  ready_for_limited_engineering_contract: true
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false
+  human_validation_required_before_prototype_work: false
+  human_validation_required_before_canonical_release: true
+
+

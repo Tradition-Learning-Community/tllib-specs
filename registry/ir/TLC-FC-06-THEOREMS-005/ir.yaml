@@ -1,0 +1,46 @@
+schema_version: 1
+ir_id: TLC-PIR-TLC-FC-06-THEOREMS-005-001
+feature_id: TLC-FC-06-THEOREMS-005
+contract_id: TLC-LEC-TLC-FC-06-THEOREMS-005-001
+ir_kind: prototype_ir_with_reservations
+inputs:
+  - {name: source_payload, type: "OpaqueScientificPayload<TLC-FC-06-THEOREMS-005>"}
+outputs:
+  - {name: candidate_result, type: "OpaqueCandidateResult<TLC-FC-06-THEOREMS-005>"}
+opaque_types: [OpaqueScientificPayload, OpaqueCandidateResult]
+parameterized_types: ["OpaqueScientificPayload<TFeature>", "OpaqueCandidateResult<TFeature>"]
+operations:
+  - operation_id: opaque_operator_declaration
+    semantics: Preserve payload identity and emit an unevaluated, traceable candidate result.
+    scientific_evaluation: forbidden
+control_flow: []
+preconditions:
+  - Input feature_id equals TLC-FC-06-THEOREMS-005.
+  - Source references are present.
+postconditions:
+  - Output retains feature_id and source references.
+  - Output contains no inferred scientific value.
+invariants: []
+errors:
+  - INVALID_FEATURE_ID
+  - MISSING_SOURCE_TRACE
+unresolved_propagated: []
+provisional_assumptions_propagated: [TLC-EA-THEOREMS-005-001]
+traceability:
+  contract: registry/math-contracts/TLC-FC-06-THEOREMS-005/contract.yaml
+  sources: [maths/06-theorems.md:54-55, maths/06-theorems.md:66-67]
+determinism_status: deterministic_identity_and_trace_envelope_only
+testability_status: structurally_testable_without_scientific_oracle
+implementation_constraints:
+  - Do not evaluate theorem truth, equations, operators, dynamics, or proofs.
+  - Do not assign concrete numeric, temporal, ordered, probabilistic, or dimensional semantics.
+  - Preserve opaque payload bytes or symbolic nodes without interpretation.
+readiness:
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false
+  blocks_all_prototype_progress: false
+
+

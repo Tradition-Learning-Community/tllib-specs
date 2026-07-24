@@ -1,0 +1,20 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-06-THEOREMS-007-001
+feature_id: TLC-FC-06-THEOREMS-007
+ir_id: TLC-PIR-TLC-FC-06-THEOREMS-007-001
+status: planned
+tests:
+  - {id: TYPE-001, kind: type_validation, assertion: reject payloads without opaque feature typing}
+  - {id: PRE-001, kind: precondition, assertion: reject a mismatched feature identifier}
+  - {id: ERR-001, kind: error, assertion: return MISSING_SOURCE_TRACE when trace data is absent}
+  - {id: DET-001, kind: determinism, assertion: identical opaque envelope inputs produce identical trace envelopes}
+  - {id: OPAQUE-001, kind: opacity, assertion: preserve opaque payload without scientific evaluation}
+  - {id: ID-001, kind: identifier_stability, assertion: preserve feature contract and IR identifiers}
+  - {id: TRACE-001, kind: traceability, assertion: retain every cited source reference}
+  - {id: RES-001, kind: reservation_non_resolution, assertion: propagate unresolved identifiers without resolving them}
+  - {id: CONF-001, kind: contract_ir_conformance, assertion: IR input output and readiness match the contract}
+  - {id: INT-001, kind: minimal_integration, assertion: contract to IR to result trace remains connected}
+numeric_expected_results: forbidden
+implementation_status: no_test_code_created
+
+
