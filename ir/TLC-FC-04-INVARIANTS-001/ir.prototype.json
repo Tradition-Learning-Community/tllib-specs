@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "ir_id": "TLC-IR-TLC-FC-04-INVARIANTS-001-PROTOTYPE-001",
+  "feature_id": "TLC-FC-04-INVARIANTS-001",
+  "contract_id": "TLC-LEC-TLC-FC-04-INVARIANTS-001-001",
+  "domain": "invariants",
+  "ir_kind": "prototype_ir_with_reservations",
+  "scientific_status": "noncanonical_engineering_prototype",
+  "catalogue_status_preserved": "retained_with_reservations",
+  "inputs": [
+    {
+      "id": "IR-IN-001",
+      "type": "OpaqueFeatureEvidence[ScientificObjectId, ScientificRelationId]"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "IR-OUT-001",
+      "type": "OpaquePrototypeResult",
+      "evaluated": false
+    }
+  ],
+  "opaque_types": [
+    "ScientificObjectValue",
+    "ScientificRelationValue",
+    "OpaquePrototypeResult"
+  ],
+  "parameterized_types": [
+    "OpaqueFeatureEvidence[ScientificObjectId, ScientificRelationId]"
+  ],
+  "operations": [
+    {
+      "operation_id": "IR-OP-INVARIANTS-001-001",
+      "kind": "validate_opaque_constraint_record",
+      "evaluation": "uninterpreted",
+      "preserves": [
+        "scientific identifiers",
+        "source references",
+        "catalogue status",
+        "unresolved identifiers"
+      ]
+    }
+  ],
+  "control_flow": [],
+  "preconditions": [
+    {
+      "id": "PRE-INVARIANTS-001-IDENTITY",
+      "statement": "Every supplied object and relation retains its canonical candidate identifier."
+    },
+    {
+      "id": "PRE-INVARIANTS-001-SOURCE",
+      "statement": "Every supplied identifier exists in the cited domain preparation."
+    }
+  ],
+  "postconditions": [
+    {
+      "id": "POST-INVARIANTS-001-TRACE",
+      "statement": "The result retains feature, object, relation, unresolved, and assumption traceability."
+    },
+    {
+      "id": "POST-INVARIANTS-001-NO-PROMOTION",
+      "statement": "The result does not assert scientific validity or resolve a reservation."
+    }
+  ],
+  "invariants": [
+    {
+      "id": "TLC-SO-INVARIANTS-010",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-032",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-033",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-046",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    }
+  ],
+  "errors": [
+    {
+      "id": "FAIL-INVARIANTS-001-MISSING-ID",
+      "condition": "A referenced scientific identifier is absent."
+    },
+    {
+      "id": "FAIL-INVARIANTS-001-INVENTION",
+      "condition": "An unspecified type, dimension, unit, order, cardinality, temporal, numeric, probabilistic, or algorithmic property is asserted."
+    },
+    {
+      "id": "FAIL-INVARIANTS-001-PROMOTION",
+      "condition": "Candidate, rejected, deferred, or unresolved evidence is presented as canonical science."
+    }
+  ],
+  "unresolved_propagated": [],
+  "provisional_assumptions_propagated": [
+    "TLC-EA-INVARIANTS-001-001"
+  ],
+  "traceability": {
+    "contract": "registry/math-contracts/TLC-FC-04-INVARIANTS-001/contract.yaml",
+    "source_objects": [
+      "TLC-SO-INVARIANTS-010",
+      "TLC-SO-INVARIANTS-032",
+      "TLC-SO-INVARIANTS-033",
+      "TLC-SO-INVARIANTS-046"
+    ],
+    "source_relations": [
+      "TLC-SR-INVARIANTS-009",
+      "TLC-SR-INVARIANTS-031",
+      "TLC-SR-INVARIANTS-032",
+      "TLC-SR-INVARIANTS-045"
+    ]
+  },
+  "determinism_status": "deterministic_structure_only_scientific_evaluation_uninterpreted",
+  "testability_status": "structural_and_traceability_tests_ready",
+  "implementation_constraints": [
+    "Do not evaluate scientific truth.",
+    "Do not assign concrete numeric, temporal, probabilistic, dimensional, cardinality, unit, order, symmetry, or transitivity semantics.",
+    "Reject loss of identifiers, unresolved reservations, or catalogue status."
+  ],
+  "readiness": {
+    "ready_for_limited_engineering_contract": true,
+    "ready_for_prototype_ir": true,
+    "ready_for_reference_python": true,
+    "ready_for_cpp_prototype": true,
+    "ready_for_canonical_ir": false,
+    "ready_for_production_implementation": false
+  },
+  "blocks_all_prototype_progress": false
+}

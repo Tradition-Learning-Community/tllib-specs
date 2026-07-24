@@ -1,0 +1,42 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-04-INVARIANTS-005-PROTOTYPE-001
+feature_id: TLC-FC-04-INVARIANTS-005
+contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-005-001
+ir_id: TLC-IR-TLC-FC-04-INVARIANTS-005-PROTOTYPE-001
+scope: prototype_ir_structural_validation_only
+tests:
+- id: TEST-005-TYPE
+  category: type_validation
+  assertion: Opaque and parameterized boundary types are accepted without scientific interpretation.
+- id: TEST-005-SHAPE
+  category: shape_validation
+  assertion: Required feature, object, relation, unresolved, and assumption identifier collections are present.
+- id: TEST-005-PRE
+  category: preconditions
+  assertion: Missing or unknown identifiers are rejected.
+- id: TEST-005-ERROR
+  category: errors
+  assertion: Scientific promotion or introduction of unspecified semantics is rejected.
+- id: TEST-005-INVARIANT
+  category: invariants
+  assertion: Candidate scientific object identities remain distinct and unchanged.
+- id: TEST-005-DETERMINISM
+  category: determinism
+  assertion: Identical opaque records produce structurally identical unevaluated results.
+- id: TEST-005-OPAQUE
+  category: opaque_propagation
+  assertion: Opaque values pass through without coercion or evaluation.
+- id: TEST-005-TRACE
+  category: traceability
+  assertion: Contract, source, object, relation, unresolved, and assumption references are preserved.
+- id: TEST-005-RESERVE
+  category: non_resolution
+  assertion: No reservation is marked resolved and catalogue status is unchanged.
+- id: TEST-005-CONFORM
+  category: contract_ir_conformance
+  assertion: IR inputs, outputs, failures, unresolved, assumption, and readiness agree with the contract.
+- id: TEST-005-INTEGRATION
+  category: minimal_integration
+  assertion: A contract record can be bound to its IR and test plan solely by stable identifiers.
+numeric_expected_results: []
+implementation_status: planned_not_implemented

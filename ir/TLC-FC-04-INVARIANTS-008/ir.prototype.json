@@ -1,0 +1,260 @@
+{
+  "schema_version": 1,
+  "ir_id": "TLC-IR-TLC-FC-04-INVARIANTS-008-PROTOTYPE-001",
+  "feature_id": "TLC-FC-04-INVARIANTS-008",
+  "contract_id": "TLC-LEC-TLC-FC-04-INVARIANTS-008-001",
+  "domain": "invariants",
+  "ir_kind": "prototype_ir_with_reservations",
+  "scientific_status": "noncanonical_engineering_prototype",
+  "catalogue_status_preserved": "deferred_for_targeted_extraction",
+  "inputs": [
+    {
+      "id": "IR-IN-008",
+      "type": "OpaqueFeatureEvidence[ScientificObjectId, ScientificRelationId]"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "IR-OUT-008",
+      "type": "OpaquePrototypeResult",
+      "evaluated": false
+    }
+  ],
+  "opaque_types": [
+    "ScientificObjectValue",
+    "ScientificRelationValue",
+    "OpaquePrototypeResult"
+  ],
+  "parameterized_types": [
+    "OpaqueFeatureEvidence[ScientificObjectId, ScientificRelationId]"
+  ],
+  "operations": [
+    {
+      "operation_id": "IR-OP-INVARIANTS-008-001",
+      "kind": "construct_opaque_state_record",
+      "evaluation": "uninterpreted",
+      "preserves": [
+        "scientific identifiers",
+        "source references",
+        "catalogue status",
+        "unresolved identifiers"
+      ]
+    }
+  ],
+  "control_flow": [],
+  "preconditions": [
+    {
+      "id": "PRE-INVARIANTS-008-IDENTITY",
+      "statement": "Every supplied object and relation retains its canonical candidate identifier."
+    },
+    {
+      "id": "PRE-INVARIANTS-008-SOURCE",
+      "statement": "Every supplied identifier exists in the cited domain preparation."
+    }
+  ],
+  "postconditions": [
+    {
+      "id": "POST-INVARIANTS-008-TRACE",
+      "statement": "The result retains feature, object, relation, unresolved, and assumption traceability."
+    },
+    {
+      "id": "POST-INVARIANTS-008-NO-PROMOTION",
+      "statement": "The result does not assert scientific validity or resolve a reservation."
+    }
+  ],
+  "invariants": [
+    {
+      "id": "TLC-SO-INVARIANTS-001",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-041",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-050",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-051",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-052",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-054",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-059",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-061",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-063",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-066",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-067",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-069",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    }
+  ],
+  "errors": [
+    {
+      "id": "FAIL-INVARIANTS-008-MISSING-ID",
+      "condition": "A referenced scientific identifier is absent."
+    },
+    {
+      "id": "FAIL-INVARIANTS-008-INVENTION",
+      "condition": "An unspecified type, dimension, unit, order, cardinality, temporal, numeric, probabilistic, or algorithmic property is asserted."
+    },
+    {
+      "id": "FAIL-INVARIANTS-008-PROMOTION",
+      "condition": "Candidate, rejected, deferred, or unresolved evidence is presented as canonical science."
+    }
+  ],
+  "unresolved_propagated": [
+    "TLC-UT-INVARIANTS-001",
+    "TLC-UT-INVARIANTS-002",
+    "TLC-UT-INVARIANTS-003",
+    "TLC-UT-INVARIANTS-004",
+    "TLC-UT-INVARIANTS-005",
+    "TLC-UT-INVARIANTS-006",
+    "TLC-UT-INVARIANTS-007",
+    "TLC-UT-INVARIANTS-008",
+    "TLC-UT-INVARIANTS-010",
+    "TLC-UT-INVARIANTS-011",
+    "TLC-UT-INVARIANTS-012"
+  ],
+  "provisional_assumptions_propagated": [
+    "TLC-EA-INVARIANTS-008-001"
+  ],
+  "traceability": {
+    "contract": "registry/math-contracts/TLC-FC-04-INVARIANTS-008/contract.yaml",
+    "source_objects": [
+      "TLC-SO-INVARIANTS-001",
+      "TLC-SO-INVARIANTS-041",
+      "TLC-SO-INVARIANTS-050",
+      "TLC-SO-INVARIANTS-051",
+      "TLC-SO-INVARIANTS-052",
+      "TLC-SO-INVARIANTS-054",
+      "TLC-SO-INVARIANTS-059",
+      "TLC-SO-INVARIANTS-061",
+      "TLC-SO-INVARIANTS-063",
+      "TLC-SO-INVARIANTS-066",
+      "TLC-SO-INVARIANTS-067",
+      "TLC-SO-INVARIANTS-069"
+    ],
+    "source_relations": [
+      "TLC-SR-INVARIANTS-001",
+      "TLC-SR-INVARIANTS-002",
+      "TLC-SR-INVARIANTS-003",
+      "TLC-SR-INVARIANTS-004",
+      "TLC-SR-INVARIANTS-005",
+      "TLC-SR-INVARIANTS-006",
+      "TLC-SR-INVARIANTS-007",
+      "TLC-SR-INVARIANTS-008",
+      "TLC-SR-INVARIANTS-009",
+      "TLC-SR-INVARIANTS-010",
+      "TLC-SR-INVARIANTS-011",
+      "TLC-SR-INVARIANTS-012",
+      "TLC-SR-INVARIANTS-013",
+      "TLC-SR-INVARIANTS-014",
+      "TLC-SR-INVARIANTS-015",
+      "TLC-SR-INVARIANTS-016",
+      "TLC-SR-INVARIANTS-017",
+      "TLC-SR-INVARIANTS-018",
+      "TLC-SR-INVARIANTS-019",
+      "TLC-SR-INVARIANTS-020",
+      "TLC-SR-INVARIANTS-021",
+      "TLC-SR-INVARIANTS-022",
+      "TLC-SR-INVARIANTS-023",
+      "TLC-SR-INVARIANTS-024",
+      "TLC-SR-INVARIANTS-025",
+      "TLC-SR-INVARIANTS-026",
+      "TLC-SR-INVARIANTS-027",
+      "TLC-SR-INVARIANTS-028",
+      "TLC-SR-INVARIANTS-029",
+      "TLC-SR-INVARIANTS-030",
+      "TLC-SR-INVARIANTS-031",
+      "TLC-SR-INVARIANTS-032",
+      "TLC-SR-INVARIANTS-033",
+      "TLC-SR-INVARIANTS-034",
+      "TLC-SR-INVARIANTS-035",
+      "TLC-SR-INVARIANTS-036",
+      "TLC-SR-INVARIANTS-037",
+      "TLC-SR-INVARIANTS-038",
+      "TLC-SR-INVARIANTS-039",
+      "TLC-SR-INVARIANTS-040",
+      "TLC-SR-INVARIANTS-041",
+      "TLC-SR-INVARIANTS-042",
+      "TLC-SR-INVARIANTS-043",
+      "TLC-SR-INVARIANTS-044",
+      "TLC-SR-INVARIANTS-045",
+      "TLC-SR-INVARIANTS-046",
+      "TLC-SR-INVARIANTS-047",
+      "TLC-SR-INVARIANTS-048",
+      "TLC-SR-INVARIANTS-049",
+      "TLC-SR-INVARIANTS-050",
+      "TLC-SR-INVARIANTS-051",
+      "TLC-SR-INVARIANTS-052",
+      "TLC-SR-INVARIANTS-053",
+      "TLC-SR-INVARIANTS-054",
+      "TLC-SR-INVARIANTS-055",
+      "TLC-SR-INVARIANTS-056",
+      "TLC-SR-INVARIANTS-057",
+      "TLC-SR-INVARIANTS-058",
+      "TLC-SR-INVARIANTS-059",
+      "TLC-SR-INVARIANTS-060",
+      "TLC-SR-INVARIANTS-061",
+      "TLC-SR-INVARIANTS-062",
+      "TLC-SR-INVARIANTS-063",
+      "TLC-SR-INVARIANTS-064",
+      "TLC-SR-INVARIANTS-065",
+      "TLC-SR-INVARIANTS-066",
+      "TLC-SR-INVARIANTS-067",
+      "TLC-SR-INVARIANTS-068"
+    ]
+  },
+  "determinism_status": "deterministic_structure_only_scientific_evaluation_uninterpreted",
+  "testability_status": "structural_and_traceability_tests_ready",
+  "implementation_constraints": [
+    "Do not evaluate scientific truth.",
+    "Do not assign concrete numeric, temporal, probabilistic, dimensional, cardinality, unit, order, symmetry, or transitivity semantics.",
+    "Reject loss of identifiers, unresolved reservations, or catalogue status."
+  ],
+  "readiness": {
+    "ready_for_limited_engineering_contract": true,
+    "ready_for_prototype_ir": true,
+    "ready_for_reference_python": true,
+    "ready_for_cpp_prototype": true,
+    "ready_for_canonical_ir": false,
+    "ready_for_production_implementation": false
+  },
+  "blocks_all_prototype_progress": false
+}

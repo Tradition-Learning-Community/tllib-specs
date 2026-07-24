@@ -1,0 +1,124 @@
+schema_version: 1
+contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-005-001
+feature_id: TLC-FC-04-INVARIANTS-005
+domain: invariants
+canonical_name: '04-invariants: invariant (provisionally_separated)'
+contract_kind: limited_engineering_contract
+scientific_authority: origin/main
+limited_engineering_contract: true
+complete_scientific_contract: false
+status: limited_engineering_contract_with_reservations
+version: 0.1.0
+provenance:
+  source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+  generated_on: '2026-07-24'
+  sources:
+  - registry/domain-progress/invariants/feature-inventory.yaml
+  - registry/domain-progress/invariants/feature-classification.yaml
+  - registry/domain-progress/invariants/feature-status.yaml
+  - registry/domain-progress/invariants/contract-production-plan.yaml
+  - registry/domain-progress/invariants/ir-production-plan.yaml
+  - registry/domain-progress/invariants/unresolved-status.yaml
+  - registry/domain-progress/invariants/invariant-semantics.yaml
+  - registry/scientific-objects/invariants/scientific-objects.candidate.yaml
+  - registry/scientific-objects/invariants/scientific-relations.candidate.yaml
+  - maths/04-invariants.md
+  source_locations:
+  - source_path: maths/04-invariants.md
+    section: Invariants du Maître
+    subsection: Invariant structural $\mathcal{I}_{\mathrm{struct}}$
+    start_line: 49
+    end_line: 49
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Invariant de conservation de l’identité $\mathcal{I}_{\mathrm{ident}}$
+    start_line: 87
+    end_line: 87
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants du Disciple
+    subsection: Invariant de résonance $\mathcal{I}_{\mathrm{res}}$
+    start_line: 100
+    end_line: 100
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+catalogue_status_preserved: deferred_for_scientific_decision
+scientific_objects_covered: &id001
+- TLC-SO-INVARIANTS-031
+- TLC-SO-INVARIANTS-044
+- TLC-SO-INVARIANTS-049
+scientific_relations_covered: &id002
+- TLC-SR-INVARIANTS-030
+- TLC-SR-INVARIANTS-043
+- TLC-SR-INVARIANTS-048
+contextual_relations_not_covered: []
+limited_functional_purpose: Expose a minimal opaque, source-traceable interface; preserve candidate or rejected status and
+  do not complete missing science.
+inputs:
+- input_id: INPUT-INVARIANTS-005-EVIDENCE
+  type: OpaqueFeatureEvidence[ScientificObjectId, ScientificRelationId]
+  objects: *id001
+  relations: *id002
+outputs:
+- output_id: OUTPUT-INVARIANTS-005-CANDIDATE
+  type: OpaquePrototypeResult
+  semantics: unevaluated_and_noncanonical
+types:
+  opaque:
+  - ScientificObjectValue
+  - ScientificRelationValue
+  - OpaquePrototypeResult
+  parameterized:
+  - OpaqueFeatureEvidence[ScientificObjectId, ScientificRelationId]
+preconditions:
+- id: PRE-INVARIANTS-005-IDENTITY
+  statement: Every supplied object and relation retains its canonical candidate identifier.
+- id: PRE-INVARIANTS-005-SOURCE
+  statement: Every supplied identifier exists in the cited domain preparation.
+postconditions:
+- id: POST-INVARIANTS-005-TRACE
+  statement: The result retains feature, object, relation, unresolved, and assumption traceability.
+- id: POST-INVARIANTS-005-NO-PROMOTION
+  statement: The result does not assert scientific validity or resolve a reservation.
+invariants_explicitly_sourced:
+- id: TLC-SO-INVARIANTS-031
+  status: candidate_scientific_object_preserved
+  source: registry/scientific-objects/invariants/scientific-objects.candidate.yaml
+- id: TLC-SO-INVARIANTS-044
+  status: candidate_scientific_object_preserved
+  source: registry/scientific-objects/invariants/scientific-objects.candidate.yaml
+- id: TLC-SO-INVARIANTS-049
+  status: candidate_scientific_object_preserved
+  source: registry/scientific-objects/invariants/scientific-objects.candidate.yaml
+undefined_or_error_cases:
+- id: FAIL-INVARIANTS-005-MISSING-ID
+  condition: A referenced scientific identifier is absent.
+- id: FAIL-INVARIANTS-005-INVENTION
+  condition: An unspecified type, dimension, unit, order, cardinality, temporal, numeric, probabilistic, or algorithmic property
+    is asserted.
+- id: FAIL-INVARIANTS-005-PROMOTION
+  condition: Candidate, rejected, deferred, or unresolved evidence is presented as canonical science.
+unresolved_propagated: []
+provisional_engineering_assumptions:
+- TLC-EA-INVARIANTS-005-001
+scientific_reservations:
+- scientific semantics remain exactly at preparation status
+- no truth evaluator or formula is supplied
+- types, dimensions, units, ordering, cardinality, time, and numeric precision remain unspecified
+strong_dependencies_confirmed: []
+documentary_references:
+- master
+- disciple
+traceability: registry/math-contracts/TLC-FC-04-INVARIANTS-005/traceability.yaml
+validation_criteria:
+- all covered identifiers exist in domain preparation
+- all mapped unresolved identifiers are propagated
+- the provisional assumption is propagated to prototype IR
+- catalogue status is preserved without scientific promotion
+readiness:
+  ready_for_limited_engineering_contract: true
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false
