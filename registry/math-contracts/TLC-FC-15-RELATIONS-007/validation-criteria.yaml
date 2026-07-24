@@ -1,0 +1,16 @@
+schema_version: 1
+contract_id: TLC-LC-TLC-FC-15-RELATIONS-007-001
+feature_id: TLC-FC-15-RELATIONS-007
+limited_contract: true
+criteria:
+  - {id: VAL-RELATIONS-007-MARKER, requirement: contract_kind and limited_contract explicitly mark a limited contract}
+  - {id: VAL-RELATIONS-007-SCOPE, requirement: exactly the five planned source objects are covered}
+  - {id: VAL-RELATIONS-007-RELATIONS, requirement: no scientific relation is claimed as covered behavior}
+  - {id: VAL-RELATIONS-007-SOURCES, requirement: all exact source lines and commits are present}
+  - {id: VAL-RELATIONS-007-UNRESOLVED, requirement: all 12 received unresolved items are propagated without promotion}
+  - {id: VAL-RELATIONS-007-ENDPOINTS, requirement: endpoint identity is not inferred}
+  - {id: VAL-RELATIONS-007-DEPENDENCIES, requirement: no documentary dependency is a strong prerequisite}
+  - {id: VAL-RELATIONS-007-NONINVENTION, requirement: no missing scientific or execution property is selected}
+  - {id: VAL-RELATIONS-007-READINESS, requirement: ready_for_ir and ready_for_implementation_planning remain false}
+  - {id: VAL-RELATIONS-007-NO-IR, requirement: no IR or implementation artifact exists in this package}
+acceptance_rule: Every criterion must pass before scientific review; passing does not authorize a full contract, IR, tests, or implementation.

@@ -1,0 +1,84 @@
+schema_version: 1
+contract_id: TLC-LC-TLC-FC-15-RELATIONS-007-001
+feature_id: TLC-FC-15-RELATIONS-007
+domain: relations
+canonical_name: "15-relations: relation (admissible)"
+contract_kind: limited_contract
+limited_contract: true
+status: candidate_with_reservations
+version: 0.1.0
+provenance:
+  authority: origin/main
+  source_commit: ff800dd1e8e87bb8a89d855d8a45c1ff6bbd8cff
+  scientific_source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  targeted_review_commit: a54889e5957941e9576293a2f7439139680ca569
+  generated_on: 2026-07-23
+  sources:
+    - registry/domain-progress/relations/feature-inventory.yaml
+    - registry/domain-progress/relations/feature-classification.yaml
+    - registry/domain-progress/relations/feature-readiness.yaml
+    - registry/domain-progress/relations/contract-production-plan.yaml
+    - registry/global-reconciliation/targeted-readiness-review.yaml
+    - registry/global-reconciliation/dependency-scientific-review.yaml
+    - registry/global-reconciliation/cycle-scientific-review.yaml
+    - registry/scientific-objects/relations/scientific-objects.candidate.yaml
+    - registry/scientific-objects/relations/scientific-relations.candidate.yaml
+    - maths/15-relations.md
+scientific_objects_covered: [TLC-SO-RELATIONS-002, TLC-SO-RELATIONS-009, TLC-SO-RELATIONS-015, TLC-SO-RELATIONS-021, TLC-SO-RELATIONS-027]
+scientific_relations_covered: []
+contextual_relations_not_covered: [TLC-SR-RELATIONS-001, TLC-SR-RELATIONS-008, TLC-SR-RELATIONS-014, TLC-SR-RELATIONS-020, TLC-SR-RELATIONS-026]
+unresolved_received: {source: registry/math-contracts/TLC-FC-15-RELATIONS-007/unresolved.yaml, count: 12}
+unresolved_propagated: {source: registry/math-contracts/TLC-FC-15-RELATIONS-007/unresolved.yaml, count: 12}
+limited_functional_purpose: Preserve the five cited relation objects as distinct, traceable, opaque candidate inputs and expose only candidate evaluation results without inferring endpoint identity or relation semantics.
+inputs:
+  - {input_id: INPUT-RELATIONS-007-002, scientific_object_id: TLC-SO-RELATIONS-002, description: Opaque quantities referenced by Relation Maître‑Message.}
+  - {input_id: INPUT-RELATIONS-007-009, scientific_object_id: TLC-SO-RELATIONS-009, description: Opaque quantities referenced by Relation Maître‑Vertu.}
+  - {input_id: INPUT-RELATIONS-007-015, scientific_object_id: TLC-SO-RELATIONS-015, description: Opaque quantities referenced by Relation Maître‑Valeur.}
+  - {input_id: INPUT-RELATIONS-007-021, scientific_object_id: TLC-SO-RELATIONS-021, description: Opaque quantities referenced by Relation Maître‑Capacité.}
+  - {input_id: INPUT-RELATIONS-007-027, scientific_object_id: TLC-SO-RELATIONS-027, description: Opaque quantities referenced by Relation Maître‑Compétence.}
+outputs:
+  - {output_id: OUTPUT-RELATIONS-007-002, description: Candidate result traceable to TLC-SO-RELATIONS-002; representation and semantics remain unspecified.}
+  - {output_id: OUTPUT-RELATIONS-007-009, description: Candidate result traceable to TLC-SO-RELATIONS-009; representation and semantics remain unspecified.}
+  - {output_id: OUTPUT-RELATIONS-007-015, description: Candidate result traceable to TLC-SO-RELATIONS-015; representation and semantics remain unspecified.}
+  - {output_id: OUTPUT-RELATIONS-007-021, description: Candidate result traceable to TLC-SO-RELATIONS-021; representation and semantics remain unspecified.}
+  - {output_id: OUTPUT-RELATIONS-007-027, description: Candidate result traceable to TLC-SO-RELATIONS-027; representation and semantics remain unspecified.}
+preconditions:
+  - {id: PRE-RELATIONS-007-CANDIDATE, statement: Each covered object is supplied under candidate status with source identity preserved.}
+  - {id: PRE-RELATIONS-007-OPAQUE, statement: Endpoints, types, directions, cardinalities, properties, temporal character, and evaluation semantics remain opaque.}
+  - {id: PRE-RELATIONS-007-UNRESOLVED, statement: Every item in unresolved.yaml remains attached to the contract context.}
+postconditions:
+  - {id: POST-RELATIONS-007-TRACEABLE, statement: Each output remains candidate and traceable to exactly one covered object.}
+  - {id: POST-RELATIONS-007-NO-ENDPOINT-INFERENCE, statement: No endpoint identity or cross-object identity is inferred.}
+  - {id: POST-RELATIONS-007-NO-PROMOTION, statement: No unresolved item, documentary dependency, or contextual relation is promoted.}
+invariants:
+  - {id: INV-RELATIONS-007-DISTINCT, statement: The five covered objects remain distinct.}
+  - {id: INV-RELATIONS-007-SOURCE, statement: Source names and ranges remain unchanged.}
+  - {id: INV-RELATIONS-007-LIMITED, statement: The contract remains a limited_contract and not a complete relational model.}
+constraints:
+  - No endpoint identity, definition, type, dimension, orientation, cardinality, symmetry, transitivity, temporality, equation, algorithm, numerical method, execution structure, or oracle may be invented.
+  - Contextual refers_to relations are traceability evidence only, not covered behavior.
+  - The five grouped objects must not be fused; decomposition remains a full-contract reservation.
+failure_states:
+  - {id: FAIL-RELATIONS-007-MISSING-SOURCE, condition: A covered object or exact source reference is missing.}
+  - {id: FAIL-RELATIONS-007-UNRESOLVED-DROPPED, condition: A received unresolved item is not propagated.}
+  - {id: FAIL-RELATIONS-007-ENDPOINT-INFERRED, condition: An endpoint or identity is inferred beyond the source.}
+  - {id: FAIL-RELATIONS-007-SEMANTIC-INVENTION, condition: An unspecified scientific or execution property is asserted.}
+determinism: {status: unresolved, guarantee: none, reason: No relation-evaluation semantics or oracle is authorized.}
+dependencies: {strong_contractual_prerequisites: [], details: registry/math-contracts/TLC-FC-15-RELATIONS-007/dependencies.yaml}
+explicitly_authorized_hypotheses:
+  - The five covered relation names exist as candidate objects at their cited source lines.
+  - Candidate outputs are opaque, source-traceable placeholders for scientific review only.
+prohibited_decisions:
+  - Infer endpoint identity or a universal relation schema.
+  - Select a type, domain, dimension, direction, cardinality, symmetry, transitivity, or temporality.
+  - Select a numerical method, execution structure, implementation type, or executable oracle.
+  - Fuse the five covered objects or treat contextual refers_to relations as covered semantics.
+  - Treat documentary references or the unresolved 12-domain cycle as guarantees.
+validation_criteria: registry/math-contracts/TLC-FC-15-RELATIONS-007/validation-criteria.yaml
+traceability: registry/math-contracts/TLC-FC-15-RELATIONS-007/traceability.yaml
+readiness:
+  ready_for_scientific_review: true
+  ready_for_full_contract_extension: false
+  ready_for_ir: false
+  ready_for_implementation_planning: false
+  rationale: Only a limited contract is authorized; decomposition, endpoint semantics, oracle, and the global cycle remain unresolved.
