@@ -1,0 +1,103 @@
+schema_version: 1
+contract_id: TLC-LEC-TLC-FC-07-MESSAGE-002-001
+feature_id: TLC-FC-07-MESSAGE-002
+domain: message
+canonical_name: '07-message: invariant (admissible)'
+contract_kind: limited_engineering_contract
+scientific_authority: origin/main
+status: limited_engineering_contract_with_reservations
+complete_scientific_contract: false
+source_references:
+- source_path: maths/07-message.md
+  section: Nature du Message fondamental
+  subsection: Préexistence du Message
+  start_line: 58
+  end_line: 60
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+covered_objects: &id001
+- TLC-SO-MESSAGE-013
+covered_relations: &id002 []
+contextual_relations: []
+functional_purpose: Register the cited preexistence statement as an unevaluated invariant claim with an explicit verification-unavailable
+  result.
+primary_responsibility:
+  entrypoint: register_message_preexistence_claim
+  operation: Validate the source identifier, construct an invariant-claim record, and mark truth evaluation unavailable because
+    no oracle is identified.
+  observable_effect: Returns a claim record containing the preexistence evidence, candidate status, and verification_status=unavailable_without_oracle.
+  scientific_evaluation: prohibited
+inputs:
+- name: preexistence_evidence
+  type: OpaquePreexistenceEvidence
+  required_object_ids: *id001
+  required_relation_ids: *id002
+  payload_policy: opaque_candidate_evidence
+outputs:
+- name: preexistence_claim
+  type: UnevaluatedPreexistenceClaim
+  observable_effect: Returns a claim record containing the preexistence evidence, candidate status, and verification_status=unavailable_without_oracle.
+  scientific_status: unevaluated_candidate
+types:
+  opaque:
+  - OpaqueScientificPayload
+  - OpaqueSourceContext
+  parameterized:
+  - OpaquePreexistenceEvidence
+  - UnevaluatedPreexistenceClaim
+  symbolic: []
+preconditions:
+- id: PRE-MESSAGE-002-001
+  statement: The TLC-SO-MESSAGE-013 evidence identifier and its source range are supplied unchanged.
+postconditions:
+- id: POST-MESSAGE-002-001
+  statement: The result preserves the preexistence statement and explicitly exposes that no truth value or executable oracle
+    was produced.
+explicitly_sourced_invariants:
+- id: INV-MESSAGE-002-IDENTITY
+  statement: Every covered scientific object remains distinct and source-addressable.
+  source: registry/features/feature-candidates.yaml
+- id: INV-MESSAGE-002-NONEXEC
+  statement: Message evidence is never treated as executable code or a transport protocol.
+  source: registry/domain-progress/message/message-semantics.yaml
+errors:
+- id: ERR-MESSAGE-002-OPERATION
+  condition: MissingPreexistenceEvidence or OracleEvaluationRequested
+undefined_behaviors:
+- The ontology, time model, existence predicate, and scientific oracle remain undefined.
+- No encoding, transport, execution, scientific truth evaluation, or numerical behavior is defined.
+propagated_unresolved: []
+provisional_engineering_assumptions:
+- assumption_id: TLC-EA-MESSAGE-002-001
+  feature_id: TLC-FC-07-MESSAGE-002
+  undefined_property: The ontology, time model, existence predicate, and scientific oracle remain undefined.
+  technical_need: A programmer needs stable in-memory boundaries for identity-preserving structural construction.
+  minimal_choice: Use OpaquePreexistenceEvidence and UnevaluatedPreexistenceClaim as opaque or parameterized structural records.
+  alternatives_left_open:
+  - concrete domain classes
+  - serialized schema
+  - scientifically validated value types
+  - external protocol bindings
+  impact: Only validation, indexing, AST construction, grouping, and provenance preservation are authorized.
+  reversibility: true
+  status: provisional_engineering_assumption
+scientific_reservations: []
+confirmed_dependencies:
+- TLC-LEC-TLC-FC-07-MESSAGE-006-001
+traceability:
+  source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+  feature_preparation: registry/domain-progress/message/feature-inventory.yaml
+  feature_candidate: registry/features/feature-candidates.yaml
+  objects: registry/scientific-objects/message/scientific-objects.candidate.yaml
+  relations: registry/scientific-objects/message/scientific-relations.candidate.yaml
+  unresolved: registry/scientific-objects/message/unresolved-terms.yaml
+validation_criteria:
+- register_message_preexistence_claim produces UnevaluatedPreexistenceClaim with the stated postcondition.
+- Every covered identifier and reservation is preserved.
+- No undefined scientific property is evaluated or silently completed.
+readiness:
+  ready_for_limited_engineering_contract: true
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false

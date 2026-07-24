@@ -1,0 +1,103 @@
+schema_version: 1
+ir_id: TLC-PIR-TLC-FC-07-MESSAGE-003-001
+feature_id: TLC-FC-07-MESSAGE-003
+contract_id: TLC-LEC-TLC-FC-07-MESSAGE-003-001
+domain: message
+ir_kind: prototype_ir_with_reservations
+classification: substantive_and_implementable
+entrypoint: assemble_existential_discourse_evidence
+primary_operation:
+  name: assemble_existential_discourse_evidence
+  technical_processing: Pair the discourse-format object with the existential label object, validate their shared source subsection,
+    and emit a candidate-evidence descriptor with acceptance semantics unresolved.
+  observable_effect: Returns a two-sided evidence descriptor linking TLC-SO-MESSAGE-020 and TLC-SO-MESSAGE-049 while declaring
+    oracle_acceptance_rule unresolved.
+  scientific_evaluation: prohibited
+inputs:
+- name: existential_discourse_records
+  type: ExistentialDiscourseEvidencePair
+  required_object_ids: &id001
+  - TLC-SO-MESSAGE-020
+  - TLC-SO-MESSAGE-049
+  required_relation_ids: &id002 []
+  payload_policy: opaque_candidate_evidence
+outputs:
+- name: candidate_oracle_evidence
+  type: CandidateExistentialOracleEvidence
+  observable_effect: Returns a two-sided evidence descriptor linking TLC-SO-MESSAGE-020 and TLC-SO-MESSAGE-049 while declaring
+    oracle_acceptance_rule unresolved.
+  scientific_status: unevaluated_candidate
+opaque_types:
+- OpaqueScientificPayload
+- OpaqueSourceContext
+parameterized_types:
+- ExistentialDiscourseEvidencePair
+- CandidateExistentialOracleEvidence
+symbolic_types: []
+operations:
+- operation_id: IR-OP-MESSAGE-003-001
+  name: assemble_existential_discourse_evidence
+  kind: deterministic_structural_operation
+  input: existential_discourse_records
+  output: candidate_oracle_evidence
+operation_sequence:
+- validate_required_identifiers_and_source_references
+- assemble_existential_discourse_evidence
+- verify_feature_specific_postcondition
+- attach_unresolved_assumptions_and_provenance
+preconditions:
+- id: PRE-MESSAGE-003-001
+  statement: Both existential-discourse objects are present, distinct, and cite the same source subsection.
+postconditions:
+- id: POST-MESSAGE-003-001
+  statement: The result retains both identities, their subsection provenance, and an unresolved acceptance-rule marker.
+invariants:
+- id: INV-MESSAGE-003-IDENTITY
+  statement: Every covered scientific object remains distinct and source-addressable.
+  source: registry/features/feature-candidates.yaml
+- id: INV-MESSAGE-003-NONEXEC
+  statement: Message evidence is never treated as executable code or a transport protocol.
+  source: registry/domain-progress/message/message-semantics.yaml
+errors:
+- id: ERR-MESSAGE-003-OPERATION
+  condition: IncompleteExistentialEvidencePair or MismatchedSourceSubsection
+undefined_behaviors:
+- Existential classification, energetic semantics, and acceptance criteria remain undefined.
+- No encoding, transport, execution, scientific truth evaluation, or numerical behavior is defined.
+propagated_unresolved: []
+propagated_provisional_assumptions:
+- TLC-EA-MESSAGE-003-001
+traceability:
+  contract: registry/math-contracts/TLC-FC-07-MESSAGE-003/contract.yaml
+  source_references:
+  - source_path: maths/07-message.md
+    section: Les huit discours comme langages du Message
+    subsection: 'Discours existentiels (format : existentiel, énergétique)'
+    start_line: 95
+    end_line: 97
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Les huit discours comme langages du Message
+    subsection: 'Discours existentiels (format : existentiel, énergétique)'
+    start_line: 96
+    end_line: 96
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  covered_objects: *id001
+  covered_relations: *id002
+  contextual_relations: []
+  source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+determinism_status: deterministic_structural_result_for_identical_ordered_evidence
+testability_status: feature_specific_operation_effect_errors_and_postcondition_testable
+implementation_constraints:
+- Implement only assemble_existential_discourse_evidence and the declared structural processing.
+- Existential classification, energetic semantics, and acceptance criteria remain undefined.
+- Do not infer scientific truth, schemas, protocols, encoding, transport, execution, hierarchy, metrics, timing, or algorithms.
+active_or_historical_status: active_prototype_ir
+blocks_all_prototype_progress: false
+readiness:
+  ready_for_limited_engineering_contract: true
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false

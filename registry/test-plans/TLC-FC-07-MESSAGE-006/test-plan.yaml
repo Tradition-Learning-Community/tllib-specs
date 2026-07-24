@@ -1,0 +1,85 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-07-MESSAGE-006-001
+feature_id: TLC-FC-07-MESSAGE-006
+contract_id: TLC-LEC-TLC-FC-07-MESSAGE-006-001
+ir_id: TLC-PIR-TLC-FC-07-MESSAGE-006-001
+entrypoint: declare_message_entity_profile
+primary_operation: declare_message_entity_profile
+inputs_under_test:
+- message_declaration_evidence
+output_under_test: message_entity_profile
+postconditions_under_test:
+- POST-MESSAGE-006-001
+tests:
+- id: TEST-MESSAGE-006-NOMINAL
+  category: operation_nominal
+  invokes: declare_message_entity_profile
+  scenario: TLC-SO-MESSAGE-001, TLC-SO-MESSAGE-004, TLC-SO-MESSAGE-030 and relations TLC-SR-MESSAGE-003 and TLC-SR-MESSAGE-029
+    are supplied unchanged.
+  expected_effect: Returns a root Message profile with three distinct evidence roles and two preserved relation identifiers;
+    execution and transport capabilities are absent.
+- id: TEST-MESSAGE-006-SHAPE
+  category: type_and_shape
+  invokes: declare_message_entity_profile
+  scenario: Supply a valid MessageEntityDeclarationEvidence.
+  expected_effect: Return exactly one DeclaredMessageEntityProfile.
+- id: TEST-MESSAGE-006-RESULT
+  category: observable_result
+  invokes: declare_message_entity_profile
+  scenario: Inspect the feature-specific output.
+  expected_effect: Returns a root Message profile with three distinct evidence roles and two preserved relation identifiers;
+    execution and transport capabilities are absent.
+- id: TEST-MESSAGE-006-POST
+  category: postcondition
+  invokes: declare_message_entity_profile
+  scenario: Construct a result from complete candidate evidence.
+  expected_effect: The profile exposes entity, essential_properties, and transmissibility roles as distinct references and
+    contains no encoding, transport, or execution interface.
+- id: TEST-MESSAGE-006-PRE
+  category: invalid_precondition
+  invokes: declare_message_entity_profile
+  scenario: Remove one required covered identifier or source reference.
+  expected_error: IncompleteMessageDeclaration, RelationEndpointMismatch, or ForbiddenProtocolField
+- id: TEST-MESSAGE-006-ERROR
+  category: operation_error
+  invokes: declare_message_entity_profile
+  scenario: IncompleteMessageDeclaration, RelationEndpointMismatch, or ForbiddenProtocolField
+  expected_effect: No partial output is emitted.
+- id: TEST-MESSAGE-006-OPAQUE
+  category: opaque_value
+  invokes: declare_message_entity_profile
+  scenario: Property classifications, transmission mechanics, audience, medium, encoding, transport, and execution remain
+    undefined.
+  expected_effect: Opaque payloads remain unchanged and unevaluated.
+- id: TEST-MESSAGE-006-PROVENANCE
+  category: provenance
+  invokes: declare_message_entity_profile
+  scenario: Construct from the exact covered evidence set.
+  expected_effect: Every object, relation, source range, and contextual relation remains addressable.
+- id: TEST-MESSAGE-006-UNRESOLVED
+  category: unresolved_propagation
+  invokes: declare_message_entity_profile
+  scenario: Attach the 2 routed unresolved identifiers.
+  expected_effect: The exact unresolved identifiers remain unresolved in the result metadata.
+- id: TEST-MESSAGE-006-ASSUMPTION
+  category: assumption_propagation
+  invokes: declare_message_entity_profile
+  scenario: Attach TLC-EA-MESSAGE-006-001.
+  expected_effect: The reversible engineering assumption remains provisional.
+- id: TEST-MESSAGE-006-NO-SCIENCE
+  category: scientific_non_evaluation
+  invokes: declare_message_entity_profile
+  scenario: Request an undefined scientific evaluation or protocol behavior.
+  expected_error: ERR-MESSAGE-006-OPERATION
+- id: TEST-MESSAGE-006-CONFORMANCE
+  category: contract_ir_conformance
+  invokes: declare_message_entity_profile
+  scenario: Compare entrypoint, input, output, errors, postcondition, reservations, and readiness.
+  expected_effect: Contract, IR, and test plan agree exactly.
+- id: TEST-MESSAGE-006-INTEGRATION
+  category: minimal_integration
+  invokes: declare_message_entity_profile
+  scenario: Resolve the contract and active IR by stable feature identifiers, then bind the test plan.
+  expected_effect: One unambiguous feature-to-contract-to-IR-to-test chain is obtained.
+numeric_expected_results: []
+implementation_status: planned_not_implemented

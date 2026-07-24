@@ -1,0 +1,83 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-07-MESSAGE-001-001
+feature_id: TLC-FC-07-MESSAGE-001
+contract_id: TLC-LEC-TLC-FC-07-MESSAGE-001-001
+ir_id: TLC-PIR-TLC-FC-07-MESSAGE-001-001
+entrypoint: construct_message_quadruplet_ast
+primary_operation: construct_message_quadruplet_ast
+inputs_under_test:
+- definition_evidence
+output_under_test: message_quadruplet_ast
+postconditions_under_test:
+- POST-MESSAGE-001-001
+tests:
+- id: TEST-MESSAGE-001-NOMINAL
+  category: operation_nominal
+  invokes: construct_message_quadruplet_ast
+  scenario: All three definition evidence objects and the formal quadruplet expression are present under candidate status.
+  expected_effect: Returns an immutable four-slot Message AST whose slot symbols and three evidence identifiers remain source-addressable
+    and unevaluated.
+- id: TEST-MESSAGE-001-SHAPE
+  category: type_and_shape
+  invokes: construct_message_quadruplet_ast
+  scenario: Supply a valid MessageDefinitionEvidenceSet.
+  expected_effect: Return exactly one ImmutableMessageQuadrupletAst.
+- id: TEST-MESSAGE-001-RESULT
+  category: observable_result
+  invokes: construct_message_quadruplet_ast
+  scenario: Inspect the feature-specific output.
+  expected_effect: Returns an immutable four-slot Message AST whose slot symbols and three evidence identifiers remain source-addressable
+    and unevaluated.
+- id: TEST-MESSAGE-001-POST
+  category: postcondition
+  invokes: construct_message_quadruplet_ast
+  scenario: Construct a result from complete candidate evidence.
+  expected_effect: The result has one Message tuple root, exactly four source-named symbolic slots, and provenance links to
+    TLC-SO-MESSAGE-002, TLC-SO-MESSAGE-003, and TLC-SO-MESSAGE-025.
+- id: TEST-MESSAGE-001-PRE
+  category: invalid_precondition
+  invokes: construct_message_quadruplet_ast
+  scenario: Remove one required covered identifier or source reference.
+  expected_error: MissingDefinitionEvidence or MalformedFourSlotExpression
+- id: TEST-MESSAGE-001-ERROR
+  category: operation_error
+  invokes: construct_message_quadruplet_ast
+  scenario: MissingDefinitionEvidence or MalformedFourSlotExpression
+  expected_effect: No partial output is emitted.
+- id: TEST-MESSAGE-001-OPAQUE
+  category: opaque_value
+  invokes: construct_message_quadruplet_ast
+  scenario: Slot runtime types, encoding, transport, sender/receiver interfaces, and execution semantics remain undefined.
+  expected_effect: Opaque payloads remain unchanged and unevaluated.
+- id: TEST-MESSAGE-001-PROVENANCE
+  category: provenance
+  invokes: construct_message_quadruplet_ast
+  scenario: Construct from the exact covered evidence set.
+  expected_effect: Every object, relation, source range, and contextual relation remains addressable.
+- id: TEST-MESSAGE-001-UNRESOLVED
+  category: unresolved_propagation
+  invokes: construct_message_quadruplet_ast
+  scenario: Attach the 0 routed unresolved identifiers.
+  expected_effect: The exact unresolved identifiers remain unresolved in the result metadata.
+- id: TEST-MESSAGE-001-ASSUMPTION
+  category: assumption_propagation
+  invokes: construct_message_quadruplet_ast
+  scenario: Attach TLC-EA-MESSAGE-001-001.
+  expected_effect: The reversible engineering assumption remains provisional.
+- id: TEST-MESSAGE-001-NO-SCIENCE
+  category: scientific_non_evaluation
+  invokes: construct_message_quadruplet_ast
+  scenario: Request an undefined scientific evaluation or protocol behavior.
+  expected_error: ERR-MESSAGE-001-OPERATION
+- id: TEST-MESSAGE-001-CONFORMANCE
+  category: contract_ir_conformance
+  invokes: construct_message_quadruplet_ast
+  scenario: Compare entrypoint, input, output, errors, postcondition, reservations, and readiness.
+  expected_effect: Contract, IR, and test plan agree exactly.
+- id: TEST-MESSAGE-001-INTEGRATION
+  category: minimal_integration
+  invokes: construct_message_quadruplet_ast
+  scenario: Resolve the contract and active IR by stable feature identifiers, then bind the test plan.
+  expected_effect: One unambiguous feature-to-contract-to-IR-to-test chain is obtained.
+numeric_expected_results: []
+implementation_status: planned_not_implemented
