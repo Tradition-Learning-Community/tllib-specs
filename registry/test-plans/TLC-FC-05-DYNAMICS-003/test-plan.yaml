@@ -1,0 +1,33 @@
+test_plan_id: TLC-TP-TLC-FC-05-DYNAMICS-003
+feature_id: TLC-FC-05-DYNAMICS-003
+ir_id: TLC-IR-TLC-FC-05-DYNAMICS-003
+scope: prototype structural contract; no numerical oracle
+tests:
+- kind: type_validation
+  assertion: opaque and parameterized input types are accepted without interpretation
+- kind: shape_validation
+  assertion: required container shapes are preserved
+- kind: preconditions
+  assertion: unknown source identifiers are rejected
+- kind: errors
+  assertion: type shape mismatch returns a named error
+- kind: invariants
+  assertion: covered source identifiers remain distinct and stable
+- kind: determinism
+  assertion: same structural input serializes to the same structural output
+- kind: opaque_propagation
+  assertion: opaque payloads round-trip without evaluation
+- kind: traceability
+  assertion: contract, feature, object, relation, and source commit references are
+    retained
+- kind: reservation_non_resolution
+  assertion: all unresolved items remain present
+- kind: contract_ir_conformance
+  assertion: inputs, outputs, unresolved, assumptions, and readiness agree
+- kind: minimal_integration
+  assertion: contract -> IR loader -> serializer preserves identifiers
+forbidden_expected_results:
+- invented numerical values
+- scientific truth claims
+- solver convergence claims
+readiness: planned
