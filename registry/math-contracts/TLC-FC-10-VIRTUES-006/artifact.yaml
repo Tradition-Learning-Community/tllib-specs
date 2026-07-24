@@ -1,0 +1,54 @@
+---
+feature_id: TLC-FC-10-VIRTUES-006
+domain: virtues
+source_objects: &1
+- TLC-SO-VIRTUES-070
+- TLC-SO-VIRTUES-194
+- TLC-SO-VIRTUES-195
+- TLC-SO-VIRTUES-197
+- TLC-SO-VIRTUES-198
+status: limited_engineering_contract_with_reservations
+contract_id: TLC-FC-10-VIRTUES-006-CONTRACT
+title: Représentations et mappings formels
+responsibility: Register source equation forms, free symbols, duplicate-candidate
+  links, and required opaque operators without solving or ranking them.
+inputs:
+  artifact: opaque Virtues artifact or evidence bundle
+  provenance: source object ids and source lines
+  reservations: caller-supplied unresolved and assumptions
+outputs:
+  contract_result: accepted/rejected engineering envelope with no moral score
+types:
+  OpaqueVirtue: uninterpreted label
+  OpaqueEvidence: uninterpreted evidence payload
+  ProvenanceRef: source object id plus source span
+operation_main: Register source equation forms, free symbols, duplicate-candidate
+  links, and required opaque operators without solving or ranking them.
+preconditions:
+- feature id matches TLC-FC-10-VIRTUES-006
+- all source object ids are present in provenance
+- caller does not request moral ranking, scoring, weighting, thresholds, or formula
+  completion
+postconditions:
+- output preserves source object provenance
+- output states reservations and unresolved items
+- output contains no computed virtue score or moral decision
+errors:
+- missing_provenance
+- unsupported_scientific_completion_request
+- invalid_feature_id
+unresolved_propagated: []
+provisional_assumptions:
+- source objects are treated as authoritative text fragments only
+- opaque domain values are passed through unchanged
+reservations:
+- no hierarchy, metric, threshold, weight, or moral algorithm is specified
+- scientific meaning remains source-bound
+traceability:
+  feature: TLC-FC-10-VIRTUES-006
+  source_objects: *1
+readiness:
+  python_prototype: true
+  cpp_prototype: true
+  canonical_ir: false
+  production: false

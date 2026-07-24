@@ -1,0 +1,41 @@
+---
+feature_id: TLC-FC-10-VIRTUES-010
+domain: virtues
+source_objects:
+- TLC-SO-VIRTUES-003
+- TLC-SO-VIRTUES-067
+status: limited_engineering_contract_with_reservations
+ir_id: TLC-FC-10-VIRTUES-010-IR
+entrypoint: register_essential_property_indicators
+operation: Register essential-property indicator categories while preserving opacity
+  of indicators, metrics, and progression semantics.
+inputs:
+- artifact
+- provenance
+- reservations
+observable_output: structured result recording accepted source-bound operation or
+  named error
+testable_postcondition: result echoes feature id, entrypoint, source objects, unresolved
+  items, assumptions, and reservations without adding scientific computation
+error_policy:
+  missing_provenance: return error and do not emit accepted result
+  unsupported_scientific_completion_request: return error when caller asks for score,
+    hierarchy, metric selection, threshold, weight, formula completion, or moral decision
+  invalid_feature_id: return error when feature id differs
+opaque_or_parametric_types:
+- OpaqueVirtue
+- OpaqueEvidence
+- OpaqueContext
+- OpaqueRelationEndpoint
+- OpaqueMetricDescriptor
+unresolved_propagated:
+- scientific ambiguity
+assumptions_propagated:
+- source fragments are metadata, not executable science
+classification: structurally_complete_but_semantically_thin
+classification_code: B
+readiness:
+  python_prototype: false
+  cpp_prototype: false
+  canonical_ir: false
+  production: false
