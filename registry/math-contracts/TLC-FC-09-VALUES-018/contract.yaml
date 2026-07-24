@@ -1,0 +1,38 @@
+contract_id: TLC-MC-TLC-FC-09-VALUES-018
+feature_id: TLC-FC-09-VALUES-018
+canonical_name: "09-values: relation (admissible)"
+status: candidate
+provenance:
+  source_commit: 7f73fd908ff887e6ab3b7d184ca46f0c8477ad68
+  source_branch: planning/math-contract-entry
+  scientific_sources: [{path: maths/09-values.md, section: Definition formelle, lines: 23-23, commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e}]
+purpose: Evaluate the cited systemic-coherence relation without inferring endpoint identity.
+scientific_purpose: Represent relations among values as an m by m matrix with entries in [-1,1], describing compatibility, tension, or opposition.
+scope: Exactly TLC-SO-VALUES-047 and source line 23.
+exclusions: [endpoint_identity_inference, interpretation_thresholds, scientific_approval, IR, implementation, executable_oracle]
+scientific_objects: [TLC-SO-VALUES-047]
+scientific_relations: []
+spaces: [SPACE-RELATION-MATRIX]
+sets: [SET-ENTRY-RANGE]
+variables: [SYM-C, SYM-M]
+constants: [-1, 1]
+parameters: []
+states: []
+inputs: [SYM-C, SYM-M]
+outputs: [{output_id: OUT-RELATION-EVALUATION, mathematical_type: {status: unresolved}, status: unresolved}]
+functions: []
+operators: []
+equations: []
+preconditions: [{precondition_id: PRE-CANDIDATE, statement: Cited scientific inputs are supplied under candidate status, source: registry/features/revised/feature-candidates.yaml:8068-8069, classification: normative_from_source, status: candidate}]
+postconditions: [{postcondition_id: POST-TRACEABLE, statement: Result remains candidate and traceable to every cited object, source: registry/features/revised/feature-candidates.yaml:8070-8071, classification: normative_from_source, status: candidate}]
+constraints: [CON-SQUARE-SHAPE, CON-ENTRY-RANGE]
+invariants: [{invariant_id: INV-DISTINCT, statement: Provisionally separated scientific objects remain distinct, source: registry/features/revised/feature-candidates.yaml:8074-8075, classification: normative_from_source, status: candidate}]
+hypotheses: []
+properties: [PROP-RELATION-CATEGORIES]
+behavior: {primary_behavior: Evaluate the cited relation without inferring endpoints, determinism: {status: unresolved}, stochasticity: {status: unresolved}, temporal_character: not_specified, undefined_behavior: [undefined_endpoint_set, undefined_category_mapping, undefined_output_semantics], mathematical_error_conditions: [non_square_matrix, entry_outside_closed_interval], boundary_cases: [entries_equal_to_minus_one_or_one_are_allowed]}
+dependencies: {required_contracts: [], shared_definitions: [], unresolved_dependencies: [], autonomy_evidence: One authorized object no relation and no immediate feature dependency.}
+oracle_basis: {equations: [], invariants: [], constraints: [], theorems: [], properties: [TLC-SO-VALUES-047], examples: [], structural_rules: [], missing_elements: [endpoint_identity, category_mapping, output_semantics]}
+executable_oracle: {status: not_produced}
+implementation_choices_required: [IMPL-MATRIX-REPRESENTATION, IMPL-RESULT]
+unresolved_items: [UNRES-M, UNRES-ENDPOINTS, UNRES-CATEGORIES, UNRES-OUTPUT]
+source_traceability: [{elements: [SYM-C, SYM-M, CON-SQUARE-SHAPE, CON-ENTRY-RANGE, PROP-RELATION-CATEGORIES], object_id: TLC-SO-VALUES-047, relation_id: null, source: maths/09-values.md, lines: 23-23, commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e, classification: normative_from_source}]

@@ -1,0 +1,62 @@
+schema_version: 1
+batch_id: TLC-FIRST-ECONOMIC-001
+batch_contract_id: TLC-LCB-RELATIONS-001
+batch_slug: relations-limited-batch-001
+domain: relations
+contract_kind: limited_contract_batch
+limited_contract: true
+status: candidate_with_reservations
+version: 0.1.0
+authority: origin/main
+source_commit: ff800dd1e8e87bb8a89d855d8a45c1ff6bbd8cff
+targeted_review_commit: a54889e5957941e9576293a2f7439139680ca569
+generated_on: 2026-07-23
+features:
+  - feature_id: TLC-FC-15-RELATIONS-004
+    contract_id: TLC-LC-TLC-FC-15-RELATIONS-004-001
+    contract_path: registry/math-contracts/TLC-FC-15-RELATIONS-004/contract.yaml
+    objects_covered: [TLC-SO-RELATIONS-004, TLC-SO-RELATIONS-017, TLC-SO-RELATIONS-023]
+    relations_covered: []
+    unresolved_received: 31
+    unresolved_propagated: 31
+    readiness: {ready_for_scientific_review: true, ready_for_full_contract_extension: false, ready_for_ir: false, ready_for_implementation_planning: false}
+  - feature_id: TLC-FC-15-RELATIONS-007
+    contract_id: TLC-LC-TLC-FC-15-RELATIONS-007-001
+    contract_path: registry/math-contracts/TLC-FC-15-RELATIONS-007/contract.yaml
+    objects_covered: [TLC-SO-RELATIONS-002, TLC-SO-RELATIONS-009, TLC-SO-RELATIONS-015, TLC-SO-RELATIONS-021, TLC-SO-RELATIONS-027]
+    relations_covered: []
+    unresolved_received: 12
+    unresolved_propagated: 12
+    readiness: {ready_for_scientific_review: true, ready_for_full_contract_extension: false, ready_for_ir: false, ready_for_implementation_planning: false}
+artifacts:
+  - registry/math-contracts/TLC-FC-15-RELATIONS-004/contract.yaml
+  - registry/math-contracts/TLC-FC-15-RELATIONS-004/unresolved.yaml
+  - registry/math-contracts/TLC-FC-15-RELATIONS-004/dependencies.yaml
+  - registry/math-contracts/TLC-FC-15-RELATIONS-004/traceability.yaml
+  - registry/math-contracts/TLC-FC-15-RELATIONS-004/validation-criteria.yaml
+  - reports/math-contracts/TLC-FC-15-RELATIONS-004/decision_required.yaml
+  - reports/math-contracts/TLC-FC-15-RELATIONS-004/generation-report.md
+  - registry/math-contracts/TLC-FC-15-RELATIONS-007/contract.yaml
+  - registry/math-contracts/TLC-FC-15-RELATIONS-007/unresolved.yaml
+  - registry/math-contracts/TLC-FC-15-RELATIONS-007/dependencies.yaml
+  - registry/math-contracts/TLC-FC-15-RELATIONS-007/traceability.yaml
+  - registry/math-contracts/TLC-FC-15-RELATIONS-007/validation-criteria.yaml
+  - reports/math-contracts/TLC-FC-15-RELATIONS-007/decision_required.yaml
+  - reports/math-contracts/TLC-FC-15-RELATIONS-007/generation-report.md
+  - registry/math-contract-batches/relations-limited-batch-001/manifest.yaml
+  - reports/math-contract-batches/relations-limited-batch-001/batch-report.md
+validator:
+  produced: false
+  reason: An executable validator would be code, while this batch is explicitly restricted to contracts and requires absence of code.
+  validation_mode: repository_commands_and_read_only_ad_hoc_checks
+batch_readiness:
+  ready_for_scientific_review: true
+  ready_for_full_contract_extension: false
+  ready_for_ir: false
+  ready_for_implementation_planning: false
+reservations:
+  - explicit_oracle_not_identified
+  - complete_relation_semantics_not_defined
+  - TLC-DUP-RELATIONS-002_unresolved
+  - TLC-GCYCLE-DOMAIN-001_unresolved
+  - documentary_dependencies_not_contractual_guarantees

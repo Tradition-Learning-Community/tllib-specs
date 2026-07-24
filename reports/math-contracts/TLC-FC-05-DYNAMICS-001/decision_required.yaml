@@ -1,0 +1,24 @@
+work_item_id: TLC-MATH-CONTRACT-TLC-FC-05-DYNAMICS-001
+stage: mathematical_contract
+status: candidate
+input: {source_commit: 7f73fd908ff887e6ab3b7d184ca46f0c8477ad68, source_branch: planning/math-contract-entry, feature_id: TLC-FC-05-DYNAMICS-001, contract_wave: CONTRACT_WAVE_1, wave_position: 2}
+artifacts_produced:
+  - registry/math-contracts/TLC-FC-05-DYNAMICS-001/contract.yaml
+  - registry/math-contracts/TLC-FC-05-DYNAMICS-001/symbol-table.yaml
+  - registry/math-contracts/TLC-FC-05-DYNAMICS-001/normalized-equations.tex
+  - registry/math-contracts/TLC-FC-05-DYNAMICS-001/type-constraints.yaml
+  - registry/math-contracts/TLC-FC-05-DYNAMICS-001/coverage.yaml
+  - registry/math-contracts/TLC-FC-05-DYNAMICS-001/issues.yaml
+  - registry/math-contracts/TLC-FC-05-DYNAMICS-001/implementation-decisions-required.yaml
+  - registry/math-contracts/TLC-FC-05-DYNAMICS-001/open-math-questions.yaml
+  - reports/math-contracts/TLC-FC-05-DYNAMICS-001/contract-report.md
+  - reports/math-contracts/TLC-FC-05-DYNAMICS-001/decision_required.yaml
+  - tools/math-contracts/TLC-FC-05-DYNAMICS-001/validate_contract.py
+  - tools/math-contracts/TLC-FC-05-DYNAMICS-001/README.md
+summary: {scientific_sources: 1, scientific_objects: 1, scientific_relations: 0, symbols: 15, spaces: 0, states: 4, inputs: 11, outputs: 1, equations: 0, constraints: 4, preconditions: 1, postconditions: 1, invariants: 1, hypotheses: 0, properties: 0, contract_dependencies: 0, oracle_basis_elements: 4, implementation_decisions_required: 2, unresolved_items: 5, critical_issues: 0, major_issues: 5, minor_issues: 1}
+blocking_issues: [ISSUE-TIME, ISSUE-L, ISSUE-NORM, ISSUE-MEMORY, ISSUE-OUTPUT]
+non_blocking_issues: [ISSUE-DIMENSIONS]
+questions_for_human: [UNRES-TIME, UNRES-L, UNRES-NORM, UNRES-MEMORY-NOTATION, UNRES-OUTPUT]
+recommended_decision: {value: revise, justification: Resolve temporal operator norm memory-notation and output semantics before IR.}
+allowed_decisions: [approved, approved_with_reservations, revise, rejected]
+readiness: {ready_for_independent_scientific_review: true, ready_for_ir: false, ready_for_tests: false, ready_for_implementation: false}

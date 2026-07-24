@@ -1,0 +1,35 @@
+contract_id: TLC-MC-TLC-FC-14-LIVED-EXPERIENCE-005
+feature_id: TLC-FC-14-LIVED-EXPERIENCE-005
+canonical_name: "14-lived-experience: equation (admissible)"
+status: candidate
+provenance: {source_commit: 7f73fd908ff887e6ab3b7d184ca46f0c8477ad68, source_branch: planning/math-contract-entry, scientific_sources: [{path: maths/14-lived-experience.md, section: Interaction avec la communaute et experience collective, subsection: Memoire collective emergente, lines: 140-142, commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e}]}
+purpose: Evaluate the cited emergent collective-memory transformation.
+scientific_purpose: Express collective experience as the mean of individual experiences plus a synergy contribution.
+scope: Exactly equation TLC-SO-LIVED-EXPERIENCE-065.
+exclusions: [definition_of_synergy, numerical_method, scientific_approval, IR, implementation, executable_oracle]
+scientific_objects: [TLC-SO-LIVED-EXPERIENCE-065]
+scientific_relations: []
+spaces: []
+sets: [SYM-ELL-SET]
+variables: [SYM-ELL-COL, SYM-ELL-I, SYM-I]
+constants: []
+parameters: [SYM-N, SYM-SIGMA]
+states: []
+inputs: [SYM-N, SYM-ELL-I, SYM-SIGMA, SYM-SYNERGY]
+outputs: [SYM-ELL-COL]
+functions: [SYM-SYNERGY]
+operators: [finite_sum, scalar_multiplication, addition]
+equations: [EQ-COLLECTIVE-MEMORY]
+preconditions: [{precondition_id: PRE-CANDIDATE, statement: Cited scientific inputs are supplied under candidate status, source: registry/features/revised/feature-candidates.yaml:13422-13423, classification: normative_from_source, status: candidate}]
+postconditions: [{postcondition_id: POST-TRACEABLE, statement: Result remains candidate and traceable to every cited object, source: registry/features/revised/feature-candidates.yaml:13424-13425, classification: normative_from_source, status: candidate}]
+constraints: []
+invariants: [{invariant_id: INV-DISTINCT, statement: Provisionally separated scientific objects remain distinct, source: registry/features/revised/feature-candidates.yaml:13428-13429, classification: normative_from_source, status: candidate}]
+hypotheses: []
+properties: []
+behavior: {primary_behavior: Evaluate the exact source transformation, determinism: {status: unresolved}, stochasticity: {status: unresolved}, temporal_character: not_specified, undefined_behavior: [N_zero_or_invalid, incompatible_experience_operations, undefined_synergy], mathematical_error_conditions: [division_by_zero, undefined_synergy_application], boundary_cases: []}
+dependencies: {required_contracts: [], shared_definitions: [], unresolved_dependencies: [], autonomy_evidence: One authorized equation object no relation and no immediate feature dependency.}
+oracle_basis: {equations: [TLC-SO-LIVED-EXPERIENCE-065], invariants: [], constraints: [], theorems: [], properties: [], examples: [], structural_rules: [], missing_elements: [types, N_domain, synergy_definition]}
+executable_oracle: {status: not_produced}
+implementation_choices_required: [IMPL-COLLECTION, IMPL-TYPE-MAPPING]
+unresolved_items: [UNRES-N, UNRES-EXPERIENCE-TYPE, UNRES-SIGMA, UNRES-SYNERGY]
+source_traceability: [{elements: [EQ-COLLECTIVE-MEMORY, SYM-ELL-COL, SYM-N, SYM-I, SYM-ELL-I, SYM-SIGMA, SYM-SYNERGY], object_id: TLC-SO-LIVED-EXPERIENCE-065, relation_id: null, source: maths/14-lived-experience.md, lines: 140-142, commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e, classification: normative_from_source}]

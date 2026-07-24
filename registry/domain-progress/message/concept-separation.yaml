@@ -1,0 +1,25 @@
+domain: message
+preparation_only: true
+canonical_baseline: origin/main
+authority_rule: canonical_only
+separations:
+- left: Message
+  right: Information
+  status: provisional
+  rule: not interchangeable without canonical proof
+- left: Message
+  right: Communication
+  status: provisional
+  rule: message is not the communication process
+- left: Message
+  right: Speech
+  status: provisional
+  rule: discourse is not a wire format
+- left: Message
+  right: Event
+  status: unresolved
+  rule: no event contract inferred
+- left: Message
+  right: Instruction
+  status: rejected_as_default
+  rule: content does not imply command semantics

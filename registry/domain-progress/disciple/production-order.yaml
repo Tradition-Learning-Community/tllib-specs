@@ -1,0 +1,103 @@
+domain_id: disciple
+reconciliation_status: reconciliation_complete_with_reservations
+master_commit: eb977485b7314e32e643e52461e086eb3a753724
+master_status: complete_to_ir_with_reservations
+generated_at: '2026-07-22T14:22:22+00:00'
+contracts_produced: 0
+irs_produced: 0
+groups:
+- group_id: A_independent_of_master
+  order: 1
+  feature_ids:
+  - TLC-FC-01-DISCIPLE-001
+  - TLC-FC-01-DISCIPLE-003
+  - TLC-FC-01-DISCIPLE-005
+  - TLC-FC-01-DISCIPLE-006
+  - TLC-FC-01-DISCIPLE-008
+  required_master_symbols: []
+  required_master_contracts: []
+  required_master_irs: []
+  required_disciple_features:
+  - TLC-FC-01-DISCIPLE-009
+  unresolved: []
+  contract_generation_allowed: true
+  ir_generation_allowed_after_contract: true
+  execution_claim_allowed: false
+  blocking_conditions: []
+  notes: No Master dependency evidenced.
+- group_id: B_master_symbol_dependency
+  order: 2
+  feature_ids:
+  - TLC-FC-01-DISCIPLE-002
+  required_master_symbols:
+  - TLC-SO-MASTER-001
+  required_master_contracts: []
+  required_master_irs: []
+  required_disciple_features:
+  - TLC-FC-01-DISCIPLE-009
+  unresolved: []
+  contract_generation_allowed: true
+  ir_generation_allowed_after_contract: true
+  execution_claim_allowed: false
+  blocking_conditions: []
+  notes: Canonical Master entity is available.
+- group_id: C_master_contract_dependency
+  order: 3
+  feature_ids: []
+  required_master_symbols: []
+  required_master_contracts: []
+  required_master_irs: []
+  required_disciple_features: []
+  unresolved: []
+  contract_generation_allowed: true
+  ir_generation_allowed_after_contract: true
+  execution_claim_allowed: false
+  blocking_conditions: []
+  notes: No required Master contract evidenced.
+- group_id: D_master_ir_dependency
+  order: 4
+  feature_ids: []
+  required_master_symbols: []
+  required_master_contracts: []
+  required_master_irs: []
+  required_disciple_features: []
+  unresolved: []
+  contract_generation_allowed: true
+  ir_generation_allowed_after_contract: true
+  execution_claim_allowed: false
+  blocking_conditions: []
+  notes: No required Master IR evidenced.
+- group_id: E_local_ambiguity_but_structurally_plannable
+  order: 5
+  feature_ids:
+  - TLC-FC-01-DISCIPLE-004
+  - TLC-FC-01-DISCIPLE-007
+  - TLC-FC-01-DISCIPLE-009
+  - TLC-FC-01-DISCIPLE-010
+  required_master_symbols:
+  - TLC-SO-MASTER-001
+  required_master_contracts: []
+  required_master_irs: []
+  required_disciple_features:
+  - TLC-FC-01-DISCIPLE-009
+  unresolved: feature_specific
+  contract_generation_allowed: true
+  ir_generation_allowed_after_contract: true
+  execution_claim_allowed: false
+  blocking_conditions:
+  - unresolved must be propagated
+  notes: Master mapping does not resolve local semantics.
+- group_id: F_human_scientific_decision_required
+  order: 6
+  feature_ids: []
+  required_master_symbols: []
+  required_master_contracts: []
+  required_master_irs: []
+  required_disciple_features: []
+  unresolved: []
+  contract_generation_allowed: false
+  ir_generation_allowed_after_contract: false
+  execution_claim_allowed: false
+  blocking_conditions: []
+  notes: No feature requires a human decision before conservative planning.
+all_features_covered: true

@@ -1,0 +1,2601 @@
+schema_version: 1
+authority: origin/main
+source_commit: febec3e14a938adb2480bd09d257e6879ccf564e
+scope: targeted_scientific_dependency_review
+dependencies:
+- edge_id: TLC-GDEP-0001
+  dependency_id: TLC-GDEP-0001
+  source: master
+  target: community
+  source_domain: master
+  direction: master -> community
+  review_status: explicitly_confirmed
+  evidence: registry/domain-progress/master/feature-dependencies.yaml
+  source_reference:
+  - source_path: maths/00-master.md
+    section: 2. Conditions théoriques pour la maîtrise
+    subsection: R4
+    start_line: 35
+    end_line: 39
+    source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+  - source_path: maths/00-master.md
+    section: 7. Limites et capacités du Maître
+    subsection: 7.3 Scénarios de rupture
+    start_line: 211
+    end_line: 211
+    source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+  - source_path: maths/00-master.md
+    section: 7. Limites et capacités du Maître
+    subsection: 7.3 Scénarios de rupture
+    start_line: 212
+    end_line: 212
+    source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: external_dependency_available_as_symbol
+  rationale: Canonical artifact explicitly identifies the target and required role.
+- edge_id: TLC-GDEP-0002
+  dependency_id: TLC-GDEP-0002
+  source: master
+  target: disciple
+  source_domain: master
+  direction: master -> disciple
+  review_status: explicitly_confirmed
+  evidence: registry/domain-progress/master/feature-dependencies.yaml
+  source_reference:
+  - source_path: maths/00-master.md
+    section: 2. Conditions théoriques pour la maîtrise
+    subsection: R1
+    start_line: 15
+    end_line: 21
+    source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+  - source_path: maths/00-master.md
+    section: 2. Conditions théoriques pour la maîtrise
+    subsection: R3
+    start_line: 29
+    end_line: 33
+    source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+  - source_path: maths/00-master.md
+    section: 4. Axiomes de la définition du Maître
+    subsection: Axiome 1
+    start_line: 125
+    end_line: 129
+    source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+  - source_path: maths/00-master.md
+    section: 4. Axiomes de la définition du Maître
+    subsection: Axiome 2
+    start_line: 131
+    end_line: 131
+    source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+  - source_path: maths/00-master.md
+    section: 4. Axiomes de la définition du Maître
+    subsection: Axiome 3
+    start_line: 133
+    end_line: 133
+    source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+  - source_path: maths/00-master.md
+    section: 4. Axiomes de la définition du Maître
+    subsection: Axiome 4
+    start_line: 135
+    end_line: 135
+    source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+  - source_path: maths/00-master.md
+    section: 4. Axiomes de la définition du Maître
+    subsection: Axiome 5
+    start_line: 137
+    end_line: 137
+    source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+  - source_path: maths/00-master.md
+    section: 7. Limites et capacités du Maître
+    subsection: 7.4 Borne supérieure de transmission
+    start_line: 214
+    end_line: 218
+    source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: external_dependency_available_as_symbol
+  rationale: Canonical artifact explicitly identifies the target and required role.
+- edge_id: TLC-GDEP-0003
+  dependency_id: TLC-COMMUNITY-MASTER-001
+  source: TLC-FC-02-COMMUNITY-008
+  target: master
+  source_domain: community
+  direction: TLC-FC-02-COMMUNITY-008 -> master
+  review_status: ambiguous
+  evidence: registry/domain-progress/community/upstream-dependency-audit.yaml
+  source_reference:
+  - maths/00-master.md and TLC-SO-MASTER-001
+  affected_features:
+  - TLC-FC-02-COMMUNITY-008
+  blocking: false
+  priority: normal
+  status_before: unspecified
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0004
+  dependency_id: TLC-COMMUNITY-DISCIPLE-001
+  source: TLC-FC-02-COMMUNITY-008
+  target: disciple
+  source_domain: community
+  direction: TLC-FC-02-COMMUNITY-008 -> disciple
+  review_status: ambiguous
+  evidence: registry/domain-progress/community/upstream-dependency-audit.yaml
+  source_reference:
+  - maths/01-disciple.md and TLC-SO-DISCIPLE-001
+  affected_features:
+  - TLC-FC-02-COMMUNITY-008
+  blocking: false
+  priority: normal
+  status_before: unspecified
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0005
+  dependency_id: TLC-GDEP-0005
+  source: huit-dimensions
+  target: message
+  source_domain: huit-dimensions
+  direction: huit-dimensions -> message
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/huit-dimensions/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/huit-dimensions/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: explicit_component_domain_reference_candidate
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0006
+  dependency_id: TLC-GDEP-0006
+  source: huit-dimensions
+  target: values
+  source_domain: huit-dimensions
+  direction: huit-dimensions -> values
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/huit-dimensions/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/huit-dimensions/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: explicit_component_domain_reference_candidate
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0007
+  dependency_id: TLC-GDEP-0007
+  source: huit-dimensions
+  target: virtues
+  source_domain: huit-dimensions
+  direction: huit-dimensions -> virtues
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/huit-dimensions/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/huit-dimensions/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: explicit_component_domain_reference_candidate
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0008
+  dependency_id: TLC-GDEP-0008
+  source: huit-dimensions
+  target: capacities
+  source_domain: huit-dimensions
+  direction: huit-dimensions -> capacities
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/huit-dimensions/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/huit-dimensions/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: explicit_component_domain_reference_candidate
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0009
+  dependency_id: TLC-GDEP-0009
+  source: huit-dimensions
+  target: competencies
+  source_domain: huit-dimensions
+  direction: huit-dimensions -> competencies
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/huit-dimensions/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/huit-dimensions/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: explicit_component_domain_reference_candidate
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0010
+  dependency_id: TLC-GDEP-0010
+  source: huit-dimensions
+  target: practice
+  source_domain: huit-dimensions
+  direction: huit-dimensions -> practice
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/huit-dimensions/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/huit-dimensions/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: explicit_component_domain_reference_candidate
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0011
+  dependency_id: TLC-GDEP-0011
+  source: huit-dimensions
+  target: lived-experience
+  source_domain: huit-dimensions
+  direction: huit-dimensions -> lived-experience
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/huit-dimensions/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/huit-dimensions/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: explicit_component_domain_reference_candidate
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0012
+  dependency_id: TLC-GDEP-0012
+  source: TLC-FC-04-INVARIANTS-008
+  target: community
+  source_domain: invariants
+  direction: TLC-FC-04-INVARIANTS-008 -> community
+  review_status: explicitly_confirmed
+  evidence: registry/domain-progress/invariants/community-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/invariants/community-dependencies.yaml
+  affected_features:
+  - TLC-FC-04-INVARIANTS-002
+  - TLC-FC-04-INVARIANTS-003
+  - TLC-FC-04-INVARIANTS-006
+  - TLC-FC-04-INVARIANTS-007
+  - TLC-FC-04-INVARIANTS-008
+  - TLC-FC-04-INVARIANTS-009
+  blocking: false
+  priority: normal
+  status_before: canonical_in_main
+  rationale: Canonical artifact explicitly identifies the target and required role.
+- edge_id: TLC-GDEP-0013
+  dependency_id: TLC-GDEP-0013
+  source: TLC-FC-04-INVARIANTS-004
+  target: disciple
+  source_domain: invariants
+  direction: TLC-FC-04-INVARIANTS-004 -> disciple
+  review_status: explicitly_confirmed
+  evidence: registry/domain-progress/invariants/disciple-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/invariants/disciple-dependencies.yaml
+  affected_features:
+  - TLC-FC-04-INVARIANTS-001
+  - TLC-FC-04-INVARIANTS-002
+  - TLC-FC-04-INVARIANTS-003
+  - TLC-FC-04-INVARIANTS-004
+  - TLC-FC-04-INVARIANTS-005
+  - TLC-FC-04-INVARIANTS-008
+  - TLC-FC-04-INVARIANTS-010
+  blocking: false
+  priority: normal
+  status_before: canonical_in_main
+  rationale: Canonical artifact explicitly identifies the target and required role.
+- edge_id: TLC-GDEP-0014
+  dependency_id: TLC-GDEP-0014
+  source: TLC-FC-04-INVARIANTS-004
+  target: dynamics
+  source_domain: invariants
+  direction: TLC-FC-04-INVARIANTS-004 -> dynamics
+  review_status: ambiguous
+  evidence: registry/domain-progress/invariants/dynamics-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/invariants/dynamics-dependencies.yaml
+  affected_features:
+  - TLC-FC-04-INVARIANTS-001
+  - TLC-FC-04-INVARIANTS-002
+  - TLC-FC-04-INVARIANTS-003
+  - TLC-FC-04-INVARIANTS-004
+  - TLC-FC-04-INVARIANTS-005
+  - TLC-FC-04-INVARIANTS-006
+  - TLC-FC-04-INVARIANTS-007
+  - TLC-FC-04-INVARIANTS-008
+  - TLC-FC-04-INVARIANTS-009
+  - TLC-FC-04-INVARIANTS-010
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0015
+  dependency_id: TLC-GDEP-0015
+  source: invariants
+  target: huit-dimensions
+  source_domain: invariants
+  direction: invariants -> huit-dimensions
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/invariants/huit-dimensions-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/invariants/huit-dimensions-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: preparation_only_non_authoritative
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0016
+  dependency_id: TLC-GDEP-0016
+  source: TLC-FC-04-INVARIANTS-001
+  target: master
+  source_domain: invariants
+  direction: TLC-FC-04-INVARIANTS-001 -> master
+  review_status: explicitly_confirmed
+  evidence: registry/domain-progress/invariants/master-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/invariants/master-dependencies.yaml
+  affected_features:
+  - TLC-FC-04-INVARIANTS-001
+  - TLC-FC-04-INVARIANTS-002
+  - TLC-FC-04-INVARIANTS-003
+  - TLC-FC-04-INVARIANTS-005
+  - TLC-FC-04-INVARIANTS-010
+  blocking: false
+  priority: normal
+  status_before: canonical_in_main
+  rationale: Canonical artifact explicitly identifies the target and required role.
+- edge_id: TLC-GDEP-0017
+  dependency_id: TLC-GDEP-0017
+  source: invariants
+  target: theorems
+  source_domain: invariants
+  direction: invariants -> theorems
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/invariants/theorems-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/invariants/theorems-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: source_only
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0018
+  dependency_id: TLC-GDEP-0018
+  source: TLC-FC-06-THEOREMS-006
+  target: community
+  source_domain: theorems
+  direction: TLC-FC-06-THEOREMS-006 -> community
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/theorems/community-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/theorems/community-dependencies.yaml
+  affected_features:
+  - TLC-FC-06-THEOREMS-006
+  blocking: false
+  priority: normal
+  status_before: complete_with_reservations
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0019
+  dependency_id: TLC-GDEP-0019
+  source: TLC-FC-06-THEOREMS-006
+  target: disciple
+  source_domain: theorems
+  direction: TLC-FC-06-THEOREMS-006 -> disciple
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/theorems/disciple-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/theorems/disciple-dependencies.yaml
+  affected_features:
+  - TLC-FC-06-THEOREMS-006
+  blocking: false
+  priority: normal
+  status_before: complete_with_reservations
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0020
+  dependency_id: TLC-GDEP-0020
+  source: TLC-FC-06-THEOREMS-002
+  target: dynamics
+  source_domain: theorems
+  direction: TLC-FC-06-THEOREMS-002 -> dynamics
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/theorems/dynamics-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/theorems/dynamics-dependencies.yaml
+  affected_features:
+  - TLC-FC-06-THEOREMS-002
+  - TLC-FC-06-THEOREMS-003
+  - TLC-FC-06-THEOREMS-004
+  - TLC-FC-06-THEOREMS-006
+  blocking: false
+  priority: normal
+  status_before: complete_with_reservations
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0021
+  dependency_id: TLC-GDEP-0021
+  source: TLC-FC-06-THEOREMS-009
+  target: huit-dimensions
+  source_domain: theorems
+  direction: TLC-FC-06-THEOREMS-009 -> huit-dimensions
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/theorems/huit-dimensions-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/theorems/huit-dimensions-dependencies.yaml
+  affected_features:
+  - TLC-FC-06-THEOREMS-005
+  - TLC-FC-06-THEOREMS-006
+  - TLC-FC-06-THEOREMS-008
+  - TLC-FC-06-THEOREMS-009
+  blocking: false
+  priority: normal
+  status_before: complete_with_reservations
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0022
+  dependency_id: TLC-GDEP-0022
+  source: theorems
+  target: invariants
+  source_domain: theorems
+  direction: theorems -> invariants
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/theorems/invariants-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/theorems/invariants-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: complete_with_reservations
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0023
+  dependency_id: TLC-GDEP-0023
+  source: TLC-FC-06-THEOREMS-006
+  target: master
+  source_domain: theorems
+  direction: TLC-FC-06-THEOREMS-006 -> master
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/theorems/master-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/theorems/master-dependencies.yaml
+  affected_features:
+  - TLC-FC-06-THEOREMS-006
+  blocking: false
+  priority: normal
+  status_before: complete_with_reservations
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0024
+  dependency_id: TLC-GDEP-0024
+  source: message
+  target: master
+  source_domain: message
+  direction: message -> master
+  review_status: explicitly_confirmed
+  evidence: registry/domain-progress/message/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/message/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: confirmed_symbol_only
+  rationale: Canonical artifact explicitly identifies the target and required role.
+- edge_id: TLC-GDEP-0025
+  dependency_id: TLC-GDEP-0025
+  source: message
+  target: disciple
+  source_domain: message
+  direction: message -> disciple
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/message/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/message/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: candidate
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0026
+  dependency_id: TLC-GDEP-0026
+  source: message
+  target: community
+  source_domain: message
+  direction: message -> community
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/message/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/message/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: candidate
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0027
+  dependency_id: TLC-GDEP-0027
+  source: message
+  target: huit-dimensions
+  source_domain: message
+  direction: message -> huit-dimensions
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/message/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/message/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: candidate
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0028
+  dependency_id: TLC-GDEP-0028
+  source: message
+  target: invariants
+  source_domain: message
+  direction: message -> invariants
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/message/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/message/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: candidate
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0029
+  dependency_id: TLC-GDEP-0029
+  source: message
+  target: dynamics
+  source_domain: message
+  direction: message -> dynamics
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/message/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/message/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: candidate
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0030
+  dependency_id: TLC-GDEP-0030
+  source: message
+  target: theorems
+  source_domain: message
+  direction: message -> theorems
+  review_status: ambiguous
+  evidence: registry/domain-progress/message/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/message/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: none
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0031
+  dependency_id: TLC-GDEP-0031
+  source: message
+  target: principle
+  source_domain: message
+  direction: message -> principle
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/message/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/message/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: candidate
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0032
+  dependency_id: TLC-GDEP-0032
+  source: principle
+  target: master
+  source_domain: principle
+  direction: principle -> master
+  review_status: ambiguous
+  evidence: registry/domain-progress/principle/external-domain-dependencies.yaml
+  source_reference:
+  - maths/08-principle.md:116
+  - maths/08-principle.md:159-162
+  - maths/08-principle.md:201
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: unspecified
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0033
+  dependency_id: TLC-GDEP-0033
+  source: principle
+  target: disciple
+  source_domain: principle
+  direction: principle -> disciple
+  review_status: ambiguous
+  evidence: registry/domain-progress/principle/external-domain-dependencies.yaml
+  source_reference:
+  - maths/08-principle.md:161
+  - maths/08-principle.md:229
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: unspecified
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0034
+  dependency_id: TLC-GDEP-0034
+  source: principle
+  target: community
+  source_domain: principle
+  direction: principle -> community
+  review_status: ambiguous
+  evidence: registry/domain-progress/principle/external-domain-dependencies.yaml
+  source_reference:
+  - maths/08-principle.md:201
+  - maths/08-principle.md:227-232
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: unspecified
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0035
+  dependency_id: TLC-GDEP-0035
+  source: principle
+  target: huit-dimensions
+  source_domain: principle
+  direction: principle -> huit-dimensions
+  review_status: ambiguous
+  evidence: registry/domain-progress/principle/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/principle/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: unspecified
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0036
+  dependency_id: TLC-GDEP-0036
+  source: principle
+  target: invariants
+  source_domain: principle
+  direction: principle -> invariants
+  review_status: ambiguous
+  evidence: registry/domain-progress/principle/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/principle/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: unspecified
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0037
+  dependency_id: TLC-GDEP-0037
+  source: principle
+  target: dynamics
+  source_domain: principle
+  direction: principle -> dynamics
+  review_status: ambiguous
+  evidence: registry/domain-progress/principle/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/principle/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: unspecified
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0038
+  dependency_id: TLC-GDEP-0038
+  source: principle
+  target: theorems
+  source_domain: principle
+  direction: principle -> theorems
+  review_status: ambiguous
+  evidence: registry/domain-progress/principle/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/principle/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: unspecified
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0039
+  dependency_id: TLC-GDEP-0039
+  source: principle
+  target: message
+  source_domain: principle
+  direction: principle -> message
+  review_status: ambiguous
+  evidence: registry/domain-progress/principle/external-domain-dependencies.yaml
+  source_reference:
+  - maths/08-principle.md:29
+  - maths/08-principle.md:120-193
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: unspecified
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0040
+  dependency_id: TLC-GDEP-0040
+  source: principle
+  target: values
+  source_domain: principle
+  direction: principle -> values
+  review_status: ambiguous
+  evidence: registry/domain-progress/principle/external-domain-dependencies.yaml
+  source_reference:
+  - maths/08-principle.md:220-222
+  - maths/08-principle.md:246
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: unspecified
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0041
+  dependency_id: TLC-GDEP-0041
+  source: principle
+  target: virtues
+  source_domain: principle
+  direction: principle -> virtues
+  review_status: ambiguous
+  evidence: registry/domain-progress/principle/external-domain-dependencies.yaml
+  source_reference:
+  - maths/08-principle.md:222
+  - maths/08-principle.md:246
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: unspecified
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0042
+  dependency_id: TLC-GDEP-0042
+  source: principle
+  target: capacities
+  source_domain: principle
+  direction: principle -> capacities
+  review_status: ambiguous
+  evidence: registry/domain-progress/principle/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/principle/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: unspecified
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0043
+  dependency_id: TLC-GDEP-0043
+  source: principle
+  target: competencies
+  source_domain: principle
+  direction: principle -> competencies
+  review_status: ambiguous
+  evidence: registry/domain-progress/principle/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/principle/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: unspecified
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0044
+  dependency_id: TLC-GDEP-0044
+  source: principle
+  target: practice
+  source_domain: principle
+  direction: principle -> practice
+  review_status: ambiguous
+  evidence: registry/domain-progress/principle/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/principle/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: unspecified
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0045
+  dependency_id: TLC-GDEP-0045
+  source: principle
+  target: lived-experience
+  source_domain: principle
+  direction: principle -> lived-experience
+  review_status: ambiguous
+  evidence: registry/domain-progress/principle/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/principle/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: unspecified
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0046
+  dependency_id: TLC-GDEP-0046
+  source: principle
+  target: relations
+  source_domain: principle
+  direction: principle -> relations
+  review_status: ambiguous
+  evidence: registry/domain-progress/principle/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/principle/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: unspecified
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0047
+  dependency_id: TLC-GDEP-0047
+  source: values
+  target: master
+  source_domain: values
+  direction: values -> master
+  review_status: documentary_reference_only
+  evidence: registry/domain-progress/values/external-domain-dependencies.yaml
+  source_reference:
+  - maths/09-values.md:5
+  - maths/09-values.md:7
+  - maths/09-values.md:41
+  - maths/09-values.md:76
+  - maths/09-values.md:103
+  - maths/09-values.md:125
+  - maths/09-values.md:237
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: confirmed_textual_reference
+  rationale: Preparation confirms a textual reference without executable semantics.
+- edge_id: TLC-GDEP-0048
+  dependency_id: TLC-GDEP-0048
+  source: values
+  target: disciple
+  source_domain: values
+  direction: values -> disciple
+  review_status: documentary_reference_only
+  evidence: registry/domain-progress/values/external-domain-dependencies.yaml
+  source_reference:
+  - maths/09-values.md:34
+  - maths/09-values.md:85
+  - maths/09-values.md:90
+  - maths/09-values.md:126
+  - maths/09-values.md:148
+  - maths/09-values.md:191
+  - maths/09-values.md:243
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: confirmed_textual_reference
+  rationale: Preparation confirms a textual reference without executable semantics.
+- edge_id: TLC-GDEP-0049
+  dependency_id: TLC-GDEP-0049
+  source: values
+  target: community
+  source_domain: values
+  direction: values -> community
+  review_status: documentary_reference_only
+  evidence: registry/domain-progress/values/external-domain-dependencies.yaml
+  source_reference:
+  - maths/09-values.md:5
+  - maths/09-values.md:7
+  - maths/09-values.md:43
+  - maths/09-values.md:92
+  - maths/09-values.md:103
+  - maths/09-values.md:161
+  - maths/09-values.md:182
+  - maths/09-values.md:189
+  - maths/09-values.md:238
+  - maths/09-values.md:258
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: confirmed_textual_reference
+  rationale: Preparation confirms a textual reference without executable semantics.
+- edge_id: TLC-GDEP-0050
+  dependency_id: TLC-GDEP-0050
+  source: values
+  target: huit-dimensions
+  source_domain: values
+  direction: values -> huit-dimensions
+  review_status: ambiguous
+  evidence: registry/domain-progress/values/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/values/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: no_explicit_reference_found
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0051
+  dependency_id: TLC-GDEP-0051
+  source: values
+  target: invariants
+  source_domain: values
+  direction: values -> invariants
+  review_status: documentary_reference_only
+  evidence: registry/domain-progress/values/external-domain-dependencies.yaml
+  source_reference:
+  - maths/09-values.md:17
+  - maths/09-values.md:30
+  - maths/09-values.md:223
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: confirmed_textual_reference
+  rationale: Preparation confirms a textual reference without executable semantics.
+- edge_id: TLC-GDEP-0052
+  dependency_id: TLC-GDEP-0052
+  source: values
+  target: dynamics
+  source_domain: values
+  direction: values -> dynamics
+  review_status: documentary_reference_only
+  evidence: registry/domain-progress/values/external-domain-dependencies.yaml
+  source_reference:
+  - maths/09-values.md:18
+  - maths/09-values.md:25
+  - maths/09-values.md:134
+  - maths/09-values.md:160
+  - maths/09-values.md:183
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: confirmed_textual_reference
+  rationale: Preparation confirms a textual reference without executable semantics.
+- edge_id: TLC-GDEP-0053
+  dependency_id: TLC-GDEP-0053
+  source: values
+  target: theorems
+  source_domain: values
+  direction: values -> theorems
+  review_status: documentary_reference_only
+  evidence: registry/domain-progress/values/external-domain-dependencies.yaml
+  source_reference:
+  - maths/09-values.md:235
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: confirmed_textual_reference
+  rationale: Preparation confirms a textual reference without executable semantics.
+- edge_id: TLC-GDEP-0054
+  dependency_id: TLC-GDEP-0054
+  source: values
+  target: message
+  source_domain: values
+  direction: values -> message
+  review_status: ambiguous
+  evidence: registry/domain-progress/values/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/values/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: no_explicit_reference_found
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0055
+  dependency_id: TLC-GDEP-0055
+  source: values
+  target: principle
+  source_domain: values
+  direction: values -> principle
+  review_status: documentary_reference_only
+  evidence: registry/domain-progress/values/external-domain-dependencies.yaml
+  source_reference:
+  - maths/09-values.md:5
+  - maths/09-values.md:7
+  - maths/09-values.md:17
+  - maths/09-values.md:120
+  - maths/09-values.md:223
+  - maths/09-values.md:258
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: confirmed_textual_reference
+  rationale: Preparation confirms a textual reference without executable semantics.
+- edge_id: TLC-GDEP-0056
+  dependency_id: TLC-GDEP-0056
+  source: values
+  target: virtues
+  source_domain: values
+  direction: values -> virtues
+  review_status: ambiguous
+  evidence: registry/domain-progress/values/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/values/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: no_explicit_reference_found
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0057
+  dependency_id: TLC-GDEP-0057
+  source: values
+  target: capacities
+  source_domain: values
+  direction: values -> capacities
+  review_status: ambiguous
+  evidence: registry/domain-progress/values/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/values/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: no_explicit_reference_found
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0058
+  dependency_id: TLC-GDEP-0058
+  source: values
+  target: competencies
+  source_domain: values
+  direction: values -> competencies
+  review_status: ambiguous
+  evidence: registry/domain-progress/values/external-domain-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/values/external-domain-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: no_explicit_reference_found
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0059
+  dependency_id: TLC-GDEP-0059
+  source: values
+  target: practice
+  source_domain: values
+  direction: values -> practice
+  review_status: documentary_reference_only
+  evidence: registry/domain-progress/values/external-domain-dependencies.yaml
+  source_reference:
+  - maths/09-values.md:7
+  - maths/09-values.md:34
+  - maths/09-values.md:42
+  - maths/09-values.md:63
+  - maths/09-values.md:89
+  - maths/09-values.md:161
+  - maths/09-values.md:194
+  - maths/09-values.md:258
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: confirmed_textual_reference
+  rationale: Preparation confirms a textual reference without executable semantics.
+- edge_id: TLC-GDEP-0060
+  dependency_id: TLC-GDEP-0060
+  source: values
+  target: lived-experience
+  source_domain: values
+  direction: values -> lived-experience
+  review_status: documentary_reference_only
+  evidence: registry/domain-progress/values/external-domain-dependencies.yaml
+  source_reference:
+  - maths/09-values.md:42
+  - maths/09-values.md:80
+  - maths/09-values.md:92
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: confirmed_textual_reference
+  rationale: Preparation confirms a textual reference without executable semantics.
+- edge_id: TLC-GDEP-0061
+  dependency_id: TLC-GDEP-0061
+  source: values
+  target: relations
+  source_domain: values
+  direction: values -> relations
+  review_status: documentary_reference_only
+  evidence: registry/domain-progress/values/external-domain-dependencies.yaml
+  source_reference:
+  - maths/09-values.md:23
+  - maths/09-values.md:262
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: confirmed_textual_reference
+  rationale: Preparation confirms a textual reference without executable semantics.
+- edge_id: TLC-GDEP-0062
+  dependency_id: TLC-GDEP-0062
+  source: virtues
+  target: capacities
+  source_domain: virtues
+  direction: virtues -> capacities
+  review_status: human_decision_required
+  evidence: registry/domain-progress/virtues/capacities-dependencies.yaml
+  source_reference:
+  - No confirmed cross-domain edge; local terminology is insufficient
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: unresolved
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0063
+  dependency_id: TLC-GDEP-0063
+  source: virtues
+  target: community
+  source_domain: virtues
+  direction: virtues -> community
+  review_status: ambiguous
+  evidence: registry/domain-progress/virtues/community-dependencies.yaml
+  source_reference:
+  - Explicit source mention
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0064
+  dependency_id: TLC-GDEP-0064
+  source: virtues
+  target: competencies
+  source_domain: virtues
+  direction: virtues -> competencies
+  review_status: human_decision_required
+  evidence: registry/domain-progress/virtues/competencies-dependencies.yaml
+  source_reference:
+  - No confirmed cross-domain edge; local terminology is insufficient
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: unresolved
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0065
+  dependency_id: TLC-GDEP-0065
+  source: virtues
+  target: disciple
+  source_domain: virtues
+  direction: virtues -> disciple
+  review_status: ambiguous
+  evidence: registry/domain-progress/virtues/disciple-dependencies.yaml
+  source_reference:
+  - Explicit source mention
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0066
+  dependency_id: TLC-GDEP-0066
+  source: virtues
+  target: dynamics
+  source_domain: virtues
+  direction: virtues -> dynamics
+  review_status: human_decision_required
+  evidence: registry/domain-progress/virtues/dynamics-dependencies.yaml
+  source_reference:
+  - No confirmed cross-domain edge; local terminology is insufficient
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: unresolved
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0067
+  dependency_id: TLC-GDEP-0067
+  source: virtues
+  target: master
+  source_domain: virtues
+  direction: virtues -> master
+  review_status: ambiguous
+  evidence: registry/domain-progress/virtues/external-domain-dependencies.yaml
+  source_reference:
+  - Explicit source mention
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0068
+  dependency_id: TLC-GDEP-0068
+  source: virtues
+  target: disciple
+  source_domain: virtues
+  direction: virtues -> disciple
+  review_status: ambiguous
+  evidence: registry/domain-progress/virtues/external-domain-dependencies.yaml
+  source_reference:
+  - Explicit source mention
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0069
+  dependency_id: TLC-GDEP-0069
+  source: virtues
+  target: community
+  source_domain: virtues
+  direction: virtues -> community
+  review_status: ambiguous
+  evidence: registry/domain-progress/virtues/external-domain-dependencies.yaml
+  source_reference:
+  - Explicit source mention
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0070
+  dependency_id: TLC-GDEP-0070
+  source: virtues
+  target: huit-dimensions
+  source_domain: virtues
+  direction: virtues -> huit-dimensions
+  review_status: human_decision_required
+  evidence: registry/domain-progress/virtues/external-domain-dependencies.yaml
+  source_reference:
+  - No confirmed cross-domain edge; local terminology is insufficient
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: unresolved
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0071
+  dependency_id: TLC-GDEP-0071
+  source: virtues
+  target: invariants
+  source_domain: virtues
+  direction: virtues -> invariants
+  review_status: human_decision_required
+  evidence: registry/domain-progress/virtues/external-domain-dependencies.yaml
+  source_reference:
+  - No confirmed cross-domain edge; local terminology is insufficient
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: unresolved
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0072
+  dependency_id: TLC-GDEP-0072
+  source: virtues
+  target: dynamics
+  source_domain: virtues
+  direction: virtues -> dynamics
+  review_status: human_decision_required
+  evidence: registry/domain-progress/virtues/external-domain-dependencies.yaml
+  source_reference:
+  - No confirmed cross-domain edge; local terminology is insufficient
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: unresolved
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0073
+  dependency_id: TLC-GDEP-0073
+  source: virtues
+  target: theorems
+  source_domain: virtues
+  direction: virtues -> theorems
+  review_status: human_decision_required
+  evidence: registry/domain-progress/virtues/external-domain-dependencies.yaml
+  source_reference:
+  - No confirmed cross-domain edge; local terminology is insufficient
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: unresolved
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0074
+  dependency_id: TLC-GDEP-0074
+  source: virtues
+  target: message
+  source_domain: virtues
+  direction: virtues -> message
+  review_status: ambiguous
+  evidence: registry/domain-progress/virtues/external-domain-dependencies.yaml
+  source_reference:
+  - Explicit source mention
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0075
+  dependency_id: TLC-GDEP-0075
+  source: virtues
+  target: principle
+  source_domain: virtues
+  direction: virtues -> principle
+  review_status: ambiguous
+  evidence: registry/domain-progress/virtues/external-domain-dependencies.yaml
+  source_reference:
+  - Explicit source mention
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0076
+  dependency_id: TLC-GDEP-0076
+  source: virtues
+  target: values
+  source_domain: virtues
+  direction: virtues -> values
+  review_status: ambiguous
+  evidence: registry/domain-progress/virtues/external-domain-dependencies.yaml
+  source_reference:
+  - Explicit source mention
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0077
+  dependency_id: TLC-GDEP-0077
+  source: virtues
+  target: capacities
+  source_domain: virtues
+  direction: virtues -> capacities
+  review_status: human_decision_required
+  evidence: registry/domain-progress/virtues/external-domain-dependencies.yaml
+  source_reference:
+  - No confirmed cross-domain edge; local terminology is insufficient
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: unresolved
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0078
+  dependency_id: TLC-GDEP-0078
+  source: virtues
+  target: competencies
+  source_domain: virtues
+  direction: virtues -> competencies
+  review_status: human_decision_required
+  evidence: registry/domain-progress/virtues/external-domain-dependencies.yaml
+  source_reference:
+  - No confirmed cross-domain edge; local terminology is insufficient
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: unresolved
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0079
+  dependency_id: TLC-GDEP-0079
+  source: virtues
+  target: practice
+  source_domain: virtues
+  direction: virtues -> practice
+  review_status: ambiguous
+  evidence: registry/domain-progress/virtues/external-domain-dependencies.yaml
+  source_reference:
+  - Explicit source mention
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0080
+  dependency_id: TLC-GDEP-0080
+  source: virtues
+  target: lived-experience
+  source_domain: virtues
+  direction: virtues -> lived-experience
+  review_status: human_decision_required
+  evidence: registry/domain-progress/virtues/external-domain-dependencies.yaml
+  source_reference:
+  - No confirmed cross-domain edge; local terminology is insufficient
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: unresolved
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0081
+  dependency_id: TLC-GDEP-0081
+  source: virtues
+  target: relations
+  source_domain: virtues
+  direction: virtues -> relations
+  review_status: ambiguous
+  evidence: registry/domain-progress/virtues/external-domain-dependencies.yaml
+  source_reference:
+  - Explicit source mention
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0082
+  dependency_id: TLC-GDEP-0082
+  source: virtues
+  target: huit-dimensions
+  source_domain: virtues
+  direction: virtues -> huit-dimensions
+  review_status: human_decision_required
+  evidence: registry/domain-progress/virtues/huit_dimensions-dependencies.yaml
+  source_reference:
+  - No confirmed cross-domain edge; local terminology is insufficient
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: unresolved
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0083
+  dependency_id: TLC-GDEP-0083
+  source: virtues
+  target: invariants
+  source_domain: virtues
+  direction: virtues -> invariants
+  review_status: human_decision_required
+  evidence: registry/domain-progress/virtues/invariants-dependencies.yaml
+  source_reference:
+  - No confirmed cross-domain edge; local terminology is insufficient
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: unresolved
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0084
+  dependency_id: TLC-GDEP-0084
+  source: virtues
+  target: lived-experience
+  source_domain: virtues
+  direction: virtues -> lived-experience
+  review_status: human_decision_required
+  evidence: registry/domain-progress/virtues/lived_experience-dependencies.yaml
+  source_reference:
+  - No confirmed cross-domain edge; local terminology is insufficient
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: unresolved
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0085
+  dependency_id: TLC-GDEP-0085
+  source: virtues
+  target: master
+  source_domain: virtues
+  direction: virtues -> master
+  review_status: ambiguous
+  evidence: registry/domain-progress/virtues/master-dependencies.yaml
+  source_reference:
+  - Explicit source mention
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0086
+  dependency_id: TLC-GDEP-0086
+  source: virtues
+  target: message
+  source_domain: virtues
+  direction: virtues -> message
+  review_status: ambiguous
+  evidence: registry/domain-progress/virtues/message-dependencies.yaml
+  source_reference:
+  - Explicit source mention
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0087
+  dependency_id: TLC-GDEP-0087
+  source: virtues
+  target: practice
+  source_domain: virtues
+  direction: virtues -> practice
+  review_status: ambiguous
+  evidence: registry/domain-progress/virtues/practice-dependencies.yaml
+  source_reference:
+  - Explicit source mention
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0088
+  dependency_id: TLC-GDEP-0088
+  source: virtues
+  target: principle
+  source_domain: virtues
+  direction: virtues -> principle
+  review_status: ambiguous
+  evidence: registry/domain-progress/virtues/principle-dependencies.yaml
+  source_reference:
+  - Explicit source mention
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0089
+  dependency_id: TLC-GDEP-0089
+  source: virtues
+  target: relations
+  source_domain: virtues
+  direction: virtues -> relations
+  review_status: ambiguous
+  evidence: registry/domain-progress/virtues/relations-dependencies.yaml
+  source_reference:
+  - Explicit source mention
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0090
+  dependency_id: TLC-GDEP-0090
+  source: virtues
+  target: theorems
+  source_domain: virtues
+  direction: virtues -> theorems
+  review_status: human_decision_required
+  evidence: registry/domain-progress/virtues/theorems-dependencies.yaml
+  source_reference:
+  - No confirmed cross-domain edge; local terminology is insufficient
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: unresolved
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0091
+  dependency_id: TLC-GDEP-0091
+  source: virtues
+  target: values
+  source_domain: virtues
+  direction: virtues -> values
+  review_status: ambiguous
+  evidence: registry/domain-progress/virtues/values-dependencies.yaml
+  source_reference:
+  - Explicit source mention
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0092
+  dependency_id: TLC-GDEP-0092
+  source: capacities
+  target: master
+  source_domain: capacities
+  direction: capacities -> master
+  review_status: ambiguous
+  evidence: registry/domain-progress/capacities/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/capacities/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0093
+  dependency_id: TLC-GDEP-0093
+  source: capacities
+  target: disciple
+  source_domain: capacities
+  direction: capacities -> disciple
+  review_status: ambiguous
+  evidence: registry/domain-progress/capacities/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/capacities/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0094
+  dependency_id: TLC-GDEP-0094
+  source: capacities
+  target: community
+  source_domain: capacities
+  direction: capacities -> community
+  review_status: ambiguous
+  evidence: registry/domain-progress/capacities/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/capacities/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0095
+  dependency_id: TLC-GDEP-0095
+  source: capacities
+  target: huit-dimensions
+  source_domain: capacities
+  direction: capacities -> huit-dimensions
+  review_status: ambiguous
+  evidence: registry/domain-progress/capacities/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/capacities/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0096
+  dependency_id: TLC-GDEP-0096
+  source: capacities
+  target: message
+  source_domain: capacities
+  direction: capacities -> message
+  review_status: ambiguous
+  evidence: registry/domain-progress/capacities/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/capacities/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0097
+  dependency_id: TLC-GDEP-0097
+  source: capacities
+  target: principle
+  source_domain: capacities
+  direction: capacities -> principle
+  review_status: ambiguous
+  evidence: registry/domain-progress/capacities/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/capacities/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0098
+  dependency_id: TLC-GDEP-0098
+  source: capacities
+  target: values
+  source_domain: capacities
+  direction: capacities -> values
+  review_status: ambiguous
+  evidence: registry/domain-progress/capacities/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/capacities/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0099
+  dependency_id: TLC-GDEP-0099
+  source: capacities
+  target: virtues
+  source_domain: capacities
+  direction: capacities -> virtues
+  review_status: ambiguous
+  evidence: registry/domain-progress/capacities/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/capacities/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0100
+  dependency_id: TLC-GDEP-0100
+  source: capacities
+  target: competencies
+  source_domain: capacities
+  direction: capacities -> competencies
+  review_status: ambiguous
+  evidence: registry/domain-progress/capacities/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/capacities/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0101
+  dependency_id: TLC-GDEP-0101
+  source: capacities
+  target: practice
+  source_domain: capacities
+  direction: capacities -> practice
+  review_status: ambiguous
+  evidence: registry/domain-progress/capacities/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/capacities/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0102
+  dependency_id: TLC-GDEP-0102
+  source: capacities
+  target: lived-experience
+  source_domain: capacities
+  direction: capacities -> lived-experience
+  review_status: ambiguous
+  evidence: registry/domain-progress/capacities/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/capacities/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0103
+  dependency_id: TLC-GDEP-0103
+  source: capacities
+  target: relations
+  source_domain: capacities
+  direction: capacities -> relations
+  review_status: ambiguous
+  evidence: registry/domain-progress/capacities/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/capacities/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0104
+  dependency_id: TLC-GDEP-0104
+  source: capacities
+  target: invariants
+  source_domain: capacities
+  direction: capacities -> invariants
+  review_status: ambiguous
+  evidence: registry/domain-progress/capacities/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/capacities/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0105
+  dependency_id: TLC-GDEP-0105
+  source: capacities
+  target: dynamics
+  source_domain: capacities
+  direction: capacities -> dynamics
+  review_status: ambiguous
+  evidence: registry/domain-progress/capacities/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/capacities/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0106
+  dependency_id: TLC-GDEP-0106
+  source: capacities
+  target: theorems
+  source_domain: capacities
+  direction: capacities -> theorems
+  review_status: ambiguous
+  evidence: registry/domain-progress/capacities/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/capacities/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0107
+  dependency_id: TLC-GDEP-0107
+  source: competencies
+  target: capacities
+  source_domain: competencies
+  direction: competencies -> capacities
+  review_status: human_decision_required
+  evidence: registry/domain-progress/competencies/external-dependencies.yaml
+  source_reference:
+  - maths/12-competencies.md:5-35
+  - 37-41
+  - '61'
+  - 75-78
+  - '157'
+  - 214-240
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: external_unreconciled
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0108
+  dependency_id: TLC-GDEP-0108
+  source: competencies
+  target: master
+  source_domain: competencies
+  direction: competencies -> master
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/competencies/external-dependencies.yaml
+  source_reference:
+  - maths/12-competencies.md:7
+  - '58'
+  - 99-103
+  - '133'
+  - '229'
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: candidate_reference
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0109
+  dependency_id: TLC-GDEP-0109
+  source: competencies
+  target: disciple
+  source_domain: competencies
+  direction: competencies -> disciple
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/competencies/external-dependencies.yaml
+  source_reference:
+  - maths/12-competencies.md:5-7
+  - '52'
+  - 106-110
+  - '186'
+  - '229'
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: candidate_reference
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0110
+  dependency_id: TLC-GDEP-0110
+  source: competencies
+  target: community
+  source_domain: competencies
+  direction: competencies -> community
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/competencies/external-dependencies.yaml
+  source_reference:
+  - maths/12-competencies.md:7
+  - '58'
+  - '115'
+  - '132'
+  - 184-204
+  - '229'
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: candidate_reference
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0111
+  dependency_id: TLC-GDEP-0111
+  source: competencies
+  target: values
+  source_domain: competencies
+  direction: competencies -> values
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/competencies/external-dependencies.yaml
+  source_reference:
+  - maths/12-competencies.md:86-90
+  - 173-178
+  - '229'
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: candidate_reference
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0112
+  dependency_id: TLC-GDEP-0112
+  source: competencies
+  target: virtues
+  source_domain: competencies
+  direction: competencies -> virtues
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/competencies/external-dependencies.yaml
+  source_reference:
+  - maths/12-competencies.md:86-90
+  - 173-178
+  - 220-225
+  - 234-240
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: candidate_reference
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0113
+  dependency_id: TLC-GDEP-0113
+  source: competencies
+  target: principle
+  source_domain: competencies
+  direction: competencies -> principle
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/competencies/external-dependencies.yaml
+  source_reference:
+  - maths/12-competencies.md:86-90
+  - 173-178
+  - '229'
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: candidate_reference
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0114
+  dependency_id: TLC-GDEP-0114
+  source: competencies
+  target: practice
+  source_domain: competencies
+  direction: competencies -> practice
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/competencies/external-dependencies.yaml
+  source_reference:
+  - maths/12-competencies.md:7
+  - 73-82
+  - 112-119
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: candidate_reference
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0115
+  dependency_id: TLC-GDEP-0115
+  source: competencies
+  target: relations
+  source_domain: competencies
+  direction: competencies -> relations
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/competencies/external-dependencies.yaml
+  source_reference:
+  - maths/12-competencies.md:246
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: candidate_reference
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0116
+  dependency_id: TLC-GDEP-0116
+  source: competencies
+  target: huit-dimensions
+  source_domain: competencies
+  direction: competencies -> huit-dimensions
+  review_status: ambiguous
+  evidence: registry/domain-progress/competencies/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/competencies/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: not_evidenced
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0117
+  dependency_id: TLC-GDEP-0117
+  source: competencies
+  target: invariants
+  source_domain: competencies
+  direction: competencies -> invariants
+  review_status: ambiguous
+  evidence: registry/domain-progress/competencies/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/competencies/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: not_evidenced
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0118
+  dependency_id: TLC-GDEP-0118
+  source: competencies
+  target: dynamics
+  source_domain: competencies
+  direction: competencies -> dynamics
+  review_status: ambiguous
+  evidence: registry/domain-progress/competencies/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/competencies/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: not_evidenced
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0119
+  dependency_id: TLC-GDEP-0119
+  source: competencies
+  target: theorems
+  source_domain: competencies
+  direction: competencies -> theorems
+  review_status: ambiguous
+  evidence: registry/domain-progress/competencies/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/competencies/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: not_evidenced
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0120
+  dependency_id: TLC-GDEP-0120
+  source: competencies
+  target: message
+  source_domain: competencies
+  direction: competencies -> message
+  review_status: ambiguous
+  evidence: registry/domain-progress/competencies/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/competencies/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: not_evidenced
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0121
+  dependency_id: TLC-GDEP-0121
+  source: practice
+  target: master
+  source_domain: practice
+  direction: practice -> master
+  review_status: explicitly_confirmed
+  evidence: registry/domain-progress/practice/external-domain-dependencies.yaml
+  source_reference:
+  - maths/13-practice.md:5
+  - maths/13-practice.md:18
+  - maths/13-practice.md:30
+  - maths/13-practice.md:38
+  - maths/13-practice.md:70
+  - maths/13-practice.md:131
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: canonical
+  rationale: Canonical artifact explicitly identifies the target and required role.
+- edge_id: TLC-GDEP-0122
+  dependency_id: TLC-GDEP-0122
+  source: practice
+  target: disciple
+  source_domain: practice
+  direction: practice -> disciple
+  review_status: explicitly_confirmed
+  evidence: registry/domain-progress/practice/external-domain-dependencies.yaml
+  source_reference:
+  - maths/13-practice.md:48
+  - maths/13-practice.md:77
+  - maths/13-practice.md:85
+  - maths/13-practice.md:196
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: canonical
+  rationale: Canonical artifact explicitly identifies the target and required role.
+- edge_id: TLC-GDEP-0123
+  dependency_id: TLC-GDEP-0123
+  source: practice
+  target: community
+  source_domain: practice
+  direction: practice -> community
+  review_status: explicitly_confirmed
+  evidence: registry/domain-progress/practice/external-domain-dependencies.yaml
+  source_reference:
+  - maths/13-practice.md:30
+  - maths/13-practice.md:40
+  - maths/13-practice.md:93
+  - maths/13-practice.md:134
+  - maths/13-practice.md:194
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: canonical_complete_to_ir_with_reservations
+  rationale: Canonical artifact explicitly identifies the target and required role.
+- edge_id: TLC-GDEP-0124
+  dependency_id: TLC-GDEP-0124
+  source: practice
+  target: message
+  source_domain: practice
+  direction: practice -> message
+  review_status: human_decision_required
+  evidence: registry/domain-progress/practice/external-domain-dependencies.yaml
+  source_reference:
+  - maths/13-practice.md:112
+  - maths/13-practice.md:113
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: not_reconciled
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0125
+  dependency_id: TLC-GDEP-0125
+  source: practice
+  target: principle
+  source_domain: practice
+  direction: practice -> principle
+  review_status: human_decision_required
+  evidence: registry/domain-progress/practice/external-domain-dependencies.yaml
+  source_reference:
+  - maths/13-practice.md:5
+  - maths/13-practice.md:26
+  - maths/13-practice.md:112
+  - maths/13-practice.md:113
+  - maths/13-practice.md:164
+  - maths/13-practice.md:169
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: not_reconciled
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0126
+  dependency_id: TLC-GDEP-0126
+  source: practice
+  target: values
+  source_domain: practice
+  direction: practice -> values
+  review_status: human_decision_required
+  evidence: registry/domain-progress/practice/external-domain-dependencies.yaml
+  source_reference:
+  - maths/13-practice.md:5
+  - maths/13-practice.md:63
+  - maths/13-practice.md:112
+  - maths/13-practice.md:113
+  - maths/13-practice.md:164
+  - maths/13-practice.md:169
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: not_reconciled
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0127
+  dependency_id: TLC-GDEP-0127
+  source: practice
+  target: virtues
+  source_domain: practice
+  direction: practice -> virtues
+  review_status: human_decision_required
+  evidence: registry/domain-progress/practice/external-domain-dependencies.yaml
+  source_reference:
+  - maths/13-practice.md:112
+  - maths/13-practice.md:113
+  - maths/13-practice.md:164
+  - maths/13-practice.md:169
+  - maths/13-practice.md:219
+  - maths/13-practice.md:225
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: not_reconciled
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0128
+  dependency_id: TLC-GDEP-0128
+  source: practice
+  target: capacities
+  source_domain: practice
+  direction: practice -> capacities
+  review_status: human_decision_required
+  evidence: registry/domain-progress/practice/external-domain-dependencies.yaml
+  source_reference:
+  - maths/13-practice.md:5
+  - maths/13-practice.md:11
+  - maths/13-practice.md:17
+  - maths/13-practice.md:31
+  - maths/13-practice.md:98
+  - maths/13-practice.md:101
+  - maths/13-practice.md:102
+  - maths/13-practice.md:113
+  - maths/13-practice.md:219
+  - maths/13-practice.md:224
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: external_non_reconciled
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0129
+  dependency_id: TLC-GDEP-0129
+  source: practice
+  target: competencies
+  source_domain: practice
+  direction: practice -> competencies
+  review_status: human_decision_required
+  evidence: registry/domain-progress/practice/external-domain-dependencies.yaml
+  source_reference:
+  - maths/13-practice.md:5
+  - maths/13-practice.md:11
+  - maths/13-practice.md:20
+  - maths/13-practice.md:31
+  - maths/13-practice.md:98
+  - maths/13-practice.md:101
+  - maths/13-practice.md:102
+  - maths/13-practice.md:103
+  - maths/13-practice.md:113
+  - maths/13-practice.md:219
+  - maths/13-practice.md:223
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: external_non_reconciled
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0130
+  dependency_id: TLC-GDEP-0130
+  source: practice
+  target: lived-experience
+  source_domain: practice
+  direction: practice -> lived-experience
+  review_status: human_decision_required
+  evidence: registry/domain-progress/practice/external-domain-dependencies.yaml
+  source_reference:
+  - maths/13-practice.md:62
+  - maths/13-practice.md:65
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: external_non_reconciled
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0131
+  dependency_id: TLC-GDEP-0131
+  source: practice
+  target: relations
+  source_domain: practice
+  direction: practice -> relations
+  review_status: compatible_but_unconfirmed
+  evidence: registry/domain-progress/practice/external-domain-dependencies.yaml
+  source_reference:
+  - maths/13-practice.md:246
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: canonical_source_only
+  rationale: Target exists, but candidate/reserved evidence does not confirm semantics.
+- edge_id: TLC-GDEP-0132
+  dependency_id: TLC-GDEP-0132
+  source: lived-experience
+  target: master
+  source_domain: lived-experience
+  direction: lived-experience -> master
+  review_status: ambiguous
+  evidence: registry/domain-progress/lived-experience/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/lived-experience/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0133
+  dependency_id: TLC-GDEP-0133
+  source: lived-experience
+  target: disciple
+  source_domain: lived-experience
+  direction: lived-experience -> disciple
+  review_status: ambiguous
+  evidence: registry/domain-progress/lived-experience/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/lived-experience/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0134
+  dependency_id: TLC-GDEP-0134
+  source: lived-experience
+  target: community
+  source_domain: lived-experience
+  direction: lived-experience -> community
+  review_status: ambiguous
+  evidence: registry/domain-progress/lived-experience/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/lived-experience/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0135
+  dependency_id: TLC-GDEP-0135
+  source: lived-experience
+  target: huit-dimensions
+  source_domain: lived-experience
+  direction: lived-experience -> huit-dimensions
+  review_status: ambiguous
+  evidence: registry/domain-progress/lived-experience/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/lived-experience/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0136
+  dependency_id: TLC-GDEP-0136
+  source: lived-experience
+  target: message
+  source_domain: lived-experience
+  direction: lived-experience -> message
+  review_status: ambiguous
+  evidence: registry/domain-progress/lived-experience/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/lived-experience/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0137
+  dependency_id: TLC-GDEP-0137
+  source: lived-experience
+  target: principle
+  source_domain: lived-experience
+  direction: lived-experience -> principle
+  review_status: ambiguous
+  evidence: registry/domain-progress/lived-experience/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/lived-experience/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0138
+  dependency_id: TLC-GDEP-0138
+  source: lived-experience
+  target: values
+  source_domain: lived-experience
+  direction: lived-experience -> values
+  review_status: ambiguous
+  evidence: registry/domain-progress/lived-experience/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/lived-experience/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0139
+  dependency_id: TLC-GDEP-0139
+  source: lived-experience
+  target: virtues
+  source_domain: lived-experience
+  direction: lived-experience -> virtues
+  review_status: ambiguous
+  evidence: registry/domain-progress/lived-experience/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/lived-experience/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0140
+  dependency_id: TLC-GDEP-0140
+  source: lived-experience
+  target: capacities
+  source_domain: lived-experience
+  direction: lived-experience -> capacities
+  review_status: human_decision_required
+  evidence: registry/domain-progress/lived-experience/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/lived-experience/external-dependencies.yaml
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: external_unreconciled
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0141
+  dependency_id: TLC-GDEP-0141
+  source: lived-experience
+  target: competencies
+  source_domain: lived-experience
+  direction: lived-experience -> competencies
+  review_status: human_decision_required
+  evidence: registry/domain-progress/lived-experience/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/lived-experience/external-dependencies.yaml
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: external_unreconciled
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0142
+  dependency_id: TLC-GDEP-0142
+  source: lived-experience
+  target: practice
+  source_domain: lived-experience
+  direction: lived-experience -> practice
+  review_status: human_decision_required
+  evidence: registry/domain-progress/lived-experience/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/lived-experience/external-dependencies.yaml
+  affected_features: []
+  blocking: true
+  priority: normal
+  status_before: external_unreconciled
+  rationale: The canonical preparation explicitly leaves reconciliation unresolved.
+- edge_id: TLC-GDEP-0143
+  dependency_id: TLC-GDEP-0143
+  source: lived-experience
+  target: invariants
+  source_domain: lived-experience
+  direction: lived-experience -> invariants
+  review_status: ambiguous
+  evidence: registry/domain-progress/lived-experience/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/lived-experience/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0144
+  dependency_id: TLC-GDEP-0144
+  source: lived-experience
+  target: dynamics
+  source_domain: lived-experience
+  direction: lived-experience -> dynamics
+  review_status: ambiguous
+  evidence: registry/domain-progress/lived-experience/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/lived-experience/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0145
+  dependency_id: TLC-GDEP-0145
+  source: lived-experience
+  target: theorems
+  source_domain: lived-experience
+  direction: lived-experience -> theorems
+  review_status: ambiguous
+  evidence: registry/domain-progress/lived-experience/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/lived-experience/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0146
+  dependency_id: TLC-GDEP-0146
+  source: lived-experience
+  target: relations
+  source_domain: lived-experience
+  direction: lived-experience -> relations
+  review_status: ambiguous
+  evidence: registry/domain-progress/lived-experience/external-dependencies.yaml
+  source_reference:
+  - registry/domain-progress/lived-experience/external-dependencies.yaml
+  affected_features: []
+  blocking: false
+  priority: normal
+  status_before: inferred_candidate
+  rationale: No explicit semantic dependency proof is present in the reviewed mapping.
+- edge_id: TLC-GDEP-0147
+  dependency_id: TLC-DEP-RELATIONS-MASTER-001
+  source: relations
+  target: master
+  source_domain: relations
+  direction: relations -> master
+  review_status: documentary_reference_only
+  evidence: registry/domain-progress/relations/feature-dependencies.yaml
+  source_reference:
+  - source_path: maths/15-relations.md
+    start_line: 1
+    end_line: 257
+  affected_features: []
+  blocking: false
+  priority: first_limited_contract_batch
+  status_before: canonical_source_available_reconciliation_pending
+  rationale: Explicit source reference; imported_semantics is false.
+- edge_id: TLC-GDEP-0148
+  dependency_id: TLC-DEP-RELATIONS-DISCIPLE-001
+  source: relations
+  target: disciple
+  source_domain: relations
+  direction: relations -> disciple
+  review_status: documentary_reference_only
+  evidence: registry/domain-progress/relations/feature-dependencies.yaml
+  source_reference:
+  - source_path: maths/15-relations.md
+    start_line: 18
+    end_line: 228
+  affected_features: []
+  blocking: false
+  priority: first_limited_contract_batch
+  status_before: canonical_source_available_reconciliation_pending
+  rationale: Explicit source reference; imported_semantics is false.
+- edge_id: TLC-GDEP-0149
+  dependency_id: TLC-DEP-RELATIONS-COMMUNITY-001
+  source: relations
+  target: community
+  source_domain: relations
+  direction: relations -> community
+  review_status: documentary_reference_only
+  evidence: registry/domain-progress/relations/feature-dependencies.yaml
+  source_reference:
+  - source_path: maths/15-relations.md
+    start_line: 47
+    end_line: 222
+  affected_features: []
+  blocking: false
+  priority: first_limited_contract_batch
+  status_before: canonical_source_available_reconciliation_pending
+  rationale: Explicit source reference; imported_semantics is false.
+- edge_id: TLC-GDEP-0150
+  dependency_id: TLC-DEP-RELATIONS-MESSAGE-001
+  source: relations
+  target: message
+  source_domain: relations
+  direction: relations -> message
+  review_status: documentary_reference_only
+  evidence: registry/domain-progress/relations/feature-dependencies.yaml
+  source_reference:
+  - source_path: maths/15-relations.md
+    start_line: 9
+    end_line: 71
+  affected_features: []
+  blocking: false
+  priority: first_limited_contract_batch
+  status_before: canonical_source_available_reconciliation_pending
+  rationale: Explicit source reference; imported_semantics is false.
+- edge_id: TLC-GDEP-0151
+  dependency_id: TLC-DEP-RELATIONS-PRINCIPLE-001
+  source: relations
+  target: principle
+  source_domain: relations
+  direction: relations -> principle
+  review_status: documentary_reference_only
+  evidence: registry/domain-progress/relations/feature-dependencies.yaml
+  source_reference:
+  - source_path: maths/15-relations.md
+    start_line: 118
+    end_line: 118
+  affected_features: []
+  blocking: false
+  priority: first_limited_contract_batch
+  status_before: canonical_source_available_reconciliation_pending
+  rationale: Explicit source reference; imported_semantics is false.
+- edge_id: TLC-GDEP-0152
+  dependency_id: TLC-DEP-RELATIONS-VALUES-001
+  source: relations
+  target: values
+  source_domain: relations
+  direction: relations -> values
+  review_status: documentary_reference_only
+  evidence: registry/domain-progress/relations/feature-dependencies.yaml
+  source_reference:
+  - source_path: maths/15-relations.md
+    start_line: 116
+    end_line: 155
+  affected_features: []
+  blocking: false
+  priority: first_limited_contract_batch
+  status_before: canonical_source_available_reconciliation_pending
+  rationale: Explicit source reference; imported_semantics is false.
+- edge_id: TLC-GDEP-0153
+  dependency_id: TLC-DEP-RELATIONS-VIRTUES-001
+  source: relations
+  target: virtues
+  source_domain: relations
+  direction: relations -> virtues
+  review_status: documentary_reference_only
+  evidence: registry/domain-progress/relations/feature-dependencies.yaml
+  source_reference:
+  - source_path: maths/15-relations.md
+    start_line: 73
+    end_line: 111
+  affected_features: []
+  blocking: false
+  priority: first_limited_contract_batch
+  status_before: canonical_source_available_reconciliation_pending
+  rationale: Explicit source reference; imported_semantics is false.
+- edge_id: TLC-GDEP-0154
+  dependency_id: TLC-DEP-RELATIONS-CAPACITIES-001
+  source: relations
+  target: capacities
+  source_domain: relations
+  direction: relations -> capacities
+  review_status: documentary_reference_only
+  evidence: registry/domain-progress/relations/feature-dependencies.yaml
+  source_reference:
+  - source_path: maths/15-relations.md
+    start_line: 159
+    end_line: 187
+  affected_features: []
+  blocking: false
+  priority: first_limited_contract_batch
+  status_before: external_unreconciled_not_merged
+  rationale: Explicit source reference; imported_semantics is false.
+- edge_id: TLC-GDEP-0155
+  dependency_id: TLC-DEP-RELATIONS-COMPETENCIES-001
+  source: relations
+  target: competencies
+  source_domain: relations
+  direction: relations -> competencies
+  review_status: documentary_reference_only
+  evidence: registry/domain-progress/relations/feature-dependencies.yaml
+  source_reference:
+  - source_path: maths/15-relations.md
+    start_line: 199
+    end_line: 228
+  affected_features: []
+  blocking: false
+  priority: first_limited_contract_batch
+  status_before: external_unreconciled_not_merged
+  rationale: Explicit source reference; imported_semantics is false.
+- edge_id: TLC-GDEP-0156
+  dependency_id: TLC-DEP-RELATIONS-PRACTICE-001
+  source: relations
+  target: practice
+  source_domain: relations
+  direction: relations -> practice
+  review_status: documentary_reference_only
+  evidence: registry/domain-progress/relations/feature-dependencies.yaml
+  source_reference:
+  - source_path: maths/15-relations.md
+    start_line: 118
+    end_line: 118
+  affected_features: []
+  blocking: false
+  priority: first_limited_contract_batch
+  status_before: external_unreconciled_not_merged
+  rationale: Explicit source reference; imported_semantics is false.
+summary:
+  total: 156
+  ambiguous: 72
+  compatible_but_unconfirmed: 30
+  documentary_reference_only: 20
+  explicitly_confirmed: 9
+  human_decision_required: 25

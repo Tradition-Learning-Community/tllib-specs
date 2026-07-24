@@ -1,0 +1,29 @@
+domain: message
+preparation_only: true
+canonical_baseline: origin/main
+authority_rule: canonical_only
+edges:
+- from: TLC-FC-07-MESSAGE-006
+  to: TLC-FC-07-MESSAGE-001
+  status: confirmed
+- from: TLC-FC-07-MESSAGE-006
+  to: TLC-FC-07-MESSAGE-002
+  status: confirmed
+- from: TLC-FC-07-MESSAGE-006
+  to: TLC-FC-07-MESSAGE-003
+  status: confirmed
+- from: TLC-FC-07-MESSAGE-006
+  to: TLC-FC-07-MESSAGE-004
+  status: confirmed
+- from: TLC-FC-07-MESSAGE-006
+  to: TLC-FC-07-MESSAGE-005
+  status: confirmed
+roots:
+- TLC-FC-07-MESSAGE-006
+leaves:
+- TLC-FC-07-MESSAGE-001
+- TLC-FC-07-MESSAGE-002
+- TLC-FC-07-MESSAGE-003
+- TLC-FC-07-MESSAGE-004
+- TLC-FC-07-MESSAGE-005
+cycles: []

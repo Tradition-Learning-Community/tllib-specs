@@ -1,0 +1,24 @@
+feature_id: TLC-FC-08-PRINCIPLE-002
+source_contract_commit: 3db96ff560ff110ccd0a0fbf7e30997ac3264aa7
+status: engineering_candidate
+decisions:
+  - decision_id: IMPL-DEC-001
+    source_contract_reference: registry/math-contracts/TLC-FC-08-PRINCIPLE-002/implementation-decisions-required.yaml#IMPL-DEC-001
+    description: Map P, D, t, E, and dP/dt only after their mathematical spaces are approved.
+    allowed_scope: Future implementation specification using approved mathematical definitions.
+    forbidden_assumptions: [scalarity, vector shape, units, finite representation]
+    affected_variants: [semantic, functional, dynamic]
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    decision_authority: scientific_review
+    status: unresolved
+  - decision_id: IMPL-DEC-002
+    source_contract_reference: registry/math-contracts/TLC-FC-08-PRINCIPLE-002/implementation-decisions-required.yaml#IMPL-DEC-002
+    description: Select a numerical realization only in a later approved implementation specification.
+    allowed_scope: Future implementation specification that preserves the source equation.
+    forbidden_assumptions: [time step, integrator, tolerance, precision, solver]
+    affected_variants: [dynamic]
+    blocking_for_implementation_planning: true
+    blocking_for_code_generation: true
+    decision_authority: implementation_specification
+    status: unresolved

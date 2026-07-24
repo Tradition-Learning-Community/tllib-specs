@@ -1,0 +1,34 @@
+domain_id: relations
+status: preparation_complete_with_reservations
+authority: origin/main
+working_base_commit: d8e616c71173495b9a014d4a5909df9f30e2a7ae
+generated_at: '2026-07-23T12:21:01+00:00'
+scope: preparation_only_no_contract_or_ir
+source_file: maths/15-relations.md
+source_commit_recorded_by_extraction: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+source_blob_sha_recorded_by_extraction: ece0d75f120bfe6a95554b768e5fd3e4b2bfed21
+source_lines: 257
+objects_count: 100
+relations_count: 99
+unresolved_count: 61
+duplicate_candidates_count: 12
+features_total: 5
+feature_ids:
+- TLC-FC-15-RELATIONS-002
+- TLC-FC-15-RELATIONS-003
+- TLC-FC-15-RELATIONS-004
+- TLC-FC-15-RELATIONS-007
+- TLC-FC-15-RELATIONS-008
+existing_contracts_for_domain: 0
+existing_irs_for_domain: 0
+input_artifacts:
+- registry/scientific-objects/relations/scientific-objects.candidate.yaml
+- registry/scientific-objects/relations/scientific-relations.candidate.yaml
+- registry/scientific-objects/relations/unresolved-terms.yaml
+- registry/scientific-objects/relations/duplicate-candidates.yaml
+- registry/features/revised/feature-candidates.yaml
+validators:
+- tools/scientific-audit/audit_scientific_extractions.py
+- tools/functional-decomposition-revision/validate_revision.py
+- scripts/validate_relations_preparation.py
+inventory_status: complete_with_reservations

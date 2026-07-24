@@ -1,0 +1,15 @@
+ir_id: TLC-IR-TLC-FC-05-DYNAMICS-001
+status: engineering_candidate
+types:
+  - {type_id: IR-TYPE-TIME, kind: opaque_scalar, constraints: [], unresolved_from: [UNRES-TIME]}
+  - {type_id: IR-TYPE-ACTOR-COLLECTION, kind: abstract_set, constraints: [], unresolved_from: []}
+  - {type_id: IR-TYPE-RELATIONAL-STRUCTURE, kind: opaque, constraints: [], unresolved_from: [UNRES-L]}
+  - {type_id: IR-TYPE-COMMUNITY-VALUES, kind: opaque, constraints: [], unresolved_from: [UNRES-NORM]}
+  - {type_id: IR-TYPE-MEMORY, kind: opaque, constraints: [], unresolved_from: [UNRES-MEMORY-NOTATION, UNRES-NORM]}
+  - {type_id: IR-TYPE-THRESHOLD, kind: opaque_scalar, constraints: [], unresolved_from: []}
+  - {type_id: IR-TYPE-PREDICATE-RESULT, kind: opaque_predicate_result, constraints: [], unresolved_from: [UNRES-OUTPUT]}
+  - {type_id: IR-TYPE-VIABILITY-RESULT, kind: opaque_evaluation_result, constraints: [preserve_four_predicate_identities], unresolved_from: [UNRES-OUTPUT]}
+type_compatibility:
+  - {compatibility_id: IR-COMP-VALUES, operands: [IR-VC, IR-VCORE], required_operation: difference_and_norm, status: unresolved, unresolved_from: UNRES-NORM}
+  - {compatibility_id: IR-COMP-MEMORY, operands: [IR-N, IR-NESS], required_operation: difference_norm_and_integral, status: unresolved, unresolved_from: UNRES-NORM}
+implementation_type_mapping: {status: deferred, decision_id: IMPL-TYPE-MAPPING}

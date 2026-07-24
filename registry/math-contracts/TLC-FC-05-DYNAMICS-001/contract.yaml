@@ -1,0 +1,51 @@
+contract_id: TLC-MC-TLC-FC-05-DYNAMICS-001
+feature_id: TLC-FC-05-DYNAMICS-001
+canonical_name: "05-dynamics: constraint (admissible)"
+source_names: [Contraintes de viabilite]
+status: candidate
+provenance:
+  source_commit: 7f73fd908ff887e6ab3b7d184ca46f0c8477ad68
+  source_branch: planning/math-contract-entry
+  input_artifact_versions: [{path: registry/math-contract-entry/contractable-features.yaml, version: 7f73fd9}, {path: registry/features/revised/feature-candidates.yaml, version: db7ae4f54ecfb637de52e353d566412b2dceaf06}, {path: registry/functional-decomposition/decomposition-input-snapshot.yaml, version: a92f6dfe905c102c5688cc6843b65673e5bea088}]
+  scientific_sources: [{path: maths/05-dynamics.md, document_title: Equations dynamiques (Dynamics), section: Equations de la Communaute, subsection: Contraintes de viabilite, lines: 147-153, commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e}]
+purpose: Evaluate the four cited viability bounds as candidate checks.
+scientific_purpose: Require minimum community size and connectivity and bounded deviations of community values and memory.
+scope: Exactly the four constraints at lines 150-153.
+exclusions: [surrounding_evolution_equations, collapse_or_pathology_claim_at_line_155, scientific_approval, IR, implementation, discretization, executable_oracle]
+scientific_objects: [TLC-SO-DYNAMICS-015]
+scientific_relations: []
+spaces: []
+sets: [SYM-A]
+variables: [SYM-T, SYM-TAU]
+constants: []
+parameters: [SYM-NMIN, SYM-LAMBDAMIN, SYM-VCORE, SYM-DELTAMAX, SYM-NESS, SYM-MMAX]
+states: [SYM-A, SYM-R, SYM-VC, SYM-N]
+inputs: [SYM-T, SYM-A, SYM-R, SYM-VC, SYM-N, SYM-NMIN, SYM-LAMBDAMIN, SYM-VCORE, SYM-DELTAMAX, SYM-NESS, SYM-MMAX]
+outputs: [{output_id: OUT-VIABILITY-EVALUATION, description: candidate evaluation result for the four viability constraints, mathematical_type: {status: unresolved}, classification: unresolved, status: unresolved}]
+functions: []
+operators: [SYM-L, SYM-LAMBDA2, SYM-NORM]
+equations: []
+preconditions: [{precondition_id: PRE-CANDIDATE-INPUTS, statement: Cited scientific inputs are supplied under candidate status, source: registry/features/revised/feature-candidates.yaml:4631-4632, classification: normative_from_source, status: candidate}]
+postconditions: [{postcondition_id: POST-TRACEABLE, statement: Result remains candidate and traceable to every cited object, source: registry/features/revised/feature-candidates.yaml:4633-4634, classification: normative_from_source, status: candidate}]
+constraints: [CON-SIZE, CON-CONNECTIVITY, CON-VALUES, CON-MEMORY]
+invariants: [{invariant_id: INV-OBJECT-DISTINCT, statement: Provisionally separated scientific objects remain distinct, source: registry/features/revised/feature-candidates.yaml:4637-4638, classification: normative_from_source, status: candidate}]
+hypotheses: []
+properties: []
+behavior:
+  primary_behavior: Evaluate all four source constraints without supplying missing definitions.
+  determinism: {status: unresolved}
+  stochasticity: {status: unresolved}
+  temporal_character: continuous_notation_present
+  undefined_behavior: [undefined_temporal_domain, undefined_L_operator, undefined_norms, undefined_output_semantics]
+  mathematical_error_conditions: [any_source_inequality_not_satisfied]
+  boundary_cases: [equality_at_each_bound_is_admissible]
+dependencies:
+  required_contracts: []
+  shared_definitions: []
+  unresolved_dependencies: []
+  autonomy_evidence: Entry artifacts declare no immediate feature dependency; the authorized feature basis has one object and no relation.
+oracle_basis: {equations: [], invariants: [], constraints: [TLC-SO-DYNAMICS-015], theorems: [], properties: [], examples: [], structural_rules: [], missing_elements: [operator_definitions, normed_spaces, output_semantics]}
+executable_oracle: {status: not_produced}
+implementation_choices_required: [IMPL-RESULT, IMPL-TYPE-MAPPING]
+unresolved_items: [UNRES-TIME, UNRES-L, UNRES-NORM, UNRES-MEMORY-NOTATION, UNRES-OUTPUT]
+source_traceability: [{contract_elements: [CON-SIZE, CON-CONNECTIVITY, CON-VALUES, CON-MEMORY], object_id: TLC-SO-DYNAMICS-015, relation_id: null, source: maths/05-dynamics.md, section: Equations de la Communaute, subsection: Contraintes de viabilite, lines: 147-153, commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e, classification: normative_from_source}]

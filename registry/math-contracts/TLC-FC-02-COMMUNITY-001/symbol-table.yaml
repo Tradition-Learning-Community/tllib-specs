@@ -1,0 +1,79 @@
+contract_id: TLC-MC-TLC-FC-02-COMMUNITY-001
+feature_id: TLC-FC-02-COMMUNITY-001
+status: candidate
+symbols:
+  - symbol_id: SYM-NU-STAR
+    source_symbol: "\\nu^*"
+    normalized_symbol: "\\nu^*"
+    semantic_name: noyau de valeurs partagees
+    role: variable
+    mathematical_type: set
+    domain: {status: unresolved}
+    codomain: {status: unresolved}
+    shape: {status: unresolved}
+    dimensions: {status: unresolved}
+    units: {status: unresolved}
+    constraints: ["\\nu^* \\subset \\mathcal{V}_c", mesure_positive]
+    source_reference: {path: maths/02-community.md, section: Axiomes fondamentaux de la Communaute, lines: 81-83, commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e}
+    classification: normative_from_source
+    status: candidate
+  - symbol_id: SYM-VC
+    source_symbol: "\\mathcal{V}_c"
+    normalized_symbol: "\\mathcal{V}_c"
+    semantic_name: espace ou ensemble de valeurs de la communaute
+    role: unknown
+    mathematical_type: set
+    domain: {status: unresolved}
+    codomain: {status: unresolved}
+    shape: {status: unresolved}
+    dimensions: {status: unresolved}
+    units: {status: unresolved}
+    constraints: []
+    source_reference: {path: maths/02-community.md, section: Axiomes fondamentaux de la Communaute, lines: 81-83, commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e}
+    classification: normative_from_source
+    status: candidate
+  - symbol_id: SYM-PI-NU
+    source_symbol: "\\pi_{\\nu}"
+    normalized_symbol: "\\pi_{\\nu}"
+    semantic_name: projection de valeurs d'un acteur
+    role: operator
+    mathematical_type: mapping
+    domain: {status: unresolved}
+    codomain: "\\mathcal{V}_c (derived from membership and subset premises)"
+    shape: {status: unresolved}
+    dimensions: {status: unresolved}
+    units: {status: unresolved}
+    constraints: ["\\pi_{\\nu}(a) \\in \\nu^*"]
+    source_reference: {path: maths/02-community.md, section: Axiomes fondamentaux de la Communaute, lines: 81-83, commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e}
+    classification: derived_without_semantic_change
+    status: candidate
+  - symbol_id: SYM-A
+    source_symbol: a
+    normalized_symbol: a
+    semantic_name: acteur
+    role: variable
+    mathematical_type: unknown
+    domain: {status: unresolved}
+    codomain: {status: unresolved}
+    shape: {status: unresolved}
+    dimensions: {status: unresolved}
+    units: {status: unresolved}
+    constraints: [quantification_universelle_sur_les_acteurs]
+    source_reference: {path: maths/02-community.md, section: Axiomes fondamentaux de la Communaute, lines: 81-83, commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e}
+    classification: normative_from_source
+    status: candidate
+  - symbol_id: SYM-EPS-COH
+    source_symbol: "\\epsilon_{\\mathrm{coh}}"
+    normalized_symbol: "\\epsilon_{\\mathrm{coh}}"
+    semantic_name: coherence minimale du noyau
+    role: parameter
+    mathematical_type: scalar
+    domain: positive_reals
+    codomain: {status: unresolved}
+    shape: scalar
+    dimensions: {status: unresolved}
+    units: {status: unresolved}
+    constraints: ["\\epsilon_{\\mathrm{coh}} > 0"]
+    source_reference: {path: maths/02-community.md, section: Axiomes fondamentaux de la Communaute, lines: 81-83, commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e}
+    classification: normative_from_source
+    status: candidate

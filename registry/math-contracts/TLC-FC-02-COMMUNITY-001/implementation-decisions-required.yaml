@@ -1,0 +1,24 @@
+contract_id: TLC-MC-TLC-FC-02-COMMUNITY-001
+feature_id: TLC-FC-02-COMMUNITY-001
+status: candidate
+decisions:
+  - decision_id: IMPL-RESULT-REPRESENTATION
+    topic: error_representation
+    reason_required: The candidate evaluation result needs a finite representation after its mathematical semantics are approved.
+    scientific_constraints: [must_remain_candidate, must_be_traceable_to_TLC-SO-COMMUNITY-008]
+    allowed_information: [approved_result_semantics]
+    prohibited_assumptions: [boolean_result, tolerance, exception_policy]
+    blocking_for_ir: true
+    blocking_for_implementation: true
+    source_evidence: registry/math-contract-entry/contractable-features.yaml:382-385
+    status: candidate
+  - decision_id: IMPL-MATH-TYPE-MAPPING
+    topic: unresolved_type_mapping
+    reason_required: Mathematical sets, mapping and scalar eventually need implementation representations.
+    scientific_constraints: [preserve_membership, preserve_strict_positivity]
+    allowed_information: [approved_mathematical_types]
+    prohibited_assumptions: [C++_type, Python_type, library, storage_layout]
+    blocking_for_ir: false
+    blocking_for_implementation: true
+    source_evidence: maths/02-community.md:81-83
+    status: candidate

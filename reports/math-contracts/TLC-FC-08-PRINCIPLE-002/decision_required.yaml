@@ -1,0 +1,63 @@
+work_item_id: TLC-MATH-CONTRACT-TLC-FC-08-PRINCIPLE-002
+stage: mathematical_contract
+status: candidate
+input:
+  source_commit: 7f73fd9
+  source_branch: planning/math-contract-entry
+  feature_id: TLC-FC-08-PRINCIPLE-002
+  contract_wave: CONTRACT_WAVE_1
+  wave_position: 3
+artifacts_produced:
+  - registry/math-contracts/TLC-FC-08-PRINCIPLE-002/contract.yaml
+  - registry/math-contracts/TLC-FC-08-PRINCIPLE-002/symbol-table.yaml
+  - registry/math-contracts/TLC-FC-08-PRINCIPLE-002/normalized-equations.tex
+  - registry/math-contracts/TLC-FC-08-PRINCIPLE-002/type-constraints.yaml
+  - registry/math-contracts/TLC-FC-08-PRINCIPLE-002/coverage.yaml
+  - registry/math-contracts/TLC-FC-08-PRINCIPLE-002/issues.yaml
+  - registry/math-contracts/TLC-FC-08-PRINCIPLE-002/implementation-decisions-required.yaml
+  - registry/math-contracts/TLC-FC-08-PRINCIPLE-002/open-math-questions.yaml
+  - reports/math-contracts/TLC-FC-08-PRINCIPLE-002/contract-report.md
+  - reports/math-contracts/TLC-FC-08-PRINCIPLE-002/decision_required.yaml
+  - tools/math-contracts/TLC-FC-08-PRINCIPLE-002/validate_contract.py
+  - tools/math-contracts/TLC-FC-08-PRINCIPLE-002/README.md
+summary:
+  scientific_sources: 1
+  scientific_objects: 1
+  scientific_relations: 0
+  symbols: 5
+  spaces: 0
+  states: 1
+  inputs: 2
+  outputs: 1
+  equations: 1
+  constraints: 0
+  preconditions: 0
+  postconditions: 1
+  invariants: 0
+  hypotheses: 0
+  properties: 0
+  contract_dependencies: 0
+  oracle_basis_elements: 1
+  implementation_decisions_required: 2
+  unresolved_items: 3
+  critical_issues: 0
+  major_issues: 2
+  minor_issues: 1
+blocking_issues:
+  - ISSUE-UNDEFINED-SYMBOLS-001
+  - ISSUE-MISSING-CONDITIONS-001
+non_blocking_issues:
+  - ISSUE-ORACLE-LIMITED-001
+questions_for_human:
+  - UNRESOLVED-SYMBOL-SEMANTICS-001
+  - UNRESOLVED-DOMAIN-001
+  - UNRESOLVED-INITIAL-CONDITION-001
+recommended_decision:
+  value: approved_with_reservations
+  justification: The equation is exactly preserved and reviewable, while symbol types, domains, regularity, and initial conditions must remain unresolved before IR.
+allowed_decisions: [approved, approved_with_reservations, revise, rejected]
+readiness:
+  ready_for_independent_scientific_review: true
+  ready_for_ir: false
+  ready_for_tests: false
+  ready_for_implementation: false
