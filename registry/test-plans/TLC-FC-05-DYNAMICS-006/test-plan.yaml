@@ -1,0 +1,31 @@
+test_plan_id: TLC-TP-TLC-FC-05-DYNAMICS-006
+feature_id: TLC-FC-05-DYNAMICS-006
+ir_id: TLC-IR-TLC-FC-05-DYNAMICS-006
+active_ir_artifact: ir/TLC-FC-05-DYNAMICS-006/ir.prototype.json
+main_operation: construct_opaque_state_candidate_record
+scope: Build a state-candidate record keyed by the twelve covered scientific-object identifiers.
+cases:
+  - case_id: DYN-006-NOMINAL
+    kind: nominal
+    given: Opaque component values keyed by covered ScientificObjectIds.
+    when: construct_opaque_state_candidate_record is invoked.
+    then: A StateCandidateRecord retains every supplied key/value pair and its cited relation traceability.
+  - case_id: DYN-006-PARTIAL-CANDIDATE
+    kind: opaque_boundary
+    given: Only a subset of candidate components is supplied.
+    then: The record preserves the subset without inventing defaults or declaring completeness.
+  - case_id: DYN-006-UNKNOWN-COMPONENT
+    kind: failure
+    given: A component key is outside TLC-SO-DYNAMICS-001..013 covered by this feature.
+    then: unknown_source_identifier names the key and no record is returned.
+  - case_id: DYN-006-POSTCONDITION
+    kind: postcondition
+    then: Each component remains opaque, distinct, and addressable by its stable scientific-object ID.
+  - case_id: DYN-006-RESERVATIONS
+    kind: reservation_propagation
+    then: All eleven TLC-UT-DYNAMICS unresolved IDs remain attached without establishing a state space.
+  - case_id: DYN-006-CONFORMANCE
+    kind: contract_ir_conformance
+    then: Component mapping, StateCandidateRecord output, errors, assumptions, and readiness match contract and IR.
+forbidden_expected_results: [invented_state_space, default_component, inferred_transition]
+readiness: planned

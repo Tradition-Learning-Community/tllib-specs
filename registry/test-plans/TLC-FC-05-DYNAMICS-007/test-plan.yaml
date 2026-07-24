@@ -1,0 +1,31 @@
+test_plan_id: TLC-TP-TLC-FC-05-DYNAMICS-007
+feature_id: TLC-FC-05-DYNAMICS-007
+ir_id: TLC-IR-TLC-FC-05-DYNAMICS-007
+active_ir_artifact: ir/TLC-FC-05-DYNAMICS-007/ir.prototype.json
+main_operation: preserve_state_or_evolution_expression
+scope: Preserve the ambiguous source expression without choosing whether it denotes a state or an evolution.
+cases:
+  - case_id: DYN-007-NOMINAL
+    kind: nominal
+    given: The opaque TLC-SO-DYNAMICS-008 expression with no classification hint.
+    when: preserve_state_or_evolution_expression is invoked.
+    then: An UnclassifiedStateEvolutionNode retains the expression and TLC-SR-DYNAMICS-007 traceability.
+  - case_id: DYN-007-OPAQUE-HINT
+    kind: opaque_boundary
+    given: An opaque classification hint that is not scientifically authoritative.
+    then: The hint is retained as metadata and does not classify the output node.
+  - case_id: DYN-007-WRONG-SHAPE
+    kind: failure
+    given: source_expression is absent or is not an OpaqueExpression.
+    then: type_shape_mismatch is returned without creating a node.
+  - case_id: DYN-007-POSTCONDITION
+    kind: postcondition
+    then: Output remains explicitly unclassified and source-addressable.
+  - case_id: DYN-007-RESERVATIONS
+    kind: reservation_propagation
+    then: TLC-UT-DYNAMICS-007 and state_vs_evolution_boundary remain attached.
+  - case_id: DYN-007-CONFORMANCE
+    kind: contract_ir_conformance
+    then: Expression, optional hint, unclassified output, errors, assumptions, and readiness match contract and IR.
+forbidden_expected_results: [state_classification, evolution_classification, inferred_transition_semantics]
+readiness: planned

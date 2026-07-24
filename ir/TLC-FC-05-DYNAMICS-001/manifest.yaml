@@ -1,8 +1,17 @@
 ir_id: TLC-IR-TLC-FC-05-DYNAMICS-001
 work_item_id: TLC-IR-TLC-FC-05-DYNAMICS-001
 feature_id: TLC-FC-05-DYNAMICS-001
-status: engineering_candidate
+status: superseded_historical_pilot
 scientific_validation: pending
+active_ir:
+  ir_id: TLC-IR-TLC-FC-05-DYNAMICS-001
+  artifact: ir.prototype.json
+  kind: prototype_ir_with_reservations
+  status: pilot_only_revised
+historical_ir:
+  artifact: ir.yaml
+  status: superseded_historical_pilot
+  origin_commit: 221fad773741077478fd37a01da7e26f26a6bcd7
 source:
   contract_id: TLC-MC-TLC-FC-05-DYNAMICS-001
   contract_branch: contract/TLC-FC-05-DYNAMICS-001
@@ -17,6 +26,7 @@ scope:
   included: [abstract_states, abstract_parameters, opaque_operators, four_viability_predicates, opaque_evaluation_output, traceability]
   excluded: [scientific_resolution, executable_oracle, discretization, numerical_method, tolerance, implementation_language, library, public_api, solver]
 artifacts:
+  - ir.prototype.json
   - ir.yaml
   - types.yaml
   - nodes.yaml
