@@ -1,0 +1,20 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-06-THEOREMS-009-001
+feature_id: TLC-FC-06-THEOREMS-009
+contract_id: TLC-LEC-TLC-FC-06-THEOREMS-009-001
+ir_id: TLC-PIR-TLC-FC-06-THEOREMS-009-001
+operation_under_test: construct_principles_role_descriptor
+status: planned
+tests:
+  - {id: TEST-009-NOMINAL, kind: nominal, assertion: "invoke construct_principles_role_descriptor with complete feature evidence and obtain principles_descriptor"}
+  - {id: TEST-009-EFFECT, kind: observable_effect, assertion: "return a descriptor identifying Principles, source ordinal 2, and the cited rational-coherence label without defining coherence"}
+  - {id: TEST-009-BOUNDARY, kind: opaque_boundary, assertion: "rational coherence remains an opaque source label, not an implemented property"}
+  - {id: TEST-009-PRECONDITION, kind: precondition, assertion: "reject input when: The supplied role cites line 82 and carries unresolved identifier TLC-UT-THEOREMS-006."}
+  - {id: TEST-009-ERROR, kind: failure, assertion: "the first violated precondition returns one of: WRONG_DIMENSION_LABEL, WRONG_SOURCE_ORDINAL, MISSING_PRINCIPLES_UNRESOLVED"}
+  - {id: TEST-009-POSTCONDITION, kind: postcondition, assertion: "The descriptor is labelled Principles and preserves ordinal 2, the opaque role payload, and its unresolved identifier."}
+  - {id: TEST-009-DETERMINISM, kind: determinism, assertion: identical structural inputs produce an identical structural result}
+  - {id: TEST-009-RESERVATIONS, kind: reservation_propagation, assertion: "preserve unresolved TLC-UT-THEOREMS-006 and assumption TLC-EA-THEOREMS-009-001"}
+  - {id: TEST-009-TRACE, kind: traceability, assertion: preserve every feature-specific source object relation and line reference}
+  - {id: TEST-009-CONFORMANCE, kind: contract_ir_conformance, assertion: entrypoint inputs output errors and readiness match contract and IR}
+numeric_expected_results: forbidden
+implementation_status: no_test_code_created

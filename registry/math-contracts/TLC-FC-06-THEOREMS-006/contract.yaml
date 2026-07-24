@@ -1,0 +1,59 @@
+schema_version: 1
+contract_id: TLC-LEC-TLC-FC-06-THEOREMS-006-001
+feature_id: TLC-FC-06-THEOREMS-006
+contract_kind: limited_engineering_contract_with_reservations
+scientific_authority: origin/main@f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+status: limited_engineering_contract_with_reservations
+functional_purpose: "Index the six prepared theorem declarations for lookup by scientific object identifier, retaining statement, source, and proof-status metadata."
+software_responsibility:
+  operation: index_theorem_declarations
+  observable_effect: "return a six-entry index supporting identifier lookup and preserving each declaration's partial or absent proof status"
+source_references: [maths/06-theorems.md:13-16, maths/06-theorems.md:31-38, maths/06-theorems.md:49-52, maths/06-theorems.md:92-95, maths/06-theorems.md:114-124, maths/06-theorems.md:129-136]
+objects_covered: [TLC-SO-THEOREMS-002, TLC-SO-THEOREMS-003, TLC-SO-THEOREMS-004, TLC-SO-THEOREMS-008, TLC-SO-THEOREMS-009, TLC-SO-THEOREMS-010]
+relations_covered: []
+relations_contextual_only: []
+inputs:
+  - {name: declarations, type: "Sequence<OpaqueTheoremDeclaration>"}
+  - {name: proof_statuses, type: "Mapping<ScientificObjectId,ProofStatus>"}
+outputs:
+  - {name: theorem_index, type: "TheoremDeclarationIndex"}
+types:
+  opaque: [OpaqueScientificValue, OpaqueScientificExpression]
+  parameterized: [Mapping<K,V>, Sequence<T>]
+preconditions:
+  - "Each covered theorem object occurs exactly once and has a source reference plus proof status."
+postconditions:
+  - "Lookup returns the unchanged declaration metadata and never returns a theorem truth value."
+invariants_explicitly_sourced: []
+errors_or_undefined_behavior:
+  - DUPLICATE_THEOREM_ID
+  - MISSING_PROOF_STATUS
+  - UNKNOWN_THEOREM_ID
+  - Scientific evaluation and unstated numeric semantics are undefined.
+unresolved_propagated: []
+provisional_assumptions: [TLC-EA-THEOREMS-006-001]
+scientific_reservations:
+  - The operation organizes source evidence but does not establish theorem truth.
+  - Missing types, units, dimensions, cardinalities, ordering, precision, probability laws, and algorithms remain unspecified.
+strong_dependencies_explicitly_confirmed: []
+documentary_references:
+  - registry/domain-progress/theorems/feature-inventory.yaml
+  - registry/domain-progress/theorems/feature-status.yaml
+  - registry/domain-progress/theorems/result-semantics.yaml
+traceability:
+  feature_kind: theorem_collection
+  source_objects: [TLC-SO-THEOREMS-002, TLC-SO-THEOREMS-003, TLC-SO-THEOREMS-004, TLC-SO-THEOREMS-008, TLC-SO-THEOREMS-009, TLC-SO-THEOREMS-010]
+  source_relations: []
+validation_criteria:
+  - The named operation produces the declared structural result.
+  - The feature-specific precondition, postcondition, and errors are testable.
+  - Every attached unresolved and provisional assumption is propagated unchanged.
+readiness:
+  ready_for_limited_engineering_contract: true
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false
+  human_validation_required_before_prototype_work: false
+  human_validation_required_before_canonical_release: true

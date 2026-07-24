@@ -1,0 +1,20 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-06-THEOREMS-007-001
+feature_id: TLC-FC-06-THEOREMS-007
+contract_id: TLC-LEC-TLC-FC-06-THEOREMS-007-001
+ir_id: TLC-PIR-TLC-FC-06-THEOREMS-007-001
+operation_under_test: construct_community_stability_state
+status: planned
+tests:
+  - {id: TEST-007-NOMINAL, kind: nominal, assertion: "invoke construct_community_stability_state with complete feature evidence and obtain community_stability_state"}
+  - {id: TEST-007-EFFECT, kind: observable_effect, assertion: "return a descriptor linking sequence, limit, and cited relation components without asserting convergence or stability"}
+  - {id: TEST-007-BOUNDARY, kind: opaque_boundary, assertion: "unresolved community, convergence, and stability semantics remain attached"}
+  - {id: TEST-007-PRECONDITION, kind: precondition, assertion: "reject input when: The sequence and limit identities exist and every covered relation references a covered state component."}
+  - {id: TEST-007-ERROR, kind: failure, assertion: "the first violated precondition returns one of: MISSING_COMMUNITY_SEQUENCE, MISSING_LIMIT_STATE, DANGLING_STABILITY_RELATION"}
+  - {id: TEST-007-POSTCONDITION, kind: postcondition, assertion: "The descriptor preserves all four object IDs, three relation IDs, and three unresolved term IDs."}
+  - {id: TEST-007-DETERMINISM, kind: determinism, assertion: identical structural inputs produce an identical structural result}
+  - {id: TEST-007-RESERVATIONS, kind: reservation_propagation, assertion: "preserve unresolved TLC-UT-THEOREMS-002, TLC-UT-THEOREMS-003, TLC-UT-THEOREMS-004 and assumption TLC-EA-THEOREMS-007-001"}
+  - {id: TEST-007-TRACE, kind: traceability, assertion: preserve every feature-specific source object relation and line reference}
+  - {id: TEST-007-CONFORMANCE, kind: contract_ir_conformance, assertion: entrypoint inputs output errors and readiness match contract and IR}
+numeric_expected_results: forbidden
+implementation_status: no_test_code_created
