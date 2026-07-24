@@ -1,0 +1,8 @@
+ir_id: TLC-IR-TLC-FC-05-DYNAMICS-001
+status: engineering_candidate
+issues:
+  - {issue_id: IR-ISSUE-OPAQUE-OPERATORS, severity: major, finding: L lambda2 norms and integral cannot be lowered to executable operations, consequence: Candidate IR is structural only, source_issues: [ISSUE-L, ISSUE-NORM, ISSUE-TIME], status: open}
+  - {issue_id: IR-ISSUE-MEMORY-IDENTITY, severity: major, finding: Memory notation identity remains unresolved, consequence: No alias or concrete data binding is permitted, source_issues: [ISSUE-MEMORY], status: open}
+  - {issue_id: IR-ISSUE-OUTPUT, severity: major, finding: Predicate-result and aggregation semantics remain opaque, consequence: No boolean or public result type is selected, source_issues: [ISSUE-OUTPUT], status: open}
+  - {issue_id: IR-ISSUE-DIMENSIONS, severity: minor, finding: Dimensional validation remains unavailable, consequence: Operand compatibility is pending, source_issues: [ISSUE-DIMENSIONS], status: open}
+critical_issues: []

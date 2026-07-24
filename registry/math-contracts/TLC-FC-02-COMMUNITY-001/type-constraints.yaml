@@ -1,0 +1,36 @@
+contract_id: TLC-MC-TLC-FC-02-COMMUNITY-001
+feature_id: TLC-FC-02-COMMUNITY-001
+status: candidate
+sets:
+  - {set_id: SET-NU-STAR, symbol_id: SYM-NU-STAR, membership_constraint: "subset of SYM-VC", status: candidate}
+  - {set_id: SET-VC, symbol_id: SYM-VC, definition: {status: unresolved}, status: unresolved}
+types:
+  - {type_id: TYPE-EPS-COH, symbol_id: SYM-EPS-COH, mathematical_type: scalar, sign_constraint: strictly_positive, status: candidate}
+constraints:
+  - constraint_id: CON-C1-SUBSET
+    expression: "\\nu^* \\subset \\mathcal{V}_c"
+    referenced_symbols: [SYM-NU-STAR, SYM-VC]
+    classification: normative_from_source
+    status: candidate
+  - constraint_id: CON-C1-MEASURE
+    expression: "measure(\\nu^*) > 0"
+    referenced_symbols: [SYM-NU-STAR]
+    measure_definition: {status: unresolved}
+    classification: normative_from_source
+    status: unresolved
+  - constraint_id: CON-C1-MEMBERSHIP
+    expression: "\\pi_{\\nu}(a) \\in \\nu^* for every actor a"
+    referenced_symbols: [SYM-PI-NU, SYM-A, SYM-NU-STAR]
+    classification: normative_from_source
+    status: candidate
+  - constraint_id: CON-C1-COHERENCE
+    expression: "coherence(\\nu^*) >= \\epsilon_{\\mathrm{coh}} > 0"
+    referenced_symbols: [SYM-NU-STAR, SYM-EPS-COH]
+    coherence_function: {status: unresolved}
+    comparator_for_minimum: {status: unresolved}
+    classification: unresolved
+    status: unresolved
+ambiguities:
+  - {field: measure, finding: measure space and measure operator are undefined, status: unresolved}
+  - {field: coherence, finding: coherence function and exact inequality are not written symbolically, status: unresolved}
+  - {field: actor_domain, finding: quantification domain for a is unnamed in the cited range, status: unresolved}

@@ -1,0 +1,20 @@
+domain_id: dynamics
+edge_semantics: "A -> B means B depends on an element defined by A"
+edges:
+  - {edge_id: DYN-EDGE-001, from_feature_id: TLC-FC-05-DYNAMICS-006, to_feature_id: TLC-FC-05-DYNAMICS-001, dependency_kind: state, source_evidence: "catalogue object grouping and viability quantities", strength: inferred_candidate, production_effect: does_not_block_structure, notes: "State identities require targeted extraction."}
+  - {edge_id: DYN-EDGE-002, from_feature_id: TLC-FC-05-DYNAMICS-006, to_feature_id: TLC-FC-05-DYNAMICS-002, dependency_kind: state, source_evidence: "equations evolve quantities grouped by feature 006", strength: inferred_candidate, production_effect: blocks_execution_only, notes: "No executable state space."}
+  - {edge_id: DYN-EDGE-003, from_feature_id: TLC-FC-05-DYNAMICS-006, to_feature_id: TLC-FC-05-DYNAMICS-003, dependency_kind: state, source_evidence: "trajectory equation and state candidate", strength: inferred_candidate, production_effect: blocks_execution_only, notes: "Scientific decision required."}
+  - {edge_id: DYN-EDGE-004, from_feature_id: TLC-FC-05-DYNAMICS-006, to_feature_id: TLC-FC-05-DYNAMICS-004, dependency_kind: definition, source_evidence: "feedback depends on Disciple quantities", strength: inferred_candidate, production_effect: blocks_execution_only, notes: "Types and kernel domain remain unresolved."}
+  - {edge_id: DYN-EDGE-005, from_feature_id: TLC-FC-05-DYNAMICS-006, to_feature_id: TLC-FC-05-DYNAMICS-005, dependency_kind: state, source_evidence: "interaction operators contribute to derivatives", strength: inferred_candidate, production_effect: blocks_execution_only, notes: "Operator signatures absent."}
+  - {edge_id: DYN-EDGE-006, from_feature_id: TLC-FC-05-DYNAMICS-006, to_feature_id: TLC-FC-05-DYNAMICS-007, dependency_kind: definition, source_evidence: "TLC-SO-DYNAMICS-008 belongs to Disciple dynamics context", strength: unresolved, production_effect: blocks_contract_generation, notes: "State/evolution boundary unresolved."}
+summary:
+  confirmed_edges: 0
+  inferred_edges: 5
+  unresolved_edges: 1
+  root_features: [TLC-FC-05-DYNAMICS-006]
+  leaf_features: [TLC-FC-05-DYNAMICS-001, TLC-FC-05-DYNAMICS-002, TLC-FC-05-DYNAMICS-003, TLC-FC-05-DYNAMICS-004, TLC-FC-05-DYNAMICS-005, TLC-FC-05-DYNAMICS-007]
+  cycles: []
+  cycle_classifications: []
+  independent_components: 1
+  partial_topological_order: [TLC-FC-05-DYNAMICS-006, TLC-FC-05-DYNAMICS-001, TLC-FC-05-DYNAMICS-002, TLC-FC-05-DYNAMICS-004, TLC-FC-05-DYNAMICS-005, TLC-FC-05-DYNAMICS-003, TLC-FC-05-DYNAMICS-007]
+  production_groups: [A_independent_definitions, B_state_declarations, C_after_master_symbols, D_after_disciple_symbols, E_after_community, J_scientific_decision_required]

@@ -1,0 +1,35 @@
+domain: message
+preparation_only: true
+canonical_baseline: origin/main
+authority_rule: canonical_only
+classifications:
+- feature_id: TLC-FC-07-MESSAGE-001
+  contract_class: definition
+  status: blocked_locally
+  executable: false
+- feature_id: TLC-FC-07-MESSAGE-002
+  contract_class: validation_contract
+  status: admissible
+  executable: false
+- feature_id: TLC-FC-07-MESSAGE-003
+  contract_class: validation_contract
+  status: admissible
+  executable: false
+- feature_id: TLC-FC-07-MESSAGE-004
+  contract_class: message_structure_contract
+  status: admissible
+  executable: false
+- feature_id: TLC-FC-07-MESSAGE-005
+  contract_class: state_contract
+  status: blocked_locally
+  executable: false
+- feature_id: TLC-FC-07-MESSAGE-006
+  contract_class: message_declaration_contract
+  status: provisionally_separated
+  executable: false
+allowed_classes:
+- definition
+- validation_contract
+- message_structure_contract
+- state_contract
+- message_declaration_contract

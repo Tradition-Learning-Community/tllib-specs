@@ -1,0 +1,51 @@
+artifact:
+  artifact_id: TLC-SCI-MESSAGE-SCIENTIFIC_EXTRACTION_DECISION_REQUEST-001
+  artifact_type: scientific_extraction_decision_request
+  version: candidate-1
+  status: candidate
+  source_slug: message
+  source_repository: Tradition-Learning-Community/tllib-specs
+  source_path: maths/07-message.md
+  source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/07-message.md
+  source_branch: main
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  source_blob_sha: a407d3d1d91c6e03f0471f49054c64b349cf506c
+  generated_at: '2026-07-18T00:00:00+02:00'
+  generator_role: TLC_SCIENTIFIC_OBJECT_EXTRACTOR
+work_item_id: TLC-SCI-MESSAGE-001
+source_slug: message
+stage: scientific_object_extraction
+artifacts_produced:
+- registry/scientific-objects/message/scientific-objects.candidate.yaml
+- registry/scientific-objects/message/scientific-relations.candidate.yaml
+- registry/scientific-objects/message/unresolved-terms.yaml
+- registry/scientific-objects/message/duplicate-candidates.yaml
+- reports/scientific-extraction/message/scientific-extraction-report.md
+- reports/scientific-extraction/message/decision_required.yaml
+blocking_issues: []
+non_blocking_issues:
+- issue_id: NB-MESSAGE-001
+  description: Les classifications non explicites restent candidates et non résolues.
+  status: unresolved
+unresolved_terms_count: 61
+duplicate_candidates_count: 2
+questions_for_human:
+- question_id: Q-MESSAGE-001
+  question: Confirmer les classifications candidates signalées comme non résolues.
+recommended_decision: revise
+allowed_decisions:
+- approved
+- approved_with_reservations
+- revise
+- rejected
+git_status: six_generated_files_committed_and_pushed
+commit_status:
+  status: succeeded
+  commit: e0cb0ab9dc10983fd7af3f67b5dee8402bfc39f1
+  message: Add candidate scientific extractions for remaining maths sources
+push_status:
+  status: succeeded
+  remote: origin
+  branch: main
+  result: 68a4d4c..e0cb0ab main -> main
+  warning: 'git: ''credential-manager-core'' is not a git command; push nevertheless succeeded.'

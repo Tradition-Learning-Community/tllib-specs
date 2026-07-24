@@ -1,0 +1,54 @@
+work_item_id: TLC-FUNCTIONAL-DECOMPOSITION
+stage: functional_decomposition
+status: candidate
+input:
+  snapshot: registry/functional-decomposition/decomposition-input-snapshot.yaml
+  source_commit: a92f6dfe905c102c5688cc6843b65673e5bea088
+  object_count: 1383
+  relation_count: 1365
+summary:
+  feature_candidates: 224
+  requires_targeted_extraction: 31
+  insufficient_definition: 11
+  ready_for_math_contract: 69
+  requires_targeted_scientific_review: 113
+  decomposition_variants: 3
+  dependency_candidates: 1365
+  boundary_issues: 17
+artifacts_produced:
+- registry/features/feature-candidates.yaml
+- registry/features/feature-decomposition-variants.yaml
+- registry/features/feature-boundary-issues.yaml
+- registry/features/dependency-hints.yaml
+- reports/functional-decomposition/README.md
+- reports/functional-decomposition/feature-decomposition-report.md
+- reports/functional-decomposition/feature-catalog.md
+- reports/functional-decomposition/dependency-report.md
+- reports/functional-decomposition/prioritization.yaml
+- reports/functional-decomposition/decision_required.yaml
+- tools/functional-decomposition/validate_features.py
+- tools/functional-decomposition/summarize_features.py
+- tools/functional-decomposition/README.md
+blocking_issues:
+- Locally blocked objects and relations remain confined to their cited candidates.
+- Contract-blocking terms remain unresolved.
+non_blocking_issues:
+- Documentary uncertainties classified as non-blocking were not promoted to feature blockers.
+questions_for_human:
+- Which candidate features should enter scientific review?
+- Which decomposition variant or combination should be selected?
+- Should large candidates be subdivided before mathematical-contract work?
+recommended_decision:
+  value: approved_with_reservations
+  justification: Authorize scientific review of unblocked candidates while retaining all local blockers and provisional
+    separations.
+allowed_decisions:
+- approved
+- approved_with_reservations
+- revise
+- rejected
+readiness:
+  ready_for_scientific_review: false
+  ready_for_math_contract_selection: false
+  ready_for_ir: false
+  ready_for_implementation: false

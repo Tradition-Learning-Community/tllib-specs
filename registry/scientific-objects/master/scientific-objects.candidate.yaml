@@ -1,0 +1,615 @@
+artifact:
+  artifact_id: TLC-SCI-MASTER-OBJECTS-001
+  artifact_type: scientific_object_registry
+  version: candidate-1
+  status: candidate
+  source_slug: master
+  source_repository: Tradition-Learning-Community/tllib-specs
+  source_path: maths/00-master.md
+  source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md
+  source_branch: main
+  source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+  source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0
+  generated_at: 2026-07-18T00:00:00+02:00
+  generator_role: TLC_SCIENTIFIC_OBJECT_EXTRACTOR
+
+objects:
+  - provisional_object_id: TLC-SO-MASTER-001
+    object_type: Entity
+    canonical_name: Maître
+    source_name: Maître
+    source_statement: Le Maître est une entité catalytique capable d’induire et de guider une transformation d’état chez un Disciple par des interactions basées sur l’exemplarité.
+    concise_description: Entité fonctionnelle qui transmet, garde et adapte une tradition.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "1. Définition conceptuelle", subsection: null, start_line: 3, end_line: 11}
+    symbols_mentioned: ["\\mathcal{M}"]
+    related_objects: [TLC-SO-MASTER-002, TLC-SO-MASTER-007]
+    explicit_dependencies: [Disciple, exemplarité, tradition]
+    candidate_dependencies: []
+    validation_status: candidate
+    extraction_confidence: high
+    issues: []
+
+  - provisional_object_id: TLC-SO-MASTER-002
+    object_type: Definition
+    canonical_name: Définition conceptuelle du Maître
+    source_name: Définition conceptuelle
+    source_statement: Le Maître est défini par son rôle fonctionnel dans le système d’apprentissage, comme source et gardien d’une forme de vie spécifique.
+    concise_description: Définition fonctionnelle et relationnelle du Maître.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "1. Définition conceptuelle", subsection: null, start_line: 5, end_line: 11}
+    symbols_mentioned: []
+    related_objects: [TLC-SO-MASTER-001, TLC-SO-MASTER-003]
+    explicit_dependencies: [rôle fonctionnel, système d’apprentissage]
+    candidate_dependencies: []
+    validation_status: candidate
+    extraction_confidence: high
+    issues: []
+
+  - provisional_object_id: TLC-SO-MASTER-003
+    object_type: Relation
+    canonical_name: Relation asymétrique Maître-Disciple
+    source_name: relation asymétrique et intentionnelle
+    source_statement: Le Maître entretient une relation asymétrique et intentionnelle avec le Disciple.
+    concise_description: Relation pédagogique orientée entre Maître et Disciple.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "1. Définition conceptuelle", subsection: "Plan relationnel", start_line: 7, end_line: 11}
+    symbols_mentioned: []
+    related_objects: [TLC-SO-MASTER-001]
+    explicit_dependencies: [Maître, Disciple, stratégies pédagogiques]
+    candidate_dependencies: []
+    validation_status: candidate
+    extraction_confidence: high
+    issues: []
+
+  - provisional_object_id: TLC-SO-MASTER-004
+    object_type: Constraint
+    canonical_name: Connaissance non triviale
+    source_name: R1 — Connaissance non triviale
+    source_statement: "\\dim(\\mathcal{K}) > \\theta_{\\mathcal{K}}, \\quad \\mathrm{Entropie}(\\mathcal{K}) < H_{\\max}"
+    concise_description: Condition nécessaire de richesse et de structuration de la connaissance.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "2. Conditions théoriques pour la maîtrise", subsection: R1, start_line: 15, end_line: 21}
+    symbols_mentioned: ["\\mathcal{K}", "\\theta_{\\mathcal{K}}", "H_{\\max}"]
+    related_objects: [TLC-SO-MASTER-008]
+    explicit_dependencies: [dimension de la connaissance, entropie de la connaissance]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: high
+    issues: [{issue_id: TLC-ISS-MASTER-001, issue_type: missing_definition, description: "Entropie(\\mathcal{K}) n’est pas définie.", severity: major, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-005
+    object_type: Metric
+    canonical_name: Cohérence exemplaire comportementale
+    source_name: R2 — Cohérence exemplaire
+    source_statement: "\\mathcal{E}(t) = 1 - \\frac{d(\\Pi_{\\nu}(\\mathcal{K}),\\Lambda_{\\mathcal{M}}(t))}{d_{\\max}} > \\epsilon_{\\min}"
+    concise_description: Mesure normalisée d’alignement entre valeurs et comportement observable.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "2. Conditions théoriques pour la maîtrise", subsection: R2, start_line: 23, end_line: 27}
+    symbols_mentioned: ["\\mathcal{E}(t)", "\\Pi_{\\nu}(\\mathcal{K})", "\\Lambda_{\\mathcal{M}}(t)", d, "d_{\\max}", "\\epsilon_{\\min}"]
+    related_objects: [TLC-SO-MASTER-010]
+    explicit_dependencies: [projection de la connaissance, comportement observé, métrique comportementale]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: high
+    issues: [{issue_id: TLC-ISS-MASTER-002, issue_type: conflicting_definition, description: "Une seconde formule définit aussi \\mathcal{E} aux lignes 75-79.", severity: blocking, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-006
+    object_type: Constraint
+    canonical_name: Potentiel transformateur
+    source_name: R3 — Potentiel transformateur
+    source_statement: "\\exists \\mathcal{P}\\in\\mathcal{P},\\ \\exists \\mathcal{D}_0\\in\\mathbb{D}: \\left\\|\\frac{d\\Phi_{\\mathcal{P}}(\\mathcal{D}(t))}{dt}\\right\\|_{t=0}>0"
+    concise_description: Existence d’une pédagogie produisant un changement initial non nul.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "2. Conditions théoriques pour la maîtrise", subsection: R3, start_line: 29, end_line: 33}
+    symbols_mentioned: ["\\mathcal{P}", "\\mathcal{D}_0", "\\mathbb{D}", "\\Phi_{\\mathcal{P}}"]
+    related_objects: [TLC-SO-MASTER-011]
+    explicit_dependencies: [Disciple, opérateur de transformation]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: high
+    issues: [{issue_id: TLC-ISS-MASTER-003, issue_type: notation_ambiguity, description: "\\mathcal{P} désigne simultanément l’ensemble et l’élément quantifié.", severity: major, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-007
+    object_type: Constraint
+    canonical_name: Légitimité contextuelle
+    source_name: R4 — Légitimité contextuelle
+    source_statement: "\\mathcal{A}(\\mathcal{M},\\mathcal{C},t) > \\alpha_{\\min}"
+    concise_description: Seuil minimal d’autorité reconnue dans une communauté.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "2. Conditions théoriques pour la maîtrise", subsection: R4, start_line: 35, end_line: 39}
+    symbols_mentioned: ["\\mathcal{A}", "\\mathcal{M}", "\\mathcal{C}", "\\alpha_{\\min}"]
+    related_objects: [TLC-SO-MASTER-013]
+    explicit_dependencies: [Maître, Communauté, fonction d’autorité]
+    candidate_dependencies: []
+    validation_status: candidate
+    extraction_confidence: high
+    issues: []
+
+  - provisional_object_id: TLC-SO-MASTER-008
+    object_type: Definition
+    canonical_name: Structure interne du Maître
+    source_name: Structure interne du Maître (7-uplet)
+    source_statement: "\\mathcal{M} = (\\mathcal{K},\\ \\nu,\\ \\mathcal{E},\\ \\mathcal{P},\\ \\mathcal{A},\\ \\mathcal{R},\\ \\mathcal{S})"
+    concise_description: Définition formelle du Maître comme 7-uplet.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "3. Structure interne du Maître (7-uplet)", subsection: null, start_line: 41, end_line: 47}
+    symbols_mentioned: ["\\mathcal{M}", "\\mathcal{K}", "\\nu", "\\mathcal{E}", "\\mathcal{P}", "\\mathcal{A}", "\\mathcal{R}", "\\mathcal{S}"]
+    related_objects: [TLC-SO-MASTER-009, TLC-SO-MASTER-010, TLC-SO-MASTER-011, TLC-SO-MASTER-013, TLC-SO-MASTER-014, TLC-SO-MASTER-015]
+    explicit_dependencies: [base de connaissances, système de valeurs, exemplarité, modèle pédagogique, autorité, capacité relationnelle, statut symbolique]
+    candidate_dependencies: []
+    validation_status: candidate
+    extraction_confidence: high
+    issues: []
+
+  - provisional_object_id: TLC-SO-MASTER-009
+    object_type: Space
+    canonical_name: Base de connaissances du Maître
+    source_name: Base de connaissances K
+    source_statement: "\\mathcal{K}=(E,B,\\pi,F), avec B\\subset\\mathbb{R}^n, E=B\\times F et \\pi:E\\to B."
+    concise_description: Fibré représentant connaissances explicites et tacites.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "3. Structure interne du Maître", subsection: "3.1 Base de connaissances", start_line: 49, end_line: 60}
+    symbols_mentioned: ["\\mathcal{K}", E, B, "\\pi", F, "F_b", "\\mathcal{H}"]
+    related_objects: [TLC-SO-MASTER-008]
+    explicit_dependencies: [variété de dimension finie, espace de Hilbert]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: high
+    issues: [{issue_id: TLC-ISS-MASTER-004, issue_type: structural_tension, description: "Le fibré est donné avec E=B×F, ce qui décrit un fibré trivial sans clarification.", severity: major, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-010
+    object_type: Space
+    canonical_name: Système de valeurs simplicial
+    source_name: Système de valeurs ν
+    source_statement: "\\nu=(V,\\Sigma), avec V=\\{v_1,\\dots,v_k\\} et des poids w_\\sigma\\in[0,1]."
+    concise_description: Complexe simplicial pondéré représentant les valeurs co-actives.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "3. Structure interne du Maître", subsection: "3.2 Système de valeurs", start_line: 62, end_line: 71}
+    symbols_mentioned: ["\\nu", V, "\\Sigma", "v_i", "w_\\sigma"]
+    related_objects: [TLC-SO-MASTER-008]
+    explicit_dependencies: [sommets, simplexes, poids]
+    candidate_dependencies: []
+    validation_status: candidate
+    extraction_confidence: high
+    issues: []
+
+  - provisional_object_id: TLC-SO-MASTER-011
+    object_type: Metric
+    canonical_name: Exemplarité par divergence de Kullback-Leibler
+    source_name: État d’exemplarité E
+    source_statement: "\\mathcal{E}(t)=1-D_{\\mathrm{KL}}(P_{\\mathrm{actions}}(t)\\ \\|\\ P_{\\nu}(t))"
+    concise_description: Mesure de cohérence entre distributions d’actions et de valeurs.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "3. Structure interne du Maître", subsection: "3.3 État d’exemplarité", start_line: 73, end_line: 79}
+    symbols_mentioned: ["\\mathcal{E}(t)", "D_{\\mathrm{KL}}", "P_{\\mathrm{actions}}(t)", "P_{\\nu}(t)"]
+    related_objects: [TLC-SO-MASTER-005]
+    explicit_dependencies: [distribution empirique des actions, distribution idéale des valeurs]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: high
+    issues: [{issue_id: TLC-ISS-MASTER-005, issue_type: range_ambiguity, description: "1-D_KL n’est pas garanti dans [0,1] sans hypothèse supplémentaire.", severity: major, status: unresolved}, {issue_id: TLC-ISS-MASTER-002, issue_type: conflicting_definition, description: "Une autre formule définit \\mathcal{E} aux lignes 23-27.", severity: blocking, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-012
+    object_type: Set
+    canonical_name: Bibliothèque d’opérateurs pédagogiques
+    source_name: Modèle pédagogique P
+    source_statement: "\\mathcal{P}=\\{P_\\theta:\\mathbb{D}\\times\\mathcal{C}\\to\\mathbb{D}\\mid\\theta\\in\\Theta\\}"
+    concise_description: Ensemble paramétré d’opérateurs pédagogiques.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "3. Structure interne du Maître", subsection: "3.4 Modèle pédagogique", start_line: 81, end_line: 90}
+    symbols_mentioned: ["\\mathcal{P}", "P_\\theta", "\\mathbb{D}", "\\mathcal{C}", "\\Theta"]
+    related_objects: [TLC-SO-MASTER-013]
+    explicit_dependencies: [espace d’état du Disciple, contexte]
+    candidate_dependencies: []
+    validation_status: candidate
+    extraction_confidence: high
+    issues: []
+
+  - provisional_object_id: TLC-SO-MASTER-013
+    object_type: Operator
+    canonical_name: Sélection pédagogique optimale
+    source_name: opérateur optimal θ*
+    source_statement: "\\theta^*=\\arg\\min_{\\theta\\in\\Theta}\\mathcal{L}(P_\\theta(D_t,C_t),D_{\\mathrm{cible}})"
+    concise_description: Sélection d’un opérateur pédagogique par minimisation d’une perte.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "3. Structure interne du Maître", subsection: "3.4 Modèle pédagogique", start_line: 87, end_line: 90}
+    symbols_mentioned: ["\\theta^*", "\\Theta", "\\mathcal{L}", "P_\\theta", "D_t", "C_t", "D_{\\mathrm{cible}}"]
+    related_objects: [TLC-SO-MASTER-012]
+    explicit_dependencies: [fonction de perte, état cible]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: high
+    issues: [{issue_id: TLC-ISS-MASTER-006, issue_type: missing_definition, description: "\\mathcal{L} et D_cible ne sont pas définis.", severity: major, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-014
+    object_type: Function
+    canonical_name: Fonction d’autorité
+    source_name: Fonction d’autorité A
+    source_statement: "\\mathcal{A}(\\mathcal{M},\\mathcal{C},t)=\\sigma(w_1\\mathcal{E}(t)+w_2f(\\mathcal{K})+w_3g(\\mathcal{S})+w_4h(\\mathrm{Histoire}_{\\mathcal{M}}))"
+    concise_description: Agrégation sigmoïde de l’exemplarité, de la connaissance, du statut et de l’histoire.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "3. Structure interne du Maître", subsection: "3.5 Fonction d’autorité", start_line: 92, end_line: 102}
+    symbols_mentioned: ["\\mathcal{A}", "\\sigma", "w_i", f, g, h]
+    related_objects: [TLC-SO-MASTER-007, TLC-SO-MASTER-015]
+    explicit_dependencies: [exemplarité, connaissance, statut symbolique, histoire du Maître]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: high
+    issues: [{issue_id: TLC-ISS-MASTER-007, issue_type: partial_definition, description: "f, g et h n’ont pas de signature formelle.", severity: major, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-015
+    object_type: State
+    canonical_name: Capacité relationnelle
+    source_name: Capacité relationnelle R
+    source_statement: "\\vec{\\mathcal{R}}=(\\mathrm{Empathie},\\mathrm{Patience},\\mathrm{Accord},\\mathrm{Méta-empathie},\\ldots)\\in[0,1]^m"
+    concise_description: Vecteur de facultés relationnelles modulant la pédagogie.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "3. Structure interne du Maître", subsection: "3.6 Capacité relationnelle", start_line: 104, end_line: 112}
+    symbols_mentioned: ["\\vec{\\mathcal{R}}", "\\|\\vec{\\mathcal{R}}\\|_2", "\\Delta D", "P_\\theta"]
+    related_objects: [TLC-SO-MASTER-012]
+    explicit_dependencies: [Empathie, Patience, Accord, Méta-empathie]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: high
+    issues: [{issue_id: TLC-ISS-MASTER-008, issue_type: notation_change, description: "La norme L2 est ensuite notée sans indice 2.", severity: minor, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-016
+    object_type: State
+    canonical_name: Statut symbolique
+    source_name: Statut symbolique S
+    source_statement: "\\mathcal{S}=(\\mathrm{Centralité},\\mathrm{Prestige},\\mathrm{Profondeur\\ de\\ lignée})"
+    concise_description: Position du Maître dans le réseau communautaire.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "3. Structure interne du Maître", subsection: "3.7 Statut symbolique", start_line: 115, end_line: 123}
+    symbols_mentioned: ["\\mathcal{S}"]
+    related_objects: [TLC-SO-MASTER-014, TLC-SO-MASTER-021]
+    explicit_dependencies: [Centralité, Prestige, Profondeur de lignée]
+    candidate_dependencies: []
+    validation_status: candidate
+    extraction_confidence: high
+    issues: []
+
+  - provisional_object_id: TLC-SO-MASTER-017
+    object_type: Axiom
+    canonical_name: Cohérence connaissance-action
+    source_name: Axiome 1 – Cohérence connaissance-action
+    source_statement: "\\Lambda_{\\mathcal{M}}\\cap\\Pi_\\nu(\\mathcal{K})\\neq\\emptyset, \\mu(\\Lambda_{\\mathcal{M}}\\cap\\Pi_\\nu(\\mathcal{K}))>0, \\dim(\\mathcal{K})>1, \\mathcal{K}\\neq\\emptyset."
+    concise_description: Axiome imposant un recouvrement mesurable entre actions et connaissance projetée.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "4. Axiomes de la définition du Maître", subsection: "Axiome 1", start_line: 125, end_line: 129}
+    symbols_mentioned: ["\\Lambda_{\\mathcal{M}}", "\\Pi_\\nu(\\mathcal{K})", "\\mu", "\\mathcal{A}"]
+    related_objects: [TLC-SO-MASTER-009]
+    explicit_dependencies: [espace des actions, mesure]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: high
+    issues: [{issue_id: TLC-ISS-MASTER-009, issue_type: symbol_role_conflict, description: "\\mathcal{A} désigne ici l’espace des actions et ailleurs la fonction d’autorité.", severity: major, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-018
+    object_type: Axiom
+    canonical_name: Seuil minimal d’exemplarité
+    source_name: Axiome 2 – Seuil minimal d’exemplarité
+    source_statement: "Il existe une constante universelle \\epsilon_0>0 telle que \\mathcal{E}(\\mathcal{M})\\ge\\epsilon_0."
+    concise_description: Axiome d’un minimum universel d’exemplarité.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "4. Axiomes de la définition du Maître", subsection: "Axiome 2", start_line: 131, end_line: 131}
+    symbols_mentioned: ["\\epsilon_0", "\\mathcal{E}(\\mathcal{M})"]
+    related_objects: [TLC-SO-MASTER-011, TLC-SO-MASTER-040]
+    explicit_dependencies: [exemplarité]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: high
+    issues: [{issue_id: TLC-ISS-MASTER-010, issue_type: unsupported_universality, description: "L’universalité de \\epsilon_0 est affirmée sans justification.", severity: major, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-019
+    object_type: Axiom
+    canonical_name: Stabilité du système de valeurs
+    source_name: Axiome 3 – Stabilité du système de valeurs
+    source_statement: "Pour toute perturbation p avec \\|p\\|<\\epsilon, \\nu_p est simplicialement isomorphe à \\nu et d_H(\\nu,\\nu_p)<\\delta."
+    concise_description: Axiome de stabilité topologique du complexe de valeurs.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "4. Axiomes de la définition du Maître", subsection: "Axiome 3", start_line: 133, end_line: 133}
+    symbols_mentioned: [p, "\\epsilon", "\\nu_p", "\\nu", "d_H", "\\delta"]
+    related_objects: [TLC-SO-MASTER-010]
+    explicit_dependencies: [perturbation, isomorphisme simplicial, distance de Hausdorff]
+    candidate_dependencies: []
+    validation_status: candidate
+    extraction_confidence: high
+    issues: []
+
+  - provisional_object_id: TLC-SO-MASTER-020
+    object_type: Axiom
+    canonical_name: Capacité de transmission
+    source_name: Axiome 4 – Capacité de transmission
+    source_statement: "Il existe P\\in\\mathcal{P} et D_0\\in\\mathrm{Dom}(P) tels que \\|P(D_0)-D_0\\|>0, P(D_0)\\neq D_{\\mathrm{null}}, et P^n(D_0) converge vers D^* non dégénéré."
+    concise_description: Axiome d’existence d’une transformation pédagogique convergente non dégénérée.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "4. Axiomes de la définition du Maître", subsection: "Axiome 4", start_line: 135, end_line: 135}
+    symbols_mentioned: [P, "\\mathcal{P}", "D_0", "D_{\\mathrm{null}}", "D^*"]
+    related_objects: [TLC-SO-MASTER-012]
+    explicit_dependencies: [opérateur pédagogique, état initial, convergence]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: high
+    issues: [{issue_id: TLC-ISS-MASTER-011, issue_type: missing_definition, description: "D_null, la topologie de convergence et non dégénéré ne sont pas définis.", severity: major, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-021
+    object_type: Axiom
+    canonical_name: Intégration lignagère
+    source_name: Axiome 5 – Intégration lignagère
+    source_statement: "Le Maître est intégrable dans un lignage et \\mathcal{S}(\\mathcal{M})\\ge\\mathcal{S}_{\\min}>0."
+    concise_description: Axiome reliant le Maître à une tradition et à un statut symbolique minimal.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "4. Axiomes de la définition du Maître", subsection: "Axiome 5", start_line: 137, end_line: 137}
+    symbols_mentioned: ["\\mathcal{S}(\\mathcal{M})", "\\mathcal{S}_{\\min}"]
+    related_objects: [TLC-SO-MASTER-016, TLC-SO-MASTER-040]
+    explicit_dependencies: [lignage, tradition, statut symbolique]
+    candidate_dependencies: []
+    validation_status: candidate
+    extraction_confidence: high
+    issues: []
+
+  - provisional_object_id: TLC-SO-MASTER-022
+    object_type: Invariant
+    canonical_name: Invariant éthique
+    source_name: Invariant éthique
+    source_statement: "\\mathcal{I}_{\\mathrm{eth}} est la courbure scalaire de l’espace des décisions morales; \\nabla R=0 au voisinage des actions caractéristiques."
+    concise_description: Invariant de cohérence locale de l’univers moral.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "5. Invariants de la maîtrise", subsection: "Invariant éthique", start_line: 141, end_line: 143}
+    symbols_mentioned: ["\\mathcal{I}_{\\mathrm{eth}}", "\\nabla R"]
+    related_objects: [TLC-SO-MASTER-010]
+    explicit_dependencies: [courbure scalaire, espace des décisions morales]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: medium
+    issues: [{issue_id: TLC-ISS-MASTER-012, issue_type: missing_structure, description: "L’espace des décisions morales et sa structure différentielle ne sont pas définis.", severity: major, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-023
+    object_type: Invariant
+    canonical_name: Invariant de transmission
+    source_name: Invariant de transmission
+    source_statement: "\\mathcal{I}_{\\mathrm{trans}}=\\frac{I(\\mathcal{K}_{\\mathcal{M}};\\mathcal{K}_{\\mathcal{D}})}{C(\\mathcal{P})}, avec \\mathcal{I}_{\\mathrm{trans}}\\to H(\\mathcal{K})/C_{\\min}."
+    concise_description: Efficacité informationnelle du transfert de connaissance.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "5. Invariants de la maîtrise", subsection: "Invariant de transmission", start_line: 145, end_line: 149}
+    symbols_mentioned: ["\\mathcal{I}_{\\mathrm{trans}}", I, "\\mathcal{K}_{\\mathcal{M}}", "\\mathcal{K}_{\\mathcal{D}}", "C(\\mathcal{P})", "C_{\\min}"]
+    related_objects: [TLC-SO-MASTER-009, TLC-SO-MASTER-012]
+    explicit_dependencies: [information mutuelle, coût pédagogique]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: high
+    issues: [{issue_id: TLC-ISS-MASTER-013, issue_type: missing_definition, description: "Le coût pédagogique C et C_min ne sont pas formellement définis.", severity: major, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-024
+    object_type: Invariant
+    canonical_name: Invariant structural
+    source_name: Invariant structural
+    source_statement: "\\mathcal{I}_{\\mathrm{struct}}=\\lambda_2(L)\\ge\\gamma>0."
+    concise_description: Trou spectral du graphe connaissance-valeurs-actions.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "5. Invariants de la maîtrise", subsection: "Invariant structural", start_line: 151, end_line: 155}
+    symbols_mentioned: ["\\mathcal{I}_{\\mathrm{struct}}", "\\lambda_2(L)", "\\gamma"]
+    related_objects: [TLC-SO-MASTER-009, TLC-SO-MASTER-010]
+    explicit_dependencies: [laplacien normalisé, graphe des composantes]
+    candidate_dependencies: []
+    validation_status: candidate
+    extraction_confidence: high
+    issues: []
+
+  - provisional_object_id: TLC-SO-MASTER-025
+    object_type: StochasticEquation
+    canonical_name: Évolution stochastique de la connaissance
+    source_name: Évolution de la connaissance
+    source_statement: "d\\mathcal{K}(t)=\\alpha\\nabla_{\\mathcal{K}}R(\\mathcal{K},\\nu)dt+\\beta\\mathbb{E}_{\\mathcal{D}\\sim\\mu_t}[\\delta\\mathcal{K}_{\\mathrm{ped}}(\\mathcal{D})]dt+\\gamma I_{\\mathrm{ext}}(t)dt+\\sigma_{\\mathcal{K}}dW_{\\mathcal{K}}(t)."
+    concise_description: Équation stochastique couplant affinement, rétroaction, apport externe et bruit.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "6. Équations dynamiques du Maître", subsection: "6.1 Évolution de la connaissance", start_line: 163, end_line: 174}
+    symbols_mentioned: ["d\\mathcal{K}(t)", "\\alpha", "\\beta", "\\gamma", "\\mu_t", "I_{\\mathrm{ext}}", "W_{\\mathcal{K}}"]
+    related_objects: [TLC-SO-MASTER-009]
+    explicit_dependencies: [fonctionnelle de cohérence, distribution des Disciples, processus de Wiener]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: high
+    issues: [{issue_id: TLC-ISS-MASTER-014, issue_type: undefined_operations, description: "Les opérations différentielles et additives sur le fibré K ne sont pas définies.", severity: blocking, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-026
+    object_type: StochasticEquation
+    canonical_name: Dynamique stochastique de l’exemplarité
+    source_name: Dynamique de l’exemplarité
+    source_statement: "\\frac{d^2\\mathcal{E}}{dt^2}+\\zeta\\frac{d\\mathcal{E}}{dt}+\\omega_0^2\\mathcal{E}=F_{\\mathrm{contexte}}(t)+\\eta_{\\mathcal{E}}(t)."
+    concise_description: Dynamique du second ordre avec amortissement et bruit coloré.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "6. Équations dynamiques du Maître", subsection: "6.2 Dynamique de l’exemplarité", start_line: 176, end_line: 183}
+    symbols_mentioned: ["\\mathcal{E}", "\\zeta", "\\omega_0", "F_{\\mathrm{contexte}}", "\\eta_{\\mathcal{E}}"]
+    related_objects: [TLC-SO-MASTER-005, TLC-SO-MASTER-011]
+    explicit_dependencies: [amortissement éthique, bruit coloré]
+    candidate_dependencies: []
+    validation_status: candidate
+    extraction_confidence: high
+    issues: []
+
+  - provisional_object_id: TLC-SO-MASTER-027
+    object_type: DifferentialEquation
+    canonical_name: Dynamique du système de valeurs
+    source_name: Dynamique du système de valeurs
+    source_statement: "\\frac{\\partial\\rho(\\sigma,t)}{\\partial t}=D\\Delta_\\nu\\rho(\\sigma,t)-\\nabla_\\nu\\cdot(\\rho(\\sigma,t)\\vec{v}(\\sigma,t))."
+    concise_description: Équation d’advection-diffusion sur le complexe simplicial des valeurs.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "6. Équations dynamiques du Maître", subsection: "6.3 Dynamique du système de valeurs", start_line: 185, end_line: 192}
+    symbols_mentioned: ["\\rho(\\sigma,t)", D, "\\Delta_\\nu", "\\nabla_\\nu", "\\vec{v}"]
+    related_objects: [TLC-SO-MASTER-010]
+    explicit_dependencies: [laplacien combinatoire, champ de dérive, coefficient de diffusion]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: high
+    issues: [{issue_id: TLC-ISS-MASTER-015, issue_type: undefined_operator, description: "La divergence sur le complexe simplicial n’est pas définie.", severity: major, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-028
+    object_type: StochasticEquation
+    canonical_name: Évolution stochastique de l’autorité
+    source_name: Évolution de l’autorité
+    source_statement: "\\frac{d\\mathcal{A}}{dt}=\\lambda_{\\mathcal{A}}(\\mathcal{E}(t)-\\mathcal{A}(t))+\\mu_{\\mathcal{A}}\\frac{d\\bar{\\mathcal{Q}}}{dt}+\\nu_{\\mathcal{A}}\\frac{d\\mathcal{S}}{dt}+\\xi_{\\mathcal{A}}(t)."
+    concise_description: Évolution de l’autorité avec sauts de réputation.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "6. Équations dynamiques du Maître", subsection: "6.4 Évolution de l’autorité", start_line: 194, end_line: 199}
+    symbols_mentioned: ["\\mathcal{A}", "\\lambda_{\\mathcal{A}}", "\\mu_{\\mathcal{A}}", "\\bar{\\mathcal{Q}}", "\\nu_{\\mathcal{A}}", "\\mathcal{S}", "\\xi_{\\mathcal{A}}"]
+    related_objects: [TLC-SO-MASTER-014, TLC-SO-MASTER-016]
+    explicit_dependencies: [exemplarité, qualité moyenne des Disciples, statut symbolique, sauts de Poisson]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: high
+    issues: [{issue_id: TLC-ISS-MASTER-016, issue_type: missing_definition, description: "La qualité moyenne des Disciples n’est pas définie.", severity: major, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-029
+    object_type: Function
+    canonical_name: Fonction de compétence
+    source_name: Horizon de compétence
+    source_statement: "C_{\\mathcal{M}}:\\mathcal{X}\\to[0,1] décroît exponentiellement avec la distance au noyau de compétence; R_{\\mathcal{M}} délimite la zone où C_{\\mathcal{M}}<\\epsilon."
+    concise_description: Fonction de compétence selon la distance à un noyau.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "7. Limites et capacités du Maître", subsection: "7.1 Horizon de compétence", start_line: 203, end_line: 204}
+    symbols_mentioned: ["C_{\\mathcal{M}}", "\\mathcal{X}", "R_{\\mathcal{M}}", "\\epsilon"]
+    related_objects: [TLC-SO-MASTER-001]
+    explicit_dependencies: [distance au noyau de compétence]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: medium
+    issues: [{issue_id: TLC-ISS-MASTER-017, issue_type: missing_definition, description: "Le noyau, la distance et la formule exponentielle sont absents; l’orientation C_M<epsilon doit être confirmée.", severity: major, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-030
+    object_type: Metric
+    canonical_name: Fossé d’interprétation
+    source_name: fossé d’interprétation
+    source_statement: "\\Delta_I(\\mathcal{M},\\mathcal{D}) mesure la difficulté à comprendre un Disciple de cadre différent."
+    concise_description: Mesure de difficulté d’interprétation entre Maître et Disciple.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "7. Limites et capacités du Maître", subsection: "7.2 Limites d’interprétation", start_line: 206, end_line: 207}
+    symbols_mentioned: ["\\Delta_I(\\mathcal{M},\\mathcal{D})"]
+    related_objects: [TLC-SO-MASTER-001]
+    explicit_dependencies: [Maître, Disciple]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: medium
+    issues: [{issue_id: TLC-ISS-MASTER-018, issue_type: missing_definition, description: "Le domaine, le codomaine et le seuil critique ne sont pas précisés.", severity: major, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-031
+    object_type: Equation
+    canonical_name: Probabilité de rupture par surcharge cognitive
+    source_name: Surcharge cognitive
+    source_statement: "\\mathbb{P}(\\mathrm{rupture})=1-\\exp\\big(-\\frac{\\mathrm{complexité}-C_{\\max}}{\\tau}\\big)."
+    concise_description: Probabilité de rupture associée à la surcharge cognitive.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "7. Limites et capacités du Maître", subsection: "7.3 Scénarios de rupture", start_line: 209, end_line: 210}
+    symbols_mentioned: ["\\mathbb{P}(\\mathrm{rupture})", "C_{\\max}", "\\tau"]
+    related_objects: []
+    explicit_dependencies: [complexité, capacité maximale]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: high
+    issues: [{issue_id: TLC-ISS-MASTER-019, issue_type: domain_issue, description: "La formule peut produire une probabilité négative lorsque complexité<C_max.", severity: major, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-032
+    object_type: Constraint
+    canonical_name: Fracture éthique
+    source_name: Fracture éthique
+    source_statement: "\\mathcal{E}(t)\\to0 si tous les simplexes de valeurs entrent en conflit irréconciliable."
+    concise_description: Scénario d’effondrement de l’exemplarité.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "7. Limites et capacités du Maître", subsection: "7.3 Scénarios de rupture", start_line: 211, end_line: 211}
+    symbols_mentioned: ["\\mathcal{E}(t)"]
+    related_objects: [TLC-SO-MASTER-010, TLC-SO-MASTER-011]
+    explicit_dependencies: [conflit des simplexes de valeurs]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: high
+    issues: [{issue_id: TLC-ISS-MASTER-020, issue_type: undefined_condition, description: "Le conflit irréconciliable n’est pas défini.", severity: major, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-033
+    object_type: Constraint
+    canonical_name: Effondrement pédagogique
+    source_name: Effondrement pédagogique
+    source_statement: "\\|\\Phi_{\\mathcal{P}}(\\mathcal{D})-\\mathcal{D}\\|<\\delta_{\\min} pour tout P\\in\\mathcal{P}."
+    concise_description: Scénario où toute transformation pédagogique reste sous un seuil.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "7. Limites et capacités du Maître", subsection: "7.3 Scénarios de rupture", start_line: 212, end_line: 212}
+    symbols_mentioned: ["\\Phi_{\\mathcal{P}}", "\\mathcal{D}", "\\delta_{\\min}", P, "\\mathcal{P}"]
+    related_objects: [TLC-SO-MASTER-012]
+    explicit_dependencies: [opérateurs pédagogiques]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: high
+    issues: [{issue_id: TLC-ISS-MASTER-003, issue_type: notation_ambiguity, description: "P et \\mathcal{P} sont employés avec des rôles insuffisamment stabilisés.", severity: major, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-034
+    object_type: Constraint
+    canonical_name: Borne supérieure de transmission
+    source_name: Borne supérieure de transmission
+    source_statement: "\\frac{d\\|\\Delta\\mathcal{D}\\|}{dt}\\le\\min\\{B_{\\mathcal{M}},B_{\\mathcal{D}},B_{\\mathrm{canal}}\\}, avec B_{\\mathcal{M}}=H(\\mathcal{K})/\\tau_{\\mathcal{M}}, B_{\\mathcal{D}}=C_{\\mathcal{D}}/\\eta, B_{\\mathrm{canal}}=I_{\\max}(\\mathcal{M}\\to\\mathcal{D})."
+    concise_description: Borne du taux de transformation du Disciple.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "7. Limites et capacités du Maître", subsection: "7.4 Borne supérieure de transmission", start_line: 214, end_line: 218}
+    symbols_mentioned: ["\\Delta\\mathcal{D}", "B_{\\mathcal{M}}", "B_{\\mathcal{D}}", "B_{\\mathrm{canal}}"]
+    related_objects: [TLC-SO-MASTER-023]
+    explicit_dependencies: [entropie de la connaissance, capacité du Disciple, information du canal]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: high
+    issues: [{issue_id: TLC-ISS-MASTER-021, issue_type: dimensional_ambiguity, description: "L’homogénéité des trois bornes n’est pas établie.", severity: major, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-035
+    object_type: Set
+    canonical_name: Typologie des Maîtres
+    source_name: Cinq types purs (et leurs hybrides)
+    source_statement: Les types purs sont Sage, Artisan, Réformateur, Mentor et Gardien; les hybrides sont des combinaisons convexes.
+    concise_description: Ensemble de cinq archétypes et de profils hybrides.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "8. Typologie des Maîtres", subsection: null, start_line: 220, end_line: 230}
+    symbols_mentioned: []
+    related_objects: [TLC-SO-MASTER-001]
+    explicit_dependencies: [Sage, Artisan, Réformateur, Mentor, Gardien]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: high
+    issues: [{issue_id: TLC-ISS-MASTER-022, issue_type: undefined_space, description: "L’espace des combinaisons convexes n’est pas défini.", severity: major, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-036
+    object_type: DifferentialEquation
+    canonical_name: Dynamique de la phase de formation
+    source_name: Phase de formation
+    source_statement: "\\frac{d\\mathcal{K}}{dt}=\\alpha_{\\mathrm{form}}I_{\\mathrm{ext}}+\\beta_{\\mathrm{form}}R(\\mathcal{K},\\mathcal{K}_{\\mathrm{mentor}})-\\gamma_{\\mathrm{form}}\\mathcal{K}."
+    concise_description: Équation d’évolution de la connaissance durant la formation.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "9. Cycle de vie d’un Maître", subsection: "Phase de formation", start_line: 232, end_line: 234}
+    symbols_mentioned: ["\\mathcal{K}", "\\alpha_{\\mathrm{form}}", "I_{\\mathrm{ext}}", "\\beta_{\\mathrm{form}}", R, "\\mathcal{K}_{\\mathrm{mentor}}", "\\gamma_{\\mathrm{form}}"]
+    related_objects: [TLC-SO-MASTER-009, TLC-SO-MASTER-037]
+    explicit_dependencies: [apport externe, connaissance du mentor]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: high
+    issues: [{issue_id: TLC-ISS-MASTER-023, issue_type: missing_definition, description: "R et la structure permettant les opérations sur K ne sont pas définis.", severity: major, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-037
+    object_type: State
+    canonical_name: Cycle de vie du Maître
+    source_name: Cycle de vie d’un Maître
+    source_statement: Le cycle comprend phase de formation, émergence, pic de maîtrise, déclin et états terminaux.
+    concise_description: Suite de phases décrivant l’évolution d’un Maître.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "9. Cycle de vie d’un Maître", subsection: null, start_line: 232, end_line: 238}
+    symbols_mentioned: ["\\mathcal{K}", "\\mathcal{E}", "\\mathcal{A}"]
+    related_objects: [TLC-SO-MASTER-036]
+    explicit_dependencies: [formation, émergence, pic de maîtrise, déclin, états terminaux]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: medium
+    issues: [{issue_id: TLC-ISS-MASTER-024, issue_type: object_classification, description: "Le cycle peut aussi être un Concept ou un ensemble d’états; aucune transition formelle n’est donnée.", severity: minor, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-038
+    object_type: Proposition
+    canonical_name: Distinction entre Maître et expert moderne
+    source_name: Le Maître diffère fondamentalement de l’expert moderne
+    source_statement: La connaissance du Maître est principalement tacite, son autorité repose sur l’exemplarité, il transforme des personnes et il est ancré dans une tradition.
+    concise_description: Proposition comparative entre Maître TL et expert moderne.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "10. Considérations épistémologiques", subsection: null, start_line: 240, end_line: 242}
+    symbols_mentioned: []
+    related_objects: [TLC-SO-MASTER-001]
+    explicit_dependencies: [expert moderne, connaissance tacite, exemplarité, tradition]
+    candidate_dependencies: []
+    validation_status: unresolved
+    extraction_confidence: high
+    issues: [{issue_id: TLC-ISS-MASTER-025, issue_type: missing_definition, description: "L’expert moderne n’est pas défini dans le fichier.", severity: minor, status: unresolved}]
+
+  - provisional_object_id: TLC-SO-MASTER-039
+    object_type: Constant
+    canonical_name: Constantes théoriques de la maîtrise
+    source_name: constantes théoriques
+    source_statement: "\\epsilon_0 et \\mathcal{S}_{\\min} sont des minima existentiels introduits par les axiomes."
+    concise_description: Constantes théoriques distinguées des seuils empiriques.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "11. Notes sur les constantes théoriques et empiriques", subsection: null, start_line: 244, end_line: 246}
+    symbols_mentioned: ["\\epsilon_0", "\\mathcal{S}_{\\min}"]
+    related_objects: [TLC-SO-MASTER-018, TLC-SO-MASTER-021]
+    explicit_dependencies: [axiomes du Maître]
+    candidate_dependencies: []
+    validation_status: candidate
+    extraction_confidence: high
+    issues: []
+
+  - provisional_object_id: TLC-SO-MASTER-040
+    object_type: Parameter
+    canonical_name: Seuils empiriques de la maîtrise
+    source_name: seuils empiriques
+    source_statement: "\\theta_{\\mathcal{K}} et \\alpha_{\\min} varient selon les contextes et sont à calibrer."
+    concise_description: Paramètres empiriques contextuels à calibrer.
+    source_reference: {repository: Tradition-Learning-Community/tllib-specs, source_path: maths/00-master.md, source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md, source_branch: main, source_commit: fe8b990d7560869889b153cc8422b5d6918678e6, source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0, document_title: "Le Maître (Master)", section: "11. Notes sur les constantes théoriques et empiriques", subsection: null, start_line: 244, end_line: 246}
+    symbols_mentioned: ["\\theta_{\\mathcal{K}}", "\\alpha_{\\min}"]
+    related_objects: [TLC-SO-MASTER-004, TLC-SO-MASTER-007]
+    explicit_dependencies: [contexte, calibration]
+    candidate_dependencies: []
+    validation_status: candidate
+    extraction_confidence: high
+    issues: []

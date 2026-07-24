@@ -1,0 +1,65 @@
+work_item_id: TLC-SCIENTIFIC-HUMAN-REVIEW-PREPARATION
+stage: scientific_human_review_preparation
+status: candidate
+source_audit:
+  commit: fbeaa25
+  queue_path: reports/scientific-consolidation/human-review-queue.yaml
+summary:
+  total_decisions: 147
+  total_batches: 12
+  blocking_decisions: 146
+  non_blocking_decisions: 1
+artifacts_produced:
+- reports/scientific-review/README.md
+- reports/scientific-review/review-dashboard.md
+- reports/scientific-review/review-index.yaml
+- reports/scientific-review/validation-report.md
+- reports/scientific-review/decision_required.yaml
+- registry/scientific-objects/review-decisions/README.md
+- registry/scientific-objects/review-decisions/decision-ledger.yaml
+- tools/scientific-review/README.md
+- tools/scientific-review/validate_decisions.py
+- tools/scientific-review/summarize_review.py
+- reports/scientific-review/batches/batch-001/review.md
+- reports/scientific-review/batches/batch-001/decisions.yaml
+- reports/scientific-review/batches/batch-002/review.md
+- reports/scientific-review/batches/batch-002/decisions.yaml
+- reports/scientific-review/batches/batch-003/review.md
+- reports/scientific-review/batches/batch-003/decisions.yaml
+- reports/scientific-review/batches/batch-004/review.md
+- reports/scientific-review/batches/batch-004/decisions.yaml
+- reports/scientific-review/batches/batch-005/review.md
+- reports/scientific-review/batches/batch-005/decisions.yaml
+- reports/scientific-review/batches/batch-006/review.md
+- reports/scientific-review/batches/batch-006/decisions.yaml
+- reports/scientific-review/batches/batch-007/review.md
+- reports/scientific-review/batches/batch-007/decisions.yaml
+- reports/scientific-review/batches/batch-008/review.md
+- reports/scientific-review/batches/batch-008/decisions.yaml
+- reports/scientific-review/batches/batch-009/review.md
+- reports/scientific-review/batches/batch-009/decisions.yaml
+- reports/scientific-review/batches/batch-010/review.md
+- reports/scientific-review/batches/batch-010/decisions.yaml
+- reports/scientific-review/batches/batch-011/review.md
+- reports/scientific-review/batches/batch-011/decisions.yaml
+- reports/scientific-review/batches/batch-012/review.md
+- reports/scientific-review/batches/batch-012/decisions.yaml
+blocking_issues:
+- La décomposition fonctionnelle reste bloquée jusqu’à la fin de la revue humaine.
+non_blocking_issues:
+- La file originale agrège 830 termes non résolus dans une seule décision globale.
+- Les catégories traceability et non_blocking_warning n’utilisent pas les mêmes options que les 145 rapprochements ; elles sont normalisées sans modifier les catégories d’origine.
+questions_for_human:
+- Examiner les paquets dans l’ordre indiqué et renseigner chaque bloc human_decision sans modifier les registres candidats.
+readiness:
+  ready_for_human_review: true
+  ready_for_decision_application: false
+  ready_for_feature_decomposition: false
+recommended_next_action:
+  value: begin_human_review
+  justification: Toutes les décisions originales sont réparties en paquets autonomes et restent pending.
+allowed_decisions:
+- approved
+- approved_with_reservations
+- revise
+- rejected

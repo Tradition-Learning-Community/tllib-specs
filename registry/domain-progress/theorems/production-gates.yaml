@@ -1,0 +1,87 @@
+domain_id: theorems
+baseline_gate:
+  main_commit: 4a42d88ee71e3660fba02c7a780246e8d755c901
+  source_present: true
+  extraction_present: true
+  consolidation_present: true
+  catalogue_present: true
+  baseline_valid: true
+upstream_status:
+  master:
+    canonical: true
+    complete_to_ir: true
+  disciple:
+    canonical: true
+    complete_to_ir: true
+  community:
+    canonical: true
+    complete_to_ir: false
+  huit_dimensions:
+    canonical: false
+    complete_to_ir: false
+  invariants:
+    canonical: false
+    complete_to_ir: false
+  dynamics:
+    canonical: false
+    complete_to_ir: false
+inventory_gate:
+  objects_verified: 30
+  relations_verified: 29
+  unresolved_verified: 12
+  source_coverage_complete: true
+feature_gate:
+  catalogue_features: 9
+  inventoried_features: 9
+  feature_coverage_complete: true
+  missing_features: 0
+  orphan_features: 0
+semantic_gate:
+  result_types_classified: 7
+  statements_classified: 7
+  hypotheses_classified: 7
+  conclusions_classified: 7
+  proof_status_classified: 7
+  concept_separation_complete: true
+  unresolved_semantics: 1
+proof_gate:
+  proofs_inventoried: 6
+  proof_dependencies_mapped: 6
+  incomplete_proofs_identified: 6
+  missing_proofs_identified: 1
+  mechanical_verification_assessed: true
+dependency_gate:
+  master_analyzed: true
+  disciple_analyzed: true
+  community_analyzed: true
+  huit_dimensions_analyzed: true
+  invariants_analyzed: true
+  dynamics_analyzed: true
+  message_principle_analyzed: true
+  other_domains_analyzed: true
+  internal_graph_complete: true
+  proof_graph_complete: true
+  unresolved_dependencies: 8
+classification_gate:
+  features_classified: 9
+  not_yet_determinable: 1
+  classification_complete: true
+planning_gate:
+  contract_plans: 9
+  ir_plans: 9
+  production_order_complete: true
+  unresolved_classified: 12
+  historical_artifacts_assessed: true
+blocking_conditions:
+- proofs incomplete or absent
+- upstream Huit Dimensions, Invariants, and Dynamics not canonical
+- twelve unresolved classifications
+- one theorem/axiom extraction conflict
+non_blocking_reservations:
+- Preparation can complete before upstream production reconciliation.
+ready_for_contract_generation_now: true
+ready_for_full_contract_generation: false
+ready_for_ir_generation: false
+ready_for_proof_mechanical_verification: false
+ready_for_implementation_planning: false
+ready_for_code_generation: false

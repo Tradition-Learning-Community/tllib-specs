@@ -1,0 +1,18 @@
+contract_id: TLC-MC-TLC-FC-05-DYNAMICS-001
+feature_id: TLC-FC-05-DYNAMICS-001
+status: candidate
+types:
+  states: [SYM-A, SYM-R, SYM-VC, SYM-N]
+  scalar_thresholds: [SYM-NMIN, SYM-LAMBDAMIN, SYM-DELTAMAX, SYM-MMAX]
+  operators: [SYM-L, SYM-LAMBDA2, SYM-NORM]
+constraints:
+  - {constraint_id: CON-SIZE, expression: "|\\mathcal{A}(t)| >= N_{\\min}", referenced_symbols: [SYM-A, SYM-T, SYM-NMIN], mathematical_class: cardinality_inequality, classification: normative_from_source, status: candidate}
+  - {constraint_id: CON-CONNECTIVITY, expression: "\\lambda_2(L(\\mathcal{R}(t))) >= \\lambda_{\\min}", referenced_symbols: [SYM-LAMBDA2, SYM-L, SYM-R, SYM-T, SYM-LAMBDAMIN], mathematical_class: spectral_inequality, classification: normative_from_source, status: unresolved}
+  - {constraint_id: CON-VALUES, expression: "\\|\\mathcal{V}_c(t)-\\mathcal{V}_{\\mathrm{core}}\\| <= \\Delta_{\\max}", referenced_symbols: [SYM-NORM, SYM-VC, SYM-T, SYM-VCORE, SYM-DELTAMAX], mathematical_class: norm_inequality, classification: normative_from_source, status: unresolved}
+  - {constraint_id: CON-MEMORY, expression: "\\int_0^t \\|\\mathcal{N}(\\tau)-\\mathcal{N}_{\\mathrm{essentiel}}\\|d\\tau <= M_{\\max}", referenced_symbols: [SYM-T, SYM-TAU, SYM-NORM, SYM-N, SYM-NESS, SYM-MMAX], mathematical_class: integral_inequality, classification: normative_from_source, status: unresolved}
+ambiguities:
+  - {field: temporal_domain, finding: domain and units of t are undefined, status: unresolved}
+  - {field: operator_L, finding: L is not defined in the authorized range, status: unresolved}
+  - {field: norm, finding: normed spaces and norm are undefined, status: unresolved}
+  - {field: memory_notation, finding: source uses N while prose calls the quantity memory; no alias to M is inferred, status: unresolved}
+  - {field: dimensional_consistency, finding: dimensions and units are absent for all four inequalities, status: unresolved}

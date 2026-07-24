@@ -1,0 +1,27 @@
+ir_id: TLC-IR-TLC-FC-05-DYNAMICS-001
+work_item_id: TLC-IR-TLC-FC-05-DYNAMICS-001
+feature_id: TLC-FC-05-DYNAMICS-001
+status: engineering_candidate
+scientific_validation: pending
+source:
+  contract_id: TLC-MC-TLC-FC-05-DYNAMICS-001
+  contract_branch: contract/TLC-FC-05-DYNAMICS-001
+  contract_commit: 41028d616ab28af0ae1ba2f328c8bb8add2d68dd
+  contract_status: candidate
+  scientific_object_ids: [TLC-SO-DYNAMICS-015]
+  scientific_relation_ids: []
+unresolved_propagation:
+  allowed: true
+  propagated_ids: [UNRES-TIME, UNRES-L, UNRES-NORM, UNRES-MEMORY-NOTATION, UNRES-OUTPUT]
+scope:
+  included: [abstract_states, abstract_parameters, opaque_operators, four_viability_predicates, opaque_evaluation_output, traceability]
+  excluded: [scientific_resolution, executable_oracle, discretization, numerical_method, tolerance, implementation_language, library, public_api, solver]
+artifacts:
+  - ir.yaml
+  - types.yaml
+  - nodes.yaml
+  - operations.yaml
+  - constraints.yaml
+  - unresolved.yaml
+  - traceability.yaml
+  - issues.yaml

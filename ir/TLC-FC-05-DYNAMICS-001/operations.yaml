@@ -1,0 +1,15 @@
+ir_id: TLC-IR-TLC-FC-05-DYNAMICS-001
+status: engineering_candidate
+operations:
+  - {operation_id: IR-CARDINALITY, kind: abstract_operator, inputs: [IR-A], output_type: IR-TYPE-THRESHOLD, source_symbol_id: null, status: engineering_candidate}
+  - {operation_id: IR-L, kind: opaque_operator, inputs: [IR-R], output_type: opaque, source_symbol_id: SYM-L, status: unresolved, unresolved_from: UNRES-L}
+  - {operation_id: IR-LAMBDA2, kind: opaque_operator, inputs: [IR-L], output_type: IR-TYPE-THRESHOLD, source_symbol_id: SYM-LAMBDA2, status: unresolved, unresolved_from: UNRES-L}
+  - {operation_id: IR-NORM-VALUES, kind: opaque_norm, inputs: [IR-VC, IR-VCORE], output_type: IR-TYPE-THRESHOLD, source_symbol_id: SYM-NORM, status: unresolved, unresolved_from: UNRES-NORM}
+  - {operation_id: IR-NORM-MEMORY, kind: opaque_norm, inputs: [IR-N, IR-NESS], output_type: IR-TYPE-THRESHOLD, source_symbol_id: SYM-NORM, status: unresolved, unresolved_from: UNRES-NORM}
+  - {operation_id: IR-INTEGRAL, kind: opaque_continuous_integral, inputs: [IR-TAU, IR-T, IR-NORM-MEMORY], output_type: IR-TYPE-THRESHOLD, source_symbol_id: null, status: unresolved, unresolved_from: [UNRES-TIME, UNRES-NORM]}
+  - {operation_id: IR-EVALUATE-VIABILITY, kind: abstract_constraint_evaluation, inputs: [IR-CON-SIZE, IR-CON-CONNECTIVITY, IR-CON-VALUES, IR-CON-MEMORY], output_type: IR-TYPE-VIABILITY-RESULT, aggregation_policy: {status: unresolved}, status: unresolved, unresolved_from: UNRES-OUTPUT}
+operation_policies:
+  discretization: not_selected
+  numeric_precision: not_selected
+  tolerance: not_selected
+  execution_order: not_selected

@@ -1,0 +1,89 @@
+work_item_id: TLC-MATH-CONTRACT-ENTRY-001
+stage: math_contract_entry_preparation
+status: candidate
+wave_id: CONTRACT_WAVE_1
+selection_status: candidate
+count: 5
+feature_ids:
+- TLC-FC-02-COMMUNITY-001
+- TLC-FC-05-DYNAMICS-001
+- TLC-FC-08-PRINCIPLE-002
+- TLC-FC-09-VALUES-018
+- TLC-FC-14-LIVED-EXPERIENCE-005
+selection_criteria:
+- identifiable behavior
+- no blocking scientific decision
+- no inter-feature contract dependency
+- source-grounded oracle basis
+- small estimated scope
+- cross-domain and cross-category representation
+features:
+- feature_id: TLC-FC-02-COMMUNITY-001
+  name: '02-community: constraint (admissible)'
+  category: constraint_evaluation
+  contract_entry_status: READY_FOR_MATH_CONTRACT
+  scientific_objects:
+  - TLC-SO-COMMUNITY-008
+  sources:
+  - source_path: maths/02-community.md
+    section: Axiomes fondamentaux de la Communauté
+    subsection: null
+    start_line: 81
+    end_line: 83
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- feature_id: TLC-FC-05-DYNAMICS-001
+  name: '05-dynamics: constraint (admissible)'
+  category: constraint_evaluation
+  contract_entry_status: READY_FOR_MATH_CONTRACT
+  scientific_objects:
+  - TLC-SO-DYNAMICS-015
+  sources:
+  - source_path: maths/05-dynamics.md
+    section: Équations de la Communauté
+    subsection: Contraintes de viabilité
+    start_line: 147
+    end_line: 153
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- feature_id: TLC-FC-08-PRINCIPLE-002
+  name: '08-principle: dynamics (admissible)'
+  category: evolution_dynamics
+  contract_entry_status: READY_FOR_MATH_CONTRACT
+  scientific_objects:
+  - TLC-SO-PRINCIPLE-087
+  sources:
+  - source_path: maths/08-principle.md
+    section: Évolution temporelle et dynamique
+    subsection: null
+    start_line: 198
+    end_line: 200
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- feature_id: TLC-FC-09-VALUES-018
+  name: '09-values: relation (admissible)'
+  category: relation_evaluation
+  contract_entry_status: READY_FOR_MATH_CONTRACT
+  scientific_objects:
+  - TLC-SO-VALUES-047
+  sources:
+  - source_path: maths/09-values.md
+    section: Définition formelle
+    subsection: null
+    start_line: 23
+    end_line: 23
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- feature_id: TLC-FC-14-LIVED-EXPERIENCE-005
+  name: '14-lived-experience: equation (admissible)'
+  category: transformation
+  contract_entry_status: READY_FOR_MATH_CONTRACT
+  scientific_objects:
+  - TLC-SO-LIVED-EXPERIENCE-065
+  sources:
+  - source_path: maths/14-lived-experience.md
+    section: Interaction avec la communauté et expérience collective
+    subsection: Mémoire collective émergente
+    start_line: 140
+    end_line: 142
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+readiness:
+  ready_for_contract_chat: true
+  ready_for_ir: false
+  ready_for_implementation: false

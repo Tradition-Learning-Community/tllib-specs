@@ -1,0 +1,36 @@
+artifact:
+  artifact_id: TLC-SCI-MASTER-DUPLICATES-001
+  artifact_type: duplicate_candidate_registry
+  version: candidate-1
+  status: candidate
+  source_slug: master
+  source_repository: Tradition-Learning-Community/tllib-specs
+  source_path: maths/00-master.md
+  source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md
+  source_branch: main
+  source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
+  source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0
+  generated_at: 2026-07-18T00:00:00+02:00
+  generator_role: TLC_SCIENTIFIC_OBJECT_EXTRACTOR
+
+duplicate_candidates:
+  - duplicate_candidate_id: TLC-DUP-MASTER-001
+    candidate_object_ids: [TLC-SO-MASTER-005, TLC-SO-MASTER-011]
+    shared_name_or_symbol: "\\mathcal{E}"
+    reason: Deux expressions distinctes définissent l’exemplarité.
+    evidence:
+      - {source_path: maths/00-master.md, start_line: 23, end_line: 27, statement: "Définition par distance comportementale normalisée."}
+      - {source_path: maths/00-master.md, start_line: 73, end_line: 79, statement: "Définition par divergence de Kullback-Leibler."}
+    automatic_merge: false
+    required_human_action: Déterminer s’il s’agit de métriques distinctes, de versions alternatives ou d’une incohérence.
+    status: unresolved
+  - duplicate_candidate_id: TLC-DUP-MASTER-002
+    candidate_object_ids: [TLC-SO-MASTER-006, TLC-SO-MASTER-012, TLC-SO-MASTER-013]
+    shared_name_or_symbol: "\\mathcal{P}"
+    reason: Le même symbole représente un modèle, un ensemble d’opérateurs et un élément quantifié.
+    evidence:
+      - {source_path: maths/00-master.md, start_line: 29, end_line: 33, statement: "Quantification d’un élément avec le même symbole que l’ensemble."}
+      - {source_path: maths/00-master.md, start_line: 81, end_line: 90, statement: "Définition de la bibliothèque d’opérateurs."}
+    automatic_merge: false
+    required_human_action: Fixer la convention de notation et les frontières des objets.
+    status: unresolved
