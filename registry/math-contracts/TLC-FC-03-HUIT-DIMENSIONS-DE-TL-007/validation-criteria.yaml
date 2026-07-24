@@ -1,0 +1,17 @@
+schema_version: 1
+contract_id: TLC-LEC-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007-001
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007
+criteria:
+- id: VAL-HUIT-007-MARKER
+  requirement: contract is explicitly limited_engineering_contract_with_reservations and not complete
+- id: VAL-HUIT-007-SCOPE
+  requirement: exactly the planned scientific objects are covered
+- id: VAL-HUIT-007-TRACE
+  requirement: every object has an exact source range and commit
+- id: VAL-HUIT-007-UNRESOLVED
+  requirement: all received reservations are propagated and none is declared resolved
+- id: VAL-HUIT-007-OPAQUE
+  requirement: unspecified representation and operation semantics remain opaque
+- id: VAL-HUIT-007-IR
+  requirement: canonical IR and production implementation remain unauthorized
+acceptance_rule: Passing authorizes review of this limited engineering contract only.

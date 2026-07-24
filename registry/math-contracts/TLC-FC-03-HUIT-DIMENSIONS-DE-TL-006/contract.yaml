@@ -1,0 +1,171 @@
+schema_version: 1
+contract_id: TLC-LEC-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006-001
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006
+domain: huit-dimensions
+canonical_name: '03-huit-dimensions-de-tl: equation (admissible)'
+contract_kind: limited_engineering_contract
+scientific_authority: origin/main
+limited_engineering_contract: true
+complete_scientific_contract: false
+status: limited_engineering_contract_with_reservations
+version: 0.1.0
+provenance:
+  source_commit: f0a9b6578087e61dd0c7799d95ff0050627f95d6
+  generated_on: '2026-07-24'
+  sources:
+  - registry/domain-progress/huit-dimensions/feature-inventory.yaml
+  - registry/domain-progress/huit-dimensions/feature-classification.yaml
+  - registry/domain-progress/huit-dimensions/feature-status.yaml
+  - registry/domain-progress/huit-dimensions/contract-production-plan.yaml
+  - registry/domain-progress/huit-dimensions/feature-dependencies.yaml
+  - registry/domain-progress/huit-dimensions/unresolved-status.yaml
+  - registry/domain-progress/huit-dimensions/dimension-semantics.yaml
+  - registry/domain-progress/huit-dimensions/external-domain-dependencies.yaml
+  - registry/scientific-objects/huit-dimensions-de-tl/scientific-objects.candidate.yaml
+  - registry/scientific-objects/huit-dimensions-de-tl/scientific-relations.candidate.yaml
+  - registry/scientific-objects/huit-dimensions-de-tl/unresolved-terms.yaml
+  - maths/03-huit-dimensions-de-tl.md
+scientific_objects_covered:
+- TLC-SO-HUIT-DIMENSIONS-DE-TL-068
+- TLC-SO-HUIT-DIMENSIONS-DE-TL-084
+scientific_relations_covered: []
+contextual_relations_not_covered:
+- TLC-SR-HUIT-DIMENSIONS-DE-TL-067
+- TLC-SR-HUIT-DIMENSIONS-DE-TL-083
+limited_functional_purpose: Preserve the cited candidate scientific objects as distinct opaque inputs and expose only source-traceable
+  candidate results; no missing scientific semantics are completed.
+inputs:
+- input_id: INPUT-HUIT-006-068
+  scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-068
+  category: Equation
+  representation: opaque_parameterized
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/03-huit-dimensions-de-tl.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/03-huit-dimensions-de-tl.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: f2db0152d534a776e2bd7abeb19ddfb150f33dd8
+    document_title: Les huit dimensions de la tradition (Eight Dimensions)
+    section: Les Principes (Principles)
+    subsection: Dynamique Principe‑Message
+    start_line: 79
+    end_line: 81
+- input_id: INPUT-HUIT-006-084
+  scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-084
+  category: Equation
+  representation: opaque_parameterized
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/03-huit-dimensions-de-tl.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/03-huit-dimensions-de-tl.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: f2db0152d534a776e2bd7abeb19ddfb150f33dd8
+    document_title: Les huit dimensions de la tradition (Eight Dimensions)
+    section: Les Vertus (Virtues)
+    subsection: Doctrine du juste milieu
+    start_line: 133
+    end_line: 135
+outputs:
+- output_id: OUTPUT-HUIT-006-068
+  scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-068
+  representation: opaque_candidate_result
+  semantics: unresolved
+- output_id: OUTPUT-HUIT-006-084
+  scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-084
+  representation: opaque_candidate_result
+  semantics: unresolved
+preconditions:
+- id: PRE-HUIT-006-SOURCE
+  statement: Every covered object is supplied with its candidate identity and exact source reference preserved.
+- id: PRE-HUIT-006-OPAQUE
+  statement: Unspecified types, dimensions, units, order, aggregation, temporal and numerical semantics remain opaque.
+- id: PRE-HUIT-006-UNRESOLVED
+  statement: Every reservation in unresolved.yaml remains attached.
+postconditions:
+- id: POST-HUIT-006-TRACE
+  statement: Every result remains candidate and traceable to one covered source object.
+- id: POST-HUIT-006-NO-PROMOTION
+  statement: No provisional assumption or unresolved reservation is promoted to canonical science.
+invariants:
+- id: INV-HUIT-006-IDENTITY
+  statement: Covered scientific object identities remain distinct.
+- id: INV-HUIT-006-SOURCE
+  statement: Source statements and line ranges remain unchanged.
+- id: INV-HUIT-006-LIMITED
+  statement: This artifact remains a limited engineering contract, never a complete scientific contract.
+undefined_or_error_cases:
+- id: FAIL-HUIT-006-MISSING-SOURCE
+  condition: A covered object or exact source range is missing.
+- id: FAIL-HUIT-006-DROPPED-RESERVATION
+  condition: A reservation is omitted or declared resolved without an explicit source.
+- id: FAIL-HUIT-006-INVENTION
+  condition: An unspecified scientific, numerical, temporal, ordering, unit or cardinality property is asserted.
+unresolved_propagated:
+  path: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006/unresolved.yaml
+  count: 8
+engineering_assumptions:
+- assumption_id: TLC-EA-HUIT-006-001
+  feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006
+  source: No canonical software representation is specified in the cited source ranges.
+  technical_reason: A prototype-facing interface requires a representable boundary without selecting scientific types.
+  minimal_choice: Represent every covered scientific object and candidate result as an opaque, identity-preserving parameterized
+    value.
+  alternatives_not_chosen:
+  - numeric scalar
+  - ordered tuple
+  - vector space
+  - probability distribution
+  - domain-specific concrete class
+  impact:
+    prototype_ir: opaque nodes and operations only
+    implementation: no production representation is authorized
+  reversible: true
+  status: provisional_engineering_assumption
+scientific_reservations:
+- TLC-UNRES-HUIT-006-TYPE
+- TLC-UNRES-HUIT-006-SIGNATURE
+- TLC-UNRES-HUIT-006-UNITS
+- TLC-UNRES-HUIT-006-ORDER
+- TLC-UNRES-HUIT-006-AGGREGATION
+- TLC-UNRES-HUIT-006-NUMERICS
+- TLC-UNRES-HUIT-006-ORACLE
+- TLC-UNRES-HUIT-006-BOUNDARY
+strong_dependencies: []
+documentary_references:
+- target_domain: message
+  status: explicit_component_domain_reference_candidate
+  contractual_use: prohibited
+- target_domain: principles
+  status: explicit_component_domain_reference_candidate
+  contractual_use: prohibited
+- target_domain: values
+  status: explicit_component_domain_reference_candidate
+  contractual_use: prohibited
+- target_domain: virtues
+  status: explicit_component_domain_reference_candidate
+  contractual_use: prohibited
+- target_domain: capacities
+  status: explicit_component_domain_reference_candidate
+  contractual_use: prohibited
+- target_domain: competencies
+  status: explicit_component_domain_reference_candidate
+  contractual_use: prohibited
+- target_domain: practice
+  status: explicit_component_domain_reference_candidate
+  contractual_use: prohibited
+- target_domain: lived-experience
+  status: explicit_component_domain_reference_candidate
+  contractual_use: prohibited
+traceability: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006/traceability.yaml
+validation_criteria: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006/validation-criteria.yaml
+readiness:
+  ready_for_complete_scientific_contract: false
+  ready_for_limited_engineering_contract: true
+  ready_for_canonical_ir: false
+  ready_for_prototype_ir: true
+  ready_for_production_implementation: false
+  ready_for_reference_prototype: true
+  human_validation_required_before_prototype_work: false
+  human_validation_required_before_canonical_release: true
