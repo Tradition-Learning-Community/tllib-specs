@@ -1,0 +1,42 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-04-INVARIANTS-009-PROTOTYPE-001
+feature_id: TLC-FC-04-INVARIANTS-009
+contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-009-001
+ir_id: TLC-IR-TLC-FC-04-INVARIANTS-009-PROTOTYPE-001
+scope: prototype_ir_structural_validation_only
+tests:
+- id: TEST-009-NOMINAL
+  category: operation_nominal
+  invokes: preserve_cohesion_term_evidence
+  scenario: Preserve the cohesion evidence and its unresolved marker without creating a state model.
+  expected_structural_effect: Returns a record marked rejected_as_feature and scientifically uncallable.
+- id: TEST-009-OPAQUE
+  category: opaque_boundary
+  invokes: preserve_cohesion_term_evidence
+  scenario: 'Supply valid evidence whose opaque portion is not interpretable: State membership, measurement, transition, and
+    equivalence semantics are absent.'
+  expected_structural_effect: Opaque content is preserved byte-for-byte and is not evaluated.
+- id: TEST-009-PRECONDITION
+  category: precondition_failure
+  invokes: preserve_cohesion_term_evidence
+  scenario: 'Violate the operation-specific precondition: The evidence ID is TLC-SO-INVARIANTS-065 and unresolved TLC-UT-INVARIANTS-009
+    is attached.'
+  expected_error: MissingCohesionReservation or FeatureStatusPromotion
+- id: TEST-009-POSTCONDITION
+  category: observable_postcondition
+  invokes: preserve_cohesion_term_evidence
+  scenario: Execute with valid covered evidence.
+  expected_structural_effect: Returns a record marked rejected_as_feature and scientifically uncallable.
+- id: TEST-009-RESERVATIONS
+  category: reservation_propagation
+  invokes: preserve_cohesion_term_evidence
+  scenario: Execute with all feature unresolved IDs and provisional assumptions attached.
+  expected_structural_effect: The output retains the exact unresolved and assumption ID sets and makes no resolution claim.
+- id: TEST-009-CONFORMANCE
+  category: contract_ir_conformance
+  invokes: preserve_cohesion_term_evidence
+  scenario: Compare callable, input type, output type, errors, postconditions, and readiness across contract and IR.
+  expected_structural_effect: All specialized interface fields and readiness values agree.
+numeric_expected_results: []
+implementation_status: planned_for_descriptor_only_scientific_operation_blocked
+operation_under_test: preserve_cohesion_term_evidence

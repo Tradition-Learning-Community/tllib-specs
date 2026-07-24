@@ -1,0 +1,44 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-04-INVARIANTS-003-PROTOTYPE-001
+feature_id: TLC-FC-04-INVARIANTS-003
+contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-003-001
+ir_id: TLC-IR-TLC-FC-04-INVARIANTS-003-PROTOTYPE-001
+scope: prototype_ir_structural_validation_only
+tests:
+- id: TEST-003-NOMINAL
+  category: operation_nominal
+  invokes: build_invariant_declaration_catalog
+  scenario: Catalogue the covered master, disciple, and community invariant declarations without truth evaluation.
+  expected_structural_effect: Returns a catalogue whose entries preserve declaration IDs, object types, source scopes, and
+    linked evidence relations.
+- id: TEST-003-OPAQUE
+  category: opaque_boundary
+  invokes: build_invariant_declaration_catalog
+  scenario: 'Supply valid evidence whose opaque portion is not interpretable: Equation bodies and truth conditions remain
+    opaque.'
+  expected_structural_effect: Opaque content is preserved byte-for-byte and is not evaluated.
+- id: TEST-003-PRECONDITION
+  category: precondition_failure
+  invokes: build_invariant_declaration_catalog
+  scenario: 'Violate the operation-specific precondition: Every declaration and relation ID belongs to the covered feature
+    evidence.'
+  expected_error: UnknownDeclarationId or DanglingEvidenceRelation
+- id: TEST-003-POSTCONDITION
+  category: observable_postcondition
+  invokes: build_invariant_declaration_catalog
+  scenario: Execute with valid covered evidence.
+  expected_structural_effect: Returns a catalogue whose entries preserve declaration IDs, object types, source scopes, and
+    linked evidence relations.
+- id: TEST-003-RESERVATIONS
+  category: reservation_propagation
+  invokes: build_invariant_declaration_catalog
+  scenario: Execute with all feature unresolved IDs and provisional assumptions attached.
+  expected_structural_effect: The output retains the exact unresolved and assumption ID sets and makes no resolution claim.
+- id: TEST-003-CONFORMANCE
+  category: contract_ir_conformance
+  invokes: build_invariant_declaration_catalog
+  scenario: Compare callable, input type, output type, errors, postconditions, and readiness across contract and IR.
+  expected_structural_effect: All specialized interface fields and readiness values agree.
+numeric_expected_results: []
+implementation_status: ready_for_operation_specific_test_implementation
+operation_under_test: build_invariant_declaration_catalog

@@ -1,0 +1,101 @@
+schema_version: 1
+contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-009-001
+feature_id: TLC-FC-04-INVARIANTS-009
+domain: invariants
+canonical_name: '04-invariants: state (blocked_locally)'
+contract_kind: limited_engineering_contract
+scientific_authority: origin/main
+limited_engineering_contract: true
+complete_scientific_contract: false
+status: limited_engineering_contract_with_reservations
+version: 0.1.0
+provenance:
+  source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+  generated_on: '2026-07-24'
+  sources:
+  - registry/domain-progress/invariants/feature-inventory.yaml
+  - registry/domain-progress/invariants/feature-classification.yaml
+  - registry/domain-progress/invariants/feature-status.yaml
+  - registry/domain-progress/invariants/contract-production-plan.yaml
+  - registry/domain-progress/invariants/ir-production-plan.yaml
+  - registry/domain-progress/invariants/unresolved-status.yaml
+  - registry/domain-progress/invariants/invariant-semantics.yaml
+  - registry/scientific-objects/invariants/scientific-objects.candidate.yaml
+  - registry/scientific-objects/invariants/scientific-relations.candidate.yaml
+  - maths/04-invariants.md
+  source_locations:
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Invariant relationnel $\mathcal{I}_{\mathrm{rel,c}}$
+    start_line: 146
+    end_line: 146
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+catalogue_status_preserved: rejected_as_feature
+scientific_objects_covered: &id001
+- TLC-SO-INVARIANTS-065
+scientific_relations_covered: &id002
+- TLC-SR-INVARIANTS-064
+contextual_relations_not_covered: []
+limited_functional_purpose: Preserve the isolated cohesion term as rejected evidence without defining a cohesion state.
+inputs:
+- input_id: INPUT-INVARIANTS-009-SPECIALIZED
+  type: CohesionTermEvidence
+  covered_object_ids: *id001
+  covered_relation_ids: *id002
+outputs:
+- output_id: OUTPUT-INVARIANTS-009-SPECIALIZED
+  type: RejectedStateEvidenceRecord
+  observable_effect: Returns a record marked rejected_as_feature and scientifically uncallable.
+  scientific_evaluation: not_performed
+types:
+  operation_input: CohesionTermEvidence
+  operation_output: RejectedStateEvidenceRecord
+  opaque_fields:
+  - source_statement_body
+  - scientific_truth_conditions
+preconditions:
+- id: PRE-INVARIANTS-009-SPECIALIZED
+  statement: The evidence ID is TLC-SO-INVARIANTS-065 and unresolved TLC-UT-INVARIANTS-009 is attached.
+postconditions:
+- id: POST-INVARIANTS-009-EFFECT
+  statement: Returns a record marked rejected_as_feature and scientifically uncallable.
+- id: POST-INVARIANTS-009-RESERVATIONS
+  statement: Catalogue status, unresolved IDs, and scientific reservations are unchanged.
+invariants_explicitly_sourced:
+- id: TLC-SO-INVARIANTS-065
+  status: candidate_scientific_object_preserved
+  source: registry/scientific-objects/invariants/scientific-objects.candidate.yaml
+undefined_or_error_cases:
+- id: FAIL-INVARIANTS-009-SPECIALIZED
+  condition: MissingCohesionReservation or FeatureStatusPromotion
+- id: FAIL-INVARIANTS-009-BOUNDARY
+  condition: 'An implementation attempts to resolve: State membership, measurement, transition, and equivalence semantics
+    are absent.'
+unresolved_propagated:
+- TLC-UT-INVARIANTS-009
+provisional_engineering_assumptions:
+- TLC-EA-INVARIANTS-009-001
+scientific_reservations:
+- scientific semantics remain exactly at preparation status
+- no truth evaluator or formula is supplied
+- types, dimensions, units, ordering, cardinality, time, and numeric precision remain unspecified
+strong_dependencies_confirmed: []
+documentary_references:
+- community
+traceability: registry/math-contracts/TLC-FC-04-INVARIANTS-009/traceability.yaml
+validation_criteria:
+- all covered identifiers exist in domain preparation
+- all mapped unresolved identifiers are propagated
+- the provisional assumption is propagated to prototype IR
+- catalogue status is preserved without scientific promotion
+readiness:
+  ready_for_limited_engineering_contract: true
+  ready_for_prototype_ir: true
+  ready_for_reference_python: false
+  ready_for_cpp_prototype: false
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false
+software_responsibility:
+  callable: preserve_cohesion_term_evidence
+  operation: Preserve the isolated cohesion term as rejected evidence without defining a cohesion state.
+  observable_effect: Returns a record marked rejected_as_feature and scientifically uncallable.

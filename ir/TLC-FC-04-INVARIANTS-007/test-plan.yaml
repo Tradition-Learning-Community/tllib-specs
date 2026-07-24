@@ -1,0 +1,43 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-04-INVARIANTS-007-PROTOTYPE-001
+feature_id: TLC-FC-04-INVARIANTS-007
+contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-007-001
+ir_id: TLC-IR-TLC-FC-04-INVARIANTS-007-PROTOTYPE-001
+scope: prototype_ir_structural_validation_only
+tests:
+- id: TEST-007-NOMINAL
+  category: operation_nominal
+  invokes: construct_disintegration_relation
+  scenario: Construct TLC-SR-INVARIANTS-067 from TLC-SO-INVARIANTS-068 to the invariant root.
+  expected_structural_effect: Returns one immutable refers_to edge with source, target, relation ID, and evidence reference
+    preserved.
+- id: TEST-007-OPAQUE
+  category: opaque_boundary
+  invokes: construct_disintegration_relation
+  scenario: 'Supply valid evidence whose opaque portion is not interpretable: Causality, symmetry, transitivity, and temporal
+    meaning are not inferred.'
+  expected_structural_effect: Opaque content is preserved byte-for-byte and is not evaluated.
+- id: TEST-007-PRECONDITION
+  category: precondition_failure
+  invokes: construct_disintegration_relation
+  scenario: 'Violate the operation-specific precondition: The source, target, and relation IDs match TLC-SR-INVARIANTS-067.'
+  expected_error: EndpointMismatch or UnknownRelationId
+- id: TEST-007-POSTCONDITION
+  category: observable_postcondition
+  invokes: construct_disintegration_relation
+  scenario: Execute with valid covered evidence.
+  expected_structural_effect: Returns one immutable refers_to edge with source, target, relation ID, and evidence reference
+    preserved.
+- id: TEST-007-RESERVATIONS
+  category: reservation_propagation
+  invokes: construct_disintegration_relation
+  scenario: Execute with all feature unresolved IDs and provisional assumptions attached.
+  expected_structural_effect: The output retains the exact unresolved and assumption ID sets and makes no resolution claim.
+- id: TEST-007-CONFORMANCE
+  category: contract_ir_conformance
+  invokes: construct_disintegration_relation
+  scenario: Compare callable, input type, output type, errors, postconditions, and readiness across contract and IR.
+  expected_structural_effect: All specialized interface fields and readiness values agree.
+numeric_expected_results: []
+implementation_status: ready_for_operation_specific_test_implementation
+operation_under_test: construct_disintegration_relation

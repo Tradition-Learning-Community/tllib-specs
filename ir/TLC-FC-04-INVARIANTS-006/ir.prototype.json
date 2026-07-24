@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "ir_id": "TLC-IR-TLC-FC-04-INVARIANTS-006-PROTOTYPE-001",
+  "feature_id": "TLC-FC-04-INVARIANTS-006",
+  "contract_id": "TLC-LEC-TLC-FC-04-INVARIANTS-006-001",
+  "domain": "invariants",
+  "ir_kind": "prototype_ir_with_reservations",
+  "scientific_status": "noncanonical_engineering_prototype",
+  "catalogue_status_preserved": "deferred_for_targeted_extraction",
+  "inputs": [
+    {
+      "id": "IR-IN-006-SPECIALIZED",
+      "type": "OracleEvidenceDescriptor",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "id": "IR-OUT-006-SPECIALIZED",
+      "type": "UncallableOracleDescriptor",
+      "observable_effect": "Returns a descriptor marked uncallable with its lemma and manifestation evidence IDs."
+    }
+  ],
+  "opaque_types": [
+    "OpaqueSourceStatement",
+    "OpaqueScientificTruthConditions"
+  ],
+  "parameterized_types": [],
+  "operations": [
+    {
+      "operation_id": "IR-OP-INVARIANTS-006-SPECIALIZED",
+      "name": "describe_collective_ethics_oracle",
+      "responsibility": "Describe the collective-ethical oracle boundary without supplying an invocation signature or truth evaluator.",
+      "observable_effect": "Returns a descriptor marked uncallable with its lemma and manifestation evidence IDs.",
+      "scientific_evaluation": "prohibited"
+    }
+  ],
+  "control_flow": [],
+  "preconditions": [
+    {
+      "id": "PRE-INVARIANTS-006-SPECIALIZED",
+      "statement": "Both covered evidence IDs and source references are present."
+    }
+  ],
+  "postconditions": [
+    {
+      "id": "POST-INVARIANTS-006-EFFECT",
+      "statement": "Returns a descriptor marked uncallable with its lemma and manifestation evidence IDs."
+    },
+    {
+      "id": "POST-INVARIANTS-006-RESERVATIONS",
+      "statement": "Catalogue status, unresolved IDs, and scientific reservations are unchanged."
+    }
+  ],
+  "invariants": [
+    {
+      "id": "TLC-SO-INVARIANTS-013",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-057",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    }
+  ],
+  "errors": [
+    {
+      "id": "FAIL-INVARIANTS-006-SPECIALIZED",
+      "condition": "MissingOracleEvidence"
+    },
+    {
+      "id": "FAIL-INVARIANTS-006-BOUNDARY",
+      "condition": "An implementation attempts to resolve: Arguments, return type, evaluation rule, failure semantics, and determinism are scientifically unspecified."
+    }
+  ],
+  "unresolved_propagated": [],
+  "provisional_assumptions_propagated": [
+    "TLC-EA-INVARIANTS-006-001"
+  ],
+  "traceability": {
+    "contract": "registry/math-contracts/TLC-FC-04-INVARIANTS-006/contract.yaml",
+    "source_objects": [
+      "TLC-SO-INVARIANTS-013",
+      "TLC-SO-INVARIANTS-057"
+    ],
+    "source_relations": [
+      "TLC-SR-INVARIANTS-012",
+      "TLC-SR-INVARIANTS-056"
+    ]
+  },
+  "determinism_status": "scientific_operation_unspecified_descriptor_construction_only",
+  "testability_status": "descriptor_structure_testable_but_scientific_operation_not_implementable",
+  "implementation_constraints": [
+    "Do not evaluate scientific truth.",
+    "Do not assign concrete numeric, temporal, probabilistic, dimensional, cardinality, unit, order, symmetry, or transitivity semantics.",
+    "Reject loss of identifiers, unresolved reservations, or catalogue status."
+  ],
+  "readiness": {
+    "ready_for_limited_engineering_contract": true,
+    "ready_for_prototype_ir": true,
+    "ready_for_reference_python": false,
+    "ready_for_cpp_prototype": false,
+    "ready_for_canonical_ir": false,
+    "ready_for_production_implementation": false
+  },
+  "blocks_all_prototype_progress": false,
+  "interface": {
+    "minimal_function_or_class": "describe_collective_ethics_oracle",
+    "input_type": "OracleEvidenceDescriptor",
+    "output_type": "UncallableOracleDescriptor"
+  },
+  "semantic_quality": "structurally_complete_but_semantically_thin",
+  "remaining_opaque_boundary": "Arguments, return type, evaluation rule, failure semantics, and determinism are scientifically unspecified."
+}

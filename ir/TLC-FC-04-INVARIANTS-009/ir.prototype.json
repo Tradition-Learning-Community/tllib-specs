@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "ir_id": "TLC-IR-TLC-FC-04-INVARIANTS-009-PROTOTYPE-001",
+  "feature_id": "TLC-FC-04-INVARIANTS-009",
+  "contract_id": "TLC-LEC-TLC-FC-04-INVARIANTS-009-001",
+  "domain": "invariants",
+  "ir_kind": "prototype_ir_with_reservations",
+  "scientific_status": "noncanonical_engineering_prototype",
+  "catalogue_status_preserved": "rejected_as_feature",
+  "inputs": [
+    {
+      "id": "IR-IN-009-SPECIALIZED",
+      "type": "CohesionTermEvidence",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "id": "IR-OUT-009-SPECIALIZED",
+      "type": "RejectedStateEvidenceRecord",
+      "observable_effect": "Returns a record marked rejected_as_feature and scientifically uncallable."
+    }
+  ],
+  "opaque_types": [
+    "OpaqueSourceStatement",
+    "OpaqueScientificTruthConditions"
+  ],
+  "parameterized_types": [],
+  "operations": [
+    {
+      "operation_id": "IR-OP-INVARIANTS-009-SPECIALIZED",
+      "name": "preserve_cohesion_term_evidence",
+      "responsibility": "Preserve the isolated cohesion term as rejected evidence without defining a cohesion state.",
+      "observable_effect": "Returns a record marked rejected_as_feature and scientifically uncallable.",
+      "scientific_evaluation": "prohibited"
+    }
+  ],
+  "control_flow": [],
+  "preconditions": [
+    {
+      "id": "PRE-INVARIANTS-009-SPECIALIZED",
+      "statement": "The evidence ID is TLC-SO-INVARIANTS-065 and unresolved TLC-UT-INVARIANTS-009 is attached."
+    }
+  ],
+  "postconditions": [
+    {
+      "id": "POST-INVARIANTS-009-EFFECT",
+      "statement": "Returns a record marked rejected_as_feature and scientifically uncallable."
+    },
+    {
+      "id": "POST-INVARIANTS-009-RESERVATIONS",
+      "statement": "Catalogue status, unresolved IDs, and scientific reservations are unchanged."
+    }
+  ],
+  "invariants": [
+    {
+      "id": "TLC-SO-INVARIANTS-065",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    }
+  ],
+  "errors": [
+    {
+      "id": "FAIL-INVARIANTS-009-SPECIALIZED",
+      "condition": "MissingCohesionReservation or FeatureStatusPromotion"
+    },
+    {
+      "id": "FAIL-INVARIANTS-009-BOUNDARY",
+      "condition": "An implementation attempts to resolve: State membership, measurement, transition, and equivalence semantics are absent."
+    }
+  ],
+  "unresolved_propagated": [
+    "TLC-UT-INVARIANTS-009"
+  ],
+  "provisional_assumptions_propagated": [
+    "TLC-EA-INVARIANTS-009-001"
+  ],
+  "traceability": {
+    "contract": "registry/math-contracts/TLC-FC-04-INVARIANTS-009/contract.yaml",
+    "source_objects": [
+      "TLC-SO-INVARIANTS-065"
+    ],
+    "source_relations": [
+      "TLC-SR-INVARIANTS-064"
+    ]
+  },
+  "determinism_status": "scientific_operation_unspecified_descriptor_construction_only",
+  "testability_status": "descriptor_structure_testable_but_scientific_operation_not_implementable",
+  "implementation_constraints": [
+    "Do not evaluate scientific truth.",
+    "Do not assign concrete numeric, temporal, probabilistic, dimensional, cardinality, unit, order, symmetry, or transitivity semantics.",
+    "Reject loss of identifiers, unresolved reservations, or catalogue status."
+  ],
+  "readiness": {
+    "ready_for_limited_engineering_contract": true,
+    "ready_for_prototype_ir": true,
+    "ready_for_reference_python": false,
+    "ready_for_cpp_prototype": false,
+    "ready_for_canonical_ir": false,
+    "ready_for_production_implementation": false
+  },
+  "blocks_all_prototype_progress": false,
+  "interface": {
+    "minimal_function_or_class": "preserve_cohesion_term_evidence",
+    "input_type": "CohesionTermEvidence",
+    "output_type": "RejectedStateEvidenceRecord"
+  },
+  "semantic_quality": "structurally_complete_but_semantically_thin",
+  "remaining_opaque_boundary": "State membership, measurement, transition, and equivalence semantics are absent."
+}
