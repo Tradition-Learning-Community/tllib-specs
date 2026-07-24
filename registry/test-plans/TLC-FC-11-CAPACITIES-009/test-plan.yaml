@@ -1,0 +1,85 @@
+---
+test_plan_id: TLC-TP-TLC-FC-11-CAPACITIES-009
+feature_id: TLC-FC-11-CAPACITIES-009
+contract_id: TLC-MC-TLC-FC-11-CAPACITIES-009
+ir_id: TLC-IR-TLC-FC-11-CAPACITIES-009
+entrypoint: capacities_construct_validity_and_collective_equation_ast_bundle_009
+primary_operation: construct_validity_and_collective_equation_ast_bundle
+plan_kind: specific_prototype_ir_test_plan_with_reservations
+scope: feature-specific functional tests for constructing CapacityEquationAstBundle
+  while preserving blocker reservations and forbidding scientific evaluation
+test_cases:
+- name: nominal_constructs_feature_specific_artifact
+  given: feature TLC-FC-11-CAPACITIES-009, ordered objects TLC-SO-CAPACITIES-059,
+    TLC-SO-CAPACITIES-095, explicit symbol table, provenance, and decision_blocker
+    scientific decision required
+  when: call capacities_construct_validity_and_collective_equation_ast_bundle_009
+  then: returns CapacityEquationAstBundle; bundle contains validity-domain and collective-coordination
+    equation nodes with no aggregation or numeric mean computed
+- name: rejects_wrong_object_order_or_membership
+  given: the object list omits, adds, or reorders one of TLC-SO-CAPACITIES-059, TLC-SO-CAPACITIES-095
+  when: call capacities_construct_validity_and_collective_equation_ast_bundle_009
+  then: raises MissingCoveredObject, UnexpectedCoveredObject, or ObjectOrderMismatch
+    before construction
+- name: requires_symbol_table_entries
+  given: a covered object has no symbol_table entry
+  when: call capacities_construct_validity_and_collective_equation_ast_bundle_009
+  then: raises MissingSymbolTableEntry even when the source symbols list would be
+    empty
+- name: preserves_opaque_payloads
+  given: opaque payload objects with uninterpreted source_statement values
+  when: call capacities_construct_validity_and_collective_equation_ast_bundle_009
+  then: artifact exposes object ids and symbols but does not inspect or rewrite payload
+    semantics
+- name: preserves_provenance_per_object
+  given: source references for each covered object
+  when: call capacities_construct_validity_and_collective_equation_ast_bundle_009
+  then: artifact query by object id returns the same source_path, line span, section,
+    and commit
+- name: propagates_decision_blocker_and_assumption
+  given: decision_blocker scientific decision required and provisional opaque-payload
+    assumption
+  when: call capacities_construct_validity_and_collective_equation_ast_bundle_009
+  then: artifact contains the blocker and propagated_provisional_assumptions unchanged
+- name: rejects_scientific_evaluation_requests
+  given: caller asks to solve, optimize, score, rank, aggregate, evaluate a metric,
+    decide a threshold, infer progression, or infer causality
+  when: non-evaluation guard is invoked
+  then: raises ScientificEvaluationRequested and returns no numeric or truth-valued
+    scientific result
+- name: contract_ir_alignment
+  given: the modified contract and IR
+  when: compare entrypoint, primary operation, inputs, outputs, errors, blocker propagation,
+    and postconditions
+  then: contract and IR describe the same CapacityEquationAstBundle construction behavior
+postconditions_under_test:
+- output type is CapacityEquationAstBundle
+- bundle contains validity-domain and collective-coordination equation nodes with
+  no aggregation or numeric mean computed
+- output object order equals TLC-SO-CAPACITIES-059, TLC-SO-CAPACITIES-095
+- output provenance is copied for every covered object
+- output propagated_unresolved includes scientific decision required
+- output readiness guard prevents scientific evaluation while allowing structural
+  construction
+- no score, level, ranking, metric value, threshold decision, probability, progression,
+  learning rule, causal claim, aggregation result, or scientific formula result is
+  produced
+opaque_value_tests:
+- payload identity and symbols are preserved as opaque values; scientific semantics
+  are not inspected
+provenance_tests:
+- every output object supports provenance lookup by object id
+integration_tests:
+- construct CapacityEquationAstBundle via capacities_construct_validity_and_collective_equation_ast_bundle_009,
+  store it in a prototype registry keyed by TLC-FC-11-CAPACITIES-009, and query its
+  symbolic components without evaluation
+non_goals:
+- no scientific numeric expectation
+- no score, ranking, threshold decision, aggregation, or progression
+- no resolution of scientific decision required blocker
+readiness_expectation:
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false
+  blocks_all_prototype_progress: false

@@ -1,0 +1,141 @@
+---
+ir_id: TLC-IR-TLC-FC-11-CAPACITIES-003
+feature_id: TLC-FC-11-CAPACITIES-003
+contract_id: TLC-MC-TLC-FC-11-CAPACITIES-003
+ir_kind: prototype_ir_with_reservations
+entrypoint: capacities_assemble_latence_mastery_constraint_bundle_003
+primary_operation: assemble_latence_mastery_constraint_bundle
+inputs:
+- name: capacity_feature_id
+  type: FeatureId
+  required: true
+  expected_value: TLC-FC-11-CAPACITIES-003
+- name: ordered_scientific_objects
+  type: List<OpaqueScientificObject>
+  required: true
+  required_object_ids_in_order:
+  - TLC-SO-CAPACITIES-003
+  - TLC-SO-CAPACITIES-030
+  - TLC-SO-CAPACITIES-050
+- name: symbol_table
+  type: Map<ObjectId,List<UnevaluatedSymbol>>
+  required: true
+  source: covered_objects.symbols
+- name: provenance
+  type: Map<ObjectId,SourceReference>
+  required: true
+- name: decision_blocker
+  type: DecisionBlocker
+  required: true
+  expected_value: scientific decision required
+outputs:
+- name: artifact
+  type: CapacityConstraintBundle
+  observable_effect: returns CapacityConstraintBundle for TLC-SO-CAPACITIES-003 Propriétés
+    essentielles; TLC-SO-CAPACITIES-030 Progression vers la maîtrise; TLC-SO-CAPACITIES-050
+    Latence; bundle contains three typed members in preparation order and a symbol
+    index grouped by object id; carries decision_blocker and does not evaluate scientific
+    truth
+opaque_types:
+- OpaqueScientificObject
+- OpaqueScientificValue
+parameterized_types:
+- Map<ObjectId,OpaqueScientificObject>
+- List<SourceReference>
+symbolic_types:
+- UnevaluatedSymbol
+- UnevaluatedExpression
+- DecisionBlocker
+operations:
+- name: validate_targeted_capacity_inputs
+  behavior: verify feature id, exact ordered object ids TLC-SO-CAPACITIES-003, TLC-SO-CAPACITIES-030,
+    TLC-SO-CAPACITIES-050, explicit symbol-table entries, provenance, and decision
+    blocker before constructing CapacityConstraintBundle
+- name: assemble_latence_mastery_constraint_bundle
+  behavior: assemble an ordered bundle of explicitly cited axiom/constraint objects
+    for essential properties, progression toward mastery, and latence; expose each
+    cited symbol as an unevaluated symbolic token
+- name: attach_non_evaluation_guard
+  behavior: attach a guard that rejects execution, solving, scoring, ranking, metric
+    evaluation, threshold decisions, temporal progression, causal interpretation,
+    or aggregation
+- name: expose_symbolic_queries
+  behavior: allow lookup of object ids, source sections, symbols, blocker text, and
+    provenance from the constructed artifact
+operation_sequence:
+- validate_targeted_capacity_inputs
+- assemble_latence_mastery_constraint_bundle
+- attach_non_evaluation_guard
+- expose_symbolic_queries
+preconditions:
+- capacity_feature_id equals TLC-FC-11-CAPACITIES-003
+- ordered_scientific_objects contains exactly TLC-SO-CAPACITIES-003, TLC-SO-CAPACITIES-030,
+  TLC-SO-CAPACITIES-050 in preparation order
+- symbol_table includes an entry for every covered object id; entries may be empty
+  but must be explicit
+- provenance includes source path, line span, section, and source commit for every
+  covered object
+- decision_blocker is present and equals scientific decision required
+- caller does not request execution, scoring, optimization, threshold decisions, metric
+  values, learning progression, causal interpretation, or aggregation
+postconditions:
+- output type is CapacityConstraintBundle
+- bundle contains three typed members in preparation order and a symbol index grouped
+  by object id
+- output object order equals TLC-SO-CAPACITIES-003, TLC-SO-CAPACITIES-030, TLC-SO-CAPACITIES-050
+- output provenance is copied for every covered object
+- output propagated_unresolved includes scientific decision required
+- output readiness guard prevents scientific evaluation while allowing structural
+  construction
+- no score, level, ranking, metric value, threshold decision, probability, progression,
+  learning rule, causal claim, aggregation result, or scientific formula result is
+  produced
+invariants:
+- covered object set is exactly the feature inventory object set
+- source statements remain opaque and are not reinterpreted
+- scientific reservations from unresolved or blockers are propagated
+errors:
+- UnknownFeatureId
+- MissingCoveredObject
+- UnexpectedCoveredObject
+- ObjectOrderMismatch
+- MissingSymbolTableEntry
+- MissingSourceReference
+- MissingDecisionBlocker
+- ScientificEvaluationRequested
+undefined_behaviors:
+- truth, validity, optimality, or satisfiability of the cited scientific statement
+- numeric values of symbols, thresholds, metric distances, derivatives, norms, curvature,
+  means, maxima, or set membership
+- resolution of the scientific decision required blocker
+- using the artifact as an executable model of capacity development
+propagated_unresolved:
+- scientific decision required
+propagated_provisional_assumptions:
+- 'provisional_engineering_assumption: opaque payloads may be stored and compared
+  by object id only; no payload semantics are inspected'
+traceability:
+  prepared_from: registry/domain-progress/capacities/feature-inventory.yaml
+  source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+  feature_name: '11-capacities: constraint (provisionally_separated)'
+determinism_status: deterministic for identical object ids, payload identities, symbols,
+  and provenance; opaque payload internals ignored
+testability_status: 'substantive structural behavior is testable: construction shape,
+  object order, symbolic queries, blocker propagation, provenance, and non-evaluation
+  guard'
+implementation_constraints:
+- implement capacities_assemble_latence_mastery_constraint_bundle_003 as a pure structural
+  constructor returning CapacityConstraintBundle
+- do not execute, solve, optimize, score, rank, aggregate, or evaluate any cited expression
+- preserve symbols as UnevaluatedSymbol tokens keyed by object id
+- preserve decision_blocker as a guard rather than treating it as a fatal construction
+  error
+- raise ScientificEvaluationRequested for any request to interpret scientific semantics
+active_or_historical_status: active
+classification: substantive_and_implementable
+readiness:
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false
+  blocks_all_prototype_progress: false

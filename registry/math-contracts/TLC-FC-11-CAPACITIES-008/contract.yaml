@@ -1,0 +1,195 @@
+---
+contract_id: TLC-MC-TLC-FC-11-CAPACITIES-008
+feature_id: TLC-FC-11-CAPACITIES-008
+contract_kind: limited_engineering_contract_with_reservations
+scientific_authority: maths/11-capacities.md via capacities preparation artifacts;
+  no scientific semantics promoted beyond cited objects
+source_references:
+- object_id: TLC-SO-CAPACITIES-062
+  source_path: maths/11-capacities.md
+  start_line: 71
+  end_line: 73
+  section: Potentiel et capacités latentes
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- object_id: TLC-SO-CAPACITIES-068
+  source_path: maths/11-capacities.md
+  start_line: 105
+  end_line: 107
+  section: Transmission et activation des Capacités
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- object_id: TLC-SO-CAPACITIES-086
+  source_path: maths/11-capacities.md
+  start_line: 149
+  end_line: 151
+  section: Évaluation et mesure des Capacités
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- object_id: TLC-SO-CAPACITIES-088
+  source_path: maths/11-capacities.md
+  start_line: 164
+  end_line: 166
+  section: Dynamique temporelle et développementale
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- object_id: TLC-SO-CAPACITIES-091
+  source_path: maths/11-capacities.md
+  start_line: 185
+  end_line: 187
+  section: Dimensions éthiques, motivationnelles et cognitives
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- object_id: TLC-SO-CAPACITIES-093
+  source_path: maths/11-capacities.md
+  start_line: 198
+  end_line: 200
+  section: Dimensions éthiques, motivationnelles et cognitives
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- object_id: TLC-SO-CAPACITIES-094
+  source_path: maths/11-capacities.md
+  start_line: 204
+  end_line: 206
+  section: Dimensions éthiques, motivationnelles et cognitives
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- object_id: TLC-SO-CAPACITIES-096
+  source_path: maths/11-capacities.md
+  start_line: 218
+  end_line: 220
+  section: Interaction avec la communauté et capacités collectives
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+covered_objects:
+- object_id: TLC-SO-CAPACITIES-062
+  canonical_name: Équation — Capacités innées vs acquises
+  status: candidate
+  symbols:
+  - "\\mathcal"
+  - "\\mathrm"
+  - "\\eta(\\tau)"
+- object_id: TLC-SO-CAPACITIES-068
+  canonical_name: Équation — Instruction et expérience guidée
+  status: candidate
+  symbols:
+  - "\\mathcal"
+  - "\\mathrm"
+- object_id: TLC-SO-CAPACITIES-086
+  canonical_name: Équation — Suivi du développement des capacités
+  status: candidate
+  symbols:
+  - "\\mathcal"
+  - "\\mathrm"
+- object_id: TLC-SO-CAPACITIES-088
+  canonical_name: Équation — Consolidation et croissance à long terme
+  status: candidate
+  symbols:
+  - "\\mathcal"
+  - "\\mathrm"
+- object_id: TLC-SO-CAPACITIES-091
+  canonical_name: Équation — Alignement avec les Valeurs et Vertus
+  status: candidate
+  symbols:
+  - "\\mathrm"
+  - "\\mathcal"
+- object_id: TLC-SO-CAPACITIES-093
+  canonical_name: Équation — Charge cognitive, intégration et insight
+  status: candidate
+  symbols:
+  - "\\mathrm"
+  - "\\lambda"
+  - "\\mathcal"
+- object_id: TLC-SO-CAPACITIES-094
+  canonical_name: Équation — Manifestation comportementale et habituelle
+  status: candidate
+  symbols:
+  - "\\mathrm"
+  - "\\mathcal"
+- object_id: TLC-SO-CAPACITIES-096
+  canonical_name: Équation — Potentiel collectif émergent
+  status: candidate
+  symbols:
+  - "\\mathcal"
+  - "\\mathrm"
+covered_relations: []
+contextual_relations: []
+functional_purpose: Evaluate the transformations expressed by the cited equations
+  once their mathematical contract is selected.
+primary_responsibility: 'build_capacity_equation_ast_with_symbol_table: create a typed,
+  provenance-preserving engineering representation for 11-capacities: equation (admissible);
+  permit structural validation only, not scientific evaluation.'
+inputs:
+- name: capacity_feature_id
+  type: FeatureId
+  required: true
+  expected_value: TLC-FC-11-CAPACITIES-008
+- name: object_payloads
+  type: Map<ObjectId,OpaqueScientificObject>
+  required: true
+  required_keys:
+  - TLC-SO-CAPACITIES-062
+  - TLC-SO-CAPACITIES-068
+  - TLC-SO-CAPACITIES-086
+  - TLC-SO-CAPACITIES-088
+  - TLC-SO-CAPACITIES-091
+  - TLC-SO-CAPACITIES-093
+  - TLC-SO-CAPACITIES-094
+  - TLC-SO-CAPACITIES-096
+- name: provenance
+  type: Map<ObjectId,SourceReference>
+  required: true
+outputs:
+- name: artifact
+  type: CapacityPrototypeDescriptor
+  observable_effect: returns descriptor containing feature id, object ids, symbols,
+    provenance, unresolved/blocker markers, and no evaluated scientific value
+types:
+  FeatureId: string matching TLC-FC-11-CAPACITIES-*
+  OpaqueScientificObject: caller supplied payload preserved without interpretation
+  SourceReference: source path, line span, commit, section
+  CapacityPrototypeDescriptor: immutable record with family/status/object_ids/symbols/provenance/unresolved
+preconditions:
+- feature id equals contract feature_id
+- all covered object ids are present exactly once in object_payloads
+- each covered object has a source reference
+- caller does not request numeric scoring, ranking, thresholds, learning dynamics,
+  or scientific evaluation
+postconditions:
+- output feature_id equals input feature id
+- output covered_objects preserves preparation order
+- output provenance contains a source reference for every covered object
+- output contains no generated scientific metric, score, threshold, rank, probability,
+  or temporal inference
+- descriptor is marked structurally_valid when required objects and provenance are
+  present
+explicitly_sourced_invariants:
+- covered object set is exactly the feature inventory object set
+- source statements remain opaque and are not reinterpreted
+- scientific reservations from unresolved or blockers are propagated
+errors:
+- UnknownFeatureId
+- MissingCoveredObject
+- DuplicateCoveredObject
+- MissingSourceReference
+- ScientificEvaluationRequested
+- BlockedScientificDecision
+undefined_behaviors:
+- meaning of capacity strength, level, progress, ordering, causal effect, or learned
+  value
+- numeric interpretation of symbols or equations
+- resolution of blocked/provisionally separated scientific status
+propagated_unresolved: []
+provisional_engineering_assumptions:
+- 'provisional_engineering_assumption: opaque payloads may be stored and compared
+  by object id only; no payload semantics are inspected'
+scientific_reservations:
+- limited engineering contract only; source object statuses and blockers are preserved
+- no full mathematical contract or production semantics asserted
+traceability:
+  prepared_from: registry/domain-progress/capacities/feature-inventory.yaml
+  source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+  feature_name: '11-capacities: equation (admissible)'
+validation_criteria:
+- YAML parses
+- contract feature id matches directory and IR
+- covered object ids match preparation
+- blocked features reject evaluation requests
+- admissible features produce structural descriptors only
+readiness:
+  status: limited_engineering_contract_with_reservations
+  ready_for_prototype_ir: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false
