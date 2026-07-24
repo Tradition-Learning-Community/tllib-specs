@@ -1,0 +1,131 @@
+---
+contract_id: TLC-MC-TLC-FC-11-CAPACITIES-014
+feature_id: TLC-FC-11-CAPACITIES-014
+contract_kind: limited_engineering_contract_with_reservations
+scientific_authority: maths/11-capacities.md via capacities preparation artifacts;
+  no scientific semantics promoted beyond cited objects
+source_references:
+- object_id: TLC-SO-CAPACITIES-051
+  source_path: maths/11-capacities.md
+  start_line: 27
+  end_line: 27
+  section: Propriétés essentielles
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+covered_objects:
+- object_id: TLC-SO-CAPACITIES-051
+  canonical_name: Activatibilité
+  status: candidate
+  symbols:
+  - "\\mathcal{A}"
+  - "\\mathcal{A}(\\mathcal{C}_{\\mathrm{latent}}) \\subset \\mathcal{C}_{\\mathrm{acquis}}"
+covered_relations: []
+contextual_relations: []
+functional_purpose: Build a non-evaluated, provenance-preserving engineering representation
+  for the cited TLC-FC-11-CAPACITIES-014 objects so implementations can validate structure
+  and query symbolic components while preserving the scientific decision requirement.
+primary_responsibility: 'build_actualization_operator_signature: build an operator
+  signature descriptor for the actualization operator A, with latent-capacity domain
+  token and acquired-capacity codomain token preserved as opaque set symbols. The
+  operation is limited to structural construction/validation and must keep scientific
+  execution blocked.'
+inputs:
+- name: capacity_feature_id
+  type: FeatureId
+  required: true
+  expected_value: TLC-FC-11-CAPACITIES-014
+- name: ordered_scientific_objects
+  type: List<OpaqueScientificObject>
+  required: true
+  required_object_ids_in_order:
+  - TLC-SO-CAPACITIES-051
+- name: symbol_table
+  type: Map<ObjectId,List<UnevaluatedSymbol>>
+  required: true
+  source: covered_objects.symbols
+- name: provenance
+  type: Map<ObjectId,SourceReference>
+  required: true
+- name: decision_blocker
+  type: DecisionBlocker
+  required: true
+  expected_value: scientific decision required
+outputs:
+- name: artifact
+  type: CapacityOperatorSignature
+  observable_effect: returns CapacityOperatorSignature for TLC-SO-CAPACITIES-051 Activatibilité;
+    signature records operator symbol, domain token, codomain/subset relation token,
+    and blocker reservation without applying the operator; carries decision_blocker
+    and does not evaluate scientific truth
+types:
+  FeatureId: string matching TLC-FC-11-CAPACITIES-*
+  OpaqueScientificObject: caller supplied payload preserved without interpretation
+  SourceReference: source path, line span, commit, section
+  CapacityPrototypeDescriptor: immutable record with family/status/object_ids/symbols/provenance/unresolved
+preconditions:
+- capacity_feature_id equals TLC-FC-11-CAPACITIES-014
+- ordered_scientific_objects contains exactly TLC-SO-CAPACITIES-051 in preparation
+  order
+- symbol_table includes an entry for every covered object id; entries may be empty
+  but must be explicit
+- provenance includes source path, line span, section, and source commit for every
+  covered object
+- decision_blocker is present and equals scientific decision required
+- caller does not request execution, scoring, optimization, threshold decisions, metric
+  values, learning progression, causal interpretation, or aggregation
+postconditions:
+- output type is CapacityOperatorSignature
+- signature records operator symbol, domain token, codomain/subset relation token,
+  and blocker reservation without applying the operator
+- output object order equals TLC-SO-CAPACITIES-051
+- output provenance is copied for every covered object
+- output propagated_unresolved includes scientific decision required
+- output readiness guard prevents scientific evaluation while allowing structural
+  construction
+- no score, level, ranking, metric value, threshold decision, probability, progression,
+  learning rule, causal claim, aggregation result, or scientific formula result is
+  produced
+explicitly_sourced_invariants:
+- covered object set is exactly the feature inventory object set
+- source statements remain opaque and are not reinterpreted
+- scientific reservations from unresolved or blockers are propagated
+errors:
+- UnknownFeatureId
+- MissingCoveredObject
+- UnexpectedCoveredObject
+- ObjectOrderMismatch
+- MissingSymbolTableEntry
+- MissingSourceReference
+- MissingDecisionBlocker
+- ScientificEvaluationRequested
+undefined_behaviors:
+- truth, validity, optimality, or satisfiability of the cited scientific statement
+- numeric values of symbols, thresholds, metric distances, derivatives, norms, curvature,
+  means, maxima, or set membership
+- resolution of the scientific decision required blocker
+- using the artifact as an executable model of capacity development
+propagated_unresolved:
+- scientific decision required
+provisional_engineering_assumptions:
+- 'provisional_engineering_assumption: opaque payloads may be stored and compared
+  by object id only; no payload semantics are inspected'
+scientific_reservations:
+- limited engineering contract only; source object statuses and blockers are preserved
+- no full mathematical contract or production semantics asserted
+traceability:
+  prepared_from: registry/domain-progress/capacities/feature-inventory.yaml
+  source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+  feature_name: '11-capacities: operator (blocked_locally)'
+validation_criteria:
+- YAML parses
+- contract feature id matches targeted directory
+- covered objects match preparation order
+- operation build_actualization_operator_signature has feature-specific output type
+  CapacityOperatorSignature
+- decision blocker is propagated but does not prevent structural artifact construction
+- ScientificEvaluationRequested is raised for execution or numeric interpretation
+  requests
+readiness:
+  status: limited_engineering_contract_with_reservations
+  ready_for_prototype_ir: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false

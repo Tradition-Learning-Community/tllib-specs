@@ -1,0 +1,141 @@
+---
+contract_id: TLC-MC-TLC-FC-11-CAPACITIES-010
+feature_id: TLC-FC-11-CAPACITIES-010
+contract_kind: limited_engineering_contract_with_reservations
+scientific_authority: maths/11-capacities.md via capacities preparation artifacts;
+  no scientific semantics promoted beyond cited objects
+source_references:
+- object_id: TLC-SO-CAPACITIES-021
+  source_path: maths/11-capacities.md
+  start_line: 127
+  end_line: 127
+  section: Évaluation et mesure des Capacités
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- object_id: TLC-SO-CAPACITIES-022
+  source_path: maths/11-capacities.md
+  start_line: 129
+  end_line: 133
+  section: Évaluation et mesure des Capacités
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- object_id: TLC-SO-CAPACITIES-034
+  source_path: maths/11-capacities.md
+  start_line: 196
+  end_line: 200
+  section: Dimensions éthiques, motivationnelles et cognitives
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- object_id: TLC-SO-CAPACITIES-055
+  source_path: maths/11-capacities.md
+  start_line: 36
+  end_line: 36
+  section: Conditions d’existence
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+covered_objects:
+- object_id: TLC-SO-CAPACITIES-021
+  canonical_name: Évaluation et mesure des Capacités
+  status: candidate
+  symbols: []
+- object_id: TLC-SO-CAPACITIES-022
+  canonical_name: Métriques quantitatives
+  status: candidate
+  symbols:
+  - "\\dim(\\mathcal{C}_{\\mathrm{acquis}})"
+  - "\\eta = \\frac{\\text{output}}{\\text{temps – ressources}}"
+  - "\\sigma^2"
+  - "\\tau_{\\mathrm{act}} = \\frac{\\|\\mathcal{A}(\\mathcal{C}_{\\mathrm{latent}},t)\\|}{\\|\\mathcal{C}_{\\mathrm{latent}}\\|}"
+- object_id: TLC-SO-CAPACITIES-034
+  canonical_name: Charge cognitive, intégration et insight
+  status: candidate
+  symbols:
+  - "\\mathrm"
+  - "\\lambda"
+  - "\\mathcal"
+- object_id: TLC-SO-CAPACITIES-055
+  canonical_name: Présence de potentiel
+  status: candidate
+  symbols:
+  - "\\mathcal{C}_{\\mathrm{latent}} \\subset \\mathcal{C}_p"
+  - "\\mathcal{C}_{\\mathrm{latent}} \\cap \\mathcal{C}_{\\mathrm{acquis}} = \\emptyset"
+covered_relations: []
+contextual_relations: []
+functional_purpose: Evaluate the cited scientific metrics.
+primary_responsibility: 'build_capacity_metric_descriptor_and_symbol_bindings: create
+  a typed, provenance-preserving engineering representation for 11-capacities: metric
+  (admissible); permit structural validation only, not scientific evaluation.'
+inputs:
+- name: capacity_feature_id
+  type: FeatureId
+  required: true
+  expected_value: TLC-FC-11-CAPACITIES-010
+- name: object_payloads
+  type: Map<ObjectId,OpaqueScientificObject>
+  required: true
+  required_keys:
+  - TLC-SO-CAPACITIES-021
+  - TLC-SO-CAPACITIES-022
+  - TLC-SO-CAPACITIES-034
+  - TLC-SO-CAPACITIES-055
+- name: provenance
+  type: Map<ObjectId,SourceReference>
+  required: true
+outputs:
+- name: artifact
+  type: CapacityPrototypeDescriptor
+  observable_effect: returns descriptor containing feature id, object ids, symbols,
+    provenance, unresolved/blocker markers, and no evaluated scientific value
+types:
+  FeatureId: string matching TLC-FC-11-CAPACITIES-*
+  OpaqueScientificObject: caller supplied payload preserved without interpretation
+  SourceReference: source path, line span, commit, section
+  CapacityPrototypeDescriptor: immutable record with family/status/object_ids/symbols/provenance/unresolved
+preconditions:
+- feature id equals contract feature_id
+- all covered object ids are present exactly once in object_payloads
+- each covered object has a source reference
+- caller does not request numeric scoring, ranking, thresholds, learning dynamics,
+  or scientific evaluation
+postconditions:
+- output feature_id equals input feature id
+- output covered_objects preserves preparation order
+- output provenance contains a source reference for every covered object
+- output contains no generated scientific metric, score, threshold, rank, probability,
+  or temporal inference
+- descriptor is marked structurally_valid when required objects and provenance are
+  present
+explicitly_sourced_invariants:
+- covered object set is exactly the feature inventory object set
+- source statements remain opaque and are not reinterpreted
+- scientific reservations from unresolved or blockers are propagated
+errors:
+- UnknownFeatureId
+- MissingCoveredObject
+- DuplicateCoveredObject
+- MissingSourceReference
+- ScientificEvaluationRequested
+- BlockedScientificDecision
+undefined_behaviors:
+- meaning of capacity strength, level, progress, ordering, causal effect, or learned
+  value
+- numeric interpretation of symbols or equations
+- resolution of blocked/provisionally separated scientific status
+propagated_unresolved: []
+provisional_engineering_assumptions:
+- 'provisional_engineering_assumption: opaque payloads may be stored and compared
+  by object id only; no payload semantics are inspected'
+scientific_reservations:
+- limited engineering contract only; source object statuses and blockers are preserved
+- no full mathematical contract or production semantics asserted
+traceability:
+  prepared_from: registry/domain-progress/capacities/feature-inventory.yaml
+  source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+  feature_name: '11-capacities: metric (admissible)'
+validation_criteria:
+- YAML parses
+- contract feature id matches directory and IR
+- covered object ids match preparation
+- blocked features reject evaluation requests
+- admissible features produce structural descriptors only
+readiness:
+  status: limited_engineering_contract_with_reservations
+  ready_for_prototype_ir: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false

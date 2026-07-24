@@ -1,0 +1,140 @@
+---
+ir_id: TLC-IR-TLC-FC-11-CAPACITIES-006
+feature_id: TLC-FC-11-CAPACITIES-006
+contract_id: TLC-MC-TLC-FC-11-CAPACITIES-006
+ir_kind: prototype_ir_with_reservations
+entrypoint: capacities_construct_context_and_motivation_dynamics_ast_006
+primary_operation: construct_context_and_motivation_dynamics_ast
+inputs:
+- name: capacity_feature_id
+  type: FeatureId
+  required: true
+  expected_value: TLC-FC-11-CAPACITIES-006
+- name: ordered_scientific_objects
+  type: List<OpaqueScientificObject>
+  required: true
+  required_object_ids_in_order:
+  - TLC-SO-CAPACITIES-089
+  - TLC-SO-CAPACITIES-092
+- name: symbol_table
+  type: Map<ObjectId,List<UnevaluatedSymbol>>
+  required: true
+  source: covered_objects.symbols
+- name: provenance
+  type: Map<ObjectId,SourceReference>
+  required: true
+- name: decision_blocker
+  type: DecisionBlocker
+  required: true
+  expected_value: scientific decision required
+outputs:
+- name: artifact
+  type: CapacityDynamicsAstBundle
+  observable_effect: returns CapacityDynamicsAstBundle for TLC-SO-CAPACITIES-089 Équation
+    — Adaptation à de nouveaux contextes; TLC-SO-CAPACITIES-092 Équation — Moteurs
+    motivationnels et engagement; bundle exposes exactly two differential-equation
+    nodes and preserves their independent source sections; carries decision_blocker
+    and does not evaluate scientific truth
+opaque_types:
+- OpaqueScientificObject
+- OpaqueScientificValue
+parameterized_types:
+- Map<ObjectId,OpaqueScientificObject>
+- List<SourceReference>
+symbolic_types:
+- UnevaluatedSymbol
+- UnevaluatedExpression
+- DecisionBlocker
+operations:
+- name: validate_targeted_capacity_inputs
+  behavior: verify feature id, exact ordered object ids TLC-SO-CAPACITIES-089, TLC-SO-CAPACITIES-092,
+    explicit symbol-table entries, provenance, and decision blocker before constructing
+    CapacityDynamicsAstBundle
+- name: construct_context_and_motivation_dynamics_ast
+  behavior: construct two unevaluated differential-equation AST nodes for context
+    adaptation and motivational engagement and link them as a non-evaluated dynamics
+    bundle
+- name: attach_non_evaluation_guard
+  behavior: attach a guard that rejects execution, solving, scoring, ranking, metric
+    evaluation, threshold decisions, temporal progression, causal interpretation,
+    or aggregation
+- name: expose_symbolic_queries
+  behavior: allow lookup of object ids, source sections, symbols, blocker text, and
+    provenance from the constructed artifact
+operation_sequence:
+- validate_targeted_capacity_inputs
+- construct_context_and_motivation_dynamics_ast
+- attach_non_evaluation_guard
+- expose_symbolic_queries
+preconditions:
+- capacity_feature_id equals TLC-FC-11-CAPACITIES-006
+- ordered_scientific_objects contains exactly TLC-SO-CAPACITIES-089, TLC-SO-CAPACITIES-092
+  in preparation order
+- symbol_table includes an entry for every covered object id; entries may be empty
+  but must be explicit
+- provenance includes source path, line span, section, and source commit for every
+  covered object
+- decision_blocker is present and equals scientific decision required
+- caller does not request execution, scoring, optimization, threshold decisions, metric
+  values, learning progression, causal interpretation, or aggregation
+postconditions:
+- output type is CapacityDynamicsAstBundle
+- bundle exposes exactly two differential-equation nodes and preserves their independent
+  source sections
+- output object order equals TLC-SO-CAPACITIES-089, TLC-SO-CAPACITIES-092
+- output provenance is copied for every covered object
+- output propagated_unresolved includes scientific decision required
+- output readiness guard prevents scientific evaluation while allowing structural
+  construction
+- no score, level, ranking, metric value, threshold decision, probability, progression,
+  learning rule, causal claim, aggregation result, or scientific formula result is
+  produced
+invariants:
+- covered object set is exactly the feature inventory object set
+- source statements remain opaque and are not reinterpreted
+- scientific reservations from unresolved or blockers are propagated
+errors:
+- UnknownFeatureId
+- MissingCoveredObject
+- UnexpectedCoveredObject
+- ObjectOrderMismatch
+- MissingSymbolTableEntry
+- MissingSourceReference
+- MissingDecisionBlocker
+- ScientificEvaluationRequested
+undefined_behaviors:
+- truth, validity, optimality, or satisfiability of the cited scientific statement
+- numeric values of symbols, thresholds, metric distances, derivatives, norms, curvature,
+  means, maxima, or set membership
+- resolution of the scientific decision required blocker
+- using the artifact as an executable model of capacity development
+propagated_unresolved:
+- scientific decision required
+propagated_provisional_assumptions:
+- 'provisional_engineering_assumption: opaque payloads may be stored and compared
+  by object id only; no payload semantics are inspected'
+traceability:
+  prepared_from: registry/domain-progress/capacities/feature-inventory.yaml
+  source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+  feature_name: '11-capacities: dynamics (blocked_locally)'
+determinism_status: deterministic for identical object ids, payload identities, symbols,
+  and provenance; opaque payload internals ignored
+testability_status: 'substantive structural behavior is testable: construction shape,
+  object order, symbolic queries, blocker propagation, provenance, and non-evaluation
+  guard'
+implementation_constraints:
+- implement capacities_construct_context_and_motivation_dynamics_ast_006 as a pure
+  structural constructor returning CapacityDynamicsAstBundle
+- do not execute, solve, optimize, score, rank, aggregate, or evaluate any cited expression
+- preserve symbols as UnevaluatedSymbol tokens keyed by object id
+- preserve decision_blocker as a guard rather than treating it as a fatal construction
+  error
+- raise ScientificEvaluationRequested for any request to interpret scientific semantics
+active_or_historical_status: active
+classification: substantive_and_implementable
+readiness:
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false
+  blocks_all_prototype_progress: false
