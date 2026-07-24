@@ -1,0 +1,54 @@
+---
+feature_id: TLC-FC-10-VIRTUES-001
+domain: virtues
+source_objects:
+- TLC-SO-VIRTUES-100
+status: limited_engineering_contract_with_reservations
+test_plan_id: TLC-FC-10-VIRTUES-001-TEST-PLAN
+entrypoint: check_apprenticeship_responsibility
+tests:
+- name: nominal operation
+  covers:
+  - real operation
+  - nominal case
+  assertions:
+  - accepted result names check_apprenticeship_responsibility
+  - source objects preserved
+  - observable output present
+- name: postcondition and provenance
+  covers:
+  - postcondition
+  - provenance
+  assertions:
+  - feature id, source objects, unresolved, assumptions, and reservations are echoed
+- name: invalid precondition
+  covers:
+  - error
+  assertions:
+  - missing provenance returns missing_provenance
+  - no accepted result is emitted
+- name: opaque values pass-through
+  covers:
+  - opaque values
+  assertions:
+  - opaque evidence/context/relation labels are not interpreted, scored, ranked, or
+    normalized
+- name: scientific reservation propagation
+  covers:
+  - unresolved
+  - hypotheses
+  - absence of undefined science
+  assertions:
+  - requests for score, threshold, weight, hierarchy, metric selection, formula completion,
+    or moral decision return unsupported_scientific_completion_request
+- name: contract IR conformity
+  covers:
+  - contract to IR conformity
+  assertions:
+  - IR entrypoint implements the contract operation and preserves identical readiness
+    flags
+readiness:
+  python_prototype: true
+  cpp_prototype: true
+  canonical_ir: false
+  production: false
