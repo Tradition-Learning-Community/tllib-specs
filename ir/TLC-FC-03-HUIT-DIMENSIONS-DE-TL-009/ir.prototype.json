@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "ir_id": "TLC-IR-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009-PROTOTYPE-001",
+  "feature_id": "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009",
+  "contract_id": "TLC-LEC-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009-001",
+  "domain": "huit-dimensions",
+  "ir_kind": "prototype_ir_with_reservations",
+  "scientific_status": "noncanonical_engineering_prototype",
+  "catalogue_status_preserved": "deferred_for_scientific_decision",
+  "inputs": [
+    {
+      "id": "IR-IN-HUIT-009-01",
+      "role": "principle_definition_invariance",
+      "type": "OpaquePrincipleDefinitionClaim",
+      "scientific_object_id": "TLC-SO-HUIT-DIMENSIONS-DE-TL-008",
+      "payload": "opaque"
+    },
+    {
+      "id": "IR-IN-HUIT-009-02",
+      "role": "principle_introduction_invariance",
+      "type": "OpaquePrincipleStructureClaim",
+      "scientific_object_id": "TLC-SO-HUIT-DIMENSIONS-DE-TL-039",
+      "payload": "opaque"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "IR-OUT-009-001",
+      "role": "specialized_structural_result",
+      "type": "InvarianceDeclarationComparison",
+      "evaluated": false,
+      "observable_effect": "Returns a two-sided comparison record with equivalence_status set to unresolved."
+    }
+  ],
+  "opaque_types": [
+    "OpaquePrincipleDefinitionClaim",
+    "OpaquePrincipleStructureClaim",
+    "InvarianceDeclarationComparison"
+  ],
+  "parameterized_types": [
+    "InvarianceDeclarationComparison[FeatureId, ScientificObjectId, ReservationId]"
+  ],
+  "operations": [
+    {
+      "operation_id": "IR-OP-HUIT-009-001",
+      "name": "compare_principle_invariance_declarations",
+      "kind": "deterministic_identity_preserving_record_construction",
+      "input_roles": [
+        "principle_definition_invariance",
+        "principle_introduction_invariance"
+      ],
+      "output_type": "InvarianceDeclarationComparison",
+      "behavior": "Returns a two-sided comparison record with equivalence_status set to unresolved.",
+      "scientific_evaluation": "uninterpreted"
+    }
+  ],
+  "control_flow": [
+    {
+      "step_id": "IR-STEP-HUIT-009-VALIDATE",
+      "operation": "validate_required_roles_and_traceability",
+      "on_failure": "FAIL-HUIT-009-MISSING-TRACE"
+    },
+    {
+      "step_id": "IR-STEP-HUIT-009-CONSTRUCT",
+      "operation": "compare_principle_invariance_declarations",
+      "produces": "IR-OUT-009-001"
+    },
+    {
+      "step_id": "IR-STEP-HUIT-009-VERIFY",
+      "operation": "verify_specialized_postcondition_and_reservation_propagation"
+    }
+  ],
+  "preconditions": [
+    {
+      "id": "PRE-HUIT-009-REQUIRED-ROLES",
+      "statement": "Inputs provide the required roles: principle_definition_invariance, principle_introduction_invariance."
+    },
+    {
+      "id": "PRE-HUIT-009-TRACE",
+      "statement": "Every input retains its scientific object identifier and exact source reference."
+    },
+    {
+      "id": "PRE-HUIT-009-RESERVATIONS",
+      "statement": "All contract reservations and the provisional engineering assumption remain attached."
+    }
+  ],
+  "postconditions": [
+    {
+      "id": "POST-HUIT-009-EFFECT",
+      "statement": "Both declarations remain present and equivalence_status plus feature_boundary_status remain unresolved."
+    },
+    {
+      "id": "POST-HUIT-009-OPAQUE",
+      "statement": "No opaque scientific payload or operator is evaluated, coerced, completed, or declared canonical."
+    },
+    {
+      "id": "POST-HUIT-009-TRACE",
+      "statement": "The result retains feature, contract, object, source, reservation, and assumption identifiers."
+    }
+  ],
+  "invariants": [
+    {
+      "id": "INV-HUIT-009-IDENTITY",
+      "statement": "Covered scientific object identities remain distinct.",
+      "status": "contract_invariant_preserved",
+      "source": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009/contract.yaml"
+    },
+    {
+      "id": "INV-HUIT-009-SOURCE",
+      "statement": "Source statements and line ranges remain unchanged.",
+      "status": "contract_invariant_preserved",
+      "source": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009/contract.yaml"
+    },
+    {
+      "id": "INV-HUIT-009-LIMITED",
+      "statement": "This artifact remains a limited engineering contract, never a complete scientific contract.",
+      "status": "contract_invariant_preserved",
+      "source": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009/contract.yaml"
+    }
+  ],
+  "errors": [
+    {
+      "id": "FAIL-HUIT-009-OPERATION",
+      "condition": "Reject automatic equivalence, duplicate elimination, or loss of either source location."
+    },
+    {
+      "id": "FAIL-HUIT-009-MISSING-TRACE",
+      "condition": "A required role, scientific object identifier, source reference, reservation, or assumption is missing."
+    },
+    {
+      "id": "FAIL-HUIT-009-SCIENTIFIC-INVENTION",
+      "condition": "The caller requests or supplies unstated scientific, numeric, temporal, dimensional, ordering, aggregation, probabilistic, or algorithmic semantics."
+    }
+  ],
+  "unresolved_propagated": [
+    "TLC-UNRES-HUIT-009-TYPE",
+    "TLC-UNRES-HUIT-009-SIGNATURE",
+    "TLC-UNRES-HUIT-009-UNITS",
+    "TLC-UNRES-HUIT-009-ORDER",
+    "TLC-UNRES-HUIT-009-AGGREGATION",
+    "TLC-UNRES-HUIT-009-NUMERICS",
+    "TLC-UNRES-HUIT-009-ORACLE",
+    "TLC-UNRES-HUIT-009-BOUNDARY",
+    "TLC-UNRES-HUIT-009-IDENTITY"
+  ],
+  "provisional_assumptions_propagated": [
+    "TLC-EA-HUIT-009-001"
+  ],
+  "traceability": {
+    "contract": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009/contract.yaml",
+    "contract_traceability": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009/traceability.yaml",
+    "source_objects": [
+      "TLC-SO-HUIT-DIMENSIONS-DE-TL-008",
+      "TLC-SO-HUIT-DIMENSIONS-DE-TL-039"
+    ],
+    "source_relations": [],
+    "contextual_relations_not_covered": [
+      "TLC-SR-HUIT-DIMENSIONS-DE-TL-007",
+      "TLC-SR-HUIT-DIMENSIONS-DE-TL-038"
+    ],
+    "source_commit": "f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa"
+  },
+  "determinism_status": "deterministic_record_construction_scientific_evaluation_not_performed",
+  "testability_status": "specialized_operation_behavior_and_traceability_tests_ready",
+  "implementation_constraints": [
+    "Implement only compare_principle_invariance_declarations with the declared structural effect.",
+    "Treat every scientific payload and unresolved operator as opaque.",
+    "Do not add evaluation, solver, metric, proof, equivalence, convergence, ordering, aggregation, or numeric behavior.",
+    "Return stable identifiers and propagate every reservation and provisional assumption."
+  ],
+  "readiness": {
+    "ready_for_limited_engineering_contract": true,
+    "ready_for_prototype_ir": true,
+    "ready_for_reference_python": true,
+    "ready_for_cpp_prototype": true,
+    "ready_for_canonical_ir": false,
+    "ready_for_production_implementation": false
+  },
+  "blocks_all_prototype_progress": false,
+  "semantic_quality": "substantive_structural_operation",
+  "software_unit": {
+    "kind": "pure_function",
+    "signature": "compare_principle_invariance_declarations(definition_claim, introduction_claim) -> InvarianceDeclarationComparison"
+  }
+}

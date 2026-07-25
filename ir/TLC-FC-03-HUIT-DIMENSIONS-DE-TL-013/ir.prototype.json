@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "ir_id": "TLC-IR-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013-PROTOTYPE-001",
+  "feature_id": "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013",
+  "contract_id": "TLC-LEC-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013-001",
+  "domain": "huit-dimensions",
+  "ir_kind": "prototype_ir_with_reservations",
+  "scientific_status": "noncanonical_engineering_prototype",
+  "catalogue_status_preserved": "deferred_for_scientific_decision",
+  "inputs": [
+    {
+      "id": "IR-IN-HUIT-013-01",
+      "role": "activation_operator_claim",
+      "type": "OpaqueActivationOperatorClaim",
+      "scientific_object_id": "TLC-SO-HUIT-DIMENSIONS-DE-TL-090",
+      "payload": "opaque"
+    },
+    {
+      "id": "IR-IN-HUIT-013-02",
+      "role": "completeness_function_claim",
+      "type": "OpaqueCompletenessClaim",
+      "scientific_object_id": "TLC-SO-HUIT-DIMENSIONS-DE-TL-116",
+      "payload": "opaque"
+    },
+    {
+      "id": "IR-IN-HUIT-013-03",
+      "role": "necessity_function_claim",
+      "type": "OpaqueNecessityClaim",
+      "scientific_object_id": "TLC-SO-HUIT-DIMENSIONS-DE-TL-117",
+      "payload": "opaque"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "IR-OUT-013-001",
+      "role": "specialized_structural_result",
+      "type": "ActivationCNSObligationSet",
+      "evaluated": false,
+      "observable_effect": "Returns three separately typed obligations; activation execution and CNS validation remain unavailable."
+    }
+  ],
+  "opaque_types": [
+    "OpaqueActivationOperatorClaim",
+    "OpaqueCompletenessClaim",
+    "OpaqueNecessityClaim",
+    "ActivationCNSObligationSet"
+  ],
+  "parameterized_types": [
+    "ActivationCNSObligationSet[FeatureId, ScientificObjectId, ReservationId]"
+  ],
+  "operations": [
+    {
+      "operation_id": "IR-OP-HUIT-013-001",
+      "name": "assemble_activation_and_cns_obligations",
+      "kind": "deterministic_identity_preserving_record_construction",
+      "input_roles": [
+        "activation_operator_claim",
+        "completeness_function_claim",
+        "necessity_function_claim"
+      ],
+      "output_type": "ActivationCNSObligationSet",
+      "behavior": "Returns three separately typed obligations; activation execution and CNS validation remain unavailable.",
+      "scientific_evaluation": "uninterpreted"
+    }
+  ],
+  "control_flow": [
+    {
+      "step_id": "IR-STEP-HUIT-013-VALIDATE",
+      "operation": "validate_required_roles_and_traceability",
+      "on_failure": "FAIL-HUIT-013-MISSING-TRACE"
+    },
+    {
+      "step_id": "IR-STEP-HUIT-013-CONSTRUCT",
+      "operation": "assemble_activation_and_cns_obligations",
+      "produces": "IR-OUT-013-001"
+    },
+    {
+      "step_id": "IR-STEP-HUIT-013-VERIFY",
+      "operation": "verify_specialized_postcondition_and_reservation_propagation"
+    }
+  ],
+  "preconditions": [
+    {
+      "id": "PRE-HUIT-013-REQUIRED-ROLES",
+      "statement": "Inputs provide the required roles: activation_operator_claim, completeness_function_claim, necessity_function_claim."
+    },
+    {
+      "id": "PRE-HUIT-013-TRACE",
+      "statement": "Every input retains its scientific object identifier and exact source reference."
+    },
+    {
+      "id": "PRE-HUIT-013-RESERVATIONS",
+      "statement": "All contract reservations and the provisional engineering assumption remain attached."
+    }
+  ],
+  "postconditions": [
+    {
+      "id": "POST-HUIT-013-EFFECT",
+      "statement": "The result contains exactly three non-substitutable obligation records with fulfillment_status unresolved."
+    },
+    {
+      "id": "POST-HUIT-013-OPAQUE",
+      "statement": "No opaque scientific payload or operator is evaluated, coerced, completed, or declared canonical."
+    },
+    {
+      "id": "POST-HUIT-013-TRACE",
+      "statement": "The result retains feature, contract, object, source, reservation, and assumption identifiers."
+    }
+  ],
+  "invariants": [
+    {
+      "id": "INV-HUIT-013-IDENTITY",
+      "statement": "Covered scientific object identities remain distinct.",
+      "status": "contract_invariant_preserved",
+      "source": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013/contract.yaml"
+    },
+    {
+      "id": "INV-HUIT-013-SOURCE",
+      "statement": "Source statements and line ranges remain unchanged.",
+      "status": "contract_invariant_preserved",
+      "source": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013/contract.yaml"
+    },
+    {
+      "id": "INV-HUIT-013-LIMITED",
+      "statement": "This artifact remains a limited engineering contract, never a complete scientific contract.",
+      "status": "contract_invariant_preserved",
+      "source": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013/contract.yaml"
+    }
+  ],
+  "errors": [
+    {
+      "id": "FAIL-HUIT-013-OPERATION",
+      "condition": "Reject substitution among obligations, activation execution, exhaustive coverage assertion, or simulated dimension removal."
+    },
+    {
+      "id": "FAIL-HUIT-013-MISSING-TRACE",
+      "condition": "A required role, scientific object identifier, source reference, reservation, or assumption is missing."
+    },
+    {
+      "id": "FAIL-HUIT-013-SCIENTIFIC-INVENTION",
+      "condition": "The caller requests or supplies unstated scientific, numeric, temporal, dimensional, ordering, aggregation, probabilistic, or algorithmic semantics."
+    }
+  ],
+  "unresolved_propagated": [
+    "TLC-UNRES-HUIT-013-TYPE",
+    "TLC-UNRES-HUIT-013-SIGNATURE",
+    "TLC-UNRES-HUIT-013-UNITS",
+    "TLC-UNRES-HUIT-013-ORDER",
+    "TLC-UNRES-HUIT-013-AGGREGATION",
+    "TLC-UNRES-HUIT-013-NUMERICS",
+    "TLC-UNRES-HUIT-013-ORACLE",
+    "TLC-UNRES-HUIT-013-BOUNDARY",
+    "TLC-UNRES-HUIT-013-IDENTITY"
+  ],
+  "provisional_assumptions_propagated": [
+    "TLC-EA-HUIT-013-001"
+  ],
+  "traceability": {
+    "contract": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013/contract.yaml",
+    "contract_traceability": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013/traceability.yaml",
+    "source_objects": [
+      "TLC-SO-HUIT-DIMENSIONS-DE-TL-090",
+      "TLC-SO-HUIT-DIMENSIONS-DE-TL-116",
+      "TLC-SO-HUIT-DIMENSIONS-DE-TL-117"
+    ],
+    "source_relations": [],
+    "contextual_relations_not_covered": [
+      "TLC-SR-HUIT-DIMENSIONS-DE-TL-089",
+      "TLC-SR-HUIT-DIMENSIONS-DE-TL-115",
+      "TLC-SR-HUIT-DIMENSIONS-DE-TL-116"
+    ],
+    "source_commit": "f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa"
+  },
+  "determinism_status": "deterministic_record_construction_scientific_evaluation_not_performed",
+  "testability_status": "specialized_operation_behavior_and_traceability_tests_ready",
+  "implementation_constraints": [
+    "Implement only assemble_activation_and_cns_obligations with the declared structural effect.",
+    "Treat every scientific payload and unresolved operator as opaque.",
+    "Do not add evaluation, solver, metric, proof, equivalence, convergence, ordering, aggregation, or numeric behavior.",
+    "Return stable identifiers and propagate every reservation and provisional assumption."
+  ],
+  "readiness": {
+    "ready_for_limited_engineering_contract": true,
+    "ready_for_prototype_ir": true,
+    "ready_for_reference_python": true,
+    "ready_for_cpp_prototype": true,
+    "ready_for_canonical_ir": false,
+    "ready_for_production_implementation": false
+  },
+  "blocks_all_prototype_progress": false,
+  "semantic_quality": "substantive_structural_operation",
+  "software_unit": {
+    "kind": "pure_function",
+    "signature": "assemble_activation_and_cns_obligations(activation_claim, completeness_claim, necessity_claim) -> ActivationCNSObligationSet"
+  }
+}

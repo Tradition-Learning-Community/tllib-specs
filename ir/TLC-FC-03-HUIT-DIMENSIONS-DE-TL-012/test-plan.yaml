@@ -1,0 +1,57 @@
+schema_version: 2
+test_plan_id: TLC-TP-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012-PROTOTYPE-001
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012
+contract_id: TLC-LEC-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012-001
+ir_id: TLC-IR-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012-PROTOTYPE-001
+primary_operation: build_nonzero_latency_measure_claim
+scope: specialized_prototype_operation_without_scientific_evaluation
+tests:
+- id: TEST-012-NOMINAL
+  category: operation_nominal
+  operation: build_nonzero_latency_measure_claim
+  scenario: Construct the latency predicate record from the latent-capacity measure declaration.
+  expected_structural_result: Returns a predicate record linking latent capacity, an opaque measure token, and the nonzero
+    relation without evaluating it.
+- id: TEST-012-OPAQUE
+  category: opaque_boundary
+  operation: build_nonzero_latency_measure_claim
+  scenario: Preserve the measure and nonzero comparison as opaque tokens when units, codomain, and zero semantics are unspecified.
+  expected_structural_result: Opaque payloads and unresolved operators are retained byte-for-byte and are not evaluated.
+- id: TEST-012-PRECONDITION
+  category: preconditions
+  operation: build_nonzero_latency_measure_claim
+  scenario: Omit the required role latent_capacity_measure_claim.
+  expected_error: FAIL-HUIT-012-MISSING-TRACE
+- id: TEST-012-FAILURE
+  category: operation_specific_error
+  operation: build_nonzero_latency_measure_claim
+  scenario: Reject numeric comparison, unit assignment, or truth evaluation of the nonzero claim.
+  expected_error: FAIL-HUIT-012-OPERATION
+- id: TEST-012-POSTCONDITION
+  category: postconditions
+  operation: build_nonzero_latency_measure_claim
+  scenario: Inspect the constructed specialized result.
+  expected_structural_result: The result identifies subject, measure relation, and nonzero predicate while evaluation_status
+    remains unresolved.
+- id: TEST-012-RESERVATIONS
+  category: reservation_propagation
+  operation: build_nonzero_latency_measure_claim
+  scenario: Construct the result with all 9 recorded reservation identifiers.
+  expected_structural_result: Every reservation remains present with unresolved status and no resolution claim.
+- id: TEST-012-ASSUMPTION
+  category: assumption_propagation
+  operation: build_nonzero_latency_measure_claim
+  scenario: Construct the result with the feature provisional engineering assumption.
+  expected_structural_result: The reversible provisional assumption identifier is preserved and not promoted to science.
+- id: TEST-012-DETERMINISM
+  category: determinism
+  operation: build_nonzero_latency_measure_claim
+  scenario: Invoke the operation twice with identical role bindings and opaque payloads.
+  expected_structural_result: Both results have identical structure, identifiers, role bindings, and opaque payloads.
+- id: TEST-012-CONFORMANCE
+  category: contract_ir_conformance
+  operation: build_nonzero_latency_measure_claim
+  scenario: Compare contract primary operation, IR software unit, output type, errors, reservations, and readiness.
+  expected_structural_result: Contract, IR, and test plan agree without introducing scientific behavior.
+numeric_expected_results: []
+implementation_status: planned_not_implemented

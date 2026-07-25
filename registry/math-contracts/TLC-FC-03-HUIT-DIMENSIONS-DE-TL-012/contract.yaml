@@ -8,7 +8,7 @@ scientific_authority: origin/main
 limited_engineering_contract: true
 complete_scientific_contract: false
 status: limited_engineering_contract_with_reservations
-version: 0.1.0
+version: 0.2.0
 provenance:
   source_commit: f0a9b6578087e61dd0c7799d95ff0050627f95d6
   generated_on: '2026-07-24'
@@ -30,12 +30,12 @@ scientific_objects_covered:
 scientific_relations_covered: []
 contextual_relations_not_covered:
 - TLC-SR-HUIT-DIMENSIONS-DE-TL-088
-limited_functional_purpose: Preserve the cited candidate scientific objects as distinct opaque inputs and expose only source-traceable
-  candidate results; no missing scientific semantics are completed.
+limited_functional_purpose: Build the declared nonzero-latency measure claim as an unevaluated predicate record.
 inputs:
-- input_id: INPUT-HUIT-012-089
+- input_id: INPUT-HUIT-012-01
+  role: latent_capacity_measure_claim
   scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-089
-  category: Metric
+  type: OpaqueMeasureClaim
   representation: opaque_parameterized
   source_reference:
     repository: Tradition-Learning-Community/tllib-specs
@@ -50,22 +50,27 @@ inputs:
     start_line: 172
     end_line: 172
 outputs:
-- output_id: OUTPUT-HUIT-012-089
-  scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-089
-  representation: opaque_candidate_result
-  semantics: unresolved
+- output_id: OUTPUT-HUIT-012-001
+  role: specialized_structural_result
+  type: NonzeroLatencyMeasureClaim
+  representation: identity_preserving_unevaluated_record
+  observable_effect: Returns a predicate record linking latent capacity, an opaque measure token, and the nonzero relation
+    without evaluating it.
+  scientific_semantics: unresolved_not_evaluated
 preconditions:
-- id: PRE-HUIT-012-SOURCE
-  statement: Every covered object is supplied with its candidate identity and exact source reference preserved.
-- id: PRE-HUIT-012-OPAQUE
-  statement: Unspecified types, dimensions, units, order, aggregation, temporal and numerical semantics remain opaque.
-- id: PRE-HUIT-012-UNRESOLVED
-  statement: Every reservation in unresolved.yaml remains attached.
+- id: PRE-HUIT-012-REQUIRED-ROLES
+  statement: 'Inputs provide the required roles: latent_capacity_measure_claim.'
+- id: PRE-HUIT-012-TRACE
+  statement: Every input retains its scientific object identifier and exact source reference.
+- id: PRE-HUIT-012-RESERVATIONS
+  statement: All contract reservations and the provisional engineering assumption remain attached.
 postconditions:
+- id: POST-HUIT-012-EFFECT
+  statement: The result identifies subject, measure relation, and nonzero predicate while evaluation_status remains unresolved.
+- id: POST-HUIT-012-OPAQUE
+  statement: No opaque scientific payload or operator is evaluated, coerced, completed, or declared canonical.
 - id: POST-HUIT-012-TRACE
-  statement: Every result remains candidate and traceable to one covered source object.
-- id: POST-HUIT-012-NO-PROMOTION
-  statement: No provisional assumption or unresolved reservation is promoted to canonical science.
+  statement: The result retains feature, contract, object, source, reservation, and assumption identifiers.
 invariants:
 - id: INV-HUIT-012-IDENTITY
   statement: Covered scientific object identities remain distinct.
@@ -74,12 +79,13 @@ invariants:
 - id: INV-HUIT-012-LIMITED
   statement: This artifact remains a limited engineering contract, never a complete scientific contract.
 undefined_or_error_cases:
-- id: FAIL-HUIT-012-MISSING-SOURCE
-  condition: A covered object or exact source range is missing.
-- id: FAIL-HUIT-012-DROPPED-RESERVATION
-  condition: A reservation is omitted or declared resolved without an explicit source.
-- id: FAIL-HUIT-012-INVENTION
-  condition: An unspecified scientific, numerical, temporal, ordering, unit or cardinality property is asserted.
+- id: FAIL-HUIT-012-OPERATION
+  condition: Reject numeric comparison, unit assignment, or truth evaluation of the nonzero claim.
+- id: FAIL-HUIT-012-MISSING-TRACE
+  condition: A required role, scientific object identifier, source reference, reservation, or assumption is missing.
+- id: FAIL-HUIT-012-SCIENTIFIC-INVENTION
+  condition: The caller requests or supplies unstated scientific, numeric, temporal, dimensional, ordering, aggregation, probabilistic,
+    or algorithmic semantics.
 unresolved_propagated:
   path: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012/unresolved.yaml
   count: 9
@@ -97,7 +103,7 @@ engineering_assumptions:
   - probability distribution
   - domain-specific concrete class
   impact:
-    prototype_ir: prototype IR remains deferred until feature identity is reviewed
+    prototype_ir: opaque structural IR preserves unresolved feature identity and boundary without scientific interpretation
     implementation: no production representation is authorized
   reversible: true
   status: provisional_engineering_assumption
@@ -143,8 +149,15 @@ readiness:
   ready_for_complete_scientific_contract: false
   ready_for_limited_engineering_contract: true
   ready_for_canonical_ir: false
-  ready_for_prototype_ir: false
+  ready_for_prototype_ir: true
   ready_for_production_implementation: false
-  ready_for_reference_prototype: false
-  human_validation_required_before_prototype_work: true
+  ready_for_reference_prototype: true
+  human_validation_required_before_prototype_work: false
   human_validation_required_before_canonical_release: true
+software_responsibility: Build the declared nonzero-latency measure claim as an unevaluated predicate record.
+primary_operation:
+  name: build_nonzero_latency_measure_claim
+  signature: build_nonzero_latency_measure_claim(latency_claim) -> NonzeroLatencyMeasureClaim
+  behavior: Returns a predicate record linking latent capacity, an opaque measure token, and the nonzero relation without
+    evaluating it.
+  scientific_evaluation: not_performed

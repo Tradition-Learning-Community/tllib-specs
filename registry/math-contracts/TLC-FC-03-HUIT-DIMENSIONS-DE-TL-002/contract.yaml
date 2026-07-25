@@ -8,7 +8,7 @@ scientific_authority: origin/main
 limited_engineering_contract: true
 complete_scientific_contract: false
 status: limited_engineering_contract_with_reservations
-version: 0.1.0
+version: 0.2.0
 provenance:
   source_commit: f0a9b6578087e61dd0c7799d95ff0050627f95d6
   generated_on: '2026-07-24'
@@ -30,12 +30,13 @@ scientific_objects_covered:
 scientific_relations_covered: []
 contextual_relations_not_covered:
 - TLC-SR-HUIT-DIMENSIONS-DE-TL-010
-limited_functional_purpose: Preserve the cited candidate scientific objects as distinct opaque inputs and expose only source-traceable
-  candidate results; no missing scientific semantics are completed.
+limited_functional_purpose: Build an unevaluated message-convergence constraint record from the declared Principle–Message
+  dynamic.
 inputs:
-- input_id: INPUT-HUIT-002-011
+- input_id: INPUT-HUIT-002-01
+  role: convergence_declaration
   scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-011
-  category: Constraint
+  type: OpaqueConvergenceDeclaration
   representation: opaque_parameterized
   source_reference:
     repository: Tradition-Learning-Community/tllib-specs
@@ -50,22 +51,28 @@ inputs:
     start_line: 77
     end_line: 84
 outputs:
-- output_id: OUTPUT-HUIT-002-011
-  scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-011
-  representation: opaque_candidate_result
-  semantics: unresolved
+- output_id: OUTPUT-HUIT-002-001
+  role: specialized_structural_result
+  type: MessageConvergenceConstraint
+  representation: identity_preserving_unevaluated_record
+  observable_effect: Returns a constraint record carrying germination, crystallisation, and stabilisation labels plus an unresolved
+    Gamma/limit operator.
+  scientific_semantics: unresolved_not_evaluated
 preconditions:
-- id: PRE-HUIT-002-SOURCE
-  statement: Every covered object is supplied with its candidate identity and exact source reference preserved.
-- id: PRE-HUIT-002-OPAQUE
-  statement: Unspecified types, dimensions, units, order, aggregation, temporal and numerical semantics remain opaque.
-- id: PRE-HUIT-002-UNRESOLVED
-  statement: Every reservation in unresolved.yaml remains attached.
+- id: PRE-HUIT-002-REQUIRED-ROLES
+  statement: 'Inputs provide the required roles: convergence_declaration.'
+- id: PRE-HUIT-002-TRACE
+  statement: Every input retains its scientific object identifier and exact source reference.
+- id: PRE-HUIT-002-RESERVATIONS
+  statement: All contract reservations and the provisional engineering assumption remain attached.
 postconditions:
+- id: POST-HUIT-002-EFFECT
+  statement: The result exposes three phase labels and explicitly marks convergence evaluation and feature-boundary identity
+    unresolved.
+- id: POST-HUIT-002-OPAQUE
+  statement: No opaque scientific payload or operator is evaluated, coerced, completed, or declared canonical.
 - id: POST-HUIT-002-TRACE
-  statement: Every result remains candidate and traceable to one covered source object.
-- id: POST-HUIT-002-NO-PROMOTION
-  statement: No provisional assumption or unresolved reservation is promoted to canonical science.
+  statement: The result retains feature, contract, object, source, reservation, and assumption identifiers.
 invariants:
 - id: INV-HUIT-002-IDENTITY
   statement: Covered scientific object identities remain distinct.
@@ -74,12 +81,13 @@ invariants:
 - id: INV-HUIT-002-LIMITED
   statement: This artifact remains a limited engineering contract, never a complete scientific contract.
 undefined_or_error_cases:
-- id: FAIL-HUIT-002-MISSING-SOURCE
-  condition: A covered object or exact source range is missing.
-- id: FAIL-HUIT-002-DROPPED-RESERVATION
-  condition: A reservation is omitted or declared resolved without an explicit source.
-- id: FAIL-HUIT-002-INVENTION
-  condition: An unspecified scientific, numerical, temporal, ordering, unit or cardinality property is asserted.
+- id: FAIL-HUIT-002-OPERATION
+  condition: Reject a declaration that loses the source equation identity or any recorded phase label.
+- id: FAIL-HUIT-002-MISSING-TRACE
+  condition: A required role, scientific object identifier, source reference, reservation, or assumption is missing.
+- id: FAIL-HUIT-002-SCIENTIFIC-INVENTION
+  condition: The caller requests or supplies unstated scientific, numeric, temporal, dimensional, ordering, aggregation, probabilistic,
+    or algorithmic semantics.
 unresolved_propagated:
   path: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002/unresolved.yaml
   count: 9
@@ -97,7 +105,7 @@ engineering_assumptions:
   - probability distribution
   - domain-specific concrete class
   impact:
-    prototype_ir: prototype IR remains deferred until feature identity is reviewed
+    prototype_ir: opaque structural IR preserves unresolved feature identity and boundary without scientific interpretation
     implementation: no production representation is authorized
   reversible: true
   status: provisional_engineering_assumption
@@ -143,8 +151,15 @@ readiness:
   ready_for_complete_scientific_contract: false
   ready_for_limited_engineering_contract: true
   ready_for_canonical_ir: false
-  ready_for_prototype_ir: false
+  ready_for_prototype_ir: true
   ready_for_production_implementation: false
-  ready_for_reference_prototype: false
-  human_validation_required_before_prototype_work: true
+  ready_for_reference_prototype: true
+  human_validation_required_before_prototype_work: false
   human_validation_required_before_canonical_release: true
+software_responsibility: Build an unevaluated message-convergence constraint record from the declared Principle–Message dynamic.
+primary_operation:
+  name: build_message_convergence_constraint
+  signature: build_message_convergence_constraint(declaration, phase_labels, unresolved_operator) -> MessageConvergenceConstraint
+  behavior: Returns a constraint record carrying germination, crystallisation, and stabilisation labels plus an unresolved
+    Gamma/limit operator.
+  scientific_evaluation: not_performed
