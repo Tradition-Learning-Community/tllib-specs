@@ -41,64 +41,54 @@ jobs:
         run: git fetch origin main --quiet
 
       - name: Upgrade current registry builder
-        if: always()
         run: |
-          set +e
+          set -o pipefail
           python tools/global-reconciliation/upgrade_current_registry_builder.py 2>&1 | tee reports/global-reconciliation/current-baseline-upgrade.log
           echo ${PIPESTATUS[0]} > reports/global-reconciliation/current-baseline-upgrade.status
-          exit 0
 
       - name: Finalize current registry builder
-        if: always()
         run: |
-          set +e
+          set -o pipefail
           python tools/global-reconciliation/finalize_current_registry_builder.py 2>&1 | tee reports/global-reconciliation/current-baseline-finalize.log
           echo ${PIPESTATUS[0]} > reports/global-reconciliation/current-baseline-finalize.status
-          exit 0
+
+      - name: Restore historical review provenance
+        run: python tools/global-reconciliation/restore_historical_reconciliation_reviews.py
 
       - name: Rebuild current global registry
-        if: always()
         run: |
-          set +e
+          set -o pipefail
           python tools/global-reconciliation/build_current_global_registry.py --root . 2>&1 | tee reports/global-reconciliation/current-baseline-build.log
           echo ${PIPESTATUS[0]} > reports/global-reconciliation/current-baseline-build.status
-          exit 0
 
       - name: Validate current global registry
-        if: always()
         run: |
-          set +e
+          set -o pipefail
           python tools/global-reconciliation/validate_current_global_registry.py --root . 2>&1 | tee reports/global-reconciliation/current-baseline-validation.log
           echo ${PIPESTATUS[0]} > reports/global-reconciliation/current-baseline-validation.status
-          exit 0
 
       - name: Validate whitespace
-        if: always()
         run: |
-          set +e
+          set -o pipefail
           git diff --check 2>&1 | tee reports/global-reconciliation/current-baseline-whitespace.log
           echo ${PIPESTATUS[0]} > reports/global-reconciliation/current-baseline-whitespace.status
-          exit 0
-
-      - name: Commit generated registry and diagnostics
-        if: always()
-        run: |
-          if git diff --quiet; then
-            echo "No generated changes"
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add registry/global-reconciliation reports/global-reconciliation tools/global-reconciliation
-          git commit -m "feat(registry): preserve historical reconciliation reviews"
-          git pull --rebase origin phase4/global-registry-current-001
-          git push origin HEAD:phase4/global-registry-current-001
 
       - name: Enforce generation and validation success
-        if: always()
         run: |
           test "$(cat reports/global-reconciliation/current-baseline-upgrade.status)" = "0"
           test "$(cat reports/global-reconciliation/current-baseline-finalize.status)" = "0"
           test "$(cat reports/global-reconciliation/current-baseline-build.status)" = "0"
           test "$(cat reports/global-reconciliation/current-baseline-validation.status)" = "0"
           test "$(cat reports/global-reconciliation/current-baseline-whitespace.status)" = "0"
+
+      - name: Remove temporary workflow machinery
+        run: python tools/global-reconciliation/cleanup_phase4_current_registry_workflow.py
+
+      - name: Commit final current registry
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "feat(registry): finalize current 16-domain IR baseline"
+          git pull --rebase origin phase4/global-registry-current-001
+          git push origin HEAD:phase4/global-registry-current-001
