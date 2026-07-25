@@ -1,0 +1,108 @@
+---
+ir_id: TLC-IR-TLC-FC-11-CAPACITIES-010
+feature_id: TLC-FC-11-CAPACITIES-010
+contract_id: TLC-MC-TLC-FC-11-CAPACITIES-010
+ir_kind: prototype_ir_with_reservations
+entrypoint: capacities_build_capacity_metric_descriptor_and_symbol_bindings_010
+primary_operation: build_capacity_metric_descriptor_and_symbol_bindings
+inputs:
+- name: capacity_feature_id
+  type: FeatureId
+  required: true
+  expected_value: TLC-FC-11-CAPACITIES-010
+- name: object_payloads
+  type: Map<ObjectId,OpaqueScientificObject>
+  required: true
+  required_keys:
+  - TLC-SO-CAPACITIES-021
+  - TLC-SO-CAPACITIES-022
+  - TLC-SO-CAPACITIES-034
+  - TLC-SO-CAPACITIES-055
+- name: provenance
+  type: Map<ObjectId,SourceReference>
+  required: true
+outputs:
+- name: artifact
+  type: CapacityPrototypeDescriptor
+  observable_effect: returns descriptor containing feature id, object ids, symbols,
+    provenance, unresolved/blocker markers, and no evaluated scientific value
+opaque_types:
+- OpaqueScientificObject
+- OpaqueScientificValue
+parameterized_types:
+- Map<ObjectId,OpaqueScientificObject>
+- List<SourceReference>
+symbolic_types:
+- UnevaluatedSymbol
+- UnevaluatedExpression
+- DecisionBlocker
+operations:
+- name: validate_feature_and_object_set
+  behavior: check feature id, required object ids, duplicates, and provenance presence
+    before descriptor creation
+- name: build_capacity_metric_descriptor_and_symbol_bindings
+  behavior: assemble immutable descriptor or AST node sequence from object ids, declared
+    symbols, family/status labels, and provenance without evaluating scientific content
+- name: reject_scientific_evaluation_request
+  behavior: raise ScientificEvaluationRequested if caller asks for score, metric value,
+    rank, progression, probability, causal effect, or resolved scientific truth
+operation_sequence:
+- validate_feature_and_object_set
+- build_capacity_metric_descriptor_and_symbol_bindings
+- reject_scientific_evaluation_request guard is available for evaluator integrations
+preconditions:
+- feature id equals contract feature_id
+- all covered object ids are present exactly once in object_payloads
+- each covered object has a source reference
+- caller does not request numeric scoring, ranking, thresholds, learning dynamics,
+  or scientific evaluation
+postconditions:
+- output feature_id equals input feature id
+- output covered_objects preserves preparation order
+- output provenance contains a source reference for every covered object
+- output contains no generated scientific metric, score, threshold, rank, probability,
+  or temporal inference
+- descriptor is marked structurally_valid when required objects and provenance are
+  present
+invariants:
+- covered object set is exactly the feature inventory object set
+- source statements remain opaque and are not reinterpreted
+- scientific reservations from unresolved or blockers are propagated
+errors:
+- UnknownFeatureId
+- MissingCoveredObject
+- DuplicateCoveredObject
+- MissingSourceReference
+- ScientificEvaluationRequested
+- BlockedScientificDecision
+undefined_behaviors:
+- meaning of capacity strength, level, progress, ordering, causal effect, or learned
+  value
+- numeric interpretation of symbols or equations
+- resolution of blocked/provisionally separated scientific status
+propagated_unresolved: []
+propagated_provisional_assumptions:
+- 'provisional_engineering_assumption: opaque payloads may be stored and compared
+  by object id only; no payload semantics are inspected'
+traceability:
+  prepared_from: registry/domain-progress/capacities/feature-inventory.yaml
+  source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+  feature_name: '11-capacities: metric (admissible)'
+determinism_status: deterministic for identical object ids, payload identities, symbols,
+  and provenance; opaque payload internals ignored
+testability_status: structural and error behavior testable; scientific semantics intentionally
+  untestable
+implementation_constraints:
+- do not evaluate formulas or symbols
+- do not infer missing endpoints or relations
+- do not create scores, levels, hierarchy, weights, thresholds, temporal progress,
+  or probabilities
+- preserve object order and provenance
+active_or_historical_status: active
+classification: substantive_and_implementable
+readiness:
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false
+  blocks_all_prototype_progress: false

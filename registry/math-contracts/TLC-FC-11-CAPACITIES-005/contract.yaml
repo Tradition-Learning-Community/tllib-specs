@@ -1,0 +1,179 @@
+---
+contract_id: TLC-MC-TLC-FC-11-CAPACITIES-005
+feature_id: TLC-FC-11-CAPACITIES-005
+contract_kind: limited_engineering_contract_with_reservations
+scientific_authority: maths/11-capacities.md via capacities preparation artifacts;
+  no scientific semantics promoted beyond cited objects
+source_references:
+- object_id: TLC-SO-CAPACITIES-066
+  source_path: maths/11-capacities.md
+  start_line: 86
+  end_line: 88
+  section: Potentiel et capacités latentes
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- object_id: TLC-SO-CAPACITIES-067
+  source_path: maths/11-capacities.md
+  start_line: 93
+  end_line: 95
+  section: Potentiel et capacités latentes
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- object_id: TLC-SO-CAPACITIES-069
+  source_path: maths/11-capacities.md
+  start_line: 111
+  end_line: 113
+  section: Transmission et activation des Capacités
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- object_id: TLC-SO-CAPACITIES-070
+  source_path: maths/11-capacities.md
+  start_line: 117
+  end_line: 119
+  section: Transmission et activation des Capacités
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- object_id: TLC-SO-CAPACITIES-087
+  source_path: maths/11-capacities.md
+  start_line: 158
+  end_line: 160
+  section: Dynamique temporelle et développementale
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- object_id: TLC-SO-CAPACITIES-097
+  source_path: maths/11-capacities.md
+  start_line: 224
+  end_line: 226
+  section: Interaction avec la communauté et capacités collectives
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+covered_objects:
+- object_id: TLC-SO-CAPACITIES-066
+  canonical_name: Équation — Interaction avec les Valeurs et Vertus
+  status: candidate
+  symbols:
+  - "\\mathcal"
+  - "\\alpha"
+  - "\\beta"
+  - "\\nabla"
+  - "\\Phi(\\mathcal{F})"
+  - "\\delta"
+- object_id: TLC-SO-CAPACITIES-067
+  canonical_name: Équation — Évolution dynamique dans le temps
+  status: candidate
+  symbols:
+  - "\\mathcal"
+  - "\\alpha"
+  - "\\beta"
+  - "\\gamma"
+  - "\\sigma"
+- object_id: TLC-SO-CAPACITIES-069
+  canonical_name: Équation — Observation et imitation
+  status: candidate
+  symbols:
+  - "\\Delta"
+  - "\\mathcal"
+  - "\\mathrm"
+  - "\\eta"
+  - "\\lambda"
+- object_id: TLC-SO-CAPACITIES-070
+  canonical_name: Équation — Pratique et répétition
+  status: candidate
+  symbols:
+  - "\\mathcal"
+  - "\\mathrm"
+- object_id: TLC-SO-CAPACITIES-087
+  canonical_name: Équation — Apprentissage et activation à court terme
+  status: candidate
+  symbols:
+  - "\\mathcal"
+  - "\\Delta"
+  - "\\alpha"
+  - "\\sigma"
+- object_id: TLC-SO-CAPACITIES-097
+  canonical_name: Équation — Boucles de rétroaction dans le développement collectif
+  status: candidate
+  symbols:
+  - "\\mathcal"
+  - "\\mu(j)"
+covered_relations: []
+contextual_relations: []
+functional_purpose: Evaluate the evolution laws expressed by the cited differential
+  or stochastic equations.
+primary_responsibility: 'build_unevaluated_capacity_dynamics_ast: create a typed,
+  provenance-preserving engineering representation for 11-capacities: dynamics (admissible);
+  permit structural validation only, not scientific evaluation.'
+inputs:
+- name: capacity_feature_id
+  type: FeatureId
+  required: true
+  expected_value: TLC-FC-11-CAPACITIES-005
+- name: object_payloads
+  type: Map<ObjectId,OpaqueScientificObject>
+  required: true
+  required_keys:
+  - TLC-SO-CAPACITIES-066
+  - TLC-SO-CAPACITIES-067
+  - TLC-SO-CAPACITIES-069
+  - TLC-SO-CAPACITIES-070
+  - TLC-SO-CAPACITIES-087
+  - TLC-SO-CAPACITIES-097
+- name: provenance
+  type: Map<ObjectId,SourceReference>
+  required: true
+outputs:
+- name: artifact
+  type: CapacityPrototypeDescriptor
+  observable_effect: returns descriptor containing feature id, object ids, symbols,
+    provenance, unresolved/blocker markers, and no evaluated scientific value
+types:
+  FeatureId: string matching TLC-FC-11-CAPACITIES-*
+  OpaqueScientificObject: caller supplied payload preserved without interpretation
+  SourceReference: source path, line span, commit, section
+  CapacityPrototypeDescriptor: immutable record with family/status/object_ids/symbols/provenance/unresolved
+preconditions:
+- feature id equals contract feature_id
+- all covered object ids are present exactly once in object_payloads
+- each covered object has a source reference
+- caller does not request numeric scoring, ranking, thresholds, learning dynamics,
+  or scientific evaluation
+postconditions:
+- output feature_id equals input feature id
+- output covered_objects preserves preparation order
+- output provenance contains a source reference for every covered object
+- output contains no generated scientific metric, score, threshold, rank, probability,
+  or temporal inference
+- descriptor is marked structurally_valid when required objects and provenance are
+  present
+explicitly_sourced_invariants:
+- covered object set is exactly the feature inventory object set
+- source statements remain opaque and are not reinterpreted
+- scientific reservations from unresolved or blockers are propagated
+errors:
+- UnknownFeatureId
+- MissingCoveredObject
+- DuplicateCoveredObject
+- MissingSourceReference
+- ScientificEvaluationRequested
+- BlockedScientificDecision
+undefined_behaviors:
+- meaning of capacity strength, level, progress, ordering, causal effect, or learned
+  value
+- numeric interpretation of symbols or equations
+- resolution of blocked/provisionally separated scientific status
+propagated_unresolved: []
+provisional_engineering_assumptions:
+- 'provisional_engineering_assumption: opaque payloads may be stored and compared
+  by object id only; no payload semantics are inspected'
+scientific_reservations:
+- limited engineering contract only; source object statuses and blockers are preserved
+- no full mathematical contract or production semantics asserted
+traceability:
+  prepared_from: registry/domain-progress/capacities/feature-inventory.yaml
+  source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+  feature_name: '11-capacities: dynamics (admissible)'
+validation_criteria:
+- YAML parses
+- contract feature id matches directory and IR
+- covered object ids match preparation
+- blocked features reject evaluation requests
+- admissible features produce structural descriptors only
+readiness:
+  status: limited_engineering_contract_with_reservations
+  ready_for_prototype_ir: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false

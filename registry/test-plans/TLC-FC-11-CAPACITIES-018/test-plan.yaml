@@ -1,0 +1,68 @@
+---
+test_plan_id: TLC-TP-TLC-FC-11-CAPACITIES-018
+feature_id: TLC-FC-11-CAPACITIES-018
+contract_id: TLC-MC-TLC-FC-11-CAPACITIES-018
+ir_id: TLC-IR-TLC-FC-11-CAPACITIES-018
+entrypoint: capacities_build_capacity_relation_descriptor_preserving_endpoints_018
+primary_operation: build_capacity_relation_descriptor_preserving_endpoints
+plan_kind: specific_prototype_ir_test_plan_with_reservations
+scope: functional tests for the engineering descriptor/AST behavior only
+test_cases:
+- name: nominal_build_preserves_capacity_objects
+  given: feature TLC-FC-11-CAPACITIES-018, payloads for TLC-SO-CAPACITIES-010, and
+    source references
+  when: call capacities_build_capacity_relation_descriptor_preserving_endpoints_018
+  then: returns descriptor with same feature id, covered object ids in preparation
+    order, family/status labels, symbols, unresolved markers, and provenance
+- name: reject_missing_covered_object
+  given: one required object payload omitted
+  when: call capacities_build_capacity_relation_descriptor_preserving_endpoints_018
+  then: raises MissingCoveredObject before descriptor creation
+- name: reject_duplicate_covered_object
+  given: a required object id appears twice
+  when: call capacities_build_capacity_relation_descriptor_preserving_endpoints_018
+  then: raises DuplicateCoveredObject
+- name: reject_missing_provenance
+  given: payload exists but its source reference is absent
+  when: call capacities_build_capacity_relation_descriptor_preserving_endpoints_018
+  then: raises MissingSourceReference
+- name: propagate_reservations_without_resolution
+  given: feature blockers and unresolved object statuses from preparation
+  when: call capacities_build_capacity_relation_descriptor_preserving_endpoints_018
+  then: output includes the same blocker/unresolved text and does not mark scientific
+    resolution
+- name: reject_absent_scientific_calculation
+  given: caller requests score, rank, threshold value, probability, progression, or
+    causal effect
+  when: evaluation guard is invoked
+  then: raises ScientificEvaluationRequested and no numeric result is returned
+- name: contract_ir_alignment
+  given: contract and IR artifacts
+  when: compare ids, inputs, outputs, errors, and postconditions
+  then: feature to contract to IR chain is unique and consistent
+postconditions_under_test:
+- output feature_id equals input feature id
+- output covered_objects preserves preparation order
+- output provenance contains a source reference for every covered object
+- output contains no generated scientific metric, score, threshold, rank, probability,
+  or temporal inference
+- descriptor is marked structurally_valid when required objects and provenance are
+  present
+opaque_value_tests:
+- payload identity is preserved but payload internals are not inspected
+provenance_tests:
+- every output object carries source_path/start_line/end_line/source_commit
+integration_tests:
+- register descriptor from capacities_build_capacity_relation_descriptor_preserving_endpoints_018
+  in a prototype capacity registry keyed by TLC-FC-11-CAPACITIES-018 and query it
+  by feature id
+non_goals:
+- no scientific numeric expectation
+- no ranking or aggregation
+- no resolution of local blockers
+readiness_expectation:
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false
+  blocks_all_prototype_progress: false
