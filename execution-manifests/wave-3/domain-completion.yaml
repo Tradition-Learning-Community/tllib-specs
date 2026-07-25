@@ -1,0 +1,86 @@
+manifest_version: "1.0"
+
+execution_id: wave-3-relations-domain-completion-001
+wave: 3
+domain_order: 15
+
+repository:
+  full_name: Tradition-Learning-Community/tllib-specs
+  base_branch: main
+  work_branch: ir/relations-domain-completion-001
+  target_branch: main
+
+domain:
+  id: relations
+  display_name: Relations
+  feature_prefix: TLC-FC-15-RELATIONS
+  source_file: maths/15-relations.md
+
+known_state:
+  preparation_status: limited_batch_exists
+  declared_features_total: null
+  exact_feature_count_must_be_derived: true
+  known_limited_batch_features:
+    - TLC-FC-15-RELATIONS-004
+    - TLC-FC-15-RELATIONS-007
+  limited_batch_is_not_complete_catalogue: true
+
+authoritative_inputs:
+  - maths/15-relations.md
+  - registry/math-contract-batches/relations-limited-batch-001/manifest.yaml
+  - registry/math-contracts/TLC-FC-15-RELATIONS-004/
+  - registry/math-contracts/TLC-FC-15-RELATIONS-007/
+  - registry/domain-progress/relations/
+  - registry/scientific-objects/
+  - registry/scientific-relations/
+  - registry/features/
+  - registry/features/revised/
+  - registry/global-reconciliation/
+  - registry/math-contract-entry/
+  - reviews/functional-decomposition/
+  - reports/functional-decomposition/
+
+reference_domains:
+  structural_examples:
+    - TLC-FC-07-MESSAGE
+    - TLC-FC-08-PRINCIPLE
+    - TLC-FC-09-VALUES
+    - TLC-FC-10-VIRTUES
+    - TLC-FC-11-CAPACITIES
+
+special_instructions:
+  - First derive the complete canonical Relations feature catalogue from approved repository artifacts.
+  - Do not treat the limited batch containing 004 and 007 as the complete domain.
+  - Reuse 004 and 007 only after auditing their validity against current main.
+  - Relations may express cross-domain links; do not duplicate the implementation of the linked domains.
+  - Preserve directionality, arity, symmetry, domains, codomains and constraints only when explicitly sourced.
+  - Do not invent graph semantics, weights, normalization, thresholds, cardinalities or temporal behavior.
+  - Do not modify maths/.
+
+required_outputs:
+  canonical_contract_pattern: registry/math-contracts/<FEATURE-ID>/contract.yaml
+  canonical_ir_pattern: registry/ir/<FEATURE-ID>/ir.yaml
+  canonical_test_plan_pattern: registry/test-plans/<FEATURE-ID>/test-plan.yaml
+  domain_report: reports/ir-batches/relations-domain-completion-001/completion-report.md
+  batch_manifest: registry/ir-batches/relations-domain-completion-001/manifest.yaml
+
+validation:
+  expected_feature_count: null
+  require_derived_feature_count: true
+  require_catalogue_evidence_in_report: true
+  require_contract_for_every_canonical_feature: true
+  require_ir_for_every_canonical_feature: true
+  require_test_plan_for_every_canonical_feature: true
+  allow_non_executable_ir: true
+  forbid_new_artifact_yaml: true
+  forbid_maths_changes: true
+  require_yaml_parse: true
+  require_git_diff_check: true
+  require_reference_integrity: true
+  require_limited_batch_reconciliation: true
+
+git:
+  commit_message: "feat(relations): complete domain through canonical IR"
+  pr_title: "feat(ir): complete relations domain through canonical IR"
+  open_pull_request: true
+  draft_pull_request: true
