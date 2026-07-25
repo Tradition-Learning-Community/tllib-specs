@@ -1,0 +1,87 @@
+manifest_version: "1.0"
+
+execution_id: wave-3-lived-experience-domain-completion-001
+wave: 3
+domain_order: 14
+
+repository:
+  full_name: Tradition-Learning-Community/tllib-specs
+  base_branch: main
+  work_branch: ir/lived-experience-domain-completion-001
+  target_branch: main
+
+domain:
+  id: lived-experience
+  display_name: Lived Experience
+  feature_prefix: TLC-FC-14-LIVED-EXPERIENCE
+  source_file: maths/14-lived-experience.md
+
+known_state:
+  preparation_status: preparation_complete_with_reservations
+  declared_features_total: 12
+  source_objects_total: 70
+  source_relations_total: 69
+  unresolved_total: 43
+  duplicate_candidates_total: 1
+  historical_pilot_feature: TLC-FC-14-LIVED-EXPERIENCE-005
+  historical_pilot_contract: registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-005/contract.yaml
+  historical_pilot_ir: ir/TLC-FC-14-LIVED-EXPERIENCE-005/ir-semantic.candidate.json
+
+authoritative_inputs:
+  - maths/14-lived-experience.md
+  - registry/domain-progress/lived-experience/source-inventory.yaml
+  - registry/domain-progress/lived-experience/historical-artifact-assessment.yaml
+  - registry/domain-progress/lived-experience/
+  - registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-005/
+  - ir/TLC-FC-14-LIVED-EXPERIENCE-005/
+  - tools/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-005/
+  - tools/ir/TLC-FC-14-LIVED-EXPERIENCE-005/
+  - registry/scientific-objects/
+  - registry/scientific-relations/
+  - registry/features/
+  - registry/global-reconciliation/
+  - reviews/functional-decomposition/
+
+reference_domains:
+  structural_examples:
+    - TLC-FC-07-MESSAGE
+    - TLC-FC-08-PRINCIPLE
+    - TLC-FC-09-VALUES
+    - TLC-FC-10-VIRTUES
+    - TLC-FC-11-CAPACITIES
+
+special_instructions:
+  - The feature 005 artifacts are historical pilot inputs, not automatic proof of canonical completeness.
+  - Audit the pilot before reuse.
+  - Preserve historical candidate files when needed for traceability.
+  - Designate exactly one canonical contract, one canonical IR, and one canonical test plan per feature.
+  - Do not silently resolve any of the 43 recorded unresolved items.
+  - Resolve the duplicate candidate only if an explicit repository decision supports the resolution; otherwise preserve and report it.
+  - Do not modify maths/.
+
+required_outputs:
+  canonical_contract_pattern: registry/math-contracts/<FEATURE-ID>/contract.yaml
+  canonical_ir_pattern: registry/ir/<FEATURE-ID>/ir.yaml
+  canonical_test_plan_pattern: registry/test-plans/<FEATURE-ID>/test-plan.yaml
+  domain_report: reports/ir-batches/lived-experience-domain-completion-001/completion-report.md
+  batch_manifest: registry/ir-batches/lived-experience-domain-completion-001/manifest.yaml
+
+validation:
+  expected_feature_count: 12
+  require_exact_feature_count: true
+  require_contract_for_every_canonical_feature: true
+  require_ir_for_every_canonical_feature: true
+  require_test_plan_for_every_canonical_feature: true
+  allow_non_executable_ir: true
+  forbid_new_artifact_yaml: true
+  forbid_maths_changes: true
+  require_yaml_parse: true
+  require_git_diff_check: true
+  require_reference_integrity: true
+  require_historical_pilot_classification: true
+
+git:
+  commit_message: "feat(lived-experience): complete domain through canonical IR"
+  pr_title: "feat(ir): complete lived experience domain through canonical IR"
+  open_pull_request: true
+  draft_pull_request: true

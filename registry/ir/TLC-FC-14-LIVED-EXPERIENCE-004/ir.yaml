@@ -1,0 +1,104 @@
+---
+ir_id: TLC-IR-TLC-FC-14-LIVED-EXPERIENCE-004
+feature_id: TLC-FC-14-LIVED-EXPERIENCE-004
+contract_id: TLC-MC-TLC-FC-14-LIVED-EXPERIENCE-004
+contract_path: registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-004/contract.yaml
+ir_kind: canonical_declarative_ir_with_reservations
+entrypoint: lived_experience_004_descriptor
+primary_operation: build_or_preserve_lived_experience_descriptor
+execution_mode: blocked_declarative
+inputs:
+- name: feature_id
+  type: FeatureId
+  required: true
+  expected_value: TLC-FC-14-LIVED-EXPERIENCE-004
+- name: object_payloads
+  type: Map<ObjectId,OpaqueScientificObject>
+  required: true
+  required_keys:
+  - TLC-SO-LIVED-EXPERIENCE-064
+- name: provenance
+  type: Map<ObjectId,SourceReference>
+  required: true
+outputs:
+- name: artifact
+  type: LivedExperienceDescriptor
+  observable_effect: returns descriptor containing feature id, object ids, source
+    statements, symbols, provenance, reservations, and no evaluated scientific value
+opaque_types:
+- OpaqueScientificObject
+- OpaqueScientificValue
+parameterized_types:
+- Map<ObjectId,OpaqueScientificObject>
+- List<SourceReference>
+symbolic_types:
+- UnevaluatedSymbol
+- UnevaluatedExpression
+- DecisionBlocker
+operations:
+- name: validate_feature_and_object_set
+  behavior: check feature id, required object ids, duplicates, and provenance presence
+    before descriptor creation
+- name: build_or_preserve_lived_experience_descriptor
+  behavior: assemble immutable descriptor from object ids, declared symbols, source
+    statements, status labels, blockers, and provenance without evaluating scientific
+    content
+- name: reject_scientific_evaluation_request
+  behavior: raise ScientificEvaluationRequested for score, metric value, threshold,
+    progression, probability, causal effect, synergy, or resolved scientific truth
+operation_sequence:
+- validate_feature_and_object_set
+- build_or_preserve_lived_experience_descriptor
+- reject_scientific_evaluation_request guard is available for evaluator integrations
+preconditions:
+- feature id equals contract feature_id
+- all covered object ids are present exactly once in object_payloads
+- each covered object has a source reference
+- caller does not request numeric scoring, thresholds, time evolution, synergy evaluation,
+  or scientific resolution
+postconditions:
+- output feature_id equals input feature id
+- output covered_objects preserves preparation order
+- output provenance contains a source reference for every covered object
+- output contains no generated scientific metric, threshold, probability, temporal
+  inference, or corrected equation
+- descriptor propagates blockers and reservations
+invariants:
+- covered object set is exactly the feature inventory object set
+- source statements remain opaque and are not reinterpreted
+- scientific reservations from unresolved or blockers are propagated
+errors:
+- UnknownFeatureId
+- MissingCoveredObject
+- DuplicateCoveredObject
+- MissingSourceReference
+- ScientificEvaluationRequested
+- BlockedScientificDecision
+undefined_behaviors:
+- numeric interpretation of symbols or equations
+- resolution of blocked/provisionally separated scientific status
+- meaning of lived-experience magnitude, time scale, or memory layout
+propagated_unresolved:
+- scientific_decision_required
+- external_reconciliation_pending
+propagated_reservations:
+- scientific decision required
+- external reconciliation pending
+determinism_status: deterministic for identical object ids, payload identities, symbols,
+  source statements, blockers, and provenance; opaque payload internals ignored
+testability_status: structural, traceability, and rejection behavior testable; scientific
+  semantics intentionally untestable
+implementation_constraints:
+- do not evaluate formulas or symbols
+- do not infer missing endpoints or relations
+- do not create scores, thresholds, temporal progress, probabilities, or synergy semantics
+- preserve object order and provenance
+active_or_historical_status: active
+historical_inputs: []
+classification: blocked_declarative
+readiness:
+  ready_for_reference_python: false
+  ready_for_cpp_prototype: false
+  ready_for_canonical_ir: true
+  ready_for_production_implementation: false
+  blocks_all_prototype_progress: true

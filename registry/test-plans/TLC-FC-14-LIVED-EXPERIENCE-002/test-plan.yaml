@@ -1,0 +1,70 @@
+---
+test_plan_id: TLC-TP-TLC-FC-14-LIVED-EXPERIENCE-002
+feature_id: TLC-FC-14-LIVED-EXPERIENCE-002
+contract_id: TLC-MC-TLC-FC-14-LIVED-EXPERIENCE-002
+ir_id: TLC-IR-TLC-FC-14-LIVED-EXPERIENCE-002
+contract_path: registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-002/contract.yaml
+ir_path: registry/ir/TLC-FC-14-LIVED-EXPERIENCE-002/ir.yaml
+plan_kind: canonical_structural_test_plan_with_reservations
+scope: structural, traceability, rejection, and alignment tests only; no unauthorized
+  numerical oracle
+test_categories:
+- nominal
+- errors
+- types
+- shapes
+- preconditions
+- postconditions
+- invariants
+- properties
+- determinism
+- reproducibility
+- python_cpp_conformance
+- explicit_rejection_or_blocking
+test_cases:
+- name: nominal_descriptor_preserves_objects
+  given: feature id, required object payloads, and source references
+  when: canonical IR descriptor operation is invoked
+  then: returns descriptor preserving feature id, object ids, source statements, symbols,
+    reservations, and provenance
+- name: reject_missing_covered_object
+  given: one required object payload omitted
+  when: validation runs
+  then: raises MissingCoveredObject
+- name: reject_duplicate_covered_object
+  given: a required object id appears twice
+  when: validation runs
+  then: raises DuplicateCoveredObject
+- name: reject_missing_provenance
+  given: payload exists but source reference is absent
+  when: validation runs
+  then: raises MissingSourceReference
+- name: propagate_reservations_without_resolution
+  given: feature blockers and unresolved statuses from preparation
+  when: descriptor is built
+  then: output includes same blocker/reservation text and does not mark scientific
+    resolution
+- name: reject_absent_scientific_calculation
+  given: caller requests score, threshold, temporal evolution, synergy, probability,
+    or causal effect
+  when: evaluation guard is invoked
+  then: raises ScientificEvaluationRequested and returns no numeric result
+- name: contract_ir_plan_alignment
+  given: contract, IR, and test plan artifacts
+  when: compare feature, contract, IR ids and paths
+  then: chain is unique and consistent
+blocked_tests:
+- name: scientific_execution_oracle
+  status: blocked
+  blocking_question: scientific_decision_required for local classification/execution
+    semantics
+non_goals:
+- no scientific numeric expectation
+- no resolution of local blockers
+- no promotion of historical pilot candidates to executable science
+readiness_expectation:
+  ready_for_reference_python: false
+  ready_for_cpp_prototype: false
+  ready_for_canonical_ir: true
+  ready_for_production_implementation: false
+  blocks_all_prototype_progress: true
