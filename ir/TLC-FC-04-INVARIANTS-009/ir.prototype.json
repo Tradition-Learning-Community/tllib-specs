@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "ir_id": "TLC-IR-TLC-FC-04-INVARIANTS-009-PROTOTYPE-001",
+  "feature_id": "TLC-FC-04-INVARIANTS-009",
+  "contract_id": "TLC-LEC-TLC-FC-04-INVARIANTS-009-001",
+  "domain": "invariants",
+  "ir_kind": "prototype_ir_with_reservations",
+  "scientific_status": "noncanonical_engineering_prototype",
+  "catalogue_status_preserved": "rejected_as_feature",
+  "inputs": [
+    {
+      "id": "IR-IN-009-SYMBOLS",
+      "type": "CohesionIntervalSymbols",
+      "required_fields": [
+        "relational_invariant_symbol",
+        "lower_bound_symbol",
+        "upper_bound_symbol"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "IR-OUT-009-SYMBOLIC",
+      "type": "SymbolicCohesionIntervalConstraint",
+      "observable_effect": "Produces an immutable symbolic AST for interval membership, a below-lower-bound fragmentation annotation, and an above-upper-bound centralization-and-rigidity annotation, with TLC-UT-INVARIANTS-009 preserved.",
+      "evaluated": false
+    }
+  ],
+  "opaque_types": [
+    "OpaqueSymbolId"
+  ],
+  "parameterized_types": [
+    "ImmutableSymbolicAst[OpaqueSymbolId]"
+  ],
+  "operations": [
+    {
+      "operation_id": "IR-OP-INVARIANTS-009-FINAL",
+      "name": "construct_cohesion_interval_constraint",
+      "responsibility": "Construct the unevaluated symbolic interval constraint and the two source-stated out-of-interval consequence annotations for community cohesion.",
+      "technical_processing": "Validate required opaque identifiers, instantiate the source-defined AST templates, attach provenance and reservations, freeze the result.",
+      "expression_templates": [
+        "member(relational_invariant_symbol, closed_interval(lower_bound_symbol, upper_bound_symbol))",
+        "implies(below(relational_invariant_symbol, lower_bound_symbol), annotation(community_fragmentation_into_isolated_subgroups))",
+        "implies(above(relational_invariant_symbol, upper_bound_symbol), annotation(community_overcentralized_and_rigid))"
+      ],
+      "observable_effect": "Produces an immutable symbolic AST for interval membership, a below-lower-bound fragmentation annotation, and an above-upper-bound centralization-and-rigidity annotation, with TLC-UT-INVARIANTS-009 preserved.",
+      "scientific_evaluation": "prohibited"
+    }
+  ],
+  "control_flow": [],
+  "preconditions": [
+    {
+      "id": "PRE-INVARIANTS-009-SYMBOLS",
+      "statement": "The three named symbols, TLC-SO-INVARIANTS-065, TLC-SR-INVARIANTS-064, and TLC-UT-INVARIANTS-009 are present."
+    }
+  ],
+  "postconditions": [
+    {
+      "id": "POST-INVARIANTS-009-AST",
+      "statement": "Produces an immutable symbolic AST for interval membership, a below-lower-bound fragmentation annotation, and an above-upper-bound centralization-and-rigidity annotation, with TLC-UT-INVARIANTS-009 preserved."
+    },
+    {
+      "id": "POST-INVARIANTS-009-NO-EVALUATION",
+      "statement": "No symbolic node is numerically or scientifically evaluated."
+    },
+    {
+      "id": "POST-INVARIANTS-009-RESERVATIONS",
+      "statement": "All source, unresolved, assumption, and catalogue-status references are unchanged."
+    }
+  ],
+  "invariants": [
+    {
+      "id": "TLC-SO-INVARIANTS-065",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    }
+  ],
+  "errors": [
+    {
+      "id": "FAIL-INVARIANTS-009-INPUT",
+      "condition": "MissingIntervalSymbol or MissingCohesionReservation or MissingCohesionEvidence"
+    },
+    {
+      "id": "FAIL-INVARIANTS-009-EVALUATION",
+      "condition": "An implementation attempts scientific evaluation despite this opaque boundary: No numeric domain, comparator, ordering implementation, bound values, metric, score, transition rule, or cohesion evaluator is supplied or inferred."
+    }
+  ],
+  "unresolved_propagated": [
+    "TLC-UT-INVARIANTS-009"
+  ],
+  "provisional_assumptions_propagated": [
+    "TLC-EA-INVARIANTS-009-001"
+  ],
+  "traceability": {
+    "contract": "registry/math-contracts/TLC-FC-04-INVARIANTS-009/contract.yaml",
+    "source_objects": [
+      "TLC-SO-INVARIANTS-065"
+    ],
+    "source_relations": [
+      "TLC-SR-INVARIANTS-064"
+    ]
+  },
+  "determinism_status": "deterministic_symbolic_ast_construction_for_identical_symbol_ids",
+  "testability_status": "operation_specific_ast_shape_provenance_and_non_evaluation_testable",
+  "implementation_constraints": [
+    "Do not evaluate scientific truth.",
+    "Do not assign concrete numeric, temporal, probabilistic, dimensional, cardinality, unit, order, symmetry, or transitivity semantics.",
+    "Reject loss of identifiers, unresolved reservations, or catalogue status."
+  ],
+  "readiness": {
+    "ready_for_limited_engineering_contract": true,
+    "ready_for_prototype_ir": true,
+    "ready_for_reference_python": true,
+    "ready_for_cpp_prototype": true,
+    "ready_for_canonical_ir": false,
+    "ready_for_production_implementation": false
+  },
+  "blocks_all_prototype_progress": false,
+  "interface": {
+    "minimal_function_or_class": "construct_cohesion_interval_constraint",
+    "input_type": "CohesionIntervalSymbols",
+    "input_fields": [
+      "relational_invariant_symbol",
+      "lower_bound_symbol",
+      "upper_bound_symbol"
+    ],
+    "output_type": "SymbolicCohesionIntervalConstraint"
+  },
+  "semantic_quality": "substantive_and_implementable",
+  "remaining_opaque_boundary": "No numeric domain, comparator, ordering implementation, bound values, metric, score, transition rule, or cohesion evaluator is supplied or inferred."
+}

@@ -1,0 +1,115 @@
+schema_version: 1
+contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-009-001
+feature_id: TLC-FC-04-INVARIANTS-009
+domain: invariants
+canonical_name: '04-invariants: state (blocked_locally)'
+contract_kind: limited_engineering_contract
+scientific_authority: origin/main
+limited_engineering_contract: true
+complete_scientific_contract: false
+status: limited_engineering_contract_with_reservations
+version: 0.1.0
+provenance:
+  source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+  generated_on: '2026-07-24'
+  sources:
+  - registry/domain-progress/invariants/feature-inventory.yaml
+  - registry/domain-progress/invariants/feature-classification.yaml
+  - registry/domain-progress/invariants/feature-status.yaml
+  - registry/domain-progress/invariants/contract-production-plan.yaml
+  - registry/domain-progress/invariants/ir-production-plan.yaml
+  - registry/domain-progress/invariants/unresolved-status.yaml
+  - registry/domain-progress/invariants/invariant-semantics.yaml
+  - registry/scientific-objects/invariants/scientific-objects.candidate.yaml
+  - registry/scientific-objects/invariants/scientific-relations.candidate.yaml
+  - maths/04-invariants.md
+  source_locations:
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Invariant relationnel $\mathcal{I}_{\mathrm{rel,c}}$
+    start_line: 146
+    end_line: 146
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+catalogue_status_preserved: rejected_as_feature
+scientific_objects_covered:
+- TLC-SO-INVARIANTS-065
+scientific_relations_covered:
+- TLC-SR-INVARIANTS-064
+contextual_relations_not_covered: []
+limited_functional_purpose: Construct the unevaluated symbolic interval constraint and the two source-stated out-of-interval
+  consequence annotations for community cohesion.
+inputs:
+- input_id: INPUT-INVARIANTS-009-SYMBOLS
+  type: CohesionIntervalSymbols
+  required_fields:
+  - relational_invariant_symbol
+  - lower_bound_symbol
+  - upper_bound_symbol
+  field_semantics: opaque_identifiers_only
+outputs:
+- output_id: OUTPUT-INVARIANTS-009-SYMBOLIC
+  type: SymbolicCohesionIntervalConstraint
+  observable_effect: Produces an immutable symbolic AST for interval membership, a below-lower-bound fragmentation annotation,
+    and an above-upper-bound centralization-and-rigidity annotation, with TLC-UT-INVARIANTS-009 preserved.
+  expression_templates:
+  - member(relational_invariant_symbol, closed_interval(lower_bound_symbol, upper_bound_symbol))
+  - implies(below(relational_invariant_symbol, lower_bound_symbol), annotation(community_fragmentation_into_isolated_subgroups))
+  - implies(above(relational_invariant_symbol, upper_bound_symbol), annotation(community_overcentralized_and_rigid))
+  evaluated: false
+types:
+  operation_input: CohesionIntervalSymbols
+  operation_output: SymbolicCohesionIntervalConstraint
+  symbol_type: OpaqueSymbolId
+  expression_type: ImmutableSymbolicAst
+preconditions:
+- id: PRE-INVARIANTS-009-SYMBOLS
+  statement: The three named symbols, TLC-SO-INVARIANTS-065, TLC-SR-INVARIANTS-064, and TLC-UT-INVARIANTS-009 are present.
+postconditions:
+- id: POST-INVARIANTS-009-AST
+  statement: Produces an immutable symbolic AST for interval membership, a below-lower-bound fragmentation annotation, and
+    an above-upper-bound centralization-and-rigidity annotation, with TLC-UT-INVARIANTS-009 preserved.
+- id: POST-INVARIANTS-009-NO-EVALUATION
+  statement: No symbolic node is numerically or scientifically evaluated.
+- id: POST-INVARIANTS-009-RESERVATIONS
+  statement: All source, unresolved, assumption, and catalogue-status references are unchanged.
+invariants_explicitly_sourced:
+- id: TLC-SO-INVARIANTS-065
+  status: candidate_scientific_object_preserved
+  source: registry/scientific-objects/invariants/scientific-objects.candidate.yaml
+undefined_or_error_cases:
+- id: FAIL-INVARIANTS-009-INPUT
+  condition: MissingIntervalSymbol or MissingCohesionReservation or MissingCohesionEvidence
+- id: FAIL-INVARIANTS-009-EVALUATION
+  condition: 'An implementation attempts scientific evaluation despite this opaque boundary: No numeric domain, comparator,
+    ordering implementation, bound values, metric, score, transition rule, or cohesion evaluator is supplied or inferred.'
+unresolved_propagated:
+- TLC-UT-INVARIANTS-009
+provisional_engineering_assumptions:
+- TLC-EA-INVARIANTS-009-001
+scientific_reservations:
+- scientific semantics remain exactly at preparation status
+- no truth evaluator or formula is supplied
+- types, dimensions, units, ordering, cardinality, time, and numeric precision remain unspecified
+strong_dependencies_confirmed: []
+documentary_references:
+- community
+traceability: registry/math-contracts/TLC-FC-04-INVARIANTS-009/traceability.yaml
+validation_criteria:
+- all covered identifiers exist in domain preparation
+- all mapped unresolved identifiers are propagated
+- the provisional assumption is propagated to prototype IR
+- catalogue status is preserved without scientific promotion
+readiness:
+  ready_for_limited_engineering_contract: true
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false
+software_responsibility:
+  callable: construct_cohesion_interval_constraint
+  operation: Construct the unevaluated symbolic interval constraint and the two source-stated out-of-interval consequence
+    annotations for community cohesion.
+  observable_effect: Produces an immutable symbolic AST for interval membership, a below-lower-bound fragmentation annotation,
+    and an above-upper-bound centralization-and-rigidity annotation, with TLC-UT-INVARIANTS-009 preserved.
+  evaluation_policy: construct_symbolic_ast_only

@@ -1,0 +1,42 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-04-INVARIANTS-004-PROTOTYPE-001
+feature_id: TLC-FC-04-INVARIANTS-004
+contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-004-001
+ir_id: TLC-IR-TLC-FC-04-INVARIANTS-004-PROTOTYPE-001
+scope: prototype_ir_structural_validation_only
+tests:
+- id: TEST-004-NOMINAL
+  category: operation_nominal
+  invokes: declare_disciple_invariant_scope
+  scenario: Create a deferred disciple scope declaration retaining TLC-SO-INVARIANTS-007.
+  expected_structural_effect: Returns one declaration scoped to the disciple evidence record and marked scientifically deferred.
+- id: TEST-004-OPAQUE
+  category: opaque_boundary
+  invokes: declare_disciple_invariant_scope
+  scenario: 'Supply valid evidence whose opaque portion is not interpretable: The members and validation rule of the disciple
+    scope remain unspecified.'
+  expected_structural_effect: Opaque content is preserved byte-for-byte and is not evaluated.
+- id: TEST-004-PRECONDITION
+  category: precondition_failure
+  invokes: declare_disciple_invariant_scope
+  scenario: 'Violate the operation-specific precondition: The evidence object is TLC-SO-INVARIANTS-007 and its root reference
+    is present.'
+  expected_error: WrongScopeObject or MissingRootReference
+- id: TEST-004-POSTCONDITION
+  category: observable_postcondition
+  invokes: declare_disciple_invariant_scope
+  scenario: Execute with valid covered evidence.
+  expected_structural_effect: Returns one declaration scoped to the disciple evidence record and marked scientifically deferred.
+- id: TEST-004-RESERVATIONS
+  category: reservation_propagation
+  invokes: declare_disciple_invariant_scope
+  scenario: Execute with all feature unresolved IDs and provisional assumptions attached.
+  expected_structural_effect: The output retains the exact unresolved and assumption ID sets and makes no resolution claim.
+- id: TEST-004-CONFORMANCE
+  category: contract_ir_conformance
+  invokes: declare_disciple_invariant_scope
+  scenario: Compare callable, input type, output type, errors, postconditions, and readiness across contract and IR.
+  expected_structural_effect: All specialized interface fields and readiness values agree.
+numeric_expected_results: []
+implementation_status: ready_for_operation_specific_test_implementation
+operation_under_test: declare_disciple_invariant_scope

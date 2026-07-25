@@ -1,0 +1,59 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-04-INVARIANTS-009-PROTOTYPE-001
+feature_id: TLC-FC-04-INVARIANTS-009
+contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-009-001
+ir_id: TLC-IR-TLC-FC-04-INVARIANTS-009-PROTOTYPE-001
+scope: prototype_ir_structural_validation_only
+tests:
+- id: TEST-009-FINAL-NOMINAL
+  category: operation_nominal
+  invokes: construct_cohesion_interval_constraint
+  scenario: Supply opaque identifiers I_rel_c, iota_min, and iota_max; construct interval, below-bound, and above-bound symbolic
+    nodes without evaluating them.
+  expected_structural_effect: Produces an immutable symbolic AST for interval membership, a below-lower-bound fragmentation
+    annotation, and an above-upper-bound centralization-and-rigidity annotation, with TLC-UT-INVARIANTS-009 preserved.
+- id: TEST-009-FINAL-SHAPE
+  category: result_ast_shape
+  invokes: construct_cohesion_interval_constraint
+  scenario: Construct from valid opaque symbols.
+  expected_structural_effect: 'The frozen result contains exactly these source-defined templates in order: [''member(relational_invariant_symbol,
+    closed_interval(lower_bound_symbol, upper_bound_symbol))'', ''implies(below(relational_invariant_symbol, lower_bound_symbol),
+    annotation(community_fragmentation_into_isolated_subgroups))'', ''implies(above(relational_invariant_symbol, upper_bound_symbol),
+    annotation(community_overcentralized_and_rigid))'']'
+- id: TEST-009-FINAL-OPAQUE
+  category: opaque_value
+  invokes: construct_cohesion_interval_constraint
+  scenario: Use identifiers whose referenced values and operators have no runtime implementation.
+  expected_structural_effect: The identifiers are retained unchanged; construction succeeds without dereferencing or evaluating
+    them.
+- id: TEST-009-FINAL-PRECONDITION
+  category: precondition_failure
+  invokes: construct_cohesion_interval_constraint
+  scenario: 'Omit one required item from: The three named symbols, TLC-SO-INVARIANTS-065, TLC-SR-INVARIANTS-064, and TLC-UT-INVARIANTS-009
+    are present.'
+  expected_error: MissingIntervalSymbol or MissingCohesionReservation or MissingCohesionEvidence
+- id: TEST-009-FINAL-POSTCONDITION
+  category: postcondition
+  invokes: construct_cohesion_interval_constraint
+  scenario: Construct twice from identical ordered symbol identifiers.
+  expected_structural_effect: Both immutable ASTs are structurally equal and retain identical provenance.
+- id: TEST-009-FINAL-RESERVATIONS
+  category: provenance_and_reservations
+  invokes: construct_cohesion_interval_constraint
+  scenario: Construct with the feature source, unresolved, and provisional-assumption references attached.
+  expected_structural_effect: The result preserves the exact reference sets and claims no scientific resolution.
+- id: TEST-009-FINAL-NO-SCIENCE
+  category: non_evaluation
+  invokes: construct_cohesion_interval_constraint
+  scenario: 'Inspect behavior at the opaque boundary: No numeric domain, comparator, ordering implementation, bound values,
+    metric, score, transition rule, or cohesion evaluator is supplied or inferred.'
+  expected_structural_effect: No metric, score, ordering implementation, aggregation, numerical result, or scientific truth
+    value is calculated.
+- id: TEST-009-FINAL-CONFORMANCE
+  category: contract_ir_conformance
+  invokes: construct_cohesion_interval_constraint
+  scenario: Compare callable, required fields, output type, errors, postconditions, assumptions, unresolved IDs, and readiness.
+  expected_structural_effect: Contract, IR, and test plan agree exactly.
+numeric_expected_results: []
+implementation_status: ready_for_operation_specific_test_implementation
+operation_under_test: construct_cohesion_interval_constraint

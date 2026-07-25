@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "ir_id": "TLC-IR-TLC-FC-04-INVARIANTS-002-PROTOTYPE-001",
+  "feature_id": "TLC-FC-04-INVARIANTS-002",
+  "contract_id": "TLC-LEC-TLC-FC-04-INVARIANTS-002-001",
+  "domain": "invariants",
+  "ir_kind": "prototype_ir_with_reservations",
+  "scientific_status": "noncanonical_engineering_prototype",
+  "catalogue_status_preserved": "rejected_as_feature",
+  "inputs": [
+    {
+      "id": "IR-IN-002-SPECIALIZED",
+      "type": "DefinitionFragment[]",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "id": "IR-OUT-002-SPECIALIZED",
+      "type": "DefinitionEvidenceIndex",
+      "observable_effect": "Returns an index keyed by definition object ID; every entry remains documentary and non-executable."
+    }
+  ],
+  "opaque_types": [
+    "OpaqueSourceStatement",
+    "OpaqueScientificTruthConditions"
+  ],
+  "parameterized_types": [],
+  "operations": [
+    {
+      "operation_id": "IR-OP-INVARIANTS-002-SPECIALIZED",
+      "name": "index_definition_fragments",
+      "responsibility": "Index the nine extracted definition fragments as documentary evidence while preserving rejected-as-feature status.",
+      "observable_effect": "Returns an index keyed by definition object ID; every entry remains documentary and non-executable.",
+      "scientific_evaluation": "prohibited"
+    }
+  ],
+  "control_flow": [],
+  "preconditions": [
+    {
+      "id": "PRE-INVARIANTS-002-SPECIALIZED",
+      "statement": "Each fragment has a covered definition ID, source range, and rejected-as-feature marker."
+    }
+  ],
+  "postconditions": [
+    {
+      "id": "POST-INVARIANTS-002-EFFECT",
+      "statement": "Returns an index keyed by definition object ID; every entry remains documentary and non-executable."
+    },
+    {
+      "id": "POST-INVARIANTS-002-RESERVATIONS",
+      "statement": "Catalogue status, unresolved IDs, and scientific reservations are unchanged."
+    }
+  ],
+  "invariants": [
+    {
+      "id": "TLC-SO-INVARIANTS-017",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-022",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-027",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-035",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-040",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-045",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-053",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-058",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-062",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    }
+  ],
+  "errors": [
+    {
+      "id": "FAIL-INVARIANTS-002-SPECIALIZED",
+      "condition": "DuplicateDefinitionId or FeatureStatusPromotion"
+    },
+    {
+      "id": "FAIL-INVARIANTS-002-BOUNDARY",
+      "condition": "An implementation attempts to resolve: Definition text is stored opaquely and is never interpreted as a predicate."
+    }
+  ],
+  "unresolved_propagated": [],
+  "provisional_assumptions_propagated": [
+    "TLC-EA-INVARIANTS-002-001"
+  ],
+  "traceability": {
+    "contract": "registry/math-contracts/TLC-FC-04-INVARIANTS-002/contract.yaml",
+    "source_objects": [
+      "TLC-SO-INVARIANTS-017",
+      "TLC-SO-INVARIANTS-022",
+      "TLC-SO-INVARIANTS-027",
+      "TLC-SO-INVARIANTS-035",
+      "TLC-SO-INVARIANTS-040",
+      "TLC-SO-INVARIANTS-045",
+      "TLC-SO-INVARIANTS-053",
+      "TLC-SO-INVARIANTS-058",
+      "TLC-SO-INVARIANTS-062"
+    ],
+    "source_relations": [
+      "TLC-SR-INVARIANTS-016",
+      "TLC-SR-INVARIANTS-021",
+      "TLC-SR-INVARIANTS-026",
+      "TLC-SR-INVARIANTS-034",
+      "TLC-SR-INVARIANTS-039",
+      "TLC-SR-INVARIANTS-044",
+      "TLC-SR-INVARIANTS-052",
+      "TLC-SR-INVARIANTS-057",
+      "TLC-SR-INVARIANTS-061"
+    ]
+  },
+  "determinism_status": "deterministic_for_identity_preserving_structural_operation",
+  "testability_status": "operation_specific_structural_behavior_testable",
+  "implementation_constraints": [
+    "Do not evaluate scientific truth.",
+    "Do not assign concrete numeric, temporal, probabilistic, dimensional, cardinality, unit, order, symmetry, or transitivity semantics.",
+    "Reject loss of identifiers, unresolved reservations, or catalogue status."
+  ],
+  "readiness": {
+    "ready_for_limited_engineering_contract": true,
+    "ready_for_prototype_ir": true,
+    "ready_for_reference_python": true,
+    "ready_for_cpp_prototype": true,
+    "ready_for_canonical_ir": false,
+    "ready_for_production_implementation": false
+  },
+  "blocks_all_prototype_progress": false,
+  "interface": {
+    "minimal_function_or_class": "index_definition_fragments",
+    "input_type": "DefinitionFragment[]",
+    "output_type": "DefinitionEvidenceIndex"
+  },
+  "semantic_quality": "substantive_and_implementable_prototype_ir",
+  "remaining_opaque_boundary": "Definition text is stored opaquely and is never interpreted as a predicate."
+}

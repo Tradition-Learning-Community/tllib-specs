@@ -1,0 +1,59 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-04-INVARIANTS-006-PROTOTYPE-001
+feature_id: TLC-FC-04-INVARIANTS-006
+contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-006-001
+ir_id: TLC-IR-TLC-FC-04-INVARIANTS-006-PROTOTYPE-001
+scope: prototype_ir_structural_validation_only
+tests:
+- id: TEST-006-FINAL-NOMINAL
+  category: operation_nominal
+  invokes: construct_collective_ethics_invariant_expression
+  scenario: Supply opaque identifiers Vc, g, R, n, dv, t, and nabla; construct the integral and two constraint nodes in source
+    order.
+  expected_structural_effect: Produces an immutable symbolic AST for the cited integral plus derivative-equals-zero and gradient-equals-zero
+    constraint ASTs, each carrying source provenance.
+- id: TEST-006-FINAL-SHAPE
+  category: result_ast_shape
+  invokes: construct_collective_ethics_invariant_expression
+  scenario: Construct from valid opaque symbols.
+  expected_structural_effect: 'The frozen result contains exactly these source-defined templates in order: [''integral(value_space_symbol,
+    multiply(apply(scalar_curvature_operator_symbol, metric_symbol), sqrt(det(metric_symbol))), differential(dimension_symbol,
+    differential_symbol))'', ''equals(derivative(collective_ethics_invariant, time_symbol), zero)'', ''equals(apply(gradient_operator_symbol,
+    collective_ethics_invariant), zero)'']'
+- id: TEST-006-FINAL-OPAQUE
+  category: opaque_value
+  invokes: construct_collective_ethics_invariant_expression
+  scenario: Use identifiers whose referenced values and operators have no runtime implementation.
+  expected_structural_effect: The identifiers are retained unchanged; construction succeeds without dereferencing or evaluating
+    them.
+- id: TEST-006-FINAL-PRECONDITION
+  category: precondition_failure
+  invokes: construct_collective_ethics_invariant_expression
+  scenario: 'Omit one required item from: All seven named symbols are supplied as non-empty opaque identifiers and the two
+    covered source evidence IDs are attached.'
+  expected_error: MissingRequiredSymbol or MissingCollectiveEthicsEvidence
+- id: TEST-006-FINAL-POSTCONDITION
+  category: postcondition
+  invokes: construct_collective_ethics_invariant_expression
+  scenario: Construct twice from identical ordered symbol identifiers.
+  expected_structural_effect: Both immutable ASTs are structurally equal and retain identical provenance.
+- id: TEST-006-FINAL-RESERVATIONS
+  category: provenance_and_reservations
+  invokes: construct_collective_ethics_invariant_expression
+  scenario: Construct with the feature source, unresolved, and provisional-assumption references attached.
+  expected_structural_effect: The result preserves the exact reference sets and claims no scientific resolution.
+- id: TEST-006-FINAL-NO-SCIENCE
+  category: non_evaluation
+  invokes: construct_collective_ethics_invariant_expression
+  scenario: 'Inspect behavior at the opaque boundary: The value space, metric, scalar-curvature implementation, dimension,
+    integration semantics, neighborhood, health criterion, and numerical evaluation remain opaque.'
+  expected_structural_effect: No metric, score, ordering implementation, aggregation, numerical result, or scientific truth
+    value is calculated.
+- id: TEST-006-FINAL-CONFORMANCE
+  category: contract_ir_conformance
+  invokes: construct_collective_ethics_invariant_expression
+  scenario: Compare callable, required fields, output type, errors, postconditions, assumptions, unresolved IDs, and readiness.
+  expected_structural_effect: Contract, IR, and test plan agree exactly.
+numeric_expected_results: []
+implementation_status: ready_for_operation_specific_test_implementation
+operation_under_test: construct_collective_ethics_invariant_expression

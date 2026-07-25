@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "ir_id": "TLC-IR-TLC-FC-04-INVARIANTS-001-PROTOTYPE-001",
+  "feature_id": "TLC-FC-04-INVARIANTS-001",
+  "contract_id": "TLC-LEC-TLC-FC-04-INVARIANTS-001-001",
+  "domain": "invariants",
+  "ir_kind": "prototype_ir_with_reservations",
+  "scientific_status": "noncanonical_engineering_prototype",
+  "catalogue_status_preserved": "retained_with_reservations",
+  "inputs": [
+    {
+      "id": "IR-IN-001-SPECIALIZED",
+      "type": "AdmissibilityAxiomRecord[]",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "id": "IR-OUT-001-SPECIALIZED",
+      "type": "ConstraintSet",
+      "observable_effect": "Returns a set containing exactly one immutable entry per supplied axiom ID, with source order and references retained."
+    }
+  ],
+  "opaque_types": [
+    "OpaqueSourceStatement",
+    "OpaqueScientificTruthConditions"
+  ],
+  "parameterized_types": [],
+  "operations": [
+    {
+      "operation_id": "IR-OP-INVARIANTS-001-SPECIALIZED",
+      "name": "build_admissibility_constraint_set",
+      "responsibility": "Register the four source-backed admissibility or rupture axioms as a constraint set without evaluating them.",
+      "observable_effect": "Returns a set containing exactly one immutable entry per supplied axiom ID, with source order and references retained.",
+      "scientific_evaluation": "prohibited"
+    }
+  ],
+  "control_flow": [],
+  "preconditions": [
+    {
+      "id": "PRE-INVARIANTS-001-SPECIALIZED",
+      "statement": "Every record has a unique covered axiom ID and a source reference."
+    }
+  ],
+  "postconditions": [
+    {
+      "id": "POST-INVARIANTS-001-EFFECT",
+      "statement": "Returns a set containing exactly one immutable entry per supplied axiom ID, with source order and references retained."
+    },
+    {
+      "id": "POST-INVARIANTS-001-RESERVATIONS",
+      "statement": "Catalogue status, unresolved IDs, and scientific reservations are unchanged."
+    }
+  ],
+  "invariants": [
+    {
+      "id": "TLC-SO-INVARIANTS-010",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-032",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-033",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-046",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    }
+  ],
+  "errors": [
+    {
+      "id": "FAIL-INVARIANTS-001-SPECIALIZED",
+      "condition": "DuplicateAxiomId or UnknownAxiomId"
+    },
+    {
+      "id": "FAIL-INVARIANTS-001-BOUNDARY",
+      "condition": "An implementation attempts to resolve: An axiom body may remain an opaque source statement."
+    }
+  ],
+  "unresolved_propagated": [],
+  "provisional_assumptions_propagated": [
+    "TLC-EA-INVARIANTS-001-001"
+  ],
+  "traceability": {
+    "contract": "registry/math-contracts/TLC-FC-04-INVARIANTS-001/contract.yaml",
+    "source_objects": [
+      "TLC-SO-INVARIANTS-010",
+      "TLC-SO-INVARIANTS-032",
+      "TLC-SO-INVARIANTS-033",
+      "TLC-SO-INVARIANTS-046"
+    ],
+    "source_relations": [
+      "TLC-SR-INVARIANTS-009",
+      "TLC-SR-INVARIANTS-031",
+      "TLC-SR-INVARIANTS-032",
+      "TLC-SR-INVARIANTS-045"
+    ]
+  },
+  "determinism_status": "deterministic_for_identity_preserving_structural_operation",
+  "testability_status": "operation_specific_structural_behavior_testable",
+  "implementation_constraints": [
+    "Do not evaluate scientific truth.",
+    "Do not assign concrete numeric, temporal, probabilistic, dimensional, cardinality, unit, order, symmetry, or transitivity semantics.",
+    "Reject loss of identifiers, unresolved reservations, or catalogue status."
+  ],
+  "readiness": {
+    "ready_for_limited_engineering_contract": true,
+    "ready_for_prototype_ir": true,
+    "ready_for_reference_python": true,
+    "ready_for_cpp_prototype": true,
+    "ready_for_canonical_ir": false,
+    "ready_for_production_implementation": false
+  },
+  "blocks_all_prototype_progress": false,
+  "interface": {
+    "minimal_function_or_class": "build_admissibility_constraint_set",
+    "input_type": "AdmissibilityAxiomRecord[]",
+    "output_type": "ConstraintSet"
+  },
+  "semantic_quality": "substantive_and_implementable_prototype_ir",
+  "remaining_opaque_boundary": "An axiom body may remain an opaque source statement."
+}

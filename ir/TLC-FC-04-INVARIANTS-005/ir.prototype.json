@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "ir_id": "TLC-IR-TLC-FC-04-INVARIANTS-005-PROTOTYPE-001",
+  "feature_id": "TLC-FC-04-INVARIANTS-005",
+  "contract_id": "TLC-LEC-TLC-FC-04-INVARIANTS-005-001",
+  "domain": "invariants",
+  "ir_kind": "prototype_ir_with_reservations",
+  "scientific_status": "noncanonical_engineering_prototype",
+  "catalogue_status_preserved": "deferred_for_scientific_decision",
+  "inputs": [
+    {
+      "id": "IR-IN-005-SPECIALIZED",
+      "type": "InterpretationAnnotation[]",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "id": "IR-OUT-005-SPECIALIZED",
+      "type": "AnnotatedInvariantEvidence",
+      "observable_effect": "Returns root evidence with three ordered annotations; annotations cannot change invariant truth or status."
+    }
+  ],
+  "opaque_types": [
+    "OpaqueSourceStatement",
+    "OpaqueScientificTruthConditions"
+  ],
+  "parameterized_types": [],
+  "operations": [
+    {
+      "operation_id": "IR-OP-INVARIANTS-005-SPECIALIZED",
+      "name": "attach_interpretation_annotations",
+      "responsibility": "Attach three interpretation annotations to the invariant-domain root as non-normative evidence.",
+      "observable_effect": "Returns root evidence with three ordered annotations; annotations cannot change invariant truth or status.",
+      "scientific_evaluation": "prohibited"
+    }
+  ],
+  "control_flow": [],
+  "preconditions": [
+    {
+      "id": "PRE-INVARIANTS-005-SPECIALIZED",
+      "statement": "Every annotation ID and refers_to relation is covered and targets the invariant root."
+    }
+  ],
+  "postconditions": [
+    {
+      "id": "POST-INVARIANTS-005-EFFECT",
+      "statement": "Returns root evidence with three ordered annotations; annotations cannot change invariant truth or status."
+    },
+    {
+      "id": "POST-INVARIANTS-005-RESERVATIONS",
+      "statement": "Catalogue status, unresolved IDs, and scientific reservations are unchanged."
+    }
+  ],
+  "invariants": [
+    {
+      "id": "TLC-SO-INVARIANTS-031",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-044",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-049",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    }
+  ],
+  "errors": [
+    {
+      "id": "FAIL-INVARIANTS-005-SPECIALIZED",
+      "condition": "UnknownAnnotationId or AnnotationTargetMismatch"
+    },
+    {
+      "id": "FAIL-INVARIANTS-005-BOUNDARY",
+      "condition": "An implementation attempts to resolve: Interpretation contents remain opaque and non-normative."
+    }
+  ],
+  "unresolved_propagated": [],
+  "provisional_assumptions_propagated": [
+    "TLC-EA-INVARIANTS-005-001"
+  ],
+  "traceability": {
+    "contract": "registry/math-contracts/TLC-FC-04-INVARIANTS-005/contract.yaml",
+    "source_objects": [
+      "TLC-SO-INVARIANTS-031",
+      "TLC-SO-INVARIANTS-044",
+      "TLC-SO-INVARIANTS-049"
+    ],
+    "source_relations": [
+      "TLC-SR-INVARIANTS-030",
+      "TLC-SR-INVARIANTS-043",
+      "TLC-SR-INVARIANTS-048"
+    ]
+  },
+  "determinism_status": "deterministic_for_identity_preserving_structural_operation",
+  "testability_status": "operation_specific_structural_behavior_testable",
+  "implementation_constraints": [
+    "Do not evaluate scientific truth.",
+    "Do not assign concrete numeric, temporal, probabilistic, dimensional, cardinality, unit, order, symmetry, or transitivity semantics.",
+    "Reject loss of identifiers, unresolved reservations, or catalogue status."
+  ],
+  "readiness": {
+    "ready_for_limited_engineering_contract": true,
+    "ready_for_prototype_ir": true,
+    "ready_for_reference_python": true,
+    "ready_for_cpp_prototype": true,
+    "ready_for_canonical_ir": false,
+    "ready_for_production_implementation": false
+  },
+  "blocks_all_prototype_progress": false,
+  "interface": {
+    "minimal_function_or_class": "attach_interpretation_annotations",
+    "input_type": "InterpretationAnnotation[]",
+    "output_type": "AnnotatedInvariantEvidence"
+  },
+  "semantic_quality": "substantive_and_implementable_prototype_ir",
+  "remaining_opaque_boundary": "Interpretation contents remain opaque and non-normative."
+}
