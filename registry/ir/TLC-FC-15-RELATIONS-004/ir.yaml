@@ -1,0 +1,41 @@
+schema_version: 1
+ir_id: TLC-IR-TLC-FC-15-RELATIONS-004
+feature_id: TLC-FC-15-RELATIONS-004
+contract_path: registry/math-contracts/TLC-FC-15-RELATIONS-004/contract.yaml
+ir_kind: canonical_declarative_ir_non_executable
+entrypoint: relations_record_004
+primary_operation: build_blocked_traceability_record
+inputs:
+  - name: ordered_scientific_objects
+    type: List<OpaqueScientificObject>
+    required_object_ids_in_order:
+      - TLC-SO-RELATIONS-004
+      - TLC-SO-RELATIONS-017
+      - TLC-SO-RELATIONS-023
+outputs:
+  - name: record
+    type: RelationsBlockedCanonicalRecord
+operations:
+  - name: validate_identity_and_order
+    behavior: verify the feature id and exact ordered object ids only
+  - name: copy_source_equations_as_unevaluated_text
+    behavior: preserve available equations without parsing or correcting them
+  - name: attach_non_execution_guard
+    behavior: reject scientific evaluation, graph construction, endpoint inference, scoring, thresholding, temporal simulation, or numeric computation
+constraints:
+  - IR is declarative and non-executable for scientific semantics
+  - no operation may infer missing relation semantics
+propagated_reservations:
+  - scientific_decision_required
+  - signature_not_specified
+  - types_not_specified
+  - oracle_not_identified
+  - relation_semantics_unresolved
+readiness:
+  python: blocked
+  cpp: blocked
+  ready_for_reference_python: false
+  ready_for_cpp_prototype: false
+  reason: No authorized executable semantics or oracle.
+active_or_historical_status: active
+determinism_status: deterministic only for copying ids, source references, blockers, and equation text

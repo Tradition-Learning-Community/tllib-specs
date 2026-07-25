@@ -1,0 +1,46 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-15-RELATIONS-004
+feature_id: TLC-FC-15-RELATIONS-004
+contract_path: registry/math-contracts/TLC-FC-15-RELATIONS-004/contract.yaml
+ir_path: registry/ir/TLC-FC-15-RELATIONS-004/ir.yaml
+plan_kind: canonical_declarative_non_executable_test_plan
+scope: structural traceability, blocker propagation, and explicit rejection tests; no numeric oracle authorized
+test_categories:
+  - nominal
+  - errors
+  - types
+  - shapes
+  - preconditions
+  - postconditions
+  - invariants
+  - properties
+  - determinism
+  - reproducibility
+  - python_cpp_conformance
+  - explicit_blocking
+test_cases:
+  - name: nominal_builds_blocked_traceability_record
+    then: record preserves feature id, ordered object ids, source references, blockers, and unevaluated equations
+  - name: rejects_unknown_or_wrong_feature
+    then: construction fails before producing a record
+  - name: rejects_missing_or_extra_objects
+    then: MissingCoveredObject or UnexpectedCoveredObject is raised
+  - name: rejects_reordered_objects
+    then: ObjectOrderMismatch is raised
+  - name: rejects_scientific_evaluation_request
+    then: ScientificEvaluationRequested is raised and no numeric, truth-valued, graph, temporal, or threshold result is returned
+  - name: contract_ir_traceability
+    then: IR contract_path exists and points to this feature canonical contract
+  - name: python_cpp_conformance_blocked_consistently
+    then: Python and C++ readiness both remain blocked until a scientific decision supplies semantics and oracle
+blocked_tests:
+  - question: What authorized relation semantics, types, domains, codomains, temporal behavior, and oracle should this feature use?
+    status: scientific_decision_required
+non_goals:
+  - numeric oracle tests
+  - graph algorithm tests
+  - threshold or normalization tests
+  - temporal simulation tests
+readiness_expectation:
+  python: blocked
+  cpp: blocked
