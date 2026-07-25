@@ -1,0 +1,69 @@
+schema_version: 1
+contract_id: TLC-MC-TLC-FC-15-RELATIONS-008
+feature_id: TLC-FC-15-RELATIONS-008
+domain: relations
+canonical_name: "15-relations: relation (provisionally_separated)"
+contract_kind: relational_contract
+status: non_executable_scientific_decision_required
+version: 0.1.0
+provenance:
+  base_commit: 22c4317c8b443dda3b3bc787c20b9c21efb91be8
+  authority: current_branch_and_manifest
+  sources:
+  - execution-manifests/wave-3/domain-completion.yaml
+  - registry/domain-progress/relations/feature-inventory.yaml
+  - registry/domain-progress/relations/contract-production-plan.yaml
+  - registry/domain-progress/relations/ir-production-plan.yaml
+  - maths/15-relations.md
+scientific_objects_covered:
+  - TLC-SO-RELATIONS-014
+  - TLC-SO-RELATIONS-020
+scientific_relations_covered: []
+source_equations_preserved:
+  - '\\mathcal{R}_{\\mathcal{M}\\to\\mathcal{V}} = (\\mathcal{H},\\mathcal{F},\\mathcal{S},\\mathcal{R},\\mathcal{C},\\mathcal{T},\\mathcal{E},\\mathcal{G},\\mathcal{P})'
+  - '\\mathcal{R}_{\\mathcal{M}\\to Val} = (\\mathcal{H},\\mathcal{E},\\mathcal{C},\\mathcal{T},\\mathcal{G},\\mathcal{J},\\mathcal{P},\\mathcal{S})'
+inputs:
+  - name: ordered_scientific_objects
+    type: List<OpaqueScientificObject>
+    required_object_ids_in_order:
+      - TLC-SO-RELATIONS-014
+      - TLC-SO-RELATIONS-020
+  - name: decision_blocker
+    type: DecisionBlocker
+    expected_value: scientific_decision_required
+outputs:
+  - name: blocked_traceability_record
+    type: RelationsBlockedCanonicalRecord
+preconditions:
+  - covered object identities are preserved exactly
+  - source references remain available
+  - no caller requests semantic evaluation or numerical execution
+postconditions:
+  - output preserves covered object order
+  - all equations are unevaluated source text
+  - scientific_decision_required is propagated
+  - no relation semantics, endpoint, threshold, temporal behavior, type, dimension, or oracle is invented
+invariants:
+  - canonical feature id remains TLC-FC-15-RELATIONS-008
+  - maths/15-relations.md is read-only evidence
+constraints:
+  - No graph semantics, weights, normalization, thresholds, cardinalities, symmetry, transitivity, temporality, endpoint identity, numerical method, or executable oracle may be invented.
+scientific_properties:
+  status: deferred
+implementation_decisions_required:
+  - representation of opaque scientific objects
+  - future executable oracle if scientifically authorized
+reservations:
+  - scientific_decision_required
+  - signature_not_specified
+  - types_not_specified
+  - oracle_not_identified
+  - relation_semantics_unresolved
+execution_status: non_executable
+readiness:
+  ready_for_scientific_review: true
+  ready_for_full_contract_extension: false
+  ready_for_ir: false
+  ready_for_reference_python: false
+  ready_for_cpp_prototype: false
+  rationale: Canonical structural contract only; scientific semantics are unresolved.

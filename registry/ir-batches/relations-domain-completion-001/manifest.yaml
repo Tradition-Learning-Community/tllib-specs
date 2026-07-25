@@ -1,0 +1,58 @@
+schema_version: 1
+batch_id: relations-domain-completion-001
+execution_id: wave-3-relations-domain-completion-001
+domain: relations
+base_commit: 22c4317c8b443dda3b3bc787c20b9c21efb91be8
+canonical_feature_count: 5
+canonical_features:
+- TLC-FC-15-RELATIONS-002
+- TLC-FC-15-RELATIONS-003
+- TLC-FC-15-RELATIONS-004
+- TLC-FC-15-RELATIONS-007
+- TLC-FC-15-RELATIONS-008
+required_artifacts:
+  contracts: 5
+  ir: 5
+  test_plans: 5
+reused_artifacts:
+- registry/math-contracts/TLC-FC-15-RELATIONS-004/contract.yaml
+- registry/math-contracts/TLC-FC-15-RELATIONS-007/contract.yaml
+created_artifacts:
+  contracts:
+  - registry/math-contracts/TLC-FC-15-RELATIONS-002/contract.yaml
+  - registry/math-contracts/TLC-FC-15-RELATIONS-003/contract.yaml
+  - registry/math-contracts/TLC-FC-15-RELATIONS-008/contract.yaml
+  ir:
+  - registry/ir/TLC-FC-15-RELATIONS-002/ir.yaml
+  - registry/ir/TLC-FC-15-RELATIONS-003/ir.yaml
+  - registry/ir/TLC-FC-15-RELATIONS-004/ir.yaml
+  - registry/ir/TLC-FC-15-RELATIONS-007/ir.yaml
+  - registry/ir/TLC-FC-15-RELATIONS-008/ir.yaml
+  test_plans:
+  - registry/test-plans/TLC-FC-15-RELATIONS-002/test-plan.yaml
+  - registry/test-plans/TLC-FC-15-RELATIONS-003/test-plan.yaml
+  - registry/test-plans/TLC-FC-15-RELATIONS-004/test-plan.yaml
+  - registry/test-plans/TLC-FC-15-RELATIONS-007/test-plan.yaml
+  - registry/test-plans/TLC-FC-15-RELATIONS-008/test-plan.yaml
+readiness:
+  python:
+    ready: 0
+    blocked: 5
+  cpp:
+    ready: 0
+    blocked: 5
+completion_status: structurally_complete_with_scientific_blockers
+blockers:
+- scientific_decision_required
+- signature_not_specified
+- types_not_specified
+- oracle_not_identified
+- relation_semantics_unresolved
+validations:
+  git_diff_check: passed
+  pyyaml_added_modified_yaml: passed_14_files
+  domain_validator: passed_5_features
+  relations_preparation_validator: blocked_origin_main_ref_unavailable
+  forbid_maths_changes: passed
+  forbid_new_artifact_yaml: passed
+  exact_counts: catalogue=5 contracts=5 ir=5 test_plans=5
