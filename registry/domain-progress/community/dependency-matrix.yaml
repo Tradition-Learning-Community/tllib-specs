@@ -1,0 +1,45 @@
+domain_id: community
+audit_scope: dependency_reconciliation_only
+internal_dependencies: []
+external_dependencies:
+- dependency_id: TLC-COMMUNITY-MASTER-001
+  from_domain: community
+  to_domain: master
+  status: confirmed
+  required_level: symbol_only
+  production_effect: does_not_block_structure
+  affected_feature_ids:
+  - TLC-FC-02-COMMUNITY-008
+  target_feature_ids: []
+  notes: No behavior, contract, IR, or executable semantics imported.
+- dependency_id: TLC-COMMUNITY-DISCIPLE-001
+  from_domain: community
+  to_domain: disciple
+  status: confirmed
+  required_level: symbol_only
+  production_effect: does_not_block_structure
+  affected_feature_ids:
+  - TLC-FC-02-COMMUNITY-008
+  target_feature_ids: []
+  notes: No behavior, contract, IR, or executable semantics imported.
+advisory_dependencies:
+- dependency_id: TLC-DD-003
+  from_domain: community
+  to_domain: relations
+  status: inferred_candidate
+  strength: advisory
+  production_effect: informational_only
+  affected_feature_ids: []
+  notes: Lexical evidence only; not promoted to a required dependency.
+cycles: []
+validation:
+  known_feature_ids:
+  - TLC-FC-02-COMMUNITY-001
+  - TLC-FC-02-COMMUNITY-003
+  - TLC-FC-02-COMMUNITY-004
+  - TLC-FC-02-COMMUNITY-005
+  - TLC-FC-02-COMMUNITY-006
+  - TLC-FC-02-COMMUNITY-007
+  - TLC-FC-02-COMMUNITY-008
+  - TLC-FC-02-COMMUNITY-009
+  unknown_affected_feature_ids: []
