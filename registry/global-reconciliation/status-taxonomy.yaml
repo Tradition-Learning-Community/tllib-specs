@@ -1,8 +1,8 @@
 schema_version: 2
 authority: origin/main
 canonical_commit: 75814db2398b701e2f14c035ef8d63ca61fdfb26
-generated_from_tool_commit: 6d9d6b5d75f4f3e8eaf3f42e8b86c70b00f259c3
-generated_at: '2026-07-25T23:36:10+00:00'
+generated_from_tool_commit: 56b5363d5021c8ce3039f26f1746b555547cdd19
+generated_at: '2026-07-25T23:43:11+00:00'
 purpose: Prevent maturity-level conflation during domain-by-domain completion.
 levels:
 - level: L1_scientific_structure
@@ -12,7 +12,7 @@ levels:
   - canonical IR
   - executability
 - level: L2_functional_scope
-  meaning: Active software features are enumerated for a domain.
+  meaning: Authoritative active software features are enumerated for a domain.
   does_not_imply:
   - approved contracts
   - canonical IR
@@ -23,19 +23,18 @@ levels:
   - all scientific reservations resolved
   - canonical IR
 - level: L4_ir_layer
-  meaning: Each active feature has a mathematical contract, an IR artifact, and a structural test plan; a separate IR registry
-    entry is optional for legacy prototype layouts.
+  meaning: Each active feature has a contract, an IR artifact and a structural test plan.
   does_not_imply:
-  - canonical IR selection
+  - uniform canonical selection
   - algorithmic completeness
   - code readiness
 - level: L5_ir_selection
-  meaning: Scientific and technical review explicitly selects or bounds the IR for each feature.
+  meaning: A common scientific and technical gate explicitly selects or bounds each feature IR.
   does_not_imply:
   - oracle completeness
   - production implementation readiness
 - level: L6_algorithm_and_oracle
-  meaning: Executable algorithmic semantics and verification oracles are specified.
+  meaning: Algorithmic semantics and verification oracles are specified.
   does_not_imply:
   - optimized C++ implementation
 - level: L7_reference_implementation
@@ -43,5 +42,5 @@ levels:
   does_not_imply:
   - production optimization
 - level: L8_production_implementation
-  meaning: C++, bindings, backend conformance, packaging, and release gates are complete.
+  meaning: C++, bindings, backend conformance, packaging and release gates are complete.
   does_not_imply: []
