@@ -1,0 +1,53 @@
+test_plan_id: TLC-TP-TLC-FC-09-VALUES-006
+feature_id: TLC-FC-09-VALUES-006
+contract_id: TLC-MC-TLC-FC-09-VALUES-006
+ir_id: TLC-IR-TLC-FC-09-VALUES-006
+entrypoint: assemble_value_transformation_ast
+primary_operation: Produce a transformation AST with distinct decision and collective-intelligence branches.
+inputs_under_test:
+- 'decision_equation: SymbolicEquation'
+- 'collective_equation: SymbolicEquation'
+expected_output_or_effect: 'transformation_ast: ValueTransformationAst'
+cases:
+- case_id: VALUES-006-NOMINAL
+  kind: nominal
+  assertion: 'assemble_value_transformation_ast produces transformation_ast: ValueTransformationAst from valid source-addressable
+    inputs.'
+- case_id: VALUES-006-TYPE-SHAPE
+  kind: type_or_shape
+  assertion: Operation-specific required input roles and container shapes are validated before construction.
+- case_id: VALUES-006-OBSERVABLE
+  kind: observable_result
+  assertion: The transformation_ast exposes the operation-specific structure described by the contract.
+- case_id: VALUES-006-POST
+  kind: postcondition
+  assertion: The transformation_ast is produced by assemble_value_transformation_ast without scientific evaluation.
+- case_id: VALUES-006-PRECONDITION
+  kind: invalid_precondition
+  assertion: 'An invalid required input returns one of: missing_transformation_branch, branch_source_mismatch, unbound_symbol.'
+- case_id: VALUES-006-OPAQUE
+  kind: opaque_value
+  assertion: Opaque payloads survive construction unchanged and are never scientifically evaluated.
+- case_id: VALUES-006-PROVENANCE
+  kind: provenance
+  assertion: Output retains feature TLC-FC-09-VALUES-006 and all covered object and relation identifiers.
+- case_id: VALUES-006-UNRESOLVED
+  kind: unresolved_propagation
+  assertion: 'Output retains unresolved items: input_output_domains, evaluation_algorithm.'
+- case_id: VALUES-006-ASSUMPTION
+  kind: assumption_propagation
+  assertion: Output retains provisional assumption TLC-EA-TLC-FC-09-VALUES-006-001.
+- case_id: VALUES-006-NO-INVENTION
+  kind: scientific_non_evaluation
+  assertion: No absent formula, scale, ordering, threshold, aggregation, or scientific result is computed.
+- case_id: VALUES-006-CONFORMANCE
+  kind: contract_ir_conformance
+  assertion: Entrypoint, inputs, output, errors, unresolved, assumption, classification, and readiness match.
+- case_id: VALUES-006-INTEGRATION
+  kind: minimal_integration
+  assertion: Contract loader -> IR entrypoint -> provenance serializer preserves operation-specific structure.
+forbidden_expected_results:
+- invented numeric oracle
+- scientific approval
+- canonical semantics
+readiness: planned

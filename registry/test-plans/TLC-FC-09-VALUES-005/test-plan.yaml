@@ -1,0 +1,53 @@
+test_plan_id: TLC-TP-TLC-FC-09-VALUES-005
+feature_id: TLC-FC-09-VALUES-005
+contract_id: TLC-MC-TLC-FC-09-VALUES-005
+ir_id: TLC-IR-TLC-FC-09-VALUES-005
+entrypoint: compile_axiomatic_dynamics_expression
+primary_operation: Parse and source-bind exactly one symbolic equation while retaining its provisional separation.
+inputs_under_test:
+- 'expression: SymbolicExpression'
+- 'source_object_id: ScientificObjectId'
+expected_output_or_effect: 'node: AxiomaticDynamicsExpressionNode'
+cases:
+- case_id: VALUES-005-NOMINAL
+  kind: nominal
+  assertion: 'compile_axiomatic_dynamics_expression produces node: AxiomaticDynamicsExpressionNode from valid source-addressable
+    inputs.'
+- case_id: VALUES-005-TYPE-SHAPE
+  kind: type_or_shape
+  assertion: Operation-specific required input roles and container shapes are validated before construction.
+- case_id: VALUES-005-OBSERVABLE
+  kind: observable_result
+  assertion: The node exposes the operation-specific structure described by the contract.
+- case_id: VALUES-005-POST
+  kind: postcondition
+  assertion: The node is produced by compile_axiomatic_dynamics_expression without scientific evaluation.
+- case_id: VALUES-005-PRECONDITION
+  kind: invalid_precondition
+  assertion: 'An invalid required input returns one of: empty_expression, unexpected_source_object, expression_parse_error.'
+- case_id: VALUES-005-OPAQUE
+  kind: opaque_value
+  assertion: Opaque payloads survive construction unchanged and are never scientifically evaluated.
+- case_id: VALUES-005-PROVENANCE
+  kind: provenance
+  assertion: Output retains feature TLC-FC-09-VALUES-005 and all covered object and relation identifiers.
+- case_id: VALUES-005-UNRESOLVED
+  kind: unresolved_propagation
+  assertion: 'Output retains unresolved items: axiomatic_dynamics_classification, evaluation_semantics.'
+- case_id: VALUES-005-ASSUMPTION
+  kind: assumption_propagation
+  assertion: Output retains provisional assumption TLC-EA-TLC-FC-09-VALUES-005-001.
+- case_id: VALUES-005-NO-INVENTION
+  kind: scientific_non_evaluation
+  assertion: No absent formula, scale, ordering, threshold, aggregation, or scientific result is computed.
+- case_id: VALUES-005-CONFORMANCE
+  kind: contract_ir_conformance
+  assertion: Entrypoint, inputs, output, errors, unresolved, assumption, classification, and readiness match.
+- case_id: VALUES-005-INTEGRATION
+  kind: minimal_integration
+  assertion: Contract loader -> IR entrypoint -> provenance serializer preserves operation-specific structure.
+forbidden_expected_results:
+- invented numeric oracle
+- scientific approval
+- canonical semantics
+readiness: planned

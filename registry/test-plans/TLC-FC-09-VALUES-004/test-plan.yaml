@@ -1,0 +1,55 @@
+test_plan_id: TLC-TP-TLC-FC-09-VALUES-004
+feature_id: TLC-FC-09-VALUES-004
+contract_id: TLC-MC-TLC-FC-09-VALUES-004
+ir_id: TLC-IR-TLC-FC-09-VALUES-004
+entrypoint: assemble_deferred_value_dynamics_ast
+primary_operation: Create three role-labelled dynamics nodes and retain each local blocker on the corresponding
+  node.
+inputs_under_test:
+- 'consolidation: SymbolicEquation'
+- 'motivation: SymbolicEquation'
+- 'collective_feedback: SymbolicEquation'
+expected_output_or_effect: 'dynamics_ast: DeferredValueDynamicsAst'
+cases:
+- case_id: VALUES-004-NOMINAL
+  kind: nominal
+  assertion: 'assemble_deferred_value_dynamics_ast produces dynamics_ast: DeferredValueDynamicsAst from valid source-addressable
+    inputs.'
+- case_id: VALUES-004-TYPE-SHAPE
+  kind: type_or_shape
+  assertion: Operation-specific required input roles and container shapes are validated before construction.
+- case_id: VALUES-004-OBSERVABLE
+  kind: observable_result
+  assertion: The dynamics_ast exposes the operation-specific structure described by the contract.
+- case_id: VALUES-004-POST
+  kind: postcondition
+  assertion: The dynamics_ast is produced by assemble_deferred_value_dynamics_ast without scientific evaluation.
+- case_id: VALUES-004-PRECONDITION
+  kind: invalid_precondition
+  assertion: 'An invalid required input returns one of: missing_required_role, source_role_mismatch, unknown_source_identifier.'
+- case_id: VALUES-004-OPAQUE
+  kind: opaque_value
+  assertion: Opaque payloads survive construction unchanged and are never scientifically evaluated.
+- case_id: VALUES-004-PROVENANCE
+  kind: provenance
+  assertion: Output retains feature TLC-FC-09-VALUES-004 and all covered object and relation identifiers.
+- case_id: VALUES-004-UNRESOLVED
+  kind: unresolved_propagation
+  assertion: 'Output retains unresolved items: consolidation_semantics, motivation_semantics, collective_feedback_semantics.'
+- case_id: VALUES-004-ASSUMPTION
+  kind: assumption_propagation
+  assertion: Output retains provisional assumption TLC-EA-TLC-FC-09-VALUES-004-001.
+- case_id: VALUES-004-NO-INVENTION
+  kind: scientific_non_evaluation
+  assertion: No absent formula, scale, ordering, threshold, aggregation, or scientific result is computed.
+- case_id: VALUES-004-CONFORMANCE
+  kind: contract_ir_conformance
+  assertion: Entrypoint, inputs, output, errors, unresolved, assumption, classification, and readiness match.
+- case_id: VALUES-004-INTEGRATION
+  kind: minimal_integration
+  assertion: Contract loader -> IR entrypoint -> provenance serializer preserves operation-specific structure.
+forbidden_expected_results:
+- invented numeric oracle
+- scientific approval
+- canonical semantics
+readiness: planned

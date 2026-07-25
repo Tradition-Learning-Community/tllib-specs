@@ -1,0 +1,54 @@
+test_plan_id: TLC-TP-TLC-FC-09-VALUES-008
+feature_id: TLC-FC-09-VALUES-008
+contract_id: TLC-MC-TLC-FC-09-VALUES-008
+ir_id: TLC-IR-TLC-FC-09-VALUES-008
+entrypoint: compile_fundamental_principle_invariant
+primary_operation: Create a predicate descriptor that compares opaque before/after principle references symbolically.
+inputs_under_test:
+- 'before: OpaquePrincipleRef'
+- 'after: OpaquePrincipleRef'
+- 'source_claim: SymbolicInvariant'
+expected_output_or_effect: 'invariant: FundamentalPrincipleInvariant'
+cases:
+- case_id: VALUES-008-NOMINAL
+  kind: nominal
+  assertion: 'compile_fundamental_principle_invariant produces invariant: FundamentalPrincipleInvariant from valid
+    source-addressable inputs.'
+- case_id: VALUES-008-TYPE-SHAPE
+  kind: type_or_shape
+  assertion: Operation-specific required input roles and container shapes are validated before construction.
+- case_id: VALUES-008-OBSERVABLE
+  kind: observable_result
+  assertion: The invariant exposes the operation-specific structure described by the contract.
+- case_id: VALUES-008-POST
+  kind: postcondition
+  assertion: The invariant is produced by compile_fundamental_principle_invariant without scientific evaluation.
+- case_id: VALUES-008-PRECONDITION
+  kind: invalid_precondition
+  assertion: 'An invalid required input returns one of: missing_principle_reference, source_claim_mismatch.'
+- case_id: VALUES-008-OPAQUE
+  kind: opaque_value
+  assertion: Opaque payloads survive construction unchanged and are never scientifically evaluated.
+- case_id: VALUES-008-PROVENANCE
+  kind: provenance
+  assertion: Output retains feature TLC-FC-09-VALUES-008 and all covered object and relation identifiers.
+- case_id: VALUES-008-UNRESOLVED
+  kind: unresolved_propagation
+  assertion: 'Output retains unresolved items: principle_equality_semantics, permitted_transformation_scope.'
+- case_id: VALUES-008-ASSUMPTION
+  kind: assumption_propagation
+  assertion: Output retains provisional assumption TLC-EA-TLC-FC-09-VALUES-008-001.
+- case_id: VALUES-008-NO-INVENTION
+  kind: scientific_non_evaluation
+  assertion: No absent formula, scale, ordering, threshold, aggregation, or scientific result is computed.
+- case_id: VALUES-008-CONFORMANCE
+  kind: contract_ir_conformance
+  assertion: Entrypoint, inputs, output, errors, unresolved, assumption, classification, and readiness match.
+- case_id: VALUES-008-INTEGRATION
+  kind: minimal_integration
+  assertion: Contract loader -> IR entrypoint -> provenance serializer preserves operation-specific structure.
+forbidden_expected_results:
+- invented numeric oracle
+- scientific approval
+- canonical semantics
+readiness: planned

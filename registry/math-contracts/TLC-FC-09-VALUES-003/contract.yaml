@@ -1,5 +1,5 @@
-contract_id: TLC-MC-TLC-FC-09-VALUES-018
-feature_id: TLC-FC-09-VALUES-018
+contract_id: TLC-MC-TLC-FC-09-VALUES-003
+feature_id: TLC-FC-09-VALUES-003
 contract_kind: limited_engineering_contract_with_reservations
 status: limited_engineering_contract_with_reservations
 scientific_authority:
@@ -8,22 +8,41 @@ scientific_authority:
   complete_scientific_contract: false
 source_references:
 - path: maths/09-values.md
-  lines: 23-23
-  object_id: TLC-SO-VALUES-047
+  lines: 138-140
+  object_id: TLC-SO-VALUES-093
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- path: maths/09-values.md
+  lines: 152-154
+  object_id: TLC-SO-VALUES-095
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- path: maths/09-values.md
+  lines: 155-157
+  object_id: TLC-SO-VALUES-096
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- path: maths/09-values.md
+  lines: 184-186
+  object_id: TLC-SO-VALUES-099
   source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
 covered_objects:
-- TLC-SO-VALUES-047
+- TLC-SO-VALUES-093
+- TLC-SO-VALUES-095
+- TLC-SO-VALUES-096
+- TLC-SO-VALUES-099
 covered_relations:
-- TLC-SR-VALUES-046
+- TLC-SR-VALUES-092
+- TLC-SR-VALUES-094
+- TLC-SR-VALUES-095
+- TLC-SR-VALUES-098
 contextual_relations: []
-functional_purpose: Validate the structural shape and closed entry range of the systemic-coherence matrix.
-primary_responsibility: Check square shape and entries in the sourced closed interval while leaving endpoint and
-  category semantics opaque.
+functional_purpose: Assemble the four admissible short-term, contextual-adaptation, and group-impact equations into
+  a dynamics AST.
+primary_responsibility: Bind cited equation expressions to their source objects while preserving their declared
+  order and dynamic role.
 inputs:
-- 'matrix: Matrix[OpaqueScalar]'
-- 'declared_order: PositiveInteger'
+- 'equations: Sequence[SymbolicDynamicsEquation]'
+- 'symbols: SymbolTable'
 outputs:
-- 'result: CoherenceMatrixValidationResult'
+- 'dynamics_ast: AdmissibleValueDynamicsAst'
 types:
   opaque:
   - OpaqueScalar
@@ -41,24 +60,23 @@ preconditions:
 - Every referenced scientific object and relation identifier exists in the Values preparation.
 - Every required operation-specific input is present and retains source provenance.
 postconditions:
-- The result is produced by validate_systemic_coherence_matrix_structure without scientific evaluation.
+- The dynamics_ast is produced by assemble_admissible_value_dynamics_ast without scientific evaluation.
 - All input source identifiers, unresolved items, and provisional assumptions remain traceable.
 explicitly_sourced_invariants:
 - statement: Provisionally separated scientific objects remain distinct.
   source: registry/domain-progress/values/functional-coverage.yaml
 errors:
-- declared_order_mismatch
-- non_square_matrix
-- entry_outside_closed_interval
+- missing_equation_source
+- unbound_symbol
+- duplicate_equation_role
 undefined_behaviors: &id001
-- UNRES-M
-- UNRES-ENDPOINTS
-- UNRES-CATEGORIES
-- UNRES-OUTPUT
+- state_domains
+- initial_conditions
+- solver_and_discretization
 propagated_unresolved: *id001
 provisional_engineering_assumptions:
-- assumption_id: TLC-EA-TLC-FC-09-VALUES-018-001
-  feature_id: TLC-FC-09-VALUES-018
+- assumption_id: TLC-EA-TLC-FC-09-VALUES-003-001
+  feature_id: TLC-FC-09-VALUES-003
   undefined_property: runtime carrier for symbolic or scientifically opaque values
   technical_need: The implementation needs a lossless carrier to validate structure and provenance.
   minimal_choice: immutable tagged opaque value or symbolic AST node
@@ -75,8 +93,8 @@ scientific_reservations:
 confirmed_dependencies: []
 traceability:
   source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
-  preparation_feature: TLC-FC-09-VALUES-018
-  revises_contract: TLC-MC-TLC-FC-09-VALUES-018 candidate contract
+  preparation_feature: TLC-FC-09-VALUES-003
+  revises_contract: null
 validation_criteria:
 - operation-specific inputs and output are present
 - all source identifiers resolve
