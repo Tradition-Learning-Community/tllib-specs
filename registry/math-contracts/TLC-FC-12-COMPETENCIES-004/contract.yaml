@@ -1,0 +1,273 @@
+---
+contract_id: TLC-MC-TLC-FC-12-COMPETENCIES-004
+feature_id: TLC-FC-12-COMPETENCIES-004
+contract_kind: canonical_declarative_contract_with_reservations
+domain_id: competencies
+scientific_authority: maths/12-competencies.md and competencies preparation artifacts
+  only; no scientific semantics promoted beyond cited objects
+source_references:
+- source_path: maths/12-competencies.md
+  section: Transformation de la capacité à la compétence
+  subsection: Pratique et application
+  start_line: 82
+  end_line: 84
+  source_commit: aef09e74f85b5f0c930d5940f1753536af61686f
+  feature_source: feature-catalogue
+- source_path: maths/12-competencies.md
+  section: Dynamique temporelle et évolution
+  subsection: Acquisition à court terme
+  start_line: 166
+  end_line: 168
+  source_commit: aef09e74f85b5f0c930d5940f1753536af61686f
+  feature_source: feature-catalogue
+- source_path: maths/12-competencies.md
+  section: Dynamique temporelle et évolution
+  subsection: Développement à long terme
+  start_line: 172
+  end_line: 174
+  source_commit: aef09e74f85b5f0c930d5940f1753536af61686f
+  feature_source: feature-catalogue
+- source_path: maths/12-competencies.md
+  section: Dynamique temporelle et évolution
+  subsection: Adaptation à des situations nouvelles
+  start_line: 179
+  end_line: 181
+  source_commit: aef09e74f85b5f0c930d5940f1753536af61686f
+  feature_source: feature-catalogue
+- source_path: maths/12-competencies.md
+  section: Formalisation mathématique avancée
+  subsection: Systèmes dynamiques
+  start_line: 298
+  end_line: 304
+  source_commit: aef09e74f85b5f0c930d5940f1753536af61686f
+  feature_source: feature-catalogue
+covered_objects:
+- object_id: TLC-SO-COMPETENCIES-066
+  canonical_name: Équation — Pratique et application
+  object_type: DifferentialEquation
+  status: candidate
+  symbols:
+  - "\\mathcal"
+  - "\\alpha"
+  - "\\beta"
+  source_statement: |-
+    \[
+    \frac{d\mathcal{C}_a}{dt} = \alpha \cdot \mathcal{P}(t) \cdot (1 - \mathcal{C}_a / \mathcal{C}_{\max}) + \beta \cdot \mathcal{G}(t) \cdot (\mathcal{C}_p - \mathcal{C}_a)
+    \]
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/12-competencies.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/12-competencies.md
+    source_branch: main
+    source_commit: aef09e74f85b5f0c930d5940f1753536af61686f
+    source_blob_sha: e8fcc07461672056d4ef0249f4eee51c2b7e18d3
+    document_title: Compétences (Competencies)
+    section: Transformation de la capacité à la compétence
+    subsection: Pratique et application
+    start_line: 82
+    end_line: 84
+- object_id: TLC-SO-COMPETENCIES-096
+  canonical_name: Équation — Acquisition à court terme
+  object_type: DifferentialEquation
+  status: candidate
+  symbols:
+  - "\\mathcal"
+  - "\\Delta"
+  - "\\alpha"
+  - "\\sigma"
+  source_statement: |-
+    \[
+    \mathcal{C}_a(t + \Delta t) = \mathcal{C}_a(t) + \alpha \mathcal{P}(t) \Delta t + \sigma \sqrt{\Delta t} \mathcal{N}(0,1)
+    \]
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/12-competencies.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/12-competencies.md
+    source_branch: main
+    source_commit: aef09e74f85b5f0c930d5940f1753536af61686f
+    source_blob_sha: e8fcc07461672056d4ef0249f4eee51c2b7e18d3
+    document_title: Compétences (Competencies)
+    section: Dynamique temporelle et évolution
+    subsection: Acquisition à court terme
+    start_line: 166
+    end_line: 168
+- object_id: TLC-SO-COMPETENCIES-097
+  canonical_name: Équation — Développement à long terme
+  object_type: DifferentialEquation
+  status: candidate
+  symbols:
+  - "\\mathcal"
+  - "\\Delta_i"
+  - "\\mathbf"
+  source_statement: |-
+    \[
+    \|\mathcal{C}_a(t)\| = \frac{K}{1 + \exp(-r(t - t_0))} + \sum_i \Delta_i \mathbf{1}_{t > t_i}
+    \]
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/12-competencies.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/12-competencies.md
+    source_branch: main
+    source_commit: aef09e74f85b5f0c930d5940f1753536af61686f
+    source_blob_sha: e8fcc07461672056d4ef0249f4eee51c2b7e18d3
+    document_title: Compétences (Competencies)
+    section: Dynamique temporelle et évolution
+    subsection: Développement à long terme
+    start_line: 172
+    end_line: 174
+- object_id: TLC-SO-COMPETENCIES-098
+  canonical_name: Équation — Adaptation à des situations nouvelles
+  object_type: DifferentialEquation
+  status: candidate
+  symbols:
+  - "\\mathcal"
+  - "\\mathrm"
+  - "\\nabla_{\\mathrm{contexte}"
+  - "\\Delta"
+  source_statement: |-
+    \[
+    \mathcal{C}_a^{\mathrm{nouveau}} = \mathcal{C}_a^{\mathrm{ancien}} + \nabla_{\mathrm{contexte}}\mathcal{C}_a \cdot \Delta \mathrm{contexte} + \mathcal{G}(\mathcal{C}_p,\mathcal{F})
+    \]
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/12-competencies.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/12-competencies.md
+    source_branch: main
+    source_commit: aef09e74f85b5f0c930d5940f1753536af61686f
+    source_blob_sha: e8fcc07461672056d4ef0249f4eee51c2b7e18d3
+    document_title: Compétences (Competencies)
+    section: Dynamique temporelle et évolution
+    subsection: Adaptation à des situations nouvelles
+    start_line: 179
+    end_line: 181
+- object_id: TLC-SO-COMPETENCIES-114
+  canonical_name: Équation — Systèmes dynamiques
+  object_type: DifferentialEquation
+  status: candidate
+  symbols:
+  - "\\mathcal"
+  - "\\mathbf"
+  - "\\Delta"
+  - "\\nabla_{\\mathcal{C}"
+  - "\\Phi"
+  - "\\epsilon(t)"
+  - "\\eta(t)"
+  - "\\nabla_{\\mathcal{V}"
+  - "\\zeta(t)"
+  source_statement: |-
+    \[
+    \begin{cases}
+    \displaystyle\frac{d\mathcal{C}_a}{dt} = \mathbf{A}(t)\cdot\mathcal{C}_a\cdot(\mathbf{1}-\mathcal{C}_a) + \mathbf{B}\cdot\mathcal{C}_p + \mathbf{\Gamma}(t)\cdot\mathcal{V} + \mathbf{\Delta}\cdot\nabla_{\mathcal{C}_a}\Phi + \mathbf{\Sigma}(t)\epsilon(t)\\[1.5em]
+    \displaystyle\frac{d\mathcal{C}_p}{dt} = \mathbf{M}_p(t)\cdot\mathcal{C}_a\cdot(\mathcal{C}_{p,\max}-\mathcal{C}_p) + \mathbf{N}_p(t)\cdot\mathcal{V}\cdot\mathcal{C}_p + \mathbf{O}_p\cdot\nabla_{\mathcal{C}_p}\Psi + \mathbf{\Xi}_p(t)\eta(t)\\[1.5em]
+    \displaystyle\frac{d\mathcal{V}}{dt} = \mathbf{K}_v(t)\cdot\mathcal{C}_a\cdot(\mathcal{V}_{\max}-\mathcal{V}) + \mathbf{L}_v(t)\cdot\mathcal{C}_p\cdot\mathcal{V} + \mathbf{M}_v\cdot\nabla_{\mathcal{V}}\Omega + \mathbf{N}_v(t)\zeta(t)
+    \end{cases}
+    \]
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/12-competencies.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/12-competencies.md
+    source_branch: main
+    source_commit: aef09e74f85b5f0c930d5940f1753536af61686f
+    source_blob_sha: e8fcc07461672056d4ef0249f4eee51c2b7e18d3
+    document_title: Compétences (Competencies)
+    section: Formalisation mathématique avancée
+    subsection: Systèmes dynamiques
+    start_line: 298
+    end_line: 304
+covered_relations: []
+functional_purpose: Evaluate the evolution laws expressed by the cited differential
+  or stochastic equations.
+canonical_category: evolution_dynamics
+capacities_dependency: external_unreconciled
+primary_responsibility: 'competencies_preserve_evolution_dynamics_record_004: create
+  a provenance-preserving canonical representation for 12-competencies: dynamics (admissible);
+  permit structural validation only, not scientific evaluation.'
+inputs:
+- name: competencies_feature_id
+  type: FeatureId
+  required: true
+  expected_value: TLC-FC-12-COMPETENCIES-004
+- name: object_payloads
+  type: Map<ObjectId,OpaqueScientificObject>
+  required: true
+  required_keys:
+  - TLC-SO-COMPETENCIES-066
+  - TLC-SO-COMPETENCIES-096
+  - TLC-SO-COMPETENCIES-097
+  - TLC-SO-COMPETENCIES-098
+  - TLC-SO-COMPETENCIES-114
+- name: provenance
+  type: Map<ObjectId,SourceReference>
+  required: true
+outputs:
+- name: artifact
+  type: CompetenciesCanonicalDescriptor
+  observable_effect: returns descriptor containing feature id, category, object ids,
+    source statements, symbols, provenance, reservations, blockers, and no evaluated
+    scientific value
+types:
+  FeatureId: string matching TLC-FC-12-COMPETENCIES-*
+  OpaqueScientificObject: caller supplied payload preserved without interpretation
+  SourceReference: source path, line span, commit, section
+  CompetenciesCanonicalDescriptor: immutable record with domain/category/status/object_ids/symbols/provenance/reservations/blockers
+preconditions:
+- feature id equals contract feature_id
+- all covered object ids are present exactly once in object_payloads
+- each covered object has a source reference
+- caller does not request numeric scoring, thresholds, learning dynamics, temporal
+  simulation, or scientific evaluation
+postconditions:
+- output feature_id equals input feature id
+- output covered_objects preserves catalogue order
+- output provenance contains a source reference for every covered object
+- output contains no generated scientific metric, score, threshold, rank, probability,
+  or temporal inference
+- descriptor is marked structurally_valid only for provenance and coverage completeness
+explicitly_sourced_invariants:
+- covered object set is exactly the feature catalogue object set
+- source statements and equations remain opaque and are not reinterpreted
+- scientific reservations, non-invention notes, and blockers are propagated
+errors:
+- UnknownFeatureId
+- MissingCoveredObject
+- DuplicateCoveredObject
+- MissingSourceReference
+- ScientificEvaluationRequested
+- BlockedScientificDecision
+undefined_behaviors:
+- numeric interpretation of symbols or equations
+- selection of dimensions, units, thresholds, initial conditions, or temporal semantics
+- resolution of blocked/provisionally separated/admissible scientific status
+- conversion of capacities dependencies into local competencies semantics
+propagated_unresolved: []
+implementation_decisions_required:
+- descriptor schema finalization for downstream code generation
+- runtime representation of opaque source statements and symbols
+scientific_decisions_required:
+- scientific unresolved
+- validated contract absent
+- Capacities external dependency unreconciled
+scientific_reservations:
+- no full mathematical contract or production semantics asserted
+- types, dimensions, units, thresholds, and temporal semantics are not completed
+- scientific unresolved blockers are preserved rather than resolved
+- capacities dependency remains external_unreconciled
+traceability:
+  prepared_from: registry/domain-progress/competencies/feature-catalogue.yaml
+  readiness_from: registry/domain-progress/competencies/production-readiness.yaml
+  source_file: maths/12-competencies.md
+  working_base_commit: d8e616c71173495b9a014d4a5909df9f30e2a7ae
+  feature_name: '12-competencies: dynamics (admissible)'
+validation_criteria:
+- YAML parses
+- contract feature id matches directory and IR
+- covered object ids match feature catalogue
+- evaluation requests are rejected
+- reservations and blockers are preserved
+execution_status: non_executable_scientific_content; structurally_validatable_descriptor_only
+readiness:
+  status: canonical_declarative_with_reservations
+  ready_for_reference_python: false
+  ready_for_cpp_prototype: false
+  ready_for_production_implementation: false
+  blocks_all_prototype_progress: true

@@ -1,0 +1,149 @@
+batch_id: competencies-domain-completion-001
+domain_id: competencies
+base_commit: 25eb100708ee413c23ab75078c0f7e96677ed042
+catalogue:
+  feature_count: 13
+  feature_ids:
+  - TLC-FC-12-COMPETENCIES-001
+  - TLC-FC-12-COMPETENCIES-002
+  - TLC-FC-12-COMPETENCIES-004
+  - TLC-FC-12-COMPETENCIES-005
+  - TLC-FC-12-COMPETENCIES-006
+  - TLC-FC-12-COMPETENCIES-007
+  - TLC-FC-12-COMPETENCIES-008
+  - TLC-FC-12-COMPETENCIES-009
+  - TLC-FC-12-COMPETENCIES-010
+  - TLC-FC-12-COMPETENCIES-011
+  - TLC-FC-12-COMPETENCIES-012
+  - TLC-FC-12-COMPETENCIES-013
+  - TLC-FC-12-COMPETENCIES-016
+initial_state: preparation_complete_with_reservations; no canonical contracts, IR,
+  or test plans expected
+created:
+  contracts:
+  - registry/math-contracts/TLC-FC-12-COMPETENCIES-001/contract.yaml
+  - registry/math-contracts/TLC-FC-12-COMPETENCIES-002/contract.yaml
+  - registry/math-contracts/TLC-FC-12-COMPETENCIES-004/contract.yaml
+  - registry/math-contracts/TLC-FC-12-COMPETENCIES-005/contract.yaml
+  - registry/math-contracts/TLC-FC-12-COMPETENCIES-006/contract.yaml
+  - registry/math-contracts/TLC-FC-12-COMPETENCIES-007/contract.yaml
+  - registry/math-contracts/TLC-FC-12-COMPETENCIES-008/contract.yaml
+  - registry/math-contracts/TLC-FC-12-COMPETENCIES-009/contract.yaml
+  - registry/math-contracts/TLC-FC-12-COMPETENCIES-010/contract.yaml
+  - registry/math-contracts/TLC-FC-12-COMPETENCIES-011/contract.yaml
+  - registry/math-contracts/TLC-FC-12-COMPETENCIES-012/contract.yaml
+  - registry/math-contracts/TLC-FC-12-COMPETENCIES-013/contract.yaml
+  - registry/math-contracts/TLC-FC-12-COMPETENCIES-016/contract.yaml
+  irs:
+  - registry/ir/TLC-FC-12-COMPETENCIES-001/ir.yaml
+  - registry/ir/TLC-FC-12-COMPETENCIES-002/ir.yaml
+  - registry/ir/TLC-FC-12-COMPETENCIES-004/ir.yaml
+  - registry/ir/TLC-FC-12-COMPETENCIES-005/ir.yaml
+  - registry/ir/TLC-FC-12-COMPETENCIES-006/ir.yaml
+  - registry/ir/TLC-FC-12-COMPETENCIES-007/ir.yaml
+  - registry/ir/TLC-FC-12-COMPETENCIES-008/ir.yaml
+  - registry/ir/TLC-FC-12-COMPETENCIES-009/ir.yaml
+  - registry/ir/TLC-FC-12-COMPETENCIES-010/ir.yaml
+  - registry/ir/TLC-FC-12-COMPETENCIES-011/ir.yaml
+  - registry/ir/TLC-FC-12-COMPETENCIES-012/ir.yaml
+  - registry/ir/TLC-FC-12-COMPETENCIES-013/ir.yaml
+  - registry/ir/TLC-FC-12-COMPETENCIES-016/ir.yaml
+  test_plans:
+  - registry/test-plans/TLC-FC-12-COMPETENCIES-001/test-plan.yaml
+  - registry/test-plans/TLC-FC-12-COMPETENCIES-002/test-plan.yaml
+  - registry/test-plans/TLC-FC-12-COMPETENCIES-004/test-plan.yaml
+  - registry/test-plans/TLC-FC-12-COMPETENCIES-005/test-plan.yaml
+  - registry/test-plans/TLC-FC-12-COMPETENCIES-006/test-plan.yaml
+  - registry/test-plans/TLC-FC-12-COMPETENCIES-007/test-plan.yaml
+  - registry/test-plans/TLC-FC-12-COMPETENCIES-008/test-plan.yaml
+  - registry/test-plans/TLC-FC-12-COMPETENCIES-009/test-plan.yaml
+  - registry/test-plans/TLC-FC-12-COMPETENCIES-010/test-plan.yaml
+  - registry/test-plans/TLC-FC-12-COMPETENCIES-011/test-plan.yaml
+  - registry/test-plans/TLC-FC-12-COMPETENCIES-012/test-plan.yaml
+  - registry/test-plans/TLC-FC-12-COMPETENCIES-013/test-plan.yaml
+  - registry/test-plans/TLC-FC-12-COMPETENCIES-016/test-plan.yaml
+reused:
+- registry/domain-progress/competencies/feature-catalogue.yaml
+- registry/domain-progress/competencies/production-readiness.yaml
+- registry/domain-progress/competencies/scientific-inventory.yaml
+- maths/12-competencies.md as source only, not modified
+consolidated: []
+historical_conserved:
+- preparation artifacts under registry/domain-progress/competencies/ retained as source
+  of catalogue/readiness
+classification: complete_to_canonical_declarative_ir_with_reservations
+readiness:
+  python: structural descriptor ready with reservations; scientific execution non_executable
+  cpp: structural descriptor ready with reservations; scientific execution non_executable
+blockers:
+- scientific unresolved
+- validated executable semantics absent
+- capacities dependency external_unreconciled for catalogue-marked features
+scientific_questions:
+- types/dimensions/units/thresholds/temporal semantics remain unresolved where absent
+  from sources
+- numeric oracles and executable equation semantics require future scientific decisions
+validations:
+- command: git diff --check
+  status: pass
+- command: python scripts/validate_competencies_domain.py
+  status: pass
+  summary: features=13 contracts=13 irs=13 test_plans=13
+- command: PyYAML parse of added/modified YAML files
+  status: pass
+  summary: 40 YAML files parsed
+- command: git diff --name-only HEAD -- maths
+  status: pass
+  summary: no maths changes
+- command: git diff --name-only HEAD | rg "(^|/)artifact\.yaml$"
+  status: pass
+  summary: no added or modified artifact.yaml
+- command: PYTHONPATH=/usr/lib/python3/dist-packages python scripts/validate_competencies_preparation.py
+  status: warning
+  summary: preparation-scope validator reports new completion artifacts as out of
+    scope
+modified_files:
+- registry/math-contracts/TLC-FC-12-COMPETENCIES-001/contract.yaml
+- registry/ir/TLC-FC-12-COMPETENCIES-001/ir.yaml
+- registry/test-plans/TLC-FC-12-COMPETENCIES-001/test-plan.yaml
+- registry/math-contracts/TLC-FC-12-COMPETENCIES-002/contract.yaml
+- registry/ir/TLC-FC-12-COMPETENCIES-002/ir.yaml
+- registry/test-plans/TLC-FC-12-COMPETENCIES-002/test-plan.yaml
+- registry/math-contracts/TLC-FC-12-COMPETENCIES-004/contract.yaml
+- registry/ir/TLC-FC-12-COMPETENCIES-004/ir.yaml
+- registry/test-plans/TLC-FC-12-COMPETENCIES-004/test-plan.yaml
+- registry/math-contracts/TLC-FC-12-COMPETENCIES-005/contract.yaml
+- registry/ir/TLC-FC-12-COMPETENCIES-005/ir.yaml
+- registry/test-plans/TLC-FC-12-COMPETENCIES-005/test-plan.yaml
+- registry/math-contracts/TLC-FC-12-COMPETENCIES-006/contract.yaml
+- registry/ir/TLC-FC-12-COMPETENCIES-006/ir.yaml
+- registry/test-plans/TLC-FC-12-COMPETENCIES-006/test-plan.yaml
+- registry/math-contracts/TLC-FC-12-COMPETENCIES-007/contract.yaml
+- registry/ir/TLC-FC-12-COMPETENCIES-007/ir.yaml
+- registry/test-plans/TLC-FC-12-COMPETENCIES-007/test-plan.yaml
+- registry/math-contracts/TLC-FC-12-COMPETENCIES-008/contract.yaml
+- registry/ir/TLC-FC-12-COMPETENCIES-008/ir.yaml
+- registry/test-plans/TLC-FC-12-COMPETENCIES-008/test-plan.yaml
+- registry/math-contracts/TLC-FC-12-COMPETENCIES-009/contract.yaml
+- registry/ir/TLC-FC-12-COMPETENCIES-009/ir.yaml
+- registry/test-plans/TLC-FC-12-COMPETENCIES-009/test-plan.yaml
+- registry/math-contracts/TLC-FC-12-COMPETENCIES-010/contract.yaml
+- registry/ir/TLC-FC-12-COMPETENCIES-010/ir.yaml
+- registry/test-plans/TLC-FC-12-COMPETENCIES-010/test-plan.yaml
+- registry/math-contracts/TLC-FC-12-COMPETENCIES-011/contract.yaml
+- registry/ir/TLC-FC-12-COMPETENCIES-011/ir.yaml
+- registry/test-plans/TLC-FC-12-COMPETENCIES-011/test-plan.yaml
+- registry/math-contracts/TLC-FC-12-COMPETENCIES-012/contract.yaml
+- registry/ir/TLC-FC-12-COMPETENCIES-012/ir.yaml
+- registry/test-plans/TLC-FC-12-COMPETENCIES-012/test-plan.yaml
+- registry/math-contracts/TLC-FC-12-COMPETENCIES-013/contract.yaml
+- registry/ir/TLC-FC-12-COMPETENCIES-013/ir.yaml
+- registry/test-plans/TLC-FC-12-COMPETENCIES-013/test-plan.yaml
+- registry/math-contracts/TLC-FC-12-COMPETENCIES-016/contract.yaml
+- registry/ir/TLC-FC-12-COMPETENCIES-016/ir.yaml
+- registry/test-plans/TLC-FC-12-COMPETENCIES-016/test-plan.yaml
+- scripts/validate_competencies_domain.py
+- registry/ir-batches/competencies-domain-completion-001/manifest.yaml
+- reports/ir-batches/competencies-domain-completion-001/completion-report.md
+completion_conclusion: 'Structural completion achieved for all 13 canonical competencies
+  features: 13 contracts, 13 IRs, and 13 test plans.'
