@@ -1,0 +1,50 @@
+name: Phase 4 current global registry
+
+on:
+  push:
+    branches:
+      - phase4/global-registry-current-001
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild-current-global-registry:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install registry dependencies
+        run: python -m pip install --disable-pip-version-check pyyaml
+
+      - name: Fetch canonical main
+        run: git fetch origin main --quiet
+
+      - name: Rebuild current global registry
+        run: python tools/global-reconciliation/build_current_global_registry.py --root .
+
+      - name: Validate current global registry
+        run: python tools/global-reconciliation/validate_current_global_registry.py --root .
+
+      - name: Validate whitespace
+        run: git diff --check
+
+      - name: Commit generated registry
+        run: |
+          if git diff --quiet; then
+            echo "No generated changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add registry/global-reconciliation reports/global-reconciliation tools/global-reconciliation
+          git commit -m "feat(registry): rebuild current 16-domain IR baseline"
+          git push origin HEAD:phase4/global-registry-current-001
