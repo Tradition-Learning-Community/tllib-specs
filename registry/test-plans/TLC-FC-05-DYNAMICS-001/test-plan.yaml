@@ -1,0 +1,31 @@
+test_plan_id: TLC-TP-TLC-FC-05-DYNAMICS-001
+feature_id: TLC-FC-05-DYNAMICS-001
+ir_id: TLC-IR-TLC-FC-05-DYNAMICS-001
+active_ir_artifact: ir/TLC-FC-05-DYNAMICS-001/ir.prototype.json
+main_operation: evaluate_viability_predicates_symbolically
+scope: Symbolically construct the four named viability predicates without evaluating their scientific truth.
+cases:
+  - case_id: DYN-001-NOMINAL
+    kind: nominal
+    given: An opaque community state and four source-addressable viability bounds.
+    when: evaluate_viability_predicates_symbolically is invoked.
+    then: An UnevaluatedPredicateSet contains four distinct predicates linked to TLC-SO-DYNAMICS-015.
+  - case_id: DYN-001-OPAQUE-BOUNDARY
+    kind: opaque_boundary
+    given: Bounds whose scalar payloads cannot be numerically compared.
+    then: Payloads remain opaque and no pass/fail aggregation is invented.
+  - case_id: DYN-001-UNKNOWN-SOURCE
+    kind: failure
+    given: A predicate references an unknown scientific identifier.
+    then: unknown_source_identifier is returned and no result set is emitted.
+  - case_id: DYN-001-POSTCONDITION
+    kind: postcondition
+    then: Predicate identity, inclusive comparator notation, and source order are preserved.
+  - case_id: DYN-001-RESERVATIONS
+    kind: reservation_propagation
+    then: UNRES-TIME, UNRES-L, UNRES-NORM, UNRES-MEMORY-NOTATION, and UNRES-OUTPUT remain attached.
+  - case_id: DYN-001-CONFORMANCE
+    kind: contract_ir_conformance
+    then: Inputs, UnevaluatedPredicateSet output, errors, assumptions, and readiness match the contract and active prototype IR.
+forbidden_expected_results: [numeric_viability_result, invented_boolean_aggregation, resolved_operator_semantics]
+readiness: planned

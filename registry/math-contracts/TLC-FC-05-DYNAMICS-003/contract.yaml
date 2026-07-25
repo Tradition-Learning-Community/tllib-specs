@@ -1,25 +1,25 @@
-contract_id: TLC-MC-TLC-FC-05-DYNAMICS-001
-feature_id: TLC-FC-05-DYNAMICS-001
-canonical_name: constraint admissible
+contract_id: TLC-MC-TLC-FC-05-DYNAMICS-003
+feature_id: TLC-FC-05-DYNAMICS-003
+canonical_name: dynamics blocked locally
 contract_kind: limited_engineering_contract_with_reservations
-status: to_revise_revised
+status: limited_engineering_contract_with_reservations
 scientific_authority:
   level: scientific_candidate_sources_only
   source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
   no_scientific_promotion: true
 source_references:
 - path: maths/05-dynamics.md
-  lines: 147-153
+  lines: 64-70
 objects_covered:
-- TLC-SO-DYNAMICS-015
+- TLC-SO-DYNAMICS-020
 relations_covered:
-- TLC-SR-DYNAMICS-014
+- TLC-SR-DYNAMICS-019
 relations_context_only: []
 inputs:
-- 'community_state: OpaqueCommunityState'
-- 'bounds: ViabilityBounds[OpaqueScalar]'
+- 'source_expression: OpaqueStochasticExpression'
+- 'symbols: SymbolTable'
 outputs:
-- 'result: UnevaluatedPredicateSet'
+- 'expression: UnevaluatedStochasticEquation'
 types:
   opaque:
   - OpaqueValue
@@ -41,20 +41,14 @@ sourced_invariants:
 errors_or_undefined_behavior:
 - unknown_source_identifier
 - type_shape_mismatch
-- UNRES-TIME
-- UNRES-L
-- UNRES-NORM
-- UNRES-MEMORY-NOTATION
-- UNRES-OUTPUT
+- catalogue_blocked_locally
+- stochastic_semantics
 unresolved_propagated:
-- UNRES-TIME
-- UNRES-L
-- UNRES-NORM
-- UNRES-MEMORY-NOTATION
-- UNRES-OUTPUT
+- catalogue_blocked_locally
+- stochastic_semantics
 provisional_assumptions:
-- assumption_id: TLC-PA-TLC-FC-05-DYNAMICS-001-001
-  feature_id: TLC-FC-05-DYNAMICS-001
+- assumption_id: TLC-PA-TLC-FC-05-DYNAMICS-003-001
+  feature_id: TLC-FC-05-DYNAMICS-003
   undefined_property: concrete runtime representation of scientifically undefined
     values and operations
   technical_reason: A stable software interface requires a carrier type without deciding
@@ -80,8 +74,8 @@ document_references:
 - registry/scientific-objects/dynamics/scientific-relations.candidate.yaml
 traceability:
   source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
-  revises_contract: TLC-MC-TLC-FC-05-DYNAMICS-001@41028d616ab28af0ae1ba2f328c8bb8add2d68dd
-  preparation_feature: TLC-FC-05-DYNAMICS-001
+  revises_contract: null
+  preparation_feature: TLC-FC-05-DYNAMICS-003
 validation_criteria:
 - YAML parses
 - feature/object/relation references exist

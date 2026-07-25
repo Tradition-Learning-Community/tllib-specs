@@ -1,0 +1,31 @@
+test_plan_id: TLC-TP-TLC-FC-05-DYNAMICS-003
+feature_id: TLC-FC-05-DYNAMICS-003
+ir_id: TLC-IR-TLC-FC-05-DYNAMICS-003
+active_ir_artifact: ir/TLC-FC-05-DYNAMICS-003/ir.prototype.json
+main_operation: preserve_stochastic_expression
+scope: Preserve the locally blocked stochastic expression as an unevaluated, source-addressable equation.
+cases:
+  - case_id: DYN-003-NOMINAL
+    kind: nominal
+    given: The opaque expression for TLC-SO-DYNAMICS-020 and its available symbol bindings.
+    when: preserve_stochastic_expression is invoked.
+    then: An UnevaluatedStochasticEquation retains the expression and TLC-SR-DYNAMICS-019 traceability.
+  - case_id: DYN-003-OPAQUE-STOCHASTICITY
+    kind: opaque_boundary
+    given: No distribution, filtration, process type, or integration convention.
+    then: Those properties remain absent and the expression payload round-trips unchanged.
+  - case_id: DYN-003-WRONG-SHAPE
+    kind: failure
+    given: A non-expression payload is supplied as source_expression.
+    then: type_shape_mismatch is returned without constructing an equation.
+  - case_id: DYN-003-POSTCONDITION
+    kind: postcondition
+    then: The output remains explicitly unevaluated and locally blocked.
+  - case_id: DYN-003-RESERVATIONS
+    kind: reservation_propagation
+    then: catalogue_blocked_locally and stochastic_semantics remain attached.
+  - case_id: DYN-003-CONFORMANCE
+    kind: contract_ir_conformance
+    then: OpaqueStochasticExpression input, output node, errors, assumptions, and readiness match contract and IR.
+forbidden_expected_results: [sampled_path, probability_law, stochastic_integral_choice]
+readiness: planned
