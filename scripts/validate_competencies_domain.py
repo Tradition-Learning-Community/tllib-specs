@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 from pathlib import Path
 import sys, subprocess
 try:
@@ -22,7 +22,7 @@ for fid in features:
         if not (ROOT/p).exists(): errors.append(f'missing {p}')
     cy=load(c); iy=load(i); ty=load(t)
     if cy.get('feature_id')!=fid or cy.get('contract_id')!=f'TLC-MC-{fid}': errors.append(f'contract id mismatch {fid}')
-    if iy.get('feature_id')!=fid or iy.get('contract_id')!=cy.get('contract_id') or iy.get('contract_path')!=str(c): errors.append(f'IR contract reference mismatch {fid}')
+    if iy.get('feature_id')!=fid or iy.get('contract_id')!=cy.get('contract_id') or iy.get('contract_path')!=c.as_posix(): errors.append(f'IR contract reference mismatch {fid}')
     if ty.get('feature_id')!=fid or ty.get('contract_id')!=cy.get('contract_id') or ty.get('ir_id')!=iy.get('ir_id'): errors.append(f'test plan reference mismatch {fid}')
     if set(cy.get('inputs',[{},{}])[1].get('required_keys',[])) != set(next(f for f in cat['features'] if f['feature_id']==fid).get('source_objects',[])): errors.append(f'covered objects mismatch {fid}')
     if cy.get('execution_status') is None: errors.append(f'execution status missing {fid}')
