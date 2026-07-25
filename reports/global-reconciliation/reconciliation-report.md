@@ -2,8 +2,8 @@
 
 - Authority: `origin/main`
 - Scientific baseline commit: `75814db2398b701e2f14c035ef8d63ca61fdfb26`
-- Registry tooling commit at generation time: `56b5363d5021c8ce3039f26f1746b555547cdd19`
-- Generated: `2026-07-25T23:43:11+00:00`
+- Registry tooling commit at generation time: `16ccb6114f1548183819ecfeb3a8634403ef20d4`
+- Generated: `2026-07-25T23:45:02+00:00`
 - Scope: inventory and status normalization only.
 - Scientific decisions made: none.
 - `maths/` modified: no.
@@ -25,9 +25,9 @@ selection gate, are executable, have complete algorithms or oracles, or are read
 
 | No. | Domain | Features | Contracts | IR artifacts | Test plans | IR layer | Raw canonical labels | Common selection gate |
 |---:|---|---:|---:|---:|---:|---|---:|---:|
-| 00 | Master | 16 | 16 | 16 | 16 | yes | 16 | 0 |
-| 01 | Disciple | 10 | 10 | 10 | 10 | yes | 10 | 0 |
-| 02 | Community | 8 | 8 | 8 | 8 | yes | 8 | 0 |
+| 00 | Master | 16 | 16 | 16 | 16 | yes | 0 | 0 |
+| 01 | Disciple | 10 | 10 | 10 | 10 | yes | 0 | 0 |
+| 02 | Community | 8 | 8 | 8 | 8 | yes | 0 | 0 |
 | 03 | Huit Dimensions | 11 | 11 | 11 | 11 | yes | 0 | 0 |
 | 04 | Invariants | 10 | 10 | 10 | 10 | yes | 0 | 0 |
 | 05 | Dynamics | 7 | 7 | 7 | 7 | yes | 0 | 0 |

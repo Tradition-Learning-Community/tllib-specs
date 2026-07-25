@@ -328,7 +328,12 @@ def build_feature_inventory(root: pathlib.Path, matrix_rows: list[dict[str, Any]
         ir_layer_complete = all((contract_present, ir_artifact_present, test_plan_present))
         normalized_selection = normalized(selection_status)
         normalized_gate_passed = normalized_selection in NORMALIZED_SELECTED_STATUSES
-        raw_canonical_label = bool(normalized_selection and "canonical" in normalized_selection)
+        raw_canonical_label = bool(
+            normalized_selection
+            and "canonical" in normalized_selection
+            and "not_canonical" not in normalized_selection
+            and "non_canonical" not in normalized_selection
+        )
         if ir_registry_present and ir_artifact_ref == ir_registry_ref:
             representation_mode = "substantive_registry_ir"
         elif ir_registry_present:
