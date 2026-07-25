@@ -1,9 +1,6 @@
 name: Phase 4 current global registry
 
 on:
-  push:
-    branches:
-      - phase4/global-registry-current-001
   pull_request:
     branches:
       - main
@@ -13,19 +10,23 @@ on:
       - 'registry/global-reconciliation/**'
       - 'reports/global-reconciliation/**'
 
+concurrency:
+  group: phase4-global-registry-current-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
   pull-requests: read
 
 jobs:
   rebuild-current-global-registry:
-    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - name: Check out branch
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
 
       - name: Set up Python
@@ -40,28 +41,15 @@ jobs:
         run: git fetch origin main --quiet
 
       - name: Rebuild current global registry
-        id: build
-        continue-on-error: true
-        run: |
-          set -o pipefail
-          python tools/global-reconciliation/build_current_global_registry.py --root . 2>&1 | tee reports/global-reconciliation/current-baseline-build.log
+        run: python tools/global-reconciliation/build_current_global_registry.py --root .
 
       - name: Validate current global registry
-        id: validate
-        if: steps.build.outcome == 'success'
-        continue-on-error: true
-        run: |
-          set -o pipefail
-          python tools/global-reconciliation/validate_current_global_registry.py --root . 2>&1 | tee reports/global-reconciliation/current-baseline-validation.log
+        run: python tools/global-reconciliation/validate_current_global_registry.py --root .
 
       - name: Validate whitespace
-        id: whitespace
-        if: steps.build.outcome == 'success'
-        continue-on-error: true
         run: git diff --check
 
-      - name: Commit generated registry and diagnostics
-        if: always()
+      - name: Commit generated registry
         run: |
           if git diff --quiet; then
             echo "No generated changes"
@@ -71,11 +59,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add registry/global-reconciliation reports/global-reconciliation tools/global-reconciliation
           git commit -m "feat(registry): rebuild current 16-domain IR baseline"
+          git pull --rebase origin phase4/global-registry-current-001
           git push origin HEAD:phase4/global-registry-current-001
-
-      - name: Fail when generation or validation failed
-        if: always()
-        run: |
-          test "${{ steps.build.outcome }}" = "success"
-          test "${{ steps.validate.outcome }}" = "success"
-          test "${{ steps.whitespace.outcome }}" = "success"
