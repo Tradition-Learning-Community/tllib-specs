@@ -1,8 +1,10 @@
 domain_id: master
+audit_id: master-audit-001
+audit_scope: audit_only_no_new_scientific_artifacts
 source_file: maths/00-master.md
 source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
-baseline_commit: 9aef7ab424f3cf998c47caaa9ed4402302e96031
 baseline_tag: tlc-scientific-pipeline-v1
+baseline_commit: 9aef7ab424f3cf998c47caaa9ed4402302e96031
 objects_count: 40
 relations_count: 37
 unresolved_count: 26
@@ -24,11 +26,83 @@ feature_ids:
 - TLC-FC-00-MASTER-014
 - TLC-FC-00-MASTER-015
 - TLC-FC-00-MASTER-016
-existing_contracts: []
-existing_irs: []
-validators:
+artifact_scan:
+  contracts:
+  - registry/math-contracts/TLC-FC-00-MASTER-001/contract.yaml
+  - registry/math-contracts/TLC-FC-00-MASTER-002/contract.yaml
+  - registry/math-contracts/TLC-FC-00-MASTER-003/contract.yaml
+  - registry/math-contracts/TLC-FC-00-MASTER-004/contract.yaml
+  - registry/math-contracts/TLC-FC-00-MASTER-005/contract.yaml
+  - registry/math-contracts/TLC-FC-00-MASTER-006/contract.yaml
+  - registry/math-contracts/TLC-FC-00-MASTER-007/contract.yaml
+  - registry/math-contracts/TLC-FC-00-MASTER-008/contract.yaml
+  - registry/math-contracts/TLC-FC-00-MASTER-009/contract.yaml
+  - registry/math-contracts/TLC-FC-00-MASTER-010/contract.yaml
+  - registry/math-contracts/TLC-FC-00-MASTER-011/contract.yaml
+  - registry/math-contracts/TLC-FC-00-MASTER-012/contract.yaml
+  - registry/math-contracts/TLC-FC-00-MASTER-013/contract.yaml
+  - registry/math-contracts/TLC-FC-00-MASTER-014/contract.yaml
+  - registry/math-contracts/TLC-FC-00-MASTER-015/contract.yaml
+  - registry/math-contracts/TLC-FC-00-MASTER-016/contract.yaml
+  candidate_irs:
+  - ir/TLC-FC-00-MASTER-001/ir.candidate.json
+  - ir/TLC-FC-00-MASTER-002/ir.candidate.json
+  - ir/TLC-FC-00-MASTER-003/ir.candidate.json
+  - ir/TLC-FC-00-MASTER-004/ir.candidate.json
+  - ir/TLC-FC-00-MASTER-005/ir.candidate.json
+  - ir/TLC-FC-00-MASTER-006/ir.candidate.json
+  - ir/TLC-FC-00-MASTER-007/ir.candidate.json
+  - ir/TLC-FC-00-MASTER-008/ir.candidate.json
+  - ir/TLC-FC-00-MASTER-009/ir.candidate.json
+  - ir/TLC-FC-00-MASTER-010/ir.candidate.json
+  - ir/TLC-FC-00-MASTER-011/ir.candidate.json
+  - ir/TLC-FC-00-MASTER-012/ir.candidate.json
+  - ir/TLC-FC-00-MASTER-013/ir.candidate.json
+  - ir/TLC-FC-00-MASTER-014/ir.candidate.json
+  - ir/TLC-FC-00-MASTER-015/ir.candidate.json
+  - ir/TLC-FC-00-MASTER-016/ir.candidate.json
+  semantic_ir_variants: []
+  prototype_irs: []
+  canonical_irs: []
+  test_plans: []
+  validation_reports:
+  - ir/TLC-FC-00-MASTER-001/ir-validation-report.md
+  - ir/TLC-FC-00-MASTER-002/ir-validation-report.md
+  - ir/TLC-FC-00-MASTER-003/ir-validation-report.md
+  - ir/TLC-FC-00-MASTER-004/ir-validation-report.md
+  - ir/TLC-FC-00-MASTER-005/ir-validation-report.md
+  - ir/TLC-FC-00-MASTER-006/ir-validation-report.md
+  - ir/TLC-FC-00-MASTER-007/ir-validation-report.md
+  - ir/TLC-FC-00-MASTER-008/ir-validation-report.md
+  - ir/TLC-FC-00-MASTER-009/ir-validation-report.md
+  - ir/TLC-FC-00-MASTER-010/ir-validation-report.md
+  - ir/TLC-FC-00-MASTER-011/ir-validation-report.md
+  - ir/TLC-FC-00-MASTER-012/ir-validation-report.md
+  - ir/TLC-FC-00-MASTER-013/ir-validation-report.md
+  - ir/TLC-FC-00-MASTER-014/ir-validation-report.md
+  - ir/TLC-FC-00-MASTER-015/ir-validation-report.md
+  - ir/TLC-FC-00-MASTER-016/ir-validation-report.md
+artifact_counts:
+  contracts: 16
+  candidate_irs: 16
+  semantic_ir_variants: 0
+  prototype_irs: 0
+  canonical_irs: 0
+  test_plans: 0
+  validation_reports: 16
+inventory_reconciliation:
+  preparation_snapshot_path: registry/domain-progress/master/source-inventory.yaml
+  decision: filesystem_scan_and_domain_status_are_current_for_artifact_presence
+  stale_snapshot_detected: true
+  notes: The prior preparation inventory predates later contract/IR production; no existing artifact is regenerated
+    by this audit.
+required_next_artifacts:
+  new_contracts: 0
+  new_candidate_irs: 0
+  new_test_plans: 16
+  reason: All audited features already have a contract and candidate IR in the supplied repository snapshot; no
+    test plans were found for this domain.
+validators_consulted:
 - tools/domain-progress/validate_master_domain.py
 - tools/functional-decomposition-revision/validate_revision.py
 - tools/pipeline-status/validate_pipeline_status.py
-missing_expected_artifacts: []
-inventory_status: complete

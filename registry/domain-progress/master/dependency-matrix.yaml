@@ -1,0 +1,59 @@
+domain_id: master
+audit_scope: dependency_reconciliation_only
+internal_dependencies: []
+external_dependencies:
+- dependency_id: TLC-DD-001
+  from_domain: master
+  to_domain: disciple
+  dependency_type: entity_dependency
+  status: confirmed
+  strength: conditional
+  production_effect: blocks_execution_only
+  affected_feature_ids:
+  - TLC-FC-00-MASTER-004
+  - TLC-FC-00-MASTER-014
+  - TLC-FC-00-MASTER-016
+  evidence_locations:
+  - maths/00-master.md:5
+  - maths/00-master.md:29
+  - maths/00-master.md:81
+  - maths/00-master.md:250
+  notes: Required for executable behavior; available as an external symbol for structural IR.
+- dependency_id: TLC-DD-002
+  from_domain: master
+  to_domain: community
+  dependency_type: entity_dependency
+  status: confirmed
+  strength: conditional
+  production_effect: blocks_execution_only
+  affected_feature_ids:
+  - TLC-FC-00-MASTER-003
+  - TLC-FC-00-MASTER-012
+  - TLC-FC-00-MASTER-015
+  evidence_locations:
+  - maths/00-master.md:35
+  - maths/00-master.md:92
+  - maths/00-master.md:114
+  - maths/00-master.md:250
+  notes: Required for executable authority/status behavior; available as an external symbol for structural IR.
+advisory_dependencies: []
+cycles: []
+validation:
+  known_feature_ids:
+  - TLC-FC-00-MASTER-001
+  - TLC-FC-00-MASTER-002
+  - TLC-FC-00-MASTER-003
+  - TLC-FC-00-MASTER-004
+  - TLC-FC-00-MASTER-005
+  - TLC-FC-00-MASTER-006
+  - TLC-FC-00-MASTER-007
+  - TLC-FC-00-MASTER-008
+  - TLC-FC-00-MASTER-009
+  - TLC-FC-00-MASTER-010
+  - TLC-FC-00-MASTER-011
+  - TLC-FC-00-MASTER-012
+  - TLC-FC-00-MASTER-013
+  - TLC-FC-00-MASTER-014
+  - TLC-FC-00-MASTER-015
+  - TLC-FC-00-MASTER-016
+  unknown_affected_feature_ids: []
