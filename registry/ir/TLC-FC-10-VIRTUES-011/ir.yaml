@@ -1,0 +1,40 @@
+---
+feature_id: TLC-FC-10-VIRTUES-011
+domain: virtues
+source_objects:
+- TLC-SO-VIRTUES-055
+- TLC-SO-VIRTUES-212
+status: limited_engineering_contract_with_reservations
+ir_id: TLC-FC-10-VIRTUES-011-IR
+entrypoint: package_vice_diagnostic_function
+operation: Package diagnostic observations that map vice evidence to development-domain
+  labels supplied by humans without prescribing correction.
+inputs:
+- artifact
+- provenance
+- reservations
+observable_output: structured result recording accepted source-bound operation or
+  named error
+testable_postcondition: result echoes feature id, entrypoint, source objects, unresolved
+  items, assumptions, and reservations without adding scientific computation
+error_policy:
+  missing_provenance: return error and do not emit accepted result
+  unsupported_scientific_completion_request: return error when caller asks for score,
+    hierarchy, metric selection, threshold, weight, formula completion, or moral decision
+  invalid_feature_id: return error when feature id differs
+opaque_or_parametric_types:
+- OpaqueVirtue
+- OpaqueEvidence
+- OpaqueContext
+- OpaqueRelationEndpoint
+- OpaqueMetricDescriptor
+unresolved_propagated: []
+assumptions_propagated:
+- source fragments are metadata, not executable science
+classification: substantive_and_implementable
+classification_code: A
+readiness:
+  python_prototype: true
+  cpp_prototype: true
+  canonical_ir: false
+  production: false
