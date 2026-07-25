@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "ir_id": "TLC-IR-TLC-FC-04-INVARIANTS-006-PROTOTYPE-001",
+  "feature_id": "TLC-FC-04-INVARIANTS-006",
+  "contract_id": "TLC-LEC-TLC-FC-04-INVARIANTS-006-001",
+  "domain": "invariants",
+  "ir_kind": "prototype_ir_with_reservations",
+  "scientific_status": "noncanonical_engineering_prototype",
+  "catalogue_status_preserved": "deferred_for_targeted_extraction",
+  "inputs": [
+    {
+      "id": "IR-IN-006-SYMBOLS",
+      "type": "CollectiveEthicsExpressionSymbols",
+      "required_fields": [
+        "value_space_symbol",
+        "metric_symbol",
+        "scalar_curvature_operator_symbol",
+        "dimension_symbol",
+        "differential_symbol",
+        "time_symbol",
+        "gradient_operator_symbol"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "IR-OUT-006-SYMBOLIC",
+      "type": "SymbolicCollectiveEthicsInvariant",
+      "observable_effect": "Produces an immutable symbolic AST for the cited integral plus derivative-equals-zero and gradient-equals-zero constraint ASTs, each carrying source provenance.",
+      "evaluated": false
+    }
+  ],
+  "opaque_types": [
+    "OpaqueSymbolId"
+  ],
+  "parameterized_types": [
+    "ImmutableSymbolicAst[OpaqueSymbolId]"
+  ],
+  "operations": [
+    {
+      "operation_id": "IR-OP-INVARIANTS-006-FINAL",
+      "name": "construct_collective_ethics_invariant_expression",
+      "responsibility": "Construct the unevaluated symbolic expression for the collective ethical invariant and its two source-stated healthy-community constraints.",
+      "technical_processing": "Validate required opaque identifiers, instantiate the source-defined AST templates, attach provenance and reservations, freeze the result.",
+      "expression_templates": [
+        "integral(value_space_symbol, multiply(apply(scalar_curvature_operator_symbol, metric_symbol), sqrt(det(metric_symbol))), differential(dimension_symbol, differential_symbol))",
+        "equals(derivative(collective_ethics_invariant, time_symbol), zero)",
+        "equals(apply(gradient_operator_symbol, collective_ethics_invariant), zero)"
+      ],
+      "observable_effect": "Produces an immutable symbolic AST for the cited integral plus derivative-equals-zero and gradient-equals-zero constraint ASTs, each carrying source provenance.",
+      "scientific_evaluation": "prohibited"
+    }
+  ],
+  "control_flow": [],
+  "preconditions": [
+    {
+      "id": "PRE-INVARIANTS-006-SYMBOLS",
+      "statement": "All seven named symbols are supplied as non-empty opaque identifiers and the two covered source evidence IDs are attached."
+    }
+  ],
+  "postconditions": [
+    {
+      "id": "POST-INVARIANTS-006-AST",
+      "statement": "Produces an immutable symbolic AST for the cited integral plus derivative-equals-zero and gradient-equals-zero constraint ASTs, each carrying source provenance."
+    },
+    {
+      "id": "POST-INVARIANTS-006-NO-EVALUATION",
+      "statement": "No symbolic node is numerically or scientifically evaluated."
+    },
+    {
+      "id": "POST-INVARIANTS-006-RESERVATIONS",
+      "statement": "All source, unresolved, assumption, and catalogue-status references are unchanged."
+    }
+  ],
+  "invariants": [
+    {
+      "id": "TLC-SO-INVARIANTS-013",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    },
+    {
+      "id": "TLC-SO-INVARIANTS-057",
+      "status": "candidate_scientific_object_preserved",
+      "source": "registry/scientific-objects/invariants/scientific-objects.candidate.yaml"
+    }
+  ],
+  "errors": [
+    {
+      "id": "FAIL-INVARIANTS-006-INPUT",
+      "condition": "MissingRequiredSymbol or MissingCollectiveEthicsEvidence"
+    },
+    {
+      "id": "FAIL-INVARIANTS-006-EVALUATION",
+      "condition": "An implementation attempts scientific evaluation despite this opaque boundary: The value space, metric, scalar-curvature implementation, dimension, integration semantics, neighborhood, health criterion, and numerical evaluation remain opaque."
+    }
+  ],
+  "unresolved_propagated": [],
+  "provisional_assumptions_propagated": [
+    "TLC-EA-INVARIANTS-006-001"
+  ],
+  "traceability": {
+    "contract": "registry/math-contracts/TLC-FC-04-INVARIANTS-006/contract.yaml",
+    "source_objects": [
+      "TLC-SO-INVARIANTS-013",
+      "TLC-SO-INVARIANTS-057"
+    ],
+    "source_relations": [
+      "TLC-SR-INVARIANTS-012",
+      "TLC-SR-INVARIANTS-056"
+    ]
+  },
+  "determinism_status": "deterministic_symbolic_ast_construction_for_identical_symbol_ids",
+  "testability_status": "operation_specific_ast_shape_provenance_and_non_evaluation_testable",
+  "implementation_constraints": [
+    "Do not evaluate scientific truth.",
+    "Do not assign concrete numeric, temporal, probabilistic, dimensional, cardinality, unit, order, symmetry, or transitivity semantics.",
+    "Reject loss of identifiers, unresolved reservations, or catalogue status."
+  ],
+  "readiness": {
+    "ready_for_limited_engineering_contract": true,
+    "ready_for_prototype_ir": true,
+    "ready_for_reference_python": true,
+    "ready_for_cpp_prototype": true,
+    "ready_for_canonical_ir": false,
+    "ready_for_production_implementation": false
+  },
+  "blocks_all_prototype_progress": false,
+  "interface": {
+    "minimal_function_or_class": "construct_collective_ethics_invariant_expression",
+    "input_type": "CollectiveEthicsExpressionSymbols",
+    "input_fields": [
+      "value_space_symbol",
+      "metric_symbol",
+      "scalar_curvature_operator_symbol",
+      "dimension_symbol",
+      "differential_symbol",
+      "time_symbol",
+      "gradient_operator_symbol"
+    ],
+    "output_type": "SymbolicCollectiveEthicsInvariant"
+  },
+  "semantic_quality": "substantive_and_implementable",
+  "remaining_opaque_boundary": "The value space, metric, scalar-curvature implementation, dimension, integration semantics, neighborhood, health criterion, and numerical evaluation remain opaque."
+}

@@ -1,0 +1,42 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-04-INVARIANTS-002-PROTOTYPE-001
+feature_id: TLC-FC-04-INVARIANTS-002
+contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-002-001
+ir_id: TLC-IR-TLC-FC-04-INVARIANTS-002-PROTOTYPE-001
+scope: prototype_ir_structural_validation_only
+tests:
+- id: TEST-002-NOMINAL
+  category: operation_nominal
+  invokes: index_definition_fragments
+  scenario: Index all nine definition fragments and retain rejected_as_feature on the index.
+  expected_structural_effect: Returns an index keyed by definition object ID; every entry remains documentary and non-executable.
+- id: TEST-002-OPAQUE
+  category: opaque_boundary
+  invokes: index_definition_fragments
+  scenario: 'Supply valid evidence whose opaque portion is not interpretable: Definition text is stored opaquely and is never
+    interpreted as a predicate.'
+  expected_structural_effect: Opaque content is preserved byte-for-byte and is not evaluated.
+- id: TEST-002-PRECONDITION
+  category: precondition_failure
+  invokes: index_definition_fragments
+  scenario: 'Violate the operation-specific precondition: Each fragment has a covered definition ID, source range, and rejected-as-feature
+    marker.'
+  expected_error: DuplicateDefinitionId or FeatureStatusPromotion
+- id: TEST-002-POSTCONDITION
+  category: observable_postcondition
+  invokes: index_definition_fragments
+  scenario: Execute with valid covered evidence.
+  expected_structural_effect: Returns an index keyed by definition object ID; every entry remains documentary and non-executable.
+- id: TEST-002-RESERVATIONS
+  category: reservation_propagation
+  invokes: index_definition_fragments
+  scenario: Execute with all feature unresolved IDs and provisional assumptions attached.
+  expected_structural_effect: The output retains the exact unresolved and assumption ID sets and makes no resolution claim.
+- id: TEST-002-CONFORMANCE
+  category: contract_ir_conformance
+  invokes: index_definition_fragments
+  scenario: Compare callable, input type, output type, errors, postconditions, and readiness across contract and IR.
+  expected_structural_effect: All specialized interface fields and readiness values agree.
+numeric_expected_results: []
+implementation_status: ready_for_operation_specific_test_implementation
+operation_under_test: index_definition_fragments

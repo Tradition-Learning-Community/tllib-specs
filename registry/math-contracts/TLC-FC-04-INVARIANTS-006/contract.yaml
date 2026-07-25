@@ -1,0 +1,131 @@
+schema_version: 1
+contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-006-001
+feature_id: TLC-FC-04-INVARIANTS-006
+domain: invariants
+canonical_name: '04-invariants: oracle (admissible)'
+contract_kind: limited_engineering_contract
+scientific_authority: origin/main
+limited_engineering_contract: true
+complete_scientific_contract: false
+status: limited_engineering_contract_with_reservations
+version: 0.1.0
+provenance:
+  source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+  generated_on: '2026-07-24'
+  sources:
+  - registry/domain-progress/invariants/feature-inventory.yaml
+  - registry/domain-progress/invariants/feature-classification.yaml
+  - registry/domain-progress/invariants/feature-status.yaml
+  - registry/domain-progress/invariants/contract-production-plan.yaml
+  - registry/domain-progress/invariants/ir-production-plan.yaml
+  - registry/domain-progress/invariants/unresolved-status.yaml
+  - registry/domain-progress/invariants/invariant-semantics.yaml
+  - registry/scientific-objects/invariants/scientific-objects.candidate.yaml
+  - registry/scientific-objects/invariants/scientific-relations.candidate.yaml
+  - maths/04-invariants.md
+  source_locations:
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Invariant éthique collectif $\mathcal{I}_{\mathrm{eth,c}}$
+    start_line: 114
+    end_line: 126
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/04-invariants.md
+    section: Invariants de la Communauté
+    subsection: Invariant éthique collectif $\mathcal{I}_{\mathrm{eth,c}}$
+    start_line: 126
+    end_line: 126
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+catalogue_status_preserved: deferred_for_targeted_extraction
+scientific_objects_covered:
+- TLC-SO-INVARIANTS-013
+- TLC-SO-INVARIANTS-057
+scientific_relations_covered:
+- TLC-SR-INVARIANTS-012
+- TLC-SR-INVARIANTS-056
+contextual_relations_not_covered: []
+limited_functional_purpose: Construct the unevaluated symbolic expression for the collective ethical invariant and its two
+  source-stated healthy-community constraints.
+inputs:
+- input_id: INPUT-INVARIANTS-006-SYMBOLS
+  type: CollectiveEthicsExpressionSymbols
+  required_fields:
+  - value_space_symbol
+  - metric_symbol
+  - scalar_curvature_operator_symbol
+  - dimension_symbol
+  - differential_symbol
+  - time_symbol
+  - gradient_operator_symbol
+  field_semantics: opaque_identifiers_only
+outputs:
+- output_id: OUTPUT-INVARIANTS-006-SYMBOLIC
+  type: SymbolicCollectiveEthicsInvariant
+  observable_effect: Produces an immutable symbolic AST for the cited integral plus derivative-equals-zero and gradient-equals-zero
+    constraint ASTs, each carrying source provenance.
+  expression_templates:
+  - integral(value_space_symbol, multiply(apply(scalar_curvature_operator_symbol, metric_symbol), sqrt(det(metric_symbol))),
+    differential(dimension_symbol, differential_symbol))
+  - equals(derivative(collective_ethics_invariant, time_symbol), zero)
+  - equals(apply(gradient_operator_symbol, collective_ethics_invariant), zero)
+  evaluated: false
+types:
+  operation_input: CollectiveEthicsExpressionSymbols
+  operation_output: SymbolicCollectiveEthicsInvariant
+  symbol_type: OpaqueSymbolId
+  expression_type: ImmutableSymbolicAst
+preconditions:
+- id: PRE-INVARIANTS-006-SYMBOLS
+  statement: All seven named symbols are supplied as non-empty opaque identifiers and the two covered source evidence IDs
+    are attached.
+postconditions:
+- id: POST-INVARIANTS-006-AST
+  statement: Produces an immutable symbolic AST for the cited integral plus derivative-equals-zero and gradient-equals-zero
+    constraint ASTs, each carrying source provenance.
+- id: POST-INVARIANTS-006-NO-EVALUATION
+  statement: No symbolic node is numerically or scientifically evaluated.
+- id: POST-INVARIANTS-006-RESERVATIONS
+  statement: All source, unresolved, assumption, and catalogue-status references are unchanged.
+invariants_explicitly_sourced:
+- id: TLC-SO-INVARIANTS-013
+  status: candidate_scientific_object_preserved
+  source: registry/scientific-objects/invariants/scientific-objects.candidate.yaml
+- id: TLC-SO-INVARIANTS-057
+  status: candidate_scientific_object_preserved
+  source: registry/scientific-objects/invariants/scientific-objects.candidate.yaml
+undefined_or_error_cases:
+- id: FAIL-INVARIANTS-006-INPUT
+  condition: MissingRequiredSymbol or MissingCollectiveEthicsEvidence
+- id: FAIL-INVARIANTS-006-EVALUATION
+  condition: 'An implementation attempts scientific evaluation despite this opaque boundary: The value space, metric, scalar-curvature
+    implementation, dimension, integration semantics, neighborhood, health criterion, and numerical evaluation remain opaque.'
+unresolved_propagated: []
+provisional_engineering_assumptions:
+- TLC-EA-INVARIANTS-006-001
+scientific_reservations:
+- scientific semantics remain exactly at preparation status
+- no truth evaluator or formula is supplied
+- types, dimensions, units, ordering, cardinality, time, and numeric precision remain unspecified
+strong_dependencies_confirmed: []
+documentary_references:
+- community
+traceability: registry/math-contracts/TLC-FC-04-INVARIANTS-006/traceability.yaml
+validation_criteria:
+- all covered identifiers exist in domain preparation
+- all mapped unresolved identifiers are propagated
+- the provisional assumption is propagated to prototype IR
+- catalogue status is preserved without scientific promotion
+readiness:
+  ready_for_limited_engineering_contract: true
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false
+software_responsibility:
+  callable: construct_collective_ethics_invariant_expression
+  operation: Construct the unevaluated symbolic expression for the collective ethical invariant and its two source-stated
+    healthy-community constraints.
+  observable_effect: Produces an immutable symbolic AST for the cited integral plus derivative-equals-zero and gradient-equals-zero
+    constraint ASTs, each carrying source provenance.
+  evaluation_policy: construct_symbolic_ast_only

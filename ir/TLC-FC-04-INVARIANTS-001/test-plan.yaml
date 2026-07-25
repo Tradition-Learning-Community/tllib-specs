@@ -1,0 +1,42 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-04-INVARIANTS-001-PROTOTYPE-001
+feature_id: TLC-FC-04-INVARIANTS-001
+contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-001-001
+ir_id: TLC-IR-TLC-FC-04-INVARIANTS-001-PROTOTYPE-001
+scope: prototype_ir_structural_validation_only
+tests:
+- id: TEST-001-NOMINAL
+  category: operation_nominal
+  invokes: build_admissibility_constraint_set
+  scenario: Build the set from the four covered axiom records and preserve their four IDs.
+  expected_structural_effect: Returns a set containing exactly one immutable entry per supplied axiom ID, with source order
+    and references retained.
+- id: TEST-001-OPAQUE
+  category: opaque_boundary
+  invokes: build_admissibility_constraint_set
+  scenario: 'Supply valid evidence whose opaque portion is not interpretable: An axiom body may remain an opaque source statement.'
+  expected_structural_effect: Opaque content is preserved byte-for-byte and is not evaluated.
+- id: TEST-001-PRECONDITION
+  category: precondition_failure
+  invokes: build_admissibility_constraint_set
+  scenario: 'Violate the operation-specific precondition: Every record has a unique covered axiom ID and a source reference.'
+  expected_error: DuplicateAxiomId or UnknownAxiomId
+- id: TEST-001-POSTCONDITION
+  category: observable_postcondition
+  invokes: build_admissibility_constraint_set
+  scenario: Execute with valid covered evidence.
+  expected_structural_effect: Returns a set containing exactly one immutable entry per supplied axiom ID, with source order
+    and references retained.
+- id: TEST-001-RESERVATIONS
+  category: reservation_propagation
+  invokes: build_admissibility_constraint_set
+  scenario: Execute with all feature unresolved IDs and provisional assumptions attached.
+  expected_structural_effect: The output retains the exact unresolved and assumption ID sets and makes no resolution claim.
+- id: TEST-001-CONFORMANCE
+  category: contract_ir_conformance
+  invokes: build_admissibility_constraint_set
+  scenario: Compare callable, input type, output type, errors, postconditions, and readiness across contract and IR.
+  expected_structural_effect: All specialized interface fields and readiness values agree.
+numeric_expected_results: []
+implementation_status: ready_for_operation_specific_test_implementation
+operation_under_test: build_admissibility_constraint_set
