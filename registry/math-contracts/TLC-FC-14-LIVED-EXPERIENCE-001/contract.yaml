@@ -1,0 +1,118 @@
+---
+contract_id: TLC-MC-TLC-FC-14-LIVED-EXPERIENCE-001
+feature_id: TLC-FC-14-LIVED-EXPERIENCE-001
+canonical_name: '14-lived-experience: constraint (blocked_locally)'
+contract_kind: declarative_blocked_contract
+scientific_authority: maths/14-lived-experience.md via lived-experience preparation
+  artifacts; no scientific semantics promoted beyond cited objects
+source_references:
+- object_id: TLC-SO-LIVED-EXPERIENCE-039
+  source_path: maths/14-lived-experience.md
+  start_line: 165
+  end_line: 167
+  section: Formalisation mathématique avancée
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+covered_objects:
+- object_id: TLC-SO-LIVED-EXPERIENCE-039
+  canonical_name: Fondements axiomatiques
+  object_type: Axiom
+  status: candidate
+  symbols:
+  - \mathcal{E}_{\mathrm{sens}}
+  - \mathbb{LE}
+  source_statement: '**Axiome 1 – Encodage sensori‑moteur** : $\mathcal{E}_{\mathrm{sens}}$
+    est une isométrie de l’espace des actions vers $\mathbb{LE}$ (Gibson, 1979).'
+covered_relations: []
+contextual_relations: []
+functional_purpose: Evaluate the cited constraints, axioms, assumptions, and hypotheses
+  as candidate checks.
+primary_responsibility: 'preserve_lived_experience_feature_record: create a typed,
+  provenance-preserving representation; permit structural validation only, not scientific
+  evaluation.'
+inputs:
+- name: feature_id
+  type: FeatureId
+  required: true
+  expected_value: TLC-FC-14-LIVED-EXPERIENCE-001
+- name: object_payloads
+  type: Map<ObjectId,OpaqueScientificObject>
+  required: true
+  required_keys:
+  - TLC-SO-LIVED-EXPERIENCE-039
+- name: provenance
+  type: Map<ObjectId,SourceReference>
+  required: true
+outputs:
+- name: artifact
+  type: LivedExperienceDescriptor
+  observable_effect: returns descriptor containing feature id, object ids, source
+    statements, symbols, provenance, reservations, and no evaluated scientific value
+types:
+  FeatureId: string matching TLC-FC-14-LIVED-EXPERIENCE-*
+  OpaqueScientificObject: caller supplied payload preserved without interpretation
+  SourceReference: source path, line span, commit, section
+  LivedExperienceDescriptor: immutable record with family/status/object_ids/symbols/provenance/unresolved
+preconditions:
+- feature id equals contract feature_id
+- all covered object ids are present exactly once in object_payloads
+- each covered object has a source reference
+- caller does not request numeric scoring, thresholds, time evolution, synergy evaluation,
+  or scientific resolution
+postconditions:
+- output feature_id equals input feature id
+- output covered_objects preserves preparation order
+- output provenance contains a source reference for every covered object
+- output contains no generated scientific metric, threshold, probability, temporal
+  inference, or corrected equation
+- descriptor propagates blockers and reservations
+explicitly_sourced_invariants:
+- covered object set is exactly the feature inventory object set
+- source statements remain opaque and are not reinterpreted
+- scientific reservations from unresolved or blockers are propagated
+constraints: []
+hypotheses: []
+scientific_properties:
+- source_statement_preservation
+- traceability_preservation
+implementation_decisions_required:
+- object payload representation
+- descriptor serialization
+- error class mapping
+scientific_decisions_required:
+- resolve local scientific classification before execution
+errors:
+- UnknownFeatureId
+- MissingCoveredObject
+- DuplicateCoveredObject
+- MissingSourceReference
+- ScientificEvaluationRequested
+- BlockedScientificDecision
+undefined_behaviors:
+- numeric interpretation of symbols or equations
+- resolution of blocked/provisionally separated scientific status
+- meaning of lived-experience magnitude, time scale, or memory layout
+propagated_unresolved:
+- scientific_decision_required
+- external_reconciliation_pending
+provisional_engineering_assumptions:
+- opaque payloads may be stored and compared by object id only; no payload semantics
+  are inspected
+scientific_reservations:
+- scientific decision required
+- external reconciliation pending
+traceability:
+  prepared_from: registry/domain-progress/lived-experience/feature-inventory.yaml
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  feature_name: '14-lived-experience: constraint (blocked_locally)'
+validation_criteria:
+- YAML parses
+- contract feature id matches directory, IR, and test plan
+- covered object ids match preparation
+- blocked features reject scientific evaluation requests
+- no modification under maths/
+execution_status: blocked
+readiness:
+  status: declarative_blocked_contract
+  ready_for_prototype_ir: true
+  ready_for_canonical_ir: true
+  ready_for_production_implementation: false
