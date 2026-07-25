@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 from pathlib import Path
 import sys, yaml
 ROOT=Path(__file__).resolve().parents[2]
@@ -10,7 +10,7 @@ def load(p):
 
 def main():
     errors=[]
-    manifest=load(ROOT/'execution-manifests/wave-3/domain-completion.yaml')
+    manifest=load(ROOT/'execution-manifests/wave-3/lived-experience-domain-completion.yaml')
     features=load(ROOT/'registry/domain-progress/lived-experience/feature-inventory.yaml')['features']
     ids=[f['feature_id'] for f in features]
     if len(ids)!=EXPECTED or len(set(ids))!=EXPECTED: errors.append('feature catalogue count mismatch')
