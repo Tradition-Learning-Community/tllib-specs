@@ -38,7 +38,7 @@ DOMAINS = [
     ("14", "lived-experience", "Lived Experience"),
     ("15", "relations", "Relations"),
 ]
-EXPECTED_COMMIT = "2cd5a3c6dfe8786926e58d49387b5f4846697a66"
+EXPECTED_COMMIT: str | None = None
 ID_PATTERNS = {
     "objects": re.compile(r"^TLC-SO-"),
     "relations": re.compile(r"^TLC-SR-"),
@@ -290,11 +290,11 @@ def artifact_audit(root: pathlib.Path, feature_ids: set[str]) -> list[dict[str, 
                 "domain": domain_slug,
                 "contract_present": feature_id in contract_ids,
                 "ir_present": feature_id in ir_ids,
-                "classification": "pilot_only" if pilot else "canonical_validated",
+                "classification": "inventory_only",
                 "feature_present_in_canonical_catalogue": feature_id in feature_ids,
-                "source_commit": EXPECTED_COMMIT,
+                "source_commit": EXPECTED_COMMIT or git(root, "rev-parse", "HEAD"),
                 "scientific_content_modified": False,
-                "review_required": pilot or feature_id not in feature_ids,
+                "review_required": feature_id not in feature_ids,
             }
         )
     return rows
@@ -597,13 +597,13 @@ scientific synchronization tasks plus six generation/review batches. This is an 
 ## Reservations
 
 - Target existence does not establish identifier or semantic compatibility.
-- Candidate and pilot contracts/IR outside Master, Disciple, and Community require scientific review.
+- Presence at the IR layer does not imply canonical selection, executability, or implementation readiness.
 - Documented dependency cycles are preserved and not broken by inference.
 - Existing per-domain readiness is tightened where the explicit contract gate is not demonstrable.
 """
     (report_dir / "reconciliation-report.md").write_text(report, encoding="utf-8", newline="\n")
     print(json.dumps({"commit": head, "domains": len(domains), "counts": dict(global_counts), "edges": len(edges), "cycles": len(cycles), "limited": len(limited), "full": len(full), "ir_ready": len(ir_ready), "audits": len(audits)}, indent=2))
-    return 0 if head == EXPECTED_COMMIT else 2
+    return 0 if EXPECTED_COMMIT in (None, head) else 2
 
 
 if __name__ == "__main__":

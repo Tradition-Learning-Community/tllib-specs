@@ -1,40 +1,55 @@
-# Global domain preparation reconciliation
+# Current global TLC registry through the IR layer
 
 - Authority: `origin/main`
-- Canonical commit: `2cd5a3c6dfe8786926e58d49387b5f4846697a66`
-- Generated: `2026-07-23T15:57:37+00:00`
-- Scope: reconciliation artifacts only; no contract, IR, optimization, oracle, C++, or Python binding was produced.
+- Scientific baseline commit: `75814db2398b701e2f14c035ef8d63ca61fdfb26`
+- Registry tooling commit at generation time: `16ccb6114f1548183819ecfeb3a8634403ef20d4`
+- Generated: `2026-07-25T23:45:02+00:00`
+- Scope: inventory and status normalization only.
+- Scientific decisions made: none.
+- `maths/` modified: no.
 
-## Inventory
+## Result
 
-The canonical checkout contains 16 domains, 1383 scientific objects,
-1365 scientific relations, 830 unresolved entries,
-and 175 inventoried canonical feature identifiers. Capacities entries marked
-`comparison_only` are excluded from canonical coverage.
+All sixteen domains are present. Their authoritative catalogues contain **166 active features**.
+All 166 features have a mathematical contract, an IR artifact and a structural test plan.
+Therefore `all_domains_reach_ir_layer` is **true**.
 
-## Dependency reconciliation
+The former total of 175 included nine `legacy_goose_feature_ids` in the Capacities preparation. That same
+source marks those identifiers as non-authoritative; the active Capacities catalogue contains 15 features.
+The legacy identifiers remain in their source file as lineage evidence and are not deleted.
 
-The graph contains 156 traceable edges. 14 stale availability statuses were
-reclassified to `canonical_target_available_semantic_review_pending`; this confirms only that the target
-is present in the canonical tree. No dependency was promoted to semantically validated. 0
-edges still have no canonical target.
+IR-layer coverage does not mean that all IRs use one storage layout, have the same maturity, pass a common
+selection gate, are executable, have complete algorithms or oracles, or are ready for C++.
 
-## Cycles and readiness
+## Domain inventory
 
-Detected cycles: 2; generation-blocking cycles: 0.
-Ready for limited contract generation: 2. Ready for full contract generation: 0.
-Ready for IR generation after the conservative contract gate: 0. Implementation and code
-generation remain globally false.
+| No. | Domain | Features | Contracts | IR artifacts | Test plans | IR layer | Raw canonical labels | Common selection gate |
+|---:|---|---:|---:|---:|---:|---|---:|---:|
+| 00 | Master | 16 | 16 | 16 | 16 | yes | 0 | 0 |
+| 01 | Disciple | 10 | 10 | 10 | 10 | yes | 0 | 0 |
+| 02 | Community | 8 | 8 | 8 | 8 | yes | 0 | 0 |
+| 03 | Huit Dimensions | 11 | 11 | 11 | 11 | yes | 0 | 0 |
+| 04 | Invariants | 10 | 10 | 10 | 10 | yes | 0 | 0 |
+| 05 | Dynamics | 7 | 7 | 7 | 7 | yes | 0 | 0 |
+| 06 | Theorems | 9 | 9 | 9 | 9 | yes | 0 | 0 |
+| 07 | Message | 6 | 6 | 6 | 6 | yes | 0 | 0 |
+| 08 | Principle | 10 | 10 | 10 | 10 | yes | 0 | 0 |
+| 09 | Values | 14 | 14 | 14 | 14 | yes | 0 | 0 |
+| 10 | Virtues | 10 | 10 | 10 | 10 | yes | 0 | 0 |
+| 11 | Capacities | 15 | 15 | 15 | 15 | yes | 0 | 0 |
+| 12 | Competencies | 13 | 13 | 13 | 13 | yes | 13 | 0 |
+| 13 | Practice | 10 | 10 | 10 | 10 | yes | 0 | 0 |
+| 14 | Lived Experience | 12 | 12 | 12 | 12 | yes | 11 | 0 |
+| 15 | Relations | 5 | 5 | 5 | 5 | yes | 5 | 0 |
 
-## Execution
+## Active next phase
 
-Six dependency-derived domain batches are recorded in `contract-execution-plan.yaml` and mirrored for IR
-with the mandatory validated-contract gate. The minimum estimated remaining Codex tasks is 8: two global
-scientific synchronization tasks plus six generation/review batches. This is an estimate, not a scientific decision.
+The active strategy is `domain-review-sequence.yaml`: Master first, then the other fifteen domains in theory
+order. For each module, confirm its active features, review only unstable boundaries, review contracts, select
+or revise IRs, check required dependencies, specify algorithms and oracles, then publish a closure manifest.
+A dependency in another domain is examined only when required by the current module; it does not automatically
+reopen all sixteen domains.
 
-## Reservations
-
-- Target existence does not establish identifier or semantic compatibility.
-- Candidate and pilot contracts/IR outside Master, Disciple, and Community require scientific review.
-- Documented dependency cycles are preserved and not broken by inference.
-- Existing per-domain readiness is tightened where the explicit contract gate is not demonstrable.
+Historical targeted scientific-review artifacts retain their original source commits and are not relabelled by
+this build. Raw statuses are preserved in the feature matrices; no candidate, prototype or declarative IR is
+silently promoted.

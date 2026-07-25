@@ -1,24 +1,47 @@
-schema_version: 1
+schema_version: 2
 authority: origin/main
-canonical_commit: 2cd5a3c6dfe8786926e58d49387b5f4846697a66
-generated_at: '2026-07-23T15:57:37+00:00'
-scope: global_reconciliation_only
+canonical_commit: 75814db2398b701e2f14c035ef8d63ca61fdfb26
+generated_from_tool_commit: 16ccb6114f1548183819ecfeb3a8634403ef20d4
+generated_at: '2026-07-25T23:45:02+00:00'
+scope: current_global_inventory_through_ir_layer
+baseline_ref: registry/global-reconciliation/current-baseline.yaml
+status_taxonomy_ref: registry/global-reconciliation/status-taxonomy.yaml
+active_sequence_ref: registry/global-reconciliation/domain-review-sequence.yaml
 artifacts:
 - registry/global-reconciliation/blocker-registry.yaml
 - registry/global-reconciliation/contract-execution-plan.yaml
+- registry/global-reconciliation/current-baseline.yaml
 - registry/global-reconciliation/cycle-registry.yaml
 - registry/global-reconciliation/decision-required.yaml
 - registry/global-reconciliation/dependency-graph.yaml
 - registry/global-reconciliation/domain-feature-matrix.yaml
 - registry/global-reconciliation/domain-registry.yaml
+- registry/global-reconciliation/domain-review-sequence.yaml
 - registry/global-reconciliation/existing-artifact-audit.yaml
 - registry/global-reconciliation/feature-contract-matrix.yaml
 - registry/global-reconciliation/feature-ir-matrix.yaml
 - registry/global-reconciliation/ir-execution-plan.yaml
 - registry/global-reconciliation/manifest.yaml
 - registry/global-reconciliation/readiness-registry.yaml
+- registry/global-reconciliation/status-taxonomy.yaml
+- reports/global-reconciliation/phase4-current-baseline-work-item.md
 - reports/global-reconciliation/reconciliation-report.md
 - tools/global-reconciliation/build_global_reconciliation.py
+- tools/global-reconciliation/build_current_global_registry.py
 - tools/global-reconciliation/validate_global_reconciliation.py
+- tools/global-reconciliation/validate_current_global_registry.py
 prohibited_outputs_created: []
 source_preparations_modified: []
+math_sources_modified: false
+scientific_decisions_made: []
+summary:
+  domains: 16
+  active_features: 166
+  contracts_present: 166
+  ir_registry_entries_present: 138
+  ir_artifacts_present: 166
+  test_plans_present: 166
+  ir_layer_complete_features: 166
+  raw_canonical_label_features: 29
+  normalized_selection_gate_passed_features: 0
+  implementation_ready_asserted_features: 0
