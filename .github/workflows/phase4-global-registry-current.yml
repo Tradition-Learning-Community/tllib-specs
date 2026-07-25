@@ -40,15 +40,28 @@ jobs:
         run: git fetch origin main --quiet
 
       - name: Rebuild current global registry
-        run: python tools/global-reconciliation/build_current_global_registry.py --root .
+        id: build
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          python tools/global-reconciliation/build_current_global_registry.py --root . 2>&1 | tee reports/global-reconciliation/current-baseline-build.log
 
       - name: Validate current global registry
-        run: python tools/global-reconciliation/validate_current_global_registry.py --root .
+        id: validate
+        if: steps.build.outcome == 'success'
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          python tools/global-reconciliation/validate_current_global_registry.py --root . 2>&1 | tee reports/global-reconciliation/current-baseline-validation.log
 
       - name: Validate whitespace
+        id: whitespace
+        if: steps.build.outcome == 'success'
+        continue-on-error: true
         run: git diff --check
 
-      - name: Commit generated registry
+      - name: Commit generated registry and diagnostics
+        if: always()
         run: |
           if git diff --quiet; then
             echo "No generated changes"
@@ -59,3 +72,10 @@ jobs:
           git add registry/global-reconciliation reports/global-reconciliation tools/global-reconciliation
           git commit -m "feat(registry): rebuild current 16-domain IR baseline"
           git push origin HEAD:phase4/global-registry-current-001
+
+      - name: Fail when generation or validation failed
+        if: always()
+        run: |
+          test "${{ steps.build.outcome }}" = "success"
+          test "${{ steps.validate.outcome }}" = "success"
+          test "${{ steps.whitespace.outcome }}" = "success"
