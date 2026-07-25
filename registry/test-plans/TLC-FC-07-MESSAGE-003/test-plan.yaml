@@ -1,0 +1,82 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-07-MESSAGE-003-001
+feature_id: TLC-FC-07-MESSAGE-003
+contract_id: TLC-LEC-TLC-FC-07-MESSAGE-003-001
+ir_id: TLC-PIR-TLC-FC-07-MESSAGE-003-001
+entrypoint: assemble_existential_discourse_evidence
+primary_operation: assemble_existential_discourse_evidence
+inputs_under_test:
+- existential_discourse_records
+output_under_test: candidate_oracle_evidence
+postconditions_under_test:
+- POST-MESSAGE-003-001
+tests:
+- id: TEST-MESSAGE-003-NOMINAL
+  category: operation_nominal
+  invokes: assemble_existential_discourse_evidence
+  scenario: Both existential-discourse objects are present, distinct, and cite the same source subsection.
+  expected_effect: Returns a two-sided evidence descriptor linking TLC-SO-MESSAGE-020 and TLC-SO-MESSAGE-049 while declaring
+    oracle_acceptance_rule unresolved.
+- id: TEST-MESSAGE-003-SHAPE
+  category: type_and_shape
+  invokes: assemble_existential_discourse_evidence
+  scenario: Supply a valid ExistentialDiscourseEvidencePair.
+  expected_effect: Return exactly one CandidateExistentialOracleEvidence.
+- id: TEST-MESSAGE-003-RESULT
+  category: observable_result
+  invokes: assemble_existential_discourse_evidence
+  scenario: Inspect the feature-specific output.
+  expected_effect: Returns a two-sided evidence descriptor linking TLC-SO-MESSAGE-020 and TLC-SO-MESSAGE-049 while declaring
+    oracle_acceptance_rule unresolved.
+- id: TEST-MESSAGE-003-POST
+  category: postcondition
+  invokes: assemble_existential_discourse_evidence
+  scenario: Construct a result from complete candidate evidence.
+  expected_effect: The result retains both identities, their subsection provenance, and an unresolved acceptance-rule marker.
+- id: TEST-MESSAGE-003-PRE
+  category: invalid_precondition
+  invokes: assemble_existential_discourse_evidence
+  scenario: Remove one required covered identifier or source reference.
+  expected_error: IncompleteExistentialEvidencePair or MismatchedSourceSubsection
+- id: TEST-MESSAGE-003-ERROR
+  category: operation_error
+  invokes: assemble_existential_discourse_evidence
+  scenario: IncompleteExistentialEvidencePair or MismatchedSourceSubsection
+  expected_effect: No partial output is emitted.
+- id: TEST-MESSAGE-003-OPAQUE
+  category: opaque_value
+  invokes: assemble_existential_discourse_evidence
+  scenario: Existential classification, energetic semantics, and acceptance criteria remain undefined.
+  expected_effect: Opaque payloads remain unchanged and unevaluated.
+- id: TEST-MESSAGE-003-PROVENANCE
+  category: provenance
+  invokes: assemble_existential_discourse_evidence
+  scenario: Construct from the exact covered evidence set.
+  expected_effect: Every object, relation, source range, and contextual relation remains addressable.
+- id: TEST-MESSAGE-003-UNRESOLVED
+  category: unresolved_propagation
+  invokes: assemble_existential_discourse_evidence
+  scenario: Attach the 0 routed unresolved identifiers.
+  expected_effect: The exact unresolved identifiers remain unresolved in the result metadata.
+- id: TEST-MESSAGE-003-ASSUMPTION
+  category: assumption_propagation
+  invokes: assemble_existential_discourse_evidence
+  scenario: Attach TLC-EA-MESSAGE-003-001.
+  expected_effect: The reversible engineering assumption remains provisional.
+- id: TEST-MESSAGE-003-NO-SCIENCE
+  category: scientific_non_evaluation
+  invokes: assemble_existential_discourse_evidence
+  scenario: Request an undefined scientific evaluation or protocol behavior.
+  expected_error: ERR-MESSAGE-003-OPERATION
+- id: TEST-MESSAGE-003-CONFORMANCE
+  category: contract_ir_conformance
+  invokes: assemble_existential_discourse_evidence
+  scenario: Compare entrypoint, input, output, errors, postcondition, reservations, and readiness.
+  expected_effect: Contract, IR, and test plan agree exactly.
+- id: TEST-MESSAGE-003-INTEGRATION
+  category: minimal_integration
+  invokes: assemble_existential_discourse_evidence
+  scenario: Resolve the contract and active IR by stable feature identifiers, then bind the test plan.
+  expected_effect: One unambiguous feature-to-contract-to-IR-to-test chain is obtained.
+numeric_expected_results: []
+implementation_status: planned_not_implemented

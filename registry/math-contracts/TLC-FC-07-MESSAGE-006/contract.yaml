@@ -1,0 +1,128 @@
+schema_version: 1
+contract_id: TLC-LEC-TLC-FC-07-MESSAGE-006-001
+feature_id: TLC-FC-07-MESSAGE-006
+domain: message
+canonical_name: '07-message: state (provisionally_separated)'
+contract_kind: limited_engineering_contract
+scientific_authority: origin/main
+status: limited_engineering_contract_with_reservations
+complete_scientific_contract: false
+source_references:
+- source_path: maths/07-message.md
+  section: Le Message (Message)
+  subsection: null
+  start_line: 1
+  end_line: 5
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- source_path: maths/07-message.md
+  section: Définition et nature
+  subsection: Propriétés essentielles
+  start_line: 20
+  end_line: 26
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- source_path: maths/07-message.md
+  section: Définition et nature
+  subsection: Propriétés essentielles
+  start_line: 22
+  end_line: 22
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+covered_objects: &id001
+- TLC-SO-MESSAGE-001
+- TLC-SO-MESSAGE-004
+- TLC-SO-MESSAGE-030
+covered_relations: &id002
+- TLC-SR-MESSAGE-003
+- TLC-SR-MESSAGE-029
+contextual_relations: []
+functional_purpose: Declare the root Message entity together with its essential-properties and transmissibility evidence as
+  a non-executable domain object.
+primary_responsibility:
+  entrypoint: declare_message_entity_profile
+  operation: Validate three distinct source objects and two cited relations, then construct a root declaration linking entity
+    identity, property evidence, and transmissibility evidence without defining a protocol.
+  observable_effect: Returns a root Message profile with three distinct evidence roles and two preserved relation identifiers;
+    execution and transport capabilities are absent.
+  scientific_evaluation: prohibited
+inputs:
+- name: message_declaration_evidence
+  type: MessageEntityDeclarationEvidence
+  required_object_ids: *id001
+  required_relation_ids: *id002
+  payload_policy: opaque_candidate_evidence
+outputs:
+- name: message_entity_profile
+  type: DeclaredMessageEntityProfile
+  observable_effect: Returns a root Message profile with three distinct evidence roles and two preserved relation identifiers;
+    execution and transport capabilities are absent.
+  scientific_status: unevaluated_candidate
+types:
+  opaque:
+  - OpaqueScientificPayload
+  - OpaqueSourceContext
+  parameterized:
+  - MessageEntityDeclarationEvidence
+  - DeclaredMessageEntityProfile
+  symbolic: []
+preconditions:
+- id: PRE-MESSAGE-006-001
+  statement: TLC-SO-MESSAGE-001, TLC-SO-MESSAGE-004, TLC-SO-MESSAGE-030 and relations TLC-SR-MESSAGE-003 and TLC-SR-MESSAGE-029
+    are supplied unchanged.
+postconditions:
+- id: POST-MESSAGE-006-001
+  statement: The profile exposes entity, essential_properties, and transmissibility roles as distinct references and contains
+    no encoding, transport, or execution interface.
+explicitly_sourced_invariants:
+- id: INV-MESSAGE-006-IDENTITY
+  statement: Every covered scientific object remains distinct and source-addressable.
+  source: registry/features/feature-candidates.yaml
+- id: INV-MESSAGE-006-NONEXEC
+  statement: Message evidence is never treated as executable code or a transport protocol.
+  source: registry/domain-progress/message/message-semantics.yaml
+errors:
+- id: ERR-MESSAGE-006-OPERATION
+  condition: IncompleteMessageDeclaration, RelationEndpointMismatch, or ForbiddenProtocolField
+undefined_behaviors:
+- Property classifications, transmission mechanics, audience, medium, encoding, transport, and execution remain undefined.
+- No encoding, transport, execution, scientific truth evaluation, or numerical behavior is defined.
+propagated_unresolved:
+- TLC-UT-MESSAGE-001
+- TLC-UT-MESSAGE-021
+provisional_engineering_assumptions:
+- assumption_id: TLC-EA-MESSAGE-006-001
+  feature_id: TLC-FC-07-MESSAGE-006
+  undefined_property: Property classifications, transmission mechanics, audience, medium, encoding, transport, and execution
+    remain undefined.
+  technical_need: A programmer needs stable in-memory boundaries for identity-preserving structural construction.
+  minimal_choice: Use MessageEntityDeclarationEvidence and DeclaredMessageEntityProfile as opaque or parameterized structural
+    records.
+  alternatives_left_open:
+  - concrete domain classes
+  - serialized schema
+  - scientifically validated value types
+  - external protocol bindings
+  impact: Only validation, indexing, AST construction, grouping, and provenance preservation are authorized.
+  reversibility: true
+  status: provisional_engineering_assumption
+scientific_reservations:
+- TLC-UT-MESSAGE-001
+- TLC-UT-MESSAGE-021
+- TLC-DUP-MESSAGE-001
+confirmed_dependencies: []
+traceability:
+  source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+  feature_preparation: registry/domain-progress/message/feature-inventory.yaml
+  feature_candidate: registry/features/feature-candidates.yaml
+  objects: registry/scientific-objects/message/scientific-objects.candidate.yaml
+  relations: registry/scientific-objects/message/scientific-relations.candidate.yaml
+  unresolved: registry/scientific-objects/message/unresolved-terms.yaml
+validation_criteria:
+- declare_message_entity_profile produces DeclaredMessageEntityProfile with the stated postcondition.
+- Every covered identifier and reservation is preserved.
+- No undefined scientific property is evaluated or silently completed.
+readiness:
+  ready_for_limited_engineering_contract: true
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false

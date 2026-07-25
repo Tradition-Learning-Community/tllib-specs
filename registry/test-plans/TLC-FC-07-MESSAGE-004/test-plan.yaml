@@ -1,0 +1,84 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-07-MESSAGE-004-001
+feature_id: TLC-FC-07-MESSAGE-004
+contract_id: TLC-LEC-TLC-FC-07-MESSAGE-004-001
+ir_id: TLC-PIR-TLC-FC-07-MESSAGE-004-001
+entrypoint: index_message_forms_and_process_states
+primary_operation: index_message_forms_and_process_states
+inputs_under_test:
+- message_state_records
+output_under_test: message_state_catalogue
+postconditions_under_test:
+- POST-MESSAGE-004-001
+tests:
+- id: TEST-MESSAGE-004-NOMINAL
+  category: operation_nominal
+  invokes: index_message_forms_and_process_states
+  scenario: The input contains each of the 45 covered object identifiers exactly once with its recorded source reference.
+  expected_effect: Returns a catalogue with complete 45-object coverage, section/subsection indexes, and no inferred hierarchy
+    between groups.
+- id: TEST-MESSAGE-004-SHAPE
+  category: type_and_shape
+  invokes: index_message_forms_and_process_states
+  scenario: Supply a valid Sequence[MessageStateConceptRecord].
+  expected_effect: Return exactly one MessageFormsAndStatesCatalogue.
+- id: TEST-MESSAGE-004-RESULT
+  category: observable_result
+  invokes: index_message_forms_and_process_states
+  scenario: Inspect the feature-specific output.
+  expected_effect: Returns a catalogue with complete 45-object coverage, section/subsection indexes, and no inferred hierarchy
+    between groups.
+- id: TEST-MESSAGE-004-POST
+  category: postcondition
+  invokes: index_message_forms_and_process_states
+  scenario: Construct a result from complete candidate evidence.
+  expected_effect: Every covered object is retrievable by identifier and source context; no object is merged, reordered within
+    its source context, or promoted from candidate status.
+- id: TEST-MESSAGE-004-PRE
+  category: invalid_precondition
+  invokes: index_message_forms_and_process_states
+  scenario: Remove one required covered identifier or source reference.
+  expected_error: MissingMessageStateRecord, DuplicateMessageStateIdentifier, or UnknownMessageStateIdentifier
+- id: TEST-MESSAGE-004-ERROR
+  category: operation_error
+  invokes: index_message_forms_and_process_states
+  scenario: MissingMessageStateRecord, DuplicateMessageStateIdentifier, or UnknownMessageStateIdentifier
+  expected_effect: No partial output is emitted.
+- id: TEST-MESSAGE-004-OPAQUE
+  category: opaque_value
+  invokes: index_message_forms_and_process_states
+  scenario: Scientific classification, hierarchy, medium semantics, temporal transitions, and application validity remain
+    undefined.
+  expected_effect: Opaque payloads remain unchanged and unevaluated.
+- id: TEST-MESSAGE-004-PROVENANCE
+  category: provenance
+  invokes: index_message_forms_and_process_states
+  scenario: Construct from the exact covered evidence set.
+  expected_effect: Every object, relation, source range, and contextual relation remains addressable.
+- id: TEST-MESSAGE-004-UNRESOLVED
+  category: unresolved_propagation
+  invokes: index_message_forms_and_process_states
+  scenario: Attach the 42 routed unresolved identifiers.
+  expected_effect: The exact unresolved identifiers remain unresolved in the result metadata.
+- id: TEST-MESSAGE-004-ASSUMPTION
+  category: assumption_propagation
+  invokes: index_message_forms_and_process_states
+  scenario: Attach TLC-EA-MESSAGE-004-001.
+  expected_effect: The reversible engineering assumption remains provisional.
+- id: TEST-MESSAGE-004-NO-SCIENCE
+  category: scientific_non_evaluation
+  invokes: index_message_forms_and_process_states
+  scenario: Request an undefined scientific evaluation or protocol behavior.
+  expected_error: ERR-MESSAGE-004-OPERATION
+- id: TEST-MESSAGE-004-CONFORMANCE
+  category: contract_ir_conformance
+  invokes: index_message_forms_and_process_states
+  scenario: Compare entrypoint, input, output, errors, postcondition, reservations, and readiness.
+  expected_effect: Contract, IR, and test plan agree exactly.
+- id: TEST-MESSAGE-004-INTEGRATION
+  category: minimal_integration
+  invokes: index_message_forms_and_process_states
+  scenario: Resolve the contract and active IR by stable feature identifiers, then bind the test plan.
+  expected_effect: One unambiguous feature-to-contract-to-IR-to-test chain is obtained.
+numeric_expected_results: []
+implementation_status: planned_not_implemented

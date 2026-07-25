@@ -1,0 +1,85 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-07-MESSAGE-005-001
+feature_id: TLC-FC-07-MESSAGE-005
+contract_id: TLC-LEC-TLC-FC-07-MESSAGE-005-001
+ir_id: TLC-PIR-TLC-FC-07-MESSAGE-005-001
+entrypoint: assemble_message_existential_cycle_descriptor
+primary_operation: assemble_message_existential_cycle_descriptor
+inputs_under_test:
+- cycle_declaration_records
+output_under_test: message_cycle_descriptor
+postconditions_under_test:
+- POST-MESSAGE-005-001
+tests:
+- id: TEST-MESSAGE-005-NOMINAL
+  category: operation_nominal
+  invokes: assemble_message_existential_cycle_descriptor
+  scenario: All 18 covered object identifiers are present exactly once, except that the two distinct Transmission identifiers
+    remain separate records.
+  expected_effect: Returns a staged descriptor with four source-context partitions and six ordered cycle-stage references,
+    without executing transitions.
+- id: TEST-MESSAGE-005-SHAPE
+  category: type_and_shape
+  invokes: assemble_message_existential_cycle_descriptor
+  scenario: Supply a valid Sequence[MessageCycleDeclarationRecord].
+  expected_effect: Return exactly one MessageExistentialCycleDescriptor.
+- id: TEST-MESSAGE-005-RESULT
+  category: observable_result
+  invokes: assemble_message_existential_cycle_descriptor
+  scenario: Inspect the feature-specific output.
+  expected_effect: Returns a staged descriptor with four source-context partitions and six ordered cycle-stage references,
+    without executing transitions.
+- id: TEST-MESSAGE-005-POST
+  category: postcondition
+  invokes: assemble_message_existential_cycle_descriptor
+  scenario: Construct a result from complete candidate evidence.
+  expected_effect: The descriptor preserves all 18 identities, retains TLC-SO-MESSAGE-059 and TLC-SO-MESSAGE-071 as distinct,
+    and exposes six source-ordered cycle stages without transition semantics.
+- id: TEST-MESSAGE-005-PRE
+  category: invalid_precondition
+  invokes: assemble_message_existential_cycle_descriptor
+  scenario: Remove one required covered identifier or source reference.
+  expected_error: IncompleteCycleEvidence, DuplicateCycleIdentifier, or TransmissionOccurrencesMerged
+- id: TEST-MESSAGE-005-ERROR
+  category: operation_error
+  invokes: assemble_message_existential_cycle_descriptor
+  scenario: IncompleteCycleEvidence, DuplicateCycleIdentifier, or TransmissionOccurrencesMerged
+  expected_effect: No partial output is emitted.
+- id: TEST-MESSAGE-005-OPAQUE
+  category: opaque_value
+  invokes: assemble_message_existential_cycle_descriptor
+  scenario: Transition rules, timing, causal effects, transformation criteria, sender/receiver roles, encoding, and transport
+    remain undefined.
+  expected_effect: Opaque payloads remain unchanged and unevaluated.
+- id: TEST-MESSAGE-005-PROVENANCE
+  category: provenance
+  invokes: assemble_message_existential_cycle_descriptor
+  scenario: Construct from the exact covered evidence set.
+  expected_effect: Every object, relation, source range, and contextual relation remains addressable.
+- id: TEST-MESSAGE-005-UNRESOLVED
+  category: unresolved_propagation
+  invokes: assemble_message_existential_cycle_descriptor
+  scenario: Attach the 17 routed unresolved identifiers.
+  expected_effect: The exact unresolved identifiers remain unresolved in the result metadata.
+- id: TEST-MESSAGE-005-ASSUMPTION
+  category: assumption_propagation
+  invokes: assemble_message_existential_cycle_descriptor
+  scenario: Attach TLC-EA-MESSAGE-005-001.
+  expected_effect: The reversible engineering assumption remains provisional.
+- id: TEST-MESSAGE-005-NO-SCIENCE
+  category: scientific_non_evaluation
+  invokes: assemble_message_existential_cycle_descriptor
+  scenario: Request an undefined scientific evaluation or protocol behavior.
+  expected_error: ERR-MESSAGE-005-OPERATION
+- id: TEST-MESSAGE-005-CONFORMANCE
+  category: contract_ir_conformance
+  invokes: assemble_message_existential_cycle_descriptor
+  scenario: Compare entrypoint, input, output, errors, postcondition, reservations, and readiness.
+  expected_effect: Contract, IR, and test plan agree exactly.
+- id: TEST-MESSAGE-005-INTEGRATION
+  category: minimal_integration
+  invokes: assemble_message_existential_cycle_descriptor
+  scenario: Resolve the contract and active IR by stable feature identifiers, then bind the test plan.
+  expected_effect: One unambiguous feature-to-contract-to-IR-to-test chain is obtained.
+numeric_expected_results: []
+implementation_status: planned_not_implemented

@@ -1,0 +1,112 @@
+schema_version: 1
+contract_id: TLC-LEC-TLC-FC-07-MESSAGE-003-001
+feature_id: TLC-FC-07-MESSAGE-003
+domain: message
+canonical_name: '07-message: oracle (admissible)'
+contract_kind: limited_engineering_contract
+scientific_authority: origin/main
+status: limited_engineering_contract_with_reservations
+complete_scientific_contract: false
+source_references:
+- source_path: maths/07-message.md
+  section: Les huit discours comme langages du Message
+  subsection: 'Discours existentiels (format : existentiel, énergétique)'
+  start_line: 95
+  end_line: 97
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- source_path: maths/07-message.md
+  section: Les huit discours comme langages du Message
+  subsection: 'Discours existentiels (format : existentiel, énergétique)'
+  start_line: 96
+  end_line: 96
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+covered_objects: &id001
+- TLC-SO-MESSAGE-020
+- TLC-SO-MESSAGE-049
+covered_relations: &id002 []
+contextual_relations: []
+functional_purpose: Assemble the two existential-discourse objects into candidate oracle evidence without treating their labels
+  as a scientific acceptance oracle.
+primary_responsibility:
+  entrypoint: assemble_existential_discourse_evidence
+  operation: Pair the discourse-format object with the existential label object, validate their shared source subsection,
+    and emit a candidate-evidence descriptor with acceptance semantics unresolved.
+  observable_effect: Returns a two-sided evidence descriptor linking TLC-SO-MESSAGE-020 and TLC-SO-MESSAGE-049 while declaring
+    oracle_acceptance_rule unresolved.
+  scientific_evaluation: prohibited
+inputs:
+- name: existential_discourse_records
+  type: ExistentialDiscourseEvidencePair
+  required_object_ids: *id001
+  required_relation_ids: *id002
+  payload_policy: opaque_candidate_evidence
+outputs:
+- name: candidate_oracle_evidence
+  type: CandidateExistentialOracleEvidence
+  observable_effect: Returns a two-sided evidence descriptor linking TLC-SO-MESSAGE-020 and TLC-SO-MESSAGE-049 while declaring
+    oracle_acceptance_rule unresolved.
+  scientific_status: unevaluated_candidate
+types:
+  opaque:
+  - OpaqueScientificPayload
+  - OpaqueSourceContext
+  parameterized:
+  - ExistentialDiscourseEvidencePair
+  - CandidateExistentialOracleEvidence
+  symbolic: []
+preconditions:
+- id: PRE-MESSAGE-003-001
+  statement: Both existential-discourse objects are present, distinct, and cite the same source subsection.
+postconditions:
+- id: POST-MESSAGE-003-001
+  statement: The result retains both identities, their subsection provenance, and an unresolved acceptance-rule marker.
+explicitly_sourced_invariants:
+- id: INV-MESSAGE-003-IDENTITY
+  statement: Every covered scientific object remains distinct and source-addressable.
+  source: registry/features/feature-candidates.yaml
+- id: INV-MESSAGE-003-NONEXEC
+  statement: Message evidence is never treated as executable code or a transport protocol.
+  source: registry/domain-progress/message/message-semantics.yaml
+errors:
+- id: ERR-MESSAGE-003-OPERATION
+  condition: IncompleteExistentialEvidencePair or MismatchedSourceSubsection
+undefined_behaviors:
+- Existential classification, energetic semantics, and acceptance criteria remain undefined.
+- No encoding, transport, execution, scientific truth evaluation, or numerical behavior is defined.
+propagated_unresolved: []
+provisional_engineering_assumptions:
+- assumption_id: TLC-EA-MESSAGE-003-001
+  feature_id: TLC-FC-07-MESSAGE-003
+  undefined_property: Existential classification, energetic semantics, and acceptance criteria remain undefined.
+  technical_need: A programmer needs stable in-memory boundaries for identity-preserving structural construction.
+  minimal_choice: Use ExistentialDiscourseEvidencePair and CandidateExistentialOracleEvidence as opaque or parameterized structural
+    records.
+  alternatives_left_open:
+  - concrete domain classes
+  - serialized schema
+  - scientifically validated value types
+  - external protocol bindings
+  impact: Only validation, indexing, AST construction, grouping, and provenance preservation are authorized.
+  reversibility: true
+  status: provisional_engineering_assumption
+scientific_reservations: []
+confirmed_dependencies:
+- TLC-LEC-TLC-FC-07-MESSAGE-006-001
+traceability:
+  source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+  feature_preparation: registry/domain-progress/message/feature-inventory.yaml
+  feature_candidate: registry/features/feature-candidates.yaml
+  objects: registry/scientific-objects/message/scientific-objects.candidate.yaml
+  relations: registry/scientific-objects/message/scientific-relations.candidate.yaml
+  unresolved: registry/scientific-objects/message/unresolved-terms.yaml
+validation_criteria:
+- assemble_existential_discourse_evidence produces CandidateExistentialOracleEvidence with the stated postcondition.
+- Every covered identifier and reservation is preserved.
+- No undefined scientific property is evaluated or silently completed.
+readiness:
+  ready_for_limited_engineering_contract: true
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false

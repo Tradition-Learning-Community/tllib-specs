@@ -1,0 +1,447 @@
+schema_version: 1
+ir_id: TLC-PIR-TLC-FC-07-MESSAGE-004-001
+feature_id: TLC-FC-07-MESSAGE-004
+contract_id: TLC-LEC-TLC-FC-07-MESSAGE-004-001
+domain: message
+ir_kind: prototype_ir_with_reservations
+classification: substantive_and_implementable
+entrypoint: index_message_forms_and_process_states
+primary_operation:
+  name: index_message_forms_and_process_states
+  technical_processing: Validate the exact covered-object set, group records by cited source section/subsection, preserve
+    source order within groups, and build immutable indexes by object identifier and source context.
+  observable_effect: Returns a catalogue with complete 45-object coverage, section/subsection indexes, and no inferred hierarchy
+    between groups.
+  scientific_evaluation: prohibited
+inputs:
+- name: message_state_records
+  type: Sequence[MessageStateConceptRecord]
+  required_object_ids: &id001
+  - TLC-SO-MESSAGE-006
+  - TLC-SO-MESSAGE-007
+  - TLC-SO-MESSAGE-008
+  - TLC-SO-MESSAGE-009
+  - TLC-SO-MESSAGE-010
+  - TLC-SO-MESSAGE-011
+  - TLC-SO-MESSAGE-012
+  - TLC-SO-MESSAGE-014
+  - TLC-SO-MESSAGE-015
+  - TLC-SO-MESSAGE-016
+  - TLC-SO-MESSAGE-017
+  - TLC-SO-MESSAGE-018
+  - TLC-SO-MESSAGE-019
+  - TLC-SO-MESSAGE-021
+  - TLC-SO-MESSAGE-022
+  - TLC-SO-MESSAGE-023
+  - TLC-SO-MESSAGE-024
+  - TLC-SO-MESSAGE-035
+  - TLC-SO-MESSAGE-036
+  - TLC-SO-MESSAGE-037
+  - TLC-SO-MESSAGE-038
+  - TLC-SO-MESSAGE-039
+  - TLC-SO-MESSAGE-040
+  - TLC-SO-MESSAGE-041
+  - TLC-SO-MESSAGE-043
+  - TLC-SO-MESSAGE-045
+  - TLC-SO-MESSAGE-046
+  - TLC-SO-MESSAGE-047
+  - TLC-SO-MESSAGE-048
+  - TLC-SO-MESSAGE-050
+  - TLC-SO-MESSAGE-051
+  - TLC-SO-MESSAGE-052
+  - TLC-SO-MESSAGE-053
+  - TLC-SO-MESSAGE-054
+  - TLC-SO-MESSAGE-055
+  - TLC-SO-MESSAGE-056
+  - TLC-SO-MESSAGE-057
+  - TLC-SO-MESSAGE-058
+  - TLC-SO-MESSAGE-060
+  - TLC-SO-MESSAGE-061
+  - TLC-SO-MESSAGE-062
+  - TLC-SO-MESSAGE-063
+  - TLC-SO-MESSAGE-064
+  - TLC-SO-MESSAGE-065
+  - TLC-SO-MESSAGE-066
+  required_relation_ids: &id002 []
+  payload_policy: opaque_candidate_evidence
+outputs:
+- name: message_state_catalogue
+  type: MessageFormsAndStatesCatalogue
+  observable_effect: Returns a catalogue with complete 45-object coverage, section/subsection indexes, and no inferred hierarchy
+    between groups.
+  scientific_status: unevaluated_candidate
+opaque_types:
+- OpaqueScientificPayload
+- OpaqueSourceContext
+parameterized_types:
+- Sequence[MessageStateConceptRecord]
+- MessageFormsAndStatesCatalogue
+symbolic_types: []
+operations:
+- operation_id: IR-OP-MESSAGE-004-001
+  name: index_message_forms_and_process_states
+  kind: deterministic_structural_operation
+  input: message_state_records
+  output: message_state_catalogue
+operation_sequence:
+- validate_required_identifiers_and_source_references
+- index_message_forms_and_process_states
+- verify_feature_specific_postcondition
+- attach_unresolved_assumptions_and_provenance
+preconditions:
+- id: PRE-MESSAGE-004-001
+  statement: The input contains each of the 45 covered object identifiers exactly once with its recorded source reference.
+postconditions:
+- id: POST-MESSAGE-004-001
+  statement: Every covered object is retrievable by identifier and source context; no object is merged, reordered within its
+    source context, or promoted from candidate status.
+invariants:
+- id: INV-MESSAGE-004-IDENTITY
+  statement: Every covered scientific object remains distinct and source-addressable.
+  source: registry/features/feature-candidates.yaml
+- id: INV-MESSAGE-004-NONEXEC
+  statement: Message evidence is never treated as executable code or a transport protocol.
+  source: registry/domain-progress/message/message-semantics.yaml
+errors:
+- id: ERR-MESSAGE-004-OPERATION
+  condition: MissingMessageStateRecord, DuplicateMessageStateIdentifier, or UnknownMessageStateIdentifier
+undefined_behaviors:
+- Scientific classification, hierarchy, medium semantics, temporal transitions, and application validity remain undefined.
+- No encoding, transport, execution, scientific truth evaluation, or numerical behavior is defined.
+propagated_unresolved:
+- TLC-UT-MESSAGE-003
+- TLC-UT-MESSAGE-004
+- TLC-UT-MESSAGE-005
+- TLC-UT-MESSAGE-006
+- TLC-UT-MESSAGE-007
+- TLC-UT-MESSAGE-008
+- TLC-UT-MESSAGE-009
+- TLC-UT-MESSAGE-010
+- TLC-UT-MESSAGE-011
+- TLC-UT-MESSAGE-012
+- TLC-UT-MESSAGE-013
+- TLC-UT-MESSAGE-014
+- TLC-UT-MESSAGE-015
+- TLC-UT-MESSAGE-016
+- TLC-UT-MESSAGE-017
+- TLC-UT-MESSAGE-026
+- TLC-UT-MESSAGE-027
+- TLC-UT-MESSAGE-028
+- TLC-UT-MESSAGE-029
+- TLC-UT-MESSAGE-030
+- TLC-UT-MESSAGE-031
+- TLC-UT-MESSAGE-033
+- TLC-UT-MESSAGE-035
+- TLC-UT-MESSAGE-036
+- TLC-UT-MESSAGE-037
+- TLC-UT-MESSAGE-038
+- TLC-UT-MESSAGE-039
+- TLC-UT-MESSAGE-040
+- TLC-UT-MESSAGE-041
+- TLC-UT-MESSAGE-042
+- TLC-UT-MESSAGE-043
+- TLC-UT-MESSAGE-044
+- TLC-UT-MESSAGE-045
+- TLC-UT-MESSAGE-046
+- TLC-UT-MESSAGE-047
+- TLC-UT-MESSAGE-049
+- TLC-UT-MESSAGE-050
+- TLC-UT-MESSAGE-051
+- TLC-UT-MESSAGE-052
+- TLC-UT-MESSAGE-053
+- TLC-UT-MESSAGE-054
+- TLC-UT-MESSAGE-055
+propagated_provisional_assumptions:
+- TLC-EA-MESSAGE-004-001
+traceability:
+  contract: registry/math-contracts/TLC-FC-07-MESSAGE-004/contract.yaml
+  source_references:
+  - source_path: maths/07-message.md
+    section: Définition et nature
+    subsection: Domaine de validité
+    start_line: 34
+    end_line: 38
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Types et formes de Message
+    subsection: null
+    start_line: 40
+    end_line: 40
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Types et formes de Message
+    subsection: Message symbolique
+    start_line: 42
+    end_line: 43
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Types et formes de Message
+    subsection: Message procédural
+    start_line: 45
+    end_line: 46
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Types et formes de Message
+    subsection: Message conceptuel
+    start_line: 48
+    end_line: 49
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Types et formes de Message
+    subsection: Formes hybrides
+    start_line: 51
+    end_line: 52
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Nature du Message fondamental
+    subsection: null
+    start_line: 54
+    end_line: 56
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Nature du Message fondamental
+    subsection: Force transformatrice
+    start_line: 64
+    end_line: 66
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Nature du Message fondamental
+    subsection: Rôle du Maître
+    start_line: 68
+    end_line: 70
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Nature du Message fondamental
+    subsection: Conscience du Message
+    start_line: 72
+    end_line: 74
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Processus de révélation
+    subsection: null
+    start_line: 76
+    end_line: 78
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Les huit discours comme langages du Message
+    subsection: null
+    start_line: 85
+    end_line: 87
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Les huit discours comme langages du Message
+    subsection: 'Discours expressifs (format : visuel, textuel, sonique, structuré)'
+    start_line: 89
+    end_line: 93
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Les huit discours comme langages du Message
+    subsection: 'Discours révélationnels (format : synchronique, ontologique)'
+    start_line: 99
+    end_line: 101
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Comment le Message devient compris
+    subsection: null
+    start_line: 105
+    end_line: 111
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Cristallisation du Message
+    subsection: null
+    start_line: 113
+    end_line: 119
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Applications universelles du modèle
+    subsection: null
+    start_line: 121
+    end_line: 123
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Définition et nature
+    subsection: Conditions d’existence
+    start_line: 30
+    end_line: 30
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Définition et nature
+    subsection: Conditions d’existence
+    start_line: 31
+    end_line: 31
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Définition et nature
+    subsection: Conditions d’existence
+    start_line: 32
+    end_line: 32
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Définition et nature
+    subsection: Domaine de validité
+    start_line: 36
+    end_line: 36
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Définition et nature
+    subsection: Domaine de validité
+    start_line: 37
+    end_line: 37
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Définition et nature
+    subsection: Domaine de validité
+    start_line: 38
+    end_line: 38
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Processus de révélation
+    subsection: null
+    start_line: 80
+    end_line: 80
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Processus de révélation
+    subsection: null
+    start_line: 82
+    end_line: 82
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Les huit discours comme langages du Message
+    subsection: 'Discours expressifs (format : visuel, textuel, sonique, structuré)'
+    start_line: 90
+    end_line: 90
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Les huit discours comme langages du Message
+    subsection: 'Discours expressifs (format : visuel, textuel, sonique, structuré)'
+    start_line: 91
+    end_line: 91
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Les huit discours comme langages du Message
+    subsection: 'Discours expressifs (format : visuel, textuel, sonique, structuré)'
+    start_line: 92
+    end_line: 92
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Les huit discours comme langages du Message
+    subsection: 'Discours expressifs (format : visuel, textuel, sonique, structuré)'
+    start_line: 93
+    end_line: 93
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Les huit discours comme langages du Message
+    subsection: 'Discours existentiels (format : existentiel, énergétique)'
+    start_line: 97
+    end_line: 97
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Les huit discours comme langages du Message
+    subsection: 'Discours révélationnels (format : synchronique, ontologique)'
+    start_line: 100
+    end_line: 100
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Les huit discours comme langages du Message
+    subsection: 'Discours révélationnels (format : synchronique, ontologique)'
+    start_line: 101
+    end_line: 101
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Comment le Message devient compris
+    subsection: null
+    start_line: 107
+    end_line: 107
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Comment le Message devient compris
+    subsection: null
+    start_line: 108
+    end_line: 108
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Comment le Message devient compris
+    subsection: null
+    start_line: 109
+    end_line: 109
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Comment le Message devient compris
+    subsection: null
+    start_line: 110
+    end_line: 110
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Comment le Message devient compris
+    subsection: null
+    start_line: 111
+    end_line: 111
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Cristallisation du Message
+    subsection: null
+    start_line: 115
+    end_line: 115
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Cristallisation du Message
+    subsection: null
+    start_line: 117
+    end_line: 117
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Cristallisation du Message
+    subsection: null
+    start_line: 118
+    end_line: 118
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Cristallisation du Message
+    subsection: null
+    start_line: 119
+    end_line: 119
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Applications universelles du modèle
+    subsection: null
+    start_line: 125
+    end_line: 125
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Applications universelles du modèle
+    subsection: null
+    start_line: 126
+    end_line: 126
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Applications universelles du modèle
+    subsection: null
+    start_line: 127
+    end_line: 127
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/07-message.md
+    section: Applications universelles du modèle
+    subsection: null
+    start_line: 128
+    end_line: 128
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  covered_objects: *id001
+  covered_relations: *id002
+  contextual_relations: []
+  source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+determinism_status: deterministic_structural_result_for_identical_ordered_evidence
+testability_status: feature_specific_operation_effect_errors_and_postcondition_testable
+implementation_constraints:
+- Implement only index_message_forms_and_process_states and the declared structural processing.
+- Scientific classification, hierarchy, medium semantics, temporal transitions, and application validity remain undefined.
+- Do not infer scientific truth, schemas, protocols, encoding, transport, execution, hierarchy, metrics, timing, or algorithms.
+active_or_historical_status: active_prototype_ir
+blocks_all_prototype_progress: false
+readiness:
+  ready_for_limited_engineering_contract: true
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false

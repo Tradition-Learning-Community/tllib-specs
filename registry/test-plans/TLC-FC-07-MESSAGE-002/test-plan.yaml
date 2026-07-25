@@ -1,0 +1,81 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-07-MESSAGE-002-001
+feature_id: TLC-FC-07-MESSAGE-002
+contract_id: TLC-LEC-TLC-FC-07-MESSAGE-002-001
+ir_id: TLC-PIR-TLC-FC-07-MESSAGE-002-001
+entrypoint: register_message_preexistence_claim
+primary_operation: register_message_preexistence_claim
+inputs_under_test:
+- preexistence_evidence
+output_under_test: preexistence_claim
+postconditions_under_test:
+- POST-MESSAGE-002-001
+tests:
+- id: TEST-MESSAGE-002-NOMINAL
+  category: operation_nominal
+  invokes: register_message_preexistence_claim
+  scenario: The TLC-SO-MESSAGE-013 evidence identifier and its source range are supplied unchanged.
+  expected_effect: Returns a claim record containing the preexistence evidence, candidate status, and verification_status=unavailable_without_oracle.
+- id: TEST-MESSAGE-002-SHAPE
+  category: type_and_shape
+  invokes: register_message_preexistence_claim
+  scenario: Supply a valid OpaquePreexistenceEvidence.
+  expected_effect: Return exactly one UnevaluatedPreexistenceClaim.
+- id: TEST-MESSAGE-002-RESULT
+  category: observable_result
+  invokes: register_message_preexistence_claim
+  scenario: Inspect the feature-specific output.
+  expected_effect: Returns a claim record containing the preexistence evidence, candidate status, and verification_status=unavailable_without_oracle.
+- id: TEST-MESSAGE-002-POST
+  category: postcondition
+  invokes: register_message_preexistence_claim
+  scenario: Construct a result from complete candidate evidence.
+  expected_effect: The result preserves the preexistence statement and explicitly exposes that no truth value or executable
+    oracle was produced.
+- id: TEST-MESSAGE-002-PRE
+  category: invalid_precondition
+  invokes: register_message_preexistence_claim
+  scenario: Remove one required covered identifier or source reference.
+  expected_error: MissingPreexistenceEvidence or OracleEvaluationRequested
+- id: TEST-MESSAGE-002-ERROR
+  category: operation_error
+  invokes: register_message_preexistence_claim
+  scenario: MissingPreexistenceEvidence or OracleEvaluationRequested
+  expected_effect: No partial output is emitted.
+- id: TEST-MESSAGE-002-OPAQUE
+  category: opaque_value
+  invokes: register_message_preexistence_claim
+  scenario: The ontology, time model, existence predicate, and scientific oracle remain undefined.
+  expected_effect: Opaque payloads remain unchanged and unevaluated.
+- id: TEST-MESSAGE-002-PROVENANCE
+  category: provenance
+  invokes: register_message_preexistence_claim
+  scenario: Construct from the exact covered evidence set.
+  expected_effect: Every object, relation, source range, and contextual relation remains addressable.
+- id: TEST-MESSAGE-002-UNRESOLVED
+  category: unresolved_propagation
+  invokes: register_message_preexistence_claim
+  scenario: Attach the 0 routed unresolved identifiers.
+  expected_effect: The exact unresolved identifiers remain unresolved in the result metadata.
+- id: TEST-MESSAGE-002-ASSUMPTION
+  category: assumption_propagation
+  invokes: register_message_preexistence_claim
+  scenario: Attach TLC-EA-MESSAGE-002-001.
+  expected_effect: The reversible engineering assumption remains provisional.
+- id: TEST-MESSAGE-002-NO-SCIENCE
+  category: scientific_non_evaluation
+  invokes: register_message_preexistence_claim
+  scenario: Request an undefined scientific evaluation or protocol behavior.
+  expected_error: ERR-MESSAGE-002-OPERATION
+- id: TEST-MESSAGE-002-CONFORMANCE
+  category: contract_ir_conformance
+  invokes: register_message_preexistence_claim
+  scenario: Compare entrypoint, input, output, errors, postcondition, reservations, and readiness.
+  expected_effect: Contract, IR, and test plan agree exactly.
+- id: TEST-MESSAGE-002-INTEGRATION
+  category: minimal_integration
+  invokes: register_message_preexistence_claim
+  scenario: Resolve the contract and active IR by stable feature identifiers, then bind the test plan.
+  expected_effect: One unambiguous feature-to-contract-to-IR-to-test chain is obtained.
+numeric_expected_results: []
+implementation_status: planned_not_implemented

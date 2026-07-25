@@ -1,0 +1,126 @@
+schema_version: 1
+contract_id: TLC-LEC-TLC-FC-07-MESSAGE-001-001
+feature_id: TLC-FC-07-MESSAGE-001
+domain: message
+canonical_name: '07-message: definition (blocked_locally)'
+contract_kind: limited_engineering_contract
+scientific_authority: origin/main
+status: limited_engineering_contract_with_reservations
+complete_scientific_contract: false
+source_references:
+- source_path: maths/07-message.md
+  section: Définition et nature
+  subsection: null
+  start_line: 3
+  end_line: 5
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- source_path: maths/07-message.md
+  section: Définition et nature
+  subsection: Définition formelle
+  start_line: 7
+  end_line: 9
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+- source_path: maths/07-message.md
+  section: Définition et nature
+  subsection: Définition formelle
+  start_line: 11
+  end_line: 13
+  source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+covered_objects: &id001
+- TLC-SO-MESSAGE-002
+- TLC-SO-MESSAGE-003
+- TLC-SO-MESSAGE-025
+covered_relations: &id002 []
+contextual_relations:
+- TLC-SR-MESSAGE-001
+- TLC-SR-MESSAGE-002
+- TLC-SR-MESSAGE-024
+functional_purpose: Construct an immutable symbolic AST for the source-declared Message quadruplet while retaining the narrative
+  and formal-definition evidence.
+primary_responsibility:
+  entrypoint: construct_message_quadruplet_ast
+  operation: Bind the three cited definition objects, construct a four-slot symbolic tuple node from the formal equation,
+    and attach source provenance without assigning runtime field types.
+  observable_effect: Returns an immutable four-slot Message AST whose slot symbols and three evidence identifiers remain source-addressable
+    and unevaluated.
+  scientific_evaluation: prohibited
+inputs:
+- name: definition_evidence
+  type: MessageDefinitionEvidenceSet
+  required_object_ids: *id001
+  required_relation_ids: *id002
+  payload_policy: opaque_candidate_evidence
+outputs:
+- name: message_quadruplet_ast
+  type: ImmutableMessageQuadrupletAst
+  observable_effect: Returns an immutable four-slot Message AST whose slot symbols and three evidence identifiers remain source-addressable
+    and unevaluated.
+  scientific_status: unevaluated_candidate
+types:
+  opaque:
+  - OpaqueScientificPayload
+  - OpaqueSourceContext
+  parameterized:
+  - MessageDefinitionEvidenceSet
+  - ImmutableMessageQuadrupletAst
+  symbolic:
+  - ImmutableSymbolicAst
+preconditions:
+- id: PRE-MESSAGE-001-001
+  statement: All three definition evidence objects and the formal quadruplet expression are present under candidate status.
+postconditions:
+- id: POST-MESSAGE-001-001
+  statement: The result has one Message tuple root, exactly four source-named symbolic slots, and provenance links to TLC-SO-MESSAGE-002,
+    TLC-SO-MESSAGE-003, and TLC-SO-MESSAGE-025.
+explicitly_sourced_invariants:
+- id: INV-MESSAGE-001-IDENTITY
+  statement: Every covered scientific object remains distinct and source-addressable.
+  source: registry/features/feature-candidates.yaml
+- id: INV-MESSAGE-001-NONEXEC
+  statement: Message evidence is never treated as executable code or a transport protocol.
+  source: registry/domain-progress/message/message-semantics.yaml
+errors:
+- id: ERR-MESSAGE-001-OPERATION
+  condition: MissingDefinitionEvidence or MalformedFourSlotExpression
+undefined_behaviors:
+- Slot runtime types, encoding, transport, sender/receiver interfaces, and execution semantics remain undefined.
+- No encoding, transport, execution, scientific truth evaluation, or numerical behavior is defined.
+propagated_unresolved: []
+provisional_engineering_assumptions:
+- assumption_id: TLC-EA-MESSAGE-001-001
+  feature_id: TLC-FC-07-MESSAGE-001
+  undefined_property: Slot runtime types, encoding, transport, sender/receiver interfaces, and execution semantics remain
+    undefined.
+  technical_need: A programmer needs stable in-memory boundaries for identity-preserving structural construction.
+  minimal_choice: Use MessageDefinitionEvidenceSet and ImmutableMessageQuadrupletAst as opaque or parameterized structural
+    records.
+  alternatives_left_open:
+  - concrete domain classes
+  - serialized schema
+  - scientifically validated value types
+  - external protocol bindings
+  impact: Only validation, indexing, AST construction, grouping, and provenance preservation are authorized.
+  reversibility: true
+  status: provisional_engineering_assumption
+scientific_reservations:
+- TLC-DUP-MESSAGE-001
+confirmed_dependencies:
+- TLC-LEC-TLC-FC-07-MESSAGE-006-001
+traceability:
+  source_commit: f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+  feature_preparation: registry/domain-progress/message/feature-inventory.yaml
+  feature_candidate: registry/features/feature-candidates.yaml
+  objects: registry/scientific-objects/message/scientific-objects.candidate.yaml
+  relations: registry/scientific-objects/message/scientific-relations.candidate.yaml
+  unresolved: registry/scientific-objects/message/unresolved-terms.yaml
+validation_criteria:
+- construct_message_quadruplet_ast produces ImmutableMessageQuadrupletAst with the stated postcondition.
+- Every covered identifier and reservation is preserved.
+- No undefined scientific property is evaluated or silently completed.
+readiness:
+  ready_for_limited_engineering_contract: true
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false
