@@ -1,0 +1,102 @@
+---
+ir_id: TLC-IR-TLC-FC-12-COMPETENCIES-009
+feature_id: TLC-FC-12-COMPETENCIES-009
+contract_id: TLC-MC-TLC-FC-12-COMPETENCIES-009
+contract_path: registry/math-contracts/TLC-FC-12-COMPETENCIES-009/contract.yaml
+ir_kind: canonical_declarative_ir_with_reservations
+entrypoint: competencies_preserve_metric_evaluation_record_009
+primary_operation: build_competencies_canonical_descriptor
+inputs:
+- name: competencies_feature_id
+  type: FeatureId
+  required: true
+  expected_value: TLC-FC-12-COMPETENCIES-009
+- name: object_payloads
+  type: Map<ObjectId,OpaqueScientificObject>
+  required: true
+  required_keys:
+  - TLC-SO-COMPETENCIES-022
+  - TLC-SO-COMPETENCIES-035
+  - TLC-SO-COMPETENCIES-085
+- name: provenance
+  type: Map<ObjectId,SourceReference>
+  required: true
+outputs:
+- name: artifact
+  type: CompetenciesCanonicalDescriptor
+  observable_effect: returns descriptor containing feature id, category, object ids,
+    source statements, symbols, provenance, reservations, blockers, and no evaluated
+    scientific value
+opaque_types:
+- OpaqueScientificObject
+- OpaqueScientificValue
+parameterized_types:
+- Map<ObjectId,OpaqueScientificObject>
+- List<SourceReference>
+operations:
+- name: validate_feature_and_object_set
+  behavior: check feature id, required object ids, duplicates, and provenance presence
+    before descriptor creation
+- name: build_competencies_canonical_descriptor
+  behavior: assemble immutable descriptor from catalogue object ids, declared symbols,
+    category/status labels, source statements, reservations, and provenance without
+    evaluating scientific content
+- name: reject_scientific_evaluation_request
+  behavior: raise ScientificEvaluationRequested for score, threshold, simulation,
+    rank, probability, causal effect, or resolved scientific truth requests
+operation_sequence:
+- validate_feature_and_object_set
+- build_competencies_canonical_descriptor
+- reject_scientific_evaluation_request guard is available for evaluator integrations
+constraints:
+- covered object set is exactly the feature catalogue object set
+- source statements and equations remain opaque and are not reinterpreted
+- scientific reservations, non-invention notes, and blockers are propagated
+preconditions:
+- feature id equals contract feature_id
+- all covered object ids are present exactly once in object_payloads
+- each covered object has a source reference
+- caller does not request numeric scoring, thresholds, learning dynamics, temporal
+  simulation, or scientific evaluation
+postconditions:
+- output feature_id equals input feature id
+- output covered_objects preserves catalogue order
+- output provenance contains a source reference for every covered object
+- output contains no generated scientific metric, score, threshold, rank, probability,
+  or temporal inference
+- descriptor is marked structurally_valid only for provenance and coverage completeness
+errors:
+- UnknownFeatureId
+- MissingCoveredObject
+- DuplicateCoveredObject
+- MissingSourceReference
+- ScientificEvaluationRequested
+- BlockedScientificDecision
+propagated_reservations:
+- no full mathematical contract or production semantics asserted
+- types, dimensions, units, thresholds, and temporal semantics are not completed
+- scientific unresolved blockers are preserved rather than resolved
+propagated_unresolved: []
+implementation_decisions_required:
+- descriptor schema finalization for downstream code generation
+- runtime representation of opaque source statements and symbols
+scientific_decisions_required:
+- scientific unresolved
+- validated contract absent
+determinism_status: deterministic for identical feature id, object ids, payload identities,
+  symbols, source statements, reservations, and provenance; opaque payload internals
+  ignored
+testability_status: structural, traceability, rejection, and determinism behavior
+  testable; scientific semantics intentionally untestable
+implementation_constraints:
+- do not evaluate formulas or symbols
+- do not infer missing endpoints or relations
+- do not create scores, levels, weights, thresholds, temporal progress, or probabilities
+- preserve catalogue order and provenance
+classification: canonical_declarative_non_executable
+readiness:
+  python: structural_descriptor_ready_with_reservations
+  cpp: structural_descriptor_ready_with_reservations
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_production_implementation: false

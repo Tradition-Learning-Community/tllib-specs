@@ -1,0 +1,82 @@
+manifest_version: "1.0"
+
+execution_id: wave-3-competencies-domain-completion-001
+wave: 3
+domain_order: 12
+
+repository:
+  full_name: Tradition-Learning-Community/tllib-specs
+  base_branch: main
+  work_branch: ir/competencies-domain-completion-001
+  target_branch: main
+
+domain:
+  id: competencies
+  display_name: Competencies
+  feature_prefix: TLC-FC-12-COMPETENCIES
+  source_file: maths/12-competencies.md
+
+known_state:
+  preparation_status: preparation_complete_with_reservations
+  declared_features_total: 13
+  current_scope: preparation_only_no_contract_no_ir_no_code
+  existing_canonical_contracts_expected: 0
+  existing_canonical_irs_expected: 0
+  existing_canonical_test_plans_expected: 0
+
+authoritative_inputs:
+  - maths/12-competencies.md
+  - registry/domain-progress/competencies/source-inventory.yaml
+  - registry/domain-progress/competencies/feature-catalogue.yaml
+  - registry/domain-progress/competencies/production-readiness.yaml
+  - registry/domain-progress/competencies/
+  - registry/scientific-objects/
+  - registry/scientific-relations/
+  - registry/features/
+  - registry/global-reconciliation/
+  - reviews/functional-decomposition/
+  - reports/functional-decomposition/
+
+reference_domains:
+  structural_examples:
+    - TLC-FC-07-MESSAGE
+    - TLC-FC-08-PRINCIPLE
+    - TLC-FC-09-VALUES
+    - TLC-FC-10-VIRTUES
+    - TLC-FC-11-CAPACITIES
+  dependency_domain:
+    - TLC-FC-11-CAPACITIES
+
+special_instructions:
+  - Treat the existing feature catalogue as the primary planned catalogue, but verify every feature against current main.
+  - Preserve capacities_dependency classifications.
+  - Do not invent missing types, dimensions, thresholds, units, or temporal semantics.
+  - A feature may receive canonical declarative artifacts while remaining non_executable.
+  - Do not interpret preparation readiness as implementation readiness.
+  - Do not modify maths/.
+
+required_outputs:
+  canonical_contract_pattern: registry/math-contracts/<FEATURE-ID>/contract.yaml
+  canonical_ir_pattern: registry/ir/<FEATURE-ID>/ir.yaml
+  canonical_test_plan_pattern: registry/test-plans/<FEATURE-ID>/test-plan.yaml
+  domain_report: reports/ir-batches/competencies-domain-completion-001/completion-report.md
+  batch_manifest: registry/ir-batches/competencies-domain-completion-001/manifest.yaml
+
+validation:
+  expected_feature_count: 13
+  require_exact_feature_count: true
+  require_contract_for_every_canonical_feature: true
+  require_ir_for_every_canonical_feature: true
+  require_test_plan_for_every_canonical_feature: true
+  allow_non_executable_ir: true
+  forbid_new_artifact_yaml: true
+  forbid_maths_changes: true
+  require_yaml_parse: true
+  require_git_diff_check: true
+  require_reference_integrity: true
+
+git:
+  commit_message: "feat(competencies): complete domain through canonical IR"
+  pr_title: "feat(ir): complete competencies domain through canonical IR"
+  open_pull_request: true
+  draft_pull_request: true
