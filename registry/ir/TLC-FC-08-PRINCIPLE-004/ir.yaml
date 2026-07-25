@@ -1,0 +1,91 @@
+schema_version: 1
+ir_id: TLC-IR-TLC-FC-08-PRINCIPLE-004-PROTOTYPE-001
+feature_id: TLC-FC-08-PRINCIPLE-004
+contract_id: TLC-MC-TLC-FC-08-PRINCIPLE-004
+domain: principle
+ir_kind: prototype_ir_with_reservations
+entrypoint: construct_principle_formal_tuple
+primary_operation: Construct the source-defined three-component symbolic tuple P = (D_P, F_P, succeeds_under_P).
+inputs:
+- id: IR-IN-PRINCIPLE-004
+  type: PrincipleComponentSymbols
+  required: true
+outputs:
+- id: IR-OUT-PRINCIPLE-004
+  type: SymbolicPrincipleTuple
+  observable_effect: Produces one immutable ordered tuple AST with exactly the discourse set, formal essence, and relation
+    symbols.
+opaque_types:
+- OpaqueSymbolId
+- SourceProvenance
+parameterized_types: []
+symbolic_types:
+- ImmutableSymbolicAst
+operations:
+- operation_id: IR-OP-PRINCIPLE-004-001
+  name: construct_principle_formal_tuple
+  technical_processing: Validate opaque identifiers; instantiate the source-ordered templates; attach scientific object IDs,
+    source ranges, unresolved and assumption IDs; freeze the result.
+  templates:
+  - equals(principle, ordered_tuple(principle_discourse_set, formal_essence, principle_relation))
+  scientific_evaluation: prohibited
+operation_sequence:
+- validate_required_identifiers
+- instantiate_source_ordered_symbolic_templates
+- attach_traceability_and_reservations
+- freeze_and_return_result
+preconditions:
+- id: PRE-PRINCIPLE-004-IDS
+  statement: Every required opaque identifier is non-empty and every covered object ID is present exactly once.
+- id: PRE-PRINCIPLE-004-SOURCE
+  statement: Every symbolic template is bound to its cited source range.
+postconditions:
+- id: POST-PRINCIPLE-004-EFFECT
+  statement: Produces one immutable ordered tuple AST with exactly the discourse set, formal essence, and relation symbols.
+- id: POST-PRINCIPLE-004-OPAQUE
+  statement: No opaque symbol, operator, predicate, relation, metric, or scientific statement is evaluated.
+- id: POST-PRINCIPLE-004-TRACE
+  statement: Object IDs, source ranges, unresolved IDs, assumption IDs, and reservations are preserved.
+invariants:
+- object_id: TLC-SO-PRINCIPLE-033
+  object_type: Equation
+  source_statement_preserved: true
+errors:
+- id: ERR-PRINCIPLE-004-MISSING
+  condition: A required symbol, covered object ID, or source reference is missing.
+- id: ERR-PRINCIPLE-004-DUPLICATE
+  condition: A covered object ID occurs more than once.
+- id: ERR-PRINCIPLE-004-PROMOTION
+  condition: A caller requests evaluation or canonical scientific promotion.
+undefined_behaviors:
+- Component types, tuple semantics beyond order, domains, equality semantics, and relation behavior remain opaque.
+propagated_unresolved: []
+propagated_provisional_assumptions:
+- TLC-EA-PRINCIPLE-004-001
+traceability:
+  scientific_objects:
+  - TLC-SO-PRINCIPLE-033
+  source_ranges:
+  - source_path: maths/08-principle.md
+    section: Formalisation mathématique
+    subsection: null
+    start_line: 23
+    end_line: 25
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  historical_contract: null
+determinism_status: deterministic_symbolic_construction_for_identical_ordered_inputs
+testability_status: operation_specific_shape_effect_error_provenance_and_non_evaluation_tests_defined
+implementation_constraints:
+- Implement symbolic or descriptor construction only.
+- Do not evaluate scientific statements or opaque operators.
+- Do not infer absent semantics.
+active_or_historical_status: active
+classification: substantive_and_implementable
+blocks_all_prototype_progress: false
+readiness:
+  ready_for_limited_engineering_contract: true
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false

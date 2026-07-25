@@ -1,0 +1,82 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-08-PRINCIPLE-011-PROTOTYPE-001
+feature_id: TLC-FC-08-PRINCIPLE-011
+contract_id: TLC-MC-TLC-FC-08-PRINCIPLE-011
+ir_id: TLC-IR-TLC-FC-08-PRINCIPLE-011-PROTOTYPE-001
+entrypoint: associate_principle_with_familiar_context
+primary_operation: Construct a provenance-bearing association between a principle and caller-identified familiar discourse
+  or situation references.
+inputs_under_test:
+- PrincipleContextAssociationRequest
+expected_output: PrincipleInterpretationAssociation
+tests:
+- id: TEST-011-NOMINAL
+  category: nominal
+  invokes: associate_principle_with_familiar_context
+  scenario: Supply valid opaque identifiers for PrincipleContextAssociationRequest.
+  expected: Produces an immutable association containing one principle ID and at least one familiar-context ID, without interpreting
+    the relation.
+- id: TEST-011-SHAPE
+  category: type_and_shape
+  invokes: associate_principle_with_familiar_context
+  scenario: Construct from valid ordered inputs.
+  expected: Result type is PrincipleInterpretationAssociation and templates equal ['interpretation_association(principle_id,
+    non_empty(familiar_discourse_or_situation_ids))'].
+- id: TEST-011-EFFECT
+  category: observable_effect
+  invokes: associate_principle_with_familiar_context
+  scenario: Inspect the returned immutable result.
+  expected: Produces an immutable association containing one principle ID and at least one familiar-context ID, without interpreting
+    the relation.
+- id: TEST-011-POST
+  category: postcondition
+  invokes: associate_principle_with_familiar_context
+  scenario: Construct twice from identical ordered identifiers.
+  expected: Results are structurally equal and retain identical traceability.
+- id: TEST-011-PRE
+  category: invalid_precondition
+  invokes: associate_principle_with_familiar_context
+  scenario: Omit one required opaque identifier.
+  expected_error: ERR-PRINCIPLE-011-MISSING
+- id: TEST-011-ERROR
+  category: error_policy
+  invokes: associate_principle_with_familiar_context
+  scenario: Duplicate a covered scientific object ID.
+  expected_error: ERR-PRINCIPLE-011-DUPLICATE
+- id: TEST-011-OPAQUE
+  category: opaque_value
+  invokes: associate_principle_with_familiar_context
+  scenario: 'Use identifiers with no runtime scientific implementation; boundary: Familiarity, interpretation meaning, ranking,
+    similarity, validation, and effect on understanding remain opaque.'
+  expected: Construction succeeds without dereferencing or evaluating opaque values.
+- id: TEST-011-PROVENANCE
+  category: provenance
+  invokes: associate_principle_with_familiar_context
+  scenario: Construct with all cited object IDs and source ranges.
+  expected: Every output node retains its exact object ID and source range.
+- id: TEST-011-UNRESOLVED
+  category: unresolved_propagation
+  invokes: associate_principle_with_familiar_context
+  scenario: Construct with the contract unresolved set.
+  expected: Output unresolved set equals [] and no item is resolved.
+- id: TEST-011-ASSUMPTION
+  category: assumption_propagation
+  invokes: associate_principle_with_familiar_context
+  scenario: Construct with the provisional representation assumption.
+  expected: Output assumption set equals [TLC-EA-PRINCIPLE-011-001].
+- id: TEST-011-NO-SCIENCE
+  category: non_evaluation
+  invokes: associate_principle_with_familiar_context
+  scenario: Request only the defined construction operation.
+  expected: No numeric, logical, stochastic, metric, relational, differential, or scientific truth value is calculated.
+- id: TEST-011-CONFORMANCE
+  category: contract_ir_conformance
+  invokes: associate_principle_with_familiar_context
+  scenario: Compare contract and IR interface, templates, errors, postconditions, classification, and readiness.
+  expected: All fields agree exactly.
+- id: TEST-011-INTEGRATION
+  category: minimal_integration
+  invokes: associate_principle_with_familiar_context
+  scenario: Resolve feature, contract, IR, and test plan by stable IDs.
+  expected: The four artifacts form one unambiguous active chain.
+implementation_status: ready_for_specific_test_implementation

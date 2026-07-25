@@ -1,0 +1,159 @@
+schema_version: 1
+ir_id: TLC-IR-TLC-FC-08-PRINCIPLE-008-PROTOTYPE-001
+feature_id: TLC-FC-08-PRINCIPLE-008
+contract_id: TLC-MC-TLC-FC-08-PRINCIPLE-008
+domain: principle
+ir_kind: prototype_ir_with_reservations
+entrypoint: construct_principle_operator_catalog
+primary_operation: Construct a catalogue of the three formalization levels, four cognitive functions, iterative interpretation
+  operator, operational function form, and non-redundance constraint.
+inputs:
+- id: IR-IN-PRINCIPLE-008
+  type: PrincipleOperatorSymbols
+  required: true
+outputs:
+- id: IR-OUT-PRINCIPLE-008
+  type: PrincipleOperatorCatalog
+  observable_effect: Produces source-keyed symbolic operator and function nodes, including M = f_P(D), without invoking any
+    operator.
+opaque_types:
+- OpaqueSymbolId
+- SourceProvenance
+parameterized_types: []
+symbolic_types:
+- ImmutableSymbolicAst
+operations:
+- operation_id: IR-OP-PRINCIPLE-008-001
+  name: construct_principle_operator_catalog
+  technical_processing: Validate opaque identifiers; instantiate the source-ordered templates; attach scientific object IDs,
+    source ranges, unresolved and assumption IDs; freeze the result.
+  templates:
+  - formalization_level(abstract_relational, uninterpreted(F_P), abstract_relation(succeeds_under_P))
+  - formalization_level(set_based, constraints_rules_or_allowed_patterns(F_P), predicate(Phi_P))
+  - formalization_level(computable, computable_object(F_P), function_or_stochastic_application(succeeds_under_P))
+  - cognitive_functions(anchor, structure, uncertainty_reduction, transfer)
+  - iterative_interpretation_operator(Gamma, principles, discourses, message_at_time)
+  - equals(message, apply(principle_function, discourse))
+  - non_redundance(principle_i_not_equal_principle_j, distinct_cognitive_function)
+  scientific_evaluation: prohibited
+operation_sequence:
+- validate_required_identifiers
+- instantiate_source_ordered_symbolic_templates
+- attach_traceability_and_reservations
+- freeze_and_return_result
+preconditions:
+- id: PRE-PRINCIPLE-008-IDS
+  statement: Every required opaque identifier is non-empty and every covered object ID is present exactly once.
+- id: PRE-PRINCIPLE-008-SOURCE
+  statement: Every symbolic template is bound to its cited source range.
+postconditions:
+- id: POST-PRINCIPLE-008-EFFECT
+  statement: Produces source-keyed symbolic operator and function nodes, including M = f_P(D), without invoking any operator.
+- id: POST-PRINCIPLE-008-OPAQUE
+  statement: No opaque symbol, operator, predicate, relation, metric, or scientific statement is evaluated.
+- id: POST-PRINCIPLE-008-TRACE
+  statement: Object IDs, source ranges, unresolved IDs, assumption IDs, and reservations are preserved.
+invariants:
+- object_id: TLC-SO-PRINCIPLE-005
+  object_type: Function
+  source_statement_preserved: true
+- object_id: TLC-SO-PRINCIPLE-011
+  object_type: Function
+  source_statement_preserved: true
+- object_id: TLC-SO-PRINCIPLE-012
+  object_type: Function
+  source_statement_preserved: true
+- object_id: TLC-SO-PRINCIPLE-023
+  object_type: Function
+  source_statement_preserved: true
+- object_id: TLC-SO-PRINCIPLE-040
+  object_type: Function
+  source_statement_preserved: true
+- object_id: TLC-SO-PRINCIPLE-043
+  object_type: Function
+  source_statement_preserved: true
+- object_id: TLC-SO-PRINCIPLE-094
+  object_type: Function
+  source_statement_preserved: true
+errors:
+- id: ERR-PRINCIPLE-008-MISSING
+  condition: A required symbol, covered object ID, or source reference is missing.
+- id: ERR-PRINCIPLE-008-DUPLICATE
+  condition: A covered object ID occurs more than once.
+- id: ERR-PRINCIPLE-008-PROMOTION
+  condition: A caller requests evaluation or canonical scientific promotion.
+undefined_behaviors:
+- Concrete operator implementations, stochastic law, neural representation, iteration policy, equality, and cognitive-effect
+  evaluation remain opaque.
+propagated_unresolved: []
+propagated_provisional_assumptions:
+- TLC-EA-PRINCIPLE-008-001
+traceability:
+  scientific_objects:
+  - TLC-SO-PRINCIPLE-005
+  - TLC-SO-PRINCIPLE-011
+  - TLC-SO-PRINCIPLE-012
+  - TLC-SO-PRINCIPLE-023
+  - TLC-SO-PRINCIPLE-040
+  - TLC-SO-PRINCIPLE-043
+  - TLC-SO-PRINCIPLE-094
+  source_ranges:
+  - source_path: maths/08-principle.md
+    section: Formalisation mathématique
+    subsection: Niveaux de formalisation
+    start_line: 33
+    end_line: 40
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/08-principle.md
+    section: Rôle fonctionnel des Principes dans l’apprentissage
+    subsection: null
+    start_line: 71
+    end_line: 71
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/08-principle.md
+    section: Rôle fonctionnel des Principes dans l’apprentissage
+    subsection: Fonctions cognitives
+    start_line: 73
+    end_line: 77
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/08-principle.md
+    section: Dynamique Principe‑Message
+    subsection: Convergence progressive
+    start_line: 134
+    end_line: 139
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/08-principle.md
+    section: Formalisation mathématique
+    subsection: Niveaux de formalisation
+    start_line: 40
+    end_line: 40
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/08-principle.md
+    section: Formalisation mathématique
+    subsection: Exemples d’instanciation
+    start_line: 46
+    end_line: 46
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/08-principle.md
+    section: Contraintes formelles et cohérence
+    subsection: null
+    start_line: 215
+    end_line: 215
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  historical_contract: null
+determinism_status: deterministic_symbolic_construction_for_identical_ordered_inputs
+testability_status: operation_specific_shape_effect_error_provenance_and_non_evaluation_tests_defined
+implementation_constraints:
+- Implement symbolic or descriptor construction only.
+- Do not evaluate scientific statements or opaque operators.
+- Do not infer absent semantics.
+active_or_historical_status: active
+classification: substantive_and_implementable
+blocks_all_prototype_progress: false
+readiness:
+  ready_for_limited_engineering_contract: true
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false

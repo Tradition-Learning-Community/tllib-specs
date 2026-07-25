@@ -1,0 +1,84 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-08-PRINCIPLE-001-PROTOTYPE-001
+feature_id: TLC-FC-08-PRINCIPLE-001
+contract_id: TLC-MC-TLC-FC-08-PRINCIPLE-001
+ir_id: TLC-IR-TLC-FC-08-PRINCIPLE-001-PROTOTYPE-001
+entrypoint: construct_principle_constraint_specification
+primary_operation: Construct an immutable symbolic specification for the cited generative, coherence, propagation, analogy,
+  and conformity constraints.
+inputs_under_test:
+- PrincipleConstraintSymbols
+expected_output: PrincipleConstraintSpecification
+tests:
+- id: TEST-001-NOMINAL
+  category: nominal
+  invokes: construct_principle_constraint_specification
+  scenario: Supply valid opaque identifiers for PrincipleConstraintSymbols.
+  expected: Produces five source-ordered symbolic constraint nodes with object IDs and provenance preserved.
+- id: TEST-001-SHAPE
+  category: type_and_shape
+  invokes: construct_principle_constraint_specification
+  scenario: Construct from valid ordered inputs.
+  expected: 'Result type is PrincipleConstraintSpecification and templates equal [''generative_support(principle, hypothesis_construction,
+    latent_structure_identification, practice_or_solution_invention, experience_reinterpretation)'', ''coherence_requires(formal_constraints)'',
+    ''message_set_for_principle = set(message | exists discourse in principle_discourses: discourse succeeds_under principle
+    message)'', ''implies(discourse succeeds_under principle message and analogous(discourse_prime, discourse), discourse_prime
+    succeeds_under principle message_prime)'', ''message_star = argmax(message, sum(principle_weight * conformity(message,
+    principle)))''].'
+- id: TEST-001-EFFECT
+  category: observable_effect
+  invokes: construct_principle_constraint_specification
+  scenario: Inspect the returned immutable result.
+  expected: Produces five source-ordered symbolic constraint nodes with object IDs and provenance preserved.
+- id: TEST-001-POST
+  category: postcondition
+  invokes: construct_principle_constraint_specification
+  scenario: Construct twice from identical ordered identifiers.
+  expected: Results are structurally equal and retain identical traceability.
+- id: TEST-001-PRE
+  category: invalid_precondition
+  invokes: construct_principle_constraint_specification
+  scenario: Omit one required opaque identifier.
+  expected_error: ERR-PRINCIPLE-001-MISSING
+- id: TEST-001-ERROR
+  category: error_policy
+  invokes: construct_principle_constraint_specification
+  scenario: Duplicate a covered scientific object ID.
+  expected_error: ERR-PRINCIPLE-001-DUPLICATE
+- id: TEST-001-OPAQUE
+  category: opaque_value
+  invokes: construct_principle_constraint_specification
+  scenario: 'Use identifiers with no runtime scientific implementation; boundary: Types, domains, analogy, conformity, weights,
+    optimization algorithm, cardinality, and executable truth conditions remain opaque.'
+  expected: Construction succeeds without dereferencing or evaluating opaque values.
+- id: TEST-001-PROVENANCE
+  category: provenance
+  invokes: construct_principle_constraint_specification
+  scenario: Construct with all cited object IDs and source ranges.
+  expected: Every output node retains its exact object ID and source range.
+- id: TEST-001-UNRESOLVED
+  category: unresolved_propagation
+  invokes: construct_principle_constraint_specification
+  scenario: Construct with the contract unresolved set.
+  expected: Output unresolved set equals [] and no item is resolved.
+- id: TEST-001-ASSUMPTION
+  category: assumption_propagation
+  invokes: construct_principle_constraint_specification
+  scenario: Construct with the provisional representation assumption.
+  expected: Output assumption set equals [TLC-EA-PRINCIPLE-001-001].
+- id: TEST-001-NO-SCIENCE
+  category: non_evaluation
+  invokes: construct_principle_constraint_specification
+  scenario: Request only the defined construction operation.
+  expected: No numeric, logical, stochastic, metric, relational, differential, or scientific truth value is calculated.
+- id: TEST-001-CONFORMANCE
+  category: contract_ir_conformance
+  invokes: construct_principle_constraint_specification
+  scenario: Compare contract and IR interface, templates, errors, postconditions, classification, and readiness.
+  expected: All fields agree exactly.
+- id: TEST-001-INTEGRATION
+  category: minimal_integration
+  invokes: construct_principle_constraint_specification
+  scenario: Resolve feature, contract, IR, and test plan by stable IDs.
+  expected: The four artifacts form one unambiguous active chain.
+implementation_status: ready_for_specific_test_implementation

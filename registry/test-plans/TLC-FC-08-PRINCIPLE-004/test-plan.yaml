@@ -1,0 +1,79 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-08-PRINCIPLE-004-PROTOTYPE-001
+feature_id: TLC-FC-08-PRINCIPLE-004
+contract_id: TLC-MC-TLC-FC-08-PRINCIPLE-004
+ir_id: TLC-IR-TLC-FC-08-PRINCIPLE-004-PROTOTYPE-001
+entrypoint: construct_principle_formal_tuple
+primary_operation: Construct the source-defined three-component symbolic tuple P = (D_P, F_P, succeeds_under_P).
+inputs_under_test:
+- PrincipleComponentSymbols
+expected_output: SymbolicPrincipleTuple
+tests:
+- id: TEST-004-NOMINAL
+  category: nominal
+  invokes: construct_principle_formal_tuple
+  scenario: Supply valid opaque identifiers for PrincipleComponentSymbols.
+  expected: Produces one immutable ordered tuple AST with exactly the discourse set, formal essence, and relation symbols.
+- id: TEST-004-SHAPE
+  category: type_and_shape
+  invokes: construct_principle_formal_tuple
+  scenario: Construct from valid ordered inputs.
+  expected: Result type is SymbolicPrincipleTuple and templates equal ['equals(principle, ordered_tuple(principle_discourse_set,
+    formal_essence, principle_relation))'].
+- id: TEST-004-EFFECT
+  category: observable_effect
+  invokes: construct_principle_formal_tuple
+  scenario: Inspect the returned immutable result.
+  expected: Produces one immutable ordered tuple AST with exactly the discourse set, formal essence, and relation symbols.
+- id: TEST-004-POST
+  category: postcondition
+  invokes: construct_principle_formal_tuple
+  scenario: Construct twice from identical ordered identifiers.
+  expected: Results are structurally equal and retain identical traceability.
+- id: TEST-004-PRE
+  category: invalid_precondition
+  invokes: construct_principle_formal_tuple
+  scenario: Omit one required opaque identifier.
+  expected_error: ERR-PRINCIPLE-004-MISSING
+- id: TEST-004-ERROR
+  category: error_policy
+  invokes: construct_principle_formal_tuple
+  scenario: Duplicate a covered scientific object ID.
+  expected_error: ERR-PRINCIPLE-004-DUPLICATE
+- id: TEST-004-OPAQUE
+  category: opaque_value
+  invokes: construct_principle_formal_tuple
+  scenario: 'Use identifiers with no runtime scientific implementation; boundary: Component types, tuple semantics beyond
+    order, domains, equality semantics, and relation behavior remain opaque.'
+  expected: Construction succeeds without dereferencing or evaluating opaque values.
+- id: TEST-004-PROVENANCE
+  category: provenance
+  invokes: construct_principle_formal_tuple
+  scenario: Construct with all cited object IDs and source ranges.
+  expected: Every output node retains its exact object ID and source range.
+- id: TEST-004-UNRESOLVED
+  category: unresolved_propagation
+  invokes: construct_principle_formal_tuple
+  scenario: Construct with the contract unresolved set.
+  expected: Output unresolved set equals [] and no item is resolved.
+- id: TEST-004-ASSUMPTION
+  category: assumption_propagation
+  invokes: construct_principle_formal_tuple
+  scenario: Construct with the provisional representation assumption.
+  expected: Output assumption set equals [TLC-EA-PRINCIPLE-004-001].
+- id: TEST-004-NO-SCIENCE
+  category: non_evaluation
+  invokes: construct_principle_formal_tuple
+  scenario: Request only the defined construction operation.
+  expected: No numeric, logical, stochastic, metric, relational, differential, or scientific truth value is calculated.
+- id: TEST-004-CONFORMANCE
+  category: contract_ir_conformance
+  invokes: construct_principle_formal_tuple
+  scenario: Compare contract and IR interface, templates, errors, postconditions, classification, and readiness.
+  expected: All fields agree exactly.
+- id: TEST-004-INTEGRATION
+  category: minimal_integration
+  invokes: construct_principle_formal_tuple
+  scenario: Resolve feature, contract, IR, and test plan by stable IDs.
+  expected: The four artifacts form one unambiguous active chain.
+implementation_status: ready_for_specific_test_implementation

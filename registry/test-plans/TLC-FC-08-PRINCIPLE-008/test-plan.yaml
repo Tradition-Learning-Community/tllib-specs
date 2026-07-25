@@ -1,0 +1,83 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-08-PRINCIPLE-008-PROTOTYPE-001
+feature_id: TLC-FC-08-PRINCIPLE-008
+contract_id: TLC-MC-TLC-FC-08-PRINCIPLE-008
+ir_id: TLC-IR-TLC-FC-08-PRINCIPLE-008-PROTOTYPE-001
+entrypoint: construct_principle_operator_catalog
+primary_operation: Construct a catalogue of the three formalization levels, four cognitive functions, iterative interpretation
+  operator, operational function form, and non-redundance constraint.
+inputs_under_test:
+- PrincipleOperatorSymbols
+expected_output: PrincipleOperatorCatalog
+tests:
+- id: TEST-008-NOMINAL
+  category: nominal
+  invokes: construct_principle_operator_catalog
+  scenario: Supply valid opaque identifiers for PrincipleOperatorSymbols.
+  expected: Produces source-keyed symbolic operator and function nodes, including M = f_P(D), without invoking any operator.
+- id: TEST-008-SHAPE
+  category: type_and_shape
+  invokes: construct_principle_operator_catalog
+  scenario: Construct from valid ordered inputs.
+  expected: Result type is PrincipleOperatorCatalog and templates equal ['formalization_level(abstract_relational, uninterpreted(F_P),
+    abstract_relation(succeeds_under_P))', 'formalization_level(set_based, constraints_rules_or_allowed_patterns(F_P), predicate(Phi_P))',
+    'formalization_level(computable, computable_object(F_P), function_or_stochastic_application(succeeds_under_P))', 'cognitive_functions(anchor,
+    structure, uncertainty_reduction, transfer)', 'iterative_interpretation_operator(Gamma, principles, discourses, message_at_time)',
+    'equals(message, apply(principle_function, discourse))', 'non_redundance(principle_i_not_equal_principle_j, distinct_cognitive_function)'].
+- id: TEST-008-EFFECT
+  category: observable_effect
+  invokes: construct_principle_operator_catalog
+  scenario: Inspect the returned immutable result.
+  expected: Produces source-keyed symbolic operator and function nodes, including M = f_P(D), without invoking any operator.
+- id: TEST-008-POST
+  category: postcondition
+  invokes: construct_principle_operator_catalog
+  scenario: Construct twice from identical ordered identifiers.
+  expected: Results are structurally equal and retain identical traceability.
+- id: TEST-008-PRE
+  category: invalid_precondition
+  invokes: construct_principle_operator_catalog
+  scenario: Omit one required opaque identifier.
+  expected_error: ERR-PRINCIPLE-008-MISSING
+- id: TEST-008-ERROR
+  category: error_policy
+  invokes: construct_principle_operator_catalog
+  scenario: Duplicate a covered scientific object ID.
+  expected_error: ERR-PRINCIPLE-008-DUPLICATE
+- id: TEST-008-OPAQUE
+  category: opaque_value
+  invokes: construct_principle_operator_catalog
+  scenario: 'Use identifiers with no runtime scientific implementation; boundary: Concrete operator implementations, stochastic
+    law, neural representation, iteration policy, equality, and cognitive-effect evaluation remain opaque.'
+  expected: Construction succeeds without dereferencing or evaluating opaque values.
+- id: TEST-008-PROVENANCE
+  category: provenance
+  invokes: construct_principle_operator_catalog
+  scenario: Construct with all cited object IDs and source ranges.
+  expected: Every output node retains its exact object ID and source range.
+- id: TEST-008-UNRESOLVED
+  category: unresolved_propagation
+  invokes: construct_principle_operator_catalog
+  scenario: Construct with the contract unresolved set.
+  expected: Output unresolved set equals [] and no item is resolved.
+- id: TEST-008-ASSUMPTION
+  category: assumption_propagation
+  invokes: construct_principle_operator_catalog
+  scenario: Construct with the provisional representation assumption.
+  expected: Output assumption set equals [TLC-EA-PRINCIPLE-008-001].
+- id: TEST-008-NO-SCIENCE
+  category: non_evaluation
+  invokes: construct_principle_operator_catalog
+  scenario: Request only the defined construction operation.
+  expected: No numeric, logical, stochastic, metric, relational, differential, or scientific truth value is calculated.
+- id: TEST-008-CONFORMANCE
+  category: contract_ir_conformance
+  invokes: construct_principle_operator_catalog
+  scenario: Compare contract and IR interface, templates, errors, postconditions, classification, and readiness.
+  expected: All fields agree exactly.
+- id: TEST-008-INTEGRATION
+  category: minimal_integration
+  invokes: construct_principle_operator_catalog
+  scenario: Resolve feature, contract, IR, and test plan by stable IDs.
+  expected: The four artifacts form one unambiguous active chain.
+implementation_status: ready_for_specific_test_implementation

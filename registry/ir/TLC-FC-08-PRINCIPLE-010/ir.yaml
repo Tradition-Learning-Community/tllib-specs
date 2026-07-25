@@ -1,0 +1,170 @@
+schema_version: 1
+ir_id: TLC-IR-TLC-FC-08-PRINCIPLE-010-PROTOTYPE-001
+feature_id: TLC-FC-08-PRINCIPLE-010
+contract_id: TLC-MC-TLC-FC-08-PRINCIPLE-010
+domain: principle
+ir_kind: prototype_ir_with_reservations
+entrypoint: construct_principle_relation_catalog
+primary_operation: Construct symbolic records for analogy generation, master regulation, principle-discourse interaction,
+  satisfaction, and message interpretation relations.
+inputs:
+- id: IR-IN-PRINCIPLE-010
+  type: PrincipleRelationSymbols
+  required: true
+outputs:
+- id: IR-OUT-PRINCIPLE-010
+  type: PrincipleRelationCatalog
+  observable_effect: Produces eight source-keyed relation ASTs and annotations without inferring endpoints or evaluating any
+    relation.
+opaque_types:
+- OpaqueSymbolId
+- SourceProvenance
+parameterized_types: []
+symbolic_types:
+- ImmutableSymbolicAst
+operations:
+- operation_id: IR-OP-PRINCIPLE-010-001
+  name: construct_principle_relation_catalog
+  technical_processing: Validate opaque identifiers; instantiate the source-ordered templates; attach scientific object IDs,
+    source ranges, unresolved and assumption IDs; freeze the result.
+  templates:
+  - analogy_generation(discourse, message, analogous_discourse, adapted_message)
+  - master_regulation(exemplification, calibration, threshold_management)
+  - bidirectional_non_reductive_interaction(principle, discourse)
+  - abstract_relation(succeeds_under_P)
+  - relation(principle forces discourse)
+  - member(apply(principle, discourse), interpretation_space)
+  - satisfies(discourse, principle)
+  - equals(message, interpretation_operator(principle, discourse))
+  scientific_evaluation: prohibited
+operation_sequence:
+- validate_required_identifiers
+- instantiate_source_ordered_symbolic_templates
+- attach_traceability_and_reservations
+- freeze_and_return_result
+preconditions:
+- id: PRE-PRINCIPLE-010-IDS
+  statement: Every required opaque identifier is non-empty and every covered object ID is present exactly once.
+- id: PRE-PRINCIPLE-010-SOURCE
+  statement: Every symbolic template is bound to its cited source range.
+postconditions:
+- id: POST-PRINCIPLE-010-EFFECT
+  statement: Produces eight source-keyed relation ASTs and annotations without inferring endpoints or evaluating any relation.
+- id: POST-PRINCIPLE-010-OPAQUE
+  statement: No opaque symbol, operator, predicate, relation, metric, or scientific statement is evaluated.
+- id: POST-PRINCIPLE-010-TRACE
+  statement: Object IDs, source ranges, unresolved IDs, assumption IDs, and reservations are preserved.
+invariants:
+- object_id: TLC-SO-PRINCIPLE-024
+  object_type: Relation
+  source_statement_preserved: true
+- object_id: TLC-SO-PRINCIPLE-025
+  object_type: Relation
+  source_statement_preserved: true
+- object_id: TLC-SO-PRINCIPLE-027
+  object_type: Relation
+  source_statement_preserved: true
+- object_id: TLC-SO-PRINCIPLE-037
+  object_type: Relation
+  source_statement_preserved: true
+- object_id: TLC-SO-PRINCIPLE-083
+  object_type: Relation
+  source_statement_preserved: true
+- object_id: TLC-SO-PRINCIPLE-084
+  object_type: Relation
+  source_statement_preserved: true
+- object_id: TLC-SO-PRINCIPLE-085
+  object_type: Relation
+  source_statement_preserved: true
+- object_id: TLC-SO-PRINCIPLE-086
+  object_type: Relation
+  source_statement_preserved: true
+errors:
+- id: ERR-PRINCIPLE-010-MISSING
+  condition: A required symbol, covered object ID, or source reference is missing.
+- id: ERR-PRINCIPLE-010-DUPLICATE
+  condition: A covered object ID occurs more than once.
+- id: ERR-PRINCIPLE-010-PROMOTION
+  condition: A caller requests evaluation or canonical scientific promotion.
+undefined_behaviors:
+- Endpoint concrete types, analogy, satisfaction, forcing, symmetry, transitivity, causality, thresholds, and interpretation
+  behavior remain opaque.
+propagated_unresolved: []
+propagated_provisional_assumptions:
+- TLC-EA-PRINCIPLE-010-001
+traceability:
+  scientific_objects:
+  - TLC-SO-PRINCIPLE-024
+  - TLC-SO-PRINCIPLE-025
+  - TLC-SO-PRINCIPLE-027
+  - TLC-SO-PRINCIPLE-037
+  - TLC-SO-PRINCIPLE-083
+  - TLC-SO-PRINCIPLE-084
+  - TLC-SO-PRINCIPLE-085
+  - TLC-SO-PRINCIPLE-086
+  source_ranges:
+  - source_path: maths/08-principle.md
+    section: Dynamique Principe‑Message
+    subsection: Génération par analogie et satisfaction de contraintes
+    start_line: 145
+    end_line: 150
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/08-principle.md
+    section: Dynamique Principe‑Message
+    subsection: Rôle régulateur du Maître
+    start_line: 158
+    end_line: 162
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/08-principle.md
+    section: Relations avec les Discours et les Messages
+    subsection: null
+    start_line: 170
+    end_line: 176
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/08-principle.md
+    section: Formalisation mathématique
+    subsection: Niveaux de formalisation
+    start_line: 35
+    end_line: 35
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/08-principle.md
+    section: Relations avec les Discours et les Messages
+    subsection: null
+    start_line: 173
+    end_line: 175
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/08-principle.md
+    section: Relations avec les Discours et les Messages
+    subsection: null
+    start_line: 179
+    end_line: 181
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/08-principle.md
+    section: Relations avec les Discours et les Messages
+    subsection: null
+    start_line: 185
+    end_line: 187
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  - source_path: maths/08-principle.md
+    section: Relations avec les Discours et les Messages
+    subsection: null
+    start_line: 190
+    end_line: 192
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+  historical_contract: null
+determinism_status: deterministic_symbolic_construction_for_identical_ordered_inputs
+testability_status: operation_specific_shape_effect_error_provenance_and_non_evaluation_tests_defined
+implementation_constraints:
+- Implement symbolic or descriptor construction only.
+- Do not evaluate scientific statements or opaque operators.
+- Do not infer absent semantics.
+active_or_historical_status: active
+classification: substantive_and_implementable
+blocks_all_prototype_progress: false
+readiness:
+  ready_for_limited_engineering_contract: true
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false
