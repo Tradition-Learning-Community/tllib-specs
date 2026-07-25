@@ -2,8 +2,8 @@
 
 - Authority: `origin/main`
 - Scientific baseline commit: `75814db2398b701e2f14c035ef8d63ca61fdfb26`
-- Registry tooling commit at generation time: `04a14bd16af39c18a2cce80fee6b06ea9f3586b0`
-- Generated: `2026-07-25T23:29:40+00:00`
+- Registry tooling commit at generation time: `96027189fb03be9cc1d77250728726c18cb20113`
+- Generated: `2026-07-25T23:32:59+00:00`
 - Scope: inventory and status normalization only.
 - Scientific decisions made: none.
 - `maths/` modified: no.
