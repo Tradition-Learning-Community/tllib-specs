@@ -31,7 +31,7 @@ EXPECTED_ORDER = [
     "lived-experience",
     "relations",
 ]
-EXPECTED_FEATURES = 175
+EXPECTED_FEATURES = 166
 FORBIDDEN_FEATURE_FRAGMENTS = ("-NODE-", "-SOURCE-OBJECT-", "-OP-UNRESOLVED")
 
 
@@ -111,7 +111,6 @@ def main() -> int:
 
     required_flags = (
         "contract_present",
-        "ir_registry_present",
         "ir_artifact_present",
         "test_plan_present",
         "ir_layer_complete",

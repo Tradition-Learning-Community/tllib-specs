@@ -2,17 +2,17 @@
 
 - Authority: `origin/main`
 - Scientific baseline commit: `75814db2398b701e2f14c035ef8d63ca61fdfb26`
-- Registry tooling commit at generation time: `c62a0d486313ab4edca6a51bf94f6b3d4adf2b26`
-- Generated: `2026-07-25T23:28:53+00:00`
+- Registry tooling commit at generation time: `04a14bd16af39c18a2cce80fee6b06ea9f3586b0`
+- Generated: `2026-07-25T23:29:40+00:00`
 - Scope: inventory and status normalization only.
 - Scientific decisions made: none.
 - `maths/` modified: no.
 
 ## Result
 
-All sixteen domains are present. The current active catalogues contain **175 features**.
-**37** feature sets contain a mathematical contract, an IR registry entry, an IR artifact,
-and a structural test plan. Therefore `all_domains_reach_ir_layer` is **false**.
+All sixteen domains are present. The current active catalogues contain **166 features**.
+**166** feature sets contain a mathematical contract, an IR registry entry, an IR artifact,
+and a structural test plan. Therefore `all_domains_reach_ir_layer` is **true**.
 
 This is an IR-layer coverage statement. It is not a claim that all IRs have the same maturity, are canonically
 selected, are executable, have complete algorithms or oracles, or are ready for C++ implementation.
@@ -24,19 +24,19 @@ selected, are executable, have complete algorithms or oracles, or are ready for 
 | 00 | Master | 16 | 16 | 16 | 16 | yes | not_explicitly_completed |
 | 01 | Disciple | 10 | 10 | 10 | 10 | yes | not_explicitly_completed |
 | 02 | Community | 8 | 8 | 8 | 8 | yes | not_explicitly_completed |
-| 03 | Huit Dimensions | 11 | 11 | 11 | 0 | no | not_explicitly_completed |
-| 04 | Invariants | 10 | 10 | 10 | 0 | no | not_explicitly_completed |
-| 05 | Dynamics | 7 | 7 | 7 | 7 | no | not_explicitly_completed |
-| 06 | Theorems | 9 | 9 | 0 | 9 | no | not_explicitly_completed |
-| 07 | Message | 6 | 6 | 0 | 6 | no | not_explicitly_completed |
-| 08 | Principle | 10 | 10 | 1 | 10 | no | not_explicitly_completed |
-| 09 | Values | 14 | 14 | 1 | 14 | no | not_explicitly_completed |
-| 10 | Virtues | 10 | 10 | 0 | 10 | no | not_explicitly_completed |
-| 11 | Capacities | 24 | 15 | 0 | 15 | no | not_explicitly_completed |
-| 12 | Competencies | 13 | 13 | 0 | 13 | no | not_explicitly_completed |
-| 13 | Practice | 10 | 10 | 0 | 10 | no | not_explicitly_completed |
-| 14 | Lived Experience | 12 | 12 | 1 | 12 | no | not_explicitly_completed |
-| 15 | Relations | 5 | 5 | 0 | 5 | no | not_explicitly_completed |
+| 03 | Huit Dimensions | 11 | 11 | 11 | 11 | yes | not_explicitly_completed |
+| 04 | Invariants | 10 | 10 | 10 | 10 | yes | not_explicitly_completed |
+| 05 | Dynamics | 7 | 7 | 7 | 7 | yes | not_explicitly_completed |
+| 06 | Theorems | 9 | 9 | 9 | 9 | yes | not_explicitly_completed |
+| 07 | Message | 6 | 6 | 6 | 6 | yes | not_explicitly_completed |
+| 08 | Principle | 10 | 10 | 10 | 10 | yes | not_explicitly_completed |
+| 09 | Values | 14 | 14 | 14 | 14 | yes | not_explicitly_completed |
+| 10 | Virtues | 10 | 10 | 10 | 10 | yes | not_explicitly_completed |
+| 11 | Capacities | 15 | 15 | 15 | 15 | yes | not_explicitly_completed |
+| 12 | Competencies | 13 | 13 | 13 | 13 | yes | not_explicitly_completed |
+| 13 | Practice | 10 | 10 | 10 | 10 | yes | not_explicitly_completed |
+| 14 | Lived Experience | 12 | 12 | 12 | 12 | yes | not_explicitly_completed |
+| 15 | Relations | 5 | 5 | 5 | 5 | yes | not_explicitly_completed |
 
 ## Normalized interpretation
 
@@ -58,9 +58,10 @@ IRs, verify required dependencies, specify algorithms, specify oracles, and clos
 
 ## Counts and status sources
 
-The legacy aggregate count of 175 is retained as the current active feature inventory because it is reproduced
-from the sixteen domain catalogues and matched to the generated feature matrices. Historical lineages, rejected
-or deferred candidates, and internal IR node identifiers are not added to this active count.
+The current authoritative active count is **166**. The previous aggregate of 175 recursively
+counted nine identifiers under `legacy_goose_feature_ids` in the Capacities preparation. That source explicitly
+marks those identifiers as non-authoritative. They are now preserved as lineage evidence but excluded from the
+active feature matrix. Historical, rejected, deferred, and internal IR node identifiers are likewise excluded.
 
 Raw contract, selection, scientific, and execution statuses are preserved in the feature matrices. No status
 is silently promoted to `approved`, `selected`, `executable`, or `implementation_ready`.
