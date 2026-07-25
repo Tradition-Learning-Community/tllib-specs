@@ -1,24 +1,51 @@
-schema_version: 1
+schema_version: 2
 authority: origin/main
-canonical_commit: 2cd5a3c6dfe8786926e58d49387b5f4846697a66
-generated_at: '2026-07-23T15:57:37+00:00'
-scope: global_reconciliation_only
+canonical_commit: 75814db2398b701e2f14c035ef8d63ca61fdfb26
+generated_at: '2026-07-25T23:20:34+00:00'
+scope: current_global_inventory_through_ir_layer
 artifacts:
 - registry/global-reconciliation/blocker-registry.yaml
 - registry/global-reconciliation/contract-execution-plan.yaml
+- registry/global-reconciliation/current-baseline.yaml
 - registry/global-reconciliation/cycle-registry.yaml
+- registry/global-reconciliation/cycle-scientific-review.yaml
 - registry/global-reconciliation/decision-required.yaml
 - registry/global-reconciliation/dependency-graph.yaml
+- registry/global-reconciliation/dependency-scientific-review.yaml
 - registry/global-reconciliation/domain-feature-matrix.yaml
 - registry/global-reconciliation/domain-registry.yaml
+- registry/global-reconciliation/domain-review-sequence.yaml
 - registry/global-reconciliation/existing-artifact-audit.yaml
 - registry/global-reconciliation/feature-contract-matrix.yaml
 - registry/global-reconciliation/feature-ir-matrix.yaml
+- registry/global-reconciliation/first-contract-batches.yaml
 - registry/global-reconciliation/ir-execution-plan.yaml
 - registry/global-reconciliation/manifest.yaml
+- registry/global-reconciliation/pilot-artifact-review.yaml
 - registry/global-reconciliation/readiness-registry.yaml
+- registry/global-reconciliation/scientific-review-decision-required.yaml
+- registry/global-reconciliation/status-taxonomy.yaml
+- registry/global-reconciliation/targeted-readiness-review.yaml
 - reports/global-reconciliation/reconciliation-report.md
 - tools/global-reconciliation/build_global_reconciliation.py
+- tools/global-reconciliation/build_current_global_registry.py
 - tools/global-reconciliation/validate_global_reconciliation.py
+- tools/global-reconciliation/validate_current_global_registry.py
 prohibited_outputs_created: []
 source_preparations_modified: []
+generated_from_tool_commit: 740c1b980453ee02b6f95a12d12745568b289b71
+baseline_ref: registry/global-reconciliation/current-baseline.yaml
+status_taxonomy_ref: registry/global-reconciliation/status-taxonomy.yaml
+active_sequence_ref: registry/global-reconciliation/domain-review-sequence.yaml
+math_sources_modified: false
+scientific_decisions_made: []
+summary:
+  domains: 16
+  active_features: 175
+  contracts_present: 166
+  ir_registry_entries_present: 138
+  ir_artifacts_present: 65
+  test_plans_present: 145
+  ir_layer_complete_features: 37
+  canonical_selection_explicit_features: 0
+  implementation_ready_asserted_features: 0
