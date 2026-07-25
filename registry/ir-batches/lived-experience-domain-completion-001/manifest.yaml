@@ -1,0 +1,123 @@
+---
+batch_id: lived-experience-domain-completion-001
+domain_id: lived-experience
+base_commit: 9fabb392cd2b77c646b93ee313bd4e341294c198
+feature_count: 12
+features:
+- TLC-FC-14-LIVED-EXPERIENCE-001
+- TLC-FC-14-LIVED-EXPERIENCE-002
+- TLC-FC-14-LIVED-EXPERIENCE-004
+- TLC-FC-14-LIVED-EXPERIENCE-005
+- TLC-FC-14-LIVED-EXPERIENCE-006
+- TLC-FC-14-LIVED-EXPERIENCE-007
+- TLC-FC-14-LIVED-EXPERIENCE-008
+- TLC-FC-14-LIVED-EXPERIENCE-009
+- TLC-FC-14-LIVED-EXPERIENCE-010
+- TLC-FC-14-LIVED-EXPERIENCE-011
+- TLC-FC-14-LIVED-EXPERIENCE-012
+- TLC-FC-14-LIVED-EXPERIENCE-013
+canonical_contracts:
+- registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-001/contract.yaml
+- registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-002/contract.yaml
+- registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-004/contract.yaml
+- registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-005/contract.yaml
+- registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-006/contract.yaml
+- registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-007/contract.yaml
+- registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-008/contract.yaml
+- registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-009/contract.yaml
+- registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-010/contract.yaml
+- registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-011/contract.yaml
+- registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-012/contract.yaml
+- registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-013/contract.yaml
+canonical_irs:
+- registry/ir/TLC-FC-14-LIVED-EXPERIENCE-001/ir.yaml
+- registry/ir/TLC-FC-14-LIVED-EXPERIENCE-002/ir.yaml
+- registry/ir/TLC-FC-14-LIVED-EXPERIENCE-004/ir.yaml
+- registry/ir/TLC-FC-14-LIVED-EXPERIENCE-005/ir.yaml
+- registry/ir/TLC-FC-14-LIVED-EXPERIENCE-006/ir.yaml
+- registry/ir/TLC-FC-14-LIVED-EXPERIENCE-007/ir.yaml
+- registry/ir/TLC-FC-14-LIVED-EXPERIENCE-008/ir.yaml
+- registry/ir/TLC-FC-14-LIVED-EXPERIENCE-009/ir.yaml
+- registry/ir/TLC-FC-14-LIVED-EXPERIENCE-010/ir.yaml
+- registry/ir/TLC-FC-14-LIVED-EXPERIENCE-011/ir.yaml
+- registry/ir/TLC-FC-14-LIVED-EXPERIENCE-012/ir.yaml
+- registry/ir/TLC-FC-14-LIVED-EXPERIENCE-013/ir.yaml
+canonical_test_plans:
+- registry/test-plans/TLC-FC-14-LIVED-EXPERIENCE-001/test-plan.yaml
+- registry/test-plans/TLC-FC-14-LIVED-EXPERIENCE-002/test-plan.yaml
+- registry/test-plans/TLC-FC-14-LIVED-EXPERIENCE-004/test-plan.yaml
+- registry/test-plans/TLC-FC-14-LIVED-EXPERIENCE-005/test-plan.yaml
+- registry/test-plans/TLC-FC-14-LIVED-EXPERIENCE-006/test-plan.yaml
+- registry/test-plans/TLC-FC-14-LIVED-EXPERIENCE-007/test-plan.yaml
+- registry/test-plans/TLC-FC-14-LIVED-EXPERIENCE-008/test-plan.yaml
+- registry/test-plans/TLC-FC-14-LIVED-EXPERIENCE-009/test-plan.yaml
+- registry/test-plans/TLC-FC-14-LIVED-EXPERIENCE-010/test-plan.yaml
+- registry/test-plans/TLC-FC-14-LIVED-EXPERIENCE-011/test-plan.yaml
+- registry/test-plans/TLC-FC-14-LIVED-EXPERIENCE-012/test-plan.yaml
+- registry/test-plans/TLC-FC-14-LIVED-EXPERIENCE-013/test-plan.yaml
+historical_artifacts_preserved:
+- registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-005/coverage.yaml
+- ir/TLC-FC-14-LIVED-EXPERIENCE-005/ir-semantic.candidate.json
+- ir/TLC-FC-14-LIVED-EXPERIENCE-005/ir-functional.candidate.json
+historical_pilot_classification: comparison_only_input_audited_not_automatically_promoted
+readiness:
+  python_structural_ready: 3
+  cpp_structural_ready: 3
+  blocked_declarative: 9
+  production_ready: 0
+blocked_features:
+- TLC-FC-14-LIVED-EXPERIENCE-001
+- TLC-FC-14-LIVED-EXPERIENCE-002
+- TLC-FC-14-LIVED-EXPERIENCE-004
+- TLC-FC-14-LIVED-EXPERIENCE-006
+- TLC-FC-14-LIVED-EXPERIENCE-007
+- TLC-FC-14-LIVED-EXPERIENCE-008
+- TLC-FC-14-LIVED-EXPERIENCE-010
+- TLC-FC-14-LIVED-EXPERIENCE-012
+- TLC-FC-14-LIVED-EXPERIENCE-013
+scientific_questions:
+- preserve 43 unresolved items from preparation; no silent resolution
+- external reconciliation pending with capacities, competencies, and practice
+- duplicate candidate remains unresolved absent explicit repository decision
+validation_commands:
+- git diff --check
+- /usr/bin/python3 - <<PY ... yaml.safe_load all changed YAML
+- /usr/bin/python3 tools/domain-completion/validate_lived_experience.py
+validation_results:
+- command: timeout 20s /usr/bin/python3 scripts/validate_lived_experience_preparation.py
+  status: warning_timeout
+  result: prep_exit=124
+- command: /usr/bin/python3 - <<PY ... yaml.safe_load changed YAML
+  status: passed
+  result: PyYAML parsed 37 changed YAML files
+- command: /usr/bin/python3 tools/domain-completion/validate_lived_experience.py
+  status: passed
+  result: features=12 contracts=12 ir=12 test_plans=12
+- command: /usr/bin/python3 tools/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-005/validate_contract.py
+  status: passed
+  result: canonical 005 contract validation passed
+- command: /usr/bin/python3 tools/ir/TLC-FC-14-LIVED-EXPERIENCE-005/validate_ir.py
+  status: passed
+  result: canonical 005 IR validation passed
+- command: git diff --check
+  status: passed
+  result: no whitespace errors
+- command: git diff --name-only | rg '^maths/' | wc -l
+  status: passed
+  result: '0'
+- command: git ls-files --others --exclude-standard | rg '(^|/)artifact\.yaml$' |
+    wc -l
+  status: passed
+  result: '0'
+- command: find registry/math-contracts -maxdepth 2 -path '*/TLC-FC-14-LIVED-EXPERIENCE-*/contract.yaml'
+    -print | wc -l
+  status: passed
+  result: '12'
+- command: find registry/ir -maxdepth 2 -path '*/TLC-FC-14-LIVED-EXPERIENCE-*/ir.yaml'
+    -print | wc -l
+  status: passed
+  result: '12'
+- command: find registry/test-plans -maxdepth 2 -path '*/TLC-FC-14-LIVED-EXPERIENCE-*/test-plan.yaml'
+    -print | wc -l
+  status: passed
+  result: '12'
