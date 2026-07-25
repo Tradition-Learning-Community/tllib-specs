@@ -1,0 +1,83 @@
+manifest_version: "1.0"
+
+execution_id: wave-3-practice-domain-completion-001
+wave: 3
+domain_order: 13
+
+repository:
+  full_name: Tradition-Learning-Community/tllib-specs
+  base_branch: main
+  work_branch: ir/practice-domain-completion-001
+  target_branch: main
+
+domain:
+  id: practice
+  display_name: Practice
+  feature_prefix: TLC-FC-13-PRACTICE
+  source_file: maths/13-practice.md
+
+known_state:
+  preparation_status: complete_with_reservations
+  declared_features_total: 10
+  current_scope: contract_production_plan_only
+  existing_canonical_contracts_expected: 0
+  existing_canonical_irs_expected: 0
+  existing_canonical_test_plans_expected: 0
+
+authoritative_inputs:
+  - maths/13-practice.md
+  - registry/domain-progress/practice/contract-production-plan.yaml
+  - registry/domain-progress/practice/functional-coverage.yaml
+  - registry/domain-progress/practice/dependency-matrix.yaml
+  - registry/domain-progress/practice/internal-dependencies.yaml
+  - registry/domain-progress/practice/
+  - registry/scientific-objects/
+  - registry/scientific-relations/
+  - registry/features/
+  - registry/global-reconciliation/
+  - reviews/functional-decomposition/
+
+reference_domains:
+  structural_examples:
+    - TLC-FC-07-MESSAGE
+    - TLC-FC-08-PRINCIPLE
+    - TLC-FC-09-VALUES
+    - TLC-FC-10-VIRTUES
+    - TLC-FC-11-CAPACITIES
+  likely_dependencies_to_verify:
+    - TLC-FC-12-COMPETENCIES
+    - TLC-FC-11-CAPACITIES
+
+special_instructions:
+  - Use contract-production-plan.yaml as the primary planned contract set.
+  - Preserve every blocker listed for individual features.
+  - Do not eliminate blockers merely because a dependent domain has artifacts.
+  - Do not infer definitions, types, dimensions, aliases, numerical methods, thresholds, units, or temporal semantics.
+  - Produce canonical IR and tests even for blocked features when a faithful declarative non-executable representation is possible.
+  - Do not modify maths/.
+
+required_outputs:
+  canonical_contract_pattern: registry/math-contracts/<FEATURE-ID>/contract.yaml
+  canonical_ir_pattern: registry/ir/<FEATURE-ID>/ir.yaml
+  canonical_test_plan_pattern: registry/test-plans/<FEATURE-ID>/test-plan.yaml
+  domain_report: reports/ir-batches/practice-domain-completion-001/completion-report.md
+  batch_manifest: registry/ir-batches/practice-domain-completion-001/manifest.yaml
+
+validation:
+  expected_feature_count: 10
+  require_exact_feature_count: true
+  require_contract_for_every_canonical_feature: true
+  require_ir_for_every_canonical_feature: true
+  require_test_plan_for_every_canonical_feature: true
+  allow_non_executable_ir: true
+  forbid_new_artifact_yaml: true
+  forbid_maths_changes: true
+  require_yaml_parse: true
+  require_git_diff_check: true
+  require_reference_integrity: true
+
+git:
+  commit_message: "feat(practice): complete domain through canonical IR"
+  pr_title: "feat(ir): complete practice domain through canonical IR"
+  open_pull_request: true
+  draft_pull_request: true

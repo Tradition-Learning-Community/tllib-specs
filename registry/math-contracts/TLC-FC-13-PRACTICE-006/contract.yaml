@@ -1,0 +1,132 @@
+﻿---
+schema_version: 1
+contract_id: TLC-MC-13-PRACTICE-006
+feature_id: TLC-FC-13-PRACTICE-006
+domain: practice
+canonical_name: '13-practice: equation (blocked_locally)'
+contract_kind: structural_contract
+scientific_authority: origin/main and preparation artifacts listed in provenance;
+  no scientific semantics promoted beyond cited objects
+complete_scientific_contract: false
+status: blocked_declarative_non_executable
+version: 0.1.0
+provenance:
+  base_commit: b845ffb0f5708929ea81f9c42c7b23c8e1d560be
+  sources:
+  - execution-manifests/wave-3/practice-domain-completion.yaml
+  - registry/domain-progress/practice/functional-coverage.yaml
+  - registry/domain-progress/practice/contract-production-plan.yaml
+  - registry/domain-progress/practice/ir-production-plan.yaml
+  - registry/scientific-objects/practice/scientific-objects.candidate.yaml
+  - registry/scientific-objects/practice/scientific-relations.candidate.yaml
+  - registry/scientific-objects/practice/unresolved-terms.yaml
+  - maths/13-practice.md
+covered_objects:
+- object_id: TLC-SO-PRACTICE-062
+  canonical_name: Ã‰quation â€” Domaines de validitÃ©
+  object_type: Equation
+  source_statement: |-
+    \[
+    \mathcal{U}_{\mathcal{P}} = \{ (d,t,c,\mathcal{CP}) \in \mathcal{D} \times \mathbb{R}^+ \times \mathcal{C} \times \mathcal{CP} \mid \mathcal{R}_{\mathrm{aff}}(d,c) > \rho_{\min},\ t > t_{\min},\ \mathcal{CP}\ \text{adÃ©quat} \}
+    \]
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/13-practice.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/13-practice.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 504366afaf6d0ca12186936e55c8483abe4b6f94
+    document_title: Pratique (Practice)
+    section: Domaines de validitÃ©
+    subsection:
+    start_line: 45
+    end_line: 47
+  symbols_mentioned:
+  - "\\mathcal"
+  - "\\mathbb"
+  - "\\mathrm"
+  - "\\rho_{\\min}"
+  validation_status: candidate
+- object_id: TLC-SO-PRACTICE-091
+  canonical_name: Ã‰quation â€” CohÃ©rence et coordination entre Disciples
+  object_type: Equation
+  source_statement: |-
+    \[
+    \mathcal{P}_{\mathrm{collectif}} = \frac{1}{N}\sum_{i=1}^{N} \mathcal{P}_i + \sigma(\mathcal{CP}) \cdot \mathrm{Synergie}(\{\mathcal{P}_i\})
+    \]
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/13-practice.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/13-practice.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 504366afaf6d0ca12186936e55c8483abe4b6f94
+    document_title: Pratique (Practice)
+    section: Interaction avec la communautÃ© et pratique collective
+    subsection: CohÃ©rence et coordination entre Disciples
+    start_line: 199
+    end_line: 201
+  symbols_mentioned:
+  - "\\mathcal"
+  - "\\mathrm"
+  - "\\sigma(\\mathcal{CP})"
+  validation_status: candidate
+covered_relations: []
+functional_purpose: Evaluate the transformations expressed by the cited equations
+  once their mathematical contract is selected.
+inputs:
+- input_id: INPUT-PRACTICE-006-1
+  description: 'Scientific quantities referenced by: Ã‰quation â€” Domaines de validitÃ©'
+  type: OpaqueCandidateScientificInput
+  required: true
+- input_id: INPUT-PRACTICE-006-2
+  description: 'Scientific quantities referenced by: Ã‰quation â€” CohÃ©rence et coordination
+    entre Disciples'
+  type: OpaqueCandidateScientificInput
+  required: true
+outputs:
+- output_id: OUTPUT-PRACTICE-006-1
+  description: 'Candidate evaluation result for: Ã‰quation â€” Domaines de validitÃ©'
+  type: OpaqueCandidateEvaluationResult
+  semantics: unresolved
+- output_id: OUTPUT-PRACTICE-006-2
+  description: 'Candidate evaluation result for: Ã‰quation â€” CohÃ©rence et coordination
+    entre Disciples'
+  type: OpaqueCandidateEvaluationResult
+  semantics: unresolved
+preconditions:
+- Cited scientific inputs are supplied under candidate status.
+postconditions:
+- Result remains candidate and traceable to every cited object.
+constraints:
+- Do not infer definitions, types, dimensions, aliases, or numerical methods.
+invariants:
+- covered object identities and source references are preserved
+- no equation, threshold, unit, dimension, type, numerical method, or temporal semantics
+  is invented
+assumptions:
+- covered scientific objects are treated as candidate source fragments only
+scientific_properties:
+- source statements are preserved as unevaluated candidate statements
+implementation_decisions_required:
+- runtime data model for opaque inputs
+- error taxonomy binding
+- language-specific API surface
+scientific_decisions_required:
+- TLC-SO-PRACTICE-062
+- TLC-SO-PRACTICE-091
+- TLC-SR-PRACTICE-061
+- TLC-SR-PRACTICE-090
+- TLC-HR-0048
+- TLC-HR-0051
+unresolved_propagated: []
+reservations:
+- no invented type
+- no invented unit
+- no invented threshold
+- no invented temporal semantics
+execution_status: blocked_by_scientific_decision
+readiness:
+  python: blocked_by_scientific_decision
+  cpp: blocked_by_scientific_decision
+  production: false

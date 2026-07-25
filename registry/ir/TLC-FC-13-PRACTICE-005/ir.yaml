@@ -1,0 +1,70 @@
+---
+schema_version: 1
+ir_id: TLC-IR-13-PRACTICE-005
+feature_id: TLC-FC-13-PRACTICE-005
+domain: practice
+contract_ref: registry/math-contracts/TLC-FC-13-PRACTICE-005/contract.yaml
+status: declarative_non_executable_with_reservations
+execution_model: declarative_non_executable
+python_readiness: non_executable_declarative
+cpp_readiness: non_executable_declarative
+inputs:
+- input_id: INPUT-PRACTICE-005-1
+  description: 'Scientific quantities referenced by: Équation — Apprentissage observationnel
+    / imitation'
+  type: OpaqueCandidateScientificInput
+  required: true
+- input_id: INPUT-PRACTICE-005-2
+  description: 'Scientific quantities referenced by: Équation — Influence des Valeurs,
+    Vertus et Principes sur la pratique'
+  type: OpaqueCandidateScientificInput
+  required: true
+- input_id: INPUT-PRACTICE-005-3
+  description: 'Scientific quantities referenced by: Équation — Charge cognitive,
+    effets de mémoire et insight'
+  type: OpaqueCandidateScientificInput
+  required: true
+- input_id: INPUT-PRACTICE-005-4
+  description: 'Scientific quantities referenced by: Équation — Formation comportementale
+    et d’habitudes'
+  type: OpaqueCandidateScientificInput
+  required: true
+outputs:
+- output_id: OUTPUT-PRACTICE-005-1
+  description: 'Candidate evaluation result for: Équation — Apprentissage observationnel
+    / imitation'
+  type: OpaqueCandidateEvaluationResult
+  semantics: unresolved
+- output_id: OUTPUT-PRACTICE-005-2
+  description: 'Candidate evaluation result for: Équation — Influence des Valeurs,
+    Vertus et Principes sur la pratique'
+  type: OpaqueCandidateEvaluationResult
+  semantics: unresolved
+- output_id: OUTPUT-PRACTICE-005-3
+  description: 'Candidate evaluation result for: Équation — Charge cognitive, effets
+    de mémoire et insight'
+  type: OpaqueCandidateEvaluationResult
+  semantics: unresolved
+- output_id: OUTPUT-PRACTICE-005-4
+  description: 'Candidate evaluation result for: Équation — Formation comportementale
+    et d’habitudes'
+  type: OpaqueCandidateEvaluationResult
+  semantics: unresolved
+types:
+- OpaqueCandidateScientificInput
+- OpaqueCandidateEvaluationResult
+- SourceProvenance
+- DecisionBlocker
+operations:
+- op: preserve_candidate_source_trace
+  executable: false
+  reason: operation kind is not determinable from authorized sources without invention
+constraints:
+- Do not infer definitions, types, dimensions, aliases, or numerical methods.
+blockers: []
+reservations:
+- no invented type
+- no invented unit
+- no invented threshold
+- no invented temporal semantics
+determinism: structural serialization only; scientific result not executable

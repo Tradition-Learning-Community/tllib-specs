@@ -1,0 +1,205 @@
+﻿---
+schema_version: 1
+contract_id: TLC-MC-13-PRACTICE-004
+feature_id: TLC-FC-13-PRACTICE-004
+domain: practice
+canonical_name: '13-practice: dynamics (blocked_locally)'
+contract_kind: computational_contract
+scientific_authority: origin/main and preparation artifacts listed in provenance;
+  no scientific semantics promoted beyond cited objects
+complete_scientific_contract: false
+status: blocked_declarative_non_executable
+version: 0.1.0
+provenance:
+  base_commit: b845ffb0f5708929ea81f9c42c7b23c8e1d560be
+  sources:
+  - execution-manifests/wave-3/practice-domain-completion.yaml
+  - registry/domain-progress/practice/functional-coverage.yaml
+  - registry/domain-progress/practice/contract-production-plan.yaml
+  - registry/domain-progress/practice/ir-production-plan.yaml
+  - registry/scientific-objects/practice/scientific-objects.candidate.yaml
+  - registry/scientific-objects/practice/scientific-relations.candidate.yaml
+  - registry/scientific-objects/practice/unresolved-terms.yaml
+  - maths/13-practice.md
+covered_objects:
+- object_id: TLC-SO-PRACTICE-068
+  canonical_name: Ã‰quation â€” Instruction directe et mentorat
+  object_type: DifferentialEquation
+  source_statement: |-
+    \[
+    \Delta \mathcal{C}_a = \kappa \cdot \|\mathcal{C}_{a,\mathcal{M}} - \mathcal{C}_{a,\mathcal{D}}\| \cdot \exp(-\mu t)
+    \]
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/13-practice.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/13-practice.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 504366afaf6d0ca12186936e55c8483abe4b6f94
+    document_title: Pratique (Practice)
+    section: Transmission et modalitÃ©s dâ€™apprentissage
+    subsection: Instruction directe et mentorat
+    start_line: 72
+    end_line: 74
+  symbols_mentioned:
+  - "\\Delta"
+  - "\\mathcal"
+  - "\\mu"
+  validation_status: candidate
+- object_id: TLC-SO-PRACTICE-085
+  canonical_name: Ã‰quation â€” Consolidation Ã  long terme
+  object_type: DifferentialEquation
+  source_statement: |-
+    \[
+    \|\mathcal{C}_a(t)\| = \frac{K}{1 + \exp(-r(t - t_0))} + \sum_i \Delta_i \mathbf{1}_{t > t_i}
+    \]
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/13-practice.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/13-practice.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 504366afaf6d0ca12186936e55c8483abe4b6f94
+    document_title: Pratique (Practice)
+    section: Dynamique temporelle et Ã©volution
+    subsection: Consolidation Ã  long terme
+    start_line: 148
+    end_line: 150
+  symbols_mentioned:
+  - "\\mathcal"
+  - "\\Delta_i"
+  - "\\mathbf"
+  validation_status: candidate
+- object_id: TLC-SO-PRACTICE-086
+  canonical_name: Ã‰quation â€” Adaptation Ã  de nouveaux contextes
+  object_type: DifferentialEquation
+  source_statement: |-
+    \[
+    \mathcal{C}_a^{\mathrm{nouveau}} = \mathcal{C}_a^{\mathrm{ancien}} + \nabla_{\mathrm{contexte}}\mathcal{C}_a \cdot \Delta \mathrm{contexte} + \mathcal{G}(\mathcal{C}_p,\mathcal{F})
+    \]
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/13-practice.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/13-practice.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 504366afaf6d0ca12186936e55c8483abe4b6f94
+    document_title: Pratique (Practice)
+    section: Dynamique temporelle et Ã©volution
+    subsection: Adaptation Ã  de nouveaux contextes
+    start_line: 158
+    end_line: 160
+  symbols_mentioned:
+  - "\\mathcal"
+  - "\\mathrm"
+  - "\\nabla_{\\mathrm{contexte}"
+  - "\\Delta"
+  validation_status: candidate
+- object_id: TLC-SO-PRACTICE-088
+  canonical_name: Ã‰quation â€” Moteurs motivationnels et engagement
+  object_type: DifferentialEquation
+  source_statement: |-
+    \[
+    \frac{d\mathcal{C}_a}{dt} \propto \mathcal{M}(t) \cdot (1 - \mathcal{C}_a / \mathcal{C}_{\max})
+    \]
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/13-practice.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/13-practice.md
+    source_branch: main
+    source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
+    source_blob_sha: 504366afaf6d0ca12186936e55c8483abe4b6f94
+    document_title: Pratique (Practice)
+    section: Dimensions Ã©thiques, motivationnelles et cognitives
+    subsection: Moteurs motivationnels et engagement
+    start_line: 174
+    end_line: 176
+  symbols_mentioned:
+  - "\\mathcal"
+  validation_status: candidate
+covered_relations: []
+functional_purpose: Evaluate the evolution laws expressed by the cited differential
+  or stochastic equations.
+inputs:
+- input_id: INPUT-PRACTICE-004-1
+  description: 'Scientific quantities referenced by: Ã‰quation â€” Instruction directe
+    et mentorat'
+  type: OpaqueCandidateScientificInput
+  required: true
+- input_id: INPUT-PRACTICE-004-2
+  description: 'Scientific quantities referenced by: Ã‰quation â€” Consolidation Ã  long
+    terme'
+  type: OpaqueCandidateScientificInput
+  required: true
+- input_id: INPUT-PRACTICE-004-3
+  description: 'Scientific quantities referenced by: Ã‰quation â€” Adaptation Ã  de nouveaux
+    contextes'
+  type: OpaqueCandidateScientificInput
+  required: true
+- input_id: INPUT-PRACTICE-004-4
+  description: 'Scientific quantities referenced by: Ã‰quation â€” Moteurs motivationnels
+    et engagement'
+  type: OpaqueCandidateScientificInput
+  required: true
+outputs:
+- output_id: OUTPUT-PRACTICE-004-1
+  description: 'Candidate evaluation result for: Ã‰quation â€” Instruction directe et
+    mentorat'
+  type: OpaqueCandidateEvaluationResult
+  semantics: unresolved
+- output_id: OUTPUT-PRACTICE-004-2
+  description: 'Candidate evaluation result for: Ã‰quation â€” Consolidation Ã  long terme'
+  type: OpaqueCandidateEvaluationResult
+  semantics: unresolved
+- output_id: OUTPUT-PRACTICE-004-3
+  description: 'Candidate evaluation result for: Ã‰quation â€” Adaptation Ã  de nouveaux
+    contextes'
+  type: OpaqueCandidateEvaluationResult
+  semantics: unresolved
+- output_id: OUTPUT-PRACTICE-004-4
+  description: 'Candidate evaluation result for: Ã‰quation â€” Moteurs motivationnels
+    et engagement'
+  type: OpaqueCandidateEvaluationResult
+  semantics: unresolved
+preconditions:
+- Cited scientific inputs are supplied under candidate status.
+postconditions:
+- Result remains candidate and traceable to every cited object.
+constraints:
+- Do not infer definitions, types, dimensions, aliases, or numerical methods.
+invariants:
+- covered object identities and source references are preserved
+- no equation, threshold, unit, dimension, type, numerical method, or temporal semantics
+  is invented
+assumptions:
+- covered scientific objects are treated as candidate source fragments only
+scientific_properties:
+- source statements are preserved as unevaluated candidate statements
+implementation_decisions_required:
+- runtime data model for opaque inputs
+- error taxonomy binding
+- language-specific API surface
+scientific_decisions_required:
+- TLC-SO-PRACTICE-068
+- TLC-SO-PRACTICE-085
+- TLC-SO-PRACTICE-086
+- TLC-SO-PRACTICE-088
+- TLC-SR-PRACTICE-067
+- TLC-SR-PRACTICE-084
+- TLC-SR-PRACTICE-085
+- TLC-SR-PRACTICE-087
+- TLC-HR-0046
+- TLC-HR-0049
+- TLC-HR-0055
+- TLC-HR-0056
+unresolved_propagated: []
+reservations:
+- no invented type
+- no invented unit
+- no invented threshold
+- no invented temporal semantics
+execution_status: blocked_by_scientific_decision
+readiness:
+  python: blocked_by_scientific_decision
+  cpp: blocked_by_scientific_decision
+  production: false
