@@ -1,0 +1,63 @@
+---
+schema_version: 1
+batch_id: practice-domain-completion-001
+domain: practice
+base_commit: b845ffb0f5708929ea81f9c42c7b23c8e1d560be
+feature_count: 10
+features:
+- TLC-FC-13-PRACTICE-001
+- TLC-FC-13-PRACTICE-003
+- TLC-FC-13-PRACTICE-004
+- TLC-FC-13-PRACTICE-005
+- TLC-FC-13-PRACTICE-006
+- TLC-FC-13-PRACTICE-007
+- TLC-FC-13-PRACTICE-008
+- TLC-FC-13-PRACTICE-009
+- TLC-FC-13-PRACTICE-010
+- TLC-FC-13-PRACTICE-012
+artifacts:
+- registry/math-contracts/TLC-FC-13-PRACTICE-001/contract.yaml
+- registry/ir/TLC-FC-13-PRACTICE-001/ir.yaml
+- registry/test-plans/TLC-FC-13-PRACTICE-001/test-plan.yaml
+- registry/math-contracts/TLC-FC-13-PRACTICE-003/contract.yaml
+- registry/ir/TLC-FC-13-PRACTICE-003/ir.yaml
+- registry/test-plans/TLC-FC-13-PRACTICE-003/test-plan.yaml
+- registry/math-contracts/TLC-FC-13-PRACTICE-004/contract.yaml
+- registry/ir/TLC-FC-13-PRACTICE-004/ir.yaml
+- registry/test-plans/TLC-FC-13-PRACTICE-004/test-plan.yaml
+- registry/math-contracts/TLC-FC-13-PRACTICE-005/contract.yaml
+- registry/ir/TLC-FC-13-PRACTICE-005/ir.yaml
+- registry/test-plans/TLC-FC-13-PRACTICE-005/test-plan.yaml
+- registry/math-contracts/TLC-FC-13-PRACTICE-006/contract.yaml
+- registry/ir/TLC-FC-13-PRACTICE-006/ir.yaml
+- registry/test-plans/TLC-FC-13-PRACTICE-006/test-plan.yaml
+- registry/math-contracts/TLC-FC-13-PRACTICE-007/contract.yaml
+- registry/ir/TLC-FC-13-PRACTICE-007/ir.yaml
+- registry/test-plans/TLC-FC-13-PRACTICE-007/test-plan.yaml
+- registry/math-contracts/TLC-FC-13-PRACTICE-008/contract.yaml
+- registry/ir/TLC-FC-13-PRACTICE-008/ir.yaml
+- registry/test-plans/TLC-FC-13-PRACTICE-008/test-plan.yaml
+- registry/math-contracts/TLC-FC-13-PRACTICE-009/contract.yaml
+- registry/ir/TLC-FC-13-PRACTICE-009/ir.yaml
+- registry/test-plans/TLC-FC-13-PRACTICE-009/test-plan.yaml
+- registry/math-contracts/TLC-FC-13-PRACTICE-010/contract.yaml
+- registry/ir/TLC-FC-13-PRACTICE-010/ir.yaml
+- registry/test-plans/TLC-FC-13-PRACTICE-010/test-plan.yaml
+- registry/math-contracts/TLC-FC-13-PRACTICE-012/contract.yaml
+- registry/ir/TLC-FC-13-PRACTICE-012/ir.yaml
+- registry/test-plans/TLC-FC-13-PRACTICE-012/test-plan.yaml
+validation_status: passed
+validations:
+- "/usr/bin/python3 PyYAML parse of all added/modified YAML"
+- ruby tools/validate_practice_domain.rb
+- git diff --check
+- no maths changes
+- no new artifact.yaml
+- exact catalogue/contracts/IR/test-plan counts
+reports:
+- reports/ir-batches/practice-domain-completion-001/completion-report.md
+tools:
+- tools/validate_practice_domain.rb
+validation_notes:
+- "/usr/bin/python3 scripts/validate_practice_preparation.py could not complete before
+  remote fetch because origin/main is absent in this environment"

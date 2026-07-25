@@ -1,0 +1,43 @@
+---
+schema_version: 1
+test_plan_id: TLC-TP-13-PRACTICE-006
+feature_id: TLC-FC-13-PRACTICE-006
+domain: practice
+contract_ref: registry/math-contracts/TLC-FC-13-PRACTICE-006/contract.yaml
+ir_ref: registry/ir/TLC-FC-13-PRACTICE-006/ir.yaml
+status: canonical_structural_test_plan
+python_readiness: blocked_by_scientific_decision
+cpp_readiness: blocked_by_scientific_decision
+test_categories:
+- nominal
+- errors
+- types
+- preconditions
+- postconditions
+- invariants
+- properties
+- determinism
+- reproducibility
+- conformity_python_cpp
+- explicit_rejection_or_blocking
+tests:
+- id: TP-PRACTICE-006-TRACE
+  category: traceability
+  oracle: every covered object id and source reference is preserved
+- id: TP-PRACTICE-006-REJECT
+  category: explicit_rejection_or_blocking
+  oracle: requests for execution, numerical evaluation, thresholds, units, dimensions,
+    or temporal semantics are rejected or marked blocked
+- id: TP-PRACTICE-006-IR-CONTRACT
+  category: conformity_python_cpp
+  oracle: IR contract_ref equals the canonical contract path and both language readiness
+    fields match the contract execution status
+blocked_tests:
+- reason: scientific_decision_required
+  blockers:
+  - TLC-SO-PRACTICE-062
+  - TLC-SO-PRACTICE-091
+  - TLC-SR-PRACTICE-061
+  - TLC-SR-PRACTICE-090
+  - TLC-HR-0048
+  - TLC-HR-0051

@@ -1,0 +1,70 @@
+---
+schema_version: 1
+ir_id: TLC-IR-13-PRACTICE-003
+feature_id: TLC-FC-13-PRACTICE-003
+domain: practice
+contract_ref: registry/math-contracts/TLC-FC-13-PRACTICE-003/contract.yaml
+status: declarative_non_executable_with_reservations
+execution_model: declarative_non_executable
+python_readiness: non_executable_declarative
+cpp_readiness: non_executable_declarative
+inputs:
+- input_id: INPUT-PRACTICE-003-1
+  description: 'Scientific quantities referenced by: Équation — Répétition et raffinement
+    itératif'
+  type: OpaqueCandidateScientificInput
+  required: true
+- input_id: INPUT-PRACTICE-003-2
+  description: 'Scientific quantities referenced by: Équation — Dynamique de l’acquisition
+    et de la consolidation'
+  type: OpaqueCandidateScientificInput
+  required: true
+- input_id: INPUT-PRACTICE-003-3
+  description: 'Scientific quantities referenced by: Équation — Dynamique d’apprentissage
+    à court terme'
+  type: OpaqueCandidateScientificInput
+  required: true
+- input_id: INPUT-PRACTICE-003-4
+  description: 'Scientific quantities referenced by: Équation — Boucles de rétroaction
+    dans la pratique collective'
+  type: OpaqueCandidateScientificInput
+  required: true
+outputs:
+- output_id: OUTPUT-PRACTICE-003-1
+  description: 'Candidate evaluation result for: Équation — Répétition et raffinement
+    itératif'
+  type: OpaqueCandidateEvaluationResult
+  semantics: unresolved
+- output_id: OUTPUT-PRACTICE-003-2
+  description: 'Candidate evaluation result for: Équation — Dynamique de l’acquisition
+    et de la consolidation'
+  type: OpaqueCandidateEvaluationResult
+  semantics: unresolved
+- output_id: OUTPUT-PRACTICE-003-3
+  description: 'Candidate evaluation result for: Équation — Dynamique d’apprentissage
+    à court terme'
+  type: OpaqueCandidateEvaluationResult
+  semantics: unresolved
+- output_id: OUTPUT-PRACTICE-003-4
+  description: 'Candidate evaluation result for: Équation — Boucles de rétroaction
+    dans la pratique collective'
+  type: OpaqueCandidateEvaluationResult
+  semantics: unresolved
+types:
+- OpaqueCandidateScientificInput
+- OpaqueCandidateEvaluationResult
+- SourceProvenance
+- DecisionBlocker
+operations:
+- op: preserve_candidate_source_trace
+  executable: false
+  reason: operation kind is not determinable from authorized sources without invention
+constraints:
+- Do not infer definitions, types, dimensions, aliases, or numerical methods.
+blockers: []
+reservations:
+- no invented type
+- no invented unit
+- no invented threshold
+- no invented temporal semantics
+determinism: structural serialization only; scientific result not executable
