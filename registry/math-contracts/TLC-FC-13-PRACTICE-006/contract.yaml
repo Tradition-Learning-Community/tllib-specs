@@ -1,4 +1,4 @@
----
+﻿---
 schema_version: 1
 contract_id: TLC-MC-13-PRACTICE-006
 feature_id: TLC-FC-13-PRACTICE-006
@@ -13,7 +13,7 @@ version: 0.1.0
 provenance:
   base_commit: b845ffb0f5708929ea81f9c42c7b23c8e1d560be
   sources:
-  - execution-manifests/wave-3/domain-completion.yaml
+  - execution-manifests/wave-3/practice-domain-completion.yaml
   - registry/domain-progress/practice/functional-coverage.yaml
   - registry/domain-progress/practice/contract-production-plan.yaml
   - registry/domain-progress/practice/ir-production-plan.yaml
@@ -23,11 +23,11 @@ provenance:
   - maths/13-practice.md
 covered_objects:
 - object_id: TLC-SO-PRACTICE-062
-  canonical_name: Équation — Domaines de validité
+  canonical_name: Ã‰quation â€” Domaines de validitÃ©
   object_type: Equation
   source_statement: |-
     \[
-    \mathcal{U}_{\mathcal{P}} = \{ (d,t,c,\mathcal{CP}) \in \mathcal{D} \times \mathbb{R}^+ \times \mathcal{C} \times \mathcal{CP} \mid \mathcal{R}_{\mathrm{aff}}(d,c) > \rho_{\min},\ t > t_{\min},\ \mathcal{CP}\ \text{adéquat} \}
+    \mathcal{U}_{\mathcal{P}} = \{ (d,t,c,\mathcal{CP}) \in \mathcal{D} \times \mathbb{R}^+ \times \mathcal{C} \times \mathcal{CP} \mid \mathcal{R}_{\mathrm{aff}}(d,c) > \rho_{\min},\ t > t_{\min},\ \mathcal{CP}\ \text{adÃ©quat} \}
     \]
   source_reference:
     repository: Tradition-Learning-Community/tllib-specs
@@ -37,7 +37,7 @@ covered_objects:
     source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
     source_blob_sha: 504366afaf6d0ca12186936e55c8483abe4b6f94
     document_title: Pratique (Practice)
-    section: Domaines de validité
+    section: Domaines de validitÃ©
     subsection:
     start_line: 45
     end_line: 47
@@ -48,7 +48,7 @@ covered_objects:
   - "\\rho_{\\min}"
   validation_status: candidate
 - object_id: TLC-SO-PRACTICE-091
-  canonical_name: Équation — Cohérence et coordination entre Disciples
+  canonical_name: Ã‰quation â€” CohÃ©rence et coordination entre Disciples
   object_type: Equation
   source_statement: |-
     \[
@@ -62,8 +62,8 @@ covered_objects:
     source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
     source_blob_sha: 504366afaf6d0ca12186936e55c8483abe4b6f94
     document_title: Pratique (Practice)
-    section: Interaction avec la communauté et pratique collective
-    subsection: Cohérence et coordination entre Disciples
+    section: Interaction avec la communautÃ© et pratique collective
+    subsection: CohÃ©rence et coordination entre Disciples
     start_line: 199
     end_line: 201
   symbols_mentioned:
@@ -76,21 +76,21 @@ functional_purpose: Evaluate the transformations expressed by the cited equation
   once their mathematical contract is selected.
 inputs:
 - input_id: INPUT-PRACTICE-006-1
-  description: 'Scientific quantities referenced by: Équation — Domaines de validité'
+  description: 'Scientific quantities referenced by: Ã‰quation â€” Domaines de validitÃ©'
   type: OpaqueCandidateScientificInput
   required: true
 - input_id: INPUT-PRACTICE-006-2
-  description: 'Scientific quantities referenced by: Équation — Cohérence et coordination
+  description: 'Scientific quantities referenced by: Ã‰quation â€” CohÃ©rence et coordination
     entre Disciples'
   type: OpaqueCandidateScientificInput
   required: true
 outputs:
 - output_id: OUTPUT-PRACTICE-006-1
-  description: 'Candidate evaluation result for: Équation — Domaines de validité'
+  description: 'Candidate evaluation result for: Ã‰quation â€” Domaines de validitÃ©'
   type: OpaqueCandidateEvaluationResult
   semantics: unresolved
 - output_id: OUTPUT-PRACTICE-006-2
-  description: 'Candidate evaluation result for: Équation — Cohérence et coordination
+  description: 'Candidate evaluation result for: Ã‰quation â€” CohÃ©rence et coordination
     entre Disciples'
   type: OpaqueCandidateEvaluationResult
   semantics: unresolved

@@ -1,4 +1,4 @@
----
+﻿---
 schema_version: 1
 contract_id: TLC-MC-13-PRACTICE-005
 feature_id: TLC-FC-13-PRACTICE-005
@@ -13,7 +13,7 @@ version: 0.1.0
 provenance:
   base_commit: b845ffb0f5708929ea81f9c42c7b23c8e1d560be
   sources:
-  - execution-manifests/wave-3/domain-completion.yaml
+  - execution-manifests/wave-3/practice-domain-completion.yaml
   - registry/domain-progress/practice/functional-coverage.yaml
   - registry/domain-progress/practice/contract-production-plan.yaml
   - registry/domain-progress/practice/ir-production-plan.yaml
@@ -23,7 +23,7 @@ provenance:
   - maths/13-practice.md
 covered_objects:
 - object_id: TLC-SO-PRACTICE-069
-  canonical_name: Équation — Apprentissage observationnel / imitation
+  canonical_name: Ã‰quation â€” Apprentissage observationnel / imitation
   object_type: Equation
   source_statement: |-
     \[
@@ -37,7 +37,7 @@ covered_objects:
     source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
     source_blob_sha: 504366afaf6d0ca12186936e55c8483abe4b6f94
     document_title: Pratique (Practice)
-    section: Transmission et modalités d’apprentissage
+    section: Transmission et modalitÃ©s dâ€™apprentissage
     subsection: Apprentissage observationnel / imitation
     start_line: 79
     end_line: 81
@@ -47,11 +47,11 @@ covered_objects:
   - "\\lambda"
   validation_status: candidate
 - object_id: TLC-SO-PRACTICE-087
-  canonical_name: Équation — Influence des Valeurs, Vertus et Principes sur la pratique
+  canonical_name: Ã‰quation â€” Influence des Valeurs, Vertus et Principes sur la pratique
   object_type: Equation
   source_statement: |-
     \[
-    \mathcal{P}_{\mathrm{aligné}} = \mathcal{P} + \eta_1 \Phi(\mathcal{F},\mathcal{P}) + \eta_2 \Psi(\nu,\mathcal{P}) + \eta_3 \Pi(\mathcal{P},\mathcal{P})
+    \mathcal{P}_{\mathrm{alignÃ©}} = \mathcal{P} + \eta_1 \Phi(\mathcal{F},\mathcal{P}) + \eta_2 \Psi(\nu,\mathcal{P}) + \eta_3 \Pi(\mathcal{P},\mathcal{P})
     \]
   source_reference:
     repository: Tradition-Learning-Community/tllib-specs
@@ -61,7 +61,7 @@ covered_objects:
     source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
     source_blob_sha: 504366afaf6d0ca12186936e55c8483abe4b6f94
     document_title: Pratique (Practice)
-    section: Dimensions éthiques, motivationnelles et cognitives
+    section: Dimensions Ã©thiques, motivationnelles et cognitives
     subsection: Influence des Valeurs, Vertus et Principes sur la pratique
     start_line: 167
     end_line: 169
@@ -76,7 +76,7 @@ covered_objects:
   - "\\Pi(\\mathcal{P},\\mathcal{P})"
   validation_status: candidate
 - object_id: TLC-SO-PRACTICE-089
-  canonical_name: Équation — Charge cognitive, effets de mémoire et insight
+  canonical_name: Ã‰quation â€” Charge cognitive, effets de mÃ©moire et insight
   object_type: Equation
   source_statement: |-
     \[
@@ -90,8 +90,8 @@ covered_objects:
     source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
     source_blob_sha: 504366afaf6d0ca12186936e55c8483abe4b6f94
     document_title: Pratique (Practice)
-    section: Dimensions éthiques, motivationnelles et cognitives
-    subsection: Charge cognitive, effets de mémoire et insight
+    section: Dimensions Ã©thiques, motivationnelles et cognitives
+    subsection: Charge cognitive, effets de mÃ©moire et insight
     start_line: 182
     end_line: 184
   symbols_mentioned:
@@ -100,11 +100,11 @@ covered_objects:
   - "\\mathcal"
   validation_status: candidate
 - object_id: TLC-SO-PRACTICE-090
-  canonical_name: Équation — Formation comportementale et d’habitudes
+  canonical_name: Ã‰quation â€” Formation comportementale et dâ€™habitudes
   object_type: Equation
   source_statement: |-
     \[
-    \mathrm{Réponse}(c) = \mathcal{C}_a(c) \quad \text{sans délibération consciente}
+    \mathrm{RÃ©ponse}(c) = \mathcal{C}_a(c) \quad \text{sans dÃ©libÃ©ration consciente}
     \]
   source_reference:
     repository: Tradition-Learning-Community/tllib-specs
@@ -114,8 +114,8 @@ covered_objects:
     source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
     source_blob_sha: 504366afaf6d0ca12186936e55c8483abe4b6f94
     document_title: Pratique (Practice)
-    section: Dimensions éthiques, motivationnelles et cognitives
-    subsection: Formation comportementale et d’habitudes
+    section: Dimensions Ã©thiques, motivationnelles et cognitives
+    subsection: Formation comportementale et dâ€™habitudes
     start_line: 190
     end_line: 192
   symbols_mentioned:
@@ -127,44 +127,44 @@ functional_purpose: Evaluate the transformations expressed by the cited equation
   once their mathematical contract is selected.
 inputs:
 - input_id: INPUT-PRACTICE-005-1
-  description: 'Scientific quantities referenced by: Équation — Apprentissage observationnel
+  description: 'Scientific quantities referenced by: Ã‰quation â€” Apprentissage observationnel
     / imitation'
   type: OpaqueCandidateScientificInput
   required: true
 - input_id: INPUT-PRACTICE-005-2
-  description: 'Scientific quantities referenced by: Équation — Influence des Valeurs,
+  description: 'Scientific quantities referenced by: Ã‰quation â€” Influence des Valeurs,
     Vertus et Principes sur la pratique'
   type: OpaqueCandidateScientificInput
   required: true
 - input_id: INPUT-PRACTICE-005-3
-  description: 'Scientific quantities referenced by: Équation — Charge cognitive,
-    effets de mémoire et insight'
+  description: 'Scientific quantities referenced by: Ã‰quation â€” Charge cognitive,
+    effets de mÃ©moire et insight'
   type: OpaqueCandidateScientificInput
   required: true
 - input_id: INPUT-PRACTICE-005-4
-  description: 'Scientific quantities referenced by: Équation — Formation comportementale
-    et d’habitudes'
+  description: 'Scientific quantities referenced by: Ã‰quation â€” Formation comportementale
+    et dâ€™habitudes'
   type: OpaqueCandidateScientificInput
   required: true
 outputs:
 - output_id: OUTPUT-PRACTICE-005-1
-  description: 'Candidate evaluation result for: Équation — Apprentissage observationnel
+  description: 'Candidate evaluation result for: Ã‰quation â€” Apprentissage observationnel
     / imitation'
   type: OpaqueCandidateEvaluationResult
   semantics: unresolved
 - output_id: OUTPUT-PRACTICE-005-2
-  description: 'Candidate evaluation result for: Équation — Influence des Valeurs,
+  description: 'Candidate evaluation result for: Ã‰quation â€” Influence des Valeurs,
     Vertus et Principes sur la pratique'
   type: OpaqueCandidateEvaluationResult
   semantics: unresolved
 - output_id: OUTPUT-PRACTICE-005-3
-  description: 'Candidate evaluation result for: Équation — Charge cognitive, effets
-    de mémoire et insight'
+  description: 'Candidate evaluation result for: Ã‰quation â€” Charge cognitive, effets
+    de mÃ©moire et insight'
   type: OpaqueCandidateEvaluationResult
   semantics: unresolved
 - output_id: OUTPUT-PRACTICE-005-4
-  description: 'Candidate evaluation result for: Équation — Formation comportementale
-    et d’habitudes'
+  description: 'Candidate evaluation result for: Ã‰quation â€” Formation comportementale
+    et dâ€™habitudes'
   type: OpaqueCandidateEvaluationResult
   semantics: unresolved
 preconditions:
