@@ -1,0 +1,41 @@
+---
+schema_version: 1
+ir_id: TLC-IR-13-PRACTICE-010
+feature_id: TLC-FC-13-PRACTICE-010
+domain: practice
+contract_ref: registry/math-contracts/TLC-FC-13-PRACTICE-010/contract.yaml
+status: blocked_declarative_non_executable
+execution_model: declarative_non_executable
+python_readiness: blocked_by_scientific_decision
+cpp_readiness: blocked_by_scientific_decision
+inputs:
+- input_id: INPUT-PRACTICE-010-1
+  description: 'Scientific quantities referenced by: Opérateurs et transformations'
+  type: OpaqueCandidateScientificInput
+  required: true
+outputs:
+- output_id: OUTPUT-PRACTICE-010-1
+  description: 'Candidate evaluation result for: Opérateurs et transformations'
+  type: OpaqueCandidateEvaluationResult
+  semantics: unresolved
+types:
+- OpaqueCandidateScientificInput
+- OpaqueCandidateEvaluationResult
+- SourceProvenance
+- DecisionBlocker
+operations:
+- op: preserve_candidate_source_trace
+  executable: false
+  reason: operation kind is not determinable from authorized sources without invention
+constraints:
+- Do not infer definitions, types, dimensions, aliases, or numerical methods.
+blockers:
+- TLC-SO-PRACTICE-018
+- TLC-SR-PRACTICE-017
+- TLC-HR-0108
+reservations:
+- no invented type
+- no invented unit
+- no invented threshold
+- no invented temporal semantics
+determinism: structural serialization only; scientific result not executable
