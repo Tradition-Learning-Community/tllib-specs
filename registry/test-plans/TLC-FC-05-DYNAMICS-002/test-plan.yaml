@@ -1,0 +1,31 @@
+test_plan_id: TLC-TP-TLC-FC-05-DYNAMICS-002
+feature_id: TLC-FC-05-DYNAMICS-002
+ir_id: TLC-IR-TLC-FC-05-DYNAMICS-002
+active_ir_artifact: ir/TLC-FC-05-DYNAMICS-002/ir.prototype.json
+main_operation: build_unevaluated_dynamics_bundle
+scope: Assemble the cited deterministic and stochastic equation sources into a traceable bundle without solving them.
+cases:
+  - case_id: DYN-002-NOMINAL
+    kind: nominal
+    given: Eight opaque equation sources and a symbol table covering their cited identifiers.
+    when: build_unevaluated_dynamics_bundle is invoked.
+    then: A DynamicsBundle retains each equation source, its source-object ID, and its symbolic classification.
+  - case_id: DYN-002-OPAQUE-EQUATION
+    kind: opaque_boundary
+    given: An equation whose state type and stochastic details are undefined.
+    then: The equation remains an OpaqueEquation and is not discarded or evaluated.
+  - case_id: DYN-002-MISSING-SYMBOL
+    kind: failure
+    given: An equation references an identifier absent from the symbol table.
+    then: unknown_source_identifier identifies the failing equation and no partial bundle is returned.
+  - case_id: DYN-002-POSTCONDITION
+    kind: postcondition
+    then: Bundle membership and equation ordering reproduce the supplied source sequence exactly.
+  - case_id: DYN-002-RESERVATIONS
+    kind: reservation_propagation
+    then: types_initial_conditions_stochastic_details and solver_and_discretization remain unresolved.
+  - case_id: DYN-002-CONFORMANCE
+    kind: contract_ir_conformance
+    then: Equation inputs, DynamicsBundle output, errors, assumptions, and readiness match contract and IR.
+forbidden_expected_results: [solved_trajectory, selected_solver, invented_initial_condition, invented_distribution]
+readiness: planned

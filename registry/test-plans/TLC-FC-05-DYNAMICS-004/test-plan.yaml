@@ -1,0 +1,31 @@
+test_plan_id: TLC-TP-TLC-FC-05-DYNAMICS-004
+feature_id: TLC-FC-05-DYNAMICS-004
+ir_id: TLC-IR-TLC-FC-05-DYNAMICS-004
+active_ir_artifact: ir/TLC-FC-05-DYNAMICS-004/ir.prototype.json
+main_operation: construct_symbolic_feedback_expression
+scope: Construct the cited feedback integral expression from an opaque signal, kernel, and parameter map.
+cases:
+  - case_id: DYN-004-NOMINAL
+    kind: nominal
+    given: An external input, an opaque multi-exponential kernel, and source-addressable parameters.
+    when: construct_symbolic_feedback_expression is invoked.
+    then: An UnevaluatedIntegralExpression links the input, kernel, parameters, TLC-SO-DYNAMICS-023, and TLC-SO-DYNAMICS-024.
+  - case_id: DYN-004-OPAQUE-KERNEL
+    kind: opaque_boundary
+    given: A kernel with no declared domain or convergence evidence.
+    then: The kernel remains opaque and the integral is not evaluated.
+  - case_id: DYN-004-UNKNOWN-PARAMETER
+    kind: failure
+    given: The parameter map contains a source identifier outside the covered objects.
+    then: unknown_source_identifier is returned without constructing feedback.
+  - case_id: DYN-004-POSTCONDITION
+    kind: postcondition
+    then: Output preserves the distinct integral-feedback and kernel source identities.
+  - case_id: DYN-004-RESERVATIONS
+    kind: reservation_propagation
+    then: domains_and_convergence and kernel_parameter_types remain unresolved.
+  - case_id: DYN-004-CONFORMANCE
+    kind: contract_ir_conformance
+    then: Signal, kernel, parameters, integral output, errors, assumptions, and readiness match contract and IR.
+forbidden_expected_results: [numeric_integral, convergence_claim, inferred_kernel_domain]
+readiness: planned

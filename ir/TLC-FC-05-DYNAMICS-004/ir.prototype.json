@@ -1,0 +1,83 @@
+{
+  "ir_id": "TLC-IR-TLC-FC-05-DYNAMICS-004",
+  "feature_id": "TLC-FC-05-DYNAMICS-004",
+  "contract_id": "TLC-MC-TLC-FC-05-DYNAMICS-004",
+  "ir_kind": "prototype_ir_with_reservations",
+  "status": "prototype",
+  "inputs": [
+    "external_input: OpaqueSignal",
+    "kernel: OpaqueKernel",
+    "parameters: ParameterMap"
+  ],
+  "outputs": [
+    "feedback: UnevaluatedIntegralExpression"
+  ],
+  "opaque_types": [
+    "OpaqueValue",
+    "OpaqueExpression",
+    "ScientificObjectId"
+  ],
+  "parameterized_types": [
+    "Sequence[T]",
+    "Mapping[K,V]",
+    "Optional[T]"
+  ],
+  "operations": [
+    {
+      "operation_id": "OP-004-001",
+      "kind": "construct_symbolic_feedback_expression",
+      "evaluation": "unevaluated",
+      "source_objects": [
+        "TLC-SO-DYNAMICS-023",
+        "TLC-SO-DYNAMICS-024"
+      ]
+    }
+  ],
+  "control_flow": [],
+  "preconditions": [
+    "All referenced identifiers exist in the dynamics preparation inventory.",
+    "Inputs preserve their declared opaque or parameterized type."
+  ],
+  "postconditions": [
+    "Output is traceable to every supplied source identifier.",
+    "No unresolved scientific property is evaluated or silently fixed."
+  ],
+  "invariants": [
+    {
+      "statement": "Covered objects and relations remain distinct and source-addressable.",
+      "source": "registry/domain-progress/dynamics/feature-inventory.yaml"
+    }
+  ],
+  "errors": [
+    "unknown_source_identifier",
+    "type_shape_mismatch"
+  ],
+  "unresolved_propagated": [
+    "domains_and_convergence",
+    "kernel_parameter_types"
+  ],
+  "provisional_assumptions_propagated": [
+    "TLC-PA-TLC-FC-05-DYNAMICS-004-001"
+  ],
+  "traceability": {
+    "source_commit": "f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa",
+    "contract": "registry/math-contracts/TLC-FC-05-DYNAMICS-004/contract.yaml",
+    "revises_ir": null
+  },
+  "determinism_status": "deterministic_structure_construction_only",
+  "testability_status": "structural_and_traceability_tests_only",
+  "implementation_constraints": [
+    "Do not evaluate scientific expressions.",
+    "Do not add numerical solvers, discretization, distributions, tolerances, or units.",
+    "Preserve opaque payloads and stable source identifiers."
+  ],
+  "readiness": {
+    "ready_for_limited_engineering_contract": true,
+    "ready_for_prototype_ir": true,
+    "ready_for_reference_python": true,
+    "ready_for_cpp_prototype": true,
+    "ready_for_canonical_ir": false,
+    "ready_for_production_implementation": false
+  },
+  "blocks_all_prototype_progress": false
+}

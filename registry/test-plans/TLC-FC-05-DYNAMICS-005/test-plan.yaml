@@ -1,0 +1,31 @@
+test_plan_id: TLC-TP-TLC-FC-05-DYNAMICS-005
+feature_id: TLC-FC-05-DYNAMICS-005
+ir_id: TLC-IR-TLC-FC-05-DYNAMICS-005
+active_ir_artifact: ir/TLC-FC-05-DYNAMICS-005/ir.prototype.json
+main_operation: construct_opaque_interaction_application
+scope: Construct a traceable, unevaluated application of a named interaction operator to opaque entity references.
+cases:
+  - case_id: DYN-005-NOMINAL
+    kind: nominal
+    given: A source-listed interaction operator ID and ordered master, disciple, or community references.
+    when: construct_opaque_interaction_application is invoked.
+    then: An UnevaluatedOperatorApplication preserves operator identity, argument identity, and argument order.
+  - case_id: DYN-005-OPAQUE-SIGNATURE
+    kind: opaque_boundary
+    given: The operator signature and return type are absent.
+    then: Construction succeeds structurally without inferring arity or result semantics.
+  - case_id: DYN-005-UNKNOWN-OPERATOR
+    kind: failure
+    given: operator_id is not one of the interaction operators cited by TLC-SO-DYNAMICS-014.
+    then: unknown_source_identifier is returned and arguments remain untouched.
+  - case_id: DYN-005-POSTCONDITION
+    kind: postcondition
+    then: The application is marked unevaluated and traceable to TLC-SR-DYNAMICS-013.
+  - case_id: DYN-005-RESERVATIONS
+    kind: reservation_propagation
+    then: operator_signatures_absent and community_symbol_reconciliation remain attached.
+  - case_id: DYN-005-CONFORMANCE
+    kind: contract_ir_conformance
+    then: Operator input, entity arguments, application output, errors, assumptions, and readiness match contract and IR.
+forbidden_expected_results: [inferred_arity, evaluated_interaction, invented_return_type]
+readiness: planned
