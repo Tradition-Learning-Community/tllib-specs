@@ -233,6 +233,80 @@ def authoritative_matrix(root: pathlib.Path, domain_registry: dict[str, Any]) ->
     return rows
 
 
+def extract_authoritative_feature_ids(data: Any) -> list[str]:
+    """Read active feature entries without counting lineage or internal IDs."""
+    primary_keys = (
+        "features",
+        "active_features",
+        "feature_catalogue",
+        "feature_catalog",
+        "catalogue",
+        "items",
+        "entries",
+    )
+    id_keys = ("feature_id", "feature_candidate_id", "id")
+
+    def direct_ids(value: Any) -> list[str]:
+        found: list[str] = []
+        if isinstance(value, str):
+            if value.startswith("TLC-FC-"):
+                found.append(value)
+        elif isinstance(value, list):
+            for item in value:
+                if isinstance(item, str) and item.startswith("TLC-FC-"):
+                    found.append(item)
+                elif isinstance(item, dict):
+                    for key in id_keys:
+                        candidate = item.get(key)
+                        if isinstance(candidate, str) and candidate.startswith("TLC-FC-"):
+                            found.append(candidate)
+                            break
+        elif isinstance(value, dict):
+            for item in value.values():
+                found.extend(direct_ids(item))
+        return found
+
+    if isinstance(data, dict):
+        for key in primary_keys:
+            if key in data:
+                found = direct_ids(data[key])
+                if found:
+                    return sorted(set(found))
+
+    found: list[str] = []
+
+    def walk(value: Any, parent_key: str = "") -> None:
+        lowered = parent_key.lower()
+        if any(token in lowered for token in ("legacy", "rejected", "excluded", "deferred", "comparison")):
+            return
+        if isinstance(value, dict):
+            for key, child in value.items():
+                if key in id_keys and isinstance(child, str) and child.startswith("TLC-FC-"):
+                    found.append(child)
+                else:
+                    walk(child, str(key))
+        elif isinstance(value, list):
+            for child in value:
+                walk(child, parent_key)
+
+    walk(data)
+    return sorted(set(found))
+
+
+def authoritative_matrix(root: pathlib.Path, domain_registry: dict[str, Any]) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for domain in domain_registry.get("domains", []):
+        slug = str(domain.get("domain_id"))
+        source_ref = domain.get("feature_source")
+        if not isinstance(source_ref, str):
+            raise RuntimeError(f"missing authoritative feature source for {slug}")
+        identifiers = extract_authoritative_feature_ids(load(root / source_ref, {}))
+        if not identifiers:
+            raise RuntimeError(f"no active feature identifiers found for {slug} in {source_ref}")
+        rows.extend({"domain": slug, "feature_id": feature_id} for feature_id in identifiers)
+    return rows
+
+
 def source_commit(root: pathlib.Path, explicit: str | None) -> str:
     if explicit:
         return explicit
@@ -501,8 +575,23 @@ def main() -> int:
 
     registry_dir = root / "registry/global-reconciliation"
     report_dir = root / "reports/global-reconciliation"
-    for path in registry_dir.glob("*.yaml"):
-        patch_generated_metadata(path, baseline_commit, tool_commit, timestamp)
+    rebuilt_registry_names = (
+        "blocker-registry.yaml",
+        "contract-execution-plan.yaml",
+        "cycle-registry.yaml",
+        "decision-required.yaml",
+        "dependency-graph.yaml",
+        "domain-feature-matrix.yaml",
+        "domain-registry.yaml",
+        "existing-artifact-audit.yaml",
+        "feature-contract-matrix.yaml",
+        "feature-ir-matrix.yaml",
+        "ir-execution-plan.yaml",
+        "manifest.yaml",
+        "readiness-registry.yaml",
+    )
+    for name in rebuilt_registry_names:
+        patch_generated_metadata(registry_dir / name, baseline_commit, tool_commit, timestamp)
 
     old_domain_registry = load(registry_dir / "domain-registry.yaml", {})
     authoritative_rows = authoritative_matrix(root, old_domain_registry)
@@ -818,9 +907,16 @@ def main() -> int:
     manifest["baseline_ref"] = "registry/global-reconciliation/current-baseline.yaml"
     manifest["status_taxonomy_ref"] = "registry/global-reconciliation/status-taxonomy.yaml"
     manifest["active_sequence_ref"] = "registry/global-reconciliation/domain-review-sequence.yaml"
-    manifest["artifacts"] = sorted(
-        str(path.relative_to(root)).replace("\\", "/") for path in registry_dir.glob("*.yaml")
-    ) + [
+    current_registry_artifacts = sorted(
+        [f"registry/global-reconciliation/{name}" for name in rebuilt_registry_names]
+        + [
+            "registry/global-reconciliation/current-baseline.yaml",
+            "registry/global-reconciliation/domain-review-sequence.yaml",
+            "registry/global-reconciliation/status-taxonomy.yaml",
+        ]
+    )
+    manifest["artifacts"] = current_registry_artifacts + [
+        "reports/global-reconciliation/phase4-current-baseline-work-item.md",
         "reports/global-reconciliation/reconciliation-report.md",
         "tools/global-reconciliation/build_global_reconciliation.py",
         "tools/global-reconciliation/build_current_global_registry.py",
