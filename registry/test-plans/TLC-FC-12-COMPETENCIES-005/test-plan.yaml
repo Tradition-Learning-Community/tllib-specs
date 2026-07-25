@@ -1,0 +1,49 @@
+---
+test_plan_id: TLC-TP-TLC-FC-12-COMPETENCIES-005
+feature_id: TLC-FC-12-COMPETENCIES-005
+contract_id: TLC-MC-TLC-FC-12-COMPETENCIES-005
+ir_id: TLC-IR-TLC-FC-12-COMPETENCIES-005
+contract_path: registry/math-contracts/TLC-FC-12-COMPETENCIES-005/contract.yaml
+ir_path: registry/ir/TLC-FC-12-COMPETENCIES-005/ir.yaml
+entrypoint: competencies_preserve_evolution_dynamics_record_005
+plan_kind: canonical_declarative_ir_test_plan_with_reservations
+scope: structural and rejection tests for canonical declarative descriptor only
+test_categories:
+- nominal
+- errors
+- types
+- preconditions
+- postconditions
+- invariants
+- properties
+- determinism
+- reproducibility
+- conformity Python/C++
+- rejection or explicit blocking
+test_cases:
+- name: nominal_build_preserves_competencies_objects
+  then: returns descriptor with same feature id, covered object ids in catalogue order,
+    symbols, reservations, blockers, and provenance
+- name: reject_missing_covered_object
+  then: raises MissingCoveredObject before descriptor creation
+- name: reject_duplicate_covered_object
+  then: raises DuplicateCoveredObject
+- name: reject_missing_provenance
+  then: raises MissingSourceReference
+- name: propagate_reservations_without_resolution
+  then: output includes the same blocker/reservation text and does not mark scientific
+    resolution
+- name: reject_absent_scientific_calculation
+  then: raises ScientificEvaluationRequested and no numeric result is returned
+- name: contract_ir_alignment
+  then: feature to contract to IR chain is unique and consistent
+blocked_tests:
+- numeric oracle tests blocked by missing authorized numerical semantics
+- precision/stability/gradient/conservation/monotonicity tests blocked unless a future
+  scientific decision defines executable equations and domains
+readiness_expectation:
+  python: structural_descriptor_ready_with_reservations
+  cpp: structural_descriptor_ready_with_reservations
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_production_implementation: false

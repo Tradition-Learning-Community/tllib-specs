@@ -1,0 +1,127 @@
+---
+contract_id: TLC-MC-TLC-FC-12-COMPETENCIES-012
+feature_id: TLC-FC-12-COMPETENCIES-012
+contract_kind: canonical_declarative_contract_with_reservations
+domain_id: competencies
+scientific_authority: maths/12-competencies.md and competencies preparation artifacts
+  only; no scientific semantics promoted beyond cited objects
+source_references:
+- source_path: maths/12-competencies.md
+  section: Types et formes de Compétences
+  subsection: Compétences techniques / fonctionnelles
+  start_line: 63
+  end_line: 64
+  source_commit: aef09e74f85b5f0c930d5940f1753536af61686f
+  feature_source: feature-catalogue
+covered_objects:
+- object_id: TLC-SO-COMPETENCIES-007
+  canonical_name: Compétences techniques / fonctionnelles
+  object_type: Function
+  status: candidate
+  symbols: []
+  source_statement: Maîtrise de gestes spécifiques, d’outils, de procédures et de
+    techniques propres à un domaine. Elles constituent le fondement de la pratique
+    professionnelle et s’acquièrent par répétition et raffinement (Dreyfus & Dreyfus,
+    1986 ; Ericsson, Krampe & Tesch‑Römer, 1993).
+  source_reference:
+    repository: Tradition-Learning-Community/tllib-specs
+    source_path: maths/12-competencies.md
+    source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/12-competencies.md
+    source_branch: main
+    source_commit: aef09e74f85b5f0c930d5940f1753536af61686f
+    source_blob_sha: e8fcc07461672056d4ef0249f4eee51c2b7e18d3
+    document_title: Compétences (Competencies)
+    section: Types et formes de Compétences
+    subsection: Compétences techniques / fonctionnelles
+    start_line: 63
+    end_line: 64
+covered_relations: []
+functional_purpose: Evaluate the cited scientific functions and operators.
+canonical_category: scientific_operator
+capacities_dependency: not_directly_evidenced
+primary_responsibility: 'competencies_preserve_scientific_operator_record_012: create
+  a provenance-preserving canonical representation for 12-competencies: operator (admissible);
+  permit structural validation only, not scientific evaluation.'
+inputs:
+- name: competencies_feature_id
+  type: FeatureId
+  required: true
+  expected_value: TLC-FC-12-COMPETENCIES-012
+- name: object_payloads
+  type: Map<ObjectId,OpaqueScientificObject>
+  required: true
+  required_keys:
+  - TLC-SO-COMPETENCIES-007
+- name: provenance
+  type: Map<ObjectId,SourceReference>
+  required: true
+outputs:
+- name: artifact
+  type: CompetenciesCanonicalDescriptor
+  observable_effect: returns descriptor containing feature id, category, object ids,
+    source statements, symbols, provenance, reservations, blockers, and no evaluated
+    scientific value
+types:
+  FeatureId: string matching TLC-FC-12-COMPETENCIES-*
+  OpaqueScientificObject: caller supplied payload preserved without interpretation
+  SourceReference: source path, line span, commit, section
+  CompetenciesCanonicalDescriptor: immutable record with domain/category/status/object_ids/symbols/provenance/reservations/blockers
+preconditions:
+- feature id equals contract feature_id
+- all covered object ids are present exactly once in object_payloads
+- each covered object has a source reference
+- caller does not request numeric scoring, thresholds, learning dynamics, temporal
+  simulation, or scientific evaluation
+postconditions:
+- output feature_id equals input feature id
+- output covered_objects preserves catalogue order
+- output provenance contains a source reference for every covered object
+- output contains no generated scientific metric, score, threshold, rank, probability,
+  or temporal inference
+- descriptor is marked structurally_valid only for provenance and coverage completeness
+explicitly_sourced_invariants:
+- covered object set is exactly the feature catalogue object set
+- source statements and equations remain opaque and are not reinterpreted
+- scientific reservations, non-invention notes, and blockers are propagated
+errors:
+- UnknownFeatureId
+- MissingCoveredObject
+- DuplicateCoveredObject
+- MissingSourceReference
+- ScientificEvaluationRequested
+- BlockedScientificDecision
+undefined_behaviors:
+- numeric interpretation of symbols or equations
+- selection of dimensions, units, thresholds, initial conditions, or temporal semantics
+- resolution of blocked/provisionally separated/admissible scientific status
+- conversion of capacities dependencies into local competencies semantics
+propagated_unresolved: []
+implementation_decisions_required:
+- descriptor schema finalization for downstream code generation
+- runtime representation of opaque source statements and symbols
+scientific_decisions_required:
+- scientific unresolved
+- validated contract absent
+scientific_reservations:
+- no full mathematical contract or production semantics asserted
+- types, dimensions, units, thresholds, and temporal semantics are not completed
+- scientific unresolved blockers are preserved rather than resolved
+traceability:
+  prepared_from: registry/domain-progress/competencies/feature-catalogue.yaml
+  readiness_from: registry/domain-progress/competencies/production-readiness.yaml
+  source_file: maths/12-competencies.md
+  working_base_commit: d8e616c71173495b9a014d4a5909df9f30e2a7ae
+  feature_name: '12-competencies: operator (admissible)'
+validation_criteria:
+- YAML parses
+- contract feature id matches directory and IR
+- covered object ids match feature catalogue
+- evaluation requests are rejected
+- reservations and blockers are preserved
+execution_status: non_executable_scientific_content; structurally_validatable_descriptor_only
+readiness:
+  status: canonical_declarative_with_reservations
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_production_implementation: false
+  blocks_all_prototype_progress: false
