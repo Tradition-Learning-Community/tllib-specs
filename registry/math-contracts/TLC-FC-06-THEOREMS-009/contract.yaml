@@ -1,0 +1,59 @@
+schema_version: 1
+contract_id: TLC-LEC-TLC-FC-06-THEOREMS-009-001
+feature_id: TLC-FC-06-THEOREMS-009
+contract_kind: limited_engineering_contract_with_reservations
+scientific_authority: origin/main@f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+status: limited_engineering_contract_with_reservations
+functional_purpose: "Construct the isolated Principles role descriptor from the provisionally separated source statement at line 82."
+software_responsibility:
+  operation: construct_principles_role_descriptor
+  observable_effect: "return a descriptor identifying Principles, source ordinal 2, and the cited rational-coherence label without defining coherence"
+source_references: [maths/06-theorems.md:82]
+objects_covered: [TLC-SO-THEOREMS-019]
+relations_covered: []
+relations_contextual_only: []
+inputs:
+  - {name: principles_role, type: "OpaqueDimensionRole"}
+  - {name: source_ordinal, type: "SourceOrdinal"}
+outputs:
+  - {name: principles_descriptor, type: "PrinciplesRoleDescriptor"}
+types:
+  opaque: [OpaqueScientificValue, OpaqueScientificExpression]
+  parameterized: [Mapping<K,V>, Sequence<T>]
+preconditions:
+  - "The supplied role cites line 82 and carries unresolved identifier TLC-UT-THEOREMS-006."
+postconditions:
+  - "The descriptor is labelled Principles and preserves ordinal 2, the opaque role payload, and its unresolved identifier."
+invariants_explicitly_sourced: []
+errors_or_undefined_behavior:
+  - WRONG_DIMENSION_LABEL
+  - WRONG_SOURCE_ORDINAL
+  - MISSING_PRINCIPLES_UNRESOLVED
+  - Scientific evaluation and unstated numeric semantics are undefined.
+unresolved_propagated: [TLC-UT-THEOREMS-006]
+provisional_assumptions: [TLC-EA-THEOREMS-009-001]
+scientific_reservations:
+  - The operation organizes source evidence but does not establish theorem truth.
+  - Missing types, units, dimensions, cardinalities, ordering, precision, probability laws, and algorithms remain unspecified.
+strong_dependencies_explicitly_confirmed: []
+documentary_references:
+  - registry/domain-progress/theorems/feature-inventory.yaml
+  - registry/domain-progress/theorems/feature-status.yaml
+  - registry/domain-progress/theorems/result-semantics.yaml
+traceability:
+  feature_kind: state_representation
+  source_objects: [TLC-SO-THEOREMS-019]
+  source_relations: []
+validation_criteria:
+  - The named operation produces the declared structural result.
+  - The feature-specific precondition, postcondition, and errors are testable.
+  - Every attached unresolved and provisional assumption is propagated unchanged.
+readiness:
+  ready_for_limited_engineering_contract: true
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false
+  human_validation_required_before_prototype_work: false
+  human_validation_required_before_canonical_release: true

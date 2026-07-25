@@ -1,0 +1,20 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-06-THEOREMS-003-001
+feature_id: TLC-FC-06-THEOREMS-003
+contract_id: TLC-LEC-TLC-FC-06-THEOREMS-003-001
+ir_id: TLC-PIR-TLC-FC-06-THEOREMS-003-001
+operation_under_test: catalogue_explicit_theorem_equations
+status: planned
+tests:
+  - {id: TEST-003-NOMINAL, kind: nominal, assertion: "invoke catalogue_explicit_theorem_equations with complete feature evidence and obtain equation_catalogue"}
+  - {id: TEST-003-EFFECT, kind: observable_effect, assertion: "return entries addressable by source object and equation role for stability bound, emergence probability, trajectory convergence, and wave speed"}
+  - {id: TEST-003-BOUNDARY, kind: opaque_boundary, assertion: "an unevaluated expression is stored without algebraic normalization"}
+  - {id: TEST-003-PRECONDITION, kind: precondition, assertion: "reject input when: Each of the four covered objects occurs exactly once with a source reference and opaque expression."}
+  - {id: TEST-003-ERROR, kind: failure, assertion: "the first violated precondition returns one of: MISSING_EQUATION_ROLE, DUPLICATE_EQUATION_ROLE, MISSING_SOURCE_REFERENCE"}
+  - {id: TEST-003-POSTCONDITION, kind: postcondition, assertion: "The catalogue exposes four distinct roles and preserves each expression unchanged."}
+  - {id: TEST-003-DETERMINISM, kind: determinism, assertion: identical structural inputs produce an identical structural result}
+  - {id: TEST-003-RESERVATIONS, kind: reservation_propagation, assertion: "preserve unresolved set (empty) and assumption TLC-EA-THEOREMS-003-001"}
+  - {id: TEST-003-TRACE, kind: traceability, assertion: preserve every feature-specific source object relation and line reference}
+  - {id: TEST-003-CONFORMANCE, kind: contract_ir_conformance, assertion: entrypoint inputs output errors and readiness match contract and IR}
+numeric_expected_results: forbidden
+implementation_status: no_test_code_created

@@ -1,0 +1,20 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-06-THEOREMS-001-001
+feature_id: TLC-FC-06-THEOREMS-001
+contract_id: TLC-LEC-TLC-FC-06-THEOREMS-001-001
+ir_id: TLC-PIR-TLC-FC-06-THEOREMS-001-001
+operation_under_test: assemble_experiential_conservation_claim
+status: planned
+tests:
+  - {id: TEST-001-NOMINAL, kind: nominal, assertion: "invoke assemble_experiential_conservation_claim with complete feature evidence and obtain conservation_claim"}
+  - {id: TEST-001-EFFECT, kind: observable_effect, assertion: "return a descriptor containing the bounded-energy, controlled-variation, and stationary-law clause identifiers without evaluating them"}
+  - {id: TEST-001-BOUNDARY, kind: opaque_boundary, assertion: "an opaque experience symbol is preserved byte-for-byte"}
+  - {id: TEST-001-PRECONDITION, kind: precondition, assertion: "reject input when: The axiom reference and all three source clause identifiers are present."}
+  - {id: TEST-001-ERROR, kind: failure, assertion: "the first violated precondition returns one of: MISSING_AXIOM_REFERENCE, INCOMPLETE_CONSERVATION_CLAUSES"}
+  - {id: TEST-001-POSTCONDITION, kind: postcondition, assertion: "The result contains exactly the supplied axiom reference, experience symbol, and three unevaluated clause identifiers."}
+  - {id: TEST-001-DETERMINISM, kind: determinism, assertion: identical structural inputs produce an identical structural result}
+  - {id: TEST-001-RESERVATIONS, kind: reservation_propagation, assertion: "preserve unresolved set (empty) and assumption TLC-EA-THEOREMS-001-001"}
+  - {id: TEST-001-TRACE, kind: traceability, assertion: preserve every feature-specific source object relation and line reference}
+  - {id: TEST-001-CONFORMANCE, kind: contract_ir_conformance, assertion: entrypoint inputs output errors and readiness match contract and IR}
+numeric_expected_results: forbidden
+implementation_status: no_test_code_created

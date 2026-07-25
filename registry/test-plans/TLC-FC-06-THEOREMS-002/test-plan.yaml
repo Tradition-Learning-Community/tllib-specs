@@ -1,0 +1,20 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-06-THEOREMS-002-001
+feature_id: TLC-FC-06-THEOREMS-002
+contract_id: TLC-LEC-TLC-FC-06-THEOREMS-002-001
+ir_id: TLC-PIR-TLC-FC-06-THEOREMS-002-001
+operation_under_test: register_theorem_dynamics_equations
+status: planned
+tests:
+  - {id: TEST-002-NOMINAL, kind: nominal, assertion: "invoke register_theorem_dynamics_equations with complete feature evidence and obtain dynamics_registry"}
+  - {id: TEST-002-EFFECT, kind: observable_effect, assertion: "return a registry keyed by the three prepared object identifiers and preserving each equation's declared trajectory, identity-wave, or receptivity role"}
+  - {id: TEST-002-BOUNDARY, kind: opaque_boundary, assertion: "opaque equation payloads with distinct roles remain distinct"}
+  - {id: TEST-002-PRECONDITION, kind: precondition, assertion: "reject input when: Every covered object has one opaque equation and one prepared role."}
+  - {id: TEST-002-ERROR, kind: failure, assertion: "the first violated precondition returns one of: MISSING_DYNAMICS_EQUATION, UNKNOWN_DYNAMICS_ROLE, DUPLICATE_SCIENTIFIC_OBJECT"}
+  - {id: TEST-002-POSTCONDITION, kind: postcondition, assertion: "The registry has one entry for each covered object and never evaluates a derivative or evolution law."}
+  - {id: TEST-002-DETERMINISM, kind: determinism, assertion: identical structural inputs produce an identical structural result}
+  - {id: TEST-002-RESERVATIONS, kind: reservation_propagation, assertion: "preserve unresolved set (empty) and assumption TLC-EA-THEOREMS-002-001"}
+  - {id: TEST-002-TRACE, kind: traceability, assertion: preserve every feature-specific source object relation and line reference}
+  - {id: TEST-002-CONFORMANCE, kind: contract_ir_conformance, assertion: entrypoint inputs output errors and readiness match contract and IR}
+numeric_expected_results: forbidden
+implementation_status: no_test_code_created

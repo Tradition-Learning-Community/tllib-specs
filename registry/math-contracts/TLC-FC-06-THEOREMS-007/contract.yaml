@@ -1,0 +1,60 @@
+schema_version: 1
+contract_id: TLC-LEC-TLC-FC-06-THEOREMS-007-001
+feature_id: TLC-FC-06-THEOREMS-007
+contract_kind: limited_engineering_contract_with_reservations
+scientific_authority: origin/main@f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+status: limited_engineering_contract_with_reservations
+functional_purpose: "Construct the source-traceable community-stability context used by theorem C5 from the prepared state objects and relations."
+software_responsibility:
+  operation: construct_community_stability_state
+  observable_effect: "return a descriptor linking sequence, limit, and cited relation components without asserting convergence or stability"
+source_references: [maths/06-theorems.md:1-5, maths/06-theorems.md:18-21]
+objects_covered: [TLC-SO-THEOREMS-001, TLC-SO-THEOREMS-012, TLC-SO-THEOREMS-013, TLC-SO-THEOREMS-015]
+relations_covered: [TLC-SR-THEOREMS-011, TLC-SR-THEOREMS-012, TLC-SR-THEOREMS-014]
+relations_contextual_only: []
+inputs:
+  - {name: community_sequence, type: "OpaqueCommunitySequence"}
+  - {name: limit_community, type: "OpaqueCommunityState"}
+  - {name: stability_context, type: "CommunityStabilityContextComponents"}
+outputs:
+  - {name: community_stability_state, type: "CommunityStabilityStateDescriptor"}
+types:
+  opaque: [OpaqueScientificValue, OpaqueScientificExpression]
+  parameterized: [Mapping<K,V>, Sequence<T>]
+preconditions:
+  - "The sequence and limit identities exist and every covered relation references a covered state component."
+postconditions:
+  - "The descriptor preserves all four object IDs, three relation IDs, and three unresolved term IDs."
+invariants_explicitly_sourced: []
+errors_or_undefined_behavior:
+  - MISSING_COMMUNITY_SEQUENCE
+  - MISSING_LIMIT_STATE
+  - DANGLING_STABILITY_RELATION
+  - Scientific evaluation and unstated numeric semantics are undefined.
+unresolved_propagated: [TLC-UT-THEOREMS-002, TLC-UT-THEOREMS-003, TLC-UT-THEOREMS-004]
+provisional_assumptions: [TLC-EA-THEOREMS-007-001]
+scientific_reservations:
+  - The operation organizes source evidence but does not establish theorem truth.
+  - Missing types, units, dimensions, cardinalities, ordering, precision, probability laws, and algorithms remain unspecified.
+strong_dependencies_explicitly_confirmed: []
+documentary_references:
+  - registry/domain-progress/theorems/feature-inventory.yaml
+  - registry/domain-progress/theorems/feature-status.yaml
+  - registry/domain-progress/theorems/result-semantics.yaml
+traceability:
+  feature_kind: state_representation
+  source_objects: [TLC-SO-THEOREMS-001, TLC-SO-THEOREMS-012, TLC-SO-THEOREMS-013, TLC-SO-THEOREMS-015]
+  source_relations: [TLC-SR-THEOREMS-011, TLC-SR-THEOREMS-012, TLC-SR-THEOREMS-014]
+validation_criteria:
+  - The named operation produces the declared structural result.
+  - The feature-specific precondition, postcondition, and errors are testable.
+  - Every attached unresolved and provisional assumption is propagated unchanged.
+readiness:
+  ready_for_limited_engineering_contract: true
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false
+  human_validation_required_before_prototype_work: false
+  human_validation_required_before_canonical_release: true

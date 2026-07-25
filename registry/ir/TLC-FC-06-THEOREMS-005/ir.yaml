@@ -1,0 +1,54 @@
+schema_version: 1
+ir_id: TLC-PIR-TLC-FC-06-THEOREMS-005-001
+feature_id: TLC-FC-06-THEOREMS-005
+contract_id: TLC-LEC-TLC-FC-06-THEOREMS-005-001
+ir_kind: prototype_ir_with_reservations
+prototype_classification: substantive_and_implementable
+entrypoint:
+  callable: register_cns_operator_claims
+  implementation_form: pure_function_or_small_builder
+inputs:
+  - {name: transformation_claim, type: "OpaqueTransformationClaim"}
+  - {name: dimension_removal_claims, type: "Mapping<DimensionId,OpaqueRemovalEffectClaim>"}
+outputs:
+  - {name: cns_operator_claims, type: "CNSOperatorClaimSet"}
+opaque_types: [OpaqueScientificValue, OpaqueScientificExpression]
+parameterized_types: [Mapping<K,V>, Sequence<T>]
+operations:
+  - operation_id: register_cns_operator_claims
+    responsibility: "Register the two CNS operator claims: the source transformation signature and the per-dimension removal-effect claim."
+    observable_effect: "return a claim set separating the transformation signature from the dimension-removal effects while leaving completeness and necessity unevaluated"
+    scientific_evaluation: forbidden
+control_flow:
+  - Validate the feature-specific precondition.
+  - Construct the declared output from unchanged opaque inputs and source metadata.
+  - Validate the feature-specific postcondition before returning.
+preconditions:
+  - "The transformation claim cites lines 54-55 and every removal claim cites lines 66-67."
+postconditions:
+  - "The two claim families remain separately addressable and retain blocked-local scientific status."
+invariants: []
+errors:
+  - MISSING_TRANSFORMATION_CLAIM
+  - MISSING_REMOVAL_CLAIM_SOURCE
+  - CLAIM_FAMILY_COLLISION
+unresolved_propagated: []
+provisional_assumptions_propagated: [TLC-EA-THEOREMS-005-001]
+opaque_value_policy: "removal effects remain opaque and are not executed"
+traceability:
+  contract: registry/math-contracts/TLC-FC-06-THEOREMS-005/contract.yaml
+  sources: [maths/06-theorems.md:54-55, maths/06-theorems.md:66-67]
+  source_objects: [TLC-SO-THEOREMS-005, TLC-SO-THEOREMS-006]
+  source_relations: []
+determinism_status: deterministic_structural_construction_for_identical_inputs
+testability_status: feature_specific_operation_and_effect_testable
+implementation_constraints:
+  - Implement only validation, structural construction, lookup, and identity preservation described by the entrypoint.
+  - Do not evaluate formulas, proofs, scientific truth, convergence, stability, sufficiency, or operator behavior.
+readiness:
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false
+  blocks_all_prototype_progress: false
