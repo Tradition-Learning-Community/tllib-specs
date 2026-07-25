@@ -1,0 +1,33 @@
+schema_version: '1.0'
+test_plan_id: TLC-TP-TLC-FC-01-DISCIPLE-006
+feature_id: TLC-FC-01-DISCIPLE-006
+domain: disciple
+test_plan_status: structural_candidate
+contract_ref: registry/math-contracts/TLC-FC-01-DISCIPLE-006/contract.yaml
+ir_registry_ref: registry/ir/TLC-FC-01-DISCIPLE-006/ir.yaml
+ir_candidate_ref: ir/TLC-FC-01-DISCIPLE-006/ir.candidate.json
+scope: artifact_conformance_and_reservation_preservation
+tests:
+- test_id: TLC-FC-01-DISCIPLE-006-TP-001
+  category: presence
+  assertion: contract, IR registry entry, and candidate IR paths exist
+- test_id: TLC-FC-01-DISCIPLE-006-TP-002
+  category: identity
+  assertion: feature_id is identical across contract, registry entry, and candidate
+    IR
+- test_id: TLC-FC-01-DISCIPLE-006-TP-003
+  category: traceability
+  assertion: source provenance includes maths/01-disciple.md
+- test_id: TLC-FC-01-DISCIPLE-006-TP-004
+  category: reservation
+  assertion: unresolved scientific semantics remain explicit and are not converted
+    into executable behavior
+- test_id: TLC-FC-01-DISCIPLE-006-TP-005
+  category: non_invention
+  assertion: no new equation, type, dimension, alias, or numerical method is introduced
+    by the registry wrapper
+- test_id: TLC-FC-01-DISCIPLE-006-TP-006
+  category: determinism
+  assertion: parsing and validation of the structured artifacts is deterministic
+execution_readiness: not_an_executable_scientific_oracle
+next_stage: extend_after_scientific_selection_of_contract_and_ir
