@@ -1,11 +1,11 @@
-# Relations domain completion report
+﻿# Relations domain completion report
 
 ## Execution
 
 - Execution id: `wave-3-relations-domain-completion-001`
 - Domain: `relations`
 - Base commit: `22c4317c8b443dda3b3bc787c20b9c21efb91be8`
-- Source authority: `execution-manifests/wave-3/domain-completion.yaml` plus repository preparation artifacts.
+- Source authority: `execution-manifests/wave-3/relations-domain-completion.yaml` plus repository preparation artifacts.
 - Maths source: `maths/15-relations.md` (read only; not modified).
 
 ## Canonical catalogue evidence
