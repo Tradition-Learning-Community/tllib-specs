@@ -1,0 +1,20 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-06-THEOREMS-008-001
+feature_id: TLC-FC-06-THEOREMS-008
+contract_id: TLC-LEC-TLC-FC-06-THEOREMS-008-001
+ir_id: TLC-PIR-TLC-FC-06-THEOREMS-008-001
+operation_under_test: assemble_eight_dimension_sufficiency_roles
+status: planned
+tests:
+  - {id: TEST-008-NOMINAL, kind: nominal, assertion: "invoke assemble_eight_dimension_sufficiency_roles with complete feature evidence and obtain sufficiency_role_bundle"}
+  - {id: TEST-008-EFFECT, kind: observable_effect, assertion: "return an eight-entry bundle preserving source ordinals 1 through 8, role labels, and unresolved mapping identifiers without asserting sufficiency"}
+  - {id: TEST-008-BOUNDARY, kind: opaque_boundary, assertion: "each role payload remains opaque even though source order and labels are preserved"}
+  - {id: TEST-008-PRECONDITION, kind: precondition, assertion: "reject input when: Exactly the eight source ordinals are present and every unresolved mapping remains attached to its role."}
+  - {id: TEST-008-ERROR, kind: failure, assertion: "the first violated precondition returns one of: MISSING_DIMENSION_ROLE, DUPLICATE_SOURCE_ORDINAL, DROPPED_CROSS_DOMAIN_UNRESOLVED"}
+  - {id: TEST-008-POSTCONDITION, kind: postcondition, assertion: "The bundle contains Message, Principles, Values, Virtues, Capacities, Competencies, Practice, and Lived Experience once each in source order."}
+  - {id: TEST-008-DETERMINISM, kind: determinism, assertion: identical structural inputs produce an identical structural result}
+  - {id: TEST-008-RESERVATIONS, kind: reservation_propagation, assertion: "preserve unresolved TLC-UT-THEOREMS-001, TLC-UT-THEOREMS-005, TLC-UT-THEOREMS-007, TLC-UT-THEOREMS-008, TLC-UT-THEOREMS-009, TLC-UT-THEOREMS-010, TLC-UT-THEOREMS-011, TLC-UT-THEOREMS-012 and assumption TLC-EA-THEOREMS-008-001"}
+  - {id: TEST-008-TRACE, kind: traceability, assertion: preserve every feature-specific source object relation and line reference}
+  - {id: TEST-008-CONFORMANCE, kind: contract_ir_conformance, assertion: entrypoint inputs output errors and readiness match contract and IR}
+numeric_expected_results: forbidden
+implementation_status: no_test_code_created

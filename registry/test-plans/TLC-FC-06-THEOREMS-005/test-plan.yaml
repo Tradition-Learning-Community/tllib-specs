@@ -1,0 +1,20 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-06-THEOREMS-005-001
+feature_id: TLC-FC-06-THEOREMS-005
+contract_id: TLC-LEC-TLC-FC-06-THEOREMS-005-001
+ir_id: TLC-PIR-TLC-FC-06-THEOREMS-005-001
+operation_under_test: register_cns_operator_claims
+status: planned
+tests:
+  - {id: TEST-005-NOMINAL, kind: nominal, assertion: "invoke register_cns_operator_claims with complete feature evidence and obtain cns_operator_claims"}
+  - {id: TEST-005-EFFECT, kind: observable_effect, assertion: "return a claim set separating the transformation signature from the dimension-removal effects while leaving completeness and necessity unevaluated"}
+  - {id: TEST-005-BOUNDARY, kind: opaque_boundary, assertion: "removal effects remain opaque and are not executed"}
+  - {id: TEST-005-PRECONDITION, kind: precondition, assertion: "reject input when: The transformation claim cites lines 54-55 and every removal claim cites lines 66-67."}
+  - {id: TEST-005-ERROR, kind: failure, assertion: "the first violated precondition returns one of: MISSING_TRANSFORMATION_CLAIM, MISSING_REMOVAL_CLAIM_SOURCE, CLAIM_FAMILY_COLLISION"}
+  - {id: TEST-005-POSTCONDITION, kind: postcondition, assertion: "The two claim families remain separately addressable and retain blocked-local scientific status."}
+  - {id: TEST-005-DETERMINISM, kind: determinism, assertion: identical structural inputs produce an identical structural result}
+  - {id: TEST-005-RESERVATIONS, kind: reservation_propagation, assertion: "preserve unresolved set (empty) and assumption TLC-EA-THEOREMS-005-001"}
+  - {id: TEST-005-TRACE, kind: traceability, assertion: preserve every feature-specific source object relation and line reference}
+  - {id: TEST-005-CONFORMANCE, kind: contract_ir_conformance, assertion: entrypoint inputs output errors and readiness match contract and IR}
+numeric_expected_results: forbidden
+implementation_status: no_test_code_created

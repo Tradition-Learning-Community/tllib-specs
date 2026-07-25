@@ -1,0 +1,20 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-06-THEOREMS-006-001
+feature_id: TLC-FC-06-THEOREMS-006
+contract_id: TLC-LEC-TLC-FC-06-THEOREMS-006-001
+ir_id: TLC-PIR-TLC-FC-06-THEOREMS-006-001
+operation_under_test: index_theorem_declarations
+status: planned
+tests:
+  - {id: TEST-006-NOMINAL, kind: nominal, assertion: "invoke index_theorem_declarations with complete feature evidence and obtain theorem_index"}
+  - {id: TEST-006-EFFECT, kind: observable_effect, assertion: "return a six-entry index supporting identifier lookup and preserving each declaration's partial or absent proof status"}
+  - {id: TEST-006-BOUNDARY, kind: opaque_boundary, assertion: "a declaration with absent proof remains queryable but unevaluated"}
+  - {id: TEST-006-PRECONDITION, kind: precondition, assertion: "reject input when: Each covered theorem object occurs exactly once and has a source reference plus proof status."}
+  - {id: TEST-006-ERROR, kind: failure, assertion: "the first violated precondition returns one of: DUPLICATE_THEOREM_ID, MISSING_PROOF_STATUS, UNKNOWN_THEOREM_ID"}
+  - {id: TEST-006-POSTCONDITION, kind: postcondition, assertion: "Lookup returns the unchanged declaration metadata and never returns a theorem truth value."}
+  - {id: TEST-006-DETERMINISM, kind: determinism, assertion: identical structural inputs produce an identical structural result}
+  - {id: TEST-006-RESERVATIONS, kind: reservation_propagation, assertion: "preserve unresolved set (empty) and assumption TLC-EA-THEOREMS-006-001"}
+  - {id: TEST-006-TRACE, kind: traceability, assertion: preserve every feature-specific source object relation and line reference}
+  - {id: TEST-006-CONFORMANCE, kind: contract_ir_conformance, assertion: entrypoint inputs output errors and readiness match contract and IR}
+numeric_expected_results: forbidden
+implementation_status: no_test_code_created

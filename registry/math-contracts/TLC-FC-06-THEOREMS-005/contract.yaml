@@ -1,0 +1,59 @@
+schema_version: 1
+contract_id: TLC-LEC-TLC-FC-06-THEOREMS-005-001
+feature_id: TLC-FC-06-THEOREMS-005
+contract_kind: limited_engineering_contract_with_reservations
+scientific_authority: origin/main@f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa
+status: limited_engineering_contract_with_reservations
+functional_purpose: "Register the two CNS operator claims: the source transformation signature and the per-dimension removal-effect claim."
+software_responsibility:
+  operation: register_cns_operator_claims
+  observable_effect: "return a claim set separating the transformation signature from the dimension-removal effects while leaving completeness and necessity unevaluated"
+source_references: [maths/06-theorems.md:54-55, maths/06-theorems.md:66-67]
+objects_covered: [TLC-SO-THEOREMS-005, TLC-SO-THEOREMS-006]
+relations_covered: []
+relations_contextual_only: []
+inputs:
+  - {name: transformation_claim, type: "OpaqueTransformationClaim"}
+  - {name: dimension_removal_claims, type: "Mapping<DimensionId,OpaqueRemovalEffectClaim>"}
+outputs:
+  - {name: cns_operator_claims, type: "CNSOperatorClaimSet"}
+types:
+  opaque: [OpaqueScientificValue, OpaqueScientificExpression]
+  parameterized: [Mapping<K,V>, Sequence<T>]
+preconditions:
+  - "The transformation claim cites lines 54-55 and every removal claim cites lines 66-67."
+postconditions:
+  - "The two claim families remain separately addressable and retain blocked-local scientific status."
+invariants_explicitly_sourced: []
+errors_or_undefined_behavior:
+  - MISSING_TRANSFORMATION_CLAIM
+  - MISSING_REMOVAL_CLAIM_SOURCE
+  - CLAIM_FAMILY_COLLISION
+  - Scientific evaluation and unstated numeric semantics are undefined.
+unresolved_propagated: []
+provisional_assumptions: [TLC-EA-THEOREMS-005-001]
+scientific_reservations:
+  - The operation organizes source evidence but does not establish theorem truth.
+  - Missing types, units, dimensions, cardinalities, ordering, precision, probability laws, and algorithms remain unspecified.
+strong_dependencies_explicitly_confirmed: []
+documentary_references:
+  - registry/domain-progress/theorems/feature-inventory.yaml
+  - registry/domain-progress/theorems/feature-status.yaml
+  - registry/domain-progress/theorems/result-semantics.yaml
+traceability:
+  feature_kind: scientific_operator
+  source_objects: [TLC-SO-THEOREMS-005, TLC-SO-THEOREMS-006]
+  source_relations: []
+validation_criteria:
+  - The named operation produces the declared structural result.
+  - The feature-specific precondition, postcondition, and errors are testable.
+  - Every attached unresolved and provisional assumption is propagated unchanged.
+readiness:
+  ready_for_limited_engineering_contract: true
+  ready_for_prototype_ir: true
+  ready_for_reference_python: true
+  ready_for_cpp_prototype: true
+  ready_for_canonical_ir: false
+  ready_for_production_implementation: false
+  human_validation_required_before_prototype_work: false
+  human_validation_required_before_canonical_release: true

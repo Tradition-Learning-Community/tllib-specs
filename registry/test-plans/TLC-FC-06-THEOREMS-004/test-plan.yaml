@@ -1,0 +1,20 @@
+schema_version: 1
+test_plan_id: TLC-TP-TLC-FC-06-THEOREMS-004-001
+feature_id: TLC-FC-06-THEOREMS-004
+contract_id: TLC-LEC-TLC-FC-06-THEOREMS-004-001
+ir_id: TLC-PIR-TLC-FC-06-THEOREMS-004-001
+operation_under_test: construct_transmission_ergodicity_hypothesis
+status: planned
+tests:
+  - {id: TEST-004-NOMINAL, kind: nominal, assertion: "invoke construct_transmission_ergodicity_hypothesis with complete feature evidence and obtain operator_hypothesis"}
+  - {id: TEST-004-EFFECT, kind: observable_effect, assertion: "bind the operator symbol and its cited uniform-ergodicity condition into one traceable, unevaluated hypothesis record"}
+  - {id: TEST-004-BOUNDARY, kind: opaque_boundary, assertion: "no spectral gap value or operator behavior is computed"}
+  - {id: TEST-004-PRECONDITION, kind: precondition, assertion: "reject input when: Both the transmission operator and spectral-gap condition carry the line-20 source reference."}
+  - {id: TEST-004-ERROR, kind: failure, assertion: "the first violated precondition returns one of: MISSING_OPERATOR_SYMBOL, MISSING_ERGODICITY_CONDITION, SOURCE_REFERENCE_MISMATCH"}
+  - {id: TEST-004-POSTCONDITION, kind: postcondition, assertion: "The result preserves both opaque components and labels the record as a hypothesis rather than a verified property."}
+  - {id: TEST-004-DETERMINISM, kind: determinism, assertion: identical structural inputs produce an identical structural result}
+  - {id: TEST-004-RESERVATIONS, kind: reservation_propagation, assertion: "preserve unresolved set (empty) and assumption TLC-EA-THEOREMS-004-001"}
+  - {id: TEST-004-TRACE, kind: traceability, assertion: preserve every feature-specific source object relation and line reference}
+  - {id: TEST-004-CONFORMANCE, kind: contract_ir_conformance, assertion: entrypoint inputs output errors and readiness match contract and IR}
+numeric_expected_results: forbidden
+implementation_status: no_test_code_created
