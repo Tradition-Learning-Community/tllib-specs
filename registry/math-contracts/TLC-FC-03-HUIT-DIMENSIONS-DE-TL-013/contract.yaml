@@ -8,7 +8,7 @@ scientific_authority: origin/main
 limited_engineering_contract: true
 complete_scientific_contract: false
 status: limited_engineering_contract_with_reservations
-version: 0.1.0
+version: 0.2.0
 provenance:
   source_commit: f0a9b6578087e61dd0c7799d95ff0050627f95d6
   generated_on: '2026-07-24'
@@ -34,12 +34,12 @@ contextual_relations_not_covered:
 - TLC-SR-HUIT-DIMENSIONS-DE-TL-089
 - TLC-SR-HUIT-DIMENSIONS-DE-TL-115
 - TLC-SR-HUIT-DIMENSIONS-DE-TL-116
-limited_functional_purpose: Preserve the cited candidate scientific objects as distinct opaque inputs and expose only source-traceable
-  candidate results; no missing scientific semantics are completed.
+limited_functional_purpose: Assemble the activation, completeness, and necessity declarations into distinct software obligations.
 inputs:
-- input_id: INPUT-HUIT-013-090
+- input_id: INPUT-HUIT-013-01
+  role: activation_operator_claim
   scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-090
-  category: Operator
+  type: OpaqueActivationOperatorClaim
   representation: opaque_parameterized
   source_reference:
     repository: Tradition-Learning-Community/tllib-specs
@@ -53,9 +53,10 @@ inputs:
     subsection: Propriétés
     start_line: 173
     end_line: 173
-- input_id: INPUT-HUIT-013-116
+- input_id: INPUT-HUIT-013-02
+  role: completeness_function_claim
   scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-116
-  category: Function
+  type: OpaqueCompletenessClaim
   representation: opaque_parameterized
   source_reference:
     repository: Tradition-Learning-Community/tllib-specs
@@ -69,9 +70,10 @@ inputs:
     subsection: null
     start_line: 271
     end_line: 271
-- input_id: INPUT-HUIT-013-117
+- input_id: INPUT-HUIT-013-03
+  role: necessity_function_claim
   scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-117
-  category: Function
+  type: OpaqueNecessityClaim
   representation: opaque_parameterized
   source_reference:
     repository: Tradition-Learning-Community/tllib-specs
@@ -86,30 +88,26 @@ inputs:
     start_line: 272
     end_line: 272
 outputs:
-- output_id: OUTPUT-HUIT-013-090
-  scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-090
-  representation: opaque_candidate_result
-  semantics: unresolved
-- output_id: OUTPUT-HUIT-013-116
-  scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-116
-  representation: opaque_candidate_result
-  semantics: unresolved
-- output_id: OUTPUT-HUIT-013-117
-  scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-117
-  representation: opaque_candidate_result
-  semantics: unresolved
+- output_id: OUTPUT-HUIT-013-001
+  role: specialized_structural_result
+  type: ActivationCNSObligationSet
+  representation: identity_preserving_unevaluated_record
+  observable_effect: Returns three separately typed obligations; activation execution and CNS validation remain unavailable.
+  scientific_semantics: unresolved_not_evaluated
 preconditions:
-- id: PRE-HUIT-013-SOURCE
-  statement: Every covered object is supplied with its candidate identity and exact source reference preserved.
-- id: PRE-HUIT-013-OPAQUE
-  statement: Unspecified types, dimensions, units, order, aggregation, temporal and numerical semantics remain opaque.
-- id: PRE-HUIT-013-UNRESOLVED
-  statement: Every reservation in unresolved.yaml remains attached.
+- id: PRE-HUIT-013-REQUIRED-ROLES
+  statement: 'Inputs provide the required roles: activation_operator_claim, completeness_function_claim, necessity_function_claim.'
+- id: PRE-HUIT-013-TRACE
+  statement: Every input retains its scientific object identifier and exact source reference.
+- id: PRE-HUIT-013-RESERVATIONS
+  statement: All contract reservations and the provisional engineering assumption remain attached.
 postconditions:
+- id: POST-HUIT-013-EFFECT
+  statement: The result contains exactly three non-substitutable obligation records with fulfillment_status unresolved.
+- id: POST-HUIT-013-OPAQUE
+  statement: No opaque scientific payload or operator is evaluated, coerced, completed, or declared canonical.
 - id: POST-HUIT-013-TRACE
-  statement: Every result remains candidate and traceable to one covered source object.
-- id: POST-HUIT-013-NO-PROMOTION
-  statement: No provisional assumption or unresolved reservation is promoted to canonical science.
+  statement: The result retains feature, contract, object, source, reservation, and assumption identifiers.
 invariants:
 - id: INV-HUIT-013-IDENTITY
   statement: Covered scientific object identities remain distinct.
@@ -118,12 +116,14 @@ invariants:
 - id: INV-HUIT-013-LIMITED
   statement: This artifact remains a limited engineering contract, never a complete scientific contract.
 undefined_or_error_cases:
-- id: FAIL-HUIT-013-MISSING-SOURCE
-  condition: A covered object or exact source range is missing.
-- id: FAIL-HUIT-013-DROPPED-RESERVATION
-  condition: A reservation is omitted or declared resolved without an explicit source.
-- id: FAIL-HUIT-013-INVENTION
-  condition: An unspecified scientific, numerical, temporal, ordering, unit or cardinality property is asserted.
+- id: FAIL-HUIT-013-OPERATION
+  condition: Reject substitution among obligations, activation execution, exhaustive coverage assertion, or simulated dimension
+    removal.
+- id: FAIL-HUIT-013-MISSING-TRACE
+  condition: A required role, scientific object identifier, source reference, reservation, or assumption is missing.
+- id: FAIL-HUIT-013-SCIENTIFIC-INVENTION
+  condition: The caller requests or supplies unstated scientific, numeric, temporal, dimensional, ordering, aggregation, probabilistic,
+    or algorithmic semantics.
 unresolved_propagated:
   path: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013/unresolved.yaml
   count: 9
@@ -141,7 +141,7 @@ engineering_assumptions:
   - probability distribution
   - domain-specific concrete class
   impact:
-    prototype_ir: prototype IR remains deferred until feature identity is reviewed
+    prototype_ir: opaque structural IR preserves unresolved feature identity and boundary without scientific interpretation
     implementation: no production representation is authorized
   reversible: true
   status: provisional_engineering_assumption
@@ -187,8 +187,14 @@ readiness:
   ready_for_complete_scientific_contract: false
   ready_for_limited_engineering_contract: true
   ready_for_canonical_ir: false
-  ready_for_prototype_ir: false
+  ready_for_prototype_ir: true
   ready_for_production_implementation: false
-  ready_for_reference_prototype: false
-  human_validation_required_before_prototype_work: true
+  ready_for_reference_prototype: true
+  human_validation_required_before_prototype_work: false
   human_validation_required_before_canonical_release: true
+software_responsibility: Assemble the activation, completeness, and necessity declarations into distinct software obligations.
+primary_operation:
+  name: assemble_activation_and_cns_obligations
+  signature: assemble_activation_and_cns_obligations(activation_claim, completeness_claim, necessity_claim) -> ActivationCNSObligationSet
+  behavior: Returns three separately typed obligations; activation execution and CNS validation remain unavailable.
+  scientific_evaluation: not_performed

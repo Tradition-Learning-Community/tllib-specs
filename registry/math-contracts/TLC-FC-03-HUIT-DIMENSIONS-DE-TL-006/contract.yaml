@@ -8,7 +8,7 @@ scientific_authority: origin/main
 limited_engineering_contract: true
 complete_scientific_contract: false
 status: limited_engineering_contract_with_reservations
-version: 0.1.0
+version: 0.2.0
 provenance:
   source_commit: f0a9b6578087e61dd0c7799d95ff0050627f95d6
   generated_on: '2026-07-24'
@@ -32,12 +32,12 @@ scientific_relations_covered: []
 contextual_relations_not_covered:
 - TLC-SR-HUIT-DIMENSIONS-DE-TL-067
 - TLC-SR-HUIT-DIMENSIONS-DE-TL-083
-limited_functional_purpose: Preserve the cited candidate scientific objects as distinct opaque inputs and expose only source-traceable
-  candidate results; no missing scientific semantics are completed.
+limited_functional_purpose: Bind the two explicit source equations into a typed, unevaluated symbolic equation set.
 inputs:
-- input_id: INPUT-HUIT-006-068
+- input_id: INPUT-HUIT-006-01
+  role: principle_message_equation
   scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-068
-  category: Equation
+  type: OpaqueLimitEquation
   representation: opaque_parameterized
   source_reference:
     repository: Tradition-Learning-Community/tllib-specs
@@ -51,9 +51,10 @@ inputs:
     subsection: Dynamique Principe‑Message
     start_line: 79
     end_line: 81
-- input_id: INPUT-HUIT-006-084
+- input_id: INPUT-HUIT-006-02
+  role: just_mean_equation
   scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-084
-  category: Equation
+  type: OpaqueArgminEquation
   representation: opaque_parameterized
   source_reference:
     repository: Tradition-Learning-Community/tllib-specs
@@ -68,26 +69,27 @@ inputs:
     start_line: 133
     end_line: 135
 outputs:
-- output_id: OUTPUT-HUIT-006-068
-  scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-068
-  representation: opaque_candidate_result
-  semantics: unresolved
-- output_id: OUTPUT-HUIT-006-084
-  scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-084
-  representation: opaque_candidate_result
-  semantics: unresolved
+- output_id: OUTPUT-HUIT-006-001
+  role: specialized_structural_result
+  type: SymbolicEquationSet
+  representation: identity_preserving_unevaluated_record
+  observable_effect: Returns two named equation definitions while leaving limit, distance, and argmin semantics uninterpreted.
+  scientific_semantics: unresolved_not_evaluated
 preconditions:
-- id: PRE-HUIT-006-SOURCE
-  statement: Every covered object is supplied with its candidate identity and exact source reference preserved.
-- id: PRE-HUIT-006-OPAQUE
-  statement: Unspecified types, dimensions, units, order, aggregation, temporal and numerical semantics remain opaque.
-- id: PRE-HUIT-006-UNRESOLVED
-  statement: Every reservation in unresolved.yaml remains attached.
+- id: PRE-HUIT-006-REQUIRED-ROLES
+  statement: 'Inputs provide the required roles: principle_message_equation, just_mean_equation.'
+- id: PRE-HUIT-006-TRACE
+  statement: Every input retains its scientific object identifier and exact source reference.
+- id: PRE-HUIT-006-RESERVATIONS
+  statement: All contract reservations and the provisional engineering assumption remain attached.
 postconditions:
+- id: POST-HUIT-006-EFFECT
+  statement: The set contains exactly two non-aliased equation definitions with distinct source identifiers and unresolved
+    operator bindings.
+- id: POST-HUIT-006-OPAQUE
+  statement: No opaque scientific payload or operator is evaluated, coerced, completed, or declared canonical.
 - id: POST-HUIT-006-TRACE
-  statement: Every result remains candidate and traceable to one covered source object.
-- id: POST-HUIT-006-NO-PROMOTION
-  statement: No provisional assumption or unresolved reservation is promoted to canonical science.
+  statement: The result retains feature, contract, object, source, reservation, and assumption identifiers.
 invariants:
 - id: INV-HUIT-006-IDENTITY
   statement: Covered scientific object identities remain distinct.
@@ -96,12 +98,13 @@ invariants:
 - id: INV-HUIT-006-LIMITED
   statement: This artifact remains a limited engineering contract, never a complete scientific contract.
 undefined_or_error_cases:
-- id: FAIL-HUIT-006-MISSING-SOURCE
-  condition: A covered object or exact source range is missing.
-- id: FAIL-HUIT-006-DROPPED-RESERVATION
-  condition: A reservation is omitted or declared resolved without an explicit source.
-- id: FAIL-HUIT-006-INVENTION
-  condition: An unspecified scientific, numerical, temporal, ordering, unit or cardinality property is asserted.
+- id: FAIL-HUIT-006-OPERATION
+  condition: Reject aliasing of the two equations or any request to evaluate limit, distance, or argmin.
+- id: FAIL-HUIT-006-MISSING-TRACE
+  condition: A required role, scientific object identifier, source reference, reservation, or assumption is missing.
+- id: FAIL-HUIT-006-SCIENTIFIC-INVENTION
+  condition: The caller requests or supplies unstated scientific, numeric, temporal, dimensional, ordering, aggregation, probabilistic,
+    or algorithmic semantics.
 unresolved_propagated:
   path: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006/unresolved.yaml
   count: 8
@@ -169,3 +172,9 @@ readiness:
   ready_for_reference_prototype: true
   human_validation_required_before_prototype_work: false
   human_validation_required_before_canonical_release: true
+software_responsibility: Bind the two explicit source equations into a typed, unevaluated symbolic equation set.
+primary_operation:
+  name: bind_symbolic_equation_definitions
+  signature: bind_symbolic_equation_definitions(principle_message_equation, just_mean_equation) -> SymbolicEquationSet
+  behavior: Returns two named equation definitions while leaving limit, distance, and argmin semantics uninterpreted.
+  scientific_evaluation: not_performed

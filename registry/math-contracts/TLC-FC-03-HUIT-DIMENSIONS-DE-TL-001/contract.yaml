@@ -8,7 +8,7 @@ scientific_authority: origin/main
 limited_engineering_contract: true
 complete_scientific_contract: false
 status: limited_engineering_contract_with_reservations
-version: 0.1.0
+version: 0.2.0
 provenance:
   source_commit: f0a9b6578087e61dd0c7799d95ff0050627f95d6
   generated_on: '2026-07-24'
@@ -34,12 +34,12 @@ contextual_relations_not_covered:
 - TLC-SR-HUIT-DIMENSIONS-DE-TL-008
 - TLC-SR-HUIT-DIMENSIONS-DE-TL-009
 - TLC-SR-HUIT-DIMENSIONS-DE-TL-064
-limited_functional_purpose: Preserve the cited candidate scientific objects as distinct opaque inputs and expose only source-traceable
-  candidate results; no missing scientific semantics are completed.
+limited_functional_purpose: Assemble the three principle-property declarations into an identity-preserving constraint profile.
 inputs:
-- input_id: INPUT-HUIT-001-009
+- input_id: INPUT-HUIT-001-01
+  role: principle_properties
   scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-009
-  category: Hypothesis
+  type: OpaquePropertyDeclaration
   representation: opaque_parameterized
   source_reference:
     repository: Tradition-Learning-Community/tllib-specs
@@ -53,9 +53,10 @@ inputs:
     subsection: Propriétés
     start_line: 65
     end_line: 70
-- input_id: INPUT-HUIT-001-010
+- input_id: INPUT-HUIT-001-02
+  role: principle_functional_roles
   scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-010
-  category: Hypothesis
+  type: OpaqueRoleDeclaration
   representation: opaque_parameterized
   source_reference:
     repository: Tradition-Learning-Community/tllib-specs
@@ -69,9 +70,10 @@ inputs:
     subsection: Rôle fonctionnel
     start_line: 72
     end_line: 75
-- input_id: INPUT-HUIT-001-065
+- input_id: INPUT-HUIT-001-03
+  role: generativity_property
   scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-065
-  category: Hypothesis
+  type: OpaquePropertyDeclaration
   representation: opaque_parameterized
   source_reference:
     repository: Tradition-Learning-Community/tllib-specs
@@ -86,30 +88,27 @@ inputs:
     start_line: 68
     end_line: 68
 outputs:
-- output_id: OUTPUT-HUIT-001-009
-  scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-009
-  representation: opaque_candidate_result
-  semantics: unresolved
-- output_id: OUTPUT-HUIT-001-010
-  scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-010
-  representation: opaque_candidate_result
-  semantics: unresolved
-- output_id: OUTPUT-HUIT-001-065
-  scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-065
-  representation: opaque_candidate_result
-  semantics: unresolved
+- output_id: OUTPUT-HUIT-001-001
+  role: specialized_structural_result
+  type: PrincipleConstraintProfile
+  representation: identity_preserving_unevaluated_record
+  observable_effect: Returns a profile with three ordered-by-role slots and no scientific evaluation.
+  scientific_semantics: unresolved_not_evaluated
 preconditions:
-- id: PRE-HUIT-001-SOURCE
-  statement: Every covered object is supplied with its candidate identity and exact source reference preserved.
-- id: PRE-HUIT-001-OPAQUE
-  statement: Unspecified types, dimensions, units, order, aggregation, temporal and numerical semantics remain opaque.
-- id: PRE-HUIT-001-UNRESOLVED
-  statement: Every reservation in unresolved.yaml remains attached.
+- id: PRE-HUIT-001-REQUIRED-ROLES
+  statement: 'Inputs provide the required roles: principle_properties, principle_functional_roles, generativity_property.'
+- id: PRE-HUIT-001-TRACE
+  statement: Every input retains its scientific object identifier and exact source reference.
+- id: PRE-HUIT-001-RESERVATIONS
+  statement: All contract reservations and the provisional engineering assumption remain attached.
 postconditions:
+- id: POST-HUIT-001-EFFECT
+  statement: The result contains exactly the roles principle_properties, principle_functional_roles, and generativity_property,
+    each linked to its source object.
+- id: POST-HUIT-001-OPAQUE
+  statement: No opaque scientific payload or operator is evaluated, coerced, completed, or declared canonical.
 - id: POST-HUIT-001-TRACE
-  statement: Every result remains candidate and traceable to one covered source object.
-- id: POST-HUIT-001-NO-PROMOTION
-  statement: No provisional assumption or unresolved reservation is promoted to canonical science.
+  statement: The result retains feature, contract, object, source, reservation, and assumption identifiers.
 invariants:
 - id: INV-HUIT-001-IDENTITY
   statement: Covered scientific object identities remain distinct.
@@ -118,12 +117,13 @@ invariants:
 - id: INV-HUIT-001-LIMITED
   statement: This artifact remains a limited engineering contract, never a complete scientific contract.
 undefined_or_error_cases:
-- id: FAIL-HUIT-001-MISSING-SOURCE
-  condition: A covered object or exact source range is missing.
-- id: FAIL-HUIT-001-DROPPED-RESERVATION
-  condition: A reservation is omitted or declared resolved without an explicit source.
-- id: FAIL-HUIT-001-INVENTION
-  condition: An unspecified scientific, numerical, temporal, ordering, unit or cardinality property is asserted.
+- id: FAIL-HUIT-001-OPERATION
+  condition: Reject a profile request when any of the three required role slots is absent or bound to an unknown identifier.
+- id: FAIL-HUIT-001-MISSING-TRACE
+  condition: A required role, scientific object identifier, source reference, reservation, or assumption is missing.
+- id: FAIL-HUIT-001-SCIENTIFIC-INVENTION
+  condition: The caller requests or supplies unstated scientific, numeric, temporal, dimensional, ordering, aggregation, probabilistic,
+    or algorithmic semantics.
 unresolved_propagated:
   path: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001/unresolved.yaml
   count: 8
@@ -191,3 +191,9 @@ readiness:
   ready_for_reference_prototype: true
   human_validation_required_before_prototype_work: false
   human_validation_required_before_canonical_release: true
+software_responsibility: Assemble the three principle-property declarations into an identity-preserving constraint profile.
+primary_operation:
+  name: assemble_principle_constraint_profile
+  signature: assemble_principle_constraint_profile(declarations, source_refs) -> PrincipleConstraintProfile
+  behavior: Returns a profile with three ordered-by-role slots and no scientific evaluation.
+  scientific_evaluation: not_performed

@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "ir_id": "TLC-IR-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005-PROTOTYPE-001",
+  "feature_id": "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005",
+  "contract_id": "TLC-LEC-TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005-001",
+  "domain": "huit-dimensions",
+  "ir_kind": "prototype_ir_with_reservations",
+  "scientific_status": "noncanonical_engineering_prototype",
+  "catalogue_status_preserved": "retained_with_reservations",
+  "inputs": [
+    {
+      "id": "IR-IN-HUIT-005-01",
+      "role": "virtue_development_law",
+      "type": "OpaqueDifferentialLaw",
+      "scientific_object_id": "TLC-SO-HUIT-DIMENSIONS-DE-TL-085",
+      "payload": "opaque"
+    },
+    {
+      "id": "IR-IN-HUIT-005-02",
+      "role": "capacity_evolution_law",
+      "type": "OpaqueStochasticLaw",
+      "scientific_object_id": "TLC-SO-HUIT-DIMENSIONS-DE-TL-094",
+      "payload": "opaque"
+    },
+    {
+      "id": "IR-IN-HUIT-005-03",
+      "role": "practice_acquisition_law",
+      "type": "OpaqueDifferentialLaw",
+      "scientific_object_id": "TLC-SO-HUIT-DIMENSIONS-DE-TL-108",
+      "payload": "opaque"
+    },
+    {
+      "id": "IR-IN-HUIT-005-04",
+      "role": "lived_experience_evolution_law",
+      "type": "OpaqueDifferentialLaw",
+      "scientific_object_id": "TLC-SO-HUIT-DIMENSIONS-DE-TL-115",
+      "payload": "opaque"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "IR-OUT-005-001",
+      "role": "specialized_structural_result",
+      "type": "DimensionDynamicsCatalogue",
+      "evaluated": false,
+      "observable_effect": "Returns a four-entry catalogue keyed by stable semantic role; equations remain symbolic and unevaluated."
+    }
+  ],
+  "opaque_types": [
+    "OpaqueDifferentialLaw",
+    "OpaqueStochasticLaw",
+    "DimensionDynamicsCatalogue"
+  ],
+  "parameterized_types": [
+    "DimensionDynamicsCatalogue[FeatureId, ScientificObjectId, ReservationId]"
+  ],
+  "operations": [
+    {
+      "operation_id": "IR-OP-HUIT-005-001",
+      "name": "index_dimension_dynamics_laws",
+      "kind": "deterministic_identity_preserving_record_construction",
+      "input_roles": [
+        "virtue_development_law",
+        "capacity_evolution_law",
+        "practice_acquisition_law",
+        "lived_experience_evolution_law"
+      ],
+      "output_type": "DimensionDynamicsCatalogue",
+      "behavior": "Returns a four-entry catalogue keyed by stable semantic role; equations remain symbolic and unevaluated.",
+      "scientific_evaluation": "uninterpreted"
+    }
+  ],
+  "control_flow": [
+    {
+      "step_id": "IR-STEP-HUIT-005-VALIDATE",
+      "operation": "validate_required_roles_and_traceability",
+      "on_failure": "FAIL-HUIT-005-MISSING-TRACE"
+    },
+    {
+      "step_id": "IR-STEP-HUIT-005-CONSTRUCT",
+      "operation": "index_dimension_dynamics_laws",
+      "produces": "IR-OUT-005-001"
+    },
+    {
+      "step_id": "IR-STEP-HUIT-005-VERIFY",
+      "operation": "verify_specialized_postcondition_and_reservation_propagation"
+    }
+  ],
+  "preconditions": [
+    {
+      "id": "PRE-HUIT-005-REQUIRED-ROLES",
+      "statement": "Inputs provide the required roles: virtue_development_law, capacity_evolution_law, practice_acquisition_law, lived_experience_evolution_law."
+    },
+    {
+      "id": "PRE-HUIT-005-TRACE",
+      "statement": "Every input retains its scientific object identifier and exact source reference."
+    },
+    {
+      "id": "PRE-HUIT-005-RESERVATIONS",
+      "statement": "All contract reservations and the provisional engineering assumption remain attached."
+    }
+  ],
+  "postconditions": [
+    {
+      "id": "POST-HUIT-005-EFFECT",
+      "statement": "The catalogue contains four distinct entries and each entry retains its law kind, source object, and expression payload."
+    },
+    {
+      "id": "POST-HUIT-005-OPAQUE",
+      "statement": "No opaque scientific payload or operator is evaluated, coerced, completed, or declared canonical."
+    },
+    {
+      "id": "POST-HUIT-005-TRACE",
+      "statement": "The result retains feature, contract, object, source, reservation, and assumption identifiers."
+    }
+  ],
+  "invariants": [
+    {
+      "id": "INV-HUIT-005-IDENTITY",
+      "statement": "Covered scientific object identities remain distinct.",
+      "status": "contract_invariant_preserved",
+      "source": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005/contract.yaml"
+    },
+    {
+      "id": "INV-HUIT-005-SOURCE",
+      "statement": "Source statements and line ranges remain unchanged.",
+      "status": "contract_invariant_preserved",
+      "source": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005/contract.yaml"
+    },
+    {
+      "id": "INV-HUIT-005-LIMITED",
+      "statement": "This artifact remains a limited engineering contract, never a complete scientific contract.",
+      "status": "contract_invariant_preserved",
+      "source": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005/contract.yaml"
+    }
+  ],
+  "errors": [
+    {
+      "id": "FAIL-HUIT-005-OPERATION",
+      "condition": "Reject duplicate role keys, missing law identifiers, or an attempt to numerically execute a law."
+    },
+    {
+      "id": "FAIL-HUIT-005-MISSING-TRACE",
+      "condition": "A required role, scientific object identifier, source reference, reservation, or assumption is missing."
+    },
+    {
+      "id": "FAIL-HUIT-005-SCIENTIFIC-INVENTION",
+      "condition": "The caller requests or supplies unstated scientific, numeric, temporal, dimensional, ordering, aggregation, probabilistic, or algorithmic semantics."
+    }
+  ],
+  "unresolved_propagated": [
+    "TLC-UNRES-HUIT-005-TYPE",
+    "TLC-UNRES-HUIT-005-SIGNATURE",
+    "TLC-UNRES-HUIT-005-UNITS",
+    "TLC-UNRES-HUIT-005-ORDER",
+    "TLC-UNRES-HUIT-005-AGGREGATION",
+    "TLC-UNRES-HUIT-005-NUMERICS",
+    "TLC-UNRES-HUIT-005-ORACLE",
+    "TLC-UNRES-HUIT-005-BOUNDARY"
+  ],
+  "provisional_assumptions_propagated": [
+    "TLC-EA-HUIT-005-001"
+  ],
+  "traceability": {
+    "contract": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005/contract.yaml",
+    "contract_traceability": "registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005/traceability.yaml",
+    "source_objects": [
+      "TLC-SO-HUIT-DIMENSIONS-DE-TL-085",
+      "TLC-SO-HUIT-DIMENSIONS-DE-TL-094",
+      "TLC-SO-HUIT-DIMENSIONS-DE-TL-108",
+      "TLC-SO-HUIT-DIMENSIONS-DE-TL-115"
+    ],
+    "source_relations": [],
+    "contextual_relations_not_covered": [
+      "TLC-SR-HUIT-DIMENSIONS-DE-TL-084",
+      "TLC-SR-HUIT-DIMENSIONS-DE-TL-093",
+      "TLC-SR-HUIT-DIMENSIONS-DE-TL-107",
+      "TLC-SR-HUIT-DIMENSIONS-DE-TL-114"
+    ],
+    "source_commit": "f2b4dc5b04d88f9fc39b455aa8a8b463691ae4aa"
+  },
+  "determinism_status": "deterministic_record_construction_scientific_evaluation_not_performed",
+  "testability_status": "specialized_operation_behavior_and_traceability_tests_ready",
+  "implementation_constraints": [
+    "Implement only index_dimension_dynamics_laws with the declared structural effect.",
+    "Treat every scientific payload and unresolved operator as opaque.",
+    "Do not add evaluation, solver, metric, proof, equivalence, convergence, ordering, aggregation, or numeric behavior.",
+    "Return stable identifiers and propagate every reservation and provisional assumption."
+  ],
+  "readiness": {
+    "ready_for_limited_engineering_contract": true,
+    "ready_for_prototype_ir": true,
+    "ready_for_reference_python": true,
+    "ready_for_cpp_prototype": true,
+    "ready_for_canonical_ir": false,
+    "ready_for_production_implementation": false
+  },
+  "blocks_all_prototype_progress": false,
+  "semantic_quality": "substantive_structural_operation",
+  "software_unit": {
+    "kind": "pure_function",
+    "signature": "index_dimension_dynamics_laws(law_descriptors) -> DimensionDynamicsCatalogue"
+  }
+}

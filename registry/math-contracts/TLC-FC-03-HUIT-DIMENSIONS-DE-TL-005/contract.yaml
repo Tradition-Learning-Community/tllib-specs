@@ -8,7 +8,7 @@ scientific_authority: origin/main
 limited_engineering_contract: true
 complete_scientific_contract: false
 status: limited_engineering_contract_with_reservations
-version: 0.1.0
+version: 0.2.0
 provenance:
   source_commit: f0a9b6578087e61dd0c7799d95ff0050627f95d6
   generated_on: '2026-07-24'
@@ -36,12 +36,12 @@ contextual_relations_not_covered:
 - TLC-SR-HUIT-DIMENSIONS-DE-TL-093
 - TLC-SR-HUIT-DIMENSIONS-DE-TL-107
 - TLC-SR-HUIT-DIMENSIONS-DE-TL-114
-limited_functional_purpose: Preserve the cited candidate scientific objects as distinct opaque inputs and expose only source-traceable
-  candidate results; no missing scientific semantics are completed.
+limited_functional_purpose: Index the four declared temporal evolution laws by the dimension and scientific object they describe.
 inputs:
-- input_id: INPUT-HUIT-005-085
+- input_id: INPUT-HUIT-005-01
+  role: virtue_development_law
   scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-085
-  category: DifferentialEquation
+  type: OpaqueDifferentialLaw
   representation: opaque_parameterized
   source_reference:
     repository: Tradition-Learning-Community/tllib-specs
@@ -55,9 +55,10 @@ inputs:
     subsection: Dynamique de développement
     start_line: 138
     end_line: 140
-- input_id: INPUT-HUIT-005-094
+- input_id: INPUT-HUIT-005-02
+  role: capacity_evolution_law
   scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-094
-  category: StochasticEquation
+  type: OpaqueStochasticLaw
   representation: opaque_parameterized
   source_reference:
     repository: Tradition-Learning-Community/tllib-specs
@@ -71,9 +72,10 @@ inputs:
     subsection: Évolution temporelle
     start_line: 179
     end_line: 181
-- input_id: INPUT-HUIT-005-108
+- input_id: INPUT-HUIT-005-03
+  role: practice_acquisition_law
   scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-108
-  category: DifferentialEquation
+  type: OpaqueDifferentialLaw
   representation: opaque_parameterized
   source_reference:
     repository: Tradition-Learning-Community/tllib-specs
@@ -87,9 +89,10 @@ inputs:
     subsection: Dynamique d’acquisition
     start_line: 234
     end_line: 236
-- input_id: INPUT-HUIT-005-115
+- input_id: INPUT-HUIT-005-04
+  role: lived_experience_evolution_law
   scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-115
-  category: DifferentialEquation
+  type: OpaqueDifferentialLaw
   representation: opaque_parameterized
   source_reference:
     repository: Tradition-Learning-Community/tllib-specs
@@ -104,34 +107,28 @@ inputs:
     start_line: 258
     end_line: 260
 outputs:
-- output_id: OUTPUT-HUIT-005-085
-  scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-085
-  representation: opaque_candidate_result
-  semantics: unresolved
-- output_id: OUTPUT-HUIT-005-094
-  scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-094
-  representation: opaque_candidate_result
-  semantics: unresolved
-- output_id: OUTPUT-HUIT-005-108
-  scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-108
-  representation: opaque_candidate_result
-  semantics: unresolved
-- output_id: OUTPUT-HUIT-005-115
-  scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-115
-  representation: opaque_candidate_result
-  semantics: unresolved
+- output_id: OUTPUT-HUIT-005-001
+  role: specialized_structural_result
+  type: DimensionDynamicsCatalogue
+  representation: identity_preserving_unevaluated_record
+  observable_effect: Returns a four-entry catalogue keyed by stable semantic role; equations remain symbolic and unevaluated.
+  scientific_semantics: unresolved_not_evaluated
 preconditions:
-- id: PRE-HUIT-005-SOURCE
-  statement: Every covered object is supplied with its candidate identity and exact source reference preserved.
-- id: PRE-HUIT-005-OPAQUE
-  statement: Unspecified types, dimensions, units, order, aggregation, temporal and numerical semantics remain opaque.
-- id: PRE-HUIT-005-UNRESOLVED
-  statement: Every reservation in unresolved.yaml remains attached.
+- id: PRE-HUIT-005-REQUIRED-ROLES
+  statement: 'Inputs provide the required roles: virtue_development_law, capacity_evolution_law, practice_acquisition_law,
+    lived_experience_evolution_law.'
+- id: PRE-HUIT-005-TRACE
+  statement: Every input retains its scientific object identifier and exact source reference.
+- id: PRE-HUIT-005-RESERVATIONS
+  statement: All contract reservations and the provisional engineering assumption remain attached.
 postconditions:
+- id: POST-HUIT-005-EFFECT
+  statement: The catalogue contains four distinct entries and each entry retains its law kind, source object, and expression
+    payload.
+- id: POST-HUIT-005-OPAQUE
+  statement: No opaque scientific payload or operator is evaluated, coerced, completed, or declared canonical.
 - id: POST-HUIT-005-TRACE
-  statement: Every result remains candidate and traceable to one covered source object.
-- id: POST-HUIT-005-NO-PROMOTION
-  statement: No provisional assumption or unresolved reservation is promoted to canonical science.
+  statement: The result retains feature, contract, object, source, reservation, and assumption identifiers.
 invariants:
 - id: INV-HUIT-005-IDENTITY
   statement: Covered scientific object identities remain distinct.
@@ -140,12 +137,13 @@ invariants:
 - id: INV-HUIT-005-LIMITED
   statement: This artifact remains a limited engineering contract, never a complete scientific contract.
 undefined_or_error_cases:
-- id: FAIL-HUIT-005-MISSING-SOURCE
-  condition: A covered object or exact source range is missing.
-- id: FAIL-HUIT-005-DROPPED-RESERVATION
-  condition: A reservation is omitted or declared resolved without an explicit source.
-- id: FAIL-HUIT-005-INVENTION
-  condition: An unspecified scientific, numerical, temporal, ordering, unit or cardinality property is asserted.
+- id: FAIL-HUIT-005-OPERATION
+  condition: Reject duplicate role keys, missing law identifiers, or an attempt to numerically execute a law.
+- id: FAIL-HUIT-005-MISSING-TRACE
+  condition: A required role, scientific object identifier, source reference, reservation, or assumption is missing.
+- id: FAIL-HUIT-005-SCIENTIFIC-INVENTION
+  condition: The caller requests or supplies unstated scientific, numeric, temporal, dimensional, ordering, aggregation, probabilistic,
+    or algorithmic semantics.
 unresolved_propagated:
   path: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005/unresolved.yaml
   count: 8
@@ -213,3 +211,9 @@ readiness:
   ready_for_reference_prototype: true
   human_validation_required_before_prototype_work: false
   human_validation_required_before_canonical_release: true
+software_responsibility: Index the four declared temporal evolution laws by the dimension and scientific object they describe.
+primary_operation:
+  name: index_dimension_dynamics_laws
+  signature: index_dimension_dynamics_laws(law_descriptors) -> DimensionDynamicsCatalogue
+  behavior: Returns a four-entry catalogue keyed by stable semantic role; equations remain symbolic and unevaluated.
+  scientific_evaluation: not_performed

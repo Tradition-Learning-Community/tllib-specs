@@ -8,7 +8,7 @@ scientific_authority: origin/main
 limited_engineering_contract: true
 complete_scientific_contract: false
 status: limited_engineering_contract_with_reservations
-version: 0.1.0
+version: 0.2.0
 provenance:
   source_commit: f0a9b6578087e61dd0c7799d95ff0050627f95d6
   generated_on: '2026-07-24'
@@ -32,12 +32,12 @@ scientific_relations_covered: []
 contextual_relations_not_covered:
 - TLC-SR-HUIT-DIMENSIONS-DE-TL-072
 - TLC-SR-HUIT-DIMENSIONS-DE-TL-109
-limited_functional_purpose: Preserve the cited candidate scientific objects as distinct opaque inputs and expose only source-traceable
-  candidate results; no missing scientific semantics are completed.
+limited_functional_purpose: Register the two explicitly isolated partial-invariance claims as separate unverifed declarations.
 inputs:
-- input_id: INPUT-HUIT-008-073
+- input_id: INPUT-HUIT-008-01
+  role: value_partial_invariance
   scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-073
-  category: Invariant
+  type: OpaquePerturbationInvariantClaim
   representation: opaque_parameterized
   source_reference:
     repository: Tradition-Learning-Community/tllib-specs
@@ -51,9 +51,10 @@ inputs:
     subsection: Propriétés
     start_line: 107
     end_line: 107
-- input_id: INPUT-HUIT-008-110
+- input_id: INPUT-HUIT-008-02
+  role: temporal_core_invariance
   scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-110
-  category: Invariant
+  type: OpaqueTemporalCoreClaim
   representation: opaque_parameterized
   source_reference:
     repository: Tradition-Learning-Community/tllib-specs
@@ -68,26 +69,26 @@ inputs:
     start_line: 251
     end_line: 251
 outputs:
-- output_id: OUTPUT-HUIT-008-073
-  scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-073
-  representation: opaque_candidate_result
-  semantics: unresolved
-- output_id: OUTPUT-HUIT-008-110
-  scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-110
-  representation: opaque_candidate_result
-  semantics: unresolved
+- output_id: OUTPUT-HUIT-008-001
+  role: specialized_structural_result
+  type: PartialInvarianceRegistry
+  representation: identity_preserving_unevaluated_record
+  observable_effect: Returns two claim records tagged by context and with verification unavailable.
+  scientific_semantics: unresolved_not_evaluated
 preconditions:
-- id: PRE-HUIT-008-SOURCE
-  statement: Every covered object is supplied with its candidate identity and exact source reference preserved.
-- id: PRE-HUIT-008-OPAQUE
-  statement: Unspecified types, dimensions, units, order, aggregation, temporal and numerical semantics remain opaque.
-- id: PRE-HUIT-008-UNRESOLVED
-  statement: Every reservation in unresolved.yaml remains attached.
+- id: PRE-HUIT-008-REQUIRED-ROLES
+  statement: 'Inputs provide the required roles: value_partial_invariance, temporal_core_invariance.'
+- id: PRE-HUIT-008-TRACE
+  statement: Every input retains its scientific object identifier and exact source reference.
+- id: PRE-HUIT-008-RESERVATIONS
+  statement: All contract reservations and the provisional engineering assumption remain attached.
 postconditions:
+- id: POST-HUIT-008-EFFECT
+  statement: The registry has distinct values and lived-experience entries and marks both verification procedures unresolved.
+- id: POST-HUIT-008-OPAQUE
+  statement: No opaque scientific payload or operator is evaluated, coerced, completed, or declared canonical.
 - id: POST-HUIT-008-TRACE
-  statement: Every result remains candidate and traceable to one covered source object.
-- id: POST-HUIT-008-NO-PROMOTION
-  statement: No provisional assumption or unresolved reservation is promoted to canonical science.
+  statement: The result retains feature, contract, object, source, reservation, and assumption identifiers.
 invariants:
 - id: INV-HUIT-008-IDENTITY
   statement: Covered scientific object identities remain distinct.
@@ -96,12 +97,13 @@ invariants:
 - id: INV-HUIT-008-LIMITED
   statement: This artifact remains a limited engineering contract, never a complete scientific contract.
 undefined_or_error_cases:
-- id: FAIL-HUIT-008-MISSING-SOURCE
-  condition: A covered object or exact source range is missing.
-- id: FAIL-HUIT-008-DROPPED-RESERVATION
-  condition: A reservation is omitted or declared resolved without an explicit source.
-- id: FAIL-HUIT-008-INVENTION
-  condition: An unspecified scientific, numerical, temporal, ordering, unit or cardinality property is asserted.
+- id: FAIL-HUIT-008-OPERATION
+  condition: Reject a claim without its context tag or an attempt to infer a shared mathematical invariant.
+- id: FAIL-HUIT-008-MISSING-TRACE
+  condition: A required role, scientific object identifier, source reference, reservation, or assumption is missing.
+- id: FAIL-HUIT-008-SCIENTIFIC-INVENTION
+  condition: The caller requests or supplies unstated scientific, numeric, temporal, dimensional, ordering, aggregation, probabilistic,
+    or algorithmic semantics.
 unresolved_propagated:
   path: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008/unresolved.yaml
   count: 9
@@ -119,7 +121,7 @@ engineering_assumptions:
   - probability distribution
   - domain-specific concrete class
   impact:
-    prototype_ir: prototype IR remains deferred until feature identity is reviewed
+    prototype_ir: opaque structural IR preserves unresolved feature identity and boundary without scientific interpretation
     implementation: no production representation is authorized
   reversible: true
   status: provisional_engineering_assumption
@@ -165,8 +167,14 @@ readiness:
   ready_for_complete_scientific_contract: false
   ready_for_limited_engineering_contract: true
   ready_for_canonical_ir: false
-  ready_for_prototype_ir: false
+  ready_for_prototype_ir: true
   ready_for_production_implementation: false
-  ready_for_reference_prototype: false
-  human_validation_required_before_prototype_work: true
+  ready_for_reference_prototype: true
+  human_validation_required_before_prototype_work: false
   human_validation_required_before_canonical_release: true
+software_responsibility: Register the two explicitly isolated partial-invariance claims as separate unverifed declarations.
+primary_operation:
+  name: register_partial_invariance_claims
+  signature: register_partial_invariance_claims(value_partial_invariance, temporal_core_invariance) -> PartialInvarianceRegistry
+  behavior: Returns two claim records tagged by context and with verification unavailable.
+  scientific_evaluation: not_performed
