@@ -1,0 +1,111 @@
+domain_id: disciple
+audit_scope: dependency_reconciliation_only
+internal_dependencies:
+- from_feature_id: TLC-FC-01-DISCIPLE-001
+  to_feature_id: TLC-FC-01-DISCIPLE-009
+  dependency_status: confirmed_from_catalogue
+  revalidated_after_master: true
+- from_feature_id: TLC-FC-01-DISCIPLE-002
+  to_feature_id: TLC-FC-01-DISCIPLE-009
+  dependency_status: confirmed_from_catalogue
+  revalidated_after_master: true
+- from_feature_id: TLC-FC-01-DISCIPLE-003
+  to_feature_id: TLC-FC-01-DISCIPLE-009
+  dependency_status: confirmed_from_catalogue
+  revalidated_after_master: true
+- from_feature_id: TLC-FC-01-DISCIPLE-004
+  to_feature_id: TLC-FC-01-DISCIPLE-009
+  dependency_status: confirmed_from_catalogue
+  revalidated_after_master: true
+- from_feature_id: TLC-FC-01-DISCIPLE-005
+  to_feature_id: TLC-FC-01-DISCIPLE-009
+  dependency_status: confirmed_from_catalogue
+  revalidated_after_master: true
+- from_feature_id: TLC-FC-01-DISCIPLE-006
+  to_feature_id: TLC-FC-01-DISCIPLE-009
+  dependency_status: confirmed_from_catalogue
+  revalidated_after_master: true
+- from_feature_id: TLC-FC-01-DISCIPLE-007
+  to_feature_id: TLC-FC-01-DISCIPLE-009
+  dependency_status: confirmed_from_catalogue
+  revalidated_after_master: true
+- from_feature_id: TLC-FC-01-DISCIPLE-008
+  to_feature_id: TLC-FC-01-DISCIPLE-009
+  dependency_status: confirmed_from_catalogue
+  revalidated_after_master: true
+- from_feature_id: TLC-FC-01-DISCIPLE-010
+  to_feature_id: TLC-FC-01-DISCIPLE-009
+  dependency_status: confirmed_from_catalogue
+  revalidated_after_master: true
+external_dependencies:
+- dependency_id: TLC-DDEP-DISCIPLE-MASTER-001
+  from_domain: disciple
+  to_domain: master
+  dependency_type: entity_dependency
+  status: confirmed
+  strength: required
+  required_level: symbol_only
+  production_effect: blocks_execution_only
+  affected_feature_ids:
+  - TLC-FC-01-DISCIPLE-002
+  target_feature_ids:
+  - TLC-FC-00-MASTER-016
+  notes: The Master contract and IR were consulted as evidence but are not required dependencies for Disciple contract
+    drafting.
+- dependency_id: TLC-DDEP-DISCIPLE-MASTER-002
+  from_domain: disciple
+  to_domain: master
+  dependency_type: entity_dependency
+  status: confirmed
+  strength: required
+  required_level: symbol_only
+  production_effect: blocks_execution_only
+  affected_feature_ids:
+  - TLC-FC-01-DISCIPLE-004
+  target_feature_ids:
+  - TLC-FC-00-MASTER-016
+  notes: The Master contract and IR were consulted as evidence but are not required dependencies for Disciple contract
+    drafting.
+- dependency_id: TLC-DDEP-DISCIPLE-MASTER-003
+  from_domain: disciple
+  to_domain: master
+  dependency_type: entity_dependency
+  status: confirmed
+  strength: required
+  required_level: symbol_only
+  production_effect: blocks_execution_only
+  affected_feature_ids:
+  - TLC-FC-01-DISCIPLE-009
+  target_feature_ids:
+  - TLC-FC-00-MASTER-016
+  notes: The Master contract and IR were consulted as evidence but are not required dependencies for Disciple contract
+    drafting.
+- dependency_id: TLC-DDEP-DISCIPLE-MASTER-004
+  from_domain: disciple
+  to_domain: master
+  dependency_type: entity_dependency
+  status: confirmed
+  strength: required
+  required_level: symbol_only
+  production_effect: blocks_execution_only
+  affected_feature_ids:
+  - TLC-FC-01-DISCIPLE-010
+  target_feature_ids:
+  - TLC-FC-00-MASTER-016
+  notes: The Master contract and IR were consulted as evidence but are not required dependencies for Disciple contract
+    drafting.
+advisory_dependencies: []
+cycles: []
+validation:
+  known_feature_ids:
+  - TLC-FC-01-DISCIPLE-001
+  - TLC-FC-01-DISCIPLE-002
+  - TLC-FC-01-DISCIPLE-003
+  - TLC-FC-01-DISCIPLE-004
+  - TLC-FC-01-DISCIPLE-005
+  - TLC-FC-01-DISCIPLE-006
+  - TLC-FC-01-DISCIPLE-007
+  - TLC-FC-01-DISCIPLE-008
+  - TLC-FC-01-DISCIPLE-009
+  - TLC-FC-01-DISCIPLE-010
+  unknown_affected_feature_ids: []
