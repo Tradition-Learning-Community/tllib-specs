@@ -1,0 +1,164 @@
+---
+schema_version: 1
+module_id: TLC-MODULE-PRACTICE
+module_name: Practice
+domain: practice
+status: ready_for_implementation_package
+feature_population:
+- TLC-FC-13-PRACTICE-001
+- TLC-FC-13-PRACTICE-003
+- TLC-FC-13-PRACTICE-004
+- TLC-FC-13-PRACTICE-005
+- TLC-FC-13-PRACTICE-006
+- TLC-FC-13-PRACTICE-007
+- TLC-FC-13-PRACTICE-008
+- TLC-FC-13-PRACTICE-009
+- TLC-FC-13-PRACTICE-010
+- TLC-FC-13-PRACTICE-012
+public_operations:
+- construct_practice_feature_representation
+- validate_practice_feature_representation
+- reference_practice_feature
+- associate_declared_scope
+- associate_declared_context
+- serialize_practice_feature
+- deserialize_practice_feature
+- compare_practice_features_structurally
+- inspect_source_trace
+- request_external_scientific_execution
+- request_external_scientific_evaluation
+internal_operations:
+- validate_feature_identity
+- validate_required_opaque_inputs
+- validate_source_references
+- preserve_documentary_order
+- propagate_opaque_values
+- propagate_unresolved_values
+- propagate_scientific_decisions
+- canonicalize_field_order
+- emit_structured_error
+practice_feature_kinds:
+- constraint_candidate
+- dynamics_candidate
+- equation_candidate
+- metric_candidate
+- operator_candidate
+- relation_candidate
+shared_types:
+  PracticeFeatureId: authoritative feature identifier
+  PracticeFeatureKind: source-derived feature classification
+  PracticeReference: feature identity plus source provenance
+  PracticeScope: descriptive scope only when declared
+  PracticeContext: descriptive context only when declared
+  OpaqueCandidateScientificInput: source-preserved opaque input
+  OpaqueCandidateEvaluationResult: unresolved opaque result
+  SourceObjectReference: object id, name, type and source location
+  SourceProvenance: source paths and immutable identifiers
+  ScientificDecisionReference: preserved object, relation or human-decision id
+  PracticeStructuralRequest: structural operation request
+  PracticeStructuralResult: validated declarative representation
+  PracticeError: structured failure without scientific invention
+common_errors:
+- code: invalid_feature_identity
+  condition: feature id differs from the authoritative population
+- code: missing_required_input
+  condition: a source-declared required opaque input is absent
+- code: invalid_input_type
+  condition: a required input is not carried as an opaque candidate value
+- code: missing_source_reference
+  condition: a covered object lacks its cited source reference
+- code: provenance_mismatch
+  condition: contract, source IR or test-plan reference differs from the source artifact
+- code: structural_error
+  condition: representation violates the finalized schema
+- code: unresolved_propagated
+  condition: an unresolved value cannot be silently replaced
+- code: scientific_decision_required
+  condition: a blocked feature is requested for scientific evaluation
+- code: external_executor_required
+  condition: scientific execution is requested without a source-defined executor
+- code: external_evaluator_required
+  condition: a scientific result is requested without a source-defined evaluator
+- code: implementation_out_of_scope
+  condition: a request asks for an undeclared procedure, numerical method or effect
+patterns:
+- opaque candidate envelope
+- traceability-first validation
+- declarative execution boundary
+- blocker propagation
+- structural determinism
+internal_dependencies:
+  canonical_functional_edges: []
+  rule: no feature depends canonically on another active Practice feature
+external_dependencies:
+  documentary:
+  - maths/13-practice.md
+  - registry/domain-progress/practice/functional-coverage.yaml
+  - registry/domain-progress/practice/relation-inventory.yaml
+  - registry/domain-progress/practice/unresolved-status.yaml
+  scientific:
+  - covered source object ids declared by each feature contract
+  - scientific decision ids declared by blocked feature contracts
+  execution:
+  - external executor not defined by the current sources
+  - external evaluator not defined by the current sources
+composition_rules:
+- representations may be bundled without merging feature identities
+- structural validation is applied independently per feature
+- documentary order is preserved per feature
+- no scientific outputs are composed without a future scientific contract
+- no relation endpoint is inferred
+- no dependency is upgraded from documentary to executable
+order_rules:
+- source object order is documentary and preserved
+- executable step order is absent unless explicitly declared
+- no active source contract declares an executable step order
+structural_determinism:
+- canonical field serialization is deterministic
+- deserialize then serialize preserves semantic structure
+- opaque payloads are preserved without interpretation
+- scientific evaluation determinism is unspecified
+behavior_boundaries:
+  represent_a_practice: supported as a declarative feature representation
+  validate_a_practice: supported structurally
+  reference_a_practice: supported through identity and provenance
+  associate_a_context: supported only for declared descriptive context
+  describe_steps: supported only if steps are explicitly supplied by a source contract
+  order_steps: unsupported because no executable order is declared
+  execute_a_practice: external_executor_required
+  repeat_a_practice: unsupported unless a repetition rule is explicitly declared
+  observe_a_result: external_observer_required
+  evaluate_an_effect: external_evaluator_required
+  evolve_a_practice: implementation_out_of_scope without a selected scientific method
+explicitly_declared_procedural_elements:
+  prerequisites: []
+  preparations: []
+  executable_steps: []
+  executable_sequences: []
+  executable_repetitions: []
+  executable_transitions: []
+  executable_stop_conditions: []
+  guaranteed_results: []
+  guaranteed_effects: []
+unresolved:
+  feature_level: preserved in each finalized IR
+  domain_level_ref: registry/domain-progress/practice/unresolved-status.yaml
+  handling: preserve_as_opaque_or_defer_to_scientific_review
+interfaces_planned_for_library:
+- immutable PracticeFeatureRepresentation value type
+- PracticeFeatureValidator
+- PracticeFeatureSerializer
+- PracticeFeatureRegistry
+- ExternalPracticeExecutor interface boundary
+- ExternalPracticeObserver interface boundary
+- ExternalPracticeEvaluator interface boundary
+out_of_scope:
+- scientific numerical evaluation
+- C++ implementation
+- Python bindings
+- reference implementation
+- runtime scheduling
+- automatic progression
+- inferred success criteria
+- inferred duration or frequency
+- inferred practice effects

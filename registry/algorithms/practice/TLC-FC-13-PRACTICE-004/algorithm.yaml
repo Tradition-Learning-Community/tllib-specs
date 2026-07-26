@@ -1,0 +1,37 @@
+---
+schema_version: 1
+algorithm_id: TLC-ALG-13-PRACTICE-004
+feature_id: TLC-FC-13-PRACTICE-004
+status: selected_for_practice_implementation_specification
+ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-004/ir.yaml
+signature: construct_blocked_practice_dynamics_candidate(request, opaque_inputs[4]) -> PracticeStructuralResult | PracticeError
+inputs: [PracticeStructuralRequest, four keyed OpaqueCandidateScientificInput values]
+outputs: [PracticeFeatureRepresentation, structured decision error]
+validations: [exact feature identity, four required inputs, exact object order, exact scientific decision set]
+preconditions: [inputs are supplied under candidate status]
+prerequisites: []
+conditions_of_application: [structural operations are allowed, scientific evaluation is deferred]
+ordered_steps_declared: false
+branches:
+- {condition: structural operation, action: perform without scientific interpretation}
+- {condition: scientific execution, action: return external_executor_required}
+- {condition: scientific evaluation, action: return scientific_decision_required with exact references}
+repetitions: []
+transitions: []
+stop_conditions: []
+effects: []
+errors: [invalid_feature_identity, missing_required_input, invalid_input_type, provenance_mismatch, structural_error, scientific_decision_required, external_executor_required, implementation_out_of_scope]
+postconditions: [representation preserves all objects, opaque values and decisions]
+invariants: [blocked evaluation does not block structural representation, no equation is evaluated]
+determinism: {structural_operations: deterministic, scientific_result: blocked}
+edge_cases: [partial decision list is rejected, missing input is rejected, unknown operation is out of scope]
+dependencies: {execution: external_executor_required, scientific_review: required_before_evaluation}
+unresolved_preserved: []
+pseudocode: |
+  REQUIRE canonical feature identity, four opaque inputs, source references and exact decision ids
+  BUILD immutable representation with objects [068, 085, 086, 088]
+  PRESERVE inputs, reservations and decision references without interpretation
+  IF request is structural THEN RETURN requested structural result
+  IF request is scientific_execute THEN RETURN external_executor_required
+  IF request is scientific_evaluate THEN RETURN scientific_decision_required with exact decision ids
+  RETURN implementation_out_of_scope

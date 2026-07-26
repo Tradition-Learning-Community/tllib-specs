@@ -1,0 +1,28 @@
+---
+schema_version: 1
+oracle_id: TLC-ORACLE-13-PRACTICE-010
+feature_id: TLC-FC-13-PRACTICE-010
+status: selected_for_practice_implementation_specification
+ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-010/ir.yaml
+algorithm_ref: registry/algorithms/practice/TLC-FC-13-PRACTICE-010/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-13-PRACTICE-010/test-plan.yaml
+acceptance_ready: true
+scientific_execution_oracle_available: false
+expected_identity: TLC-FC-13-PRACTICE-010
+expected_raw_status: blocked_declarative_non_executable
+expected_object_ids: [TLC-SO-PRACTICE-018]
+expected_input_ids: [INPUT-PRACTICE-010-1]
+expected_output_ids: [OUTPUT-PRACTICE-010-1]
+expected_unresolved: []
+expected_scientific_decisions: [TLC-SO-PRACTICE-018, TLC-SR-PRACTICE-017, TLC-HR-0108]
+tests:
+- {id: PRACTICE-010-STRUCTURE, category: nominal, assertion: aggregate operator candidate remains structurally representable}
+- {id: PRACTICE-010-DECISIONS, category: dependencies, assertion: exact three decision references are preserved}
+- {id: PRACTICE-010-NO-SPLIT, category: invariants, assertion: the aggregate object is not silently split into executable operations}
+- {id: PRACTICE-010-NO-INVOKE, category: errors, assertion: invocation returns external_executor_required}
+- {id: PRACTICE-010-EVALUATION, category: errors, assertion: evaluation returns scientific_decision_required}
+- {id: PRACTICE-010-ROUNDTRIP, category: serialization, assertion: round trip preserves aggregate identity payload and decisions}
+- {id: PRACTICE-010-NO-TYPES, category: invariants, assertion: no runtime dimensions or types are inferred from textual signatures}
+properties: [adding or removing a decision fails conformity, serialization is deterministic, source object identity remains singular]
+metamorphic_relations: [round-trip serialization is stable, replacing the opaque payload changes only that payload]
+acceptance_condition: structural tests pass and aggregate scientific behavior remains deferred

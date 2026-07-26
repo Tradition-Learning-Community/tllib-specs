@@ -1,0 +1,37 @@
+---
+schema_version: 1
+algorithm_id: TLC-ALG-13-PRACTICE-007
+feature_id: TLC-FC-13-PRACTICE-007
+status: selected_for_practice_implementation_specification
+ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-007/ir.yaml
+signature: construct_practice_metric_candidate(request, opaque_inputs[2]) -> PracticeStructuralResult | PracticeError
+inputs: [PracticeStructuralRequest, two keyed OpaqueCandidateScientificInput values]
+outputs: [PracticeFeatureRepresentation, externally supplied opaque metric results]
+validations: [exact identity, both required inputs, exact object order and provenance]
+preconditions: [inputs are supplied under candidate status]
+prerequisites: []
+conditions_of_application: [structural operation only]
+ordered_steps_declared: false
+branches:
+- {condition: structural operation, action: perform without computing a metric}
+- {condition: scientific evaluation, action: return external_evaluator_required}
+- {condition: scientific execution, action: return external_executor_required}
+repetitions: []
+transitions: []
+stop_conditions: []
+effects: []
+errors: [invalid_feature_identity, missing_required_input, invalid_input_type, provenance_mismatch, structural_error, external_evaluator_required, external_executor_required, implementation_out_of_scope]
+postconditions: [metric references and opaque values remain traceable]
+invariants: [no formula, scale, threshold or unit is inferred]
+determinism: {structural_operations: deterministic, scientific_result: unspecified}
+edge_cases: [missing one input fails, external result may be preserved but not validated numerically, unknown operation is out of scope]
+dependencies: {evaluation: external_evaluator_required, execution: external_executor_required}
+unresolved_preserved: []
+pseudocode: |
+  REQUIRE feature id 007, inputs 007-1 and 007-2, and objects [021, 034]
+  BUILD immutable metric-candidate representation
+  PRESERVE payloads and provenance without interpretation
+  IF request is structural THEN RETURN requested structural result
+  IF request is scientific_evaluate THEN RETURN external_evaluator_required
+  IF request is scientific_execute THEN RETURN external_executor_required
+  RETURN implementation_out_of_scope

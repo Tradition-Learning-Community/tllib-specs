@@ -1,0 +1,28 @@
+---
+schema_version: 1
+oracle_id: TLC-ORACLE-13-PRACTICE-004
+feature_id: TLC-FC-13-PRACTICE-004
+status: selected_for_practice_implementation_specification
+ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-004/ir.yaml
+algorithm_ref: registry/algorithms/practice/TLC-FC-13-PRACTICE-004/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-13-PRACTICE-004/test-plan.yaml
+acceptance_ready: true
+scientific_execution_oracle_available: false
+expected_identity: TLC-FC-13-PRACTICE-004
+expected_raw_status: blocked_declarative_non_executable
+expected_object_ids: [TLC-SO-PRACTICE-068, TLC-SO-PRACTICE-085, TLC-SO-PRACTICE-086, TLC-SO-PRACTICE-088]
+expected_input_ids: [INPUT-PRACTICE-004-1, INPUT-PRACTICE-004-2, INPUT-PRACTICE-004-3, INPUT-PRACTICE-004-4]
+expected_output_ids: [OUTPUT-PRACTICE-004-1, OUTPUT-PRACTICE-004-2, OUTPUT-PRACTICE-004-3, OUTPUT-PRACTICE-004-4]
+expected_unresolved: []
+expected_scientific_decisions: [TLC-SO-PRACTICE-068, TLC-SO-PRACTICE-085, TLC-SO-PRACTICE-086, TLC-SO-PRACTICE-088, TLC-SR-PRACTICE-067, TLC-SR-PRACTICE-084, TLC-SR-PRACTICE-085, TLC-SR-PRACTICE-087, TLC-HR-0046, TLC-HR-0049, TLC-HR-0055, TLC-HR-0056]
+tests:
+- {id: PRACTICE-004-STRUCTURE, category: nominal, assertion: blocked feature remains structurally representable}
+- {id: PRACTICE-004-DECISIONS, category: dependencies, assertion: exact decision set is propagated}
+- {id: PRACTICE-004-EVALUATION, category: errors, assertion: scientific evaluation returns scientific_decision_required}
+- {id: PRACTICE-004-EXECUTION, category: errors, assertion: scientific execution returns external_executor_required}
+- {id: PRACTICE-004-ROUNDTRIP, category: serialization, assertion: round trip preserves objects, payloads and decisions}
+- {id: PRACTICE-004-ORDER, category: structural, assertion: documentary order is 068, 085, 086, 088}
+- {id: PRACTICE-004-NO-INVENTION, category: invariants, assertion: no method, duration, sequence, progression or effect is introduced}
+properties: [removing a decision reference fails conformity, adding a decision reference fails conformity, structural serialization is deterministic, opaque payloads are unchanged]
+metamorphic_relations: [round-trip serialization is stable, changing only an opaque payload changes only that payload]
+acceptance_condition: structural tests pass and scientific evaluation remains deferred

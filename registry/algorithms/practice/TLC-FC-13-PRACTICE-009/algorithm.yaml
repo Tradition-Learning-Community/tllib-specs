@@ -1,0 +1,37 @@
+---
+schema_version: 1
+algorithm_id: TLC-ALG-13-PRACTICE-009
+feature_id: TLC-FC-13-PRACTICE-009
+status: selected_for_practice_implementation_specification
+ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-009/ir.yaml
+signature: construct_practice_operator_candidate(request, opaque_inputs[4]) -> PracticeStructuralResult | PracticeError
+inputs: [PracticeStructuralRequest, four keyed OpaqueCandidateScientificInput values]
+outputs: [PracticeFeatureRepresentation, externally supplied opaque results]
+validations: [exact identity, four required inputs, exact source object order, canonical provenance]
+preconditions: [inputs are supplied under candidate status]
+prerequisites: []
+conditions_of_application: [structural operation only]
+ordered_steps_declared: false
+branches:
+- {condition: structural operation, action: preserve and validate source signatures}
+- {condition: operator invocation or scientific execution, action: return external_executor_required}
+- {condition: scientific evaluation, action: return external_evaluator_required}
+repetitions: []
+transitions: []
+stop_conditions: []
+effects: []
+errors: [invalid_feature_identity, missing_required_input, invalid_input_type, provenance_mismatch, structural_error, external_executor_required, external_evaluator_required, implementation_out_of_scope]
+postconditions: [all function and operator references remain independent and traceable]
+invariants: [no threshold value is selected, no operator body or composition is inferred]
+determinism: {structural_operations: deterministic, scientific_result: unspecified}
+edge_cases: [missing input fails, duplicate object fails, invocation request requires external executor, unknown operation is out of scope]
+dependencies: {execution: external_executor_required, evaluation: external_evaluator_required}
+unresolved_preserved: []
+pseudocode: |
+  REQUIRE feature id 009, exact inputs 009-1 through 009-4 and objects [024, 074, 075, 076]
+  BUILD immutable operator-candidate representation
+  PRESERVE signatures, order, payloads and provenance without interpretation
+  IF request is structural THEN RETURN requested structural result
+  IF request invokes an operator OR requests scientific execution THEN RETURN external_executor_required
+  IF request requests scientific evaluation THEN RETURN external_evaluator_required
+  RETURN implementation_out_of_scope
