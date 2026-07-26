@@ -1,0 +1,16 @@
+schema_version: 1
+feature_id: TLC-FC-07-MESSAGE-002
+source_test_plan: registry/test-plans/TLC-FC-07-MESSAGE-002/test-plan.yaml
+acceptance_target: registry/optimized-ir/message/TLC-FC-07-MESSAGE-002/ir.yaml
+oracle_kind: declarative_structural
+fixtures_policy: source identifier plus opaque sentinel payload only
+tests:
+  - {id: MSG002-NOMINAL, kind: nominal, assert: claim preserves evidence and verification_status equals unavailable_without_oracle}
+  - {id: MSG002-MISSING, kind: precondition_error, expect_error: MissingPreexistenceEvidence}
+  - {id: MSG002-EVAL, kind: forbidden_behavior, expect_error: OracleEvaluationRequested}
+  - {id: MSG002-CONTENT, kind: content_conservation, assert: statement reference and opaque payload unchanged}
+  - {id: MSG002-METADATA, kind: metadata, assert: source range and candidate status preserved}
+  - {id: MSG002-DETERMINISM, kind: determinism, assert: identical input gives structurally equal claim}
+  - {id: MSG002-ROUNDTRIP, kind: serialization_roundtrip, assert: unavailable status identity provenance and opaque values preserved}
+properties: [no_truth_value, no_executable_oracle, identity_preservation]
+unresolved_assertion: ontology time model existence predicate and oracle remain opaque
