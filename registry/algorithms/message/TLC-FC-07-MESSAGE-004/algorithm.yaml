@@ -1,0 +1,34 @@
+schema_version: 1
+feature_id: TLC-FC-07-MESSAGE-004
+signature: index_message_forms_and_process_states(records) -> MessageFormsAndStatesCatalogue
+inputs: [Sequence[MessageStateConceptRecord]]
+outputs: [MessageFormsAndStatesCatalogue]
+validations: [exact_45_identifier_set, no_duplicates, no_unknowns, source_reference_present]
+preconditions: [each source-contract object occurs exactly once]
+steps: [validate exact set, group by source section and subsection, preserve order within each source context, build identifier index, build context index, attach unresolved and provenance]
+branching: missing duplicate or unknown identifier raises declared error
+content_handling: opaque payload and references unchanged
+role_validation: validate record and source-context roles only
+metadata_handling: preserve source order and candidate status
+transformation: identity-preserving grouping and indexing
+transmission: external_transport_required
+interpretation: external_interpreter_required
+effects: create immutable catalogue
+errors: [MissingMessageStateRecord, DuplicateMessageStateIdentifier, UnknownMessageStateIdentifier]
+postconditions: [45 objects retrievable, no merge, no reorder within context, no status promotion]
+invariants: [identity, source_context_order, provenance, no_hierarchy_inference]
+determinism: deterministic
+case_limits: [44_records, 46_records, duplicate, unknown, reordered_input_with_preserved_source_order]
+dependencies: [TLC-FC-07-MESSAGE-006]
+unresolved_preserved: source_contract_propagated_unresolved
+pseudocode: |
+  require_exact_contract_identifier_set(records)
+  groups = group_by_source_section_and_subsection(records)
+  for group in groups:
+      stable_sort_by_recorded_source_order(group)
+  catalogue = MessageFormsAndStatesCatalogue(groups)
+  catalogue.identifier_index = index_by_object_id(records)
+  catalogue.context_index = index_by_source_context(groups)
+  catalogue.attach_unresolved_and_provenance(records)
+  assert_complete_45_object_coverage(catalogue)
+  return catalogue
