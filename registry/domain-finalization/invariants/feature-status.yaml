@@ -1,0 +1,148 @@
+schema_version: 1
+domain_id: invariants
+population_source: registry/global-reconciliation/domain-feature-matrix.yaml
+population_count: 10
+features:
+- feature_id: TLC-FC-04-INVARIANTS-001
+  canonical_name: '04-invariants: constraint (admissible)'
+  finalization_status: selected_for_invariants_implementation_specification
+  source_catalogue_status: retained_with_reservations
+  source_contract: registry/math-contracts/TLC-FC-04-INVARIANTS-001/contract.yaml
+  source_ir: ir/TLC-FC-04-INVARIANTS-001/ir.prototype.json
+  source_test_plan: ir/TLC-FC-04-INVARIANTS-001/test-plan.yaml
+  callable: build_admissibility_constraint_set
+  nature: declarative_structural
+  structural_implementation_ready: true
+  scientific_evaluation_ready: false
+  rejected_by_finalization: false
+  blocking_decision: false
+- feature_id: TLC-FC-04-INVARIANTS-002
+  canonical_name: '04-invariants: definition (provisionally_separated)'
+  finalization_status: selected_for_invariants_implementation_specification
+  source_catalogue_status: rejected_as_feature
+  source_contract: registry/math-contracts/TLC-FC-04-INVARIANTS-002/contract.yaml
+  source_ir: ir/TLC-FC-04-INVARIANTS-002/ir.prototype.json
+  source_test_plan: ir/TLC-FC-04-INVARIANTS-002/test-plan.yaml
+  callable: index_definition_fragments
+  nature: declarative_structural
+  structural_implementation_ready: true
+  scientific_evaluation_ready: false
+  rejected_by_finalization: false
+  source_status_interpretation: historical_catalogue_metadata_preserved_without_rejecting_active_baseline_feature
+  blocking_decision: false
+- feature_id: TLC-FC-04-INVARIANTS-003
+  canonical_name: '04-invariants: invariant (admissible)'
+  finalization_status: selected_for_invariants_implementation_specification
+  source_catalogue_status: deferred_for_scientific_decision
+  source_contract: registry/math-contracts/TLC-FC-04-INVARIANTS-003/contract.yaml
+  source_ir: ir/TLC-FC-04-INVARIANTS-003/ir.prototype.json
+  source_test_plan: ir/TLC-FC-04-INVARIANTS-003/test-plan.yaml
+  callable: build_invariant_declaration_catalog
+  nature: declarative_structural
+  structural_implementation_ready: true
+  scientific_evaluation_ready: false
+  rejected_by_finalization: false
+  blocking_decision: false
+- feature_id: TLC-FC-04-INVARIANTS-004
+  canonical_name: '04-invariants: invariant (blocked_locally)'
+  finalization_status: selected_for_invariants_implementation_specification
+  source_catalogue_status: deferred_for_scientific_decision
+  source_contract: registry/math-contracts/TLC-FC-04-INVARIANTS-004/contract.yaml
+  source_ir: ir/TLC-FC-04-INVARIANTS-004/ir.prototype.json
+  source_test_plan: ir/TLC-FC-04-INVARIANTS-004/test-plan.yaml
+  callable: declare_disciple_invariant_scope
+  nature: declarative_structural
+  structural_implementation_ready: true
+  scientific_evaluation_ready: false
+  rejected_by_finalization: false
+  blocking_decision: false
+  local_block_interpretation: member_set_and_truth_rule_remain_external_but_declaration_behavior_is_observable
+- feature_id: TLC-FC-04-INVARIANTS-005
+  canonical_name: '04-invariants: invariant (provisionally_separated)'
+  finalization_status: selected_for_invariants_implementation_specification
+  source_catalogue_status: deferred_for_scientific_decision
+  source_contract: registry/math-contracts/TLC-FC-04-INVARIANTS-005/contract.yaml
+  source_ir: ir/TLC-FC-04-INVARIANTS-005/ir.prototype.json
+  source_test_plan: ir/TLC-FC-04-INVARIANTS-005/test-plan.yaml
+  callable: attach_interpretation_annotations
+  nature: structural
+  structural_implementation_ready: true
+  scientific_evaluation_ready: false
+  rejected_by_finalization: false
+  blocking_decision: false
+- feature_id: TLC-FC-04-INVARIANTS-006
+  canonical_name: '04-invariants: oracle (admissible)'
+  finalization_status: selected_for_invariants_implementation_specification
+  source_catalogue_status: deferred_for_targeted_extraction
+  source_contract: registry/math-contracts/TLC-FC-04-INVARIANTS-006/contract.yaml
+  source_ir: ir/TLC-FC-04-INVARIANTS-006/ir.prototype.json
+  source_test_plan: ir/TLC-FC-04-INVARIANTS-006/test-plan.yaml
+  callable: construct_collective_ethics_invariant_expression
+  nature: algorithmic_symbolic
+  structural_implementation_ready: true
+  scientific_evaluation_ready: false
+  rejected_by_finalization: false
+  blocking_decision: false
+- feature_id: TLC-FC-04-INVARIANTS-007
+  canonical_name: '04-invariants: relation (admissible)'
+  finalization_status: selected_for_invariants_implementation_specification
+  source_catalogue_status: retained_with_reservations
+  source_contract: registry/math-contracts/TLC-FC-04-INVARIANTS-007/contract.yaml
+  source_ir: ir/TLC-FC-04-INVARIANTS-007/ir.prototype.json
+  source_test_plan: ir/TLC-FC-04-INVARIANTS-007/test-plan.yaml
+  callable: construct_disintegration_relation
+  nature: structural
+  structural_implementation_ready: true
+  scientific_evaluation_ready: false
+  rejected_by_finalization: false
+  blocking_decision: false
+- feature_id: TLC-FC-04-INVARIANTS-008
+  canonical_name: '04-invariants: state (admissible)'
+  finalization_status: selected_for_invariants_implementation_specification
+  source_catalogue_status: deferred_for_targeted_extraction
+  source_contract: registry/math-contracts/TLC-FC-04-INVARIANTS-008/contract.yaml
+  source_ir: ir/TLC-FC-04-INVARIANTS-008/ir.prototype.json
+  source_test_plan: ir/TLC-FC-04-INVARIANTS-008/test-plan.yaml
+  callable: assemble_invariant_state_vocabulary
+  nature: declarative_structural
+  structural_implementation_ready: true
+  scientific_evaluation_ready: false
+  rejected_by_finalization: false
+  blocking_decision: false
+  unresolved_count: 11
+- feature_id: TLC-FC-04-INVARIANTS-009
+  canonical_name: '04-invariants: state (blocked_locally)'
+  finalization_status: selected_for_invariants_implementation_specification
+  source_catalogue_status: rejected_as_feature
+  source_contract: registry/math-contracts/TLC-FC-04-INVARIANTS-009/contract.yaml
+  source_ir: ir/TLC-FC-04-INVARIANTS-009/ir.prototype.json
+  source_test_plan: ir/TLC-FC-04-INVARIANTS-009/test-plan.yaml
+  callable: construct_cohesion_interval_constraint
+  nature: algorithmic_symbolic
+  structural_implementation_ready: true
+  scientific_evaluation_ready: false
+  rejected_by_finalization: false
+  source_status_interpretation: historical_catalogue_metadata_preserved_without_rejecting_active_baseline_feature
+  blocking_decision: false
+  unresolved_count: 1
+- feature_id: TLC-FC-04-INVARIANTS-010
+  canonical_name: '04-invariants: state (provisionally_separated)'
+  finalization_status: selected_for_invariants_implementation_specification
+  source_catalogue_status: rejected_as_feature
+  source_contract: registry/math-contracts/TLC-FC-04-INVARIANTS-010/contract.yaml
+  source_ir: ir/TLC-FC-04-INVARIANTS-010/ir.prototype.json
+  source_test_plan: ir/TLC-FC-04-INVARIANTS-010/test-plan.yaml
+  callable: index_state_interpretation_fragments
+  nature: declarative_structural
+  structural_implementation_ready: true
+  scientific_evaluation_ready: false
+  rejected_by_finalization: false
+  source_status_interpretation: historical_catalogue_metadata_preserved_without_rejecting_active_baseline_feature
+  blocking_decision: false
+summary:
+  active: 10
+  selected: 10
+  structurally_implementable: 10
+  scientifically_executable: 0
+  rejected_by_finalization: 0
+  blocking_features: 0
