@@ -1,0 +1,39 @@
+schema_version: 1
+registry_id: TLC-CANONICAL-NAMESPACES-V1
+status: active_engineering_registry
+qualification_separator: .
+root_namespace: tl
+infrastructure_namespaces:
+  - id: tl.spec
+    purpose: specification identities, provenance, traceability, and unresolved metadata
+  - id: tl.core
+    purpose: shared structural carriers and public infrastructure types
+domain_namespaces:
+  - {domain_id: master, namespace: tl.master}
+  - {domain_id: disciple, namespace: tl.disciple}
+  - {domain_id: community, namespace: tl.community}
+  - {domain_id: huit-dimensions, namespace: tl.huit_dimensions}
+  - {domain_id: invariants, namespace: tl.invariants}
+  - {domain_id: dynamics, namespace: tl.dynamics}
+  - {domain_id: theorems, namespace: tl.theorems}
+  - {domain_id: message, namespace: tl.message}
+  - {domain_id: principle, namespace: tl.principle}
+  - {domain_id: values, namespace: tl.values}
+  - {domain_id: virtues, namespace: tl.virtues}
+  - {domain_id: capacities, namespace: tl.capacities}
+  - {domain_id: competencies, namespace: tl.competencies}
+  - {domain_id: practice, namespace: tl.practice}
+  - {domain_id: lived-experience, namespace: tl.lived_experience}
+  - {domain_id: relations, namespace: tl.relations}
+qualification_policy:
+  source_symbols_may_repeat: true
+  public_names_must_be_domain_qualified: true
+  stable_ids_remain_authoritative: true
+  namespace_qualification_does_not_modify_scientific_meaning: true
+examples:
+  - source_symbol: M
+    qualified_candidates: [tl.master.Master, tl.message.Message]
+    rule: distinct identities remain distinct despite a shared source symbol
+  - source_symbol: C
+    qualified_candidates: [tl.community.Community, tl.capacities.Capacity, tl.competencies.Competency]
+    rule: qualification prevents engineering collisions without rewriting the theory
