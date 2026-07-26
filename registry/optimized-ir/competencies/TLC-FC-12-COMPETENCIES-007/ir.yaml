@@ -1,0 +1,59 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-007
+status: selected_for_competencies_implementation_specification
+source_contract: {id: TLC-MC-TLC-FC-12-COMPETENCIES-007, path: registry/math-contracts/TLC-FC-12-COMPETENCIES-007/contract.yaml}
+source_ir: {id: TLC-IR-TLC-FC-12-COMPETENCIES-007, path: registry/ir/TLC-FC-12-COMPETENCIES-007/ir.yaml, raw_status: canonical_declarative_ir_with_reservations}
+source_test_plan: registry/test-plans/TLC-FC-12-COMPETENCIES-007/test-plan.yaml
+nature: declarative
+competency_or_reference:
+  representation: opaque_scientific_object_set
+  ordered_object_ids: [TLC-SO-COMPETENCIES-065, TLC-SO-COMPETENCIES-104]
+  objects:
+  - {object_id: TLC-SO-COMPETENCIES-065, canonical_name: 'Équation — Domaines de validité', object_type: Equation, source_status: candidate}
+  - {object_id: TLC-SO-COMPETENCIES-104, canonical_name: 'Équation — Cohérence et coordination entre Disciples', object_type: Equation, source_status: candidate}
+identity: {public_feature_id: TLC-FC-12-COMPETENCIES-007, preservation: exact}
+scope: {category: transformation, canonical_name: '12-competencies: equation (blocked_locally)', boundary_label: blocked_locally, boundary_reopened: false}
+context: {kind: source_defined_and_opaque, scientific_source: maths/12-competencies.md, source_context_equation_present: true}
+inputs:
+- {name: competencies_feature_id, type: FeatureId, required: true, expected_value: TLC-FC-12-COMPETENCIES-007}
+- {name: object_payloads, type: 'Map<ObjectId,OpaqueScientificObject>', required: true, required_keys: [TLC-SO-COMPETENCIES-065, TLC-SO-COMPETENCIES-104]}
+- {name: provenance, type: 'Map<ObjectId,SourceReference>', required: true}
+- {name: request_mode, type: RequestMode, required: true, allowed_value: structural_descriptor_only}
+outputs: [{name: artifact, type: CompetenciesCanonicalDescriptor, semantics: immutable_structural_descriptor_no_scientific_value}]
+types: [FeatureId, ObjectId, OpaqueScientificObject, OpaqueScientificValue, SourceReference, CompetenciesCanonicalDescriptor, RequestMode]
+opaque_values: [validity_domain_equation, collective_coordination_equation, contexts, thresholds, affinity, environment, synergy, collective_terms]
+preconditions: [exact feature id, exact two-object set once each, complete provenance, structural request mode]
+prerequisites_explicit: []
+application_conditions: [structural construction only, no validity predicate threshold comparison collective aggregation or synergy evaluation]
+manifestations_explicit: {declared_for_execution: false, handling: preserve_source_statements_as_opaque}
+relations_explicit: {declared_for_execution: false, collective_mentions_present: true, endpoint_inference: forbidden}
+operations: [validate_request_mode, validate_feature_identity, validate_exact_object_set, validate_provenance, build_immutable_descriptor, propagate_reservations_and_unresolved, reject_unsupported_scientific_operation]
+execution_order: [validate_request_mode, validate_feature_identity, validate_exact_object_set, validate_provenance, build_immutable_descriptor, propagate_reservations_and_unresolved]
+control_flow: [structural errors stop construction, scientific operation requests are rejected, valid structural input returns immutable descriptor]
+scientific_behaviors:
+  mobilization: {source_declaration: absent, executable: false, handling: not_declared}
+  exercise: {source_declaration: absent, executable: false, handling: not_declared}
+  acquisition: {source_declaration: absent, executable: false, handling: not_declared}
+  development: {source_declaration: collective_coordination_content_only, executable: false, handling: preserve_opaque}
+  mastery: {source_declaration: absent, executable: false, handling: not_declared}
+  evaluation: {source_declaration: validity_and_coordination_expressions_only, executable: false, handling: external_evaluator_required}
+  comparison: {source_declaration: thresholds_and_collective_differences_inside_opaque_content, executable: false, handling: external_comparator_required}
+effects: []
+postconditions: [objects 065 and 104 preserved in contract order, no context validity collective result threshold or comparison produced]
+invariants: [exact source object set, equations not interpreted, context preserved as opaque, no collective identity inferred, structural validity not scientific validity]
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, UnexpectedCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+determinism: {status: deterministic, key: [feature_id, ordered_object_ids, payload_identities, provenance, reservations, unresolved]}
+dependencies: {internal: [competencies_feature_profile, structural_validation_pipeline], external: [], capacities: not_directly_evidenced}
+unresolved_propagated: []
+reservations: [no full mathematical contract or production semantics asserted, thresholds domains units context metrics and collective semantics incomplete, scientific unresolved preserved]
+transformations_applied: [normalized descriptor schema, extracted shared validation, normalized traceability, added unsupported-operation guards]
+preservation_obligations: [preserve identity order context equations provenance raw status reservations and unresolved]
+links: {algorithm: registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-007/algorithm.yaml, oracle: registry/oracles/competencies/TLC-FC-12-COMPETENCIES-007/oracle.yaml}
+actual_implementation_readiness: {structural_descriptor: ready, scientific_execution: not_ready_not_authorized, blocker_for_structural_layer: false}
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+competency_invented: false
+measurement_invented: false
+ordering_invented: false
