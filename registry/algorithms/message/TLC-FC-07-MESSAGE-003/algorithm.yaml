@@ -1,0 +1,30 @@
+schema_version: 1
+feature_id: TLC-FC-07-MESSAGE-003
+signature: assemble_existential_discourse_evidence(records) -> CandidateExistentialOracleEvidence
+inputs: [ExistentialDiscourseEvidencePair]
+outputs: [CandidateExistentialOracleEvidence]
+validations: [exact_two_distinct_ids, shared_source_subsection]
+preconditions: [TLC-SO-MESSAGE-020 and TLC-SO-MESSAGE-049 present]
+steps: [validate pair, compare source subsection, construct two-sided descriptor, preserve both identities, mark oracle_acceptance_rule unresolved]
+branching: incomplete pair or mismatched subsection raises error
+content_handling: preserve opaque records unchanged
+role_validation: [discourse_format_evidence, existential_label_evidence]
+metadata_handling: attach source subsection and candidate status
+transformation: identity-preserving pairing only
+transmission: external_transport_required
+interpretation: external_interpreter_required
+effects: create candidate descriptor
+errors: [IncompleteExistentialEvidencePair, MismatchedSourceSubsection]
+postconditions: [two identities retained, shared provenance retained, acceptance rule unresolved]
+invariants: [identity, provenance, no_acceptance_evaluation]
+determinism: deterministic
+case_limits: [missing side, duplicate identity, subsection mismatch]
+dependencies: [TLC-FC-07-MESSAGE-006]
+unresolved_preserved: [oracle_acceptance_rule, existential_classification, energetic_semantics, acceptance_criteria]
+pseudocode: |
+  require_exact_distinct_ids(records, [TLC-SO-MESSAGE-020, TLC-SO-MESSAGE-049])
+  require_same_source_subsection(records)
+  result = CandidateExistentialOracleEvidence(records[020], records[049])
+  result.oracle_acceptance_rule = unresolved_propagated
+  result.attach_provenance(records.provenance)
+  return result
