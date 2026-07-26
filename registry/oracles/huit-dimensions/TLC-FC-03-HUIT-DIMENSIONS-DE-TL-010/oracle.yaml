@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010
+operation: describe_capacity_metric_requirements
+source_test_plan: ir/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010/test-plan.yaml
+finalized_ir: registry/optimized-ir/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010/ir.yaml
+algorithm: registry/algorithms/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010/algorithm.yaml
+oracle_kind: structural_acceptance_oracle
+fixture_policy: symbolic_opaque_property_set_only_no_scientific_values
+tests:
+- {id: HD-010-NOMINAL, category: nominal, assertion: descriptor contains the five declared named aspects}
+- {id: HD-010-MISSING, category: precondition_error, mutation: remove capacity_metric_properties, expected_error: FAIL-HUIT-010-MISSING-TRACE}
+- {id: HD-010-ASPECT, category: cardinality, mutation: omit activatability, expected_error: FAIL-HUIT-010-OPERATION}
+- {id: HD-010-CARDINALITY, category: cardinality, assertion: aspect count equals five}
+- {id: HD-010-SOURCE, category: conservation, assertion: every aspect retains the same source object and trace}
+- {id: HD-010-OPAQUE, category: opaque_propagation, assertion: all aspect payloads remain references and unevaluated}
+- {id: HD-010-UNRESOLVED, category: unresolved_propagation, assertion: exact eight unresolved ids remain unresolved}
+- {id: HD-010-DETERMINISM, category: determinism, assertion: identical property set produces identical descriptor}
+- {id: HD-010-METAMORPHIC, category: metamorphic, transformation: reorder technical aspect input labels, assertion: named aspect set remains identical}
+- {id: HD-010-NO-METRIC, category: scientific_boundary, mutation: request a numeric metric or geodesic, expected_error: FAIL-HUIT-010-OPERATION}
+- {id: HD-010-TYPE, category: type, assertion: result is a requirement descriptor not a metric value}
+- {id: HD-010-CONFORMANCE, category: contract_ir_algorithm_conformance, assertion: role output aspects errors and propagated sets agree}
+numeric_expected_results: []
+acceptance: all_tests_pass
