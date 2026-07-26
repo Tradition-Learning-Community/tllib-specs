@@ -1,0 +1,85 @@
+schema_version: 1
+module_id: TLC-MODULE-MASTER-001
+module_name: master
+domain: master
+status: ready_for_implementation
+purpose: expose the sixteen Master feature specifications through preservation-first descriptors and opaque operation adapters
+initialization:
+  registration_order: [TLC-FC-00-MASTER-001, TLC-FC-00-MASTER-002, TLC-FC-00-MASTER-003, TLC-FC-00-MASTER-004, TLC-FC-00-MASTER-005, TLC-FC-00-MASTER-006, TLC-FC-00-MASTER-007, TLC-FC-00-MASTER-008, TLC-FC-00-MASTER-009, TLC-FC-00-MASTER-010, TLC-FC-00-MASTER-011, TLC-FC-00-MASTER-012, TLC-FC-00-MASTER-013, TLC-FC-00-MASTER-014, TLC-FC-00-MASTER-015, TLC-FC-00-MASTER-016]
+  internal_dependency_cycles: []
+  rule: register immutable feature specifications before accepting descriptor or evaluation requests
+common_types:
+  - type_id: MasterFeatureId
+    representation: closed enumeration of the exact sixteen feature identifiers
+  - type_id: ScientificReferenceBundle
+    fields: [feature_id, scientific_object_refs, relation_refs, unresolved_refs, source_provenance]
+    mutability: immutable
+  - type_id: MasterDescriptor
+    fields: [feature_id, representation, references, unresolved, dependencies, provenance, status]
+  - type_id: MasterSymbolicTypeDescriptor
+    fields: [feature_id, symbolic_object_refs, relation_refs, unresolved, dependencies, provenance]
+  - type_id: MasterPredicateDescriptor
+    fields: [feature_id, proposition_refs, relation_refs, truth_status, unresolved, provenance]
+    constraint: truth_status is unresolved unless an explicit future scientific provider supplies a criterion
+  - type_id: MasterOpaqueEvaluationResult
+    fields: [feature_id, evaluation_status, opaque_payload, unresolved, dependencies, provenance]
+    constraint: opaque_payload is never interpreted by the Master wrapper
+  - type_id: OpaqueOperationProvider
+    signature: evaluate(ScientificReferenceBundle, opaque_inputs) -> opaque_payload_or_unresolved
+    ownership: injected external implementation dependency
+common_errors:
+  - {code: MASTER_INVALID_FEATURE_ID, condition: requested feature is not one of the sixteen active Master features}
+  - {code: MASTER_MISSING_SCIENTIFIC_REFERENCE, condition: a required object or relation reference is absent}
+  - {code: MASTER_REFERENCE_SET_MISMATCH, condition: supplied object or relation set differs from the source IR}
+  - {code: MASTER_UNRESOLVED_SET_MISMATCH, condition: supplied unresolved set differs from the source IR}
+  - {code: MASTER_EXTERNAL_DEPENDENCY_UNAVAILABLE, condition: a blocking external symbol is absent during evaluation}
+  - {code: MASTER_OPAQUE_PROVIDER_REQUIRED, condition: evaluation is requested without an opaque provider}
+  - {code: MASTER_OPAQUE_PROVIDER_FAILURE, condition: the provider reports failure}
+  - {code: MASTER_PRESERVATION_VIOLATION, condition: traceability or opaque-payload preservation fails}
+  - {code: MASTER_UNSUPPORTED_EXECUTION_MODE, condition: a declaration, predicate descriptor, or symbolic type is requested as an invented calculation}
+shared_patterns:
+  - TLC-MASTER-PATTERN-TRACEABLE-ENVELOPE
+  - TLC-MASTER-PATTERN-DECLARATIVE-EMISSION
+  - TLC-MASTER-PATTERN-OPAQUE-OPERATION-ADAPTER
+  - TLC-MASTER-PATTERN-PREDICATE-DESCRIPTOR
+  - TLC-MASTER-PATTERN-SYMBOLIC-TYPE-DESCRIPTOR
+  - TLC-MASTER-PATTERN-UNRESOLVED-PROPAGATION
+  - TLC-MASTER-PATTERN-EXTERNAL-SYMBOL-GATE
+interfaces:
+  - {feature_id: TLC-FC-00-MASTER-001, visibility: public, function: describe_empirical_threshold_configuration, result: MasterDescriptor}
+  - {feature_id: TLC-FC-00-MASTER-002, visibility: public, function: describe_theoretical_constant_configuration, result: MasterDescriptor}
+  - {feature_id: TLC-FC-00-MASTER-003, visibility: public, function: evaluate_admissible_master_constraints, result: MasterOpaqueEvaluationResult}
+  - {feature_id: TLC-FC-00-MASTER-004, visibility: public, function: evaluate_reserved_master_constraints, result: MasterOpaqueEvaluationResult}
+  - {feature_id: TLC-FC-00-MASTER-005, visibility: public, function: describe_master_seven_tuple, result: MasterDescriptor}
+  - {feature_id: TLC-FC-00-MASTER-006, visibility: public, function: describe_master_concept, result: MasterDescriptor}
+  - {feature_id: TLC-FC-00-MASTER-007, visibility: public, function: evaluate_admissible_master_dynamics, result: MasterOpaqueEvaluationResult}
+  - {feature_id: TLC-FC-00-MASTER-008, visibility: public, function: evaluate_reserved_master_dynamics, result: MasterOpaqueEvaluationResult}
+  - {feature_id: TLC-FC-00-MASTER-009, visibility: public, function: evaluate_master_rupture_equation, result: MasterOpaqueEvaluationResult}
+  - {feature_id: TLC-FC-00-MASTER-010, visibility: public, function: evaluate_master_invariants, result: MasterOpaqueEvaluationResult}
+  - {feature_id: TLC-FC-00-MASTER-011, visibility: public, function: evaluate_master_metrics, result: MasterOpaqueEvaluationResult}
+  - {feature_id: TLC-FC-00-MASTER-012, visibility: public, function: evaluate_master_operators, result: MasterOpaqueEvaluationResult}
+  - {feature_id: TLC-FC-00-MASTER-013, visibility: public, function: describe_master_expert_predicate, result: MasterPredicateDescriptor}
+  - {feature_id: TLC-FC-00-MASTER-014, visibility: public, function: evaluate_master_disciple_relation, result: MasterOpaqueEvaluationResult}
+  - {feature_id: TLC-FC-00-MASTER-015, visibility: public, function: describe_master_value_and_symbolic_state, result: MasterSymbolicTypeDescriptor}
+  - {feature_id: TLC-FC-00-MASTER-016, visibility: public, function: describe_master_composite_state, result: MasterSymbolicTypeDescriptor}
+internal_dependencies: []
+external_dependencies:
+  - {domain: community, features: [TLC-FC-00-MASTER-003, TLC-FC-00-MASTER-012], mode: required_for_evaluation_read_only}
+  - {domain: disciple, features: [TLC-FC-00-MASTER-004, TLC-FC-00-MASTER-014], mode: required_for_evaluation_read_only}
+  - {domain: community, features: [TLC-FC-00-MASTER-015], mode: optional_symbol_reference_read_only}
+  - {domain: disciple, features: [TLC-FC-00-MASTER-016], mode: optional_symbol_reference_read_only}
+effects:
+  module_state: registry_only
+  scientific_state_mutation: none
+  external_domain_mutation: none
+  deterministic_wrapper: true
+  provider_determinism: opaque_and_provider_declared
+out_of_scope:
+  - scientific canonicalization or resolution of recorded ambiguities
+  - discretization, numerical integration, optimization, calibration, or stochastic simulation
+  - C++ implementation
+  - Python bindings
+  - changes to contracts, source IRs, test plans, scientific registries, or maths sources
+future_implementation_work:
+  task_registry: registry/domain-finalization/master/implementation-tasks.yaml
+  required_layers: [common_types, validation, descriptor_emitters, opaque_provider_adapter, error_mapping, oracle_test_harness]
