@@ -1,0 +1,40 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-010
+status: selected_for_principle_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-08-PRINCIPLE-010/contract.yaml
+source_ir: registry/ir/TLC-FC-08-PRINCIPLE-010/ir.yaml
+source_test_plan: registry/test-plans/TLC-FC-08-PRINCIPLE-010/test-plan.yaml
+source_ir_status: prototype_ir_with_reservations
+nature: structural_declarative
+principle_reference: [TLC-SO-PRINCIPLE-024, TLC-SO-PRINCIPLE-025, TLC-SO-PRINCIPLE-027, TLC-SO-PRINCIPLE-037, TLC-SO-PRINCIPLE-083, TLC-SO-PRINCIPLE-084, TLC-SO-PRINCIPLE-085, TLC-SO-PRINCIPLE-086]
+scope: source_keyed_relation_catalog_without_endpoint_inference
+inputs: [{type: PrincipleRelationSymbols, required: true}]
+outputs: [{type: PrincipleRelationCatalog, node_count: 8, evaluated: false}]
+types: {opaque: [OpaqueSymbolId, SourceProvenance], symbolic: [ImmutableSymbolicAst]}
+opaque_values: [endpoint_types, analogy, satisfaction, forcing, symmetry, transitivity, causality, thresholds, interpretation_behavior]
+preconditions: [ids_non_empty, eight_object_ids_exactly_once, source_bindings_present]
+conditions_of_application: [relation_catalog_construction_requested]
+exceptions_explicitly_defined: []
+operations: [validate, instantiate_eight_relation_records, attach_annotations_and_traceability, freeze]
+execution_order: source_order
+control_flow: fail_fast_then_construct
+rules_of_decision_explicitly_defined: []
+effects: [immutable_eight_relation_catalog]
+postconditions: [no_endpoint_inference, no_relation_evaluation]
+invariants: [source_statements_preserved]
+consequences_explicitly_defined: []
+errors: [ERR-PRINCIPLE-010-MISSING, ERR-PRINCIPLE-010-DUPLICATE, ERR-PRINCIPLE-010-PROMOTION]
+determinism: deterministic_symbolic_construction
+dependencies: []
+unresolved_propagated: []
+reservations: [relation_properties_and_endpoints_remain_opaque]
+transformations_applied: [normalized_common_envelope, relation_records_keyed_by_source]
+preservation_obligations: [eight_templates, source_order, endpoint_opacity]
+algorithm_ref: registry/algorithms/principle/TLC-FC-08-PRINCIPLE-010/algorithm.yaml
+oracle_ref: registry/oracles/principle/TLC-FC-08-PRINCIPLE-010/oracle.yaml
+implementation_aptitude: ready_for_relation_catalog_not_relation_evaluator
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+principle_invented: false

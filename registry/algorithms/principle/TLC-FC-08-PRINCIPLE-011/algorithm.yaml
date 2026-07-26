@@ -1,0 +1,24 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-011
+signature: associate_principle_with_familiar_context(PrincipleContextAssociationRequest) -> PrincipleInterpretationAssociation
+inputs: [PrincipleContextAssociationRequest]
+outputs: [PrincipleInterpretationAssociation]
+validations: [principle_id_non_empty, context_ids_non_empty, ids_unique, source_binding_present]
+preconditions: [association_construction_only]
+conditions_of_application: [at_least_one_caller_identified_context]
+steps: [validate, create_association_with_principle_and_ordered_context_ids, attach_object_id_and_provenance, freeze_return]
+branches: [{when: interpretation_ranking_or_promotion_requested, action: raise_ERR-PRINCIPLE-011-PROMOTION}]
+effects: [immutable_association]
+errors: [ERR-PRINCIPLE-011-MISSING, ERR-PRINCIPLE-011-DUPLICATE, ERR-PRINCIPLE-011-PROMOTION]
+postconditions: [one_principle_id, at_least_one_context_id, no_interpretation]
+invariants: [input_context_order_preserved]
+determinism: deterministic
+edge_cases: [empty_context_list, duplicate_context_id, unknown_familiarity]
+dependencies: []
+unresolved_preserved: []
+pseudocode: |
+  validate_non_empty_principle_id(request)
+  validate_non_empty_unique_context_ids(request)
+  reject_interpretation_ranking_or_promotion(request)
+  association = interpretation_association(request.principle_id, request.context_ids)
+  return freeze(with_traceability(association, request))

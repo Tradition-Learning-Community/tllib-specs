@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-002
+source_test_plan: registry/test-plans/TLC-FC-08-PRINCIPLE-002/test-plan.yaml
+oracle_kind: structural_equation
+acceptance_criteria: [one_immutable_equality_AST, derivative_on_left, E_application_P_D_t_on_right, exact_source_reference, unresolved_round_trip, no_solver]
+test_categories: [nominal, precondition, errors, shape, determinism, unresolved_propagation, opaque_propagation]
+tests:
+  - {id: PR-002-SHAPE, assert: exact_dP_dt_equals_E_P_D_t_AST}
+  - {id: PR-002-ORDER, assert: rhs_arguments_are_P_D_t}
+  - {id: PR-002-UNRESOLVED, assert: three_unresolved_are_preserved_exactly}
+  - {id: PR-002-NOSOLVE, assert: no_numeric_or_symbolic_solution_is_attempted}
+  - {id: PR-002-ERRORS, assert: missing_duplicate_promotion_errors_match_source}
+forbidden_oracle_behavior: [assume_domain, invent_initial_condition, select_solver]

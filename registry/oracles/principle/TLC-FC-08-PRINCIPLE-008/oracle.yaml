@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-008
+source_test_plan: registry/test-plans/TLC-FC-08-PRINCIPLE-008/test-plan.yaml
+oracle_kind: structural_operator_catalog
+acceptance_criteria: [all_source_keyed_nodes_present, three_formalization_levels_preserved, M_equals_f_P_D_shape_preserved, operators_never_invoked]
+test_categories: [nominal, precondition, error, type, shape, conservation, determinism, opaque_propagation]
+tests:
+  - {id: PR-008-LEVELS, assert: exact_three_formalization_level_descriptors}
+  - {id: PR-008-FUNCTION, assert: exact_M_equals_f_P_D_AST}
+  - {id: PR-008-NORUNTIME, assert: Gamma_and_other_operators_are_not_invoked}
+  - {id: PR-008-ERRORS, assert: source_errors_are_preserved}
+forbidden_oracle_behavior: [execute_operator, sample_stochastic_law, judge_cognitive_effect]

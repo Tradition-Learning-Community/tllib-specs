@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-006
+source_test_plan: registry/test-plans/TLC-FC-08-PRINCIPLE-006/test-plan.yaml
+oracle_kind: descriptive_non_executable
+acceptance_criteria: [exactly_two_requirement_statements, verifiable_false, external_evaluator_required, no_pass_fail_result]
+test_categories: [nominal, precondition, error, shape, scope, conservation, deterministic, opaque_propagation]
+tests:
+  - {id: PR-006-TWO, assert: exactly_two_source_requirements}
+  - {id: PR-006-UNVERIFIABLE, assert: descriptor_is_explicitly_unverifiable}
+  - {id: PR-006-NOCHECK, assert: no_invariant_checker_is_exposed}
+  - {id: PR-006-ERRORS, assert: source_errors_are_preserved}
+forbidden_oracle_behavior: [invent_predicate, infer_essential_invariants, return_boolean]

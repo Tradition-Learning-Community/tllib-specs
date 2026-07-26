@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-011
+source_test_plan: registry/test-plans/TLC-FC-08-PRINCIPLE-011/test-plan.yaml
+oracle_kind: structural_association
+acceptance_criteria: [one_principle_id, at_least_one_context_id, exact_input_order, exact_provenance, no_interpretation_or_ranking]
+test_categories: [nominal, precondition, error, type, shape, scope, conservation, determinism, opaque_propagation]
+tests:
+  - {id: PR-011-NOMINAL, assert: immutable_association_with_non_empty_contexts}
+  - {id: PR-011-ORDER, assert: context_order_preserved}
+  - {id: PR-011-OPAQUE, assert: familiarity_and_meaning_not_interpreted}
+  - {id: PR-011-ERRORS, assert: empty_duplicate_and_promotion_errors_match_source}
+forbidden_oracle_behavior: [rank_contexts, infer_familiarity, claim_understanding_effect]

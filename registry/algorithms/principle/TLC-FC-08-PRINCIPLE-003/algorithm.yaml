@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-003
+signature: construct_principle_equation_catalog(PrincipleEquationSymbols) -> PrincipleEquationCatalog
+inputs: [PrincipleEquationSymbols]
+outputs: [PrincipleEquationCatalog]
+validations: [ids_non_empty, exact_object_population, source_bindings_present]
+preconditions: [symbolic_construction_only]
+conditions_of_application: [four_source_templates_available]
+steps: [validate, instantiate_formalization_equation, instantiate_stability_implication, instantiate_composition_equation, instantiate_convergence_limit_equation, key_by_object_id, attach_traceability, freeze_return]
+branches: [{when: invalid_or_evaluation_requested, action: raise_source_error}]
+effects: [four_immutable_ASTs]
+errors: [ERR-PRINCIPLE-003-MISSING, ERR-PRINCIPLE-003-DUPLICATE, ERR-PRINCIPLE-003-PROMOTION]
+postconditions: [four_nodes, exact_order, no_evaluation]
+invariants: [source_statement_preserved]
+determinism: deterministic
+edge_cases: [limit_existence_unknown, similarity_unknown, composition_semantics_unknown]
+dependencies: []
+unresolved_preserved: []
+pseudocode: |
+  validate(request)
+  reject_evaluation_or_promotion(request)
+  nodes = instantiate_exact_source_templates(request, count=4)
+  return freeze(with_traceability(key_by_object_id(nodes), request))

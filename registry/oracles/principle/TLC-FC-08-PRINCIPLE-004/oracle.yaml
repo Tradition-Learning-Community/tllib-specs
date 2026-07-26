@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-004
+source_test_plan: registry/test-plans/TLC-FC-08-PRINCIPLE-004/test-plan.yaml
+oracle_kind: structural_tuple
+acceptance_criteria: [one_immutable_equality_AST, tuple_arity_three, exact_D_P_F_P_relation_order, exact_source_object_id, no_evaluation]
+test_categories: [nominal, precondition, error, type, shape, order, conservation, determinism]
+tests:
+  - {id: PR-004-ARITY, assert: tuple_has_exactly_three_components}
+  - {id: PR-004-ORDER, assert: components_equal_D_P_then_F_P_then_relation}
+  - {id: PR-004-OPAQUE, assert: arbitrary_components_round_trip_unchanged}
+  - {id: PR-004-ERRORS, assert: source_errors_are_preserved}
+forbidden_oracle_behavior: [interpret_components, infer_tuple_semantics]

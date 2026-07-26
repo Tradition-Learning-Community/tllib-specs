@@ -1,0 +1,40 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-007
+status: selected_for_principle_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-08-PRINCIPLE-007/contract.yaml
+source_ir: registry/ir/TLC-FC-08-PRINCIPLE-007/ir.yaml
+source_test_plan: registry/test-plans/TLC-FC-08-PRINCIPLE-007/test-plan.yaml
+source_ir_status: prototype_ir_with_reservations
+nature: declarative
+principle_reference: [TLC-SO-PRINCIPLE-032]
+scope: four_source_stated_metric_requirements
+inputs: [{type: PrincipleMetricRequirementEvidence, required: true}]
+outputs: [{type: UncomputablePrincipleMetricDescriptor, evaluated: false}]
+types: {opaque: [OpaqueSymbolId, SourceProvenance], symbolic: [ImmutableSymbolicAst]}
+opaque_values: [metric_signature, domain, codomain, scale, units, score, distance, thresholds, aggregation, calculation_rule]
+preconditions: [ids_non_empty, object_id_exactly_once, source_binding_present]
+conditions_of_application: [metric_requirement_description_requested]
+exceptions_explicitly_defined: []
+operations: [validate, record_four_metric_requirements, mark_uncomputable, attach_traceability, freeze]
+execution_order: source_order
+control_flow: fail_fast_then_describe
+rules_of_decision_explicitly_defined: []
+effects: [immutable_uncomputable_metric_descriptor]
+postconditions: [no_metric_value, no_threshold, external_evaluator_required]
+invariants: [source_statement_preserved]
+consequences_explicitly_defined: []
+errors: [ERR-PRINCIPLE-007-MISSING, ERR-PRINCIPLE-007-DUPLICATE, ERR-PRINCIPLE-007-PROMOTION]
+determinism: deterministic_symbolic_construction
+dependencies: []
+unresolved_propagated: []
+reservations: [all_metric_computation_semantics_absent]
+transformations_applied: [normalized_common_envelope, uncomputable_state_explicit]
+preservation_obligations: [four_requirements, non_computability]
+algorithm_ref: registry/algorithms/principle/TLC-FC-08-PRINCIPLE-007/algorithm.yaml
+oracle_ref: registry/oracles/principle/TLC-FC-08-PRINCIPLE-007/oracle.yaml
+implementation_aptitude: ready_for_descriptor_external_metric_required
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+principle_invented: false

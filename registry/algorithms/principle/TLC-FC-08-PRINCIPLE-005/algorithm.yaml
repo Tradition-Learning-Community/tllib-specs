@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-005
+signature: construct_principle_invariant_specification(PrincipleInvariantEvidence) -> PrincipleInvariantSpecification
+inputs: [PrincipleInvariantEvidence]
+outputs: [PrincipleInvariantSpecification]
+validations: [ids_non_empty, exact_object_population, source_bindings_present]
+preconditions: [descriptor_construction_only]
+conditions_of_application: [source_characteristics_and_references_supplied]
+steps: [validate, create_four_characteristic_nodes, create_F_P_invariant_node, create_evolution_equation_reference_node, attach_traceability, freeze_return]
+branches: [{when: truth_check_or_promotion_requested, action: raise_ERR-PRINCIPLE-005-PROMOTION}]
+effects: [immutable_invariant_descriptor]
+errors: [ERR-PRINCIPLE-005-MISSING, ERR-PRINCIPLE-005-DUPLICATE, ERR-PRINCIPLE-005-PROMOTION]
+postconditions: [six_nodes, no_truth_value, reference_not_executed]
+invariants: [source_order_and_statements]
+determinism: deterministic
+edge_cases: [unavailable_measurement_predicate, opaque_F_P]
+dependencies: [{feature_id: TLC-FC-08-PRINCIPLE-002, kind: documentary_reference_only}]
+unresolved_preserved: []
+pseudocode: |
+  validate(request)
+  reject_truth_check_or_promotion(request)
+  nodes = four_characteristics(request) + [F_P_invariant(request), evolution_reference(request)]
+  return freeze(with_traceability(nodes, request))

@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-004
+signature: construct_principle_formal_tuple(PrincipleComponentSymbols) -> SymbolicPrincipleTuple
+inputs: [PrincipleComponentSymbols]
+outputs: [SymbolicPrincipleTuple]
+validations: [three_non_empty_components, object_id_unique, source_binding_present]
+preconditions: [symbolic_construction_only]
+conditions_of_application: [all_three_source_components_supplied]
+steps: [validate, create_ordered_tuple_D_P_F_P_succeeds_under_P, wrap_in_source_equality, attach_traceability, freeze_return]
+branches: [{when: invalid_or_evaluation_requested, action: raise_source_error}]
+effects: [immutable_arity_three_tuple]
+errors: [ERR-PRINCIPLE-004-MISSING, ERR-PRINCIPLE-004-DUPLICATE, ERR-PRINCIPLE-004-PROMOTION]
+postconditions: [exact_component_order, no_component_interpreted]
+invariants: [tuple_arity_three]
+determinism: deterministic
+edge_cases: [empty_component, reordered_components]
+dependencies: []
+unresolved_preserved: []
+pseudocode: |
+  validate(request)
+  reject_evaluation_or_promotion(request)
+  tuple = ordered_tuple(request.D_P, request.F_P, request.succeeds_under_P)
+  return freeze(with_traceability(equals(request.P, tuple), request))

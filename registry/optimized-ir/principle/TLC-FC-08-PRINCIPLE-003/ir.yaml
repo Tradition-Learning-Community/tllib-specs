@@ -1,0 +1,40 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-003
+status: selected_for_principle_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-08-PRINCIPLE-003/contract.yaml
+source_ir: registry/ir/TLC-FC-08-PRINCIPLE-003/ir.yaml
+source_test_plan: registry/test-plans/TLC-FC-08-PRINCIPLE-003/test-plan.yaml
+source_ir_status: prototype_ir_with_reservations
+nature: structural_declarative
+principle_reference: [TLC-SO-PRINCIPLE-039, TLC-SO-PRINCIPLE-046, TLC-SO-PRINCIPLE-047, TLC-SO-PRINCIPLE-070]
+scope: source_ordered_equation_catalog
+inputs: [{type: PrincipleEquationSymbols, required: true}]
+outputs: [{type: PrincipleEquationCatalog, node_count: 4, evaluated: false}]
+types: {opaque: [OpaqueSymbolId, SourceProvenance], symbolic: [ImmutableSymbolicAst]}
+opaque_values: [set_domains, similarity, predicate_behavior, composition_law, limit_existence, topology, convergence, operator_implementations]
+preconditions: [ids_non_empty, four_object_ids_exactly_once, source_bindings_present]
+conditions_of_application: [catalog_construction_requested]
+exceptions_explicitly_defined: []
+operations: [validate, instantiate_four_equations_in_source_order, attach_traceability, freeze]
+execution_order: source_order
+control_flow: fail_fast_then_construct
+rules_of_decision_explicitly_defined: []
+effects: [immutable_four_equation_catalog]
+postconditions: [no_equation_evaluated, source_keys_preserved]
+invariants: [source_statements_preserved]
+consequences_explicitly_defined: []
+errors: [ERR-PRINCIPLE-003-MISSING, ERR-PRINCIPLE-003-DUPLICATE, ERR-PRINCIPLE-003-PROMOTION]
+determinism: deterministic_symbolic_construction
+dependencies: []
+unresolved_propagated: []
+reservations: [composition_and_convergence_semantics_remain_opaque]
+transformations_applied: [normalized_common_envelope, catalog_shape_made_explicit]
+preservation_obligations: [all_four_templates, source_order, provenance]
+algorithm_ref: registry/algorithms/principle/TLC-FC-08-PRINCIPLE-003/algorithm.yaml
+oracle_ref: registry/oracles/principle/TLC-FC-08-PRINCIPLE-003/oracle.yaml
+implementation_aptitude: ready_for_symbolic_catalog_constructor
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+principle_invented: false

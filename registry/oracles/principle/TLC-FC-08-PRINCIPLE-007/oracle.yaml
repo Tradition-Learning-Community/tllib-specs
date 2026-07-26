@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-007
+source_test_plan: registry/test-plans/TLC-FC-08-PRINCIPLE-007/test-plan.yaml
+oracle_kind: descriptive_non_computable
+acceptance_criteria: [exactly_four_metric_requirements, computable_false, no_numeric_output, opaque_metric_fields_preserved]
+test_categories: [nominal, precondition, error, shape, scope, conservation, determinism, opaque_propagation]
+tests:
+  - {id: PR-007-FOUR, assert: exactly_four_source_requirements}
+  - {id: PR-007-NOVALUE, assert: no_score_distance_or_threshold_returned}
+  - {id: PR-007-OPAQUE, assert: absent_metric_semantics_remain_opaque}
+  - {id: PR-007-ERRORS, assert: source_errors_are_preserved}
+forbidden_oracle_behavior: [invent_metric, aggregate_values, compare_threshold]

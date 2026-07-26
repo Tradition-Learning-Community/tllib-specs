@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-003
+source_test_plan: registry/test-plans/TLC-FC-08-PRINCIPLE-003/test-plan.yaml
+oracle_kind: structural_catalog
+acceptance_criteria: [exactly_four_equation_ASTs, keyed_by_exact_object_ids, source_order_preserved, no_equation_evaluated, deterministic]
+test_categories: [nominal, precondition, error, type, shape, conservation, determinism, opaque_propagation]
+tests:
+  - {id: PR-003-COUNT, assert: catalog_has_exactly_four_nodes}
+  - {id: PR-003-TEMPLATES, assert: all_source_templates_match_source_IR}
+  - {id: PR-003-OPAQUE, assert: convergence_similarity_and_composition_values_round_trip}
+  - {id: PR-003-ERRORS, assert: source_errors_are_preserved}
+forbidden_oracle_behavior: [prove_stability, compute_limit, infer_composition_law]

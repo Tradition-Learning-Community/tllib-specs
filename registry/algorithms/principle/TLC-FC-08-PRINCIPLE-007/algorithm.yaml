@@ -1,0 +1,25 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-007
+signature: describe_principle_metric_requirements(PrincipleMetricRequirementEvidence) -> UncomputablePrincipleMetricDescriptor
+inputs: [PrincipleMetricRequirementEvidence]
+outputs: [UncomputablePrincipleMetricDescriptor]
+validations: [id_non_empty, exact_object_id, source_binding_present]
+preconditions: [description_only]
+conditions_of_application: [four_source_requirements_available]
+steps: [validate, record_abstraction_requirement, record_dynamic_reinterpretation_requirement, record_composability_non_redundance_requirement, record_generative_interpretive_measurement_requirement, set_computable_false, attach_traceability, freeze_return]
+branches: [{when: computation_requested, action: raise_ERR-PRINCIPLE-007-PROMOTION}]
+effects: [immutable_metric_requirement_descriptor]
+errors: [ERR-PRINCIPLE-007-MISSING, ERR-PRINCIPLE-007-DUPLICATE, ERR-PRINCIPLE-007-PROMOTION]
+postconditions: [computable_false, no_score_or_distance]
+invariants: [four_source_requirements_preserved]
+determinism: deterministic
+edge_cases: [missing_units, missing_threshold, missing_aggregation]
+dependencies: []
+unresolved_preserved: []
+pseudocode: |
+  validate(request)
+  reject_metric_computation_or_promotion(request)
+  descriptor = record_four_source_requirements(request)
+  descriptor.computable = false
+  descriptor.external_evaluator_required = true
+  return freeze(with_traceability(descriptor, request))

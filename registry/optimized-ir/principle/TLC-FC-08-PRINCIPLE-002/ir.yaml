@@ -1,0 +1,40 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-002
+status: selected_for_principle_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-08-PRINCIPLE-002/contract.yaml
+source_ir: registry/ir/TLC-FC-08-PRINCIPLE-002/ir.yaml
+source_test_plan: registry/test-plans/TLC-FC-08-PRINCIPLE-002/test-plan.yaml
+source_ir_status: prototype_ir_with_reservations
+nature: structural_declarative
+principle_reference: [TLC-SO-PRINCIPLE-087]
+scope: source_defined_principle_evolution_equation
+inputs: [{type: PrincipleEvolutionSymbols, required: true}]
+outputs: [{type: SymbolicPrincipleEvolutionEquation, evaluated: false}]
+types: {opaque: [OpaqueSymbolId, SourceProvenance], symbolic: [ImmutableSymbolicAst]}
+opaque_values: [domains, codomain, derivative_existence, initial_conditions, solver, discretization, operator_implementation]
+preconditions: [required_ids_non_empty, object_id_exactly_once, source_binding_present]
+conditions_of_application: [symbolic_equation_construction_requested]
+exceptions_explicitly_defined: []
+operations: [validate, instantiate_equals_derivative_AST, attach_traceability, freeze]
+execution_order: fixed
+control_flow: fail_fast_then_construct
+rules_of_decision_explicitly_defined: []
+effects: [immutable_AST_for_dP_dt_equals_E_P_D_t]
+postconditions: [argument_order_preserved, no_equation_solved]
+invariants: [source_statement_preserved]
+consequences_explicitly_defined: []
+errors: [ERR-PRINCIPLE-002-MISSING, ERR-PRINCIPLE-002-DUPLICATE, ERR-PRINCIPLE-002-PROMOTION]
+determinism: deterministic_symbolic_construction
+confirmed_dependencies: []
+unresolved_propagated: [UNRESOLVED-SYMBOL-SEMANTICS-001, UNRESOLVED-DOMAIN-001, UNRESOLVED-INITIAL-CONDITION-001]
+reservations: [no_solver_or_initial_condition_inferred]
+transformations_applied: [normalized_common_envelope, explicit_control_flow]
+preservation_obligations: [equation_shape, argument_order, source_traceability, unresolved]
+algorithm_ref: registry/algorithms/principle/TLC-FC-08-PRINCIPLE-002/algorithm.yaml
+oracle_ref: registry/oracles/principle/TLC-FC-08-PRINCIPLE-002/oracle.yaml
+implementation_aptitude: ready_for_symbolic_constructor_external_solver_required
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+principle_invented: false
