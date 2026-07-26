@@ -1,0 +1,73 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-001
+oracle_id: TLC-ORACLE-INVARIANTS-001-FINAL-001
+status: selected_for_invariants_implementation_specification
+source_test_plan_ref: ir/TLC-FC-04-INVARIANTS-001/test-plan.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-001/contract.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-001/ir.prototype.json
+optimized_ir_ref: registry/optimized-ir/invariants/TLC-FC-04-INVARIANTS-001/ir.yaml
+algorithm_ref: registry/algorithms/invariants/TLC-FC-04-INVARIANTS-001/algorithm.yaml
+operation_under_test: build_admissibility_constraint_set
+oracle_kind: structural_property_oracle
+exact_scientific_values_required: false
+authoritative_expectations:
+- exactly one immutable output entry per validated supplied axiom ID
+- source order, source references, opaque content, status, assumptions, and reservations are unchanged
+- no scientific truth evaluation occurs
+tests:
+- id: INV001-ACCEPT-NOMINAL
+  category: nominal
+  given: the four covered source-backed axiom records with unique IDs and references
+  when: build_admissibility_constraint_set is invoked
+  then:
+  - output cardinality is four
+  - ordered output IDs equal ordered input IDs
+  - all entries are immutable
+- id: INV001-ACCEPT-PRECONDITION-DUPLICATE
+  category: precondition_error
+  given: two records sharing one covered axiom ID
+  then_error: DuplicateAxiomId
+  publication_rule: no partial output is returned
+- id: INV001-ACCEPT-PRECONDITION-UNKNOWN
+  category: precondition_error
+  given: a record whose axiom ID is not one of the four covered IDs
+  then_error: UnknownAxiomId
+- id: INV001-ACCEPT-SOURCE-REFERENCE
+  category: precondition_error
+  given: a covered axiom record without its source reference
+  then_error: MissingSourceReference
+- id: INV001-ACCEPT-OPAQUE
+  category: opaque_value_propagation
+  given: a valid record with uninterpretable source statement bytes
+  then:
+  - the output contains the exact same opaque value
+  - no parse, normalization, or evaluation result is present
+- id: INV001-ACCEPT-ORDER
+  category: identity_and_order
+  given: valid covered records in a source-defined order
+  then: output IDs occur in the identical order
+- id: INV001-ACCEPT-DETERMINISM
+  category: determinism
+  given: the same ordered valid input and metadata on two invocations
+  then: results are structurally equal
+- id: INV001-ACCEPT-RESERVATIONS
+  category: reservation_propagation
+  given: source catalogue status and TLC-EA-INVARIANTS-001-001
+  then: output retains them exactly and makes no resolution claim
+- id: INV001-ACCEPT-NO-SCIENCE
+  category: forbidden_evaluation
+  given: a request to decide whether any axiom is scientifically true
+  then_error: ScientificEvaluationProhibited
+- id: INV001-ACCEPT-CONFORMANCE
+  category: traceability
+  then:
+  - callable, input type, output type, precondition, errors, and postconditions agree across contract, source IR, optimized IR, algorithm, and oracle
+  - source contract and source IR references are unchanged
+properties:
+- output identity multiset equals input identity set because duplicates are prohibited
+- output order equals input order
+- exact opaque-value preservation
+- no input mutation
+- no unresolved identifier is introduced or removed
+numeric_expected_results: []
+acceptance_status: ready_for_test_implementation
