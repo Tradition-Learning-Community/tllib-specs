@@ -1,0 +1,17 @@
+schema_version: 1
+domain: principle
+tasks:
+  - {id: PRINCIPLE-IMPL-001, scope: shared, title: Implement immutable symbolic AST and provenance envelope, depends_on: []}
+  - {id: PRINCIPLE-IMPL-002, scope: shared, title: Implement structural validators and common structured errors, depends_on: [PRINCIPLE-IMPL-001]}
+  - {id: PRINCIPLE-IMPL-003, feature_id: TLC-FC-08-PRINCIPLE-001, title: Implement constraint specification constructor, depends_on: [PRINCIPLE-IMPL-002]}
+  - {id: PRINCIPLE-IMPL-004, feature_id: TLC-FC-08-PRINCIPLE-002, title: Implement unevaluated evolution equation constructor, depends_on: [PRINCIPLE-IMPL-002]}
+  - {id: PRINCIPLE-IMPL-005, feature_id: TLC-FC-08-PRINCIPLE-003, title: Implement equation catalog constructor, depends_on: [PRINCIPLE-IMPL-002]}
+  - {id: PRINCIPLE-IMPL-006, feature_id: TLC-FC-08-PRINCIPLE-004, title: Implement formal tuple constructor, depends_on: [PRINCIPLE-IMPL-002]}
+  - {id: PRINCIPLE-IMPL-007, feature_id: TLC-FC-08-PRINCIPLE-005, title: Implement invariant descriptor constructor, depends_on: [PRINCIPLE-IMPL-002, PRINCIPLE-IMPL-004]}
+  - {id: PRINCIPLE-IMPL-008, feature_id: TLC-FC-08-PRINCIPLE-006, title: Implement unverifiable invariant requirement descriptor, depends_on: [PRINCIPLE-IMPL-002]}
+  - {id: PRINCIPLE-IMPL-009, feature_id: TLC-FC-08-PRINCIPLE-007, title: Implement uncomputable metric requirement descriptor, depends_on: [PRINCIPLE-IMPL-002]}
+  - {id: PRINCIPLE-IMPL-010, feature_id: TLC-FC-08-PRINCIPLE-008, title: Implement operator catalog constructor without invocation, depends_on: [PRINCIPLE-IMPL-002]}
+  - {id: PRINCIPLE-IMPL-011, feature_id: TLC-FC-08-PRINCIPLE-010, title: Implement relation catalog constructor without endpoint inference, depends_on: [PRINCIPLE-IMPL-002]}
+  - {id: PRINCIPLE-IMPL-012, feature_id: TLC-FC-08-PRINCIPLE-011, title: Implement principle-context association constructor, depends_on: [PRINCIPLE-IMPL-002]}
+  - {id: PRINCIPLE-IMPL-013, scope: tests, title: Implement all feature acceptance oracles and cross-feature conservation tests, depends_on: [PRINCIPLE-IMPL-003, PRINCIPLE-IMPL-004, PRINCIPLE-IMPL-005, PRINCIPLE-IMPL-006, PRINCIPLE-IMPL-007, PRINCIPLE-IMPL-008, PRINCIPLE-IMPL-009, PRINCIPLE-IMPL-010, PRINCIPLE-IMPL-011, PRINCIPLE-IMPL-012]}
+constraints: [no_scientific_semantics_invention, no_runtime_dependency_from_documentary_reference, no_external_evaluator_implementation]

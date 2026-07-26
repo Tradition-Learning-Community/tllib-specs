@@ -1,0 +1,40 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-005
+status: selected_for_principle_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-08-PRINCIPLE-005/contract.yaml
+source_ir: registry/ir/TLC-FC-08-PRINCIPLE-005/ir.yaml
+source_test_plan: registry/test-plans/TLC-FC-08-PRINCIPLE-005/test-plan.yaml
+source_ir_status: prototype_ir_with_reservations
+nature: structural_declarative
+principle_reference: [TLC-SO-PRINCIPLE-026, TLC-SO-PRINCIPLE-028, TLC-SO-PRINCIPLE-035]
+scope: source_defined_invariant_specification
+inputs: [{type: PrincipleInvariantEvidence, required: true}]
+outputs: [{type: PrincipleInvariantSpecification, node_count: 6, evaluated: false}]
+types: {opaque: [OpaqueSymbolId, SourceProvenance], symbolic: [ImmutableSymbolicAst]}
+opaque_values: [measurement_methods, essential_invariant_contents, preservation_relation]
+preconditions: [ids_non_empty, exact_object_population, source_bindings_present]
+conditions_of_application: [invariant_descriptor_construction_requested]
+exceptions_explicitly_defined: []
+operations: [validate, instantiate_four_characteristics, attach_F_P_invariant, attach_evolution_equation_reference, trace, freeze]
+execution_order: source_order
+control_flow: fail_fast_then_construct
+rules_of_decision_explicitly_defined: []
+effects: [immutable_six_node_invariant_specification]
+postconditions: [no_truth_value_computed, equation_is_reference_only]
+invariants: [source_statements_preserved]
+consequences_explicitly_defined: []
+errors: [ERR-PRINCIPLE-005-MISSING, ERR-PRINCIPLE-005-DUPLICATE, ERR-PRINCIPLE-005-PROMOTION]
+determinism: deterministic_symbolic_construction
+dependencies: [{feature_id: TLC-FC-08-PRINCIPLE-002, kind: documentary_reference_only}]
+unresolved_propagated: []
+reservations: [verification_predicates_absent]
+transformations_applied: [normalized_common_envelope, documentary_dependency_classified]
+preservation_obligations: [six_nodes, references, no_truth_computation]
+algorithm_ref: registry/algorithms/principle/TLC-FC-08-PRINCIPLE-005/algorithm.yaml
+oracle_ref: registry/oracles/principle/TLC-FC-08-PRINCIPLE-005/oracle.yaml
+implementation_aptitude: ready_for_invariant_descriptor_not_checker
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+principle_invented: false

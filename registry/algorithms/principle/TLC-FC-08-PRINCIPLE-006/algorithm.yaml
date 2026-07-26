@@ -1,0 +1,25 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-006
+signature: describe_principle_invariant_requirements(PrincipleInvariantRequirementEvidence) -> UnverifiablePrincipleInvariantDescriptor
+inputs: [PrincipleInvariantRequirementEvidence]
+outputs: [UnverifiablePrincipleInvariantDescriptor]
+validations: [ids_non_empty, exact_two_objects, source_bindings_present]
+preconditions: [description_only]
+conditions_of_application: [two_requirement_statements_available]
+steps: [validate, create_stability_requirement, create_adaptive_fidelity_requirement, set_verifiable_false, attach_traceability, freeze_return]
+branches: [{when: checker_requested, action: raise_ERR-PRINCIPLE-006-PROMOTION}]
+effects: [immutable_descriptor]
+errors: [ERR-PRINCIPLE-006-MISSING, ERR-PRINCIPLE-006-DUPLICATE, ERR-PRINCIPLE-006-PROMOTION]
+postconditions: [verifiable_false, no_pass_fail_result]
+invariants: [two_source_statements_preserved]
+determinism: deterministic
+edge_cases: [missing_predicate, missing_observable_state]
+dependencies: []
+unresolved_preserved: []
+pseudocode: |
+  validate(request)
+  reject_checker_or_promotion(request)
+  descriptor = record_source_requirements(request)
+  descriptor.verifiable = false
+  descriptor.external_evaluator_required = true
+  return freeze(with_traceability(descriptor, request))

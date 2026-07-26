@@ -1,0 +1,40 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-006
+status: selected_for_principle_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-08-PRINCIPLE-006/contract.yaml
+source_ir: registry/ir/TLC-FC-08-PRINCIPLE-006/ir.yaml
+source_test_plan: registry/test-plans/TLC-FC-08-PRINCIPLE-006/test-plan.yaml
+source_ir_status: prototype_ir_with_reservations
+nature: declarative
+principle_reference: [TLC-SO-PRINCIPLE-002, TLC-SO-PRINCIPLE-081]
+scope: conceptual_stability_and_adaptive_fidelity_requirements
+inputs: [{type: PrincipleInvariantRequirementEvidence, required: true}]
+outputs: [{type: UnverifiablePrincipleInvariantDescriptor, evaluated: false}]
+types: {opaque: [OpaqueSymbolId, SourceProvenance], symbolic: [ImmutableSymbolicAst]}
+opaque_values: [essential_invariants, observable_state, preservation_relation, contextual_adaptation, pass_fail_predicate]
+preconditions: [ids_non_empty, two_object_ids_exactly_once, source_bindings_present]
+conditions_of_application: [requirement_description_requested]
+exceptions_explicitly_defined: []
+operations: [validate, record_two_requirements, mark_unverifiable, attach_traceability, freeze]
+execution_order: source_order
+control_flow: fail_fast_then_describe
+rules_of_decision_explicitly_defined: []
+effects: [immutable_unverifiable_descriptor]
+postconditions: [no_checker_exposed, external_evaluator_required]
+invariants: [source_statements_preserved]
+consequences_explicitly_defined: []
+errors: [ERR-PRINCIPLE-006-MISSING, ERR-PRINCIPLE-006-DUPLICATE, ERR-PRINCIPLE-006-PROMOTION]
+determinism: deterministic_symbolic_construction
+dependencies: []
+unresolved_propagated: []
+reservations: [predicate_and_observable_inputs_not_sourced]
+transformations_applied: [normalized_common_envelope, unverifiable_state_explicit]
+preservation_obligations: [two_requirements, non_executability]
+algorithm_ref: registry/algorithms/principle/TLC-FC-08-PRINCIPLE-006/algorithm.yaml
+oracle_ref: registry/oracles/principle/TLC-FC-08-PRINCIPLE-006/oracle.yaml
+implementation_aptitude: ready_for_descriptor_external_evaluator_required
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+principle_invented: false

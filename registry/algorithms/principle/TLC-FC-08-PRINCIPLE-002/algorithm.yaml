@@ -1,0 +1,24 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-002
+signature: construct_principle_evolution_equation(PrincipleEvolutionSymbols) -> SymbolicPrincipleEvolutionEquation
+inputs: [PrincipleEvolutionSymbols]
+outputs: [SymbolicPrincipleEvolutionEquation]
+validations: [ids_non_empty, source_binding_present, object_id_unique]
+preconditions: [symbolic_construction_only]
+conditions_of_application: [all_equation_symbols_supplied]
+steps: [validate_inputs, construct_derivative_node, construct_E_application_with_P_D_t_order, construct_equality, attach_traceability_and_unresolved, freeze_return]
+branches: [{when: invalid_or_evaluation_requested, action: raise_source_error}]
+effects: [immutable_unevaluated_equation_AST]
+errors: [ERR-PRINCIPLE-002-MISSING, ERR-PRINCIPLE-002-DUPLICATE, ERR-PRINCIPLE-002-PROMOTION]
+postconditions: [exact_equation_shape, unresolved_preserved, no_solver_invoked]
+invariants: [P_D_t_argument_order]
+determinism: deterministic
+edge_cases: [missing_initial_condition_is_not_filled, unknown_domain_is_propagated]
+dependencies: []
+unresolved_preserved: [UNRESOLVED-SYMBOL-SEMANTICS-001, UNRESOLVED-DOMAIN-001, UNRESOLVED-INITIAL-CONDITION-001]
+pseudocode: |
+  validate(request)
+  reject_evaluation_or_promotion(request)
+  lhs = derivative(request.principle_state, request.time)
+  rhs = apply(request.evolution_operator, request.principle_state, request.discourse_input, request.time)
+  return freeze(with_traceability(equals(lhs, rhs), request))

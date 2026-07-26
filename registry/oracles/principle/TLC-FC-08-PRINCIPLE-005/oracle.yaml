@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-005
+source_test_plan: registry/test-plans/TLC-FC-08-PRINCIPLE-005/test-plan.yaml
+oracle_kind: structural_invariant_descriptor
+acceptance_criteria: [six_source_backed_nodes, four_characteristics_plus_F_P_plus_equation_reference, no_boolean_result, documentary_dependency_only]
+test_categories: [nominal, precondition, error, shape, conservation, reference_conservation, determinism]
+tests:
+  - {id: PR-005-COUNT, assert: exactly_six_nodes}
+  - {id: PR-005-REFERENCE, assert: evolution_equation_is_preserved_as_reference_not_executed}
+  - {id: PR-005-NOTCHECKER, assert: no_pass_fail_value_is_returned}
+  - {id: PR-005-ERRORS, assert: source_errors_are_preserved}
+forbidden_oracle_behavior: [measure_characteristics, evaluate_invariant, execute_dependency]

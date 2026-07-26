@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-008
+signature: construct_principle_operator_catalog(PrincipleOperatorSymbols) -> PrincipleOperatorCatalog
+inputs: [PrincipleOperatorSymbols]
+outputs: [PrincipleOperatorCatalog]
+validations: [ids_non_empty, exact_object_population, source_bindings_present]
+preconditions: [symbolic_construction_only]
+conditions_of_application: [all_source_templates_available]
+steps: [validate, instantiate_three_formalization_levels, instantiate_cognitive_functions, instantiate_iterative_Gamma_descriptor, instantiate_M_equals_f_P_D, instantiate_non_redundance_constraint, key_by_source_object, attach_traceability, freeze_return]
+branches: [{when: operator_invocation_or_promotion_requested, action: raise_ERR-PRINCIPLE-008-PROMOTION}]
+effects: [immutable_operator_catalog]
+errors: [ERR-PRINCIPLE-008-MISSING, ERR-PRINCIPLE-008-DUPLICATE, ERR-PRINCIPLE-008-PROMOTION]
+postconditions: [no_operator_invoked, all_templates_present]
+invariants: [source_order_and_object_ids]
+determinism: deterministic
+edge_cases: [stochastic_law_absent, iteration_policy_absent]
+dependencies: []
+unresolved_preserved: []
+pseudocode: |
+  validate(request)
+  reject_operator_execution_or_promotion(request)
+  nodes = instantiate_exact_operator_templates(request)
+  return freeze(with_traceability(key_by_object_id(nodes), request))

@@ -1,0 +1,40 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-008
+status: selected_for_principle_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-08-PRINCIPLE-008/contract.yaml
+source_ir: registry/ir/TLC-FC-08-PRINCIPLE-008/ir.yaml
+source_test_plan: registry/test-plans/TLC-FC-08-PRINCIPLE-008/test-plan.yaml
+source_ir_status: prototype_ir_with_reservations
+nature: structural_declarative
+principle_reference: [TLC-SO-PRINCIPLE-005, TLC-SO-PRINCIPLE-011, TLC-SO-PRINCIPLE-012, TLC-SO-PRINCIPLE-023, TLC-SO-PRINCIPLE-040, TLC-SO-PRINCIPLE-043, TLC-SO-PRINCIPLE-094]
+scope: source_keyed_operator_and_function_catalog
+inputs: [{type: PrincipleOperatorSymbols, required: true}]
+outputs: [{type: PrincipleOperatorCatalog, evaluated: false}]
+types: {opaque: [OpaqueSymbolId, SourceProvenance], symbolic: [ImmutableSymbolicAst]}
+opaque_values: [operator_implementations, stochastic_law, neural_representation, iteration_policy, equality, cognitive_effect_evaluation]
+preconditions: [ids_non_empty, exact_object_population, source_bindings_present]
+conditions_of_application: [operator_catalog_construction_requested]
+exceptions_explicitly_defined: []
+operations: [validate, instantiate_three_formalization_levels, instantiate_cognitive_functions, instantiate_Gamma, instantiate_M_equals_f_P_D, instantiate_non_redundance, attach_traceability, freeze]
+execution_order: source_order
+control_flow: fail_fast_then_construct
+rules_of_decision_explicitly_defined: []
+effects: [immutable_source_keyed_operator_catalog]
+postconditions: [operators_not_invoked, all_source_nodes_preserved]
+invariants: [source_statements_preserved]
+consequences_explicitly_defined: []
+errors: [ERR-PRINCIPLE-008-MISSING, ERR-PRINCIPLE-008-DUPLICATE, ERR-PRINCIPLE-008-PROMOTION]
+determinism: deterministic_symbolic_construction
+dependencies: []
+unresolved_propagated: []
+reservations: [no_operator_execution_or_cognitive_effect_evaluation]
+transformations_applied: [normalized_common_envelope, heterogeneous_nodes_wrapped_in_catalog]
+preservation_obligations: [all_seven_source_objects, templates, provenance]
+algorithm_ref: registry/algorithms/principle/TLC-FC-08-PRINCIPLE-008/algorithm.yaml
+oracle_ref: registry/oracles/principle/TLC-FC-08-PRINCIPLE-008/oracle.yaml
+implementation_aptitude: ready_for_symbolic_operator_catalog_not_runtime
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+principle_invented: false

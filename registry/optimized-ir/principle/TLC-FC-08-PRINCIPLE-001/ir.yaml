@@ -1,0 +1,40 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-001
+status: selected_for_principle_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-08-PRINCIPLE-001/contract.yaml
+source_ir: registry/ir/TLC-FC-08-PRINCIPLE-001/ir.yaml
+source_test_plan: registry/test-plans/TLC-FC-08-PRINCIPLE-001/test-plan.yaml
+source_ir_status: prototype_ir_with_reservations
+nature: structural_declarative
+principle_reference: [TLC-SO-PRINCIPLE-014, TLC-SO-PRINCIPLE-029, TLC-SO-PRINCIPLE-069, TLC-SO-PRINCIPLE-074, TLC-SO-PRINCIPLE-075]
+scope: canonical_cited_objects_only
+inputs: [{type: PrincipleConstraintSymbols, required: true}]
+outputs: [{type: PrincipleConstraintSpecification, node_count: 5, evaluated: false}]
+types: {opaque: [OpaqueSymbolId, SourceProvenance], symbolic: [ImmutableSymbolicAst]}
+opaque_values: [types, domains, analogy, conformity, weights, optimization_algorithm, cardinality, executable_truth_conditions]
+preconditions: [all_required_ids_non_empty, covered_object_ids_exactly_once, templates_bound_to_source_ranges]
+conditions_of_application: [symbolic_construction_requested]
+exceptions_explicitly_defined: []
+operations: [validate_required_identifiers, instantiate_source_ordered_templates, attach_traceability_and_reservations, freeze_result]
+execution_order: source_order
+control_flow: fail_fast_on_precondition_or_promotion_error
+rules_of_decision_explicitly_defined: []
+effects: [immutable_five_node_constraint_specification]
+postconditions: [no_scientific_evaluation, traceability_preserved]
+invariants: [source_statements_preserved, input_order_preserved]
+consequences_explicitly_defined: []
+errors: [ERR-PRINCIPLE-001-MISSING, ERR-PRINCIPLE-001-DUPLICATE, ERR-PRINCIPLE-001-PROMOTION]
+determinism: deterministic_for_identical_ordered_inputs
+dependencies: []
+unresolved_propagated: []
+reservations: [candidate_objects_remain_candidate, absent_semantics_not_inferred]
+transformations_applied: [normalized_common_envelope, explicit_control_flow, normalized_traceability]
+preservation_obligations: [all_templates, all_object_ids, all_source_ranges, all_reservations]
+algorithm_ref: registry/algorithms/principle/TLC-FC-08-PRINCIPLE-001/algorithm.yaml
+oracle_ref: registry/oracles/principle/TLC-FC-08-PRINCIPLE-001/oracle.yaml
+implementation_aptitude: ready_for_symbolic_constructor_not_scientific_evaluator
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+principle_invented: false

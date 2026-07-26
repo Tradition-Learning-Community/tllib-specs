@@ -1,0 +1,33 @@
+schema_version: 1
+domain: principle
+baseline_head: c34d40713bf444d38f92f76e1c6239ee596d5a18
+baseline_ref: registry/global-reconciliation/current-baseline.yaml
+status: selected_for_principle_implementation_specification
+active_feature_count: 10
+active_features:
+  - TLC-FC-08-PRINCIPLE-001
+  - TLC-FC-08-PRINCIPLE-002
+  - TLC-FC-08-PRINCIPLE-003
+  - TLC-FC-08-PRINCIPLE-004
+  - TLC-FC-08-PRINCIPLE-005
+  - TLC-FC-08-PRINCIPLE-006
+  - TLC-FC-08-PRINCIPLE-007
+  - TLC-FC-08-PRINCIPLE-008
+  - TLC-FC-08-PRINCIPLE-010
+  - TLC-FC-08-PRINCIPLE-011
+source_catalog: registry/domain-progress/principle/functional-coverage.yaml
+scientific_source: maths/08-principle.md
+artifacts_per_feature:
+  optimized_ir: registry/optimized-ir/principle/<FEATURE_ID>/ir.yaml
+  algorithm: registry/algorithms/principle/<FEATURE_ID>/algorithm.yaml
+  oracle: registry/oracles/principle/<FEATURE_ID>/oracle.yaml
+conservation:
+  source_ir_preserved: true
+  source_contract_preserved: true
+  maths_preserved: true
+  no_feature_rejected: true
+  global_registry_regenerated: false
+  other_domains_modified: false
+  cpp_produced: false
+  python_bindings_produced: false
+  reference_implementation_produced: false

@@ -1,0 +1,40 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-004
+status: selected_for_principle_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-08-PRINCIPLE-004/contract.yaml
+source_ir: registry/ir/TLC-FC-08-PRINCIPLE-004/ir.yaml
+source_test_plan: registry/test-plans/TLC-FC-08-PRINCIPLE-004/test-plan.yaml
+source_ir_status: prototype_ir_with_reservations
+nature: structural_declarative
+principle_reference: [TLC-SO-PRINCIPLE-033]
+scope: source_defined_formal_tuple
+inputs: [{type: PrincipleComponentSymbols, required: true}]
+outputs: [{type: SymbolicPrincipleTuple, arity: 3, evaluated: false}]
+types: {opaque: [OpaqueSymbolId, SourceProvenance], symbolic: [ImmutableSymbolicAst]}
+opaque_values: [component_types, tuple_semantics_beyond_order, domains, equality_semantics, relation_behavior]
+preconditions: [three_components_present, ids_non_empty, source_binding_present]
+conditions_of_application: [formal_tuple_construction_requested]
+exceptions_explicitly_defined: []
+operations: [validate, construct_ordered_tuple_D_P_F_P_relation, attach_traceability, freeze]
+execution_order: [principle_discourse_set, formal_essence, principle_relation]
+control_flow: fail_fast_then_construct
+rules_of_decision_explicitly_defined: []
+effects: [immutable_ordered_tuple_AST]
+postconditions: [arity_three, exact_component_order, no_semantic_evaluation]
+invariants: [source_statement_preserved]
+consequences_explicitly_defined: []
+errors: [ERR-PRINCIPLE-004-MISSING, ERR-PRINCIPLE-004-DUPLICATE, ERR-PRINCIPLE-004-PROMOTION]
+determinism: deterministic_symbolic_construction
+dependencies: []
+unresolved_propagated: []
+reservations: [blocked_locally_label_does_not_authorize_semantic_completion]
+transformations_applied: [normalized_common_envelope, explicit_tuple_arity_and_order]
+preservation_obligations: [tuple_components, component_order, provenance]
+algorithm_ref: registry/algorithms/principle/TLC-FC-08-PRINCIPLE-004/algorithm.yaml
+oracle_ref: registry/oracles/principle/TLC-FC-08-PRINCIPLE-004/oracle.yaml
+implementation_aptitude: ready_for_symbolic_tuple_constructor
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+principle_invented: false

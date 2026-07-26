@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-010
+signature: construct_principle_relation_catalog(PrincipleRelationSymbols) -> PrincipleRelationCatalog
+inputs: [PrincipleRelationSymbols]
+outputs: [PrincipleRelationCatalog]
+validations: [ids_non_empty, exact_eight_objects, source_bindings_present]
+preconditions: [symbolic_construction_only]
+conditions_of_application: [eight_source_relation_templates_available]
+steps: [validate, instantiate_analogy_generation, instantiate_master_regulation, instantiate_bidirectional_interaction, instantiate_abstract_relation, instantiate_forcing_relation, instantiate_interpretation_membership, instantiate_satisfaction, instantiate_message_interpretation_equality, attach_traceability, freeze_return]
+branches: [{when: endpoint_inference_or_relation_evaluation_requested, action: raise_ERR-PRINCIPLE-010-PROMOTION}]
+effects: [immutable_relation_catalog]
+errors: [ERR-PRINCIPLE-010-MISSING, ERR-PRINCIPLE-010-DUPLICATE, ERR-PRINCIPLE-010-PROMOTION]
+postconditions: [eight_nodes, endpoints_not_inferred, relations_not_evaluated]
+invariants: [source_order_and_templates]
+determinism: deterministic
+edge_cases: [unknown_endpoints, unknown_relation_properties]
+dependencies: []
+unresolved_preserved: []
+pseudocode: |
+  validate(request)
+  reject_endpoint_inference_evaluation_or_promotion(request)
+  nodes = instantiate_exact_relation_templates(request, count=8)
+  return freeze(with_traceability(key_by_object_id(nodes), request))

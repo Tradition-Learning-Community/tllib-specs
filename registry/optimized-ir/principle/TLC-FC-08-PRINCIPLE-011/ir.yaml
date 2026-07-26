@@ -1,0 +1,40 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-011
+status: selected_for_principle_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-08-PRINCIPLE-011/contract.yaml
+source_ir: registry/ir/TLC-FC-08-PRINCIPLE-011/ir.yaml
+source_test_plan: registry/test-plans/TLC-FC-08-PRINCIPLE-011/test-plan.yaml
+source_ir_status: prototype_ir_with_reservations
+nature: structural_declarative
+principle_reference: [TLC-SO-PRINCIPLE-059]
+scope: provenance_bearing_principle_to_familiar_context_association
+inputs: [{type: PrincipleContextAssociationRequest, required: true}]
+outputs: [{type: PrincipleInterpretationAssociation, evaluated: false}]
+types: {opaque: [OpaqueSymbolId, SourceProvenance], symbolic: [ImmutableSymbolicAst]}
+opaque_values: [familiarity, interpretation_meaning, ranking, similarity, validation, effect_on_understanding]
+preconditions: [principle_id_non_empty, at_least_one_context_id, ids_unique, source_binding_present]
+conditions_of_application: [association_construction_requested]
+exceptions_explicitly_defined: []
+operations: [validate, construct_non_empty_context_association, attach_traceability, freeze]
+execution_order: input_order_for_context_ids
+control_flow: fail_fast_then_construct
+rules_of_decision_explicitly_defined: []
+effects: [immutable_principle_context_association]
+postconditions: [one_principle_id, non_empty_context_ids, relation_not_interpreted]
+invariants: [source_statement_preserved]
+consequences_explicitly_defined: []
+errors: [ERR-PRINCIPLE-011-MISSING, ERR-PRINCIPLE-011-DUPLICATE, ERR-PRINCIPLE-011-PROMOTION]
+determinism: deterministic_for_identical_ordered_inputs
+dependencies: []
+unresolved_propagated: []
+reservations: [familiarity_and_interpretation_semantics_opaque]
+transformations_applied: [normalized_common_envelope, non_empty_cardinality_made_explicit]
+preservation_obligations: [principle_id, context_ids, order, provenance]
+algorithm_ref: registry/algorithms/principle/TLC-FC-08-PRINCIPLE-011/algorithm.yaml
+oracle_ref: registry/oracles/principle/TLC-FC-08-PRINCIPLE-011/oracle.yaml
+implementation_aptitude: ready_for_association_constructor_not_interpreter
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+principle_invented: false

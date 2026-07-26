@@ -1,0 +1,35 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-001
+signature: construct_principle_constraint_specification(PrincipleConstraintSymbols) -> PrincipleConstraintSpecification
+inputs: [PrincipleConstraintSymbols]
+outputs: [PrincipleConstraintSpecification]
+validations: [required_ids_non_empty, object_ids_unique_and_complete, source_bindings_present]
+preconditions: [symbolic_construction_only]
+conditions_of_application: [all_source_templates_available]
+steps:
+  - validate identifiers and source bindings
+  - instantiate the five source templates in source order
+  - attach object IDs, provenance, assumptions, unresolved and reservations
+  - freeze and return the result
+branches:
+  - when: validation_fails
+    action: raise_structured_source_error
+  - when: evaluation_or_promotion_requested
+    action: raise_ERR-PRINCIPLE-001-PROMOTION
+exceptions: []
+effects: [immutable_symbolic_output]
+errors: [ERR-PRINCIPLE-001-MISSING, ERR-PRINCIPLE-001-DUPLICATE, ERR-PRINCIPLE-001-PROMOTION]
+postconditions: [five_nodes_present, source_order_preserved, no_template_evaluated]
+invariants: [traceability_preserved, opaque_values_unchanged]
+determinism: deterministic
+edge_cases: [empty_identifier, duplicate_object_id, reordered_input, evaluation_request]
+dependencies: []
+unresolved_preserved: []
+pseudocode: |
+  validate_non_empty_identifiers(input)
+  validate_exact_object_population(input)
+  validate_source_bindings(input)
+  reject_evaluation_or_promotion(input)
+  nodes = instantiate_templates_in_source_order(input)
+  result = attach_traceability(nodes, input)
+  return freeze(result)
