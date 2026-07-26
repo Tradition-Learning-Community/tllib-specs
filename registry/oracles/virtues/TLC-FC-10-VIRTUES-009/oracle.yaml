@@ -1,0 +1,48 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-009
+status: selected_for_virtues_implementation_specification
+ir_ref: registry/optimized-ir/virtues/TLC-FC-10-VIRTUES-009/ir.yaml
+algorithm_ref: registry/algorithms/virtues/TLC-FC-10-VIRTUES-009/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-009/test-plan.yaml
+entrypoint: register_quantitative_measure_reservations
+oracle_kind: unresolved_metric_descriptor_acceptance
+fixtures:
+  required_source_objects: [TLC-SO-VIRTUES-022]
+  nominal_artifact: {dimensions: [frequency, consistency, resistance, developmental_progression], scale: absent, threshold: absent}
+acceptance_cases:
+  - id: nominal
+    assertions: [accepted is true, entrypoint and source object are exact, dimensions are preserved]
+  - id: unresolved
+    assertions: [scientific ambiguity is propagated exactly]
+  - id: absence_semantics
+    assertions: [absence of scale and threshold is preserved and not filled]
+  - id: identity_scope_context
+    assertions: [feature identity, descriptor scope, and opaque context are conserved]
+error_cases:
+  - request: wrong feature id
+    expected_error: invalid_feature_id
+  - request: missing required provenance
+    expected_error: missing_provenance
+  - request: select scale, threshold, unit, calibration, computed measure, score, comparison, or ranking
+    expected_error: unsupported_scientific_completion_request
+property_tests:
+  - dimensions round-trip unchanged
+  - numeric-looking values remain opaque unless already supplied
+  - no unit, scale, threshold, aggregate, score, or comparator is invented
+  - scientific ambiguity is not replaced
+metamorphic_tests:
+  - appending an opaque dimension appends only that dimension
+  - changing a supplied descriptor changes only the copied descriptor
+  - adding a reservation changes only reservations
+  - identical requests return identical results
+determinism_test: repeated identical request returns equivalent logical data
+composition_tests:
+  - common validation precedes descriptor registration
+  - rejected measurement requests emit no accepted result
+unresolved_tests:
+  expected: [scientific ambiguity]
+  propagation: exact and unchanged
+dependency_tests:
+  - no metric engine, evaluator, comparator, or external domain execution is invoked
+forbidden_outputs: [computed measure, selected scale, threshold, calibration, virtue score, comparison, ranking]
+acceptance_rule: Descriptor and unresolved preservation pass and all forbidden outputs are absent.
