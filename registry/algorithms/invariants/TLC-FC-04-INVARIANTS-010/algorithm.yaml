@@ -1,0 +1,104 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-010
+algorithm_id: TLC-ALG-INVARIANTS-010-FINAL-001
+status: selected_for_invariants_implementation_specification
+optimized_ir_ref: registry/optimized-ir/invariants/TLC-FC-04-INVARIANTS-010/ir.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-010/contract.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-010/ir.prototype.json
+oracle_ref: registry/oracles/invariants/TLC-FC-04-INVARIANTS-010/oracle.yaml
+signature:
+  name: index_state_interpretation_fragments
+  input: StateInterpretationFragment[]
+  output: RejectedStateAnnotationIndex
+inputs:
+- three source-covered fragments with IDs, refers_to relations, targets, source references, rejected status, opaque values, assumptions, and reservations
+outputs:
+- immutable index with every entry documentary, non-operational, and rejected as source metadata
+validations:
+- fragment IDs are covered and unique
+- refers_to relation IDs and targets are covered
+- source references are present
+- each fragment carries rejected_as_feature source status
+- no operational or state semantic fields are promoted
+preconditions:
+- each fragment ID and its refers_to relation is covered and carries rejected-as-feature status
+conditions_of_application:
+- indexing is documentary only
+- fragments do not define state execution semantics
+ordered_steps:
+- step: 1
+  action: initialize an empty ordered index and identity set
+- step: 2
+  action: visit fragments in source order
+- step: 3
+  action: validate fragment ID, uniqueness, relation, target, source reference, and rejected status
+- step: 4
+  action: exact-copy the fragment into an immutable non-operational index entry
+- step: 5
+  action: insert the entry under its source fragment ID
+- step: 6
+  action: freeze the RejectedStateAnnotationIndex with exact provenance, assumptions, reservations, and opaque values
+- step: 7
+  action: verify identity, order, relation, target, status, non-operational marker, and preservation
+- step: 8
+  action: return the index
+branching:
+- condition: fragment ID is duplicate
+  action: raise DuplicateStateFragmentId
+- condition: ID, relation, or target is uncovered
+  action: raise InvalidCoveredIdentifier
+- condition: source reference is missing
+  action: raise MissingSourceReference
+- condition: operational status or state semantics are requested
+  action: raise OperationalStatePromotion
+- condition: preservation fails
+  action: raise PreservationViolation
+state_before:
+  fragments: caller_owned
+state_after:
+  fragments_mutated: false
+  result: immutable_rejected_annotation_index
+verification_of_conservation:
+- compare exact ordered fragment IDs
+- compare relation-target tuples
+- assert every entry is non-operational and rejected as source metadata
+- compare sources, assumptions, reservations, and opaque values
+errors:
+- DuplicateStateFragmentId
+- InvalidCoveredIdentifier
+- MissingSourceReference
+- OperationalStatePromotion
+- ScientificEvaluationProhibited
+- PreservationViolation
+postconditions:
+- exactly one output entry exists per validated unique fragment
+- no state, transition, ordering, equality, or operational result is created
+determinism:
+  random_sources: none
+  result_rule: identical ordered fragments yield structurally equal indexes
+effects:
+  input_mutation: none
+  external_io: none
+  scientific_evaluation: none
+edge_cases:
+- an empty sequence creates an empty documentary index and invents no fragment
+- a complete source input yields exactly three entries
+- duplicate or promoted entries fail atomically
+- opaque text remains exact
+unresolved_conserved: []
+dependencies:
+  internal_structural: [TLC-FC-04-INVARIANTS-008]
+  execution: []
+pseudocode:
+- REQUIRE fragments is present
+- index := empty ordered map; seen_ids := empty set
+- FOR fragment IN fragments IN source order
+- REQUIRE fragment.id is covered and relation-target tuple is covered, ELSE InvalidCoveredIdentifier
+- REQUIRE fragment.id not in seen_ids, ELSE DuplicateStateFragmentId
+- REQUIRE fragment.source_reference is present, ELSE MissingSourceReference
+- REQUIRE fragment.catalogue_status equals rejected_as_feature and fragment.operational is false, ELSE OperationalStatePromotion
+- index[fragment.id] := immutable exact documentary copy of fragment
+- END FOR
+- result := freeze RejectedStateAnnotationIndex(index, exact preservation metadata)
+- REQUIRE exact identities, order, relations, targets, status, non-operational markers, sources, assumptions, reservations, and opaque values, ELSE PreservationViolation
+- RETURN result
