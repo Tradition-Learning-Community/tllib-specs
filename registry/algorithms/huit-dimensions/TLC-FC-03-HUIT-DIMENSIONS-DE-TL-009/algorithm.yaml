@@ -1,0 +1,62 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009
+operation: compare_principle_invariance_declarations
+signature: compare_principle_invariance_declarations(definition_claim, introduction_claim) -> InvarianceDeclarationComparison
+source_contract: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009/contract.yaml
+finalized_ir: registry/optimized-ir/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009/ir.yaml
+inputs:
+- definition_claim: OpaquePrincipleDefinitionClaim
+- introduction_claim: OpaquePrincipleStructureClaim
+output: InvarianceDeclarationComparison
+validations:
+- require both claims and both exact source locations
+- require distinct source ids trace reservations assumptions and unresolved identity
+- reject equivalence claims deduplication and payload interpretation
+preconditions: [two_sides_present, source_locations_complete, identities_distinct]
+steps:
+- validate sides identities source locations and propagated sets
+- reject aliasing deduplication equivalence or boundary resolution requests
+- copy claims into definition and introduction sides
+- set equivalence_status feature_boundary_status and identity_status unresolved
+- verify both sides remain distinct and unchanged
+branching:
+- missing trace or role: FAIL-HUIT-009-MISSING-TRACE
+- equivalence deduplication or source loss: FAIL-HUIT-009-OPERATION
+- invented semantics: FAIL-HUIT-009-SCIENTIFIC-INVENTION
+dimension_access: principle_declaration_roles_only
+transformations: two_sided_record_normalization_only
+errors: [FAIL-HUIT-009-MISSING-TRACE, FAIL-HUIT-009-OPERATION, FAIL-HUIT-009-SCIENTIFIC-INVENTION]
+postconditions:
+- both sides and source locations remain present
+- all comparison statuses remain unresolved
+- no claim content is interpreted
+invariants: [two_sided_identity, source_location_preservation, limited_status]
+determinism: deterministic_structural_comparison
+effects: none
+case_limits:
+- identical text does not imply equivalence
+- same source id on both sides is rejected
+- side transport order does not change named sides
+dependencies: {execution: [], documentary: [principles]}
+unresolved_conserved:
+- TLC-UNRES-HUIT-009-TYPE
+- TLC-UNRES-HUIT-009-SIGNATURE
+- TLC-UNRES-HUIT-009-UNITS
+- TLC-UNRES-HUIT-009-ORDER
+- TLC-UNRES-HUIT-009-AGGREGATION
+- TLC-UNRES-HUIT-009-NUMERICS
+- TLC-UNRES-HUIT-009-ORACLE
+- TLC-UNRES-HUIT-009-BOUNDARY
+- TLC-UNRES-HUIT-009-IDENTITY
+pseudocode: |
+  function compare_principle_invariance_declarations(definition_claim, introduction_claim):
+      require_present(definition_claim, introduction_claim)
+      require_distinct_ids_and_source_locations(definition_claim, introduction_claim)
+      validate_traceability_and_reservations([definition_claim, introduction_claim])
+      reject_equivalence_deduplication_or_boundary_resolution()
+      result = InvarianceDeclarationComparison()
+      result.set_side(definition, copy_opaque(definition_claim))
+      result.set_side(introduction, copy_opaque(introduction_claim))
+      result.set_statuses(equivalence=unresolved, feature_boundary=unresolved, identity=unresolved)
+      verify_two_sided_identity_and_propagation(result)
+      return result
