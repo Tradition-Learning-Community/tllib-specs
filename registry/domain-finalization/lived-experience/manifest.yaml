@@ -1,0 +1,56 @@
+schema_version: 1
+domain_id: lived-experience
+phase: phase4_domain_finalization
+status: implementation_specification_package_complete
+main_head_used: c34d40713bf444d38f92f76e1c6239ee596d5a18
+branch: phase4/lived-experience-domain-finalization-001
+authoritative_population_source: registry/global-reconciliation/domain-feature-matrix.yaml
+baseline_source: registry/global-reconciliation/current-baseline.yaml
+feature_count: 12
+features:
+- TLC-FC-14-LIVED-EXPERIENCE-001
+- TLC-FC-14-LIVED-EXPERIENCE-002
+- TLC-FC-14-LIVED-EXPERIENCE-004
+- TLC-FC-14-LIVED-EXPERIENCE-005
+- TLC-FC-14-LIVED-EXPERIENCE-006
+- TLC-FC-14-LIVED-EXPERIENCE-007
+- TLC-FC-14-LIVED-EXPERIENCE-008
+- TLC-FC-14-LIVED-EXPERIENCE-009
+- TLC-FC-14-LIVED-EXPERIENCE-010
+- TLC-FC-14-LIVED-EXPERIENCE-011
+- TLC-FC-14-LIVED-EXPERIENCE-012
+- TLC-FC-14-LIVED-EXPERIENCE-013
+source_science: maths/14-lived-experience.md
+domain_sources:
+- registry/domain-progress/lived-experience/feature-inventory.yaml
+- registry/domain-progress/lived-experience/pattern-analysis.yaml
+- registry/domain-progress/lived-experience/concept-boundaries.yaml
+- registry/domain-progress/lived-experience/historical-artifact-assessment.yaml
+- registry/scientific-objects/lived-experience/unresolved-terms.yaml
+artifacts:
+  feature_status: registry/domain-finalization/lived-experience/feature-status.yaml
+  patterns: registry/domain-finalization/lived-experience/patterns.yaml
+  module_specification: registry/domain-finalization/lived-experience/module-specification.yaml
+  implementation_tasks: registry/domain-finalization/lived-experience/implementation-tasks.yaml
+  decision_required: registry/domain-finalization/lived-experience/decision-required.yaml
+  report: reports/domain-finalization/lived-experience/finalization-report.md
+  validator: tools/domain-finalization/validate_lived_experience_finalization.py
+per_feature_layout:
+  finalized_ir: registry/optimized-ir/lived-experience/<FEATURE_ID>/ir.yaml
+  algorithm: registry/algorithms/lived-experience/<FEATURE_ID>/algorithm.yaml
+  oracle: registry/oracles/lived-experience/<FEATURE_ID>/oracle.yaml
+constraints:
+  source_contracts_preserved: true
+  source_irs_preserved: true
+  maths_preserved: true
+  other_domains_modified: false
+  global_registry_regenerated: false
+  cpp_produced: false
+  python_bindings_produced: false
+  reference_implementation_produced: false
+  features_rejected: 0
+validation:
+  command: python tools/domain-finalization/validate_lived_experience_finalization.py
+  diff_check: git diff --check
+  github_execution: .github/workflows/lived-experience-finalization-bootstrap.yml
+  temporary_workflow_removed_after_success: true

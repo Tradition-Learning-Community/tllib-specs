@@ -1,0 +1,66 @@
+schema_version: 1
+feature_id: TLC-FC-14-LIVED-EXPERIENCE-008
+status: selected_for_lived_experience_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-008/contract.yaml
+source_ir_ref: registry/ir/TLC-FC-14-LIVED-EXPERIENCE-008/ir.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-14-LIVED-EXPERIENCE-008/test-plan.yaml
+source_ir_raw_status: canonical_declarative_ir_with_reservations
+source_ir_kind: canonical_declarative_ir_with_reservations
+source_execution_status: blocked
+nature: declarative
+experience:
+  representation: external_scientific_object_reference
+  ordered_object_ids: [TLC-SO-LIVED-EXPERIENCE-003]
+  source_object:
+    canonical_name: Propriétés essentielles
+    object_type: Invariant
+    source_ref: maths/14-lived-experience.md:22-28
+    composite_status: one source object retained without decomposition
+  value_status: opaque_not_evaluated
+identity: {feature_id: TLC-FC-14-LIVED-EXPERIENCE-008, ordered_object_ids: [TLC-SO-LIVED-EXPERIENCE-003], conservation_rule: preserve composite identity}
+scope: {source_sections: [Propriétés essentielles], boundary_status: not_yet_determinable}
+context: {status: descriptive_scope, runtime_context_schema: null}
+actors_explicitly_defined: []
+inputs:
+- {name: feature_id, type: FeatureId, required: true}
+- {name: object_payloads, type: 'Map<ObjectId,OpaqueScientificObject>', required: true}
+- {name: provenance, type: 'Map<ObjectId,SourceReference>', required: true}
+outputs: [{name: artifact, type: LivedExperienceDescriptor}]
+types: {opaque: [OpaqueScientificObject, OpaqueScientificValue], symbolic: [UnevaluatedSymbol, UnevaluatedExpression, DecisionBlocker]}
+opaque_values: [Sigma, holistic_integration_description, legitimacy_description, living_memory_description, incorporation_description]
+preconditions: [feature id matches, object 003 present exactly once, provenance present, no property evaluation requested]
+conditions_of_application: [preserve the composite invariant object only]
+events_explicitly_defined: []
+states_explicitly_defined: []
+order: {covered_object_order: [TLC-SO-LIVED-EXPERIENCE-003], temporal_order: [], temporal_order_status: not_declared_for_execution}
+operations: [validate_feature_and_object_set, preserve_composite_properties_object, reject_scientific_evaluation_request]
+control_flow: [validate, preserve composite object, propagate reservations, return]
+transitions_explicitly_defined: []
+observations_explicitly_defined: []
+perceptions_explicitly_defined: []
+interpretations_explicitly_defined: []
+results_explicitly_defined: []
+effects_explicitly_defined: []
+relations_explicitly_defined: []
+postconditions: [composite source object preserved, no property split into executable behavior, no metric or interpretation produced]
+invariants: [exact object set, composite identity retained, unresolved propagated]
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+determinism: {structural_descriptor: deterministic for identical structural inputs, scientific_operation: not_defined}
+dependencies: {documentary: [maths/14-lived-experience.md], scientific_reconciliation: [capacities, competencies, practice], execution: []}
+unresolved_propagated: [scientific_decision_required, external_reconciliation_pending]
+reservations: [scientific decision required, external reconciliation pending]
+transformations_applied_to_ir: [normalized envelope, composite boundary preserved, explicit absence slots, normalized traceability]
+preservation_obligations: [identity, composite scope, source statement, symbols, provenance, unresolved]
+algorithm_ref: registry/algorithms/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-008/algorithm.yaml
+oracle_ref: registry/oracles/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-008/oracle.yaml
+implementation_aptitude: {structural_descriptor: ready_for_declarative_descriptor_implementation, scientific_execution: blocked, production_readiness_asserted: false}
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+experience_invented: false
+event_invented: false
+state_invented: false
+chronology_invented: false
+interpretation_invented: false
+causality_invented: false

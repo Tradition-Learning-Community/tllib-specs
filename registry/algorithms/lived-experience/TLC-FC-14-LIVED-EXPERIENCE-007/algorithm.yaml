@@ -1,0 +1,43 @@
+schema_version: 1
+feature_id: TLC-FC-14-LIVED-EXPERIENCE-007
+status: selected_for_lived_experience_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-007/contract.yaml
+source_ir_ref: registry/ir/TLC-FC-14-LIVED-EXPERIENCE-007/ir.yaml
+finalized_ir_ref: registry/optimized-ir/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-007/ir.yaml
+nature: structural_declarative_algorithm
+signature: lived_experience_007_descriptor(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>) -> LivedExperienceDescriptor
+inputs: [feature_id, object_payloads, provenance]
+outputs: [artifact]
+validations: [exact feature id, exact object 044 set, uniqueness, provenance, no synthesis request]
+preconditions: [feature id matches, object 044 present exactly once, provenance present]
+conditions_of_application: [preserve the invariant declaration only]
+ordered_steps: [validate identity, validate object set, validate provenance, copy Sigma declaration, propagate unresolved, return]
+branching:
+- {condition: invalid structure, action: raise structural error}
+- {condition: experiential-core extraction or temporal synthesis requested, action: raise ScientificEvaluationRequested}
+experience_processing: preserve synthesis reference only
+identity_validation: [TLC-FC-14-LIVED-EXPERIENCE-007, TLC-SO-LIVED-EXPERIENCE-044]
+scope_validation: exact invariant object only
+context_validation: source provenance only
+actor_processing: none declared
+event_processing: none declared
+state_processing: none declared
+transitions: []
+observations: []
+interpretations: []
+results_and_effects: []
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+postconditions: [declaration unchanged, no synthesized core or chronology]
+invariants: [exact object set, no source reinterpretation]
+determinism: structural only
+edge_cases: [missing algorithm for Sigma, unknown invariant structure, unknown event sequence]
+dependencies: {execution: [], documentary: [source contract, source IR], external_temporal_model: required_for_scientific_execution}
+unresolved_preserved: [scientific_decision_required, external_reconciliation_pending]
+pseudocode: |
+  FUNCTION lived_experience_007_descriptor(feature_id, object_payloads, provenance):
+    VALIDATE feature_id and exact object [TLC-SO-LIVED-EXPERIENCE-044]
+    VALIDATE provenance
+    COPY the Sigma signature and invariant description as opaque source content
+    DO NOT synthesize a core or infer an event sequence
+    RETURN immutable descriptor with unresolved and reservations
+  ON synthesis request: RAISE ScientificEvaluationRequested

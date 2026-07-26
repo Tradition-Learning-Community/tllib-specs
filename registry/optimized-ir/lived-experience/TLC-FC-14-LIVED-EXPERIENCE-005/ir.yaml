@@ -1,0 +1,73 @@
+schema_version: 1
+feature_id: TLC-FC-14-LIVED-EXPERIENCE-005
+status: selected_for_lived_experience_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-005/contract.yaml
+source_ir_ref: registry/ir/TLC-FC-14-LIVED-EXPERIENCE-005/ir.yaml
+source_ir_artifact_ref: ir/TLC-FC-14-LIVED-EXPERIENCE-005/implementation-decisions-required.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-14-LIVED-EXPERIENCE-005/test-plan.yaml
+source_ir_raw_status: engineering_candidate
+source_ir_kind: canonical_declarative_ir_with_reservations
+source_execution_status: structural_only_non_executable_science
+nature: declarative
+experience:
+  representation: external_scientific_object_reference
+  ordered_object_ids: [TLC-SO-LIVED-EXPERIENCE-065]
+  source_object:
+    canonical_name: Équation — Mémoire collective émergente
+    object_type: Equation
+    source_ref: maths/14-lived-experience.md:140-142
+    expression_status: opaque_unevaluated
+  value_status: opaque_not_evaluated
+identity: {feature_id: TLC-FC-14-LIVED-EXPERIENCE-005, ordered_object_ids: [TLC-SO-LIVED-EXPERIENCE-065], conservation_rule: preserve exactly}
+scope: {contract_scope: exactly equation TLC-SO-LIVED-EXPERIENCE-065, source_sections: [Interaction avec la communauté et expérience collective], boundary_status: computational_contract}
+context: {status: descriptive_scope, runtime_context_schema: null}
+actors_explicitly_defined: []
+inputs:
+- {name: feature_id, type: FeatureId, required: true}
+- {name: object_payloads, type: 'Map<ObjectId,OpaqueScientificObject>', required: true}
+- {name: provenance, type: 'Map<ObjectId,SourceReference>', required: true}
+outputs: [{name: artifact, type: LivedExperienceDescriptor}]
+types: {opaque: [OpaqueScientificObject, OpaqueScientificValue], symbolic: [UnevaluatedSymbol, UnevaluatedExpression, DecisionBlocker]}
+opaque_values: [collective_experience_expression, N, experience_type, sigma, Synergie, object_payloads]
+preconditions: [feature id matches, object 065 present exactly once, provenance present, no equation evaluation requested]
+conditions_of_application: [structural equation representation and required-symbol preservation only]
+events_explicitly_defined: []
+states_explicitly_defined: []
+order: {covered_object_order: [TLC-SO-LIVED-EXPERIENCE-065], temporal_order: [], temporal_order_status: not_declared}
+operations: [validate_feature_and_object_set, preserve_collective_memory_equation, verify_required_symbols_are_present, reject_scientific_evaluation_request]
+control_flow: [validate, preserve exact expression, propagate decisions and unresolved, return]
+transitions_explicitly_defined: []
+observations_explicitly_defined: []
+perceptions_explicitly_defined: []
+interpretations_explicitly_defined: []
+results_explicitly_defined: []
+effects_explicitly_defined: []
+relations_explicitly_defined: []
+postconditions: [equation identity and provenance preserved, no mean or synergy value computed, no type or N domain inferred]
+invariants: [exact object set, source equation unchanged, historical pilot not promoted, unresolved propagated]
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision, division_by_zero, undefined_synergy_application]
+determinism: {structural_descriptor: deterministic for identical structural inputs, scientific_operation: unresolved}
+dependencies:
+  documentary: [maths/14-lived-experience.md, ir/TLC-FC-14-LIVED-EXPERIENCE-005/implementation-decisions-required.yaml]
+  scientific_reconciliation: [capacities, competencies, practice]
+  execution: []
+unresolved_propagated: [external_reconciliation_pending, UNRES-N, UNRES-EXPERIENCE-TYPE, UNRES-SIGMA, UNRES-SYNERGY]
+reservations: [external reconciliation pending, historical pilot audited as comparison-only input; no automatic promotion]
+transformations_applied_to_ir: [normalized envelope, explicit engineering-candidate provenance, normalized traceability, common structural errors]
+preservation_obligations: [identity, exact equation, symbols, provenance, engineering decisions, unresolved, historical non-promotion]
+algorithm_ref: registry/algorithms/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-005/algorithm.yaml
+oracle_ref: registry/oracles/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-005/oracle.yaml
+implementation_aptitude:
+  structural_descriptor: ready_for_declarative_descriptor_implementation
+  scientific_execution: blocked_by_types_N_and_synergy_definition
+  production_readiness_asserted: false
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+experience_invented: false
+event_invented: false
+state_invented: false
+chronology_invented: false
+interpretation_invented: false
+causality_invented: false

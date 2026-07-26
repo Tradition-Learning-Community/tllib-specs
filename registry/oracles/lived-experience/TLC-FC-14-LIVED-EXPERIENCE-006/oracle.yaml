@@ -1,0 +1,38 @@
+schema_version: 1
+feature_id: TLC-FC-14-LIVED-EXPERIENCE-006
+status: selected_for_lived_experience_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-006/contract.yaml
+source_ir_ref: registry/ir/TLC-FC-14-LIVED-EXPERIENCE-006/ir.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-14-LIVED-EXPERIENCE-006/test-plan.yaml
+finalized_ir_ref: registry/optimized-ir/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-006/ir.yaml
+algorithm_ref: registry/algorithms/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-006/algorithm.yaml
+oracle_kind: structural_acceptance_oracle_with_scientific_non_invention
+exact_scientific_result_oracle: not_available_and_not_invented
+test_categories: [nominal, errors, identity, scope, context, provenance, expression, unresolved, serialization]
+acceptance_tests:
+- id: LE-006-NOMINAL
+  assertion: 'Descriptor preserves object 054 validity-domain expression and provenance.'
+- id: LE-006-IDENTITY
+  assertion: 'Exact feature and object identity are conserved.'
+- id: LE-006-NO-THRESHOLD
+  assertion: 'No rho_min or t_min value is selected.'
+- id: LE-006-NO-MEMBERSHIP
+  assertion: 'No domain or disciple-state membership is evaluated.'
+- id: LE-006-ERRORS
+  assertion: 'Missing objects or provenance return the specified errors.'
+- id: LE-006-UNRESOLVED
+  assertion: 'Source unresolved and reservations remain present.'
+- id: LE-006-NO-INVENTION
+  assertion: 'No context type, time unit, state schema, event or consequence is added.'
+- id: LE-006-ROUNDTRIP
+  assertion: 'Expression and opaque values survive serialization losslessly.'
+- id: LE-006-REJECT
+  assertion: 'Membership and threshold requests are rejected.'
+property_tests: [identity conservation, exact expression preservation, provenance totality, unresolved monotonicity]
+metamorphic_tests:
+- repeat identical construction
+- remove provenance produces an error
+- add undeclared object produces an error
+blocked_oracles: [scientific_execution_oracle, validity_membership_oracle]
+non_goals: [threshold selection, membership result, time unit, type coercion]
+acceptance_gate: all structural tests pass and no validity decision is invented

@@ -1,0 +1,38 @@
+schema_version: 1
+feature_id: TLC-FC-14-LIVED-EXPERIENCE-005
+status: selected_for_lived_experience_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-005/contract.yaml
+source_ir_ref: registry/ir/TLC-FC-14-LIVED-EXPERIENCE-005/ir.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-14-LIVED-EXPERIENCE-005/test-plan.yaml
+finalized_ir_ref: registry/optimized-ir/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-005/ir.yaml
+algorithm_ref: registry/algorithms/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-005/algorithm.yaml
+oracle_kind: structural_acceptance_oracle_with_scientific_non_invention
+exact_scientific_result_oracle: not_available_and_not_invented
+test_categories: [nominal, errors, identity, provenance, source_expression, unresolved, determinism, serialization, round_trip, dependencies]
+acceptance_tests:
+- id: LE-005-NOMINAL
+  assertion: 'Descriptor preserves object 065 and the exact collective-memory equation reference.'
+- id: LE-005-RAW-STATUS
+  assertion: 'engineering_candidate raw status and declarative source IR kind are both preserved.'
+- id: LE-005-SYMBOLS
+  assertion: 'N, individual experiences, sigma and Synergie references are preserved without type assignment.'
+- id: LE-005-UNRESOLVED
+  assertion: 'UNRES-N, UNRES-EXPERIENCE-TYPE, UNRES-SIGMA and UNRES-SYNERGY remain present.'
+- id: LE-005-HISTORICAL
+  assertion: 'Historical pilot remains comparison-only and is not promoted.'
+- id: LE-005-NO-EVALUATION
+  assertion: 'No average, division, sum or Synergie result is calculated.'
+- id: LE-005-ERRORS
+  assertion: 'Missing objects or provenance return structural errors.'
+- id: LE-005-ROUNDTRIP
+  assertion: 'Equation, decisions, unresolved and reservations survive serialization losslessly.'
+- id: LE-005-REJECT
+  assertion: 'Scientific equation execution raises ScientificEvaluationRequested.'
+property_tests: [identity conservation, exact equation preservation, unresolved monotonicity, historical non-promotion]
+metamorphic_tests:
+- repeat identical construction
+- remove provenance produces an error
+- add undeclared object produces an error
+blocked_oracles: [numeric_collective_memory_oracle, synergy_oracle, N_zero_policy_oracle]
+non_goals: [type selection, numeric precision, tolerance, Synergie definition, default N policy]
+acceptance_gate: all structural tests pass and no scientific equation value is produced

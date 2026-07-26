@@ -1,0 +1,42 @@
+schema_version: 1
+feature_id: TLC-FC-14-LIVED-EXPERIENCE-001
+status: selected_for_lived_experience_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-001/contract.yaml
+source_ir_ref: registry/ir/TLC-FC-14-LIVED-EXPERIENCE-001/ir.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-14-LIVED-EXPERIENCE-001/test-plan.yaml
+finalized_ir_ref: registry/optimized-ir/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-001/ir.yaml
+algorithm_ref: registry/algorithms/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-001/algorithm.yaml
+oracle_kind: structural_acceptance_oracle_with_scientific_non_invention
+exact_scientific_result_oracle: not_available_and_not_invented
+test_categories: [nominal, preconditions, errors, types, identity, scope, context, provenance, determinism, serialization, round_trip, properties, unresolved]
+acceptance_tests:
+- id: LE-001-NOMINAL
+  assertion: 'Descriptor preserves feature id, object 039, symbols, source statement, provenance and reservations.'
+- id: LE-001-MISSING
+  assertion: 'Missing object raises MissingCoveredObject.'
+- id: LE-001-DUPLICATE
+  assertion: 'Duplicate object raises DuplicateCoveredObject.'
+- id: LE-001-PROVENANCE
+  assertion: 'Missing source reference raises MissingSourceReference.'
+- id: LE-001-IDENTITY
+  assertion: 'Object order is exactly TLC-SO-LIVED-EXPERIENCE-039.'
+- id: LE-001-OPAQUE
+  assertion: 'Payload internals are neither inspected nor transformed.'
+- id: LE-001-UNRESOLVED
+  assertion: 'scientific_decision_required and external_reconciliation_pending are preserved.'
+- id: LE-001-NO-INVENTION
+  assertion: 'Actors, events, states, chronology, interpretations, measures and causal effects remain absent.'
+- id: LE-001-REJECT
+  assertion: 'Every scientific evaluation request raises ScientificEvaluationRequested.'
+- id: LE-001-DETERMINISM
+  assertion: 'Identical structural inputs produce structurally identical descriptors.'
+- id: LE-001-ROUNDTRIP
+  assertion: 'Lossless serialization preserves every field and order.'
+property_tests: [identity conservation, provenance totality, unresolved monotonicity, opaque propagation]
+metamorphic_tests:
+- identical inputs repeated yield the same structural descriptor
+- adding an undeclared object changes success into a structural error
+- removing provenance changes success into MissingSourceReference
+blocked_oracles: [scientific_execution_oracle]
+non_goals: [numeric result, threshold, temporal evolution, interpretation, probability, causality]
+acceptance_gate: all structural tests pass and unavailable science is rejected

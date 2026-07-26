@@ -1,0 +1,43 @@
+schema_version: 1
+domain_id: lived-experience
+package_status: ready_for_future_implementation
+implementation_language: not_selected_by_this_specification_phase
+common_tasks:
+- task_id: LE-IMPL-COMMON-001
+  title: Implement immutable descriptor and structured errors
+  deliverables: [shared types, identity validation, exact object-set validation, provenance validation]
+  acceptance: common structural oracle cases pass for all 12 features
+  non_goals: [scientific evaluator, temporal solver, metric engine]
+- task_id: LE-IMPL-COMMON-002
+  title: Implement lossless descriptor serialization
+  deliverables: [serializer, deserializer, round-trip structural equality]
+  acceptance: every field, order, opaque identifier, unresolved and reservation survives round-trip
+  non_goals: [payload interpretation, scientific normalization]
+- task_id: LE-IMPL-COMMON-003
+  title: Implement feature dispatch and scientific-request rejection guard
+  deliverables: [12 feature entrypoints, unknown-feature error, rejection guard]
+  acceptance: each unauthorized operation returns the specified structured error
+  non_goals: [scientific operation implementation]
+- task_id: LE-IMPL-COMMON-004
+  title: Implement acceptance-test harness
+  deliverables: [IR-algorithm-oracle conformance, source preservation tests, changed-path guard]
+  acceptance: all 12 oracle specifications pass
+  non_goals: [numeric oracle, reference implementation]
+feature_tasks:
+- {task_id: LE-IMPL-001, feature_id: TLC-FC-14-LIVED-EXPERIENCE-001, deliverables: [descriptor entrypoint, structural validation, oracle tests], scientific_work: deferred}
+- {task_id: LE-IMPL-002, feature_id: TLC-FC-14-LIVED-EXPERIENCE-002, deliverables: [descriptor entrypoint, structural validation, oracle tests], scientific_work: deferred}
+- {task_id: LE-IMPL-004, feature_id: TLC-FC-14-LIVED-EXPERIENCE-004, deliverables: [equation descriptor, no-temporal-solver guard, oracle tests], scientific_work: deferred}
+- {task_id: LE-IMPL-005, feature_id: TLC-FC-14-LIVED-EXPERIENCE-005, deliverables: [equation descriptor, decision propagation, oracle tests], scientific_work: blocked_by_types_N_and_synergy}
+- {task_id: LE-IMPL-006, feature_id: TLC-FC-14-LIVED-EXPERIENCE-006, deliverables: [validity-domain descriptor, threshold guard, oracle tests], scientific_work: deferred}
+- {task_id: LE-IMPL-007, feature_id: TLC-FC-14-LIVED-EXPERIENCE-007, deliverables: [synthesis-invariant descriptor, external-temporal-model guard, oracle tests], scientific_work: deferred}
+- {task_id: LE-IMPL-008, feature_id: TLC-FC-14-LIVED-EXPERIENCE-008, deliverables: [composite-invariant descriptor, boundary preservation, oracle tests], scientific_work: deferred}
+- {task_id: LE-IMPL-009, feature_id: TLC-FC-14-LIVED-EXPERIENCE-009, deliverables: [metric-category descriptor, no-formula guard, oracle tests], scientific_work: not_authorized}
+- {task_id: LE-IMPL-010, feature_id: TLC-FC-14-LIVED-EXPERIENCE-010, deliverables: [metric-expression descriptor, denominator-policy guard, oracle tests], scientific_work: deferred}
+- {task_id: LE-IMPL-011, feature_id: TLC-FC-14-LIVED-EXPERIENCE-011, deliverables: [two-object descriptor, inventory-order validation, oracle tests], scientific_work: not_authorized}
+- {task_id: LE-IMPL-012, feature_id: TLC-FC-14-LIVED-EXPERIENCE-012, deliverables: [operator-bundle descriptor, signature-order validation, oracle tests], scientific_work: deferred}
+- {task_id: LE-IMPL-013, feature_id: TLC-FC-14-LIVED-EXPERIENCE-013, deliverables: [function-reference descriptor, no-actor-model guard, oracle tests], scientific_work: deferred}
+completion_definition:
+- all 12 structural descriptors implemented
+- all per-feature oracles pass
+- identities, provenance, opaque values, unresolved and reservations preserved
+- no unavailable scientific operation silently implemented
