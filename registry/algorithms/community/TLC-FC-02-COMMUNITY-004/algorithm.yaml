@@ -1,0 +1,33 @@
+schema_version: '1.0'
+algorithm_id: TLC-ALG-COMMUNITY-004
+feature_id: TLC-FC-02-COMMUNITY-004
+finalized_ir_ref: registry/optimized-ir/community/TLC-FC-02-COMMUNITY-004/ir.yaml
+signature: describe_or_validate_community_004(request: CommunitySpecificationRequest) -> CommunitySpecificationResult | CommunityError
+inputs: [request]
+outputs: [structural_result_or_structured_error]
+validations: [exact_feature_identity, source_artifacts_present, source_objects_exact_and_ordered, authoritative_unresolved_exact, opaque_equation_not_interpreted]
+ordered_steps: [validate_identity, validate_operation, load_preserved_metadata, validate_source_objects, validate_unresolved, validate_opaque_boundary, reject_scientific_execution_if_requested, build_structural_result]
+branching:
+- {condition: describe_or_validate, action: return_structural_result}
+- {condition: request_scientific_execution, action: return_COMMUNITY_ERR_UNSUPPORTED_EXECUTION_REQUEST}
+transitions: [received_to_identity_validated, identity_to_sources_validated, sources_to_preservation_validated, preservation_to_completed, failure_to_rejected]
+effects: none_on_scientific_state
+errors: [COMMUNITY_ERR_FEATURE_ID_MISMATCH, COMMUNITY_ERR_SOURCE_ARTIFACT_MISSING, COMMUNITY_ERR_TRACEABILITY_INCOMPLETE, COMMUNITY_ERR_UNRESOLVED_NOT_PRESERVED, COMMUNITY_ERR_OPAQUE_VALUE_INTERPRETATION, COMMUNITY_ERR_UNSUPPORTED_EXECUTION_REQUEST]
+postconditions: [source_references_preserved, three_source_objects_preserved, no_equation_evaluated]
+invariants: [source_object_order, exact_unresolved_set, source_artifact_immutability, opaque_scientific_payload]
+determinism: deterministic_for_structural_operations
+edge_cases: [empty_opaque_values_valid, missing_or_duplicate_unresolved_fails, reordered_source_objects_fails, scientific_execution_fails]
+dependencies: []
+unresolved_conserved: {set_ref: registry/domain-finalization/community/manifest.yaml#unresolved_authoritative, count: 29}
+pseudocode: |
+  function describe_or_validate_community_004(request):
+      require request.feature_id == "TLC-FC-02-COMMUNITY-004"
+      require request.operation is supported
+      sources = load_preserved_metadata_references()
+      require sources.all_exist
+      require sources.source_objects == ["TLC-SO-COMMUNITY-027", "TLC-SO-COMMUNITY-028", "TLC-SO-COMMUNITY-030"]
+      require sources.unresolved == AUTHORITATIVE_COMMUNITY_UNRESOLVED
+      require opaque_values_are_uninterpreted(request.opaque_values)
+      if request.operation == "request_scientific_execution":
+          return error(COMMUNITY_ERR_UNSUPPORTED_EXECUTION_REQUEST, request.feature_id, sources.unresolved)
+      return structural_result(request.feature_id, sources, request.opaque_values, deterministic_serialization=true)
