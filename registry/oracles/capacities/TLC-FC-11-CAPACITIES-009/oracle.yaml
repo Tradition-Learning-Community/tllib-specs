@@ -1,0 +1,28 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-009
+oracle_id: CAP-ORACLE-009
+status: selected_for_capacities_implementation_specification
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-009/test-plan.yaml
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-009/algorithm.yaml
+exact_result_available: false
+oracle_basis: two-node equation bundle, source tags, provenance, blocker and non-evaluation
+acceptance_tests:
+  - id: nominal_bundle
+    expect: {type: CapacityEquationAstBundle, object_order: [TLC-SO-CAPACITIES-059, TLC-SO-CAPACITIES-095], blocker: scientific decision required}
+  - {id: missing_object, mutation: omit object, expect_error: MissingCoveredObject}
+  - {id: extra_object, mutation: add object, expect_error: UnexpectedCoveredObject}
+  - {id: reversed_order, mutation: reverse objects, expect_error: ObjectOrderMismatch}
+  - {id: missing_symbol, mutation: omit symbol key, expect_error: MissingSymbolTableEntry}
+  - {id: missing_provenance, mutation: omit source reference, expect_error: MissingSourceReference}
+  - {id: missing_blocker, mutation: omit blocker, expect_error: MissingDecisionBlocker}
+  - {id: validity_guard, request: decide domain membership, expect_error: ScientificEvaluationRequested}
+  - {id: aggregation_guard, request: compute collective mean or coordination score, expect_error: ScientificEvaluationRequested}
+properties: {identity_conservation: true, scope_conservation: true, context_provenance_conservation: true, symbol_conservation: true, unresolved_conservation: true, deterministic_for_identical_inputs: true}
+metamorphic_tests:
+  - node permutation changes success to ObjectOrderMismatch
+  - opaque payload changes preserve structural projection
+  - repeated construction is structurally equivalent
+composition_tests: [registry preserves independent validity and collective nodes]
+dependency_tests: [no collective-domain execution dependency]
+forbidden_observations: [membership truth, threshold result, mean, coordination score, aggregation]
+pass_condition: all tests pass and scientific decision required remains unresolved
