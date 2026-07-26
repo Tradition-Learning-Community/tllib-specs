@@ -1,0 +1,29 @@
+schema_version: 1
+status: integrated_without_invented_execution_edges
+nodes: [master, disciple, community, huit-dimensions, invariants, dynamics, theorems, message, principle, values, virtues, capacities, competencies, practice, lived-experience, relations]
+edge_policy:
+  source: domain finalization manifests, module specifications and feature IR dependencies
+  default: documentary
+  execution_requires_explicit_evidence: true
+known_cross_domain_groups:
+  - id: foundational-symbols
+    members: [master, disciple, community, huit-dimensions, invariants]
+    dependency_kind: documentary_or_symbolic_unless_feature_declares_execution
+  - id: formal-behavior
+    members: [dynamics, theorems, message, principle]
+    dependency_kind: documentary_or_structural_unless_feature_declares_execution
+  - id: human-development
+    members: [values, virtues, capacities, competencies, practice, lived-experience]
+    dependency_kind: documentary_or_scientific_unless_feature_declares_execution
+  - id: relational-bridge
+    members: [relations]
+    dependency_kind: structural_reference_only_without_external_evaluator
+cycles:
+  - id: TLC-GCYCLE-DOMAIN-001
+    status: preserved_documented_cycle
+    execution_blocking: false
+    resolution: do_not_invent_order; use explicit feature-level evidence
+parallel_implementation_groups:
+  - [master, message, relations]
+  - [community, huit-dimensions, invariants, theorems, principle, values, virtues]
+  - [disciple, dynamics, capacities, competencies, practice, lived-experience]
