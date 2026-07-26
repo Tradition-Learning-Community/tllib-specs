@@ -6,7 +6,11 @@ finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-013/ir.yaml
 signature: describe_master_expert_predicate(reference_bundle) -> MasterPredicateDescriptor
 inputs: {reference_bundle: ScientificReferenceBundle}
 outputs: {result: MasterPredicateDescriptor}
-validations: [feature id exact, object refs equal [TLC-SO-MASTER-038], relation refs equal [TLC-SR-MASTER-035], unresolved refs equal [TLC-GU-00342, TLC-UT-MASTER-025]]
+validations:
+  - feature id exact
+  - object refs equal [TLC-SO-MASTER-038]
+  - relation refs equal [TLC-SR-MASTER-035]
+  - unresolved refs equal [TLC-GU-00342, TLC-UT-MASTER-025]
 steps: [validate exact sets, construct provenance, emit predicate descriptor, set truth_status to unresolved, copy unresolved refs unchanged, verify no expert definition or truth criterion was added, return]
 branches: [{condition: truth evaluation requested, action: return MASTER_UNSUPPORTED_EXECUTION_MODE}, {condition: explicit truth value supplied without future contract, action: return MASTER_PRESERVATION_VIOLATION}]
 errors: [MASTER_INVALID_FEATURE_ID, MASTER_REFERENCE_SET_MISMATCH, MASTER_UNRESOLVED_SET_MISMATCH, MASTER_PRESERVATION_VIOLATION, MASTER_UNSUPPORTED_EXECUTION_MODE]
