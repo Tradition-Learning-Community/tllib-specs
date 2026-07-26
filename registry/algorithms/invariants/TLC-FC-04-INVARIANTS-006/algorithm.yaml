@@ -1,0 +1,101 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-006
+algorithm_id: TLC-ALG-INVARIANTS-006-FINAL-001
+status: selected_for_invariants_implementation_specification
+optimized_ir_ref: registry/optimized-ir/invariants/TLC-FC-04-INVARIANTS-006/ir.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-006/contract.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-006/ir.prototype.json
+oracle_ref: registry/oracles/invariants/TLC-FC-04-INVARIANTS-006/oracle.yaml
+signature:
+  name: construct_collective_ethics_invariant_expression
+  input: CollectiveEthicsExpressionSymbols
+  output: SymbolicCollectiveEthicsInvariant
+inputs:
+- seven non-empty opaque symbol identifiers and covered evidence references
+outputs:
+- immutable ordered sequence of three unevaluated AST roots with provenance
+validations:
+- all seven named fields are present and non-empty
+- symbol values are treated only as OpaqueSymbolId
+- TLC-SO-INVARIANTS-013, TLC-SO-INVARIANTS-057, TLC-SR-INVARIANTS-012, and TLC-SR-INVARIANTS-056 evidence is attached
+preconditions:
+- all seven named symbols are supplied as non-empty opaque identifiers and both covered source evidence IDs are attached
+conditions_of_application:
+- build exact source templates only
+- do not dereference symbols, simplify nodes, evaluate operators, or infer domains
+ordered_steps:
+- step: 1
+  action: validate the seven required symbol identifiers and source evidence
+- step: 2
+  action: construct metric application node apply(scalar_curvature_operator_symbol, metric_symbol)
+- step: 3
+  action: construct determinant node det(metric_symbol) and square-root node sqrt(det(metric_symbol))
+- step: 4
+  action: construct product node multiply(curvature_application, square_root_determinant)
+- step: 5
+  action: construct differential node differential(dimension_symbol, differential_symbol)
+- step: 6
+  action: construct integral root integral(value_space_symbol, product, differential_node)
+- step: 7
+  action: construct derivative constraint equals(derivative(collective_ethics_invariant, time_symbol), zero)
+- step: 8
+  action: construct gradient constraint equals(apply(gradient_operator_symbol, collective_ethics_invariant), zero)
+- step: 9
+  action: assemble the three roots in source order, attach exact provenance, status, assumptions, and reservations, then freeze
+- step: 10
+  action: verify AST shape, root order, symbol identity, non-evaluation, and preservation
+- step: 11
+  action: return the immutable symbolic result
+branching:
+- condition: a required field is missing or empty
+  action: raise MissingRequiredSymbol
+- condition: covered evidence is absent
+  action: raise MissingCollectiveEthicsEvidence
+- condition: evaluation, simplification, dereference, or numeric execution is requested
+  action: raise ScientificEvaluationProhibited
+- condition: AST shape or preservation verification fails
+  action: raise PreservationViolation
+state_before:
+  symbols_and_evidence: caller_owned
+state_after:
+  inputs_mutated: false
+  result: immutable_three_root_symbolic_ast
+verification_of_conservation:
+- compare output root sequence with the three literal source templates
+- compare every OpaqueSymbolId at every source-defined position
+- assert evaluated is false for every root and node
+- compare source evidence, status, assumptions, reservations, and provenance exactly
+errors:
+- MissingRequiredSymbol
+- MissingCollectiveEthicsEvidence
+- ScientificEvaluationProhibited
+- PreservationViolation
+postconditions:
+- exactly three roots exist in source order
+- all nodes are immutable and unevaluated
+- no numeric, geometric, temporal, differential, or truth value is produced
+determinism:
+  random_sources: none
+  result_rule: identical symbol IDs and evidence produce structurally equal ASTs
+effects:
+  input_mutation: none
+  external_io: none
+  scientific_evaluation: none
+edge_cases:
+- whitespace-only or empty symbol IDs are invalid
+- identical symbol IDs in different semantic fields remain distinct field references and are not merged
+- no common-subexpression reduction is applied
+- opaque operator IDs need no runtime implementation
+unresolved_conserved: []
+dependencies:
+  internal_structural: [TLC-FC-04-INVARIANTS-008]
+  execution: []
+pseudocode:
+- REQUIRE every required symbol field is a non-empty OpaqueSymbolId, ELSE MissingRequiredSymbol
+- REQUIRE all covered evidence references are attached, ELSE MissingCollectiveEthicsEvidence
+- integral_root := integral(value_space_symbol, multiply(apply(scalar_curvature_operator_symbol, metric_symbol), sqrt(det(metric_symbol))), differential(dimension_symbol, differential_symbol))
+- derivative_root := equals(derivative(collective_ethics_invariant, time_symbol), zero)
+- gradient_root := equals(apply(gradient_operator_symbol, collective_ethics_invariant), zero)
+- result := freeze SymbolicCollectiveEthicsInvariant([integral_root, derivative_root, gradient_root], evaluated=false, exact preservation metadata)
+- REQUIRE result matches literal templates, symbol positions, root order, provenance, assumptions, reservations, and non-evaluation policy, ELSE PreservationViolation
+- RETURN result
