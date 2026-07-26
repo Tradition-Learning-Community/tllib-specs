@@ -1,0 +1,71 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-001
+status: selected_for_virtues_implementation_specification
+ir_ref: registry/optimized-ir/virtues/TLC-FC-10-VIRTUES-001/ir.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-001/contract.yaml
+entrypoint: check_apprenticeship_responsibility
+signature: check_apprenticeship_responsibility(request: VirtuesRequest) -> VirtuesResult
+inputs: [feature_id, artifact, provenance, reservations]
+outputs: [accepted source-bound result or named error]
+validations:
+  - feature_id is exact
+  - provenance contains TLC-SO-VIRTUES-100
+  - request does not require absent moral or scientific computation
+preconditions:
+  - request uses the VirtuesRequest envelope
+conditions_of_application:
+  - supplied artifact is treated as an opaque handoff record
+ordered_steps:
+  - validate feature id
+  - validate provenance
+  - reject unsupported completion request
+  - read supplied bounded-role and guided-responsibility fields without interpretation
+  - copy artifact and reservations
+  - construct accepted result preserving traceability
+branching:
+  invalid_feature: invalid_feature_id
+  incomplete_provenance: missing_provenance
+  unsupported_completion: unsupported_scientific_completion_request
+construction_or_reading: read and preserve the supplied handoff representation
+identity_scope_context_validation:
+  identity: exact feature id and source object identity
+  scope: apprenticeship handoff only
+  context: copied as opaque data
+relation_processing:
+  - preserve supplied bounded-role relation
+  - preserve supplied guided-responsibility relation
+observation: none
+comparison: none
+effects: create result data only
+errors: [missing_provenance, unsupported_scientific_completion_request, invalid_feature_id]
+postconditions:
+  - accepted result echoes feature id, entrypoint, source objects, artifact, reservations, assumptions, and unresolved
+  - no grade, score, hierarchy, or moral decision is present
+invariants:
+  - opaque data unchanged
+  - source object order unchanged
+determinism: deterministic for identical requests
+edge_cases:
+  - empty reservations are accepted
+  - additional opaque artifact fields are preserved
+  - duplicated provenance entries do not remove required provenance
+  - a request for grading is rejected
+ dependencies: [common Virtues validation and result envelope]
+unresolved_conserved: []
+pseudocode: |
+  function check_apprenticeship_responsibility(request):
+      if request.feature_id != "TLC-FC-10-VIRTUES-001":
+          return error("invalid_feature_id")
+      if not provenance_contains(request.provenance, ["TLC-SO-VIRTUES-100"]):
+          return error("missing_provenance")
+      if requests_unsupported_completion(request):
+          return error("unsupported_scientific_completion_request")
+      handoff = copy_opaque(request.artifact)
+      return accepted_result(
+          feature_id=request.feature_id,
+          entrypoint="check_apprenticeship_responsibility",
+          source_objects=["TLC-SO-VIRTUES-100"],
+          artifact=handoff,
+          reservations=copy_opaque(request.reservations),
+          unresolved=[],
+          assumptions=["source fragments are metadata, not executable science"])
