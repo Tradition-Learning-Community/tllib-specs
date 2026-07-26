@@ -1,0 +1,60 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012
+operation: build_nonzero_latency_measure_claim
+signature: build_nonzero_latency_measure_claim(latency_claim) -> NonzeroLatencyMeasureClaim
+source_contract: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012/contract.yaml
+finalized_ir: registry/optimized-ir/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012/ir.yaml
+inputs:
+- latency_claim: OpaqueMeasureClaim
+output: NonzeroLatencyMeasureClaim
+validations:
+- require claim source identity trace reservations assumptions and unresolved identity
+- reject units codomain zero semantics numeric comparison and truth evaluation
+preconditions: [latency_claim_present, traceability_complete, unresolved_fields_attached]
+steps:
+- validate claim identity source trace and propagated sets
+- reject numerical unit or truth semantics
+- copy subject opaque measure token and nonzero relation into predicate record
+- set evaluation_status boundary and identity unresolved
+- verify opacity identity and propagation
+branching:
+- missing trace or role: FAIL-HUIT-012-MISSING-TRACE
+- numeric unit or truth request: FAIL-HUIT-012-OPERATION
+- invented semantics: FAIL-HUIT-012-SCIENTIFIC-INVENTION
+dimension_access: latent_capacity_claim_role_only
+transformations: predicate_record_normalization_only
+errors: [FAIL-HUIT-012-MISSING-TRACE, FAIL-HUIT-012-OPERATION, FAIL-HUIT-012-SCIENTIFIC-INVENTION]
+postconditions:
+- subject measure token and relation remain unchanged
+- evaluation boundary and identity remain unresolved
+- no boolean or numeric result is produced
+invariants: [source_identity, opaque_measure_and_relation, limited_status]
+determinism: deterministic_predicate_record_construction
+effects: none
+case_limits:
+- missing claim is rejected
+- numeric zero or units are not accepted
+- no measure codomain is inferred
+dependencies: {execution: [], documentary: [capacities]}
+unresolved_conserved:
+- TLC-UNRES-HUIT-012-TYPE
+- TLC-UNRES-HUIT-012-SIGNATURE
+- TLC-UNRES-HUIT-012-UNITS
+- TLC-UNRES-HUIT-012-ORDER
+- TLC-UNRES-HUIT-012-AGGREGATION
+- TLC-UNRES-HUIT-012-NUMERICS
+- TLC-UNRES-HUIT-012-ORACLE
+- TLC-UNRES-HUIT-012-BOUNDARY
+- TLC-UNRES-HUIT-012-IDENTITY
+pseudocode: |
+  function build_nonzero_latency_measure_claim(latency_claim):
+      require_present(latency_claim)
+      validate_traceability_and_reservations(latency_claim)
+      reject_numeric_unit_or_truth_semantics()
+      result = NonzeroLatencyMeasureClaim()
+      result.set_subject(copy_opaque(latency_claim.subject))
+      result.set_measure(copy_opaque(latency_claim.measure_token))
+      result.set_relation(copy_opaque(latency_claim.nonzero_relation))
+      result.set_statuses(evaluation=unresolved, boundary=unresolved, identity=unresolved)
+      verify_identity_opacity_and_propagation(result)
+      return result
