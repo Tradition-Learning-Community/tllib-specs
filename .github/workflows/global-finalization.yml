@@ -18,12 +18,69 @@ permissions:
   contents: read
 
 jobs:
-  validate:
+  domain:
+    name: Domain ${{ matrix.domain }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {domain: master, count: 16}
+          - {domain: disciple, count: 10}
+          - {domain: community, count: 8}
+          - {domain: huit-dimensions, count: 11}
+          - {domain: invariants, count: 10}
+          - {domain: dynamics, count: 7}
+          - {domain: theorems, count: 9}
+          - {domain: message, count: 6}
+          - {domain: principle, count: 10}
+          - {domain: values, count: 14}
+          - {domain: virtues, count: 10}
+          - {domain: capacities, count: 15}
+          - {domain: competencies, count: 13}
+          - {domain: practice, count: 10}
+          - {domain: lived-experience, count: 12}
+          - {domain: relations, count: 5}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          show-progress: false
+      - name: Check artifact parity
+        env:
+          DOMAIN: ${{ matrix.domain }}
+          EXPECTED: ${{ matrix.count }}
+        run: |
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          domain = os.environ['DOMAIN']
+          expected = int(os.environ['EXPECTED'])
+          roots = {
+              'ir': Path('registry/optimized-ir') / domain,
+              'algorithm': Path('registry/algorithms') / domain,
+              'oracle': Path('registry/oracles') / domain,
+          }
+          sets = {}
+          for kind, root in roots.items():
+              name = {'ir':'ir.yaml','algorithm':'algorithm.yaml','oracle':'oracle.yaml'}[kind]
+              files = sorted(root.glob(f'*/{name}'))
+              assert len(files) == expected, f'{domain} {kind}: {len(files)} != {expected}'
+              sets[kind] = {p.parent.name for p in files}
+          assert sets['ir'] == sets['algorithm'] == sets['oracle'], f'{domain}: artifact directory populations differ'
+          required = ['manifest.yaml','feature-status.yaml','patterns.yaml','module-specification.yaml','implementation-tasks.yaml','decision-required.yaml']
+          for name in required:
+              assert (Path('registry/domain-finalization') / domain / name).is_file(), f'{domain}: missing {name}'
+          print(f'{domain}: PASS ({expected} features)')
+          PY
+
+  global:
+    name: Global integrity
+    needs: domain
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           show-progress: false
-      - name: Validate all sixteen integrated domains
+      - name: Validate integrated package
         run: python3 tools/global-finalization/validate_global_finalization.py
