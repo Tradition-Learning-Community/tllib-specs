@@ -1,0 +1,98 @@
+schema_version: 1
+domain: huit-dimensions
+analysis_scope: eleven_active_source_irs
+classification_rules:
+  resemblance: similar vocabulary without reusable behavior
+  textual_duplication: repeated wording only
+  structural_duplication: same observable validation-construction-verification graph
+  demonstrated_equivalence: identical observable contract under all declared inputs and errors
+patterns:
+- pattern_id: HD-PATTERN-OPAQUE-ENVELOPE
+  name: traceable_opaque_scientific_value
+  classification: demonstrated_structural_duplication
+  evidence: all_eleven_source_irs
+  fields:
+  - feature_id
+  - role
+  - scientific_object_id
+  - source_reference
+  - opaque_payload
+  - reservation_ids
+  - assumption_ids
+  optimization: common_interface_type
+  preservation_proof: payload and identifiers are copied without evaluation or coercion
+- pattern_id: HD-PATTERN-ROLE-BINDING
+  name: semantic_role_binding
+  classification: demonstrated_structural_duplication
+  evidence: all_eleven_source_irs
+  rule: bind inputs by declared semantic role, never by inferred dimension order
+  optimization: common_validation_and_lookup
+- pattern_id: HD-PATTERN-THREE-PHASE-FLOW
+  name: validate_construct_verify
+  classification: demonstrated_structural_duplication
+  evidence: all_eleven_source_irs
+  ordered_steps:
+  - validate_required_roles_traceability_reservations
+  - construct_identity_preserving_result
+  - verify_postconditions_and_propagation
+  optimization: reusable_internal_subgraph
+- pattern_id: HD-PATTERN-STRUCTURED-ERRORS
+  name: common_error_envelope
+  classification: demonstrated_structural_duplication
+  evidence: contract_and_ir_error_sets
+  common_categories:
+  - missing_required_role
+  - missing_traceability
+  - unknown_scientific_object
+  - duplicate_or_aliased_role
+  - scientific_evaluation_forbidden
+  - unresolved_propagation_failure
+  - preservation_invariant_violation
+  rule: retain the source FAIL identifier as error_code
+- pattern_id: HD-PATTERN-DETERMINISTIC-RECORD
+  name: deterministic_identity_preserving_construction
+  classification: demonstrated_structural_duplication
+  evidence: all_eleven_source_irs
+  optimization: stable_field_layout_and_canonical_technical_serialization
+  semantic_guardrail: serialization order is technical and does not create a scientific order among dimensions
+- pattern_id: HD-PATTERN-UNRESOLVED-PROPAGATION
+  name: unresolved_and_reservation_passthrough
+  classification: demonstrated_structural_duplication
+  evidence: all_contracts_and_source_irs
+  optimization: shared_propagation_verifier
+  rule: exact set equality between input/source reservations and output reservations
+- pattern_id: HD-PATTERN-DOCUMENTARY-DEPENDENCY
+  name: external_reference_without_execution_edge
+  classification: demonstrated_equivalence
+  evidence: external-domain-dependencies.yaml_and_all_contracts
+  optimization: common_external_reference_type
+  rule: named component domains remain documentary; no runtime dependency is generated
+non_factorizations:
+- subject: eleven_public_operations
+  reason: output types, required roles, operation-specific errors, and postconditions differ
+  decision: preserve_distinct_public_operations
+- subject: invariant_features_007_008_009
+  reason: resemblance is not demonstrated scientific equivalence
+  decision: no_merge
+- subject: metric_features_010_011_012
+  reason: requirements, declaration, and predicate claim have distinct observable boundaries
+  decision: no_merge
+- subject: dimension_collection
+  reason: source specifies cardinality eight but no normative ordering or universal aggregation operator
+  decision: non_ordinal_named_collection_only
+optimizations_applied:
+- normalize_source_trace_fields
+- normalize_role_based_input_binding
+- normalize_common_validation_sequence
+- normalize_common_error_envelope
+- normalize_opaque_and_unresolved_propagation
+- normalize_deterministic_technical_serialization
+- extract_shared_validation_and_verification_subgraphs
+optimizations_not_applied:
+- numerical_evaluation
+- equation_simplification
+- scientific_equivalence_deduplication
+- global_dimension_ordering
+- universal_metric
+- global_aggregation_operator
+- cross_domain_runtime_edges
