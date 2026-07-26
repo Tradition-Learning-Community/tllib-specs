@@ -1,0 +1,269 @@
+schema_version: 1
+module_id: tllib.invariants
+domain_id: invariants
+status: selected_for_invariants_implementation_specification
+purpose: provide source-preserving representations, structural validation, symbolic construction, and propagation for the ten active Invariants features without scientific evaluation
+active_features:
+- TLC-FC-04-INVARIANTS-001
+- TLC-FC-04-INVARIANTS-002
+- TLC-FC-04-INVARIANTS-003
+- TLC-FC-04-INVARIANTS-004
+- TLC-FC-04-INVARIANTS-005
+- TLC-FC-04-INVARIANTS-006
+- TLC-FC-04-INVARIANTS-007
+- TLC-FC-04-INVARIANTS-008
+- TLC-FC-04-INVARIANTS-009
+- TLC-FC-04-INVARIANTS-010
+public_operations:
+- feature_id: TLC-FC-04-INVARIANTS-001
+  name: build_admissibility_constraint_set
+  input: AdmissibilityAxiomRecord[]
+  output: ConstraintSet
+- feature_id: TLC-FC-04-INVARIANTS-002
+  name: index_definition_fragments
+  input: DefinitionFragment[]
+  output: DefinitionEvidenceIndex
+- feature_id: TLC-FC-04-INVARIANTS-003
+  name: build_invariant_declaration_catalog
+  input: InvariantDeclarationEvidence[]
+  output: InvariantDeclarationCatalog
+- feature_id: TLC-FC-04-INVARIANTS-004
+  name: declare_disciple_invariant_scope
+  input: DiscipleInvariantScopeEvidence
+  output: ScopedInvariantDeclaration
+- feature_id: TLC-FC-04-INVARIANTS-005
+  name: attach_interpretation_annotations
+  input: InterpretationAnnotation[]
+  output: AnnotatedInvariantEvidence
+- feature_id: TLC-FC-04-INVARIANTS-006
+  name: construct_collective_ethics_invariant_expression
+  input: CollectiveEthicsExpressionSymbols
+  output: SymbolicCollectiveEthicsInvariant
+- feature_id: TLC-FC-04-INVARIANTS-007
+  name: construct_disintegration_relation
+  input: RelationEndpointsAndEvidence
+  output: DisintegrationRelationRecord
+- feature_id: TLC-FC-04-INVARIANTS-008
+  name: assemble_invariant_state_vocabulary
+  input: StateTermEvidence[]
+  output: InvariantStateVocabulary
+- feature_id: TLC-FC-04-INVARIANTS-009
+  name: construct_cohesion_interval_constraint
+  input: CohesionIntervalSymbols
+  output: SymbolicCohesionIntervalConstraint
+- feature_id: TLC-FC-04-INVARIANTS-010
+  name: index_state_interpretation_fragments
+  input: StateInterpretationFragment[]
+  output: RejectedStateAnnotationIndex
+internal_operations:
+- validate_required_fields
+- validate_covered_identifier
+- validate_source_reference
+- validate_relation_endpoints
+- validate_catalogue_status_preservation
+- preserve_opaque_value
+- preserve_source_order
+- preserve_unresolved_references
+- preserve_provisional_assumptions
+- build_immutable_evidence_index
+- build_immutable_relation_record
+- build_source_defined_symbolic_ast
+- verify_preservation_envelope
+- freeze_result
+common_types:
+  OpaqueSourceStatement:
+    semantics: uninterpreted_source_text
+    equality: byte_or_exact_text_identity
+  OpaqueScientificTruthConditions:
+    semantics: external_scientific_definition
+    evaluation: prohibited
+  OpaqueSymbolId:
+    semantics: non_empty_identifier_only
+    dereference: prohibited
+  SourceReference:
+    fields:
+    - path
+    - source_commit
+    - location
+  EvidenceIdentifier:
+    fields:
+    - object_id
+    - relation_id
+  CatalogueStatus:
+    preservation: exact
+  UnresolvedReference:
+    fields:
+    - unresolved_id
+    - affected_feature_id
+    - source_location
+  ProvisionalAssumptionReference:
+    fields:
+    - assumption_id
+    - feature_id
+  PreservationEnvelope:
+    fields:
+    - source_contract
+    - source_ir
+    - source_objects
+    - source_relations
+    - catalogue_status
+    - unresolved
+    - assumptions
+    - reservations
+  ImmutableSymbolicAst:
+    node_semantics: structural_only
+    evaluation: prohibited
+  StructuralVerificationResult:
+    variants:
+    - valid
+    - invalid_precondition
+    - preservation_violation
+    - external_evaluator_required
+representations:
+- kind: constraint_set
+  feature_ids: [TLC-FC-04-INVARIANTS-001]
+- kind: documentary_index
+  feature_ids: [TLC-FC-04-INVARIANTS-002, TLC-FC-04-INVARIANTS-010]
+- kind: invariant_declaration_catalog
+  feature_ids: [TLC-FC-04-INVARIANTS-003]
+- kind: scoped_declaration
+  feature_ids: [TLC-FC-04-INVARIANTS-004]
+- kind: annotated_evidence
+  feature_ids: [TLC-FC-04-INVARIANTS-005]
+- kind: symbolic_invariant_ast
+  feature_ids: [TLC-FC-04-INVARIANTS-006, TLC-FC-04-INVARIANTS-009]
+- kind: immutable_relation
+  feature_ids: [TLC-FC-04-INVARIANTS-007]
+- kind: state_vocabulary
+  feature_ids: [TLC-FC-04-INVARIANTS-008]
+conditions_of_application:
+- inputs must carry every feature-required source identifier and source reference
+- relation endpoints must match the feature-owned relation when specified
+- catalogue status must be preserved exactly and cannot be promoted
+- unresolved identifiers must remain attached to affected terms
+- symbolic constructors require non-empty opaque symbol identifiers
+- no operation may infer a missing runtime domain, evaluator, comparator, threshold value, transition graph, chronology, symmetry, or causality
+state_model:
+  before:
+    description: caller-owned source evidence, opaque symbols, references, unresolved identifiers, assumptions, and reservations
+    mutation_allowed: false
+  after:
+    description: new immutable feature-specific representation with a complete preservation envelope
+    input_mutated: false
+    scientific_truth_claim_added: false
+verification_results:
+- result: valid
+  condition: all structural preconditions and preservation obligations hold
+- result: invalid_precondition
+  condition: required source identity, relationship, status, or symbol is absent or inconsistent
+- result: preservation_violation
+  condition: any source, status, opaque value, unresolved ID, assumption, reservation, or required order is lost or changed
+- result: external_evaluator_required
+  condition: scientific truth or numerical evaluation is requested beyond the source contract
+opaque_values:
+- source statement bodies
+- scientific truth conditions
+- concrete scalar, vector, tensor, graph, metric, probability, time, unit, dimension, ordering, and precision semantics unless explicitly represented as source text
+- symbol targets for features 006 and 009
+- unresolved terms TLC-UT-INVARIANTS-001 through TLC-UT-INVARIANTS-012
+common_errors:
+- error: InvalidCoveredIdentifier
+  condition: object, relation, state term, definition, annotation, or axiom ID is outside feature coverage
+- error: MissingSourceReference
+  condition: required source provenance is absent
+- error: DuplicateIdentifier
+  condition: an index or set receives duplicate feature-owned identity
+- error: RelationshipMismatch
+  condition: relation endpoints or target root do not match the source relation
+- error: StatusPromotionProhibited
+  condition: documentary, deferred, or rejected source metadata is promoted to executable scientific status
+- error: UnresolvedMappingLoss
+  condition: an unresolved identifier is absent from its required output attachment
+- error: ScientificEvaluationProhibited
+  condition: an operation attempts truth, numeric, temporal, ordering, state, or transition evaluation without a sourced evaluator
+- error: PreservationViolation
+  condition: traceability or opaque content changes
+shared_patterns_ref: registry/domain-finalization/invariants/patterns.yaml
+internal_dependencies:
+  root_feature: TLC-FC-04-INVARIANTS-008
+  dependent_features:
+  - TLC-FC-04-INVARIANTS-001
+  - TLC-FC-04-INVARIANTS-002
+  - TLC-FC-04-INVARIANTS-003
+  - TLC-FC-04-INVARIANTS-004
+  - TLC-FC-04-INVARIANTS-005
+  - TLC-FC-04-INVARIANTS-006
+  - TLC-FC-04-INVARIANTS-007
+  - TLC-FC-04-INVARIANTS-009
+  - TLC-FC-04-INVARIANTS-010
+  edge_count: 9
+  cycles: 0
+  dependency_kind: internal_structural_vocabulary_reference
+external_dependencies:
+  documentary:
+  - TLC-INV-DEP-MASTER-001
+  - TLC-INV-DEP-DISCIPLE-001
+  - TLC-INV-DEP-COMMUNITY-001
+  - TLC-INV-DEP-DYNAMICS-001
+  scientific:
+  - maths/04-invariants.md
+  execution: []
+  rule: documentary_or_scientific_references_are_not_runtime_dependencies
+composition_rules:
+- every composed result retains the union of source references without deduplication that loses provenance
+- unresolved and assumptions remain associated with their originating feature
+- composition cannot change a source catalogue status
+- feature 008 vocabulary may be referenced structurally but does not supply a transition graph or evaluator
+- feature 006 and 009 ASTs may share node infrastructure but never share or rewrite feature-owned templates
+- public feature identities remain independently addressable
+- annotation composition is non-normative and cannot alter invariant truth
+- relation composition cannot infer transitivity, symmetry, causality, or temporal ordering
+determinism_rules:
+- identical validated inputs produce structurally equal outputs
+- source-declared order is preserved exactly
+- where no scientific order is declared, validated input order is retained as an engineering order only
+- no randomness, clock access, external state, or hidden evaluator is permitted
+unresolved_conservation:
+  TLC-FC-04-INVARIANTS-008:
+  - TLC-UT-INVARIANTS-001
+  - TLC-UT-INVARIANTS-002
+  - TLC-UT-INVARIANTS-003
+  - TLC-UT-INVARIANTS-004
+  - TLC-UT-INVARIANTS-005
+  - TLC-UT-INVARIANTS-006
+  - TLC-UT-INVARIANTS-007
+  - TLC-UT-INVARIANTS-008
+  - TLC-UT-INVARIANTS-010
+  - TLC-UT-INVARIANTS-011
+  - TLC-UT-INVARIANTS-012
+  TLC-FC-04-INVARIANTS-009:
+  - TLC-UT-INVARIANTS-009
+library_interfaces:
+  namespace: tllib::invariants
+  binding_namespace: tllib.invariants
+  specification_only: true
+  ownership:
+    input_values: caller
+    output_values: module_immutable_value
+  error_transport: typed_structural_error
+  evaluator_extension_point:
+    status: external_evaluator_required
+    interface_defined: false
+    reason: no sourced execution semantics
+out_of_scope:
+- scientific truth evaluation
+- calibration of thresholds
+- numerical integration, differentiation, tensor, graph spectral, entropy, mutual-information, metric, or comparator implementations
+- state detection, transition graphs, chronology, crisis prediction, or collapse simulation
+- resolving any TLC-UT-INVARIANTS identifier
+- changing contracts, source IRs, candidate objects, relations, or maths files
+- C++ implementation
+- Python bindings
+- reference implementation
+future_implementation_tasks_ref: registry/domain-finalization/invariants/implementation-tasks.yaml
+implementation_readiness:
+  representation_and_validation: ready
+  symbolic_ast_construction: ready
+  acceptance_test_implementation: ready
+  scientific_evaluation: external_evaluator_required
+  production_scientific_execution: not_ready
