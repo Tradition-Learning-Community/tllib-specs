@@ -12,9 +12,10 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout full history
+      - name: Checkout Capacities branch history
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
           show-progress: false
       - name: Validate authoritative population
