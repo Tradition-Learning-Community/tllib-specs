@@ -1,0 +1,45 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-007
+status: selected_for_virtues_implementation_specification
+ir_ref: registry/optimized-ir/virtues/TLC-FC-10-VIRTUES-007/ir.yaml
+algorithm_ref: registry/algorithms/virtues/TLC-FC-10-VIRTUES-007/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-007/test-plan.yaml
+entrypoint: check_virtue_function_invariant
+oracle_kind: invariant_label_acceptance
+fixtures:
+  required_source_objects: [TLC-SO-VIRTUES-060]
+  nominal_artifact: {role_labels: [ancrage, guidage, unification, contrainte], context: opaque_context}
+acceptance_cases:
+  - id: nominal
+    assertions: [accepted is true, entrypoint and source object are exact]
+  - id: label_identity
+    assertions: [ancrage, guidage, unification, and contrainte are preserved exactly]
+  - id: label_only
+    assertions: [no definition, priority, weight, order, or score is attached to a label]
+  - id: context
+    assertions: [opaque context is unchanged]
+error_cases:
+  - request: wrong feature id
+    expected_error: invalid_feature_id
+  - request: missing required provenance
+    expected_error: missing_provenance
+  - request: interpret, prioritize, score, rank, or complete role-label semantics
+    expected_error: unsupported_scientific_completion_request
+property_tests:
+  - supplied role-label sequence round-trips unchanged
+  - opaque additional labels remain opaque
+  - no label is substituted or normalized into another concept
+metamorphic_tests:
+  - adding an opaque label appends only that supplied label
+  - changing context changes only copied context
+  - identical requests return identical results
+determinism_test: repeated identical request returns equivalent logical data
+composition_tests:
+  - common validation precedes label validation
+  - rejected completion requests emit no accepted result
+unresolved_tests:
+  expected: []
+dependency_tests:
+  - no Invariants-domain execution is invoked
+forbidden_outputs: [label ranking, label score, label hierarchy, inferred semantics, invented manifestation]
+acceptance_rule: Exact role-label preservation passes and all forbidden outputs are absent.
