@@ -1,0 +1,32 @@
+schema_version: 1
+feature_id: TLC-FC-07-MESSAGE-005
+signature: assemble_message_existential_cycle_descriptor(records) -> MessageExistentialCycleDescriptor
+inputs: [Sequence[MessageCycleDeclarationRecord]]
+outputs: [MessageExistentialCycleDescriptor]
+validations: [exact_18_identifier_set, no_duplicates, distinct_transmission_occurrences, source_order]
+preconditions: [all source-contract identifiers present exactly once]
+steps: [validate exact set, preserve TLC-SO-MESSAGE-059 and TLC-SO-MESSAGE-071 separately, partition records into four source contexts, assemble six stage references in source order, attach unresolved and provenance]
+branching: incomplete duplicate or merged Transmission evidence raises error
+content_handling: preserve opaque payload and references unchanged
+role_validation: validate source-declared partition and stage-reference roles only
+metadata_handling: preserve relation identifiers, source contexts, order, candidate status
+transformation: identity-preserving descriptor assembly; no transition execution
+transmission: descriptive_reference_only; external_transport_required
+interpretation: external_interpreter_required
+effects: create non-executable ordered descriptor
+errors: [IncompleteCycleEvidence, DuplicateCycleIdentifier, TransmissionOccurrencesMerged]
+postconditions: [18 identities retained, two Transmission identities distinct, six ordered stages exposed, no transition semantics]
+invariants: [identity, order, provenance, non_execution]
+determinism: deterministic
+case_limits: [missing_record, duplicate_record, merged_transmission, reordered_input]
+dependencies: [TLC-FC-07-MESSAGE-006]
+unresolved_preserved: source_contract_propagated_unresolved
+pseudocode: |
+  require_exact_contract_identifier_set(records)
+  require_distinct(records[TLC-SO-MESSAGE-059], records[TLC-SO-MESSAGE-071])
+  partitions = partition_by_declared_source_context(records)
+  stages = references_in_recorded_source_order(records, count=6)
+  result = MessageExistentialCycleDescriptor(partitions, stages)
+  result.attach_relations_unresolved_and_provenance(records)
+  assert_no_transition_operation(result)
+  return result
