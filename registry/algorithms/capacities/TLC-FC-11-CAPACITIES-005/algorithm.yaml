@@ -1,0 +1,52 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-005
+algorithm_id: CAP-ALG-005
+status: selected_for_capacities_implementation_specification
+source_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-005/ir.yaml
+signature: 'CapacityPrototypeDescriptor build_unevaluated_capacity_dynamics_ast(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>)'
+inputs:
+  required_object_order: [TLC-SO-CAPACITIES-066, TLC-SO-CAPACITIES-067, TLC-SO-CAPACITIES-069, TLC-SO-CAPACITIES-070, TLC-SO-CAPACITIES-087, TLC-SO-CAPACITIES-097]
+outputs: [CapacityPrototypeDescriptor]
+validations: [exact feature id, exact duplicate-free object set, complete provenance, structural request]
+preconditions: [all required objects available]
+conditions_of_application: [no differential or stochastic evaluator requested]
+steps:
+  - validate feature and object set
+  - restore contract order
+  - copy each equation as an opaque unevaluated node
+  - attach source symbols and provenance
+  - construct immutable dynamics descriptor
+  - attach non-evaluation guard
+  - return descriptor
+branching:
+  missing_object: MissingCoveredObject
+  duplicate_object: DuplicateCoveredObject
+  missing_provenance: MissingSourceReference
+  execution_requested: ScientificEvaluationRequested
+capacity_handling: {construction: dynamics descriptor only, identity_validation: exact, scope_validation: exact, context_validation: provenance}
+relations: none
+activation: represented_only_for_source_object_087
+mobilization: not_performed
+development: six_source_equations_preserved_without_execution
+comparison: identifier_and_shape_only
+effects: no state update, sampling or integration
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, MissingSourceReference, ScientificEvaluationRequested]
+postconditions: [six nodes preserved in order, no computed scientific value]
+invariants: [opaque equations unexecuted, stochastic token not sampled]
+determinism: deterministic
+case_limits:
+  - extra or missing object fails exact-set validation
+  - request for time evolution fails
+  - request for random sample fails
+unresolved_conserved: []
+dependencies: []
+pseudocode: |
+  require feature_id == TLC-FC-11-CAPACITIES-005 else UnknownFeatureId
+  require exact_keys(payloads) == required_ids else MissingCoveredObject
+  require no_duplicates(payloads) else DuplicateCoveredObject
+  require complete_provenance(provenance) else MissingSourceReference
+  require request_is_structural_only() else ScientificEvaluationRequested
+  nodes = [opaque_unevaluated_node(payloads[id]) for id in required_ids]
+  artifact = immutable_dynamics_descriptor(feature_id, nodes, provenance)
+  artifact.attach_non_evaluation_guard()
+  return artifact
