@@ -1,0 +1,60 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007
+operation: catalogue_declared_invariant_groups
+signature: catalogue_declared_invariant_groups(value_invariants, lived_experience_invariants) -> InvariantGroupCatalogue
+source_contract: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007/contract.yaml
+finalized_ir: registry/optimized-ir/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007/ir.yaml
+inputs:
+- value_invariant_group: OpaqueInvariantGroup
+- lived_experience_invariant_group: OpaqueInvariantGroup
+output: InvariantGroupCatalogue
+validations:
+- require both role bindings with distinct source identities
+- require trace reservations and assumptions
+- reject group merging or proof status promotion
+preconditions: [two_groups_present, identities_distinct, traceability_complete]
+steps:
+- validate role set identities source traces and reservations
+- reject aliases merge requests and proof claims
+- copy each group into its dimension-keyed catalogue entry
+- set proof_status unresolved for each entry
+- verify separation identity opacity and propagation
+branching:
+- missing trace or role: FAIL-HUIT-007-MISSING-TRACE
+- merge or proof request: FAIL-HUIT-007-OPERATION
+- invented semantics: FAIL-HUIT-007-SCIENTIFIC-INVENTION
+dimension_access: semantic_keys_values_and_lived_experience_only
+transformations: separate_group_record_normalization_only
+errors: [FAIL-HUIT-007-MISSING-TRACE, FAIL-HUIT-007-OPERATION, FAIL-HUIT-007-SCIENTIFIC-INVENTION]
+postconditions:
+- exactly two distinct entries exist
+- proof_status remains unresolved
+- claims and traces are unchanged
+invariants: [group_separation, source_identity, limited_status]
+determinism: deterministic_catalogue_construction
+effects: none
+case_limits:
+- missing group is rejected
+- aliasing source identities is rejected
+- lexical similarity never triggers merge
+dependencies: {execution: [], documentary: [values, lived-experience]}
+unresolved_conserved:
+- TLC-UNRES-HUIT-007-TYPE
+- TLC-UNRES-HUIT-007-SIGNATURE
+- TLC-UNRES-HUIT-007-UNITS
+- TLC-UNRES-HUIT-007-ORDER
+- TLC-UNRES-HUIT-007-AGGREGATION
+- TLC-UNRES-HUIT-007-NUMERICS
+- TLC-UNRES-HUIT-007-ORACLE
+- TLC-UNRES-HUIT-007-BOUNDARY
+pseudocode: |
+  function catalogue_declared_invariant_groups(value_invariants, lived_experience_invariants):
+      require_present(value_invariants, lived_experience_invariants)
+      require_distinct_source_ids(value_invariants, lived_experience_invariants)
+      validate_traceability_and_reservations([value_invariants, lived_experience_invariants])
+      reject_merge_or_proof_request()
+      result = InvariantGroupCatalogue()
+      result.add(values, copy_opaque(value_invariants), proof_status=unresolved)
+      result.add(lived_experience, copy_opaque(lived_experience_invariants), proof_status=unresolved)
+      verify_separation_identity_and_propagation(result)
+      return result
