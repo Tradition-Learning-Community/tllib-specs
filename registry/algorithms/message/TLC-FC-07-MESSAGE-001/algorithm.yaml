@@ -1,0 +1,38 @@
+schema_version: 1
+feature_id: TLC-FC-07-MESSAGE-001
+signature: construct_message_quadruplet_ast(definition_evidence) -> ImmutableMessageQuadrupletAst
+inputs: [MessageDefinitionEvidenceSet]
+outputs: [ImmutableMessageQuadrupletAst]
+validations: [required_three_object_ids, source_references, formal_expression_has_exactly_four_source_named_slots]
+preconditions: [candidate evidence is complete]
+steps:
+  - validate TLC-SO-MESSAGE-002, TLC-SO-MESSAGE-003, TLC-SO-MESSAGE-025
+  - read the formal expression without evaluating it
+  - construct one immutable tuple root with four slots in source order
+  - bind evidence references and provenance
+  - verify exact slot count and identity preservation
+branching: invalid evidence raises declared structural error
+content_handling: preserve references and opaque payload unchanged
+role_validation: validate four symbolic slot roles only as named by source
+metadata_handling: attach feature, source, object, relation, and candidate-status metadata
+transformation: identity-preserving AST construction only
+transmission: external_transport_required
+reception: implementation_out_of_scope
+interpretation: external_interpreter_required
+effects: create immutable structural value
+errors: [MissingDefinitionEvidence, MalformedFourSlotExpression]
+postconditions: [one root, four slots, three evidence links]
+invariants: [identity, source_order, provenance, non_execution]
+determinism: deterministic
+case_limits: [missing object, repeated object, non_four_slot_expression]
+dependencies: [TLC-FC-07-MESSAGE-006]
+unresolved_preserved: []
+pseudocode: |
+  require_exact_ids(definition_evidence, [002, 003, 025])
+  expression = read_opaque_formal_expression(definition_evidence)
+  require_four_source_named_slots(expression)
+  result = ImmutableMessageQuadrupletAst(expression.slots_in_source_order)
+  result.attach_references(definition_evidence.references)
+  result.attach_provenance(definition_evidence.provenance)
+  assert_postconditions(result)
+  return result
