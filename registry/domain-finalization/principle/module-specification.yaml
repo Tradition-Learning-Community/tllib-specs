@@ -1,0 +1,47 @@
+schema_version: 1
+module: principle
+status: selected_for_principle_implementation_specification
+feature_count: 10
+public_operations:
+  - construct_principle_constraint_specification
+  - construct_principle_evolution_equation
+  - construct_principle_equation_catalog
+  - construct_principle_formal_tuple
+  - construct_principle_invariant_specification
+  - describe_principle_invariant_requirements
+  - describe_principle_metric_requirements
+  - construct_principle_operator_catalog
+  - construct_principle_relation_catalog
+  - associate_principle_with_familiar_context
+internal_operations: [validate_required_identifiers, validate_exact_object_population, validate_source_bindings, reject_scientific_evaluation_or_promotion, instantiate_source_ordered_nodes, attach_traceability, freeze_result]
+principle_types: [PrincipleConstraintSpecification, SymbolicPrincipleEvolutionEquation, PrincipleEquationCatalog, SymbolicPrincipleTuple, PrincipleInvariantSpecification, UnverifiablePrincipleInvariantDescriptor, UncomputablePrincipleMetricDescriptor, PrincipleOperatorCatalog, PrincipleRelationCatalog, PrincipleInterpretationAssociation]
+scope_representation: {kind: descriptive_scope, required_fields: [scientific_object_ids, source_ranges]}
+conditions_of_application: represented_not_evaluated_unless_source_IR_defines_structural_precondition
+exceptions_explicitly_defined: []
+consequences_explicitly_defined: []
+opaque_values: preserved_verbatim
+common_errors: [missing_required_reference, duplicate_object_id, prohibited_scientific_evaluation_or_promotion]
+shared_patterns: [principle_symbolic_envelope, source_ordered_catalog, structured_source_errors, opaque_and_unresolved_propagation]
+internal_dependencies:
+  - {from: TLC-FC-08-PRINCIPLE-005, to: TLC-FC-08-PRINCIPLE-002, kind: documentary_reference_only, execution: false}
+external_dependencies: []
+composition_rules: [catalog_and_tuple_composition_only_as_explicitly_encoded_in_source_templates]
+priority_rules: []
+determinism: deterministic_for_identical_ordered_inputs
+unresolved:
+  TLC-FC-08-PRINCIPLE-002: [UNRESOLVED-SYMBOL-SEMANTICS-001, UNRESOLVED-DOMAIN-001, UNRESOLVED-INITIAL-CONDITION-001]
+library_interfaces:
+  representation: supported
+  structural_validation: supported
+  application_condition_recording: supported
+  conformity_evaluation: external_evaluator_required
+  consequence_application: implementation_out_of_scope
+  conflict_resolution: external_conflict_resolver_required
+behavior_separation:
+  represent_principle: implemented_by_symbolic_constructors
+  validate_principle: structural_validation_only
+  verify_application_conditions: presence_and_structure_only
+  evaluate_conformity: not_provided_without_source_evaluator
+  apply_consequence: not_provided
+  resolve_conflict: not_provided
+out_of_scope: [scientific_truth_evaluation, numeric_solving, metric_computation, priority_inference, exception_inference, consequence_inference, conflict_resolution, C++, Python_bindings, reference_implementation]
