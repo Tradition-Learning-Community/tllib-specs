@@ -22,14 +22,14 @@ conditions_of_application:
   - descriptor applies only to the isolated Principles source role
 ordered_steps:
   - validate role label
-  - validate source ordinal
-  - validate source reference and unresolved attachment
+  - validate source ordinal and line-82 source position
+  - validate unresolved attachment
   - preserve opaque role payload
   - construct Principles descriptor
   - validate postcondition
 branching:
   - {condition: label is not Principles, result: WRONG_DIMENSION_LABEL}
-  - {condition: ordinal is not 2, result: WRONG_SOURCE_ORDINAL}
+  - {condition: ordinal is not 2 or source reference is not line 82, result: WRONG_SOURCE_ORDINAL}
   - {condition: TLC-UT-THEOREMS-006 is absent, result: MISSING_PRINCIPLES_UNRESOLVED}
   - {condition: all validations pass, result: return principles_descriptor}
 dependencies: [DEP-THEOREMS-HUIT-001, DEP-THEOREMS-PRINCIPLE-001, RESULT-THEOREMS-003, PROOF-THEOREMS-003]
@@ -52,11 +52,10 @@ pseudocode: |
   function construct_principles_role_descriptor(principles_role, source_ordinal):
       if label(principles_role) != "Principles":
           raise WRONG_DIMENSION_LABEL
-      if source_ordinal != 2:
+      if source_ordinal != 2 or source_reference(principles_role) != "maths/06-theorems.md:82":
           raise WRONG_SOURCE_ORDINAL
       if unresolved_ids(principles_role) does not contain "TLC-UT-THEOREMS-006":
           raise MISSING_PRINCIPLES_UNRESOLVED
-      require source_reference(principles_role) == "maths/06-theorems.md:82"
       result = PrinciplesRoleDescriptor(
           label = "Principles",
           source_ordinal = 2,
