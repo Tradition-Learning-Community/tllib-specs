@@ -1,0 +1,50 @@
+---
+schema_version: 1
+algorithm_id: TLC-ALG-13-PRACTICE-003
+feature_id: TLC-FC-13-PRACTICE-003
+status: selected_for_practice_implementation_specification
+ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-003/ir.yaml
+signature: construct_practice_dynamics_candidate(request, opaque_inputs[4]) -> PracticeStructuralResult | PracticeError
+inputs:
+- request: PracticeStructuralRequest
+- opaque_inputs: four OpaqueCandidateScientificInput values keyed by source input id
+outputs: [PracticeFeatureRepresentation, externally supplied opaque results]
+validations:
+- exact feature identity
+- all four required source input ids are present
+- source object list and provenance match the finalized IR
+preconditions: [all cited inputs are supplied under candidate status]
+prerequisites: []
+conditions_of_application: [structural operation only]
+ordered_steps_declared: false
+branches:
+- {condition: structural operation requested, action: perform the selected structural operation}
+- {condition: scientific execution requested, action: return external_executor_required}
+- {condition: scientific evaluation requested, action: return external_evaluator_required}
+repetitions: []
+transitions: []
+stop_conditions: []
+effects: []
+errors: [invalid_feature_identity, missing_required_input, invalid_input_type, missing_source_reference, provenance_mismatch, structural_error, external_executor_required, external_evaluator_required, implementation_out_of_scope]
+postconditions: [all four source objects and opaque values remain traceable]
+invariants: [no differential equation is numerically evaluated, no textual repetition becomes a loop, documentary order is preserved]
+determinism: {structural_operations: deterministic, scientific_result: unspecified}
+edge_cases: [missing one of four inputs is an error, duplicate input id is an error, changed object order fails provenance validation, unknown operation is out of scope]
+dependencies: {execution: external_executor_required, evaluation: external_evaluator_required}
+unresolved_preserved: []
+pseudocode: |
+  REQUIRE request.feature_id == "TLC-FC-13-PRACTICE-003"
+  REQUIRE exact required input ids 003-1 through 003-4 are present as opaque values
+  representation := immutable representation with canonical contract and source IR references
+  representation.covered_objects := [070, 077, 084, 092] in source documentary order
+  representation.opaque_inputs := inputs without interpretation
+  IF request is structural THEN
+      PERFORM construct, validate, serialize, deserialize, compare or inspect_trace
+      RETURN representation
+  ELSE IF request is scientific_execute THEN
+      RETURN error external_executor_required
+  ELSE IF request is scientific_evaluate THEN
+      RETURN error external_evaluator_required
+  ELSE
+      RETURN error implementation_out_of_scope
+  END IF
