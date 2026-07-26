@@ -7,11 +7,17 @@ resolved:
     description: Message domain lacked an observable pull-request workflow run on its final branch head.
     resolution: The integrated global workflow validated Message artifact parity and the complete 166-feature tree.
     evidence: github_actions_run_30217758860
+  - id: GLOBAL-DECISION-SCIENTIFIC-REVIEW-ENGINEERING-DISPOSITION
+    classification: engineering_governance_closed_without_scientific_adjudication
+    description: The 147 recorded scientific review questions remain scientifically unresolved and preserved.
+    resolution: Apply the non-blocking conservative engineering disposition without marking any scientific decision approved or complete.
+    evidence: registry/scientific-review/engineering-disposition.yaml
 non_blocking:
   - id: GLOBAL-DECISION-SCIENTIFIC-EXECUTION
-    classification: deferred_to_scientific_review
+    classification: unresolved_preserved_non_blocking_for_structural_engineering
     description: Domain-specific unresolved equations, evaluators, proofs, thresholds, transitions and relation semantics remain preserved.
-    resolution: do not resolve during structural implementation.
+    resolution: Do not resolve during structural engineering; block only feature-scoped scientific execution that requires the missing semantics.
+    policy_ref: registry/scientific-review/engineering-disposition.yaml
   - id: GLOBAL-DECISION-CYCLE-001
     classification: preserved_as_opaque
     description: TLC-GCYCLE-DOMAIN-001 remains documented without an invented global execution order.
