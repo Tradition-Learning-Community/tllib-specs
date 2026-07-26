@@ -1,0 +1,65 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-003
+status: selected_for_capacities_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-003/contract.yaml
+source_ir: registry/ir/TLC-FC-11-CAPACITIES-003/ir.yaml
+source_ir_status: prototype_ir_with_reservations
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-003/test-plan.yaml
+nature: structural
+artifact_kind: CapacityConstraintBundle
+capacity_or_reference:
+  representation: ordered opaque constraint bundle
+  object_ids: [TLC-SO-CAPACITIES-003, TLC-SO-CAPACITIES-030, TLC-SO-CAPACITIES-050]
+identity: {feature_id: exact, object_ids: exact, preservation: mandatory}
+scope: {kind: descriptive_scope, value: essential properties, mastery progression and latence objects only}
+context:
+  source_file: maths/11-capacities.md
+  source_sections: [Propriétés essentielles, Dynamique temporelle et développementale]
+inputs:
+  - {name: capacity_feature_id, type: FeatureId, expected: TLC-FC-11-CAPACITIES-003}
+  - {name: ordered_scientific_objects, type: 'List<OpaqueScientificObject>', required_order: [TLC-SO-CAPACITIES-003, TLC-SO-CAPACITIES-030, TLC-SO-CAPACITIES-050]}
+  - {name: symbol_table, type: 'Map<ObjectId,List<UnevaluatedSymbol>>'}
+  - {name: provenance, type: 'Map<ObjectId,SourceReference>'}
+  - {name: decision_blocker, type: DecisionBlocker, expected: scientific decision required}
+outputs: [{name: artifact, type: CapacityConstraintBundle}]
+types: [FeatureId, ObjectId, OpaqueScientificObject, OpaqueScientificValue, UnevaluatedSymbol, UnevaluatedExpression, SourceReference, DecisionBlocker, CapacityConstraintBundle]
+opaque_values: {policy: preserve without semantic inspection, sources: [ordered_scientific_objects, symbol_table]}
+preconditions: [exact feature id, exact object order, complete symbol table, complete provenance, exact blocker, structural request only]
+conditions_of_application: [bundle construction without scientific execution]
+relations_explicitly_defined: []
+manifestations_explicitly_defined: []
+operations: [validate_targeted_capacity_inputs, assemble_latence_mastery_constraint_bundle, attach_non_evaluation_guard, expose_symbolic_queries]
+execution_order: [validate_targeted_capacity_inputs, assemble_latence_mastery_constraint_bundle, attach_non_evaluation_guard, expose_symbolic_queries]
+control_flow:
+  invalid_input: raise structured validation error
+  evaluation_request: raise ScientificEvaluationRequested
+  valid_input: return immutable ordered bundle
+activation: {declared: true, representation_only: true, executable: false, source_object_ids: [TLC-SO-CAPACITIES-003]}
+mobilization: {declared: false}
+development: {declared: true, representation_only: true, executable: false, source_object_ids: [TLC-SO-CAPACITIES-030]}
+comparison: {declared: false, structural_identity_comparison_only: true}
+effects: {scientific_state_change: false, output_construction: true}
+postconditions:
+  - bundle has three typed members in contract order
+  - symbol index is grouped by object id
+  - blocker, provenance and opaque payload identities are preserved
+  - no mastery progression or latence value is evaluated
+invariants: [exact object set and order, source statements opaque, blocker propagated]
+errors: [UnknownFeatureId, MissingCoveredObject, UnexpectedCoveredObject, ObjectOrderMismatch, MissingSymbolTableEntry, MissingSourceReference, MissingDecisionBlocker, ScientificEvaluationRequested]
+determinism: {status: deterministic, basis: identical structural inputs}
+dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities.md]}
+unresolved_propagated: [scientific decision required]
+reservations: [feature separation and scientific execution remain unresolved]
+transformations_applied: [normalized bundle envelope, normalized traceability, explicit non-evaluation guard]
+obligations_of_preservation: [public identity, three-member order, symbols, provenance, blocker]
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-003/algorithm.yaml
+oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-003/oracle.yaml
+implementation_fitness: {status: ready_for_structural_implementation, scientific_evaluator_ready: false}
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+capacity_invented: false
+measurement_invented: false
+ordering_invented: false
+legacy_feature_promoted: false
