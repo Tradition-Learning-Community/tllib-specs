@@ -1,0 +1,46 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-012
+algorithm_id: TLC-ALG-TLC-FC-12-COMPETENCIES-012
+finalized_ir: registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-012/ir.yaml
+signature: 'build_operator_descriptor_012(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>, RequestMode) -> Result<CompetenciesCanonicalDescriptor,CompetenciesError>'
+inputs: [competencies_feature_id, object_payloads, provenance, request_mode]
+outputs: [immutable CompetenciesCanonicalDescriptor]
+validations: [structural request mode, exact feature id, exact object 007, no duplicate or extra, complete provenance]
+preconditions: [finalized IR types satisfied]
+prerequisites: []
+conditions_of_application: [structural representation only]
+ordered_steps: [validate request mode, validate feature identity, validate exact object set, validate provenance, copy opaque object identity and descriptive scope, attach traceability reservations unresolved, mark structurally_valid, return]
+branches:
+- {condition: technical operation execution practice acquisition refinement mastery or performance requested, result: ScientificEvaluationRequested}
+- {condition: invalid structural input, result: corresponding_structured_error}
+- {condition: valid structural input, result: return_descriptor}
+competency_construction: {operation: construct_operator_reference_descriptor, scientific_interpretation: false}
+identity_validation: exact_feature_and_object_identity
+scope_validation: scientific_operator_descriptor_with_descriptive_technical_scope
+context_validation: source_context_preserved_as_opaque
+relation_processing: none
+mobilization: preserve_opaque_technical_use_description_only
+exercise: preserve_opaque_repetition_description_only
+acquisition: preserve_opaque_acquisition_statement_only
+development: preserve_opaque_refinement_statement_only
+mastery: preserve_opaque_mastery_description_only
+evaluation: external_evaluator_required
+comparison: external_comparator_required
+effects: []
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, UnexpectedCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+postconditions: [object 007 and descriptive scope preserved, no callable scientific operator or competency result produced]
+invariants: [source Function type remains opaque, description not converted to runtime enum or procedure, structural validity not scientific validity]
+determinism: deterministic_for_identical_structural_inputs
+edge_cases: [missing object, extra object, absent provenance, request to execute a procedure, request to assess mastery]
+dependencies: {internal: [competencies_feature_profile, structural_validation_pipeline], external: []}
+unresolved_preserved: [scientific_unresolved, validated_executable_contract_absent]
+pseudocode: |-
+  function build_operator_descriptor_012(feature_id, object_payloads, provenance, request_mode):
+      if request_mode != structural_descriptor_only: return error ScientificEvaluationRequested
+      if feature_id != TLC-FC-12-COMPETENCIES-012: return error UnknownFeatureId
+      required = [TLC-SO-COMPETENCIES-007]
+      validate_exact_object_set(object_payloads, required)
+      validate_provenance(provenance, required)
+      descriptor = construct_immutable_descriptor(profile(TLC-FC-12-COMPETENCIES-012), copy_opaque_identities(object_payloads, required), copy(provenance for required), copy(source_reservations), copy(source_unresolved))
+      descriptor.structural_status = structurally_valid
+      return descriptor
