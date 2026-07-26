@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006
+operation: bind_symbolic_equation_definitions
+source_test_plan: ir/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006/test-plan.yaml
+finalized_ir: registry/optimized-ir/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006/ir.yaml
+algorithm: registry/algorithms/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006/algorithm.yaml
+oracle_kind: structural_acceptance_oracle
+fixture_policy: symbolic_opaque_equation_tokens_only_no_scientific_values
+tests:
+- {id: HD-006-NOMINAL, category: nominal, assertion: set contains exactly the two named equation definitions}
+- {id: HD-006-MISSING, category: precondition_error, mutation: remove principle_message_equation, expected_error: FAIL-HUIT-006-MISSING-TRACE}
+- {id: HD-006-ALIAS, category: identity_error, mutation: assign both definitions the same source id, expected_error: FAIL-HUIT-006-OPERATION}
+- {id: HD-006-TYPES, category: types, assertion: limit and argmin equation types remain distinct}
+- {id: HD-006-CARDINALITY, category: cardinality, assertion: definition count equals two}
+- {id: HD-006-OPAQUE, category: opaque_propagation, assertion: expressions and operator tokens round-trip unchanged}
+- {id: HD-006-UNRESOLVED, category: unresolved_propagation, assertion: exact eight unresolved ids remain unresolved}
+- {id: HD-006-DETERMINISM, category: determinism, assertion: identical inputs produce identical equation sets}
+- {id: HD-006-METAMORPHIC, category: metamorphic, transformation: exchange input argument transport order while preserving roles, assertion: named definitions remain unchanged}
+- {id: HD-006-NO-EVAL, category: scientific_boundary, mutation: request limit distance or argmin evaluation, expected_error: FAIL-HUIT-006-OPERATION}
+- {id: HD-006-NO-SIMPLIFY, category: conservation, assertion: no expression simplification or equivalence claim appears}
+- {id: HD-006-CONFORMANCE, category: contract_ir_algorithm_conformance, assertion: roles result errors and propagated sets agree}
+numeric_expected_results: []
+acceptance: all_tests_pass
