@@ -1,0 +1,41 @@
+schema_version: '1.0'
+feature_id: TLC-FC-02-COMMUNITY-007
+domain: community
+status: selected_for_community_implementation_specification
+selection_scope: community_module_software_specification_only
+source_contract_ref: registry/math-contracts/TLC-FC-02-COMMUNITY-007/contract.yaml
+source_ir_registry_ref: registry/ir/TLC-FC-02-COMMUNITY-007/ir.yaml
+source_ir_ref: ir/TLC-FC-02-COMMUNITY-007/ir.candidate.json
+source_test_plan_ref: registry/test-plans/TLC-FC-02-COMMUNITY-007/test-plan.yaml
+source_ir_raw_status: active_candidate_not_canonical
+source_ir_kind: functional
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+inputs: [{name: request, type: CommunitySpecificationRequest, scientific_payload: opaque}]
+outputs: [{name: result, type: CommunitySpecificationResult, scientific_result: false}]
+types: {shared_ref: registry/domain-finalization/community/module-specification.yaml#software_types, scientific_types_added: []}
+source_objects: [TLC-SO-COMMUNITY-017, TLC-SO-COMMUNITY-031]
+opaque_values:
+- {opaque_id: COMMUNITY-007-INPUTS, reason: metric_inputs_not_specified}
+- {opaque_id: COMMUNITY-007-OUTPUTS, reason: metric_outputs_not_specified}
+- {opaque_id: COMMUNITY-007-METRIC, reason: metric_evaluation_semantics_not_defined_in_contract_or_ir}
+preconditions: [matching_feature_id, preserved_source_artifacts_exist, opaque_scientific_payload_only]
+operations: [validate_feature_identity, validate_source_artifact_traceability, preserve_source_object_references, preserve_exact_unresolved_set, reject_unsupported_scientific_execution, emit_traceable_structural_result]
+order_of_execution: [validate_feature_identity, validate_source_artifact_traceability, preserve_source_object_references, preserve_exact_unresolved_set, reject_unsupported_scientific_execution, emit_traceable_structural_result]
+control_flow: {describe_or_validate: return_structural_result_after_checks, request_scientific_execution: return_COMMUNITY_ERR_UNSUPPORTED_EXECUTION_REQUEST}
+states: [received, identity_validated, sources_validated, preservation_validated, completed, rejected]
+effects: {scientific_state: none, source_artifacts: read_only, returned_metadata: deterministic}
+postconditions: [two_source_objects_preserved_in_order, all_29_unresolved_preserved, no_metric_evaluated]
+invariants: [source_contract_unchanged, source_ir_unchanged, opaque_metric_semantics_uninterpreted]
+errors: [COMMUNITY_ERR_FEATURE_ID_MISMATCH, COMMUNITY_ERR_SOURCE_ARTIFACT_MISSING, COMMUNITY_ERR_TRACEABILITY_INCOMPLETE, COMMUNITY_ERR_UNRESOLVED_NOT_PRESERVED, COMMUNITY_ERR_OPAQUE_VALUE_INTERPRETATION, COMMUNITY_ERR_UNRESOLVED_SCIENTIFIC_SEMANTICS, COMMUNITY_ERR_UNSUPPORTED_EXECUTION_REQUEST]
+determinism: {structural_validation: deterministic, serialization: deterministic, scientific_evaluation: not_defined}
+dependencies: {internal: [], external: [], advisory: []}
+unresolved_propagated: {set_ref: registry/domain-finalization/community/manifest.yaml#unresolved_authoritative, count: 29, preservation: exact}
+reservations: [metric_inputs_not_specified, metric_outputs_not_specified, metric_evaluation_not_defined]
+transformations_applied: [normalized_shared_structural_envelope, normalized_errors, deterministic_traceability_ordering]
+obligations_of_preservation: [do_not_choose_metric_formula_or_threshold, do_not_evaluate_source_metrics, do_not_modify_or_replace_source_ir]
+algorithm_ref: registry/algorithms/community/TLC-FC-02-COMMUNITY-007/algorithm.yaml
+oracle_ref: registry/oracles/community/TLC-FC-02-COMMUNITY-007/oracle.yaml
+implementation_fitness: {implementation_specification_ready: true, ready_scope: structural_validation_traceability_and_error_semantics, scientific_execution_ready: false, code_generation_ready: false}

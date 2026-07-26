@@ -1,0 +1,180 @@
+schema_version: '1.0'
+module_id: TLC-MODULE-COMMUNITY
+module_name: Community
+domain: community
+status: selected_for_community_implementation_specification
+scope:
+  included: structural representation, artifact validation, traceability, exact reservation propagation, opaque-value transport, deterministic serialization and structured rejection of unsupported scientific execution
+  excluded: scientific completion, numerical evaluation, stochastic simulation, reference implementation, C++ production code, Python bindings and modifications to source science
+active_features:
+- TLC-FC-02-COMMUNITY-001
+- TLC-FC-02-COMMUNITY-003
+- TLC-FC-02-COMMUNITY-004
+- TLC-FC-02-COMMUNITY-005
+- TLC-FC-02-COMMUNITY-006
+- TLC-FC-02-COMMUNITY-007
+- TLC-FC-02-COMMUNITY-008
+- TLC-FC-02-COMMUNITY-009
+public_operations:
+- operation_id: community.describe_feature_specification
+  input: CommunitySpecificationRequest
+  output: CommunitySpecificationResult
+  behavior: Return the selected implementation specification envelope for an authoritative Community feature without evaluating scientific semantics.
+- operation_id: community.validate_feature_specification
+  input: CommunitySpecificationRequest
+  output: CommunitySpecificationResult
+  behavior: Validate identity, source traceability, source-object references, dependency classification, unresolved preservation and opaque-value non-interpretation.
+- operation_id: community.request_scientific_execution
+  input: CommunityExecutionRequest
+  output: CommunityError
+  behavior: Return COMMUNITY_ERR_UNSUPPORTED_EXECUTION_REQUEST while required semantics remain unresolved; TLC-FC-02-COMMUNITY-006 additionally reports the preserved local scientific blocker.
+internal_operations:
+- resolve_authoritative_feature_id
+- load_preserved_source_references
+- validate_source_artifact_presence
+- preserve_source_object_order
+- validate_exact_unresolved_set
+- validate_opaque_value_boundary
+- classify_dependency_without_promotion
+- build_deterministic_traceability_record
+- emit_structured_error
+software_types:
+- type_id: CommunityFeatureId
+  kind: closed_enumeration
+  values_ref: registry/domain-finalization/community/manifest.yaml#authoritative_population.feature_ids
+  scientific_type: false
+- type_id: SourceArtifactReference
+  kind: record
+  fields: [path, role, preserved]
+  scientific_type: false
+- type_id: SourceObjectReference
+  kind: opaque_identifier
+  interpretation: forbidden
+  scientific_type: false
+- type_id: UnresolvedReference
+  kind: opaque_identifier
+  authoritative_set_ref: registry/domain-finalization/community/manifest.yaml#unresolved_authoritative
+  scientific_type: false
+- type_id: OpaqueScientificValue
+  kind: transport_record
+  fields: [value_handle, source_reference, unresolved_references]
+  interpretation: forbidden
+  scientific_type: false
+- type_id: DependencyReference
+  kind: record
+  fields: [dependency_id, kind, executable, target_domain]
+  allowed_kinds: [internal, symbol_only_documentary, advisory, execution]
+  scientific_type: false
+- type_id: CommunitySpecificationRequest
+  kind: record
+  required_fields: [feature_id, operation]
+  optional_fields: [opaque_values, supplied_source_references]
+  operation_values: [describe_feature_specification, validate_feature_specification, request_scientific_execution]
+  scientific_type: false
+- type_id: CommunityExecutionRequest
+  kind: record
+  required_fields: [feature_id]
+  optional_fields: [opaque_values]
+  scientific_type: false
+- type_id: CommunitySpecificationResult
+  kind: record
+  fields: [feature_id, status, source_artifacts, source_objects, dependencies, unresolved, opaque_values, traceability, deterministic_serialization]
+  scientific_result: false
+- type_id: CommunityError
+  kind: tagged_record
+  fields: [code, feature_id, stage, source_condition, unresolved, details]
+  scientific_type: false
+community_structures:
+- structure_id: CommunityFeatureSpecificationEnvelope
+  members: [feature_id, source_artifacts, source_objects, dependencies, unresolved, opaque_values, algorithm_ref, oracle_ref]
+  mutable: false
+- structure_id: CommunityTraceabilityRecord
+  members: [baseline_main_head, contract_ref, source_ir_ref, test_plan_ref, finalized_ir_ref, algorithm_ref, oracle_ref]
+  mutable: false
+shared_states:
+  lifecycle: [received, identity_validated, sources_validated, preservation_validated, dependency_validated, completed, rejected]
+  scientific_state_mutation: none
+opaque_types:
+- source_object_reference
+- unresolved_reference
+- unresolved_scientific_payload
+- source_defined_measure_or_operator
+- source_defined_state_or_result_without_contract_type
+common_errors:
+- code: COMMUNITY_ERR_UNKNOWN_FEATURE
+  trigger: feature_id is outside the authoritative population
+- code: COMMUNITY_ERR_FEATURE_ID_MISMATCH
+  trigger: identities differ across request and referenced artifacts
+- code: COMMUNITY_ERR_SOURCE_ARTIFACT_MISSING
+  trigger: a required preserved contract, source IR or test plan is absent
+- code: COMMUNITY_ERR_TRACEABILITY_INCOMPLETE
+  trigger: required traceability link is absent or inconsistent
+- code: COMMUNITY_ERR_UNRESOLVED_NOT_PRESERVED
+  trigger: the authoritative unresolved set is changed, omitted or marked resolved
+- code: COMMUNITY_ERR_OPAQUE_VALUE_INTERPRETATION
+  trigger: software attempts to infer or evaluate an opaque scientific value
+- code: COMMUNITY_ERR_DEPENDENCY_CLASSIFICATION
+  trigger: a symbol-only or advisory dependency is promoted to execution
+- code: COMMUNITY_ERR_UNRESOLVED_SCIENTIFIC_SEMANTICS
+  trigger: an operation requires source semantics that remain unresolved
+- code: COMMUNITY_ERR_UNSUPPORTED_EXECUTION_REQUEST
+  trigger: scientific execution is requested from a non-executable source contract or IR
+patterns_ref: registry/domain-finalization/community/patterns.yaml
+internal_dependencies: []
+external_dependencies:
+- dependency_id: TLC-COMMUNITY-MASTER-001
+  affected_feature: TLC-FC-02-COMMUNITY-008
+  target_domain: master
+  required_level: symbol_only
+  kind: symbol_only_documentary
+  executable: false
+- dependency_id: TLC-COMMUNITY-DISCIPLE-001
+  affected_feature: TLC-FC-02-COMMUNITY-008
+  target_domain: disciple
+  required_level: symbol_only
+  kind: symbol_only_documentary
+  executable: false
+advisory_dependencies:
+- dependency_id: TLC-DD-003
+  target_domain: relations
+  affected_features: []
+  kind: advisory
+  executable: false
+  promotion_forbidden: true
+composition_rules:
+- Every dispatch target must be one of the eight authoritative feature IDs.
+- Feature identity, source-object identity and unresolved identity are conserved across IR, algorithm and oracle.
+- Feature specifications may compose only through explicit module records; scientific payloads remain opaque.
+- TLC-FC-02-COMMUNITY-008 may carry Master and Disciple symbol references but may not invoke upstream executable behavior.
+- No ordering between distinct Community scientific features is asserted by this specification.
+execution_order:
+  required_for_each_request: [resolve_authoritative_feature_id, validate_source_artifact_presence, preserve_source_object_order, validate_exact_unresolved_set, validate_opaque_value_boundary, classify_dependency_without_promotion, build_deterministic_traceability_record]
+  cross_feature_order: not_specified
+rules_of_determinism:
+- Same request metadata and same preserved source artifacts produce byte-equivalent normalized structural results.
+- Source-object arrays retain source-contract order.
+- Feature IDs and unresolved IDs use the authoritative lexical order in the manifest.
+- Map serialization uses stable key ordering.
+unresolved:
+  set_ref: registry/domain-finalization/community/manifest.yaml#unresolved_authoritative
+  count: 29
+  policy: exact_propagation_no_resolution
+interfaces_for_library:
+- namespace: community
+  interface: CommunitySpecificationRegistry
+  operations: [describe_feature_specification, validate_feature_specification]
+- namespace: community
+  interface: CommunityExecutionGate
+  operations: [request_scientific_execution]
+  current_behavior: structured_rejection
+- namespace: community
+  interface: CommunityErrorModel
+  operations: [format_error, inspect_unresolved]
+out_of_scope:
+- defining missing mathematical domains, codomains, dimensions or units
+- choosing numerical or stochastic methods
+- evaluating equations, invariants, metrics, dynamics, operators or relations
+- resolving local scientific blockers
+- modifying Master, Disciple or Relations
+- generating production code or bindings
+future_tasks_ref: registry/domain-finalization/community/implementation-tasks.yaml

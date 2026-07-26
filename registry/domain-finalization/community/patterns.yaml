@@ -1,0 +1,95 @@
+schema_version: '1.0'
+domain: community
+analysis_scope: cross_feature_ir_structure_without_scientific_reinterpretation
+distinctions:
+  resemblance: Similar domain vocabulary or source location; never sufficient for reuse.
+  textual_duplication: Repeated literal metadata such as the 29 unresolved identifiers.
+  structural_duplication: Repeated graph shape for identity, traceability, reservation and dependency validation.
+  demonstrated_equivalence: Same observable validation result, error behavior and preservation obligations for the shared envelope only.
+patterns:
+- pattern_id: COMMUNITY-PATTERN-001
+  name: preserved_source_envelope
+  classification: demonstrated_equivalence
+  applies_to: [TLC-FC-02-COMMUNITY-001, TLC-FC-02-COMMUNITY-003, TLC-FC-02-COMMUNITY-004, TLC-FC-02-COMMUNITY-005, TLC-FC-02-COMMUNITY-006, TLC-FC-02-COMMUNITY-007, TLC-FC-02-COMMUNITY-008, TLC-FC-02-COMMUNITY-009]
+  reusable_subgraph:
+  - validate_feature_identity
+  - validate_source_contract_reference
+  - validate_source_ir_reference
+  - validate_source_test_plan_reference
+  - preserve_ordered_source_object_references
+  - preserve_exact_unresolved_set
+  - emit_traceable_specification_result
+  observable_preservation: exact feature identity, source references, source-object identities, unresolved identities and structured errors
+  scientific_equivalence_claimed: false
+- pattern_id: COMMUNITY-PATTERN-002
+  name: unresolved_propagation
+  classification: textual_and_structural_duplication
+  applies_to: all_active_community_features
+  normalization: one authoritative unresolved set reference plus exact count and equality validation
+  source_ref: registry/domain-progress/community/unresolved-audit.yaml
+  silently_resolved: false
+- pattern_id: COMMUNITY-PATTERN-003
+  name: opaque_scientific_value_boundary
+  classification: structural_duplication
+  applies_to: all_active_community_features
+  rule: Software may carry and return opaque scientific values and references but may not interpret, synthesize, compare or numerically evaluate them without resolved source semantics.
+  failure_on_violation: COMMUNITY_ERR_OPAQUE_VALUE_INTERPRETATION
+- pattern_id: COMMUNITY-PATTERN-004
+  name: unsupported_scientific_execution
+  classification: demonstrated_equivalence
+  applies_to: all_active_community_features
+  source_failure_conditions: [unresolved_scientific_semantics, unsupported_execution_request]
+  normalized_error: COMMUNITY_ERR_UNSUPPORTED_EXECUTION_REQUEST
+  behavior: deterministic_structured_error_with_preserved_unresolved_context
+- pattern_id: COMMUNITY-PATTERN-005
+  name: symbol_only_upstream_dependency
+  classification: feature_specific_structural_pattern
+  applies_to: [TLC-FC-02-COMMUNITY-008]
+  dependencies: [TLC-COMMUNITY-MASTER-001, TLC-COMMUNITY-DISCIPLE-001]
+  required_level: symbol_only
+  executable: false
+  rule: No behavior, contract semantics or execution dependency is imported.
+- pattern_id: COMMUNITY-PATTERN-006
+  name: locally_blocked_structural_feature
+  classification: feature_specific_control_flow
+  applies_to: [TLC-FC-02-COMMUNITY-006]
+  behavior: structural description and validation remain available; scientific execution returns a blocking scientific-decision error.
+- pattern_id: COMMUNITY-PATTERN-007
+  name: historical_semantic_variant_preservation
+  classification: feature_specific_traceability
+  applies_to: [TLC-FC-02-COMMUNITY-001]
+  source_ref: ir/TLC-FC-02-COMMUNITY-001/ir-semantic.candidate.json
+  rule: Preserve as evidence and opaque graph detail; do not promote it, replace the current source IR or claim canonical scientific selection.
+optimizations_applied:
+- optimization_id: COMMUNITY-OPT-001
+  kind: common_software_types
+  change: Normalize feature IDs, source references, unresolved references, dependency references, opaque values, results and errors as module-level structural types.
+  semantic_effect: none
+- optimization_id: COMMUNITY-OPT-002
+  kind: shared_validation_subgraph
+  change: Reuse the demonstrated-equivalent envelope validation sequence.
+  semantic_effect: none
+- optimization_id: COMMUNITY-OPT-003
+  kind: normalized_errors
+  change: Map existing failure conditions to stable module error identifiers without changing triggering conditions.
+  semantic_effect: none
+- optimization_id: COMMUNITY-OPT-004
+  kind: deterministic_serialization
+  change: Preserve contract-declared source-object order and sort normalized metadata maps and unresolved identifiers lexically.
+  semantic_effect: none
+- optimization_id: COMMUNITY-OPT-005
+  kind: dependency_classification
+  change: Separate internal, symbol-only documentary, advisory and execution dependencies.
+  semantic_effect: prevents_documentary_to_execution_promotion
+- optimization_id: COMMUNITY-OPT-006
+  kind: testability
+  change: Expose validation stages and structured errors as observable checkpoints for oracles.
+  semantic_effect: none
+optimizations_not_applied:
+- merge_features
+- delete_source_ir
+- rewrite_contracts
+- infer_scientific_inputs_or_outputs
+- infer_equations_or_invariants
+- promote_advisory_dependencies
+- resolve_unresolved_items

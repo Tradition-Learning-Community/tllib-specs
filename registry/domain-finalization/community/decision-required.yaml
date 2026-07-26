@@ -1,0 +1,52 @@
+schema_version: '1.0'
+domain: community
+policy: A decision blocks this implementation package only when structural observable behavior cannot be specified. Scientific execution decisions remain preserved without blocking structural implementation.
+decisions:
+- decision_id: COMMUNITY-DECISION-001
+  feature_id: TLC-FC-02-COMMUNITY-006
+  classification: blocking
+  blocks: scientific_execution
+  does_not_block: [structural_representation, traceability_validation, unresolved_propagation, structured_error_behavior]
+  question: Resolve the cited local scientific blocker and define the invariant semantics before executable evaluation.
+  source_refs:
+  - registry/domain-progress/community/feature-catalogue.yaml
+  - registry/math-contracts/TLC-FC-02-COMMUNITY-006/contract.yaml
+  preservation: unresolved_propagated
+- decision_id: COMMUNITY-DECISION-002
+  feature_id: all_active_community_features
+  classification: deferred_to_scientific_review
+  blocks: scientific_execution
+  does_not_block: [implementation_of_specification_registry, validation, deterministic_serialization, error_model]
+  question: Resolve or formally bound the 29 Community domain reservations before enabling scientific computation.
+  unresolved_set_ref: registry/domain-finalization/community/manifest.yaml#unresolved_authoritative
+  preservation: exact
+- decision_id: COMMUNITY-DECISION-003
+  feature_id: TLC-FC-02-COMMUNITY-001
+  classification: preserved_as_opaque
+  blocks: scientific_evaluation_of_measure_coherence_and_result
+  does_not_block: [structural_graph_transport, source_traceability, structured_rejection]
+  question: Define the measure, measurable space, coherence function, exact comparator, actor domain and result semantics.
+  source_ref: ir/TLC-FC-02-COMMUNITY-001/ir-semantic.candidate.json
+- decision_id: COMMUNITY-DECISION-004
+  feature_id: TLC-FC-02-COMMUNITY-008
+  classification: non_blocking
+  blocks: []
+  does_not_block: [structural_implementation]
+  question: None for this phase; Master and Disciple references remain symbol-only and non-executable.
+  dependencies: [TLC-COMMUNITY-MASTER-001, TLC-COMMUNITY-DISCIPLE-001]
+- decision_id: COMMUNITY-DECISION-005
+  feature_id: null
+  classification: descriptive_scope
+  blocks: []
+  does_not_block: [all_community_finalization_artifacts]
+  question: The Relations-domain lexical resemblance TLC-DD-003 remains advisory and is not an execution dependency.
+real_blockers_remaining:
+- blocker_id: COMMUNITY-BLOCKER-SCIENTIFIC-EXECUTION-006
+  feature_id: TLC-FC-02-COMMUNITY-006
+  scope: scientific_execution_only
+  severity: blocking_for_scientific_execution
+- blocker_id: COMMUNITY-BLOCKER-DOMAIN-UNRESOLVED
+  feature_id: all_active_community_features
+  scope: scientific_execution_only
+  severity: blocking_for_scientific_execution
+implementation_package_blockers: []
