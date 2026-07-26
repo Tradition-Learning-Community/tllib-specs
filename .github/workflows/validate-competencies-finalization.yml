@@ -20,19 +20,21 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
+          show-progress: false
 
       - name: Install validator dependency
-        run: python -m pip install --disable-pip-version-check pyyaml
+        run: python3 -m pip install --quiet --disable-pip-version-check pyyaml
 
       - name: Run Competencies finalization validator
         env:
           COMPETENCIES_ALLOW_TEMPORARY_VALIDATION_FILES: '1'
-        run: python tools/domain-finalization/validate_competencies_finalization.py
+        shell: bash
+        run: |
+          set +e
+          output="$(python3 tools/domain-finalization/validate_competencies_finalization.py 2>&1)"
+          status=$?
+          printf '%s\n' "$output"
+          exit "$status"
 
       - name: Check whitespace errors
         run: git diff --check c34d40713bf444d38f92f76e1c6239ee596d5a18..HEAD
