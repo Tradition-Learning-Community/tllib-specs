@@ -1,0 +1,76 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-009
+oracle_id: TLC-ORACLE-INVARIANTS-009-FINAL-001
+status: selected_for_invariants_implementation_specification
+source_test_plan_ref: ir/TLC-FC-04-INVARIANTS-009/test-plan.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-009/contract.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-009/ir.prototype.json
+optimized_ir_ref: registry/optimized-ir/invariants/TLC-FC-04-INVARIANTS-009/ir.yaml
+algorithm_ref: registry/algorithms/invariants/TLC-FC-04-INVARIANTS-009/algorithm.yaml
+operation_under_test: construct_cohesion_interval_constraint
+oracle_kind: symbolic_ast_and_unresolved_oracle
+exact_scientific_values_required: false
+authoritative_expectations:
+- exactly three immutable source-template roots occur in order
+- three opaque symbols and TLC-UT-INVARIANTS-009 are preserved exactly
+- no comparator, ordering, bound, metric, score, transition, or evaluator runs
+tests:
+- id: INV009-ACCEPT-NOMINAL
+  category: nominal
+  given: valid opaque relational, lower-bound, and upper-bound symbol IDs with source evidence and TLC-UT-INVARIANTS-009
+  then: an immutable SymbolicCohesionIntervalConstraint with exactly three roots is returned
+- id: INV009-ACCEPT-SHAPE
+  category: ast_shape
+  then_roots_in_order:
+  - member(relational_invariant_symbol, closed_interval(lower_bound_symbol, upper_bound_symbol))
+  - implies(below(relational_invariant_symbol, lower_bound_symbol), annotation(community_fragmentation_into_isolated_subgroups))
+  - implies(above(relational_invariant_symbol, upper_bound_symbol), annotation(community_overcentralized_and_rigid))
+- id: INV009-ACCEPT-MISSING-SYMBOL
+  category: precondition_error
+  given: any one symbol field is absent or empty
+  then_error: MissingIntervalSymbol
+- id: INV009-ACCEPT-MISSING-EVIDENCE
+  category: precondition_error
+  given: source object or relation evidence is absent
+  then_error: MissingCohesionEvidence
+- id: INV009-ACCEPT-MISSING-UNRESOLVED
+  category: unresolved_propagation
+  given: TLC-UT-INVARIANTS-009 is absent, changed, or duplicated
+  then_error: MissingCohesionReservation
+- id: INV009-ACCEPT-OPAQUE
+  category: opaque_value_propagation
+  given: symbols with no runtime values or comparator
+  then:
+  - construction succeeds
+  - all identifiers remain exact
+  - no dereference or comparison occurs
+- id: INV009-ACCEPT-EQUAL-BOUND-IDS
+  category: structural_edge_case
+  given: lower_bound_symbol and upper_bound_symbol have identical opaque text
+  then:
+  - AST construction succeeds unchanged
+  - no interval-validity decision is made
+- id: INV009-ACCEPT-NO-EVALUATION
+  category: forbidden_evaluation
+  then:
+  - every node reports evaluated false
+  - no membership truth, comparison, metric, score, transition, or cohesion result exists
+- id: INV009-ACCEPT-DETERMINISM
+  category: determinism
+  given: identical symbols, evidence, unresolved, and metadata twice
+  then: ASTs and provenance are structurally equal
+- id: INV009-ACCEPT-STATUS
+  category: status_preservation
+  given: rejected_as_feature source metadata
+  then: metadata is retained while the active baseline feature remains selected by finalization
+- id: INV009-ACCEPT-CONFORMANCE
+  category: traceability
+  then: fields, templates, unresolved, status, errors, postconditions, and readiness agree across linked artifacts
+properties:
+- root count equals three
+- root order and node shape are exact
+- TLC-UT-INVARIANTS-009 is neither resolved nor replaced
+- no input mutation
+- construction is deterministic and side-effect free
+numeric_expected_results: []
+acceptance_status: ready_for_test_implementation
