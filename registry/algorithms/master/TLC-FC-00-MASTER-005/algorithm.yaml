@@ -1,0 +1,17 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-00-MASTER-005
+feature_id: TLC-FC-00-MASTER-005
+status: selected_for_master_implementation_specification
+finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-005/ir.yaml
+signature: describe_master_seven_tuple(reference_bundle) -> MasterDescriptor
+inputs: {reference_bundle: ScientificReferenceBundle}
+outputs: {result: MasterDescriptor}
+validations: [feature_id is exact, object refs equal [TLC-SO-MASTER-008], relation refs equal the five source relations, unresolved list is empty]
+steps: [validate exact sets, construct immutable provenance, emit declaration descriptor, keep component runtime details opaque, verify non-invention, return]
+branches: [{condition: calculation or concrete layout requested, action: return MASTER_UNSUPPORTED_EXECUTION_MODE}, {condition: validation failure, action: return matching common error}]
+errors: [MASTER_INVALID_FEATURE_ID, MASTER_REFERENCE_SET_MISMATCH, MASTER_PRESERVATION_VIOLATION, MASTER_UNSUPPORTED_EXECUTION_MODE]
+invariants: [five relations remain distinct and ordered, no component representation is invented]
+determinism: deterministic for identical input
+effects: none
+edge_cases: [missing component values do not block descriptor emission]
+necessary_dependencies: []
