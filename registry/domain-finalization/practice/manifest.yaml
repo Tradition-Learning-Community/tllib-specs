@@ -1,0 +1,63 @@
+---
+schema_version: 1
+finalization_id: practice-domain-finalization-001
+domain: practice
+status: ready_for_implementation_package
+selection_status: selected_for_practice_implementation_specification
+base_branch: main
+base_head: c34d40713bf444d38f92f76e1c6239ee596d5a18
+baseline_ref: registry/global-reconciliation/current-baseline.yaml
+authoritative_population_source: registry/global-reconciliation/domain-feature-matrix.yaml
+feature_count: 10
+features:
+- TLC-FC-13-PRACTICE-001
+- TLC-FC-13-PRACTICE-003
+- TLC-FC-13-PRACTICE-004
+- TLC-FC-13-PRACTICE-005
+- TLC-FC-13-PRACTICE-006
+- TLC-FC-13-PRACTICE-007
+- TLC-FC-13-PRACTICE-008
+- TLC-FC-13-PRACTICE-009
+- TLC-FC-13-PRACTICE-010
+- TLC-FC-13-PRACTICE-012
+source_status_counts:
+  declarative_non_executable_with_reservations: 5
+  blocked_declarative_non_executable: 5
+artifacts_per_feature:
+- registry/optimized-ir/practice/<FEATURE_ID>/ir.yaml
+- registry/algorithms/practice/<FEATURE_ID>/algorithm.yaml
+- registry/oracles/practice/<FEATURE_ID>/oracle.yaml
+module_artifacts:
+- registry/domain-finalization/practice/feature-status.yaml
+- registry/domain-finalization/practice/patterns.yaml
+- registry/domain-finalization/practice/module-specification.yaml
+- registry/domain-finalization/practice/implementation-tasks.yaml
+- registry/domain-finalization/practice/decision-required.yaml
+report_ref: reports/domain-finalization/practice/finalization-report.md
+validator_ref: tools/domain-finalization/validate_practice_finalization.py
+preservation:
+  source_contracts_preserved: true
+  source_irs_preserved: true
+  source_test_plans_preserved: true
+  maths_preserved: true
+  global_registry_preserved: true
+  other_domains_preserved: true
+  rejected_features: []
+  declarative_irs_rejected_for_non_executability: []
+  scientific_decisions_made: []
+  practices_invented: []
+  steps_invented: []
+  sequences_invented: []
+  durations_invented: []
+  frequencies_invented: []
+  progressions_invented: []
+  effects_invented: []
+readiness:
+  structural_representation: ready_for_implementation
+  structural_validation: ready_for_implementation
+  serialization_and_round_trip: ready_for_implementation
+  scientific_execution: external_executor_required
+  scientific_evaluation: deferred_where_declared
+  cpp_code_produced: false
+  python_bindings_produced: false
+  reference_implementation_produced: false
