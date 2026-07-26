@@ -1,0 +1,69 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-003
+oracle_id: TLC-ORACLE-INVARIANTS-003-FINAL-001
+status: selected_for_invariants_implementation_specification
+source_test_plan_ref: ir/TLC-FC-04-INVARIANTS-003/test-plan.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-003/contract.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-003/ir.prototype.json
+optimized_ir_ref: registry/optimized-ir/invariants/TLC-FC-04-INVARIANTS-003/ir.yaml
+algorithm_ref: registry/algorithms/invariants/TLC-FC-04-INVARIANTS-003/algorithm.yaml
+operation_under_test: build_invariant_declaration_catalog
+oracle_kind: structural_graph_oracle
+exact_scientific_values_required: false
+authoritative_expectations:
+- declaration IDs, object types, source scopes, and linked evidence relations are preserved exactly
+- catalogue status remains deferred_for_scientific_decision
+- equation bodies and truth conditions are not evaluated
+tests:
+- id: INV003-ACCEPT-NOMINAL
+  category: nominal
+  given: all covered declaration evidence and linked source relations
+  then:
+  - output declaration identity set equals source evidence identity set
+  - output relation identity and endpoint tuples equal source relation tuples
+  - object types and source scopes are unchanged
+- id: INV003-ACCEPT-UNKNOWN-DECLARATION
+  category: precondition_error
+  given: an uncovered declaration ID
+  then_error: UnknownDeclarationId
+- id: INV003-ACCEPT-DANGLING-RELATION
+  category: graph_error
+  given: a covered relation whose endpoint evidence is absent
+  then_error: DanglingEvidenceRelation
+- id: INV003-ACCEPT-SCOPE
+  category: type_and_scope
+  given: a declaration without its source scope or object type
+  then_error: MissingSourceReference
+- id: INV003-ACCEPT-OPAQUE
+  category: opaque_value_propagation
+  given: declaration evidence with uninterpretable equation body and truth conditions
+  then:
+  - output opaque values equal input exactly
+  - no truth result or evaluated equation node exists
+- id: INV003-ACCEPT-DETERMINISM
+  category: determinism
+  given: the same validated evidence graph twice
+  then: catalogues are structurally equal
+- id: INV003-ACCEPT-RESERVATIONS
+  category: reservation_propagation
+  given: deferred source status and TLC-EA-INVARIANTS-003-001
+  then: exact values are retained without resolution
+- id: INV003-ACCEPT-NO-INFERRED-RELATIONS
+  category: property
+  given: a valid evidence graph
+  then: output contains no relation absent from source evidence
+- id: INV003-ACCEPT-NO-SCIENCE
+  category: forbidden_evaluation
+  given: a request to decide whether a declaration holds
+  then_error: ScientificEvaluationProhibited
+- id: INV003-ACCEPT-CONFORMANCE
+  category: traceability
+  then: source traceability, callable, types, preconditions, errors, and postconditions agree across all linked artifacts
+properties:
+- declaration graph is identity preserving
+- output relation graph is a structural copy, not a closure
+- exact opaque and provenance preservation
+- no input mutation
+- no unresolved identifier introduced or removed
+numeric_expected_results: []
+acceptance_status: ready_for_test_implementation
