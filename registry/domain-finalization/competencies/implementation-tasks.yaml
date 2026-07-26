@@ -1,0 +1,100 @@
+schema_version: 1
+domain_id: competencies
+status: ready_for_future_developer_assignment
+constraints:
+- implement structural descriptor layer only
+- do not evaluate scientific equations or metrics
+- do not add competency levels, scores, thresholds, progressions or comparisons
+- preserve source contracts and source IRs
+- use finalized IR, algorithm and oracle as the implementation packet
+global_tasks:
+- task_id: COMP-MOD-001
+  title: Implement immutable Competencies value types
+  inputs: [module-specification.yaml, patterns.yaml]
+  deliverables: [FeatureId, ObjectId, SourceReference, CompetencyReference, CompetenciesFeatureProfile, CompetenciesCanonicalDescriptor]
+  acceptance: types preserve identity, order, provenance, opaque payloads and reservations
+- task_id: COMP-MOD-002
+  title: Implement feature profile registry
+  inputs: [feature-status.yaml, thirteen finalized IR files]
+  deliverables: [compile_time_or_generated_profile_table]
+  acceptance: exactly 13 profiles and no unknown or missing feature
+- task_id: COMP-MOD-003
+  title: Implement shared structural validation pipeline
+  inputs: [patterns.yaml, thirteen algorithms]
+  deliverables: [feature_identity_validation, exact_object_set_validation, provenance_validation]
+  acceptance: all shared oracle error cases pass
+- task_id: COMP-MOD-004
+  title: Implement immutable descriptor builder
+  inputs: [module-specification.yaml, thirteen algorithms]
+  deliverables: [profile_driven_descriptor_construction]
+  acceptance: catalogue order and opaque payload identity are preserved deterministically
+- task_id: COMP-MOD-005
+  title: Implement unsupported scientific operation guard
+  inputs: [module-specification.yaml, decision-required.yaml]
+  deliverables: [ScientificEvaluationRequested, BlockedScientificDecision]
+  acceptance: score, threshold, simulation, rank, comparison and scientific resolution requests are rejected
+- task_id: COMP-MOD-006
+  title: Implement shared test harness
+  inputs: [thirteen oracle files]
+  deliverables: [fixture_factory_for_opaque_tokens, oracle_runner]
+  acceptance: no fixture invents a competency or numerical scientific value
+feature_tasks:
+- feature_id: TLC-FC-12-COMPETENCIES-001
+  task_id: COMP-FEAT-001
+  operation: build_constraint_descriptor_001
+  packet: [registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-001/ir.yaml, registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-001/algorithm.yaml, registry/oracles/competencies/TLC-FC-12-COMPETENCIES-001/oracle.yaml]
+- feature_id: TLC-FC-12-COMPETENCIES-002
+  task_id: COMP-FEAT-002
+  operation: build_constraint_descriptor_002
+  packet: [registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-002/ir.yaml, registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-002/algorithm.yaml, registry/oracles/competencies/TLC-FC-12-COMPETENCIES-002/oracle.yaml]
+- feature_id: TLC-FC-12-COMPETENCIES-004
+  task_id: COMP-FEAT-004
+  operation: build_evolution_descriptor_004
+  packet: [registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-004/ir.yaml, registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-004/algorithm.yaml, registry/oracles/competencies/TLC-FC-12-COMPETENCIES-004/oracle.yaml]
+  note: preserve Capacities dependency as non-runtime external_unreconciled metadata
+- feature_id: TLC-FC-12-COMPETENCIES-005
+  task_id: COMP-FEAT-005
+  operation: build_evolution_descriptor_005
+  packet: [registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-005/ir.yaml, registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-005/algorithm.yaml, registry/oracles/competencies/TLC-FC-12-COMPETENCIES-005/oracle.yaml]
+- feature_id: TLC-FC-12-COMPETENCIES-006
+  task_id: COMP-FEAT-006
+  operation: build_transformation_descriptor_006
+  packet: [registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-006/ir.yaml, registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-006/algorithm.yaml, registry/oracles/competencies/TLC-FC-12-COMPETENCIES-006/oracle.yaml]
+  note: preserve Capacities dependency as non-runtime external_unreconciled metadata
+- feature_id: TLC-FC-12-COMPETENCIES-007
+  task_id: COMP-FEAT-007
+  operation: build_transformation_descriptor_007
+  packet: [registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-007/ir.yaml, registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-007/algorithm.yaml, registry/oracles/competencies/TLC-FC-12-COMPETENCIES-007/oracle.yaml]
+- feature_id: TLC-FC-12-COMPETENCIES-008
+  task_id: COMP-FEAT-008
+  operation: build_transformation_descriptor_008
+  packet: [registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-008/ir.yaml, registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-008/algorithm.yaml, registry/oracles/competencies/TLC-FC-12-COMPETENCIES-008/oracle.yaml]
+- feature_id: TLC-FC-12-COMPETENCIES-009
+  task_id: COMP-FEAT-009
+  operation: build_metric_descriptor_009
+  packet: [registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-009/ir.yaml, registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-009/algorithm.yaml, registry/oracles/competencies/TLC-FC-12-COMPETENCIES-009/oracle.yaml]
+- feature_id: TLC-FC-12-COMPETENCIES-010
+  task_id: COMP-FEAT-010
+  operation: build_metric_descriptor_010
+  packet: [registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-010/ir.yaml, registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-010/algorithm.yaml, registry/oracles/competencies/TLC-FC-12-COMPETENCIES-010/oracle.yaml]
+- feature_id: TLC-FC-12-COMPETENCIES-011
+  task_id: COMP-FEAT-011
+  operation: build_metric_descriptor_011
+  packet: [registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-011/ir.yaml, registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-011/algorithm.yaml, registry/oracles/competencies/TLC-FC-12-COMPETENCIES-011/oracle.yaml]
+- feature_id: TLC-FC-12-COMPETENCIES-012
+  task_id: COMP-FEAT-012
+  operation: build_operator_descriptor_012
+  packet: [registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-012/ir.yaml, registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-012/algorithm.yaml, registry/oracles/competencies/TLC-FC-12-COMPETENCIES-012/oracle.yaml]
+- feature_id: TLC-FC-12-COMPETENCIES-013
+  task_id: COMP-FEAT-013
+  operation: build_operator_descriptor_013
+  packet: [registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-013/ir.yaml, registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-013/algorithm.yaml, registry/oracles/competencies/TLC-FC-12-COMPETENCIES-013/oracle.yaml]
+- feature_id: TLC-FC-12-COMPETENCIES-016
+  task_id: COMP-FEAT-016
+  operation: build_relation_descriptor_016
+  packet: [registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-016/ir.yaml, registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-016/algorithm.yaml, registry/oracles/competencies/TLC-FC-12-COMPETENCIES-016/oracle.yaml]
+  note: preserve relation object without inferring endpoint identities
+completion_definition:
+- all module tasks pass all thirteen oracles
+- source artifacts remain byte-for-byte unchanged
+- no scientific executable kernel is added without a future authorized contract
