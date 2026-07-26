@@ -1,0 +1,76 @@
+schema_version: 1
+artifact_kind: theorems_algorithm_specification
+feature_id: TLC-FC-06-THEOREMS-007
+operation: construct_community_stability_state
+signature: construct_community_stability_state(OpaqueCommunitySequence community_sequence, OpaqueCommunityState limit_community, CommunityStabilityContextComponents stability_context) -> CommunityStabilityStateDescriptor
+inputs:
+  - {name: community_sequence, type: OpaqueCommunitySequence}
+  - {name: limit_community, type: OpaqueCommunityState}
+  - {name: stability_context, type: CommunityStabilityContextComponents}
+outputs:
+  - {name: community_stability_state, type: CommunityStabilityStateDescriptor}
+validations:
+  - community_sequence identity is present
+  - limit_community identity is present
+  - every covered relation targets a covered state component
+  - required unresolved identifiers remain attached
+hypotheses:
+  - TLC-EA-THEOREMS-007-001 is retained
+  - TLC-UT-THEOREMS-002, 003, and 004 remain opaque
+preconditions:
+  - The sequence and limit identities exist and every covered relation references a covered state component.
+conditions_of_application:
+  - descriptor construction uses only the four covered objects and three covered relations
+ordered_steps:
+  - validate community sequence presence
+  - validate limit state presence
+  - validate every relation target
+  - preserve context components and unresolved identifiers
+  - construct descriptor
+  - validate exact object, relation, and unresolved populations
+branching:
+  - {condition: sequence missing, result: MISSING_COMMUNITY_SEQUENCE}
+  - {condition: limit missing, result: MISSING_LIMIT_STATE}
+  - {condition: any relation target is outside covered state components, result: DANGLING_STABILITY_RELATION}
+  - {condition: all validations pass, result: return community_stability_state}
+dependencies: [RESULT-THEOREMS-001, PROOF-THEOREMS-001]
+statement_handling:
+  construction: source_traceable_context_descriptor
+  scientific_validation: none
+proof_status_control:
+  specification_metadata: partial_not_formalized_with_PROOF-THEOREMS-001
+  runtime_truth_value_returned: false
+errors: [MISSING_COMMUNITY_SEQUENCE, MISSING_LIMIT_STATE, DANGLING_STABILITY_RELATION]
+postconditions:
+  - descriptor preserves four object IDs, three relation IDs, and three unresolved IDs
+  - descriptor asserts neither convergence nor stability
+determinism: identical context components produce an identical descriptor
+edge_cases:
+  - opaque unresolved terms remain attached even when no typed interpretation exists
+  - relation order may be normalized by identifier because no source semantic order is declared
+unresolved_conserved: [TLC-UT-THEOREMS-002, TLC-UT-THEOREMS-003, TLC-UT-THEOREMS-004]
+pseudocode: |
+  function construct_community_stability_state(community_sequence, limit_community, stability_context):
+      if community_sequence is missing:
+          raise MISSING_COMMUNITY_SEQUENCE
+      if limit_community is missing:
+          raise MISSING_LIMIT_STATE
+      if any covered relation references a component outside the covered object set:
+          raise DANGLING_STABILITY_RELATION
+      result = CommunityStabilityStateDescriptor(
+          community_sequence = preserve_identity(community_sequence),
+          limit_community = preserve_identity(limit_community),
+          stability_context = preserve_components(stability_context),
+          unresolved_ids = [
+              "TLC-UT-THEOREMS-002",
+              "TLC-UT-THEOREMS-003",
+              "TLC-UT-THEOREMS-004"
+          ]
+      )
+      assert exact covered object, relation, and unresolved populations are preserved
+      return result
+forbidden_operations:
+  - evaluate Gromov-Hausdorff convergence
+  - compute stability
+  - evaluate spectral conditions
+  - infer theorem truth
