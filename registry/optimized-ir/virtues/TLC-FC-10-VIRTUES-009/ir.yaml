@@ -1,0 +1,88 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-009
+domain: virtues
+status: selected_for_virtues_implementation_specification
+source:
+  contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-009/contract.yaml
+  source_ir_ref: registry/ir/TLC-FC-10-VIRTUES-009/ir.yaml
+  source_ir_raw_status: limited_engineering_contract_with_reservations
+  test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-009/test-plan.yaml
+  scientific_source_ref: maths/10-virtues.md
+  source_objects: [TLC-SO-VIRTUES-022]
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+virtue_invented: false
+measurement_invented: false
+ordering_invented: false
+nature: declarative
+entrypoint: register_quantitative_measure_reservations
+virtue_or_reference:
+  type: OpaqueVirtue
+  identity: source-bound virtue reference associated with named quantitative dimensions
+scope: named quantitative measurement dimensions with absent scales and thresholds
+context: quantitative descriptors remain opaque and unresolved
+inputs:
+  feature_id: exact feature identifier
+  artifact: opaque named-dimension bundle
+  provenance: ordered ProvenanceRef collection
+  reservations: caller-supplied unresolved and assumptions
+outputs:
+  result: VirtuesResult containing unresolved dimension descriptors or named error
+types: [OpaqueVirtue, OpaqueEvidence, OpaqueContext, OpaqueMetricDescriptor, ProvenanceRef, UnresolvedItem, VirtuesRequest, VirtuesResult]
+opaque_values: [dimension names, scale descriptors, threshold descriptors, context, reservations]
+preconditions:
+  - feature_id equals TLC-FC-10-VIRTUES-009
+  - provenance contains TLC-SO-VIRTUES-022
+  - request does not ask for a scale, threshold, numerical measure, score, or ranking
+conditions_of_application:
+  - dimensions are registered as unresolved semantic commitments only
+relations_explicitly_defined: []
+manifestations_explicitly_defined: []
+operations:
+  - validate feature identity and provenance
+  - reject quantitative completion and unsupported evaluation requests
+  - register supplied dimension names without assigning scales or thresholds
+  - propagate scientific ambiguity
+  - construct source-bound result envelope
+order_of_execution: [validate_feature_id, validate_provenance, enforce_unresolved_measure_guard, register_dimensions, propagate_unresolved, build_result]
+control_flow:
+  - on invalid feature id return invalid_feature_id
+  - on missing provenance return missing_provenance
+  - on requested scale, threshold, computation, or score return unsupported_scientific_completion_request
+  - otherwise return accepted declarative result
+observations: []
+comparisons: []
+effects:
+  - records names and reservations only
+  - computes no quantity
+postconditions:
+  - dimension names and provenance are preserved
+  - scientific ambiguity is present
+  - no scale, threshold, computed measure, score, or ranking is produced
+invariants:
+  - source object identity and order are conserved
+  - opaque dimensions and unresolved items remain unchanged
+errors: [missing_provenance, unsupported_scientific_completion_request, invalid_feature_id]
+determinism: {deterministic: true, randomness: none}
+dependencies:
+  internal: [common validation, unresolved propagation, result envelope]
+  external_execution: []
+  documentary: [maths/10-virtues.md]
+unresolved_propagated: [scientific ambiguity]
+reservations:
+  - scales, thresholds, units, calibration, aggregation, and comparison semantics are absent
+transformations_applied:
+  - normalized declarative metric-descriptor registration
+  - classified absent scale and threshold semantics as propagated unresolved
+obligations_of_preservation:
+  - preserve source contract and IR
+  - preserve dimension names and scientific ambiguity
+  - invent no measurement or comparison rule
+algorithm_ref: registry/algorithms/virtues/TLC-FC-10-VIRTUES-009/algorithm.yaml
+oracle_ref: registry/oracles/virtues/TLC-FC-10-VIRTUES-009/oracle.yaml
+implementation_aptitude:
+  ready: true
+  level: declarative_structural_implementation
+  excluded_scope: [measurement computation, scale selection, thresholding, comparison, scoring]
