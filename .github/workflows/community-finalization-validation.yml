@@ -1,0 +1,49 @@
+name: Community finalization validation
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-community-finalization:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install validator dependency
+        run: python -m pip install --disable-pip-version-check pyyaml
+      - name: Run Community validator
+        run: python tools/domain-finalization/validate_community_finalization.py
+      - name: Check whitespace
+        run: git diff --check c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD
+      - name: Check modified paths and protected scopes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --name-only c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD | tee /tmp/community-changed-paths.txt
+          if grep -E '^(maths/|registry/global-reconciliation/|registry/math-contracts/|registry/ir/|ir/)' /tmp/community-changed-paths.txt; then
+            echo 'Protected scientific or global path modified.' >&2
+            exit 1
+          fi
+          if grep -Ei '(^|/)(master|disciple)(/|$)' /tmp/community-changed-paths.txt; then
+            echo 'Master or Disciple path modified.' >&2
+            exit 1
+          fi
+          if grep -Ei '\.(cpp|cc|cxx|h|hpp|pyi)$' /tmp/community-changed-paths.txt; then
+            echo 'Production or binding code detected.' >&2
+            exit 1
+          fi
+          if grep -Ei '(__pycache__|\.status$|\.log$)' /tmp/community-changed-paths.txt; then
+            echo 'Temporary diagnostic artifact detected.' >&2
+            exit 1
+          fi
