@@ -1,0 +1,212 @@
+schema_version: 1
+domain_id: invariants
+status: ready_for_developer_assignment
+constraints:
+- implement only finalized IR and algorithm behavior
+- preserve source contracts and source IRs
+- do not implement scientific evaluators absent from sources
+- do not resolve unresolved identifiers
+- no task may change maths or another domain
+tasks:
+- task_id: INV-IMPL-COMMON-001
+  title: implement common immutable evidence and preservation types
+  scope:
+  - OpaqueSourceStatement
+  - OpaqueScientificTruthConditions
+  - OpaqueSymbolId
+  - SourceReference
+  - CatalogueStatus
+  - UnresolvedReference
+  - ProvisionalAssumptionReference
+  - PreservationEnvelope
+  - StructuralVerificationResult
+  acceptance:
+  - exact opaque-value preservation
+  - immutable outputs
+  - equality is structural and deterministic
+  - no scientific evaluation API is implied
+- task_id: INV-IMPL-COMMON-002
+  title: implement shared structural validators and typed errors
+  scope:
+  - covered identifier validation
+  - source reference validation
+  - endpoint validation
+  - status preservation
+  - unresolved preservation
+  - postcondition verification
+  acceptance:
+  - feature-owned error aliases remain traceable
+  - validation order matches finalized algorithms
+  - documentary dependencies are not runtime dependencies
+- task_id: INV-IMPL-001
+  feature_id: TLC-FC-04-INVARIANTS-001
+  title: implement admissibility constraint-set construction
+  operation: build_admissibility_constraint_set
+  inputs: AdmissibilityAxiomRecord[]
+  outputs: ConstraintSet
+  deliverables:
+  - operation implementation
+  - acceptance tests from feature oracle
+  acceptance:
+  - one immutable entry per covered unique axiom ID
+  - source order and references preserved
+  - DuplicateAxiomId and UnknownAxiomId behavior implemented
+  - no axiom truth evaluation
+- task_id: INV-IMPL-002
+  feature_id: TLC-FC-04-INVARIANTS-002
+  title: implement documentary definition index
+  operation: index_definition_fragments
+  inputs: DefinitionFragment[]
+  outputs: DefinitionEvidenceIndex
+  deliverables:
+  - operation implementation
+  - acceptance tests from feature oracle
+  acceptance:
+  - exactly nine covered definition IDs can be indexed
+  - every entry remains documentary and non-executable
+  - rejected_as_feature metadata preserved
+  - FeatureStatusPromotion rejected
+- task_id: INV-IMPL-003
+  feature_id: TLC-FC-04-INVARIANTS-003
+  title: implement invariant declaration catalogue
+  operation: build_invariant_declaration_catalog
+  inputs: InvariantDeclarationEvidence[]
+  outputs: InvariantDeclarationCatalog
+  deliverables:
+  - operation implementation
+  - acceptance tests from feature oracle
+  acceptance:
+  - declaration IDs, object types, source scopes, and evidence relations preserved
+  - dangling relations rejected
+  - equation bodies remain opaque
+- task_id: INV-IMPL-004
+  feature_id: TLC-FC-04-INVARIANTS-004
+  title: implement deferred disciple scope declaration
+  operation: declare_disciple_invariant_scope
+  inputs: DiscipleInvariantScopeEvidence
+  outputs: ScopedInvariantDeclaration
+  deliverables:
+  - operation implementation
+  - acceptance tests from feature oracle
+  acceptance:
+  - TLC-SO-INVARIANTS-007 and root reference required
+  - output remains scientifically deferred
+  - no member set or validation rule invented
+- task_id: INV-IMPL-005
+  feature_id: TLC-FC-04-INVARIANTS-005
+  title: implement non-normative interpretation annotation attachment
+  operation: attach_interpretation_annotations
+  inputs: InterpretationAnnotation[]
+  outputs: AnnotatedInvariantEvidence
+  deliverables:
+  - operation implementation
+  - acceptance tests from feature oracle
+  acceptance:
+  - three covered annotations preserved in source order
+  - invariant truth and status cannot change
+  - target mismatch rejected
+- task_id: INV-IMPL-006
+  feature_id: TLC-FC-04-INVARIANTS-006
+  title: implement collective ethics symbolic AST construction
+  operation: construct_collective_ethics_invariant_expression
+  inputs: CollectiveEthicsExpressionSymbols
+  outputs: SymbolicCollectiveEthicsInvariant
+  deliverables:
+  - immutable AST nodes
+  - operation implementation
+  - acceptance tests from feature oracle
+  acceptance:
+  - seven required opaque symbols validated
+  - exactly three source templates emitted in source order
+  - provenance and reservations attached
+  - no node evaluated
+- task_id: INV-IMPL-007
+  feature_id: TLC-FC-04-INVARIANTS-007
+  title: implement immutable disintegration relation record
+  operation: construct_disintegration_relation
+  inputs: RelationEndpointsAndEvidence
+  outputs: DisintegrationRelationRecord
+  deliverables:
+  - operation implementation
+  - acceptance tests from feature oracle
+  acceptance:
+  - TLC-SR-INVARIANTS-067 endpoints enforced
+  - source, target, relation ID, and evidence preserved
+  - no causality, symmetry, transitivity, or temporal meaning inferred
+- task_id: INV-IMPL-008
+  feature_id: TLC-FC-04-INVARIANTS-008
+  title: implement invariant state vocabulary with unresolved mapping
+  operation: assemble_invariant_state_vocabulary
+  inputs: StateTermEvidence[]
+  outputs: InvariantStateVocabulary
+  deliverables:
+  - operation implementation
+  - exact unresolved attachment table
+  - acceptance tests from feature oracle
+  acceptance:
+  - twelve covered terms indexed
+  - eleven feature-owned unresolved IDs preserved
+  - UnresolvedMappingLoss rejected
+  - no transition graph, chronology, detector, or equivalence inferred
+- task_id: INV-IMPL-009
+  feature_id: TLC-FC-04-INVARIANTS-009
+  title: implement cohesion interval symbolic AST construction
+  operation: construct_cohesion_interval_constraint
+  inputs: CohesionIntervalSymbols
+  outputs: SymbolicCohesionIntervalConstraint
+  deliverables:
+  - immutable AST nodes
+  - operation implementation
+  - acceptance tests from feature oracle
+  acceptance:
+  - three required opaque symbols and TLC-UT-INVARIANTS-009 validated
+  - exactly three source templates emitted in source order
+  - rejected_as_feature metadata and unresolved preserved
+  - no comparator, bound value, metric, transition, or cohesion evaluator invented
+- task_id: INV-IMPL-010
+  feature_id: TLC-FC-04-INVARIANTS-010
+  title: implement rejected state-annotation index
+  operation: index_state_interpretation_fragments
+  inputs: StateInterpretationFragment[]
+  outputs: RejectedStateAnnotationIndex
+  deliverables:
+  - operation implementation
+  - acceptance tests from feature oracle
+  acceptance:
+  - exactly three covered source IDs indexed
+  - every entry non-operational and rejected
+  - OperationalStatePromotion rejected
+  - no state, transition, ordering, or equality semantics inferred
+- task_id: INV-IMPL-INTEGRATION-001
+  title: integrate ten operations behind the Invariants module interface
+  depends_on:
+  - INV-IMPL-COMMON-001
+  - INV-IMPL-COMMON-002
+  - INV-IMPL-001
+  - INV-IMPL-002
+  - INV-IMPL-003
+  - INV-IMPL-004
+  - INV-IMPL-005
+  - INV-IMPL-006
+  - INV-IMPL-007
+  - INV-IMPL-008
+  - INV-IMPL-009
+  - INV-IMPL-010
+  acceptance:
+  - all ten public operations remain independently callable
+  - feature 008 is the sole root of the internal structural dependency graph
+  - no dependency cycle
+  - no hidden evaluator or global mutable state
+- task_id: INV-IMPL-TESTS-001
+  title: implement all feature acceptance oracles
+  scope: registry/oracles/invariants
+  acceptance:
+  - nominal, error, preservation, determinism, opaque-boundary, unresolved, and conformance tests pass
+  - no arbitrary scientific expected value is introduced
+  - source contract to optimized IR to algorithm to oracle traceability is machine-checkable
+completion_definition:
+- every feature task implemented
+- common types and validators implemented
+- all oracle tests pass
+- no unresolved resolved silently
+- scientific execution remains disabled until separately sourced and reviewed
