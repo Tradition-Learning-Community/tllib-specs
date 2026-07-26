@@ -1,0 +1,94 @@
+schema_version: 1
+artifact_kind: theorems_finalized_implementation_ir
+feature_id: TLC-FC-06-THEOREMS-004
+selection_status: selected_for_theorems_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-06-THEOREMS-004/contract.yaml
+source_contract_id: TLC-LEC-TLC-FC-06-THEOREMS-004-001
+source_ir: registry/ir/TLC-FC-06-THEOREMS-004/ir.yaml
+source_ir_id: TLC-PIR-TLC-FC-06-THEOREMS-004-001
+source_test_plan: registry/test-plans/TLC-FC-06-THEOREMS-004/test-plan.yaml
+source_ir_raw_status: prototype_ir_with_reservations
+nature: structural_hypothesis_builder
+statement:
+  purpose: Construct the transmission-ergodicity hypothesis record cited by the community-stability theorem.
+  observable_effect: bind the operator symbol and its cited uniform-ergodicity condition into one traceable, unevaluated hypothesis record
+  source_references: [maths/06-theorems.md:20]
+scope:
+  source_objects: [TLC-SO-THEOREMS-014]
+  source_relations: []
+  associated_result: RESULT-THEOREMS-001
+quantifiers:
+  feature_operation: none_explicitly_declared
+  associated_result: not_specified
+hypotheses:
+  scientific: transmission_operator_with_uniform_ergodicity_condition_as_source_hypothesis
+  provisional_engineering: [TLC-EA-THEOREMS-004-001]
+preconditions:
+  - Both the transmission operator and spectral-gap condition carry the line-20 source reference.
+conditions_of_application:
+  - the two opaque components must refer to the same cited hypothesis
+conclusion:
+  scientific: no_property_verification
+  software:
+    - The result preserves both opaque components and labels the record as a hypothesis rather than a verified property.
+logical_relation:
+  source_relation: hypothesis_component_binding
+  software_relation: structural_record_construction
+  implication_asserted_by_software: false
+  equivalence_asserted_by_software: false
+dependencies:
+  external: [DEP-THEOREMS-DYNAMICS-001]
+  associated_result: RESULT-THEOREMS-001
+operations_authorized:
+  - validate operator presence
+  - validate ergodicity condition presence
+  - validate matching source reference
+  - construct TransmissionErgodicityHypothesis
+execution_order:
+  - validate required components
+  - validate source references
+  - preserve opaque values
+  - construct hypothesis record
+  - validate hypothesis label and postcondition
+control_flow:
+  - missing operator yields MISSING_OPERATOR_SYMBOL
+  - missing condition yields MISSING_ERGODICITY_CONDITION
+  - mismatched source yields SOURCE_REFERENCE_MISMATCH
+  - otherwise return hypothesis record
+effects:
+  purity: pure_structural_construction
+  spectral_computation: forbidden
+postconditions:
+  - The result preserves both opaque components and labels the record as a hypothesis rather than a verified property.
+errors: [MISSING_OPERATOR_SYMBOL, MISSING_ERGODICITY_CONDITION, SOURCE_REFERENCE_MISMATCH]
+determinism: deterministic_structural_construction_for_identical_inputs
+proof_status:
+  status: hypothesis_not_verified_by_operation
+  associated_result_proof: partial_not_formalized
+  proof_verification_performed: false
+unresolved_propagated: []
+opaque_values:
+  types: [OpaqueOperatorSymbol, OpaqueSpectralGapCondition, OpaqueScientificValue, OpaqueScientificExpression]
+  policy: no spectral gap value or operator behavior is computed
+reservations:
+  - The operation organizes source evidence but does not establish theorem truth.
+  - Missing types, units, dimensions, cardinalities, ordering, precision, probability laws, and algorithms remain unspecified.
+transformations_applied:
+  - common finalized IR envelope
+  - explicit hypothesis-versus-verified-property status
+  - normalized source-reference validation
+obligations_of_preservation:
+  - preserve operator symbol
+  - preserve ergodicity condition
+  - preserve line-20 source reference
+  - preserve unverified hypothesis status
+algorithm_ref: registry/algorithms/theorems/TLC-FC-06-THEOREMS-004/algorithm.yaml
+oracle_ref: registry/oracles/theorems/TLC-FC-06-THEOREMS-004/oracle.yaml
+implementation_aptitude:
+  status: ready_for_structural_implementation
+  scientific_verification: false
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+proof_invented: false
