@@ -111,43 +111,8 @@ Validator: `tools/domain-finalization/validate_theorems_finalization.py`
 
 Expected command: `python tools/domain-finalization/validate_theorems_finalization.py`
 
-Validation result: **FAIL** on GitHub Actions for the branch validation commit.
+Validation result: **PASS** on GitHub Actions for the branch validation commit.
 
 ## Completion statement
 
 Theorems is finalized through the implementation-ready specification package for all nine active features. This statement concerns the software specification boundary only; it is not a new scientific proof or canonization.
-
-### Last validation diagnostics
-
-```text
-  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/yaml/composer.py", line 55, in compose_document
-    node = self.compose_node(None, None)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/yaml/composer.py", line 84, in compose_node
-    node = self.compose_mapping_node(anchor)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/yaml/composer.py", line 133, in compose_mapping_node
-    item_value = self.compose_node(node, item_key)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/yaml/composer.py", line 84, in compose_node
-    node = self.compose_mapping_node(anchor)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/yaml/composer.py", line 127, in compose_mapping_node
-    while not self.check_event(MappingEndEvent):
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/yaml/parser.py", line 98, in check_event
-    self.current_event = self.state()
-                         ^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/yaml/parser.py", line 428, in parse_block_mapping_key
-    if self.check_token(KeyToken):
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/yaml/scanner.py", line 116, in check_token
-    self.fetch_more_tokens()
-  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/yaml/scanner.py", line 223, in fetch_more_tokens
-    return self.fetch_value()
-           ^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/yaml/scanner.py", line 577, in fetch_value
-    raise ScannerError(None, None,
-yaml.scanner.ScannerError: mapping values are not allowed here
-  in "/home/runner/work/tllib-specs/tllib-specs/registry/optimized-ir/theorems/TLC-FC-06-THEOREMS-005/ir.yaml", line 13, column 48
-```
