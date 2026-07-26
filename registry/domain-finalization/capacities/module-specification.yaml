@@ -1,0 +1,193 @@
+schema_version: 1
+module_id: capacities
+status: selected_for_capacities_implementation_specification
+purpose: Provide provenance-preserving structural representations of the 15 authoritative Capacities features without executing unresolved scientific semantics.
+active_feature_count: 15
+public_operations:
+  - capacities_build_capacity_constraint_record_and_verify_required_symbols_001
+  - capacities_construct_mastery_constraint_ast_with_axiom_guard_002
+  - capacities_assemble_latence_mastery_constraint_bundle_003
+  - capacities_build_unevaluated_capacity_dynamics_ast_005
+  - capacities_construct_context_and_motivation_dynamics_ast_006
+  - capacities_construct_hamiltonian_capacity_dynamics_ast_007
+  - capacities_build_capacity_equation_ast_with_symbol_table_008
+  - capacities_construct_validity_and_collective_equation_ast_bundle_009
+  - capacities_build_capacity_metric_descriptor_and_symbol_bindings_010
+  - capacities_describe_riemannian_metric_symbolic_structure_011
+  - capacities_index_hilbert_riemannian_structure_components_012
+  - capacities_build_capacity_operator_signature_descriptor_013
+  - capacities_build_actualization_operator_signature_014
+  - capacities_build_validity_domain_predicate_ast_015
+  - capacities_build_capacity_relation_descriptor_preserving_endpoints_018
+internal_operations:
+  - validate_active_capacity_feature_id
+  - validate_exact_object_map
+  - validate_exact_ordered_object_sequence
+  - validate_symbol_table_completeness
+  - validate_provenance_completeness
+  - validate_decision_blocker
+  - restore_contract_object_order
+  - construct_immutable_artifact_envelope
+  - attach_non_evaluation_guard
+  - expose_structural_queries
+  - propagate_opaque_values
+  - propagate_unresolved_and_reservations
+capacity_types:
+  scientific_capacity_payload:
+    type: OpaqueScientificObject
+    interpretation: prohibited
+  capacity_reference:
+    fields: [feature_id, object_id, provenance]
+    endpoint_inference: prohibited
+  capacity_artifact_types:
+    - CapacityPrototypeDescriptor
+    - CapacityConstraintAst
+    - CapacityConstraintBundle
+    - CapacityDynamicsAstBundle
+    - CapacityHamiltonianAst
+    - CapacityEquationAstBundle
+    - CapacityMetricDescriptor
+    - CapacityMetricStructureIndex
+    - CapacityOperatorSignature
+    - CapacityValidityDomainPredicateAst
+    - CapacityRelationDescriptor
+identity:
+  feature_identity: exact canonical FeatureId
+  scientific_object_identity: exact ObjectId
+  preservation: mandatory
+  legacy_identity_policy: legacy Goose identifiers are lineage evidence only
+scope:
+  kind: descriptive_scope
+  boundary: exact source-object set of each contract
+  extension: prohibited without source evidence
+context:
+  scientific_source: maths/11-capacities.md
+  representation: source section and SourceReference per object
+  context_scoring: prohibited
+conditions_of_application:
+  - exact active feature id is supplied
+  - exact required objects are supplied
+  - complete provenance is supplied
+  - symbol entries are explicit when required
+  - decision blocker is supplied when required
+  - no scientific evaluation is requested
+manifestations:
+  declared_source_objects:
+    - feature_id: TLC-FC-11-CAPACITIES-008
+      object_id: TLC-SO-CAPACITIES-094
+      handling: unevaluated_expression_representation
+  observation_engine: external_observer_required
+activation:
+  declared_source_objects:
+    - feature_id: TLC-FC-11-CAPACITIES-005
+      object_id: TLC-SO-CAPACITIES-087
+      handling: unevaluated_expression_representation
+    - feature_id: TLC-FC-11-CAPACITIES-014
+      object_id: TLC-SO-CAPACITIES-051
+      handling: operator_signature_only
+  activation_engine: implementation_out_of_scope
+mobilization:
+  explicitly_operationalized_by_contracts: false
+  handling: implementation_out_of_scope
+development:
+  declared_structurally_in_features:
+    - TLC-FC-11-CAPACITIES-003
+    - TLC-FC-11-CAPACITIES-005
+    - TLC-FC-11-CAPACITIES-006
+    - TLC-FC-11-CAPACITIES-008
+    - TLC-FC-11-CAPACITIES-009
+  handling: expressions_preserved_without_execution
+  development_engine: external_evaluator_required
+relations:
+  covered_relations_in_feature_contracts: []
+  relation_feature:
+    feature_id: TLC-FC-11-CAPACITIES-018
+    handling: descriptor_preserving_unknown_endpoints
+  external_domain_relations:
+    handling: external_reference
+    execution_dependency_created: false
+comparison:
+  declared_token_structure:
+    - feature_id: TLC-FC-11-CAPACITIES-015
+      handling: comparison_tokens_without_threshold_decision
+  capacity_comparator: external_comparator_required
+measurement:
+  represented_by:
+    - TLC-FC-11-CAPACITIES-010
+    - TLC-FC-11-CAPACITIES-011
+    - TLC-FC-11-CAPACITIES-012
+  computed_measurement: false
+  evaluator: external_evaluator_required
+opaque_values:
+  preservation: byte-or-identity preserving according to host language representation
+  semantic_inspection: prohibited
+  structural_comparison: identifier and shape only
+common_errors:
+  - UnknownFeatureId
+  - MissingCoveredObject
+  - UnexpectedCoveredObject
+  - DuplicateCoveredObject
+  - ObjectOrderMismatch
+  - MissingSymbolTableEntry
+  - MissingSourceReference
+  - MissingDecisionBlocker
+  - ScientificEvaluationRequested
+  - BlockedScientificDecision
+patterns: registry/domain-finalization/capacities/patterns.yaml
+internal_dependencies:
+  execution: []
+  structural:
+    - shared capacity artifact envelope
+    - shared validation vocabulary
+    - shared non-evaluation guard
+external_dependencies:
+  source: registry/domain-progress/capacities/external-dependencies.yaml
+  kind: documentary_and_symbolic
+  execution: []
+composition_rules:
+  - artifacts may be stored and queried by canonical feature id
+  - composition preserves every constituent feature id and object order
+  - composition never implies scientific equivalence
+  - unresolved and reservations are unioned without rewriting
+  - opaque values are forwarded unchanged
+  - no cross-feature calculation is introduced
+order_rules:
+  contract_object_order_is_preserved: true
+  arbitrary_reordering: prohibited
+  module_registration_order_semantic: false
+determinism:
+  structural_construction: deterministic for identical structural inputs
+  opaque_payload_internals: ignored
+  random_process_execution: absent
+interfaces_for_library:
+  public_constructor_per_feature: true
+  immutable_artifact_view: true
+  feature_registry_lookup: true
+  object_lookup: true
+  symbol_lookup: true
+  provenance_lookup: true
+  unresolved_lookup: true
+  evaluation_interface: absent
+out_of_scope:
+  - capacity scoring
+  - capacity ranking
+  - capacity levels
+  - generated thresholds
+  - capacity measurement execution
+  - capacity comparison decisions
+  - activation execution
+  - mobilization execution
+  - development simulation
+  - stochastic simulation
+  - geodesic or curvature computation
+  - competence generation
+  - virtue or practice execution coupling
+  - external-domain mutation
+  - C++ implementation
+  - Python bindings
+  - reference implementation
+unresolved_policy:
+  preservation: mandatory
+  blocking_only_when_observable_structural_behavior_cannot_be_defined: true
+  current_structural_blockers: []
+future_implementation_tasks: registry/domain-finalization/capacities/implementation-tasks.yaml
