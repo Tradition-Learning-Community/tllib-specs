@@ -1,0 +1,47 @@
+schema_version: 1
+status: ready_for_developer_planning
+shared_tasks:
+  - task_id: TLC-IMPL-SHARED-001
+    objective: implement stable feature identifiers and source references
+    size: small
+    parallelizable: false
+    acceptance: shared structural type tests pass
+  - task_id: TLC-IMPL-SHARED-002
+    objective: implement opaque scientific value and unresolved carriers
+    size: medium
+    parallelizable: false
+    acceptance: lossless propagation and round-trip tests pass
+  - task_id: TLC-IMPL-SHARED-003
+    objective: implement traceability and structured error infrastructure
+    size: medium
+    parallelizable: true
+    acceptance: deterministic error and provenance tests pass
+  - task_id: TLC-IMPL-SHARED-004
+    objective: implement deterministic serialization adapters
+    size: medium
+    parallelizable: true
+    acceptance: all structural round-trip oracles pass
+domain_lots:
+  - {task_id: TLC-IMPL-DOMAIN-MASTER, domain: master, feature_count: 16, source: registry/domain-finalization/master/implementation-tasks.yaml, size: large}
+  - {task_id: TLC-IMPL-DOMAIN-DISCIPLE, domain: disciple, feature_count: 10, source: registry/domain-finalization/disciple/implementation-tasks.yaml, size: large}
+  - {task_id: TLC-IMPL-DOMAIN-COMMUNITY, domain: community, feature_count: 8, source: registry/domain-finalization/community/implementation-tasks.yaml, size: medium}
+  - {task_id: TLC-IMPL-DOMAIN-HUIT-DIMENSIONS, domain: huit-dimensions, feature_count: 11, source: registry/domain-finalization/huit-dimensions/implementation-tasks.yaml, size: large}
+  - {task_id: TLC-IMPL-DOMAIN-INVARIANTS, domain: invariants, feature_count: 10, source: registry/domain-finalization/invariants/implementation-tasks.yaml, size: large}
+  - {task_id: TLC-IMPL-DOMAIN-DYNAMICS, domain: dynamics, feature_count: 7, source: registry/domain-finalization/dynamics/implementation-tasks.yaml, size: large}
+  - {task_id: TLC-IMPL-DOMAIN-THEOREMS, domain: theorems, feature_count: 9, source: registry/domain-finalization/theorems/implementation-tasks.yaml, size: medium}
+  - {task_id: TLC-IMPL-DOMAIN-MESSAGE, domain: message, feature_count: 6, source: registry/domain-finalization/message/implementation-tasks.yaml, size: medium}
+  - {task_id: TLC-IMPL-DOMAIN-PRINCIPLE, domain: principle, feature_count: 10, source: registry/domain-finalization/principle/implementation-tasks.yaml, size: large}
+  - {task_id: TLC-IMPL-DOMAIN-VALUES, domain: values, feature_count: 14, source: registry/domain-finalization/values/implementation-tasks.yaml, size: large}
+  - {task_id: TLC-IMPL-DOMAIN-VIRTUES, domain: virtues, feature_count: 10, source: registry/domain-finalization/virtues/implementation-tasks.yaml, size: large}
+  - {task_id: TLC-IMPL-DOMAIN-CAPACITIES, domain: capacities, feature_count: 15, source: registry/domain-finalization/capacities/implementation-tasks.yaml, size: large}
+  - {task_id: TLC-IMPL-DOMAIN-COMPETENCIES, domain: competencies, feature_count: 13, source: registry/domain-finalization/competencies/implementation-tasks.yaml, size: large}
+  - {task_id: TLC-IMPL-DOMAIN-PRACTICE, domain: practice, feature_count: 10, source: registry/domain-finalization/practice/implementation-tasks.yaml, size: large}
+  - {task_id: TLC-IMPL-DOMAIN-LIVED-EXPERIENCE, domain: lived-experience, feature_count: 12, source: registry/domain-finalization/lived-experience/implementation-tasks.yaml, size: large}
+  - {task_id: TLC-IMPL-DOMAIN-RELATIONS, domain: relations, feature_count: 5, source: registry/domain-finalization/relations/implementation-tasks.yaml, size: medium}
+final_tasks:
+  - task_id: TLC-IMPL-INTEGRATION-001
+    objective: implement cross-module structural integration tests from all oracles
+    size: large
+  - task_id: TLC-IMPL-BINDINGS-001
+    objective: add Python bindings only after C++ structural interfaces pass all acceptance oracles
+    size: large

@@ -1,0 +1,35 @@
+schema_version: 1
+status: shared_patterns_confirmed
+scientific_types_created: false
+types:
+  - id: TLC-SHARED-TYPE-FEATURE-ID
+    status: shared_pattern_confirmed
+    structure: opaque stable identifier
+    obligations: [preserve exact source identifier]
+  - id: TLC-SHARED-TYPE-SOURCE-REFERENCE
+    status: shared_pattern_confirmed
+    structure: {path: string, object_id: opaque_optional, section: opaque_optional}
+    obligations: [preserve provenance, do not infer semantics]
+  - id: TLC-SHARED-TYPE-OPAQUE-SCIENTIFIC-VALUE
+    status: shared_pattern_confirmed
+    structure: {payload: opaque, source_reference: TLC-SHARED-TYPE-SOURCE-REFERENCE}
+    obligations: [no coercion, no evaluation, lossless round_trip]
+  - id: TLC-SHARED-TYPE-UNRESOLVED
+    status: shared_pattern_confirmed
+    structure: {id: string, classification: string, source_reference: TLC-SHARED-TYPE-SOURCE-REFERENCE}
+    obligations: [monotone propagation, no arbitrary resolution]
+  - id: TLC-SHARED-TYPE-STRUCTURED-ERROR
+    status: shared_pattern_confirmed
+    structure: {code: string, feature_id: string, context: map}
+    obligations: [deterministic emission, no partial scientific result]
+  - id: TLC-SHARED-TYPE-TRACEABILITY
+    status: shared_pattern_confirmed
+    structure: {contract_ref: path, source_ir_ref: path, finalized_ir_ref: path, algorithm_ref: path, oracle_ref: path}
+    obligations: [all references resolvable]
+exclusions:
+  - equations
+  - metrics
+  - invariants
+  - state spaces
+  - scientific relations
+  - domain-specific value semantics
