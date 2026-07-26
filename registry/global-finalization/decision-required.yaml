@@ -1,11 +1,13 @@
 schema_version: 1
 status: no_global_structural_blocker
 blocking: []
-non_blocking:
+resolved:
   - id: GLOBAL-DECISION-MESSAGE-CI-EVIDENCE
-    classification: validation_evidence_gap
-    description: Message domain validator existed at merge time but no pull-request workflow run was observable on its branch head.
-    resolution: run all domain validators together in global integration CI.
+    classification: validation_evidence_gap_closed
+    description: Message domain lacked an observable pull-request workflow run on its final branch head.
+    resolution: The integrated global workflow validated Message artifact parity and the complete 166-feature tree.
+    evidence: github_actions_run_30217758860
+non_blocking:
   - id: GLOBAL-DECISION-SCIENTIFIC-EXECUTION
     classification: deferred_to_scientific_review
     description: Domain-specific unresolved equations, evaluators, proofs, thresholds, transitions and relation semantics remain preserved.
