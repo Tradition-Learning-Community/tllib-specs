@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007
+operation: catalogue_declared_invariant_groups
+source_test_plan: ir/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007/test-plan.yaml
+finalized_ir: registry/optimized-ir/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007/ir.yaml
+algorithm: registry/algorithms/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007/algorithm.yaml
+oracle_kind: structural_acceptance_oracle
+fixture_policy: symbolic_opaque_claim_groups_only_no_scientific_values
+tests:
+- {id: HD-007-NOMINAL, category: nominal, assertion: catalogue contains separate values and lived-experience groups}
+- {id: HD-007-MISSING, category: precondition_error, mutation: remove value_invariant_group, expected_error: FAIL-HUIT-007-MISSING-TRACE}
+- {id: HD-007-MERGE, category: operation_error, mutation: request group merge, expected_error: FAIL-HUIT-007-OPERATION}
+- {id: HD-007-PROOF, category: scientific_boundary, mutation: mark a claim proven, expected_error: FAIL-HUIT-007-OPERATION}
+- {id: HD-007-CARDINALITY, category: cardinality, assertion: group count equals two}
+- {id: HD-007-IDENTITY, category: conservation, assertion: source ids dimension keys and claims remain distinct}
+- {id: HD-007-OPAQUE, category: opaque_propagation, assertion: claim payloads round-trip unchanged}
+- {id: HD-007-UNRESOLVED, category: unresolved_propagation, assertion: exact eight unresolved ids and proof statuses remain unresolved}
+- {id: HD-007-DETERMINISM, category: determinism, assertion: identical groups produce identical catalogue}
+- {id: HD-007-METAMORPHIC, category: metamorphic, transformation: reorder input transport, assertion: dimension-keyed entries remain identical}
+- {id: HD-007-NO-EQUIVALENCE, category: structural, assertion: no common invariant or equivalence is asserted}
+- {id: HD-007-CONFORMANCE, category: contract_ir_algorithm_conformance, assertion: roles output errors and propagated sets agree}
+numeric_expected_results: []
+acceptance: all_tests_pass
