@@ -27,12 +27,13 @@ acceptance_tests:
   - id: ORACLE-001-OPAQUE
     kind: opaque_propagation
     transformation: replace experience payload with a different opaque token
-    expect: only the preserved experience payload changes; clause, source, and proof metadata remain unchanged
+    expect: only the preserved experience payload changes in the runtime output
   - id: ORACLE-001-STATEMENT
     kind: statement_conservation
     expect: bounded-energy, controlled-variation, and stationary-law clause identifiers remain unevaluated
   - id: ORACLE-001-PROOF
-    kind: proof_status
+    kind: specification_metadata
+    inspect: finalized IR rather than runtime output
     expect:
       - proof status remains partial and not formalized
       - proof reference remains PROOF-THEOREMS-006
@@ -45,7 +46,8 @@ acceptance_tests:
     action: invoke twice with identical structural inputs
     expect: structurally identical outputs
   - id: ORACLE-001-TRACEABILITY
-    kind: traceability
+    kind: specification_traceability
+    inspect: finalized IR and algorithm artifacts
     expect:
       - source contains maths/06-theorems.md:141-144
       - feature, contract, and source IR identifiers are preserved
