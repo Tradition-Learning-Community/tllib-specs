@@ -1,0 +1,66 @@
+schema_version: '1.0'
+ir_id: TLC-OPT-IR-TLC-FC-01-DISCIPLE-008
+feature_id: TLC-FC-01-DISCIPLE-008
+domain: disciple
+status: selected_for_disciple_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-01-DISCIPLE-008/contract.yaml
+source_ir_registry_ref: registry/ir/TLC-FC-01-DISCIPLE-008/ir.yaml
+source_ir_ref: ir/TLC-FC-01-DISCIPLE-008/ir.candidate.json
+source_test_plan_ref: registry/test-plans/TLC-FC-01-DISCIPLE-008/test-plan.yaml
+source_ir_status: {selection_status: active_candidate_not_canonical, execution_status: unresolved_not_executable}
+source_ir_preserved: true
+source_contract_preserved: true
+scientific_source_modified: false
+replaces_source_ir: false
+representation_type: structural_operator_descriptor
+inputs:
+  - {name: request, type: DiscipleFeatureRequest, required: true}
+outputs:
+  - {name: result, type: DiscipleOperatorDescriptor}
+types:
+  shared: [DiscipleFeatureRequest, ScientificReference, OpaqueScientificValue, TraceabilityRecord, DiscipleError]
+  feature_specific: [DiscipleOperatorDescriptor]
+opaque_values:
+  policy: preserve_identity_without_interpretation
+  source_objects: ir/TLC-FC-01-DISCIPLE-008/ir.candidate.json#/data
+  source_relations: ir/TLC-FC-01-DISCIPLE-008/ir.candidate.json#/relations
+  master_subsymbols: []
+preconditions:
+  - request.feature_id equals TLC-FC-01-DISCIPLE-008
+  - all source artifacts are available
+operations:
+  - {operation_id: validate_request_identity, kind: deterministic_validation}
+  - {operation_id: preserve_source_reference_sets, kind: exact_reference_copy}
+  - {operation_id: emit_operator_descriptor, kind: structural_output, scientific_effect: none}
+execution_order: [validate_request_identity, preserve_source_reference_sets, emit_operator_descriptor]
+control_flow:
+  - on_failed_precondition: return_structured_error
+  - on_execution_request: return_DISCIPLE_UNRESOLVED_OPERATION
+  - otherwise: return_operator_descriptor
+states: {initial: received, success: descriptor_emitted, failure: rejected, scientific_execution: unresolved}
+effects: []
+postconditions:
+  - operator references remain exact and distinct
+  - no update is applied to any scientific state
+invariants:
+  - Provisionally separated scientific objects remain distinct.
+  - source traceability is complete
+errors: [DISCIPLE_INVALID_FEATURE_ID, DISCIPLE_MISSING_SOURCE_ARTIFACT, DISCIPLE_SOURCE_REFERENCE_MISMATCH, DISCIPLE_UNRESOLVED_OPERATION]
+determinism: {classification: deterministic_structural, rule: descriptor generation and refusal are deterministic}
+dependencies:
+  internal: [TLC-FC-01-DISCIPLE-009]
+  external: []
+unresolved_propagated: [operator_execution_semantics_not_selected]
+reservations:
+  - operator input, output, state transition, types, and dimensions remain unspecified
+links_to_tests:
+  source_test_plan: registry/test-plans/TLC-FC-01-DISCIPLE-008/test-plan.yaml
+  oracle: registry/oracles/disciple/TLC-FC-01-DISCIPLE-008/oracle.yaml
+transformations_applied: [normalized_non_executable_operator_descriptor, normalized_validation_order, normalized_errors]
+preservation_obligations:
+  - do not apply or approximate the operator
+  - do not infer a state transition
+implementation_readiness:
+  specification_ready: true
+  scientific_execution_ready: false
+  permitted_scope: [operator_descriptor_construction, validation, traceability, explicit_execution_refusal]

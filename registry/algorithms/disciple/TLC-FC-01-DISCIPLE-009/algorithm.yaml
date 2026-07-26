@@ -1,0 +1,82 @@
+schema_version: '1.0'
+algorithm_id: TLC-ALG-TLC-FC-01-DISCIPLE-009
+feature_id: TLC-FC-01-DISCIPLE-009
+domain: disciple
+optimized_ir_ref: registry/optimized-ir/disciple/TLC-FC-01-DISCIPLE-009/ir.yaml
+signature: 'assemble_disciple_state_envelope(request: DiscipleStateAssemblyRequest) -> DiscipleStateEnvelope | DiscipleError'
+inputs:
+  - request: feature identity plus optional opaque metadata
+outputs:
+  - composite state envelope or structured error
+validations:
+  - feature_id equality
+  - source artifact presence
+  - exact object and relation list equality, order, and uniqueness
+  - exact unresolved token preservation
+preconditions:
+  - parent feature identity remains TLC-FC-01-DISCIPLE-009
+  - no scientific component layout or alias is assumed
+ordered_steps:
+  - validate request identity
+  - load exact source object and relation lists
+  - reject duplicates or mismatches without merging aliases
+  - load all source unresolved tokens and Master subsymbols
+  - attach nine dependent feature identifiers
+  - emit composite envelope
+branches:
+  - condition: invalid identity or missing source
+    result: corresponding structured error
+  - condition: duplicate reference
+    result: DISCIPLE_DUPLICATE_REFERENCE
+  - condition: source list mismatch
+    result: DISCIPLE_SOURCE_REFERENCE_MISMATCH
+  - condition: otherwise
+    result: composite state envelope
+state_transitions:
+  - received -> references_loaded
+  - references_loaded -> unresolved_attached
+  - unresolved_attached -> envelope_emitted
+  - any_state -> rejected on error
+errors:
+  - DISCIPLE_INVALID_FEATURE_ID
+  - DISCIPLE_MISSING_SOURCE_ARTIFACT
+  - DISCIPLE_SOURCE_REFERENCE_MISMATCH
+  - DISCIPLE_DUPLICATE_REFERENCE
+postconditions:
+  - exact source order and identities are preserved
+  - 31 unresolved tokens and two Master subsymbols are attached
+  - no scientific split, transition, field, dimension, or value is asserted
+invariants:
+  - parent feature and all provisionally separated objects remain distinct
+determinism: deterministic canonical assembly from preserved source order
+effects: []
+edge_cases:
+  - empty request metadata is accepted
+  - any additional, missing, duplicated, or reordered reference is rejected
+unresolved_preserved:
+  source: registry/math-contracts/TLC-FC-01-DISCIPLE-009/open-math-questions.yaml
+  count: 31
+dependencies:
+  internal: []
+  external:
+    - TLC-DDEP-DISCIPLE-MASTER-003
+complexity:
+  time: O(n) over object, relation, and unresolved lists
+  space: O(n)
+pseudocode: |
+  function assemble_disciple_state_envelope(request):
+      require request.feature_id == "TLC-FC-01-DISCIPLE-009"
+      source = load_preserved_source_ir()
+      objects = copy_exactly(source.data)
+      relations = copy_exactly(source.relations)
+      if has_duplicates(objects) or has_duplicates(relations):
+          return error(DISCIPLE_DUPLICATE_REFERENCE)
+      unresolved = load_exactly(open_math_questions.questions)
+      master_subsymbols = load_exactly(open_math_questions.master_subsymbols_unresolved)
+      return state_envelope(feature_id=request.feature_id,
+                            objects=objects,
+                            relations=relations,
+                            unresolved=unresolved,
+                            master_subsymbols=master_subsymbols,
+                            dependents=declared dependent feature ids,
+                            scientific_values=OPAQUE)

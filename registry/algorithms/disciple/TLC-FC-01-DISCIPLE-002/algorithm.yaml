@@ -1,0 +1,67 @@
+schema_version: '1.0'
+algorithm_id: TLC-ALG-TLC-FC-01-DISCIPLE-002
+feature_id: TLC-FC-01-DISCIPLE-002
+domain: disciple
+optimized_ir_ref: registry/optimized-ir/disciple/TLC-FC-01-DISCIPLE-002/ir.yaml
+signature: 'describe_disciple_definition(request: DiscipleFeatureRequest, master_symbol_token: DependencyToken?) -> DiscipleDefinitionDescriptor | DiscipleError'
+inputs:
+  - request: feature identity and optional opaque payload
+  - master_symbol_token: optional symbol-only dependency token
+outputs:
+  - deterministic declarative descriptor or structured error
+validations:
+  - feature_id equality
+  - source artifact presence
+  - exact reference preservation
+preconditions:
+  - no public field layout or alias decision is assumed
+ordered_steps:
+  - validate request identity
+  - copy exact source references
+  - record Master dependency availability without resolving it
+  - attach known scientific reservations
+  - emit declarative descriptor
+branches:
+  - condition: invalid identity or missing source
+    result: corresponding structured error
+  - condition: master token absent
+    result: descriptor with dependency_unavailable_for_execution
+  - condition: otherwise
+    result: descriptor with symbol token recorded
+state_transitions:
+  - received -> validated -> descriptor_emitted
+  - received|validated -> rejected on error
+errors:
+  - DISCIPLE_INVALID_FEATURE_ID
+  - DISCIPLE_MISSING_SOURCE_ARTIFACT
+  - DISCIPLE_SOURCE_REFERENCE_MISMATCH
+postconditions:
+  - source object remains distinct and opaque
+  - no fields, types, dimensions, or aliases are invented
+invariants:
+  - source identity and provenance are preserved
+determinism: deterministic for identical inputs
+effects: []
+edge_cases:
+  - missing Master token does not block descriptor construction
+unresolved_preserved:
+  - exact data fields, types, dimensions, public representation, and alias relation
+dependencies:
+  internal:
+    - TLC-FC-01-DISCIPLE-009
+  external:
+    - TLC-DDEP-DISCIPLE-MASTER-001
+complexity:
+  time: O(n) over source references
+  space: O(n)
+pseudocode: |
+  function describe_disciple_definition(request, master_symbol_token = NONE):
+      require request.feature_id == "TLC-FC-01-DISCIPLE-002"
+      source = load_preserved_source_ir()
+      refs = copy_exactly(source.data, source.relations)
+      dependency_state = AVAILABLE if master_symbol_token exists else UNAVAILABLE_FOR_EXECUTION
+      return definition_descriptor(feature_id=request.feature_id,
+                                   references=refs,
+                                   dependency_state=dependency_state,
+                                   reservations=preserved reservations,
+                                   scientific_value=OPAQUE)

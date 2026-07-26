@@ -1,0 +1,111 @@
+schema_version: '1.0'
+ir_id: TLC-OPT-IR-TLC-FC-01-DISCIPLE-009
+feature_id: TLC-FC-01-DISCIPLE-009
+domain: disciple
+status: selected_for_disciple_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-01-DISCIPLE-009/contract.yaml
+source_ir_registry_ref: registry/ir/TLC-FC-01-DISCIPLE-009/ir.yaml
+source_ir_ref: ir/TLC-FC-01-DISCIPLE-009/ir.candidate.json
+source_test_plan_ref: registry/test-plans/TLC-FC-01-DISCIPLE-009/test-plan.yaml
+source_ir_status: {selection_status: active_candidate_not_canonical, execution_status: unresolved_not_executable}
+source_ir_preserved: true
+source_contract_preserved: true
+scientific_source_modified: false
+replaces_source_ir: false
+representation_type: composite_structural_state_envelope
+boundary_decision: {decision: composite_feature_with_internal_operations, prior_issue: TLC-FBI-001, parent_feature_preserved: true, scientific_split_asserted: false}
+inputs:
+  - {name: request, type: DiscipleStateAssemblyRequest, required: true}
+  - {name: master_symbol_token, type: DependencyToken, required_for_execution_only: true}
+outputs:
+  - {name: result, type: DiscipleStateEnvelope}
+types:
+  shared: [ScientificReference, OpaqueScientificValue, UnresolvedToken, DependencyToken, TraceabilityRecord, DiscipleError]
+  feature_specific: [DiscipleStateAssemblyRequest, DiscipleStateEnvelope]
+opaque_values:
+  policy: preserve_identity_without_interpretation
+  source_objects: ir/TLC-FC-01-DISCIPLE-009/ir.candidate.json#/data
+  source_relations: ir/TLC-FC-01-DISCIPLE-009/ir.candidate.json#/relations
+  master_subsymbols:
+    - '\mathcal{M}_{\mathcal{I}}'
+    - '\mathcal{P}_{\mathrm{Maître}}'
+preconditions:
+  - request.feature_id equals TLC-FC-01-DISCIPLE-009
+  - all source artifacts are available
+operations:
+  - {operation_id: validate_request_identity, kind: deterministic_validation}
+  - {operation_id: load_exact_source_reference_sets, kind: exact_reference_copy}
+  - {operation_id: validate_reference_uniqueness_without_aliasing, kind: structural_validation}
+  - {operation_id: attach_unresolved_tokens, kind: unresolved_metadata}
+  - {operation_id: attach_internal_feature_links, kind: dependency_metadata}
+  - {operation_id: emit_state_envelope, kind: composite_structural_output, scientific_effect: none}
+execution_order: [validate_request_identity, load_exact_source_reference_sets, validate_reference_uniqueness_without_aliasing, attach_unresolved_tokens, attach_internal_feature_links, emit_state_envelope]
+control_flow:
+  - on_failed_precondition: return_structured_error
+  - on_reference_mismatch: return_DISCIPLE_SOURCE_REFERENCE_MISMATCH
+  - on_valid_request: return_composite_state_envelope
+states: {initial: received, references_loaded: structural_references_available, unresolved_attached: unresolved_metadata_available, success: envelope_emitted, failure: rejected, scientific_execution: blocked}
+effects: []
+postconditions:
+  - all source object and relation identities are preserved exactly
+  - all unresolved tokens and Master subsymbols are preserved
+  - all nine dependent Disciple features can reference the parent envelope
+  - no field layout, dimension, alias, transition, or scientific value is invented
+invariants:
+  - Provisionally separated scientific objects remain distinct.
+  - feature_id TLC-FC-01-DISCIPLE-009 remains the parent identity
+  - source traceability is complete
+errors: [DISCIPLE_INVALID_FEATURE_ID, DISCIPLE_MISSING_SOURCE_ARTIFACT, DISCIPLE_SOURCE_REFERENCE_MISMATCH, DISCIPLE_DUPLICATE_REFERENCE, DISCIPLE_UNRESOLVED_SEMANTICS]
+determinism: {classification: deterministic_structural, rule: source order is retained and normalized serialization is stable}
+dependencies:
+  internal: []
+  dependents: [TLC-FC-01-DISCIPLE-001, TLC-FC-01-DISCIPLE-002, TLC-FC-01-DISCIPLE-003, TLC-FC-01-DISCIPLE-004, TLC-FC-01-DISCIPLE-005, TLC-FC-01-DISCIPLE-006, TLC-FC-01-DISCIPLE-007, TLC-FC-01-DISCIPLE-008, TLC-FC-01-DISCIPLE-010]
+  external:
+    - {dependency_id: TLC-DDEP-DISCIPLE-MASTER-003, required_level: symbol_only, execution_effect: blocks_execution_only}
+unresolved_propagated:
+  - TLC-UT-DISCIPLE-001
+  - TLC-UT-DISCIPLE-002
+  - TLC-UT-DISCIPLE-003
+  - TLC-UT-DISCIPLE-004
+  - TLC-UT-DISCIPLE-005
+  - TLC-UT-DISCIPLE-006
+  - TLC-UT-DISCIPLE-008
+  - TLC-UT-DISCIPLE-009
+  - TLC-UT-DISCIPLE-010
+  - TLC-UT-DISCIPLE-011
+  - TLC-UT-DISCIPLE-012
+  - TLC-UT-DISCIPLE-013
+  - TLC-UT-DISCIPLE-014
+  - TLC-UT-DISCIPLE-015
+  - TLC-UT-DISCIPLE-016
+  - TLC-UT-DISCIPLE-017
+  - TLC-UT-DISCIPLE-018
+  - TLC-UT-DISCIPLE-019
+  - TLC-UT-DISCIPLE-020
+  - TLC-UT-DISCIPLE-021
+  - TLC-UT-DISCIPLE-022
+  - TLC-UT-DISCIPLE-023
+  - TLC-UT-DISCIPLE-024
+  - TLC-UT-DISCIPLE-025
+  - TLC-UT-DISCIPLE-026
+  - TLC-UT-DISCIPLE-027
+  - TLC-UT-DISCIPLE-028
+  - TLC-UT-DISCIPLE-029
+  - TLC-UT-DISCIPLE-030
+  - TLC-UT-DISCIPLE-031
+  - TLC-UT-DISCIPLE-032
+reservations:
+  - Exact data fields, types, dimensions, and public representation remain unresolved.
+  - The parent grouping is retained for this software phase without asserting a scientific decomposition.
+links_to_tests:
+  source_test_plan: registry/test-plans/TLC-FC-01-DISCIPLE-009/test-plan.yaml
+  oracle: registry/oracles/disciple/TLC-FC-01-DISCIPLE-009/oracle.yaml
+transformations_applied: [normalized_composite_envelope, extracted_structural_validation, normalized_unresolved_and_dependency_metadata]
+preservation_obligations:
+  - do not split or delete the parent feature
+  - do not infer component fields, aliases, dimensions, transitions, or values
+  - preserve all source references and unresolved tokens
+implementation_readiness:
+  specification_ready: true
+  scientific_execution_ready: false
+  permitted_scope: [state_envelope_assembly, reference_validation, dependency_linking, unresolved_propagation]

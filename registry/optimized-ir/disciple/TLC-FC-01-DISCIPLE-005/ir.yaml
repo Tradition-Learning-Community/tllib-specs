@@ -1,0 +1,68 @@
+schema_version: '1.0'
+ir_id: TLC-OPT-IR-TLC-FC-01-DISCIPLE-005
+feature_id: TLC-FC-01-DISCIPLE-005
+domain: disciple
+status: selected_for_disciple_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-01-DISCIPLE-005/contract.yaml
+source_ir_registry_ref: registry/ir/TLC-FC-01-DISCIPLE-005/ir.yaml
+source_ir_ref: ir/TLC-FC-01-DISCIPLE-005/ir.candidate.json
+source_test_plan_ref: registry/test-plans/TLC-FC-01-DISCIPLE-005/test-plan.yaml
+source_ir_status: {selection_status: active_candidate_not_canonical, execution_status: unresolved_not_executable}
+source_ir_preserved: true
+source_contract_preserved: true
+scientific_source_modified: false
+replaces_source_ir: false
+representation_type: deferred_computational_operation
+inputs:
+  - {name: request, type: DiscipleFeatureRequest, required: true}
+  - {name: opaque_scientific_inputs, type: 'list[OpaqueScientificValue]', required: false}
+outputs:
+  - {name: result, type: DeferredScientificOperation}
+types:
+  shared: [DiscipleFeatureRequest, ScientificReference, OpaqueScientificValue, UnresolvedToken, TraceabilityRecord, DiscipleError]
+  feature_specific: [DeferredScientificOperation]
+opaque_values:
+  policy: preserve_identity_without_interpretation
+  source_objects: ir/TLC-FC-01-DISCIPLE-005/ir.candidate.json#/data
+  source_relations: ir/TLC-FC-01-DISCIPLE-005/ir.candidate.json#/relations
+  master_subsymbols: []
+preconditions:
+  - request.feature_id equals TLC-FC-01-DISCIPLE-005
+  - all source artifacts are available
+operations:
+  - {operation_id: validate_request_identity, kind: deterministic_validation}
+  - {operation_id: preserve_source_reference_sets, kind: exact_reference_copy}
+  - {operation_id: preserve_unresolved_equation_operation, kind: deferred_operation, source_operation: TLC-FC-01-DISCIPLE-005-OP-UNRESOLVED, executable: false}
+  - {operation_id: emit_deferred_operation, kind: structural_output}
+execution_order: [validate_request_identity, preserve_source_reference_sets, preserve_unresolved_equation_operation, emit_deferred_operation]
+control_flow:
+  - on_failed_precondition: return_structured_error
+  - on_execution_request: return_DISCIPLE_UNRESOLVED_OPERATION
+  - otherwise: return_deferred_operation_descriptor
+states: {initial: received, prepared: deferred_operation_emitted, failure: rejected, scientific_execution: blocked}
+effects: []
+postconditions:
+  - unresolved transformation operation remains traceable
+  - no cited equation is evaluated or approximated
+invariants:
+  - Provisionally separated scientific objects remain distinct.
+  - no numerical method is selected
+errors: [DISCIPLE_INVALID_FEATURE_ID, DISCIPLE_MISSING_SOURCE_ARTIFACT, DISCIPLE_SOURCE_REFERENCE_MISMATCH, DISCIPLE_UNRESOLVED_OPERATION]
+determinism: {classification: deterministic_preparation, rule: descriptor generation and execution refusal are deterministic}
+dependencies:
+  internal: [TLC-FC-01-DISCIPLE-009]
+  external: []
+unresolved_propagated: ['source_operation:TLC-FC-01-DISCIPLE-005-OP-UNRESOLVED']
+reservations:
+  - inputs, outputs, types, dimensions, and numerical methods remain unspecified
+links_to_tests:
+  source_test_plan: registry/test-plans/TLC-FC-01-DISCIPLE-005/test-plan.yaml
+  oracle: registry/oracles/disciple/TLC-FC-01-DISCIPLE-005/oracle.yaml
+transformations_applied: [normalized_deferred_operation, normalized_validation_order, normalized_errors]
+preservation_obligations:
+  - do not evaluate, simplify, or approximate cited equations
+  - preserve source operation wording and references
+implementation_readiness:
+  specification_ready: true
+  scientific_execution_ready: false
+  permitted_scope: [deferred_operation_construction, validation, traceability, explicit_execution_refusal]

@@ -1,0 +1,70 @@
+schema_version: '1.0'
+algorithm_id: TLC-ALG-TLC-FC-01-DISCIPLE-003
+feature_id: TLC-FC-01-DISCIPLE-003
+domain: disciple
+optimized_ir_ref: registry/optimized-ir/disciple/TLC-FC-01-DISCIPLE-003/ir.yaml
+signature: 'prepare_disciple_dynamics(request: DiscipleFeatureRequest, execute: bool = false) -> DeferredScientificOperation | DiscipleError'
+inputs:
+  - request: feature identity and optional opaque scientific inputs
+  - execute: explicit execution request
+outputs:
+  - deferred operation descriptor or structured error
+validations:
+  - feature_id equality
+  - source artifact and unresolved source operation presence
+  - exact reference preservation
+preconditions:
+  - no differential, stochastic, dimensional, or numerical semantics are selected
+ordered_steps:
+  - validate request identity
+  - load and copy source references
+  - locate TLC-FC-01-DISCIPLE-003-OP-UNRESOLVED
+  - preserve operation text and status
+  - reject execution or emit deferred descriptor
+branches:
+  - condition: execute is true
+    result: DISCIPLE_UNRESOLVED_OPERATION
+  - condition: required source operation missing
+    result: DISCIPLE_MISSING_SOURCE_ARTIFACT
+  - condition: otherwise
+    result: deferred operation descriptor
+state_transitions:
+  - received -> validated -> deferred
+  - received|validated -> rejected on error
+errors:
+  - DISCIPLE_INVALID_FEATURE_ID
+  - DISCIPLE_MISSING_SOURCE_ARTIFACT
+  - DISCIPLE_SOURCE_REFERENCE_MISMATCH
+  - DISCIPLE_UNRESOLVED_OPERATION
+postconditions:
+  - no evolution law is evaluated
+  - unresolved source operation is fully traceable
+invariants:
+  - no numerical method is selected
+  - source identities remain distinct
+determinism: descriptor generation and refusal branch are deterministic
+effects: []
+edge_cases:
+  - opaque inputs may be empty because source input schema is unspecified
+  - any execution request is refused until a future scientific selection changes the source contract
+unresolved_preserved:
+  - source_operation:TLC-FC-01-DISCIPLE-003-OP-UNRESOLVED
+dependencies:
+  internal:
+    - TLC-FC-01-DISCIPLE-009
+  external: []
+complexity:
+  time: O(n) over source references
+  space: O(n)
+pseudocode: |
+  function prepare_disciple_dynamics(request, execute = false):
+      require request.feature_id == "TLC-FC-01-DISCIPLE-003"
+      source = load_preserved_source_ir()
+      operation = require_source_operation("TLC-FC-01-DISCIPLE-003-OP-UNRESOLVED")
+      refs = copy_exactly(source.data, source.relations)
+      if execute:
+          return error(DISCIPLE_UNRESOLVED_OPERATION, operation.id)
+      return deferred_operation(feature_id=request.feature_id,
+                                operation=copy_exactly(operation),
+                                references=refs,
+                                executable=false)

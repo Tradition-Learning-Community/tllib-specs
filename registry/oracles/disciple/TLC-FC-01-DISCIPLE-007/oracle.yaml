@@ -1,0 +1,37 @@
+schema_version: '1.0'
+oracle_id: TLC-ORACLE-TLC-FC-01-DISCIPLE-007
+feature_id: TLC-FC-01-DISCIPLE-007
+domain: disciple
+status: acceptance_ready_structural_oracle
+optimized_ir_ref: registry/optimized-ir/disciple/TLC-FC-01-DISCIPLE-007/ir.yaml
+algorithm_ref: registry/algorithms/disciple/TLC-FC-01-DISCIPLE-007/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-01-DISCIPLE-007/test-plan.yaml
+oracle_basis:
+  - source structural IR
+  - local blocker reservation
+acceptance_tests:
+  - test_id: TLC-FC-01-DISCIPLE-007-AT-001
+    category: nominal_blocked
+    assertion: execute=false emits a blocked invariant descriptor
+  - test_id: TLC-FC-01-DISCIPLE-007-AT-002
+    category: error
+    assertion: execute=true yields DISCIPLE_UNRESOLVED_SEMANTICS
+  - test_id: TLC-FC-01-DISCIPLE-007-AT-003
+    category: conservation
+    assertion: source object, relation, provenance, and blocker remain exact
+  - test_id: TLC-FC-01-DISCIPLE-007-AT-004
+    category: non_invention
+    assertion: no invariant truth value or executable predicate is produced
+  - test_id: TLC-FC-01-DISCIPLE-007-AT-005
+    category: determinism
+    assertion: descriptor and refusal branch are deterministic
+  - test_id: TLC-FC-01-DISCIPLE-007-AT-006
+    category: dependency
+    assertion: internal dependency on 009 remains declared
+properties:
+  - local blocker is propagated losslessly
+numerical_expected_results: []
+forbidden_assertions:
+  - invariant truth value
+unresolved_expected:
+  - local_scientific_blocker:TLC-FC-01-DISCIPLE-007

@@ -1,0 +1,118 @@
+schema_version: '1.0'
+domain: disciple
+baseline_commit: c34d40713bf444d38f92f76e1c6239ee596d5a18
+status: decisions_classified_without_scientific_resolution
+blocking:
+  - decision_id: TLC-DISCIPLE-EXECUTION-BLOCK-001
+    affected_features:
+      - TLC-FC-01-DISCIPLE-003
+      - TLC-FC-01-DISCIPLE-005
+    scope: scientific_execution_only
+    reason: The source IR exposes an unresolved computational operation but supplies no selected types, dimensions, numerical method, or executable evaluator.
+    blocks_domain_finalization: false
+    blocks_scientific_execution: true
+  - decision_id: TLC-DISCIPLE-EXECUTION-BLOCK-002
+    affected_features:
+      - TLC-FC-01-DISCIPLE-004
+      - TLC-FC-01-DISCIPLE-007
+      - TLC-FC-01-DISCIPLE-010
+    scope: scientific_execution_only
+    reason: Existing local scientific blockers are explicitly preserved by the catalogue, contracts, and source IRs.
+    blocks_domain_finalization: false
+    blocks_scientific_execution: true
+  - decision_id: TLC-DISCIPLE-EXECUTION-BLOCK-003
+    affected_features:
+      - TLC-FC-01-DISCIPLE-002
+      - TLC-FC-01-DISCIPLE-004
+      - TLC-FC-01-DISCIPLE-009
+      - TLC-FC-01-DISCIPLE-010
+    scope: dependency_resolution_for_scientific_execution
+    reason: Confirmed Master dependencies are symbol-only and block execution only; Master artifacts are not modified by this finalization.
+    blocks_domain_finalization: false
+    blocks_scientific_execution: true
+non_blocking:
+  - decision_id: TLC-DISCIPLE-NONBLOCK-001
+    affected_features:
+      - TLC-FC-01-DISCIPLE-001
+      - TLC-FC-01-DISCIPLE-002
+      - TLC-FC-01-DISCIPLE-003
+      - TLC-FC-01-DISCIPLE-004
+      - TLC-FC-01-DISCIPLE-005
+      - TLC-FC-01-DISCIPLE-006
+      - TLC-FC-01-DISCIPLE-007
+      - TLC-FC-01-DISCIPLE-008
+      - TLC-FC-01-DISCIPLE-009
+      - TLC-FC-01-DISCIPLE-010
+    classification: opaque_value
+    reason: Missing scientific types, dimensions, aliases, and numerical methods are represented as opaque values and unresolved tokens.
+  - decision_id: TLC-DISCIPLE-NONBLOCK-002
+    affected_features:
+      - TLC-FC-01-DISCIPLE-009
+    classification: composite_feature_with_internal_operations
+    reason: The historical excessive-aggregation warning is resolved for this software phase by retaining the parent feature and exposing only structural internal operations; no scientific split is asserted.
+deferred_to_scientific_review:
+  - decision_id: TLC-DISCIPLE-DEFERRED-001
+    affected_features:
+      - TLC-FC-01-DISCIPLE-009
+    unresolved_tokens:
+      - TLC-UT-DISCIPLE-001
+      - TLC-UT-DISCIPLE-002
+      - TLC-UT-DISCIPLE-003
+      - TLC-UT-DISCIPLE-004
+      - TLC-UT-DISCIPLE-005
+      - TLC-UT-DISCIPLE-006
+      - TLC-UT-DISCIPLE-008
+      - TLC-UT-DISCIPLE-009
+      - TLC-UT-DISCIPLE-010
+      - TLC-UT-DISCIPLE-011
+      - TLC-UT-DISCIPLE-012
+      - TLC-UT-DISCIPLE-013
+      - TLC-UT-DISCIPLE-014
+      - TLC-UT-DISCIPLE-015
+      - TLC-UT-DISCIPLE-016
+      - TLC-UT-DISCIPLE-017
+      - TLC-UT-DISCIPLE-018
+      - TLC-UT-DISCIPLE-019
+      - TLC-UT-DISCIPLE-020
+      - TLC-UT-DISCIPLE-021
+      - TLC-UT-DISCIPLE-022
+      - TLC-UT-DISCIPLE-023
+      - TLC-UT-DISCIPLE-024
+      - TLC-UT-DISCIPLE-025
+      - TLC-UT-DISCIPLE-026
+      - TLC-UT-DISCIPLE-027
+      - TLC-UT-DISCIPLE-028
+      - TLC-UT-DISCIPLE-029
+      - TLC-UT-DISCIPLE-030
+      - TLC-UT-DISCIPLE-031
+      - TLC-UT-DISCIPLE-032
+  - decision_id: TLC-DISCIPLE-DEFERRED-002
+    affected_features:
+      - TLC-FC-01-DISCIPLE-010
+    unresolved_tokens:
+      - TLC-UT-DISCIPLE-007
+preserved_as_opaque:
+  - value_id: TLC-DISCIPLE-OPAQUE-MASTER-001
+    affected_features:
+      - TLC-FC-01-DISCIPLE-009
+    values:
+      - '\\mathcal{M}_{\\mathcal{I}}'
+      - '\\mathcal{P}_{\\mathrm{Maître}}'
+  - value_id: TLC-DISCIPLE-OPAQUE-MASTER-002
+    affected_features:
+      - TLC-FC-01-DISCIPLE-010
+    values:
+      - '\\Pi_{\\mathcal{M}}'
+  - value_id: TLC-DISCIPLE-OPAQUE-SCIENTIFIC-REFERENCES
+    affected_features:
+      - TLC-FC-01-DISCIPLE-001
+      - TLC-FC-01-DISCIPLE-002
+      - TLC-FC-01-DISCIPLE-003
+      - TLC-FC-01-DISCIPLE-004
+      - TLC-FC-01-DISCIPLE-005
+      - TLC-FC-01-DISCIPLE-006
+      - TLC-FC-01-DISCIPLE-007
+      - TLC-FC-01-DISCIPLE-008
+      - TLC-FC-01-DISCIPLE-009
+      - TLC-FC-01-DISCIPLE-010
+    rule: Preserve source object and relation identities exactly; never infer aliases or values.

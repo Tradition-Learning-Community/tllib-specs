@@ -1,0 +1,42 @@
+schema_version: '1.0'
+oracle_id: TLC-ORACLE-TLC-FC-01-DISCIPLE-002
+feature_id: TLC-FC-01-DISCIPLE-002
+domain: disciple
+status: acceptance_ready_structural_oracle
+optimized_ir_ref: registry/optimized-ir/disciple/TLC-FC-01-DISCIPLE-002/ir.yaml
+algorithm_ref: registry/algorithms/disciple/TLC-FC-01-DISCIPLE-002/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-01-DISCIPLE-002/test-plan.yaml
+oracle_basis:
+  - source contract and source IR
+  - catalogue reservations
+  - symbol-only Master dependency metadata
+acceptance_tests:
+  - test_id: TLC-FC-01-DISCIPLE-002-AT-001
+    category: nominal_structural
+    assertion: valid request emits a declarative descriptor preserving the source object and relation
+  - test_id: TLC-FC-01-DISCIPLE-002-AT-002
+    category: opaque_propagation
+    assertion: no data field, type, dimension, public representation, or alias is materialized
+  - test_id: TLC-FC-01-DISCIPLE-002-AT-003
+    category: dependency
+    assertion: absent Master token yields dependency_unavailable_for_execution without preventing descriptor construction
+  - test_id: TLC-FC-01-DISCIPLE-002-AT-004
+    category: dependency
+    assertion: supplied Master token is recorded but never interpreted
+  - test_id: TLC-FC-01-DISCIPLE-002-AT-005
+    category: conservation
+    assertion: source references and both catalogue reservations are preserved exactly
+  - test_id: TLC-FC-01-DISCIPLE-002-AT-006
+    category: determinism
+    assertion: repeated equivalent inputs produce identical normalized descriptors
+  - test_id: TLC-FC-01-DISCIPLE-002-AT-007
+    category: error
+    assertion: feature mismatch yields DISCIPLE_INVALID_FEATURE_ID
+properties:
+  - provisionally separated identities remain distinct
+  - Master dependency blocks execution only
+numerical_expected_results: []
+forbidden_assertions:
+  - concrete definition fields
+  - alias equivalence
+unresolved_expected: []
