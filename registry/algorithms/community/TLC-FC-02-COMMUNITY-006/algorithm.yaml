@@ -1,0 +1,34 @@
+schema_version: '1.0'
+algorithm_id: TLC-ALG-COMMUNITY-006
+feature_id: TLC-FC-02-COMMUNITY-006
+finalized_ir_ref: registry/optimized-ir/community/TLC-FC-02-COMMUNITY-006/ir.yaml
+signature: describe_or_validate_community_006(request: CommunitySpecificationRequest) -> CommunitySpecificationResult | CommunityError
+inputs: [request]
+outputs: [structural_result_with_blocker_or_structured_error]
+validations: [exact_feature_identity, source_artifacts_present, source_object_exact, authoritative_unresolved_exact, local_blocker_preserved, opaque_invariant_not_interpreted]
+ordered_steps: [validate_identity, validate_operation, load_preserved_metadata, validate_source_object, validate_unresolved, attach_blocking_decision, validate_opaque_boundary, reject_scientific_execution_if_requested, build_structural_result]
+branching:
+- {condition: describe_or_validate, action: return_structural_result_with_COMMUNITY_DECISION_001}
+- {condition: request_scientific_execution, action: return_COMMUNITY_ERR_UNRESOLVED_SCIENTIFIC_SEMANTICS}
+transitions: [received_to_identity_validated, identity_to_sources_validated, sources_to_blocker_preserved, blocker_to_preservation_validated, preservation_to_completed, failure_to_rejected]
+effects: none_on_scientific_state
+errors: [COMMUNITY_ERR_FEATURE_ID_MISMATCH, COMMUNITY_ERR_SOURCE_ARTIFACT_MISSING, COMMUNITY_ERR_TRACEABILITY_INCOMPLETE, COMMUNITY_ERR_UNRESOLVED_NOT_PRESERVED, COMMUNITY_ERR_OPAQUE_VALUE_INTERPRETATION, COMMUNITY_ERR_UNRESOLVED_SCIENTIFIC_SEMANTICS, COMMUNITY_ERR_UNSUPPORTED_EXECUTION_REQUEST]
+postconditions: [source_reference_preserved, source_object_preserved, local_blocker_preserved, no_invariant_evaluated]
+invariants: [exact_unresolved_set, source_artifact_immutability, blocker_visibility, opaque_scientific_payload]
+determinism: deterministic_for_structural_operations_and_blocking_error
+edge_cases: [empty_opaque_values_valid, absent_blocker_reference_fails, missing_or_duplicate_unresolved_fails, scientific_execution_returns_blocking_error]
+dependencies: []
+unresolved_conserved: {set_ref: registry/domain-finalization/community/manifest.yaml#unresolved_authoritative, count: 29}
+pseudocode: |
+  function describe_or_validate_community_006(request):
+      require request.feature_id == "TLC-FC-02-COMMUNITY-006"
+      require request.operation is supported
+      sources = load_preserved_metadata_references()
+      require sources.all_exist
+      require sources.source_objects == ["TLC-SO-COMMUNITY-036"]
+      require sources.unresolved == AUTHORITATIVE_COMMUNITY_UNRESOLVED
+      blocker = "COMMUNITY-DECISION-001"
+      require opaque_values_are_uninterpreted(request.opaque_values)
+      if request.operation == "request_scientific_execution":
+          return error(COMMUNITY_ERR_UNRESOLVED_SCIENTIFIC_SEMANTICS, request.feature_id, sources.unresolved, blocker)
+      return structural_result(request.feature_id, sources, request.opaque_values, blocker=blocker, deterministic_serialization=true)
