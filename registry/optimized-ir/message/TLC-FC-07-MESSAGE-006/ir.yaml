@@ -1,0 +1,43 @@
+schema_version: 1
+feature_id: TLC-FC-07-MESSAGE-006
+status: selected_for_message_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-07-MESSAGE-006/contract.yaml
+source_ir: registry/ir/TLC-FC-07-MESSAGE-006/ir.yaml
+source_test_plan: registry/test-plans/TLC-FC-07-MESSAGE-006/test-plan.yaml
+source_ir_status: prototype_ir_with_reservations
+nature: declarative_structural
+inputs:
+  - {name: message_declaration_evidence, type: MessageEntityDeclarationEvidence, content_policy: opaque_candidate_evidence}
+outputs:
+  - {name: message_entity_profile, type: DeclaredMessageEntityProfile, status: unevaluated_candidate}
+types:
+  opaque: [OpaqueScientificPayload, OpaqueSourceContext]
+  parameterized: [MessageEntityDeclarationEvidence, DeclaredMessageEntityProfile]
+content_or_reference: preserve TLC-SO-MESSAGE-001, TLC-SO-MESSAGE-004, TLC-SO-MESSAGE-030, TLC-SR-MESSAGE-003, TLC-SR-MESSAGE-029
+opaque_values: [property_classifications, transmission_mechanics, audience, medium, encoding, transport, execution]
+roles_explicitly_defined: [entity, essential_properties, transmissibility]
+context: root Message declaration
+metadata: [feature_id, object_ids, relation_ids, source_references, candidate_status, unresolved]
+preconditions: [three objects and two relations supplied unchanged]
+operations: [validate_distinct_objects, validate_relation_endpoints, reject_protocol_fields, construct_root_profile, attach_unresolved]
+execution_order: [validate_objects, validate_relations, reject_forbidden_fields, construct, attach_unresolved, verify]
+control_flow: fail_on_incomplete_declaration_endpoint_mismatch_or_protocol_field
+transformations_authorized: [identity_preserving_declaration_profile_construction]
+effects: [create_non_executable_root_profile]
+postconditions: [three evidence roles remain distinct, two relations preserved, no encoding transport or execution interface]
+invariants: [identity_preserved, relation_identity_preserved, role_separation_preserved, non_executable_evidence]
+errors: [IncompleteMessageDeclaration, RelationEndpointMismatch, ForbiddenProtocolField]
+determinism: deterministic_for_identical_evidence_and_relations
+dependencies: []
+unresolved_propagated: [TLC-UT-MESSAGE-001, TLC-UT-MESSAGE-021]
+reservations: [TLC-UT-MESSAGE-001, TLC-UT-MESSAGE-021, TLC-DUP-MESSAGE-001]
+transformations_applied_to_ir: [normalized_traceability, explicit_role_separation, explicit_protocol_absence]
+preservation_obligations: [content, object_identity, relation_identity, role_identity, provenance, unresolved]
+algorithm: registry/algorithms/message/TLC-FC-07-MESSAGE-006/algorithm.yaml
+oracle: registry/oracles/message/TLC-FC-07-MESSAGE-006/oracle.yaml
+implementation_aptitude: ready_for_root_declaration_profile_implementation
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+message_content_invented: false
