@@ -1,0 +1,62 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005
+operation: index_dimension_dynamics_laws
+signature: index_dimension_dynamics_laws(law_descriptors) -> DimensionDynamicsCatalogue
+source_contract: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005/contract.yaml
+finalized_ir: registry/optimized-ir/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005/ir.yaml
+inputs:
+- virtue_development_law: OpaqueDifferentialLaw
+- capacity_evolution_law: OpaqueStochasticLaw
+- practice_acquisition_law: OpaqueDifferentialLaw
+- lived_experience_evolution_law: OpaqueDifferentialLaw
+output: DimensionDynamicsCatalogue
+validations:
+- require the exact four semantic roles and distinct law ids
+- require complete trace reservations and assumptions
+- reject duplicate keys and every numerical execution request
+preconditions: [four_roles_present, identifiers_distinct, traceability_complete]
+steps:
+- validate role set identifiers and source traces
+- reject duplicate keys missing laws or execution options
+- copy each opaque law into the catalogue entry keyed by its role
+- attach law kind object id trace reservations and assumptions
+- verify cardinality identity opacity and propagation
+branching:
+- missing trace or role: FAIL-HUIT-005-MISSING-TRACE
+- duplicate missing or execution request: FAIL-HUIT-005-OPERATION
+- invented semantics: FAIL-HUIT-005-SCIENTIFIC-INVENTION
+dimension_access: explicit_dimension_role_labels_only
+transformations: role_keyed_catalogue_normalization_without_equation_change
+errors: [FAIL-HUIT-005-MISSING-TRACE, FAIL-HUIT-005-OPERATION, FAIL-HUIT-005-SCIENTIFIC-INVENTION]
+postconditions:
+- four entries exist under their declared roles
+- equation payloads and law kinds remain unchanged
+- no state transition is simulated
+invariants: [distinct_source_objects, exact_source_trace, limited_status]
+determinism: deterministic_catalogue_construction
+effects: none
+case_limits:
+- fewer or more than four roles are rejected
+- role map input order is non-semantic
+- stochastic payload is never sampled
+dependencies: {execution: [], documentary: [virtues, capacities, practice, lived-experience]}
+unresolved_conserved:
+- TLC-UNRES-HUIT-005-TYPE
+- TLC-UNRES-HUIT-005-SIGNATURE
+- TLC-UNRES-HUIT-005-UNITS
+- TLC-UNRES-HUIT-005-ORDER
+- TLC-UNRES-HUIT-005-AGGREGATION
+- TLC-UNRES-HUIT-005-NUMERICS
+- TLC-UNRES-HUIT-005-ORACLE
+- TLC-UNRES-HUIT-005-BOUNDARY
+pseudocode: |
+  function index_dimension_dynamics_laws(law_descriptors):
+      require_exact_roles(law_descriptors, [virtue_development_law, capacity_evolution_law, practice_acquisition_law, lived_experience_evolution_law])
+      validate_distinct_ids_and_traceability(law_descriptors)
+      reject_execution_parameters(law_descriptors)
+      catalogue = new DimensionDynamicsCatalogue()
+      for role in declared_roles:
+          catalogue.add(role, copy_opaque(law_descriptors[role]))
+      catalogue.attach(reservations, assumptions)
+      verify_cardinality_identity_and_propagation(catalogue, 4)
+      return catalogue
