@@ -1,0 +1,44 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-012
+algorithm_id: CAP-ALG-012
+status: selected_for_capacities_implementation_specification
+source_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-012/ir.yaml
+signature: 'CapacityMetricStructureIndex index_hilbert_riemannian_structure_components(FeatureId, List<OpaqueScientificObject>, Map<ObjectId,List<UnevaluatedSymbol>>, Map<ObjectId,SourceReference>, DecisionBlocker)'
+inputs: {required_object_order: [TLC-SO-CAPACITIES-042]}
+outputs: [CapacityMetricStructureIndex]
+validations: [exact feature id, exact singleton object, explicit symbol entry, complete provenance, exact blocker, structural request]
+preconditions: [spaces-and-structures object present]
+conditions_of_application: [role indexing only]
+steps:
+  - validate targeted envelope
+  - inspect only the supplied symbol-token list, not scientific semantics
+  - create index entries for source-present roles
+  - associate each entry with unchanged symbol and provenance
+  - attach blocker and non-evaluation guard
+  - return immutable index
+branching: {invalid_membership: MissingCoveredObject or UnexpectedCoveredObject, missing_symbol: MissingSymbolTableEntry, missing_blocker: MissingDecisionBlocker, geometry_requested: ScientificEvaluationRequested}
+capacity_handling: {construction: component index only, identity_validation: exact, scope_validation: singleton, context_validation: provenance}
+relations: none
+activation: not_performed
+mobilization: not_performed
+development: not_performed
+comparison: role_and_identifier_lookup_only
+effects: no geometry computation
+errors: [UnknownFeatureId, MissingCoveredObject, UnexpectedCoveredObject, ObjectOrderMismatch, MissingSymbolTableEntry, MissingSourceReference, MissingDecisionBlocker, ScientificEvaluationRequested]
+postconditions: [only source-present roles indexed, symbols and provenance unchanged]
+invariants: [no role or symbol invented, no curvature or geodesic calculation]
+determinism: deterministic
+case_limits: [absent role remains absent, extra object fails, geometry request fails]
+unresolved_conserved: [scientific decision required]
+dependencies: []
+pseudocode: |
+  require feature_id == TLC-FC-11-CAPACITIES-012 else UnknownFeatureId
+  require exact_order(objects, [042]) else membership_or_order_error
+  require symbol_entry(symbol_table, 042) else MissingSymbolTableEntry
+  require complete_provenance(provenance) else MissingSourceReference
+  require blocker == "scientific decision required" else MissingDecisionBlocker
+  require request_is_structural_only() else ScientificEvaluationRequested
+  index = empty_metric_structure_index()
+  for token in symbol_table[042]: index.add(source_role(token), token, provenance[042])
+  index.attach(blocker, non_evaluation_guard)
+  return immutable(index)
