@@ -1,0 +1,19 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-00-MASTER-015
+feature_id: TLC-FC-00-MASTER-015
+status: acceptance_ready
+finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-015/ir.yaml
+algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-015/algorithm.yaml
+oracle_kind: symbolic_type_structural_and_dependency
+fixtures: {valid_object_refs: [TLC-SO-MASTER-010, TLC-SO-MASTER-016], valid_relation_refs: [TLC-SR-MASTER-009, TLC-SR-MASTER-015, TLC-SR-MASTER-018, TLC-SR-MASTER-020, TLC-SR-MASTER-027], valid_unresolved: []}
+acceptance_tests:
+  - {test_id: MASTER-015-A01, category: precondition, assertion: exact symbolic-state bundle is accepted}
+  - {test_id: MASTER-015-A02, category: postcondition, assertion: descriptor contains both distinct symbolic objects}
+  - {test_id: MASTER-015-A03, category: dependency, assertion: absent community symbol remains non-blocking and explicit}
+  - {test_id: MASTER-015-A04, category: error, mutation: merge the two objects, expected_error: MASTER_PRESERVATION_VIOLATION}
+  - {test_id: MASTER-015-A05, category: invariant, assertion: all five relations remain ordered and distinct}
+  - {test_id: MASTER-015-A06, category: determinism, assertion: repeated descriptor output is identical}
+  - {test_id: MASTER-015-A07, category: conservation, assertion: no runtime layout, dimension, subtype relation, weight, metric, or community value is invented}
+  - {test_id: MASTER-015-A08, category: source_integrity, assertion: all source artifacts are unmodified}
+exact_numeric_examples: []
+scientific_values_invented: false
