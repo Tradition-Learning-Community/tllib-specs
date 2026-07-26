@@ -1,0 +1,50 @@
+schema_version: 1
+artifact_kind: theorems_acceptance_oracle
+feature_id: TLC-FC-06-THEOREMS-005
+operation_under_test: register_cns_operator_claims
+source_test_plan: registry/test-plans/TLC-FC-06-THEOREMS-005/test-plan.yaml
+oracle_scope: structural_conformance_only
+acceptance_tests:
+  - id: ORACLE-005-NOMINAL
+    kind: nominal
+    given: one sourced transformation claim and sourced per-dimension removal claims
+    expect: CNSOperatorClaimSet with two separately addressable claim families and blocked-local status
+  - id: ORACLE-005-MISSING-TRANSFORMATION
+    kind: precondition_error
+    given: missing transformation claim
+    expect_error: MISSING_TRANSFORMATION_CLAIM
+  - id: ORACLE-005-MISSING-REMOVAL-SOURCE
+    kind: traceability_error
+    given: a removal claim without lines 66-67 reference
+    expect_error: MISSING_REMOVAL_CLAIM_SOURCE
+  - id: ORACLE-005-COLLISION
+    kind: structural_error
+    given: a claim assigned to both families
+    expect_error: CLAIM_FAMILY_COLLISION
+  - id: ORACLE-005-OPAQUE
+    kind: opaque_propagation
+    expect: transformation and every removal payload remain unchanged
+  - id: ORACLE-005-SEPARATION
+    kind: structure
+    expect: claim families remain distinct even when opaque payloads are identical
+  - id: ORACLE-005-PROOF
+    kind: specification_metadata
+    expect: associated CNS proof remains partial, not formalized, and referenced as PROOF-THEOREMS-003
+  - id: ORACLE-005-NO-CLAIM
+    kind: negative_capability
+    expect: result asserts neither completeness, necessity, sufficiency, nor removal-effect truth
+  - id: ORACLE-005-DETERMINISM
+    kind: determinism
+    action: invoke twice with identical inputs
+    expect: identical claim sets
+  - id: ORACLE-005-TRACE
+    kind: traceability
+    expect: both source ranges, both object IDs, and DEP-THEOREMS-HUIT-001 remain linked
+properties:
+  claim_family_separation_preserved: true
+  opaque_claims_preserved: true
+  scientific_status_preserved: blocked_local
+  proof_invented: false
+acceptance_result:
+  pass_when: structural separation, source, error, status, and determinism assertions hold
+  does_not_mean: the CNS theorem is proved
