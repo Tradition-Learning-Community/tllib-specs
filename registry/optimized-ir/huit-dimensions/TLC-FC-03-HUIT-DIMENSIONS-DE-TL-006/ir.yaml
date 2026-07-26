@@ -1,0 +1,69 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006
+domain: huit-dimensions
+status: selected_for_huit_dimensions_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006/contract.yaml
+source_ir: ir/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006/ir.prototype.json
+source_test_plan: ir/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006/test-plan.yaml
+source_ir_status: prototype_ir_with_reservations
+source_ir_scientific_status: noncanonical_engineering_prototype
+nature: structural_symbolic_equation_binding
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+inputs:
+- {role: principle_message_equation, type: OpaqueLimitEquation, scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-068}
+- {role: just_mean_equation, type: OpaqueArgminEquation, scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-084}
+outputs:
+- {role: specialized_structural_result, type: SymbolicEquationSet, evaluated: false}
+types:
+  opaque: [OpaqueLimitEquation, OpaqueArgminEquation, OpaqueOperatorToken]
+  result: SymbolicEquationSet
+  common: [FeatureId, ScientificObjectId, SourceReference, ReservationId]
+opaque_values: [limit, Gamma, distance, argmin, equation_payloads]
+preconditions:
+- both named equations are present with distinct source identifiers
+- all trace reservations and assumptions are complete
+operations:
+- name: bind_symbolic_equation_definitions
+  kind: deterministic_identity_preserving_record_construction
+  behavior: bind two non-aliased symbolic equations without evaluating operators
+order_of_execution: [validate, construct, verify]
+control_flow:
+  validate_failure: FAIL-HUIT-006-MISSING-TRACE
+  operation_failure: FAIL-HUIT-006-OPERATION
+  forbidden_semantics: FAIL-HUIT-006-SCIENTIFIC-INVENTION
+states_and_effects: {persistent_state: none, external_effects: none, input_mutation: forbidden}
+postconditions:
+- exactly two distinct equation definitions exist
+- source identifiers and operator bindings remain distinct and unresolved
+- limit distance and argmin are not evaluated
+invariants:
+- object identity and source text remain unchanged
+- limited engineering status remains explicit
+errors:
+- {id: FAIL-HUIT-006-MISSING-TRACE, category: missing_traceability_or_role}
+- {id: FAIL-HUIT-006-OPERATION, category: alias_or_evaluation_request}
+- {id: FAIL-HUIT-006-SCIENTIFIC-INVENTION, category: scientific_evaluation_forbidden}
+determinism: {same_input_same_output: true, equation_keys: [principle_message_equation, just_mean_equation]}
+dependencies: {internal: [], execution: [], documentary: [principles, virtues]}
+unresolved_propagated:
+- TLC-UNRES-HUIT-006-TYPE
+- TLC-UNRES-HUIT-006-SIGNATURE
+- TLC-UNRES-HUIT-006-UNITS
+- TLC-UNRES-HUIT-006-ORDER
+- TLC-UNRES-HUIT-006-AGGREGATION
+- TLC-UNRES-HUIT-006-NUMERICS
+- TLC-UNRES-HUIT-006-ORACLE
+- TLC-UNRES-HUIT-006-BOUNDARY
+reservations: [TLC-EA-HUIT-006-001]
+transformations_applied:
+- normalized typed symbolic equation records
+- normalized opaque operator and trace propagation
+preservation_obligations:
+- preserve exact equation identities expressions and unresolved operators
+- never solve simplify alias or infer equivalence
+algorithm_ref: registry/algorithms/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006/algorithm.yaml
+oracle_ref: registry/oracles/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006/oracle.yaml
+implementation_readiness: {specification_ready: true, scientific_execution_ready: false, assessment: ready_for_structural_implementation_with_opaque_scientific_payloads}
