@@ -1,0 +1,79 @@
+schema_version: 1
+domain_id: dynamics
+current_package_blocked: false
+scientific_execution_blocked: true
+classification_policy:
+  blocking: prevents definition of observable behavior required by the current structural implementation package
+  non_blocking: does not prevent the current package and remains explicitly represented
+  deferred_to_scientific_review: requires scientific authority before executable dynamics may be added
+  preserved_as_opaque: carried without evaluation or resolution
+decisions:
+  - decision_id: DYN-DEC-001
+    feature_id: TLC-FC-05-DYNAMICS-001
+    subject: viability predicate scientific evaluation semantics
+    classification: preserved_as_opaque
+    representation: opaque_value
+    unresolved: [UNRES-TIME, UNRES-L, UNRES-NORM, UNRES-MEMORY-NOTATION, UNRES-OUTPUT]
+    blocks_current_package: false
+    blocks_scientific_execution: true
+  - decision_id: DYN-DEC-002
+    feature_id: TLC-FC-05-DYNAMICS-002
+    subject: equation types, state spaces, initial conditions, stochastic details, solver, and discretization
+    classification: deferred_to_scientific_review
+    representation: external_transition_engine_required
+    unresolved: [types_initial_conditions_stochastic_details, solver_and_discretization]
+    blocks_current_package: false
+    blocks_scientific_execution: true
+  - decision_id: DYN-DEC-003
+    feature_id: TLC-FC-05-DYNAMICS-003
+    subject: locally blocked stochastic semantics
+    classification: deferred_to_scientific_review
+    representation: descriptive_scope
+    unresolved: [catalogue_blocked_locally, stochastic_semantics]
+    blocks_current_package: false
+    blocks_scientific_execution: true
+  - decision_id: DYN-DEC-004
+    feature_id: TLC-FC-05-DYNAMICS-004
+    subject: kernel parameter types, integration domains, and convergence
+    classification: deferred_to_scientific_review
+    representation: parameter_required
+    unresolved: [domains_and_convergence, kernel_parameter_types]
+    blocks_current_package: false
+    blocks_scientific_execution: true
+  - decision_id: DYN-DEC-005
+    feature_id: TLC-FC-05-DYNAMICS-005
+    subject: interaction-operator signatures and Community symbol reconciliation
+    classification: deferred_to_scientific_review
+    representation: external_reference
+    unresolved: [operator_signatures_absent, community_symbol_reconciliation]
+    blocks_current_package: false
+    blocks_scientific_execution: true
+  - decision_id: DYN-DEC-006
+    feature_id: TLC-FC-05-DYNAMICS-006
+    subject: scientific state classification and explicit state space
+    classification: deferred_to_scientific_review
+    representation: unresolved_propagated
+    unresolved: [TLC-UT-DYNAMICS-001, TLC-UT-DYNAMICS-002, TLC-UT-DYNAMICS-003, TLC-UT-DYNAMICS-004, TLC-UT-DYNAMICS-005, TLC-UT-DYNAMICS-006, TLC-UT-DYNAMICS-008, TLC-UT-DYNAMICS-009, TLC-UT-DYNAMICS-010, TLC-UT-DYNAMICS-011, TLC-UT-DYNAMICS-012]
+    blocks_current_package: false
+    blocks_scientific_execution: true
+  - decision_id: DYN-DEC-007
+    feature_id: TLC-FC-05-DYNAMICS-007
+    subject: state-versus-evolution boundary
+    classification: deferred_to_scientific_review
+    representation: unresolved_propagated
+    unresolved: [TLC-UT-DYNAMICS-007, state_vs_evolution_boundary]
+    blocks_current_package: false
+    blocks_scientific_execution: true
+real_blockers_remaining:
+  current_structural_implementation_package: []
+  future_scientific_execution:
+    - no explicit state spaces or initial conditions
+    - no executable transition or evolution engine
+    - incomplete stochastic semantics
+    - missing operator signatures
+    - missing feedback domains and convergence conditions
+closure_decision:
+  dynamics_specification_package: complete
+  features_rejected: 0
+  unresolved_silently_resolved: 0
+  scientific_review_still_required: true

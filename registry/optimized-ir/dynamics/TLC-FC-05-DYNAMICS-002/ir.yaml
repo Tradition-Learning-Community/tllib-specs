@@ -1,0 +1,105 @@
+schema_version: 1
+ir_id: TLC-OPT-IR-TLC-FC-05-DYNAMICS-002
+feature_id: TLC-FC-05-DYNAMICS-002
+status: selected_for_dynamics_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-05-DYNAMICS-002/contract.yaml
+source_ir_ref: ir/TLC-FC-05-DYNAMICS-002/ir.prototype.json
+source_test_plan_ref: registry/test-plans/TLC-FC-05-DYNAMICS-002/test-plan.yaml
+source_ir_status: prototype
+source_ir_nature: structural
+finalized_ir_nature: declarative_structural
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+traceability:
+  source_objects: [TLC-SO-DYNAMICS-016, TLC-SO-DYNAMICS-017, TLC-SO-DYNAMICS-018, TLC-SO-DYNAMICS-019, TLC-SO-DYNAMICS-021, TLC-SO-DYNAMICS-022, TLC-SO-DYNAMICS-025, TLC-SO-DYNAMICS-026]
+  source_relations: [TLC-SR-DYNAMICS-015, TLC-SR-DYNAMICS-016, TLC-SR-DYNAMICS-017, TLC-SR-DYNAMICS-018, TLC-SR-DYNAMICS-020, TLC-SR-DYNAMICS-021, TLC-SR-DYNAMICS-024, TLC-SR-DYNAMICS-025]
+  scientific_source: maths/05-dynamics.md
+inputs:
+  - {name: equation_sources, type: "Sequence[OpaqueEquation]"}
+  - {name: symbols, type: SymbolTable}
+outputs:
+  - {name: bundle, type: "DynamicsBundle[OpaqueEquation]"}
+types:
+  opaque: [OpaqueEquation, OpaqueValue, OpaqueExpression]
+  identifiers: [ScientificObjectId, ScientificRelationId]
+  parameterized: ["Sequence[T]", "Mapping[K,V]", "Optional[T]", "DynamicsBundle[T]"]
+opaque_values: [equation_sources.payloads, symbols.bindings]
+states: []
+initial_state: not_defined
+terminal_state: not_defined
+preconditions:
+  - all cited equation identifiers exist in the Dynamics inventory
+  - every symbol referenced by a supplied equation is present in the supplied symbol table
+  - inputs preserve their declared carrier shape
+transition_conditions: []
+operations:
+  - operation_id: OP-002-001
+    kind: build_unevaluated_dynamics_bundle
+    evaluation: unevaluated
+    behavior: assemble the supplied deterministic and stochastic equation sources without solving or classifying beyond source metadata
+execution_order:
+  - validate_equation_source_identifiers
+  - validate_symbol_references
+  - validate_input_shapes
+  - copy_equations_in_supplied_order
+  - attach_per_equation_traceability
+  - attach_unresolved_and_reservations
+  - validate_postconditions
+control_flow:
+  kind: linear_with_validation_failure
+  branches:
+    - condition: unknown equation or symbol identifier
+      result: error_without_partial_bundle
+    - condition: input shape mismatch
+      result: error_without_partial_bundle
+transitions: []
+effects:
+  scientific: none
+  mutation: none
+  structural: create_traceable_unevaluated_dynamics_bundle
+postconditions:
+  - bundle membership and ordering exactly reproduce the supplied sequence
+  - each equation preserves its opaque payload and source classification
+  - no equation is solved, discretized, sampled, or supplied with an initial condition
+invariants:
+  - covered objects and relations remain distinct and source-addressable
+  - opaque equation payloads remain unchanged
+  - input sequence order is preserved
+stop_conditions: []
+errors: [unknown_source_identifier, type_shape_mismatch, unresolved_scientific_semantics]
+determinism: deterministic_structure_construction_only
+stochasticity:
+  source_notation_present: true
+  executable_sampling: false
+  distribution_defined: false
+seed_management: not_defined
+dependencies:
+  internal:
+    - {feature_id: TLC-FC-05-DYNAMICS-006, kind: inferred_state_candidate, execution_dependency: false}
+  external:
+    - {domain: master, kind: symbolic, execution_dependency: false}
+    - {domain: disciple, kind: symbolic, execution_dependency: false}
+    - {domain: community, kind: documentary_or_future_reconciliation, execution_dependency: false}
+    - {domain: values, kind: documentary, execution_dependency: false}
+    - {domain: relations, kind: documentary, execution_dependency: false}
+    - {domain: lived-experience, kind: documentary, execution_dependency: false}
+unresolved_propagated: [types_initial_conditions_stochastic_details, solver_and_discretization]
+reservations:
+  - equation types, domains, units, state spaces, initial conditions, stochastic laws, covariance, and solvers remain unspecified
+  - derivative notation is not converted into an executable transition
+transformations_applied:
+  - normalized equation records under one ordered bundle carrier
+  - extracted common validation and traceability subgraphs
+  - preserved all source equation distinctions and ordering
+preservation_obligations:
+  - preserve every supplied equation and source ID
+  - preserve stochastic metadata without sampling
+  - do not select a solver, discretization, distribution, or initial condition
+algorithm_ref: registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-002/algorithm.yaml
+oracle_ref: registry/oracles/dynamics/TLC-FC-05-DYNAMICS-002/oracle.yaml
+implementation_aptitude:
+  structural_package: ready
+  scientific_execution: external_transition_engine_required
+  reason: sources define equation notation but not complete executable semantics

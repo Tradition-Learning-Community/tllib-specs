@@ -1,0 +1,59 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-05-DYNAMICS-005
+feature_id: TLC-FC-05-DYNAMICS-005
+status: selected_for_dynamics_implementation_specification
+ir_ref: registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-005/ir.yaml
+algorithm_ref: registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-005/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-05-DYNAMICS-005/test-plan.yaml
+oracle_kind: structural_property_oracle
+unresolved_preserved: [operator_signatures_absent, community_symbol_reconciliation]
+fixture_policy:
+  values: source_listed_operator_ids_and_opaque_entity_references_only
+  arbitrary_scientific_values: forbidden
+acceptance_cases:
+  - case_id: DYN-005-NOMINAL
+    categories: [nominal, order, traceability]
+    given: a source-listed operator and ordered opaque Master, Disciple, or Community references
+    expect:
+      - output type is UnevaluatedOperatorApplication
+      - operator identity, argument identities, and argument order are preserved
+      - TLC-SO-DYNAMICS-014 and TLC-SR-DYNAMICS-013 are traceable
+  - case_id: DYN-005-OPAQUE-SIGNATURE
+    categories: [opaque_value, boundary]
+    given: no operator signature or return type
+    expect:
+      - structural construction succeeds
+      - no arity, parameter type, codomain, or result semantics is inferred
+  - case_id: DYN-005-UNKNOWN-OPERATOR
+    categories: [error, precondition]
+    given: an operator ID absent from the source-listed set
+    expect: [unknown_source_identifier, no_output, arguments_unchanged]
+  - case_id: DYN-005-TYPE-SHAPE
+    categories: [type, shape, error]
+    given: arguments not carried as Sequence[OpaqueEntityRef]
+    expect: [type_shape_mismatch, no_output]
+  - case_id: DYN-005-ORDER
+    categories: [order, property]
+    property: any valid supplied argument ordering is reproduced exactly
+  - case_id: DYN-005-UNRESOLVED
+    categories: [unresolved_propagation]
+    expect:
+      - unresolved metadata equals [operator_signatures_absent, community_symbol_reconciliation]
+  - case_id: DYN-005-DETERMINISM
+    categories: [determinism, reproducibility]
+    property: identical operator and ordered arguments produce structurally identical applications
+  - case_id: DYN-005-METAMORPHIC-ARGUMENT
+    categories: [metamorphic]
+    transformation: replace one opaque argument while retaining its position and source validity
+    expect: only that stored argument changes; operator, order of other arguments, traceability, and unresolved remain unchanged
+  - case_id: DYN-005-FORBIDDEN-SEMANTICS
+    categories: [negative_property]
+    expect_absent: [inferred_arity, inferred_return_type, evaluated_interaction, derivative_update, executable_transition]
+invariants_checked:
+  - operator and arguments remain source-addressable
+  - ordered opaque payloads are conserved
+  - unresolved are conserved
+dependency_checks:
+  - Master and Disciple references remain symbolic
+  - Community reference remains future reconciliation only
+acceptance_rule: all cases pass and no executable operator semantics is produced

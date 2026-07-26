@@ -1,0 +1,60 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-05-DYNAMICS-003
+feature_id: TLC-FC-05-DYNAMICS-003
+status: selected_for_dynamics_implementation_specification
+ir_ref: registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-003/ir.yaml
+algorithm_ref: registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-003/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-05-DYNAMICS-003/test-plan.yaml
+oracle_kind: structural_property_oracle
+unresolved_preserved: [catalogue_blocked_locally, stochastic_semantics]
+fixture_policy:
+  values: opaque_stochastic_expression_and_source_bindings_only
+  sampling: forbidden
+  arbitrary_scientific_values: forbidden
+acceptance_cases:
+  - case_id: DYN-003-NOMINAL
+    categories: [nominal, structure, traceability]
+    given: the opaque TLC-SO-DYNAMICS-020 expression and available source bindings
+    expect:
+      - output type is UnevaluatedStochasticEquation
+      - payload is unchanged
+      - TLC-SR-DYNAMICS-019 is traceable
+      - output status remains locally blocked and unevaluated
+  - case_id: DYN-003-OPAQUE-STOCHASTICITY
+    categories: [stochastic, opaque_value]
+    given: no distribution, filtration, covariance, process type, or integration convention
+    expect:
+      - those properties remain absent
+      - no sample or probability law is generated
+  - case_id: DYN-003-WRONG-SHAPE
+    categories: [type, shape, error]
+    given: a non-expression payload
+    expect: [type_shape_mismatch, no_output]
+  - case_id: DYN-003-UNKNOWN-SOURCE
+    categories: [precondition, error]
+    given: an unknown source or symbol identifier
+    expect: [unknown_source_identifier, no_output]
+  - case_id: DYN-003-UNRESOLVED
+    categories: [unresolved_propagation]
+    expect:
+      - unresolved metadata equals [catalogue_blocked_locally, stochastic_semantics]
+  - case_id: DYN-003-ROUND-TRIP
+    categories: [property, conservation]
+    property: serialization and reconstruction preserve the opaque expression, local block, and traceability exactly
+  - case_id: DYN-003-DETERMINISM
+    categories: [determinism, reproducibility]
+    property: identical opaque inputs produce structurally identical records without using a seed
+  - case_id: DYN-003-METAMORPHIC-HANDLE
+    categories: [metamorphic]
+    transformation: replace the opaque expression carrier payload while preserving source IDs
+    expect: only the payload changes; block status, source links, and unresolved remain identical
+  - case_id: DYN-003-FORBIDDEN-SEMANTICS
+    categories: [negative_property]
+    expect_absent: [sampled_path, probability_law, stochastic_integral_choice, seed, solver, executable_transition]
+invariants_checked:
+  - opaque stochastic payload is conserved
+  - local blocking and unresolved are conserved
+  - no stochastic execution occurs
+dependency_checks:
+  - external symbolic references are retained without executable coupling
+acceptance_rule: all cases pass and no stochastic sampling, probability model, or execution semantics is produced

@@ -1,0 +1,66 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-05-DYNAMICS-006
+feature_id: TLC-FC-05-DYNAMICS-006
+status: selected_for_dynamics_implementation_specification
+ir_ref: registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-006/ir.yaml
+algorithm_ref: registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-006/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-05-DYNAMICS-006/test-plan.yaml
+oracle_kind: structural_property_oracle
+unresolved_preserved: [TLC-UT-DYNAMICS-001, TLC-UT-DYNAMICS-002, TLC-UT-DYNAMICS-003, TLC-UT-DYNAMICS-004, TLC-UT-DYNAMICS-005, TLC-UT-DYNAMICS-006, TLC-UT-DYNAMICS-008, TLC-UT-DYNAMICS-009, TLC-UT-DYNAMICS-010, TLC-UT-DYNAMICS-011, TLC-UT-DYNAMICS-012]
+fixture_policy:
+  values: covered_scientific_object_ids_and_opaque_values_only
+  arbitrary_scientific_values: forbidden
+acceptance_cases:
+  - case_id: DYN-006-NOMINAL
+    categories: [nominal, structure, traceability]
+    given: opaque values keyed by covered ScientificObjectIds
+    expect:
+      - output type is StateCandidateRecord
+      - every supplied key/value pair is retained
+      - per-component source relations are traceable
+      - completeness remains unasserted
+  - case_id: DYN-006-PARTIAL-CANDIDATE
+    categories: [boundary, opaque_value]
+    given: any valid subset of covered components
+    expect:
+      - subset is preserved exactly
+      - omitted components remain absent
+      - no default or completeness claim is created
+  - case_id: DYN-006-EMPTY-CANDIDATE
+    categories: [boundary, structure]
+    given: an empty valid mapping
+    expect:
+      - an empty StateCandidateRecord is returned
+      - state-space membership and completeness remain undefined
+  - case_id: DYN-006-UNKNOWN-COMPONENT
+    categories: [error, precondition]
+    given: a component key outside the covered ID set
+    expect: [unknown_source_identifier, no_output]
+  - case_id: DYN-006-TYPE-SHAPE
+    categories: [type, shape, error]
+    given: a value that is not carried as OpaqueValue
+    expect: [type_shape_mismatch, no_output]
+  - case_id: DYN-006-CONSERVATION
+    categories: [conservation, property]
+    property: serialization round-trip preserves all keys, opaque values, traceability, partial status, unresolved, and reservations
+  - case_id: DYN-006-UNRESOLVED
+    categories: [unresolved_propagation]
+    expect:
+      - all eleven source unresolved IDs remain attached exactly
+  - case_id: DYN-006-DETERMINISM
+    categories: [determinism, reproducibility]
+    property: identical mapping content and exposed order produce structurally identical records
+  - case_id: DYN-006-METAMORPHIC-SUBSET
+    categories: [metamorphic]
+    transformation: remove one valid component from a valid candidate mapping
+    expect: output removes only that component and remains a valid partial candidate without defaults
+  - case_id: DYN-006-FORBIDDEN-SEMANTICS
+    categories: [negative_property]
+    expect_absent: [explicit_state_space, invented_default, completeness_claim, inferred_transition, initial_state, terminal_state]
+invariants_checked:
+  - each component remains opaque and source-addressable
+  - partial candidate semantics and unresolved are conserved
+  - no state promotion occurs
+dependency_checks:
+  - external domain references remain symbolic or future reconciliation
+acceptance_rule: all cases pass and no explicit scientific state space, default, or transition is produced

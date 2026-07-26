@@ -1,0 +1,66 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-05-DYNAMICS-005
+feature_id: TLC-FC-05-DYNAMICS-005
+status: selected_for_dynamics_implementation_specification
+ir_ref: registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-005/ir.yaml
+signature: "construct_opaque_interaction_application(operator_id: InteractionOperatorId, arguments: Sequence[OpaqueEntityRef]) -> UnevaluatedOperatorApplication"
+inputs:
+  operator_id: source-listed interaction-operator identifier
+  arguments: ordered opaque entity references
+outputs:
+  application: unevaluated operator-application record
+validations:
+  - verify operator_id is source-listed under TLC-SO-DYNAMICS-014
+  - verify every argument reference and carrier shape
+preconditions:
+  - argument order is supplied explicitly
+  - no signature, arity, or return type is assumed
+initial_state: not_applicable
+ordered_steps:
+  - validate operator identifier
+  - validate argument identifiers and opaque carriers
+  - copy arguments in supplied order
+  - construct an UnevaluatedOperatorApplication
+  - attach TLC-SO-DYNAMICS-014 and TLC-SR-DYNAMICS-013 traceability
+  - attach unresolved and reservations
+  - validate postconditions and return
+transitions: []
+branches:
+  - if operator or argument reference is unknown, return unknown_source_identifier and no output
+  - if a carrier shape is invalid, return type_shape_mismatch and no output
+repetitions:
+  - iterate once over arguments in supplied order for validation and copying
+effects: [construct_immutable_unevaluated_operator_application]
+final_state: not_applicable
+stop_conditions: []
+errors: [unknown_source_identifier, type_shape_mismatch]
+postconditions:
+  - operator identity, argument identity, and argument order are preserved
+  - output remains unevaluated
+  - arity, return type, and derivative contribution semantics remain absent
+invariants:
+  - argument payloads remain unchanged
+  - source traceability remains complete
+determinism: deterministic_for_identical_inputs_and_order
+stochasticity: not_specified
+edge_cases:
+  - absent operator signature does not prevent structural construction
+  - unknown operator fails before arguments are transformed
+dependencies:
+  internal: [TLC-FC-05-DYNAMICS-006_as_non_executable_candidate_reference]
+  external: [master_symbolic_reference, disciple_symbolic_reference, community_future_reconciliation]
+unresolved_preserved: [operator_signatures_absent, community_symbol_reconciliation]
+pseudocode: |
+  function construct_opaque_interaction_application(operator_id, arguments):
+      validate_known_interaction_operator(operator_id)
+      validate_shape(arguments, Sequence[OpaqueEntityRef])
+      validate_all_entity_references(arguments)
+      result = UnevaluatedOperatorApplication(
+          operator_id = operator_id,
+          arguments = copy_in_order(arguments),
+          evaluation = UNEVALUATED)
+      attach_traceability(result, TLC-SO-DYNAMICS-014, TLC-SR-DYNAMICS-013)
+      attach_unresolved(result, SOURCE_UNRESOLVED)
+      assert result.arguments.order == arguments.order
+      return result
+forbidden_operations: [infer_arity, infer_return_type, evaluate_operator, create_transition_contribution]

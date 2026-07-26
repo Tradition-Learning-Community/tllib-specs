@@ -1,0 +1,102 @@
+schema_version: 1
+ir_id: TLC-OPT-IR-TLC-FC-05-DYNAMICS-001
+feature_id: TLC-FC-05-DYNAMICS-001
+status: selected_for_dynamics_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-05-DYNAMICS-001/contract.yaml
+source_ir_ref: ir/TLC-FC-05-DYNAMICS-001/ir.prototype.json
+source_test_plan_ref: registry/test-plans/TLC-FC-05-DYNAMICS-001/test-plan.yaml
+source_ir_status: pilot_only_revised
+source_ir_nature: structural
+finalized_ir_nature: declarative_structural
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+traceability:
+  source_objects: [TLC-SO-DYNAMICS-015]
+  source_relations: [TLC-SR-DYNAMICS-014]
+  scientific_source: maths/05-dynamics.md
+  source_lines: 147-153
+inputs:
+  - {name: community_state, type: OpaqueCommunityState}
+  - {name: bounds, type: "ViabilityBounds[OpaqueScalar]"}
+outputs:
+  - {name: result, type: UnevaluatedPredicateSet}
+types:
+  opaque: [OpaqueCommunityState, OpaqueScalar, OpaqueValue, OpaqueExpression]
+  identifiers: [ScientificObjectId, ScientificRelationId]
+  parameterized: ["ViabilityBounds[T]", "Sequence[T]", "Mapping[K,V]", "Optional[T]"]
+opaque_values:
+  - community_state
+  - bounds.scalar_payloads
+states: []
+initial_state: not_defined
+terminal_state: not_defined
+preconditions:
+  - every referenced identifier exists in the Dynamics inventory
+  - inputs preserve their declared opaque or parameterized type
+transition_conditions: []
+operations:
+  - operation_id: OP-001-001
+    kind: evaluate_viability_predicates_symbolically
+    evaluation: unevaluated
+    behavior: construct the source-defined viability predicates as distinct traceable records without deciding their truth
+execution_order:
+  - validate_source_identifiers
+  - validate_input_shapes
+  - construct_distinct_unevaluated_predicates
+  - preserve_source_order_and_comparator_notation
+  - attach_traceability_unresolved_and_reservations
+  - validate_postconditions
+control_flow:
+  kind: linear_with_validation_failure
+  branches:
+    - condition: unknown source identifier
+      result: error_without_output
+    - condition: input shape mismatch
+      result: error_without_output
+transitions: []
+effects:
+  scientific: none
+  mutation: none
+  structural: create_unevaluated_predicate_set
+postconditions:
+  - output is traceable to every supplied source identifier
+  - predicate identities remain distinct
+  - no unresolved scientific property is evaluated or silently fixed
+invariants:
+  - covered objects and relations remain distinct and source-addressable
+  - opaque payloads remain unchanged
+  - ordered source material remains ordered
+stop_conditions: []
+errors:
+  - unknown_source_identifier
+  - type_shape_mismatch
+  - unresolved_scientific_semantics
+determinism: deterministic_structure_construction_only
+stochasticity: not_applicable
+seed_management: not_defined
+dependencies:
+  internal:
+    - {feature_id: TLC-FC-05-DYNAMICS-006, kind: inferred_state_candidate, execution_dependency: false}
+  external:
+    - {domain: community, kind: documentary_or_symbolic, execution_dependency: false}
+unresolved_propagated: [UNRES-TIME, UNRES-L, UNRES-NORM, UNRES-MEMORY-NOTATION, UNRES-OUTPUT]
+reservations:
+  - no cardinality, dimension, unit, ordering beyond source order, precision, solver, or scientific evaluator is inferred
+  - collapse or pathology semantics are descriptive and not formalized as a terminal transition
+transformations_applied:
+  - normalized common validation order
+  - normalized source traceability fields
+  - normalized atomic error behavior
+  - retained source operation without semantic change
+preservation_obligations:
+  - preserve all source predicate identities and references
+  - preserve opaque bounds and community state
+  - do not aggregate predicates into an invented boolean result
+algorithm_ref: registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-001/algorithm.yaml
+oracle_ref: registry/oracles/dynamics/TLC-FC-05-DYNAMICS-001/oracle.yaml
+implementation_aptitude:
+  structural_package: ready
+  scientific_execution: not_ready
+  reason: viability truth and unresolved semantics are not executable from the sources

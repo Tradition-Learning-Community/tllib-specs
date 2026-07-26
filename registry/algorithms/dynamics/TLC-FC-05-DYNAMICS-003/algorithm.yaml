@@ -1,0 +1,71 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-05-DYNAMICS-003
+feature_id: TLC-FC-05-DYNAMICS-003
+status: selected_for_dynamics_implementation_specification
+ir_ref: registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-003/ir.yaml
+signature: "preserve_stochastic_expression(source_expression: OpaqueStochasticExpression, symbols: SymbolTable) -> UnevaluatedStochasticEquation"
+inputs:
+  source_expression: opaque locally blocked stochastic expression
+  symbols: available source-addressable bindings
+outputs:
+  expression: unevaluated stochastic-equation record
+validations:
+  - verify TLC-SO-DYNAMICS-020 and referenced identifiers
+  - verify source_expression and symbol-table carrier shapes
+preconditions:
+  - source expression is present and opaque
+  - no stochastic-law completion is supplied implicitly
+initial_state: not_defined
+ordered_steps:
+  - validate source identifiers
+  - validate expression and symbol carrier shapes
+  - copy source expression without transformation
+  - construct an UnevaluatedStochasticEquation record
+  - mark it unevaluated and locally blocked
+  - attach TLC-SO-DYNAMICS-020 and TLC-SR-DYNAMICS-019 traceability
+  - attach unresolved and reservations
+  - validate postconditions and return
+transitions: []
+branches:
+  - if an identifier is unknown, return unknown_source_identifier and no output
+  - if source_expression is not an opaque stochastic expression, return type_shape_mismatch and no output
+repetitions: []
+effects: [construct_immutable_unevaluated_stochastic_equation]
+final_state: not_defined
+stop_conditions: []
+errors: [unknown_source_identifier, type_shape_mismatch]
+postconditions:
+  - expression payload is unchanged
+  - output remains explicitly unevaluated and locally blocked
+  - no stochastic law, sample, or calculus convention is produced
+invariants:
+  - source traceability remains complete
+  - unresolved semantics remain attached
+determinism: deterministic_for_identical_inputs
+stochasticity:
+  source_notation_preserved: true
+  sampling: false
+  distribution: not_defined
+  seed: not_defined
+edge_cases:
+  - absence of distribution, filtration, covariance, process type, or integration convention is preserved
+  - a non-expression payload fails atomically
+dependencies:
+  internal: [TLC-FC-05-DYNAMICS-006_as_non_executable_candidate_reference]
+  external: [master_symbolic_reference, disciple_symbolic_reference]
+unresolved_preserved: [catalogue_blocked_locally, stochastic_semantics]
+pseudocode: |
+  function preserve_stochastic_expression(source_expression, symbols):
+      validate_known_identifier(TLC-SO-DYNAMICS-020)
+      validate_shape(source_expression, OpaqueStochasticExpression)
+      validate_shape(symbols, SymbolTable)
+      validate_referenced_symbols(source_expression, symbols)
+      result = UnevaluatedStochasticEquation(
+          payload = copy_opaque(source_expression),
+          evaluation = UNEVALUATED,
+          local_status = BLOCKED_LOCALLY)
+      attach_traceability(result, TLC-SO-DYNAMICS-020, TLC-SR-DYNAMICS-019)
+      attach_unresolved(result, SOURCE_UNRESOLVED)
+      assert result.payload == source_expression
+      return result
+forbidden_operations: [sample_path, infer_distribution, select_stochastic_integral, solve_equation, classify_as_executable]

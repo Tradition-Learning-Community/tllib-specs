@@ -1,0 +1,92 @@
+schema_version: 1
+domain_id: dynamics
+status: ready_for_future_developer_assignment
+constraints:
+  - implement only finalized IR and algorithm behavior
+  - do not evaluate opaque scientific payloads
+  - do not invent states, transitions, initial conditions, terminal conditions, solvers, distributions, or seeds
+  - preserve source identifiers, unresolved, reservations, and ordered inputs
+shared_tasks:
+  - task_id: DYN-IMPL-SHARED-001
+    title: Implement opaque carrier records
+    deliverables: [common opaque carriers, immutable traceability metadata, lossless serialization]
+    acceptance: every carrier round-trips payload, source references, unresolved, and reservations without semantic evaluation
+    dependencies: []
+  - task_id: DYN-IMPL-SHARED-002
+    title: Implement common structural validators
+    deliverables: [identifier validator, carrier-shape validator, ordered-input preservation validator]
+    acceptance: unknown identifiers and shape mismatches produce structured atomic errors with no partial output
+    dependencies: [DYN-IMPL-SHARED-001]
+  - task_id: DYN-IMPL-SHARED-003
+    title: Implement common traceability assembly
+    deliverables: [source-object links, source-relation links, source-contract links, source-IR links]
+    acceptance: every output exposes stable and complete source traceability
+    dependencies: [DYN-IMPL-SHARED-001]
+feature_tasks:
+  - task_id: DYN-IMPL-001
+    feature_id: TLC-FC-05-DYNAMICS-001
+    title: Implement symbolic viability predicate packaging
+    operation: evaluate_viability_predicates_symbolically
+    artifacts: [registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-001/ir.yaml, registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-001/algorithm.yaml, registry/oracles/dynamics/TLC-FC-05-DYNAMICS-001/oracle.yaml]
+    acceptance: four source-defined predicate records are retained distinctly and unevaluated; no boolean aggregation is invented
+    dependencies: [DYN-IMPL-SHARED-002, DYN-IMPL-SHARED-003]
+  - task_id: DYN-IMPL-002
+    feature_id: TLC-FC-05-DYNAMICS-002
+    title: Implement unevaluated dynamics bundle packaging
+    operation: build_unevaluated_dynamics_bundle
+    artifacts: [registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-002/ir.yaml, registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-002/algorithm.yaml, registry/oracles/dynamics/TLC-FC-05-DYNAMICS-002/oracle.yaml]
+    acceptance: supplied equations retain exact membership, order, opaque payload, source identity, and unresolved metadata
+    dependencies: [DYN-IMPL-SHARED-002, DYN-IMPL-SHARED-003]
+  - task_id: DYN-IMPL-003
+    feature_id: TLC-FC-05-DYNAMICS-003
+    title: Implement blocked stochastic-expression preservation
+    operation: preserve_stochastic_expression
+    artifacts: [registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-003/ir.yaml, registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-003/algorithm.yaml, registry/oracles/dynamics/TLC-FC-05-DYNAMICS-003/oracle.yaml]
+    acceptance: the expression remains locally blocked, unevaluated, and unchanged; no stochastic law or sampling behavior is added
+    dependencies: [DYN-IMPL-SHARED-002, DYN-IMPL-SHARED-003]
+  - task_id: DYN-IMPL-004
+    feature_id: TLC-FC-05-DYNAMICS-004
+    title: Implement symbolic feedback-expression construction
+    operation: construct_symbolic_feedback_expression
+    artifacts: [registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-004/ir.yaml, registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-004/algorithm.yaml, registry/oracles/dynamics/TLC-FC-05-DYNAMICS-004/oracle.yaml]
+    acceptance: signal, kernel, parameters, and both source identities remain distinct; no integration or convergence claim occurs
+    dependencies: [DYN-IMPL-SHARED-002, DYN-IMPL-SHARED-003]
+  - task_id: DYN-IMPL-005
+    feature_id: TLC-FC-05-DYNAMICS-005
+    title: Implement opaque interaction-operator application
+    operation: construct_opaque_interaction_application
+    artifacts: [registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-005/ir.yaml, registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-005/algorithm.yaml, registry/oracles/dynamics/TLC-FC-05-DYNAMICS-005/oracle.yaml]
+    acceptance: operator and ordered arguments are preserved; arity, return type, and execution semantics are not inferred
+    dependencies: [DYN-IMPL-SHARED-002, DYN-IMPL-SHARED-003]
+  - task_id: DYN-IMPL-006
+    feature_id: TLC-FC-05-DYNAMICS-006
+    title: Implement opaque state-candidate record
+    operation: construct_opaque_state_candidate_record
+    artifacts: [registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-006/ir.yaml, registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-006/algorithm.yaml, registry/oracles/dynamics/TLC-FC-05-DYNAMICS-006/oracle.yaml]
+    acceptance: complete and partial candidate mappings preserve every supplied key/value; no state space, defaults, or transition is inferred
+    dependencies: [DYN-IMPL-SHARED-002, DYN-IMPL-SHARED-003]
+  - task_id: DYN-IMPL-007
+    feature_id: TLC-FC-05-DYNAMICS-007
+    title: Implement unclassified state-or-evolution node
+    operation: preserve_state_or_evolution_expression
+    artifacts: [registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-007/ir.yaml, registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-007/algorithm.yaml, registry/oracles/dynamics/TLC-FC-05-DYNAMICS-007/oracle.yaml]
+    acceptance: the expression remains unclassified; an optional hint is metadata only and never decides state versus evolution
+    dependencies: [DYN-IMPL-SHARED-002, DYN-IMPL-SHARED-003]
+integration_tasks:
+  - task_id: DYN-IMPL-INTEGRATION-001
+    title: Expose Dynamics structural API
+    deliverables: [seven public operations, structured errors, serialization, traceability access]
+    acceptance: module behavior matches registry/domain-finalization/dynamics/module-specification.yaml
+    dependencies: [DYN-IMPL-001, DYN-IMPL-002, DYN-IMPL-003, DYN-IMPL-004, DYN-IMPL-005, DYN-IMPL-006, DYN-IMPL-007]
+  - task_id: DYN-IMPL-INTEGRATION-002
+    title: Execute oracle acceptance suite
+    deliverables: [feature acceptance tests, cross-feature preservation tests, deterministic structural round-trip tests]
+    acceptance: every oracle passes without a scientific evaluator or transition engine
+    dependencies: [DYN-IMPL-INTEGRATION-001]
+deferred_tasks:
+  - task_id: DYN-SCI-REVIEW-001
+    title: Resolve scientific execution semantics
+    classification: deferred_to_scientific_review
+    scope: state spaces, initial conditions, transition/evolution semantics, operator signatures, stochastic laws, domains, convergence, solver policy
+    blocks_current_specification_package: false
+    blocks_future_scientific_execution: true

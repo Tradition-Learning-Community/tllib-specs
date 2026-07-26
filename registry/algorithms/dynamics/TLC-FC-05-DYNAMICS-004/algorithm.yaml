@@ -1,0 +1,68 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-05-DYNAMICS-004
+feature_id: TLC-FC-05-DYNAMICS-004
+status: selected_for_dynamics_implementation_specification
+ir_ref: registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-004/ir.yaml
+signature: "construct_symbolic_feedback_expression(external_input: OpaqueSignal, kernel: OpaqueKernel, parameters: ParameterMap) -> UnevaluatedIntegralExpression"
+inputs:
+  external_input: opaque external signal
+  kernel: opaque source-defined kernel
+  parameters: source-addressable parameter mapping
+outputs:
+  feedback: unevaluated integral-expression record
+validations:
+  - verify all source and parameter identifiers
+  - verify signal, kernel, and parameter-map carrier shapes
+preconditions:
+  - source identities for feedback and kernel are available
+  - no convergence evidence or executable integration domain is assumed
+initial_state: not_applicable
+ordered_steps:
+  - validate source and parameter identifiers
+  - validate input shapes
+  - copy signal, kernel, and parameters unchanged
+  - construct the source-defined integral-expression structure
+  - preserve feedback and kernel source identities separately
+  - mark expression unevaluated
+  - attach unresolved and reservations
+  - validate postconditions and return
+transitions: []
+branches:
+  - if a source or parameter identifier is unknown, return unknown_source_identifier and no output
+  - if a carrier shape is invalid, return type_shape_mismatch and no output
+repetitions: []
+effects: [construct_immutable_unevaluated_integral_expression]
+final_state: not_applicable
+stop_conditions: []
+errors: [unknown_source_identifier, type_shape_mismatch]
+postconditions:
+  - signal, kernel, parameters, and source identities remain distinct and unchanged
+  - no integral value or convergence claim is produced
+invariants:
+  - TLC-SO-DYNAMICS-023 and TLC-SO-DYNAMICS-024 remain distinct
+  - opaque payloads remain unevaluated
+determinism: deterministic_for_identical_inputs
+stochasticity: not_specified
+edge_cases:
+  - a kernel with no declared domain or convergence evidence remains a valid opaque kernel
+  - an unknown parameter fails atomically
+dependencies:
+  internal: [TLC-FC-05-DYNAMICS-006_as_non_executable_candidate_reference]
+  external: [disciple_symbolic_reference]
+unresolved_preserved: [domains_and_convergence, kernel_parameter_types]
+pseudocode: |
+  function construct_symbolic_feedback_expression(external_input, kernel, parameters):
+      validate_shape(external_input, OpaqueSignal)
+      validate_shape(kernel, OpaqueKernel)
+      validate_shape(parameters, ParameterMap)
+      validate_known_identifiers(parameters.source_identifiers)
+      result = UnevaluatedIntegralExpression(
+          external_input = copy_opaque(external_input),
+          kernel = copy_opaque(kernel),
+          parameters = copy_opaque(parameters),
+          evaluation = UNEVALUATED)
+      attach_traceability(result, [TLC-SO-DYNAMICS-023, TLC-SO-DYNAMICS-024], [TLC-SR-DYNAMICS-022, TLC-SR-DYNAMICS-023])
+      attach_unresolved(result, SOURCE_UNRESOLVED)
+      assert no_integral_was_computed(result)
+      return result
+forbidden_operations: [evaluate_integral, infer_kernel_domain, claim_convergence, infer_parameter_types]

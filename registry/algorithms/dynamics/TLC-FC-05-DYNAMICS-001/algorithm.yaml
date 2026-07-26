@@ -1,0 +1,72 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-05-DYNAMICS-001
+feature_id: TLC-FC-05-DYNAMICS-001
+status: selected_for_dynamics_implementation_specification
+ir_ref: registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-001/ir.yaml
+signature: "evaluate_viability_predicates_symbolically(community_state: OpaqueCommunityState, bounds: ViabilityBounds[OpaqueScalar]) -> UnevaluatedPredicateSet"
+inputs:
+  community_state: opaque community-state carrier
+  bounds: source-addressable opaque bounds for the four viability predicates
+outputs:
+  result: four distinct unevaluated predicate records
+validations:
+  - verify every predicate and bound source identifier
+  - verify community_state and bounds carrier shapes
+  - verify the four source-defined predicates remain distinct
+preconditions:
+  - identifiers exist in the Dynamics inventory
+  - opaque scalar payloads are retained without numerical comparison
+initial_state: not_defined
+ordered_steps:
+  - validate all source identifiers atomically
+  - validate declared input shapes atomically
+  - create one record for each source-defined viability predicate
+  - retain inclusive comparator notation and source order
+  - attach community_state and the corresponding opaque bound to each record
+  - mark every predicate unevaluated
+  - attach source objects, source relations, unresolved, and reservations
+  - verify postconditions and return the set
+transitions: []
+branches:
+  - if any identifier is unknown, return unknown_source_identifier and no result
+  - if any carrier shape is invalid, return type_shape_mismatch and no result
+repetitions:
+  - iterate once over the source-defined predicate descriptors in their supplied order
+effects: [construct_immutable_predicate_records]
+final_state: not_defined
+stop_conditions: []
+errors: [unknown_source_identifier, type_shape_mismatch]
+postconditions:
+  - exactly the source-defined predicates are present
+  - payloads, comparator notation, identities, and order are preserved
+  - no predicate truth or aggregate viability result is produced
+invariants:
+  - no scientific payload is evaluated
+  - unresolved metadata remains unchanged
+determinism: deterministic_for_identical_inputs_and_order
+stochasticity: not_applicable
+edge_cases:
+  - opaque bounds that cannot be compared remain valid structural inputs
+  - any unknown identifier aborts construction without a partial set
+dependencies:
+  internal: [TLC-FC-05-DYNAMICS-006_as_non_executable_candidate_reference]
+  external: [community_symbolic_reference]
+unresolved_preserved: [UNRES-TIME, UNRES-L, UNRES-NORM, UNRES-MEMORY-NOTATION, UNRES-OUTPUT]
+pseudocode: |
+  function evaluate_viability_predicates_symbolically(community_state, bounds):
+      validate_known_identifiers(bounds.source_identifiers)
+      validate_shape(community_state, OpaqueCommunityState)
+      validate_shape(bounds, ViabilityBounds[OpaqueScalar])
+      predicates = empty UnevaluatedPredicateSet
+      for descriptor in source_predicate_descriptors_in_source_order:
+          predicate = UnevaluatedPredicate(
+              descriptor = descriptor,
+              community_state = community_state,
+              bound = bounds.for_descriptor(descriptor),
+              evaluation = UNEVALUATED)
+          predicates.append(predicate)
+      attach_traceability(predicates, TLC-SO-DYNAMICS-015, TLC-SR-DYNAMICS-014)
+      attach_unresolved(predicates, SOURCE_UNRESOLVED)
+      assert no_payload_was_evaluated(predicates)
+      return predicates
+forbidden_operations: [numeric_comparison, boolean_aggregation, collapse_transition, invented_terminal_state]
