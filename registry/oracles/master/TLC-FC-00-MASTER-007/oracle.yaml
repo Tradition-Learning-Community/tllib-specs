@@ -1,0 +1,19 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-00-MASTER-007
+feature_id: TLC-FC-00-MASTER-007
+status: acceptance_ready
+finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-007/ir.yaml
+algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-007/algorithm.yaml
+oracle_kind: structural_property_and_opaque_provider
+fixtures: {valid_object_refs: [TLC-SO-MASTER-026, TLC-SO-MASTER-036], valid_relation_refs: [TLC-SR-MASTER-026, TLC-SR-MASTER-033], valid_unresolved: [], opaque_echo_payload: {trajectory: opaque}}
+acceptance_tests:
+  - {test_id: MASTER-007-A01, category: precondition, assertion: exact dynamics bundle is accepted}
+  - {test_id: MASTER-007-A02, category: error, mutation: omit provider in evaluated mode, expected_error: MASTER_OPAQUE_PROVIDER_REQUIRED}
+  - {test_id: MASTER-007-A03, category: property, assertion: opaque trajectory payload is returned unchanged}
+  - {test_id: MASTER-007-A04, category: postcondition, assertion: no-evaluation mode is explicitly unresolved}
+  - {test_id: MASTER-007-A05, category: invariant, assertion: two source dynamics remain distinct}
+  - {test_id: MASTER-007-A06, category: determinism, assertion: wrapper output is stable for identical provider response}
+  - {test_id: MASTER-007-A07, category: conservation, assertion: no solver, time step, discretization, coefficient, or stochastic realization is invented}
+  - {test_id: MASTER-007-A08, category: source_integrity, assertion: all source artifacts are unmodified}
+exact_numeric_examples: []
+scientific_values_invented: false

@@ -1,0 +1,17 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-00-MASTER-010
+feature_id: TLC-FC-00-MASTER-010
+status: selected_for_master_implementation_specification
+finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-010/ir.yaml
+signature: evaluate_master_invariants(reference_bundle, opaque_inputs, provider) -> MasterOpaqueEvaluationResult
+inputs: {reference_bundle: ScientificReferenceBundle, opaque_inputs: OpaqueScientificPayload, provider: OpaqueOperationProvider}
+outputs: {result: MasterOpaqueEvaluationResult}
+validations: [exact feature id, exact three object refs, exact five relation refs, exact six unresolved refs]
+steps: [validate ordered sets, build provenance, return unresolved if evaluation unavailable, invoke provider unchanged, preserve payload and unresolved refs, verify invariants stay distinct and unsupported equivalence is not asserted, return]
+branches: [{condition: missing provider in evaluated mode, action: return MASTER_OPAQUE_PROVIDER_REQUIRED}, {condition: provider failure, action: return MASTER_OPAQUE_PROVIDER_FAILURE}, {condition: unsupported equivalence asserted, action: return MASTER_PRESERVATION_VIOLATION}]
+errors: [MASTER_INVALID_FEATURE_ID, MASTER_REFERENCE_SET_MISMATCH, MASTER_UNRESOLVED_SET_MISMATCH, MASTER_OPAQUE_PROVIDER_REQUIRED, MASTER_OPAQUE_PROVIDER_FAILURE, MASTER_PRESERVATION_VIOLATION]
+invariants: [exact unresolved propagation, three invariant identities distinct, opaque payload unchanged]
+determinism: wrapper deterministic; provider determinism provider-declared
+effects: none
+edge_cases: [provider may report each invariant separately, no exact numeric result required]
+necessary_dependencies: []

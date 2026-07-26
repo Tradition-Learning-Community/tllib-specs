@@ -1,0 +1,21 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-00-MASTER-006
+feature_id: TLC-FC-00-MASTER-006
+status: selected_for_master_implementation_specification
+finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-006/ir.yaml
+signature: describe_master_concept(reference_bundle) -> MasterDescriptor
+inputs: {reference_bundle: ScientificReferenceBundle}
+outputs: {result: MasterDescriptor}
+validations:
+  - feature_id is exact
+  - object refs equal [TLC-SO-MASTER-002]
+  - relation refs equal [TLC-SR-MASTER-001]
+  - unresolved refs equal [TLC-GU-00318, TLC-UT-MASTER-001]
+steps: [validate exact sets, construct provenance, emit conceptual descriptor, copy unresolved refs unchanged, verify TL-specific meaning was not substituted, return]
+branches: [{condition: substituted generic definition detected, action: return MASTER_PRESERVATION_VIOLATION}, {condition: calculation requested, action: return MASTER_UNSUPPORTED_EXECUTION_MODE}]
+errors: [MASTER_INVALID_FEATURE_ID, MASTER_REFERENCE_SET_MISMATCH, MASTER_UNRESOLVED_SET_MISMATCH, MASTER_PRESERVATION_VIOLATION, MASTER_UNSUPPORTED_EXECUTION_MODE]
+invariants: [exact source references, exact unresolved list, no conceptual substitution]
+determinism: deterministic for identical input
+effects: none
+edge_cases: [missing unresolved semantics do not block descriptor emission]
+necessary_dependencies: []

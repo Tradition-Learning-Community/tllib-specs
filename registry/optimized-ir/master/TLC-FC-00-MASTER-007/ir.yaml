@@ -1,0 +1,25 @@
+schema_version: 1
+finalized_ir_id: TLC-OIR-TLC-FC-00-MASTER-007
+feature_id: TLC-FC-00-MASTER-007
+canonical_name: '00-master: dynamics (admissible)'
+domain: master
+status: selected_for_master_implementation_specification
+traceability: {contract_ref: registry/math-contracts/TLC-FC-00-MASTER-007/contract.yaml, ir_registry_ref: registry/ir/TLC-FC-00-MASTER-007/ir.yaml, source_ir_ref: ir/TLC-FC-00-MASTER-007/ir.candidate.json, source_test_plan_ref: registry/test-plans/TLC-FC-00-MASTER-007/test-plan.yaml}
+representation: {source_kind: constraint_or_operation_candidate, implementation_kind: opaque_operation_adapter, optimization: normalized_opaque_operation_envelope}
+transformations: [normalized dynamics operation into provider boundary, retained source equations only by reference]
+preservation_obligations: [preserve TLC-SO-MASTER-026 and TLC-SO-MASTER-036, preserve TLC-SR-MASTER-026 and TLC-SR-MASTER-033, do not select a solver or stochastic interpretation]
+inputs: {scientific_object_refs: [TLC-SO-MASTER-026, TLC-SO-MASTER-036], relation_refs: [TLC-SR-MASTER-026, TLC-SR-MASTER-033], unresolved_refs: [], opaque_inputs: OpaqueScientificPayload, provider: OpaqueOperationProvider}
+outputs: {type: MasterOpaqueEvaluationResult, statuses: [evaluated, unresolved]}
+opaque_values: [initial conditions, coefficients, time representation, stochastic process realization, numerical method]
+preconditions: [exact identity and references, provider present for evaluated mode]
+operations: [validate_feature_identity, validate_exact_reference_sets, construct_immutable_provenance, invoke_opaque_provider_or_return_unresolved, preserve_provider_payload, verify_preservation_obligations]
+execution_order: [validate_feature_identity, validate_exact_reference_sets, construct_immutable_provenance, invoke_opaque_provider_or_return_unresolved, preserve_provider_payload, verify_preservation_obligations]
+states_and_effects: {state: immutable, scientific_mutation: none, external_effects: none}
+postconditions: [payload unchanged, dynamics remain source-referenced and unsolved by wrapper]
+invariants: [the two dynamics remain distinct, no integration or discretization is inferred]
+errors: [MASTER_INVALID_FEATURE_ID, MASTER_REFERENCE_SET_MISMATCH, MASTER_OPAQUE_PROVIDER_REQUIRED, MASTER_OPAQUE_PROVIDER_FAILURE, MASTER_PRESERVATION_VIOLATION]
+determinism: {wrapper: deterministic, provider: provider_declared}
+dependencies: {internal: [], external: []}
+unresolved: []
+tests: {source_plan: registry/test-plans/TLC-FC-00-MASTER-007/test-plan.yaml, acceptance_oracle: registry/oracles/master/TLC-FC-00-MASTER-007/oracle.yaml}
+implementation_status: {package_ready: true, scientific_canonicalization: false, code_generation_in_this_phase: false}

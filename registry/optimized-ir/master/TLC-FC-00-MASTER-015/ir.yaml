@@ -1,0 +1,25 @@
+schema_version: 1
+finalized_ir_id: TLC-OIR-TLC-FC-00-MASTER-015
+feature_id: TLC-FC-00-MASTER-015
+canonical_name: '00-master: state (admissible)'
+domain: master
+status: selected_for_master_implementation_specification
+traceability: {contract_ref: registry/math-contracts/TLC-FC-00-MASTER-015/contract.yaml, ir_registry_ref: registry/ir/TLC-FC-00-MASTER-015/ir.yaml, source_ir_ref: ir/TLC-FC-00-MASTER-015/ir.candidate.json, source_test_plan_ref: registry/test-plans/TLC-FC-00-MASTER-015/test-plan.yaml}
+representation: {source_kind: symbolic_type, implementation_kind: symbolic_type_descriptor, optimization: normalized_envelope_only}
+transformations: [normalized symbolic state envelope, retained value-system and symbolic-status objects as distinct types]
+preservation_obligations: [preserve TLC-SO-MASTER-010 and TLC-SO-MASTER-016, preserve five source relations, do not invent runtime layout, dimensions, subtype identity, or community metrics]
+inputs: {scientific_object_refs: [TLC-SO-MASTER-010, TLC-SO-MASTER-016], relation_refs: [TLC-SR-MASTER-009, TLC-SR-MASTER-015, TLC-SR-MASTER-018, TLC-SR-MASTER-020, TLC-SR-MASTER-027], unresolved_refs: [], types: {references: ScientificReferenceBundle}}
+outputs: {type: MasterSymbolicTypeDescriptor, fields: [feature_id, symbolic_object_refs, relation_refs, unresolved, dependencies, provenance]}
+opaque_values: [runtime representation, weights and metrics, community network realization, dimensionality]
+preconditions: [exact identity and reference sets]
+operations: [validate_feature_identity, validate_exact_reference_sets, construct_immutable_provenance, preserve_optional_external_symbol, emit_symbolic_type_descriptor, verify_preservation_obligations]
+execution_order: [validate_feature_identity, validate_exact_reference_sets, construct_immutable_provenance, preserve_optional_external_symbol, emit_symbolic_type_descriptor, verify_preservation_obligations]
+states_and_effects: {state: immutable, scientific_mutation: none, external_domain_mutation: none}
+postconditions: [both symbolic objects remain distinct and traceable]
+invariants: [optional community symbol absence does not cause substitution, source relation ordering preserved]
+errors: [MASTER_INVALID_FEATURE_ID, MASTER_REFERENCE_SET_MISMATCH, MASTER_PRESERVATION_VIOLATION, MASTER_UNSUPPORTED_EXECUTION_MODE]
+determinism: {wrapper: deterministic, scientific_evaluation: not_applicable}
+dependencies: {internal: [], external: [{domain: community, mode: optional_symbol_reference_read_only}]}
+unresolved: []
+tests: {source_plan: registry/test-plans/TLC-FC-00-MASTER-015/test-plan.yaml, acceptance_oracle: registry/oracles/master/TLC-FC-00-MASTER-015/oracle.yaml}
+implementation_status: {package_ready: true, scientific_canonicalization: false, code_generation_in_this_phase: false}

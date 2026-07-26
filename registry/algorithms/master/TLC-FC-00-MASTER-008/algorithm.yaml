@@ -1,0 +1,17 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-00-MASTER-008
+feature_id: TLC-FC-00-MASTER-008
+status: selected_for_master_implementation_specification
+finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-008/ir.yaml
+signature: evaluate_reserved_master_dynamics(reference_bundle, opaque_inputs, provider) -> MasterOpaqueEvaluationResult
+inputs: {reference_bundle: ScientificReferenceBundle, opaque_inputs: OpaqueScientificPayload, provider: OpaqueOperationProvider}
+outputs: {result: MasterOpaqueEvaluationResult}
+validations: [exact feature id, exact three object refs, exact three relation refs, exact six unresolved refs]
+steps: [validate exact ordered sets, build provenance, return unresolved when evaluation is unavailable, invoke provider unchanged, preserve payload and all unresolved refs, verify equations were not merged or solved, return]
+branches: [{condition: missing provider in evaluated mode, action: return MASTER_OPAQUE_PROVIDER_REQUIRED}, {condition: provider failure, action: return MASTER_OPAQUE_PROVIDER_FAILURE}, {condition: unresolved mismatch, action: return MASTER_UNRESOLVED_SET_MISMATCH}]
+errors: [MASTER_INVALID_FEATURE_ID, MASTER_REFERENCE_SET_MISMATCH, MASTER_UNRESOLVED_SET_MISMATCH, MASTER_OPAQUE_PROVIDER_REQUIRED, MASTER_OPAQUE_PROVIDER_FAILURE, MASTER_PRESERVATION_VIOLATION]
+invariants: [three equations distinct, exact unresolved propagation, opaque payload unchanged]
+determinism: wrapper deterministic; provider determinism provider-declared
+effects: none
+edge_cases: [partial dynamics payload allowed, missing scientific operator definitions remain unresolved]
+necessary_dependencies: []

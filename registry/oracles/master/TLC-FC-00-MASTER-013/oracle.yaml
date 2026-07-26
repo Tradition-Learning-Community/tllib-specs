@@ -1,0 +1,19 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-00-MASTER-013
+feature_id: TLC-FC-00-MASTER-013
+status: acceptance_ready
+finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-013/ir.yaml
+algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-013/algorithm.yaml
+oracle_kind: predicate_descriptor_and_unresolved_preservation
+fixtures: {valid_object_refs: [TLC-SO-MASTER-038], valid_relation_refs: [TLC-SR-MASTER-035], valid_unresolved: [TLC-GU-00342, TLC-UT-MASTER-025]}
+acceptance_tests:
+  - {test_id: MASTER-013-A01, category: precondition, assertion: exact predicate bundle is accepted}
+  - {test_id: MASTER-013-A02, category: postcondition, assertion: truth_status is unresolved}
+  - {test_id: MASTER-013-A03, category: error, mutation: assign true, expected_error: MASTER_PRESERVATION_VIOLATION}
+  - {test_id: MASTER-013-A04, category: error, mutation: request truth evaluation, expected_error: MASTER_UNSUPPORTED_EXECUTION_MODE}
+  - {test_id: MASTER-013-A05, category: invariant, assertion: both unresolved identifiers remain unchanged}
+  - {test_id: MASTER-013-A06, category: determinism, assertion: repeated descriptor output is identical}
+  - {test_id: MASTER-013-A07, category: conservation, assertion: no definition of expert moderne or comparison criterion is invented}
+  - {test_id: MASTER-013-A08, category: source_integrity, assertion: all source artifacts are unmodified}
+exact_numeric_examples: []
+scientific_values_invented: false

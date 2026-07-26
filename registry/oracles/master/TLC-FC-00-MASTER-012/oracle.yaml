@@ -1,0 +1,20 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-00-MASTER-012
+feature_id: TLC-FC-00-MASTER-012
+status: acceptance_ready
+finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-012/ir.yaml
+algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-012/algorithm.yaml
+oracle_kind: structural_property_unresolved_dependency_and_opaque_provider
+fixtures: {valid_object_refs: [TLC-SO-MASTER-013, TLC-SO-MASTER-014, TLC-SO-MASTER-029], valid_relation_refs: [TLC-SR-MASTER-012, TLC-SR-MASTER-013, TLC-SR-MASTER-028], valid_unresolved: [TLC-GU-00321, TLC-GU-00325, TLC-GU-00326, TLC-GU-00328, TLC-GU-00336, TLC-UT-MASTER-004, TLC-UT-MASTER-008, TLC-UT-MASTER-009, TLC-UT-MASTER-011, TLC-UT-MASTER-019], opaque_echo_payload: {operator_result: opaque}}
+acceptance_tests:
+  - {test_id: MASTER-012-A01, category: precondition, assertion: exact operator bundle is accepted}
+  - {test_id: MASTER-012-A02, category: dependency, mutation: omit community symbol in evaluated mode, expected_error: MASTER_EXTERNAL_DEPENDENCY_UNAVAILABLE}
+  - {test_id: MASTER-012-A03, category: error, mutation: omit one unresolved identifier, expected_error: MASTER_UNRESOLVED_SET_MISMATCH}
+  - {test_id: MASTER-012-A04, category: property, assertion: provider payload is returned unchanged}
+  - {test_id: MASTER-012-A05, category: postcondition, assertion: unresolved mode retains all ten identifiers}
+  - {test_id: MASTER-012-A06, category: invariant, assertion: selection, authority, and competence objects remain distinct}
+  - {test_id: MASTER-012-A07, category: conservation, assertion: no loss, target, helper, kernel, distance, optimizer, type, or dimension is invented}
+  - {test_id: MASTER-012-A08, category: determinism, assertion: wrapper output is stable for identical response}
+  - {test_id: MASTER-012-A09, category: source_integrity, assertion: all source artifacts are unmodified}
+exact_numeric_examples: []
+scientific_values_invented: false

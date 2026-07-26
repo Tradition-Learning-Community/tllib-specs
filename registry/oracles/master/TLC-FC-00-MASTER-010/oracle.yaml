@@ -1,0 +1,20 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-00-MASTER-010
+feature_id: TLC-FC-00-MASTER-010
+status: acceptance_ready
+finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-010/ir.yaml
+algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-010/algorithm.yaml
+oracle_kind: structural_property_unresolved_and_opaque_provider
+fixtures: {valid_object_refs: [TLC-SO-MASTER-022, TLC-SO-MASTER-023, TLC-SO-MASTER-024], valid_relation_refs: [TLC-SR-MASTER-021, TLC-SR-MASTER-022, TLC-SR-MASTER-023, TLC-SR-MASTER-024, TLC-SR-MASTER-031], valid_unresolved: [TLC-GU-00331, TLC-GU-00332, TLC-RELISS-MASTER-001, TLC-RELISS-MASTER-003, TLC-UT-MASTER-014, TLC-UT-MASTER-015], opaque_echo_payload: {invariant_checks: opaque}}
+acceptance_tests:
+  - {test_id: MASTER-010-A01, category: precondition, assertion: exact invariant bundle is accepted}
+  - {test_id: MASTER-010-A02, category: error, mutation: omit a relation issue, expected_error: MASTER_UNRESOLVED_SET_MISMATCH}
+  - {test_id: MASTER-010-A03, category: property, assertion: provider check payload is returned unchanged}
+  - {test_id: MASTER-010-A04, category: postcondition, assertion: unresolved mode retains all six identifiers}
+  - {test_id: MASTER-010-A05, category: invariant, assertion: ethical, transmission, and structural invariants remain distinct}
+  - {test_id: MASTER-010-A06, category: conservation, assertion: unsupported equivalence with axioms is not asserted}
+  - {test_id: MASTER-010-A07, category: determinism, assertion: wrapper output is stable for identical response}
+  - {test_id: MASTER-010-A08, category: non_invention, assertion: no geometry, cost, graph, threshold, type, dimension, or method is invented}
+  - {test_id: MASTER-010-A09, category: source_integrity, assertion: all source artifacts are unmodified}
+exact_numeric_examples: []
+scientific_values_invented: false

@@ -1,0 +1,17 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-00-MASTER-012
+feature_id: TLC-FC-00-MASTER-012
+status: selected_for_master_implementation_specification
+finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-012/ir.yaml
+signature: evaluate_master_operators(reference_bundle, opaque_inputs, provider, community_symbol) -> MasterOpaqueEvaluationResult
+inputs: {reference_bundle: ScientificReferenceBundle, opaque_inputs: OpaqueScientificPayload, provider: OpaqueOperationProvider, community_symbol: read-only external symbol}
+outputs: {result: MasterOpaqueEvaluationResult}
+validations: [exact feature id, exact three object refs, exact three relation refs, exact ten unresolved refs, community symbol and provider required only for evaluated mode]
+steps: [validate ordered sets, construct provenance, return unresolved if evaluation not requested, validate community symbol and provider, invoke provider unchanged, preserve payload and unresolved refs, verify no optimizer or helper definition was introduced, return]
+branches: [{condition: missing community symbol, action: return MASTER_EXTERNAL_DEPENDENCY_UNAVAILABLE}, {condition: missing provider, action: return MASTER_OPAQUE_PROVIDER_REQUIRED}, {condition: provider failure, action: return MASTER_OPAQUE_PROVIDER_FAILURE}]
+errors: [MASTER_INVALID_FEATURE_ID, MASTER_REFERENCE_SET_MISMATCH, MASTER_UNRESOLVED_SET_MISMATCH, MASTER_EXTERNAL_DEPENDENCY_UNAVAILABLE, MASTER_OPAQUE_PROVIDER_REQUIRED, MASTER_OPAQUE_PROVIDER_FAILURE, MASTER_PRESERVATION_VIOLATION]
+invariants: [exact unresolved propagation, opaque payload unchanged, external domain read-only]
+determinism: wrapper deterministic; provider determinism provider-declared
+effects: none
+edge_cases: [missing loss or target remains unresolved, provider may return unresolved without failure]
+necessary_dependencies: [{domain: community, access: read_only, required_for: evaluated_mode}]

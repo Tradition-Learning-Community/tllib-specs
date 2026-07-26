@@ -1,0 +1,23 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-00-MASTER-002
+feature_id: TLC-FC-00-MASTER-002
+status: acceptance_ready
+finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-002/ir.yaml
+algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-002/algorithm.yaml
+oracle_kind: structural_and_unresolved_preservation
+fixtures:
+  valid_object_refs: [TLC-SO-MASTER-039]
+  valid_relation_refs: [TLC-SR-MASTER-036]
+  valid_unresolved: [TLC-GU-00329, TLC-UT-MASTER-012]
+acceptance_tests:
+  - {test_id: MASTER-002-A01, category: precondition, assertion: exact references and unresolved list are accepted}
+  - {test_id: MASTER-002-A02, category: postcondition, assertion: output descriptor contains the exact unresolved identifiers}
+  - {test_id: MASTER-002-A03, category: error, mutation: remove TLC-GU-00329, expected_error: MASTER_UNRESOLVED_SET_MISMATCH}
+  - {test_id: MASTER-002-A04, category: error, mutation: add a constant value, expected_error: MASTER_PRESERVATION_VIOLATION}
+  - {test_id: MASTER-002-A05, category: invariant, assertion: theoretical constants remain distinct from empirical parameters}
+  - {test_id: MASTER-002-A06, category: determinism, assertion: repeated calls produce identical structured output}
+  - {test_id: MASTER-002-A07, category: conservation, assertion: object, relation, and unresolved ordering is unchanged}
+  - {test_id: MASTER-002-A08, category: non_invention, assertion: no numeric value, equation, type, dimension, alias, or method is added}
+  - {test_id: MASTER-002-A09, category: source_integrity, assertion: all source artifacts remain unmodified}
+exact_numeric_examples: []
+scientific_values_invented: false

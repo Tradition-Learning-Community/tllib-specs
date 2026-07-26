@@ -1,0 +1,28 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-00-MASTER-002
+feature_id: TLC-FC-00-MASTER-002
+status: selected_for_master_implementation_specification
+finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-002/ir.yaml
+signature: describe_theoretical_constant_configuration(reference_bundle) -> MasterDescriptor
+inputs: {reference_bundle: ScientificReferenceBundle}
+outputs: {result: MasterDescriptor}
+validations:
+  - feature_id equals TLC-FC-00-MASTER-002
+  - object refs equal [TLC-SO-MASTER-039]
+  - relation refs equal [TLC-SR-MASTER-036]
+  - unresolved refs equal [TLC-GU-00329, TLC-UT-MASTER-012]
+steps:
+  - validate identity, references, and unresolved identifiers
+  - construct immutable provenance
+  - emit a declaration descriptor with theoretical values opaque
+  - copy unresolved identifiers unchanged
+  - verify non-invention and return
+branches:
+  - {condition: validation failure, action: return matching common error}
+  - {condition: calculation requested, action: return MASTER_UNSUPPORTED_EXECUTION_MODE}
+errors: [MASTER_INVALID_FEATURE_ID, MASTER_REFERENCE_SET_MISMATCH, MASTER_UNRESOLVED_SET_MISMATCH, MASTER_PRESERVATION_VIOLATION, MASTER_UNSUPPORTED_EXECUTION_MODE]
+invariants: [exact source references, exact unresolved list, immutable provenance]
+determinism: deterministic for identical structured input
+effects: none
+edge_cases: [missing theoretical values do not block descriptor emission, duplicate or reordered unresolved identifiers are rejected]
+necessary_dependencies: []

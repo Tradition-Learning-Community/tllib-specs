@@ -1,0 +1,17 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-00-MASTER-015
+feature_id: TLC-FC-00-MASTER-015
+status: selected_for_master_implementation_specification
+finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-015/ir.yaml
+signature: describe_master_value_and_symbolic_state(reference_bundle, optional_community_symbol) -> MasterSymbolicTypeDescriptor
+inputs: {reference_bundle: ScientificReferenceBundle, optional_community_symbol: read-only optional symbol}
+outputs: {result: MasterSymbolicTypeDescriptor}
+validations: [exact feature id, exact two object refs, exact five relation refs, empty unresolved list]
+steps: [validate exact sets, construct provenance, preserve optional community symbol if supplied, emit symbolic type descriptor, keep runtime layout and metrics opaque, verify no substitution or subtype relation was added, return]
+branches: [{condition: community symbol absent, action: emit descriptor with dependency status unresolved_optional}, {condition: calculation requested, action: return MASTER_UNSUPPORTED_EXECUTION_MODE}]
+errors: [MASTER_INVALID_FEATURE_ID, MASTER_REFERENCE_SET_MISMATCH, MASTER_PRESERVATION_VIOLATION, MASTER_UNSUPPORTED_EXECUTION_MODE]
+invariants: [value system and symbolic status distinct, external domain read-only, no runtime layout]
+determinism: deterministic for identical structured input
+effects: none
+edge_cases: [optional symbol absence is non-blocking, empty runtime values are valid]
+necessary_dependencies: [{domain: community, access: read_only, required_for: optional_reference_only}]
