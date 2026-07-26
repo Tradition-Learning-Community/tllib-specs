@@ -1,0 +1,37 @@
+---
+schema_version: 1
+algorithm_id: TLC-ALG-13-PRACTICE-010
+feature_id: TLC-FC-13-PRACTICE-010
+status: selected_for_practice_implementation_specification
+ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-010/ir.yaml
+signature: construct_blocked_practice_operator_candidate(request, opaque_input) -> PracticeStructuralResult | PracticeError
+inputs: [PracticeStructuralRequest, OpaqueCandidateScientificInput]
+outputs: [PracticeFeatureRepresentation, structured decision error]
+validations: [exact identity, required input, aggregate source object, exact scientific decision set]
+preconditions: [input is supplied under candidate status]
+prerequisites: []
+conditions_of_application: [structural operations are allowed, operator execution and evaluation are deferred]
+ordered_steps_declared: false
+branches:
+- {condition: structural operation, action: preserve aggregate operator representation}
+- {condition: operator invocation or scientific execution, action: return external_executor_required}
+- {condition: scientific evaluation, action: return scientific_decision_required with exact references}
+repetitions: []
+transitions: []
+stop_conditions: []
+effects: []
+errors: [invalid_feature_identity, missing_required_input, invalid_input_type, provenance_mismatch, structural_error, scientific_decision_required, external_executor_required, implementation_out_of_scope]
+postconditions: [aggregate identity, opaque value and decisions are preserved]
+invariants: [the aggregate object is not split into executable operations, no runtime type is inferred]
+determinism: {structural_operations: deterministic, scientific_result: blocked}
+edge_cases: [request to select one internal operator is out of scope, missing or extra decision fails, unknown operation is out of scope]
+dependencies: {execution: external_executor_required, scientific_review: required_before_evaluation}
+unresolved_preserved: []
+pseudocode: |
+  REQUIRE feature id 010, input 010-1, object 018 and exact decisions [018, relation 017, HR-0108]
+  BUILD immutable aggregate operator-candidate representation
+  PRESERVE payload, provenance and decision references without splitting the source object
+  IF request is structural THEN RETURN requested structural result
+  IF request invokes an operator OR requests scientific execution THEN RETURN external_executor_required
+  IF request requests scientific evaluation THEN RETURN scientific_decision_required with exact references
+  RETURN implementation_out_of_scope
