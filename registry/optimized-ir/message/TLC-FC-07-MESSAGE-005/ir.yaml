@@ -1,0 +1,43 @@
+schema_version: 1
+feature_id: TLC-FC-07-MESSAGE-005
+status: selected_for_message_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-07-MESSAGE-005/contract.yaml
+source_ir: registry/ir/TLC-FC-07-MESSAGE-005/ir.yaml
+source_test_plan: registry/test-plans/TLC-FC-07-MESSAGE-005/test-plan.yaml
+source_ir_status: prototype_ir_with_reservations
+nature: declarative_structural
+inputs:
+  - {name: cycle_declaration_records, type: Sequence[MessageCycleDeclarationRecord], required_count: 18, content_policy: opaque_candidate_evidence}
+outputs:
+  - {name: message_cycle_descriptor, type: MessageExistentialCycleDescriptor, status: unevaluated_candidate}
+types:
+  opaque: [OpaqueScientificPayload, OpaqueSourceContext]
+  parameterized: [MessageCycleDeclarationRecord, MessageExistentialCycleDescriptor]
+content_or_reference: preserve the exact 18 covered objects and contextual relations from the source contract
+opaque_values: [transition_rules, timing, causal_effects, transformation_criteria, sender_receiver_roles, encoding, transport]
+roles_explicitly_defined: [formal_components, essential_properties, revelation_crystallisation_declarations, six_cycle_stage_references]
+context: source partitions and source-stated cycle order
+metadata: [feature_id, object_id, relation_id, source_reference, source_order, candidate_status, unresolved]
+preconditions: [all 18 identifiers present exactly once, TLC-SO-MESSAGE-059 and TLC-SO-MESSAGE-071 remain distinct]
+operations: [validate_exact_identifier_set, preserve_two_transmission_occurrences, partition_by_source_context, assemble_six_ordered_stage_references, attach_unresolved]
+execution_order: [validate, preserve_identity, partition, assemble_descriptor, attach_unresolved, verify]
+control_flow: fail_on_incomplete_duplicate_or_merged_transmission_evidence
+transformations_authorized: [identity_preserving_partitioning, identity_preserving_ordered_descriptor_assembly]
+effects: [create_non_executable_cycle_descriptor]
+postconditions: [all 18 identities retained, two Transmission occurrences distinct, six source-ordered stage references exposed, no transitions executed]
+invariants: [identity_preserved, declared_order_preserved, no_transition_semantics_inferred, non_executable_evidence]
+errors: [IncompleteCycleEvidence, DuplicateCycleIdentifier, TransmissionOccurrencesMerged]
+determinism: deterministic_for_identical_ordered_records
+dependencies: [TLC-FC-07-MESSAGE-006]
+unresolved_propagated: [TLC-UT-MESSAGE-002, TLC-UT-MESSAGE-018, TLC-UT-MESSAGE-019, TLC-UT-MESSAGE-020, TLC-UT-MESSAGE-022, TLC-UT-MESSAGE-023, TLC-UT-MESSAGE-024, TLC-UT-MESSAGE-025, TLC-UT-MESSAGE-032, TLC-UT-MESSAGE-034, TLC-UT-MESSAGE-048, TLC-UT-MESSAGE-056, TLC-UT-MESSAGE-057, TLC-UT-MESSAGE-058, TLC-UT-MESSAGE-059, TLC-UT-MESSAGE-060, TLC-UT-MESSAGE-061]
+reservations: [TLC-DUP-MESSAGE-002]
+transformations_applied_to_ir: [normalized_traceability, explicit_non_executable_cycle, explicit_transmission_identity_constraint]
+preservation_obligations: [content, all_identifiers, relations, source_partitions, declared_order, unresolved]
+algorithm: registry/algorithms/message/TLC-FC-07-MESSAGE-005/algorithm.yaml
+oracle: registry/oracles/message/TLC-FC-07-MESSAGE-005/oracle.yaml
+implementation_aptitude: ready_for_ordered_descriptor_implementation_without_transition_execution
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+message_content_invented: false
