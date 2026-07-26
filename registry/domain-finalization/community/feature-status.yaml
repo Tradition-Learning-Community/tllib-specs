@@ -1,0 +1,118 @@
+schema_version: '1.0'
+domain: community
+population_ref: registry/domain-finalization/community/manifest.yaml#authoritative_population
+status_definition: selected_for_community_implementation_specification means selected as the software specification for the Community module only; it is not a universal scientific decision.
+summary:
+  active_features: 8
+  selected_for_community_implementation_specification: 8
+  scientific_execution_ready: 0
+  rejected: 0
+  feature_specific_blocking_scientific_decisions: 1
+features:
+- feature_id: TLC-FC-02-COMMUNITY-001
+  name: '02-community: constraint (admissible)'
+  contract_kind: validation
+  source_ir_kind: validation
+  source_ir_raw_status: active_candidate_not_canonical
+  finalization_status: selected_for_community_implementation_specification
+  implementation_scope: structural_validation_traceability_and_structured_errors
+  scientific_execution_ready: false
+  source_objects: [TLC-SO-COMMUNITY-008]
+  dependencies: []
+  unresolved: {set_ref: registry/domain-finalization/community/manifest.yaml#unresolved_authoritative, count: 29}
+  reservations: [historical_semantic_variant_not_promoted, measure_definition_opaque, coherence_definition_opaque, actor_domain_opaque, result_semantics_opaque]
+  decision_class: preserved_as_opaque
+- feature_id: TLC-FC-02-COMMUNITY-003
+  name: '02-community: dynamics (admissible)'
+  contract_kind: computational
+  source_ir_kind: functional
+  source_ir_raw_status: active_candidate_not_canonical
+  finalization_status: selected_for_community_implementation_specification
+  implementation_scope: structural_validation_traceability_and_structured_errors
+  scientific_execution_ready: false
+  source_objects: [TLC-SO-COMMUNITY-029, TLC-SO-COMMUNITY-040, TLC-SO-COMMUNITY-044]
+  dependencies: []
+  unresolved: {set_ref: registry/domain-finalization/community/manifest.yaml#unresolved_authoritative, count: 29}
+  reservations: [scientific_inputs_not_specified, scientific_outputs_not_specified, evolution_semantics_not_executable]
+  decision_class: deferred_to_scientific_review
+- feature_id: TLC-FC-02-COMMUNITY-004
+  name: '02-community: equation (admissible)'
+  contract_kind: computational
+  source_ir_kind: functional
+  source_ir_raw_status: active_candidate_not_canonical
+  finalization_status: selected_for_community_implementation_specification
+  implementation_scope: structural_validation_traceability_and_structured_errors
+  scientific_execution_ready: false
+  source_objects: [TLC-SO-COMMUNITY-027, TLC-SO-COMMUNITY-028, TLC-SO-COMMUNITY-030]
+  dependencies: []
+  unresolved: {set_ref: registry/domain-finalization/community/manifest.yaml#unresolved_authoritative, count: 29}
+  reservations: [scientific_inputs_not_specified, scientific_outputs_not_specified, equation_execution_not_defined]
+  decision_class: deferred_to_scientific_review
+- feature_id: TLC-FC-02-COMMUNITY-005
+  name: '02-community: invariant (admissible)'
+  contract_kind: validation
+  source_ir_kind: validation
+  source_ir_raw_status: active_candidate_not_canonical
+  finalization_status: selected_for_community_implementation_specification
+  implementation_scope: structural_validation_traceability_and_structured_errors
+  scientific_execution_ready: false
+  source_objects: [TLC-SO-COMMUNITY-009, TLC-SO-COMMUNITY-035, TLC-SO-COMMUNITY-037, TLC-SO-COMMUNITY-038, TLC-SO-COMMUNITY-039]
+  dependencies: []
+  unresolved: {set_ref: registry/domain-finalization/community/manifest.yaml#unresolved_authoritative, count: 29}
+  reservations: [scientific_inputs_not_specified, scientific_outputs_not_specified, invariant_evaluation_not_defined]
+  decision_class: deferred_to_scientific_review
+- feature_id: TLC-FC-02-COMMUNITY-006
+  name: '02-community: invariant (blocked_locally)'
+  contract_kind: structural
+  source_ir_kind: structural
+  source_ir_raw_status: active_candidate_not_canonical
+  finalization_status: selected_for_community_implementation_specification
+  implementation_scope: structural_validation_traceability_and_structured_errors
+  scientific_execution_ready: false
+  source_objects: [TLC-SO-COMMUNITY-036]
+  dependencies: []
+  unresolved: {set_ref: registry/domain-finalization/community/manifest.yaml#unresolved_authoritative, count: 29}
+  reservations: [local_scientific_definition_required, execution_only_blocker]
+  decision_class: blocking
+  blocker_scope: scientific_execution_only
+- feature_id: TLC-FC-02-COMMUNITY-007
+  name: '02-community: metric (admissible)'
+  contract_kind: computational
+  source_ir_kind: functional
+  source_ir_raw_status: active_candidate_not_canonical
+  finalization_status: selected_for_community_implementation_specification
+  implementation_scope: structural_validation_traceability_and_structured_errors
+  scientific_execution_ready: false
+  source_objects: [TLC-SO-COMMUNITY-017, TLC-SO-COMMUNITY-031]
+  dependencies: []
+  unresolved: {set_ref: registry/domain-finalization/community/manifest.yaml#unresolved_authoritative, count: 29}
+  reservations: [metric_inputs_not_specified, metric_outputs_not_specified, metric_evaluation_not_defined]
+  decision_class: deferred_to_scientific_review
+- feature_id: TLC-FC-02-COMMUNITY-008
+  name: '02-community: operator (admissible)'
+  contract_kind: computational
+  source_ir_kind: functional
+  source_ir_raw_status: active_candidate_not_canonical
+  finalization_status: selected_for_community_implementation_specification
+  implementation_scope: structural_validation_traceability_and_structured_errors
+  scientific_execution_ready: false
+  source_objects: [TLC-SO-COMMUNITY-018, TLC-SO-COMMUNITY-019, TLC-SO-COMMUNITY-020]
+  dependencies:
+  - {dependency_id: TLC-COMMUNITY-MASTER-001, kind: symbol_only_documentary, executable: false}
+  - {dependency_id: TLC-COMMUNITY-DISCIPLE-001, kind: symbol_only_documentary, executable: false}
+  unresolved: {set_ref: registry/domain-finalization/community/manifest.yaml#unresolved_authoritative, count: 29}
+  reservations: [upstream_symbols_only, no_upstream_behavior_imported, operator_execution_not_defined]
+  decision_class: non_blocking
+- feature_id: TLC-FC-02-COMMUNITY-009
+  name: '02-community: relation (admissible)'
+  contract_kind: relational
+  source_ir_kind: relational
+  source_ir_raw_status: active_candidate_not_canonical
+  finalization_status: selected_for_community_implementation_specification
+  implementation_scope: structural_validation_traceability_and_structured_errors
+  scientific_execution_ready: false
+  source_objects: [TLC-SO-COMMUNITY-004, TLC-SO-COMMUNITY-026, TLC-SO-COMMUNITY-032]
+  dependencies: []
+  unresolved: {set_ref: registry/domain-finalization/community/manifest.yaml#unresolved_authoritative, count: 29}
+  reservations: [relation_inputs_not_specified, relation_outputs_not_specified, relation_execution_not_defined]
+  decision_class: deferred_to_scientific_review
