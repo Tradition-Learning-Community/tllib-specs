@@ -1,0 +1,37 @@
+---
+schema_version: 1
+oracle_id: TLC-ORACLE-13-PRACTICE-003
+feature_id: TLC-FC-13-PRACTICE-003
+status: selected_for_practice_implementation_specification
+ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-003/ir.yaml
+algorithm_ref: registry/algorithms/practice/TLC-FC-13-PRACTICE-003/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-13-PRACTICE-003/test-plan.yaml
+acceptance_ready: true
+scientific_execution_oracle_available: false
+expected_identity: TLC-FC-13-PRACTICE-003
+expected_raw_status: declarative_non_executable_with_reservations
+expected_object_ids: [TLC-SO-PRACTICE-070, TLC-SO-PRACTICE-077, TLC-SO-PRACTICE-084, TLC-SO-PRACTICE-092]
+expected_input_ids: [INPUT-PRACTICE-003-1, INPUT-PRACTICE-003-2, INPUT-PRACTICE-003-3, INPUT-PRACTICE-003-4]
+expected_output_ids: [OUTPUT-PRACTICE-003-1, OUTPUT-PRACTICE-003-2, OUTPUT-PRACTICE-003-3, OUTPUT-PRACTICE-003-4]
+expected_unresolved: []
+expected_scientific_decisions: []
+tests:
+- {id: PRACTICE-003-NOMINAL, category: nominal, assertion: four opaque inputs build one traceable declarative representation}
+- {id: PRACTICE-003-IDENTITY, category: identity, assertion: feature and object identities match exactly}
+- {id: PRACTICE-003-INPUTS, category: preconditions, assertion: each required input is independently required}
+- {id: PRACTICE-003-ORDER, category: structural, assertion: documentary object order is 070, 077, 084, 092}
+- {id: PRACTICE-003-ROUNDTRIP, category: serialization, assertion: round trip preserves all opaque payloads and provenance}
+- {id: PRACTICE-003-DETERMINISM, category: determinism, assertion: equivalent structures serialize identically}
+- {id: PRACTICE-003-NO-NUMERICS, category: errors, assertion: numerical evaluation returns external_executor_required}
+- {id: PRACTICE-003-NO-LOOP, category: invariants, assertion: the repetition-labelled source object does not create an executable loop}
+- {id: PRACTICE-003-NO-SEQUENCE, category: invariants, assertion: no executable sequence or transition is introduced}
+- {id: PRACTICE-003-OPAQUE, category: opaque_value_propagation, assertion: all values remain unmodified}
+properties:
+- deleting any required input fails validation
+- adding an undeclared object fails provenance validation
+- reordering serialization fields does not alter structural equality
+- changing documentary object order is observable and rejected
+metamorphic_relations:
+- round-trip canonical serialization is stable
+- changing one opaque payload changes only its keyed payload
+acceptance_condition: all structural tests pass and no scientific trajectory is asserted
