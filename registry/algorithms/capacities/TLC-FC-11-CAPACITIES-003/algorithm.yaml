@@ -1,0 +1,54 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-003
+algorithm_id: CAP-ALG-003
+status: selected_for_capacities_implementation_specification
+source_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-003/ir.yaml
+signature: 'CapacityConstraintBundle assemble_latence_mastery_constraint_bundle(FeatureId, List<OpaqueScientificObject>, Map<ObjectId,List<UnevaluatedSymbol>>, Map<ObjectId,SourceReference>, DecisionBlocker)'
+inputs:
+  required_object_order: [TLC-SO-CAPACITIES-003, TLC-SO-CAPACITIES-030, TLC-SO-CAPACITIES-050]
+outputs: [CapacityConstraintBundle]
+validations: [exact feature id, exact membership and order, complete symbol entries, complete provenance, exact blocker, structural request]
+preconditions: [all targeted inputs present]
+conditions_of_application: [no scientific execution]
+steps:
+  - validate targeted envelope
+  - copy three opaque members in contract order
+  - construct symbol index by object id
+  - construct immutable bundle
+  - attach provenance, blocker and reservations
+  - attach non-evaluation guard
+  - return bundle
+branching:
+  invalid_membership: MissingCoveredObject or UnexpectedCoveredObject
+  invalid_order: ObjectOrderMismatch
+  missing_symbol: MissingSymbolTableEntry
+  missing_blocker: MissingDecisionBlocker
+  evaluation_requested: ScientificEvaluationRequested
+capacity_handling: {construction: bundle only, identity_validation: exact, scope_validation: exact, context_validation: provenance}
+relations: none
+activation: represented_as_opaque_source_property_only
+mobilization: not_performed
+development: represented_as_opaque_mastery_object_only
+comparison: identifier_and_shape_only
+effects: no scientific mutation
+errors: [UnknownFeatureId, MissingCoveredObject, UnexpectedCoveredObject, ObjectOrderMismatch, MissingSymbolTableEntry, MissingSourceReference, MissingDecisionBlocker, ScientificEvaluationRequested]
+postconditions: [three-member order preserved, symbol index complete, blocker unchanged, no evaluated value]
+invariants: [opaque payloads uninspected, source separation preserved]
+determinism: deterministic
+case_limits:
+  - any omission, addition or reordering fails
+  - explicit empty symbol list is accepted
+  - mastery, activation or latence evaluation fails
+unresolved_conserved: [scientific decision required]
+dependencies: []
+pseudocode: |
+  require feature_id == TLC-FC-11-CAPACITIES-003 else UnknownFeatureId
+  require exact_order(objects, [003, 030, 050]) else membership_or_order_error
+  require symbol_entry_for_each_object(symbol_table) else MissingSymbolTableEntry
+  require complete_provenance(provenance) else MissingSourceReference
+  require blocker == "scientific decision required" else MissingDecisionBlocker
+  require request_is_structural_only() else ScientificEvaluationRequested
+  members = copy_opaque_in_order(objects)
+  bundle = immutable_bundle(members, index_symbols(symbol_table), provenance, blocker)
+  bundle.attach_non_evaluation_guard()
+  return bundle
