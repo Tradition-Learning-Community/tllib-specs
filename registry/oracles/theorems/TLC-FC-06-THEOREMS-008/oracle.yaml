@@ -1,0 +1,52 @@
+schema_version: 1
+artifact_kind: theorems_acceptance_oracle
+feature_id: TLC-FC-06-THEOREMS-008
+operation_under_test: assemble_eight_dimension_sufficiency_roles
+source_test_plan: registry/test-plans/TLC-FC-06-THEOREMS-008/test-plan.yaml
+oracle_scope: structural_conformance_only
+acceptance_tests:
+  - id: ORACLE-008-NOMINAL
+    kind: nominal
+    given: exact ordinals one through eight, source labels, opaque roles, and required unresolved mappings
+    expect: ordered eight-entry bundle preserving every supplied role and unresolved identifier
+  - id: ORACLE-008-MISSING
+    kind: precondition_error
+    given: any required ordinal missing
+    expect_error: MISSING_DIMENSION_ROLE
+  - id: ORACLE-008-DUPLICATE
+    kind: uniqueness_error
+    given: duplicate source ordinal
+    expect_error: DUPLICATE_SOURCE_ORDINAL
+  - id: ORACLE-008-DROPPED
+    kind: unresolved_error
+    given: any role lacks its required unresolved mapping
+    expect_error: DROPPED_CROSS_DOMAIN_UNRESOLVED
+  - id: ORACLE-008-ORDER
+    kind: source_order
+    given: input mapping iterates in a different order
+    expect: output remains ordered by source ordinals one through eight
+  - id: ORACLE-008-LABELS
+    kind: shape
+    expect: Message, Principles, Values, Virtues, Capacities, Competencies, Practice, and Lived Experience occur once each
+  - id: ORACLE-008-UNRESOLVED
+    kind: unresolved_propagation
+    expect: TLC-UT-THEOREMS-001, 005, and 007 through 012 remain attached exactly once
+  - id: ORACLE-008-OPAQUE
+    kind: opaque_propagation
+    expect: every role payload is unchanged
+  - id: ORACLE-008-NO-SUFFICIENCY
+    kind: negative_capability
+    expect: output contains no sufficiency truth value or proof claim
+  - id: ORACLE-008-DETERMINISM
+    kind: determinism
+    action: invoke twice with identical mappings
+    expect: identical source-ordered bundles
+properties:
+  source_order_preserved: true
+  role_population_preserved: true
+  unresolved_preserved: true
+  sufficiency_asserted: false
+  proof_invented: false
+acceptance_result:
+  pass_when: exact order, labels, unresolved, opacity, errors, and determinism assertions hold
+  does_not_mean: the eight dimensions are proved sufficient
