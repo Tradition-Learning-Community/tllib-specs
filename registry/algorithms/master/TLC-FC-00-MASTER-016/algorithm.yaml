@@ -1,0 +1,17 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-00-MASTER-016
+feature_id: TLC-FC-00-MASTER-016
+status: selected_for_master_implementation_specification
+finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-016/ir.yaml
+signature: describe_master_composite_state(reference_bundle, optional_disciple_symbol) -> MasterSymbolicTypeDescriptor
+inputs: {reference_bundle: ScientificReferenceBundle, optional_disciple_symbol: read-only optional symbol}
+outputs: {result: MasterSymbolicTypeDescriptor}
+validations: [exact feature id, exact six object refs, exact twenty-five relation refs, exact fourteen unresolved refs]
+steps: [validate all ordered sets, construct provenance, preserve optional Disciple symbol if supplied, emit composite symbolic descriptor without flattening, copy fourteen unresolved refs unchanged, verify no lifecycle, typology, layout, dimension, endpoint, or subtype semantics were added, return]
+branches: [{condition: Disciple symbol absent, action: emit descriptor with dependency status unresolved_optional}, {condition: calculation or transition execution requested, action: return MASTER_UNSUPPORTED_EXECUTION_MODE}, {condition: any source set mismatch, action: return matching validation error}]
+errors: [MASTER_INVALID_FEATURE_ID, MASTER_REFERENCE_SET_MISMATCH, MASTER_UNRESOLVED_SET_MISMATCH, MASTER_PRESERVATION_VIOLATION, MASTER_UNSUPPORTED_EXECUTION_MODE]
+invariants: [six objects distinct, twenty-five relations ordered, fourteen unresolved refs exact, composite state not flattened]
+determinism: deterministic for identical structured input
+effects: none
+edge_cases: [optional Disciple symbol absence is non-blocking, missing runtime component values are valid]
+necessary_dependencies: [{domain: disciple, access: read_only, required_for: optional_reference_only}]
