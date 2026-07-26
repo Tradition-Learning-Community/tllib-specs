@@ -1,0 +1,33 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-003
+oracle_id: CAP-ORACLE-003
+status: selected_for_capacities_implementation_specification
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-003/test-plan.yaml
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-003/algorithm.yaml
+exact_result_available: false
+oracle_basis: ordered bundle shape, symbol index, provenance, blocker and non-evaluation behavior
+acceptance_tests:
+  - id: nominal_bundle
+    expect: {type: CapacityConstraintBundle, member_order: [TLC-SO-CAPACITIES-003, TLC-SO-CAPACITIES-030, TLC-SO-CAPACITIES-050], blocker: scientific decision required}
+  - {id: missing_member, mutation: omit member, expect_error: MissingCoveredObject}
+  - {id: extra_member, mutation: add member, expect_error: UnexpectedCoveredObject}
+  - {id: reordered_member, mutation: reorder members, expect_error: ObjectOrderMismatch}
+  - {id: missing_symbol_entry, mutation: omit symbol key, expect_error: MissingSymbolTableEntry}
+  - {id: missing_provenance, mutation: omit provenance, expect_error: MissingSourceReference}
+  - {id: missing_blocker, mutation: omit blocker, expect_error: MissingDecisionBlocker}
+  - {id: evaluation_guard, request: evaluate mastery, activation or latence, expect_error: ScientificEvaluationRequested}
+properties:
+  identity_conservation: true
+  scope_conservation: true
+  context_provenance_conservation: true
+  symbol_conservation: true
+  unresolved_conservation: true
+  deterministic_for_identical_inputs: true
+metamorphic_tests:
+  - opaque payload replacement with same ids preserves structural projection
+  - repeated construction yields equivalent bundle projection
+  - order permutation converts success to ObjectOrderMismatch
+composition_tests: [registry storage preserves all three public object identities]
+dependency_tests: [no external execution dependency]
+forbidden_observations: [mastery value, latence value, activation result, score, threshold, progression]
+pass_condition: all tests pass and feature separation remains preserved
