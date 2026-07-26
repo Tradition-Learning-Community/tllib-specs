@@ -1,0 +1,186 @@
+schema_version: 1
+module_id: TLC-MODULE-DYNAMICS
+module_name: Dynamics
+status: selected_for_dynamics_implementation_specification
+scope:
+  active_feature_count: 7
+  maturity_level: L6_algorithm_and_oracle
+  implementation_target: structural_and_declarative_specification_package
+  scientific_execution_claimed: false
+public_operations:
+  - operation: evaluate_viability_predicates_symbolically
+    feature_id: TLC-FC-05-DYNAMICS-001
+    input: [OpaqueCommunityState, "ViabilityBounds[OpaqueScalar]"]
+    output: UnevaluatedPredicateSet
+  - operation: build_unevaluated_dynamics_bundle
+    feature_id: TLC-FC-05-DYNAMICS-002
+    input: ["Sequence[OpaqueEquation]", SymbolTable]
+    output: "DynamicsBundle[OpaqueEquation]"
+  - operation: preserve_stochastic_expression
+    feature_id: TLC-FC-05-DYNAMICS-003
+    input: [OpaqueStochasticExpression, SymbolTable]
+    output: UnevaluatedStochasticEquation
+  - operation: construct_symbolic_feedback_expression
+    feature_id: TLC-FC-05-DYNAMICS-004
+    input: [OpaqueSignal, OpaqueKernel, ParameterMap]
+    output: UnevaluatedIntegralExpression
+  - operation: construct_opaque_interaction_application
+    feature_id: TLC-FC-05-DYNAMICS-005
+    input: [InteractionOperatorId, "Sequence[OpaqueEntityRef]"]
+    output: UnevaluatedOperatorApplication
+  - operation: construct_opaque_state_candidate_record
+    feature_id: TLC-FC-05-DYNAMICS-006
+    input: ["Mapping[ScientificObjectId, OpaqueValue]"]
+    output: StateCandidateRecord
+  - operation: preserve_state_or_evolution_expression
+    feature_id: TLC-FC-05-DYNAMICS-007
+    input: [OpaqueExpression, "Optional[OpaqueTag]"]
+    output: UnclassifiedStateEvolutionNode
+internal_operations:
+  - validate_source_identifier
+  - validate_declared_carrier_shape
+  - preserve_ordered_input
+  - construct_unevaluated_node
+  - attach_source_traceability
+  - attach_unresolved
+  - attach_reservations
+  - validate_no_scientific_evaluation
+  - create_structured_error
+common_types:
+  opaque:
+    - OpaqueValue
+    - OpaqueExpression
+    - OpaqueCommunityState
+    - OpaqueScalar
+    - OpaqueEquation
+    - OpaqueStochasticExpression
+    - OpaqueSignal
+    - OpaqueKernel
+    - OpaqueEntityRef
+    - OpaqueTag
+  identifiers:
+    - ScientificObjectId
+    - ScientificRelationId
+    - InteractionOperatorId
+  containers:
+    - Sequence[T]
+    - Mapping[K,V]
+    - Optional[T]
+  records:
+    - UnevaluatedPredicateSet
+    - DynamicsBundle[OpaqueEquation]
+    - UnevaluatedStochasticEquation
+    - UnevaluatedIntegralExpression
+    - UnevaluatedOperatorApplication
+    - StateCandidateRecord
+    - UnclassifiedStateEvolutionNode
+state_model:
+  explicitly_defined_states: []
+  state_candidate_record: StateCandidateRecord
+  unclassified_state_evolution_node: UnclassifiedStateEvolutionNode
+  explicit_state_space: false
+  initial_conditions: []
+  terminal_conditions: []
+transition_model:
+  explicitly_defined_transitions: []
+  executable_transition_operator: null
+  transition_validation: source_reference_and_shape_validation_only
+  external_transition_engine_required: true
+  prohibition: Do not reinterpret equations, relations, or operators as before/after transitions.
+values_opaques:
+  preservation: exact_payload_and_identity
+  evaluation: forbidden
+  serialization: permitted_when_lossless
+  comparison: only identity_or_declared_shape_unless_source_defines_more
+common_errors:
+  - code: unknown_source_identifier
+    atomicity: no_output
+  - code: type_shape_mismatch
+    atomicity: no_output
+  - code: unresolved_scientific_semantics
+    atomicity: preserve_input_and_report_unresolved
+error_fields: [feature_id, operation_id, error_code, offending_reference, unresolved]
+shared_patterns:
+  - DYN-PATTERN-OPAQUE-CONSTRUCTION
+  - DYN-PATTERN-SOURCE-TRACEABILITY
+  - DYN-PATTERN-UNEVALUATED-EXPRESSION
+  - DYN-PATTERN-STOCHASTICITY
+internal_dependencies:
+  - from_feature_id: TLC-FC-05-DYNAMICS-006
+    to_feature_ids: [TLC-FC-05-DYNAMICS-001, TLC-FC-05-DYNAMICS-002, TLC-FC-05-DYNAMICS-003, TLC-FC-05-DYNAMICS-004, TLC-FC-05-DYNAMICS-005, TLC-FC-05-DYNAMICS-007]
+    strength: inferred_candidate_or_unresolved
+    execution_dependency: false
+external_dependencies:
+  documentary_or_symbolic:
+    - master
+    - disciple
+    - community
+    - huit-dimensions
+    - invariants
+    - theorems
+    - values
+    - relations
+    - lived-experience
+  executable_dependencies: []
+composition_rules:
+  - reject any unknown source identifier before output construction
+  - reject a declared carrier-shape mismatch before output construction
+  - preserve the order of every ordered source collection
+  - preserve all opaque payloads without evaluation
+  - attach feature-specific source-object and source-relation references
+  - attach every source unresolved and reservation unchanged
+  - return no partial output after a validation error
+order_rules:
+  structural_order:
+    - validate_source_identifiers
+    - validate_input_shapes
+    - construct_representation
+    - attach_traceability
+    - attach_unresolved_and_reservations
+    - validate_postconditions
+    - return_result
+  scientific_causal_order: not_defined
+  reordering_allowed: false_for_ordered_inputs
+determinism:
+  structural_operations: deterministic_for_identical_inputs_and_order
+  scientific_dynamics: not_executed
+stochasticity:
+  source_notation_present: true
+  executable_random_process: not_defined
+  distribution: not_defined
+  seed_management: not_defined
+  reproducibility_requirement: structural_round_trip_only
+unresolved_policy:
+  preserve: true
+  silently_resolve: false
+  discard: false
+  accepted_representations:
+    - opaque_value
+    - external_reference
+    - unresolved_propagated
+    - parameter_required
+    - precondition_required
+    - descriptive_scope
+    - external_transition_engine_required
+    - implementation_out_of_scope
+library_interfaces:
+  public_namespace: dynamics
+  value_semantics_preferred: true
+  mutation_required: false
+  serialization_required: true
+  stable_source_identifier_access: true
+  validation_result_access: true
+  unresolved_metadata_access: true
+out_of_scope:
+  - numerical integration
+  - differential or stochastic equation solving
+  - time discretization
+  - initial-condition synthesis
+  - state-space synthesis
+  - convergence or stability claims
+  - stochastic sampling or seed policy
+  - transition execution
+  - C++ implementation
+  - Python bindings
+  - reference implementation
+future_implementation_tasks_ref: registry/domain-finalization/dynamics/implementation-tasks.yaml
