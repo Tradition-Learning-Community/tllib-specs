@@ -1,0 +1,24 @@
+schema_version: '1.0'
+oracle_id: TLC-ORACLE-COMMUNITY-007
+feature_id: TLC-FC-02-COMMUNITY-007
+finalized_ir_ref: registry/optimized-ir/community/TLC-FC-02-COMMUNITY-007/ir.yaml
+algorithm_ref: registry/algorithms/community/TLC-FC-02-COMMUNITY-007/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-02-COMMUNITY-007/test-plan.yaml
+oracle_scope: structural_observables_only
+scientific_values_created: false
+cases:
+- {test_id: COMMUNITY-007-OR-001, category: nominal, stimulus: valid_describe_request, assertions: [completed_state, exact_feature_id, exact_two_source_objects, deterministic_serialization]}
+- {test_id: COMMUNITY-007-OR-002, category: precondition, stimulus: mismatched_feature_id, expected_error: COMMUNITY_ERR_FEATURE_ID_MISMATCH}
+- {test_id: COMMUNITY-007-OR-003, category: source_traceability, stimulus: missing_source_artifact, expected_error: COMMUNITY_ERR_SOURCE_ARTIFACT_MISSING}
+- {test_id: COMMUNITY-007-OR-004, category: conservation, stimulus: valid_structural_request, assertions: [source_contract_unchanged, source_ir_unchanged, source_object_order_preserved]}
+- {test_id: COMMUNITY-007-OR-005, category: unresolved_propagation, stimulus: alter_one_unresolved_id, expected_error: COMMUNITY_ERR_UNRESOLVED_NOT_PRESERVED}
+- {test_id: COMMUNITY-007-OR-006, category: opaque_value_propagation, stimulus: opaque_metric_handle, assertions: [handle_returned_unchanged, no_formula_selection, no_threshold_selection, no_evaluation]}
+- {test_id: COMMUNITY-007-OR-007, category: unsupported_execution, stimulus: scientific_execution_request, expected_error: COMMUNITY_ERR_UNSUPPORTED_EXECUTION_REQUEST}
+- {test_id: COMMUNITY-007-OR-008, category: determinism, stimulus: repeat_identical_request, assertions: [structurally_equal_results, byte_equivalent_normalized_serialization]}
+- {test_id: COMMUNITY-007-OR-009, category: metamorphic, stimulus: reorder_irrelevant_metadata_keys, assertions: [same_normalized_result, source_object_order_unchanged]}
+- {test_id: COMMUNITY-007-OR-010, category: non_invention, stimulus: inspect_output, assertions: [no_new_metric, no_new_scientific_type, no_new_dimension, no_numerical_method]}
+properties: [exact_unresolved_set_invariant, source_object_identity_invariant, opaque_payload_transport_only, pure_deterministic_structural_validation]
+composition_tests:
+- feature registry dispatches 007 only to TLC-ALG-COMMUNITY-007
+- result conforms to CommunitySpecificationResult
+acceptance: all_cases_pass
