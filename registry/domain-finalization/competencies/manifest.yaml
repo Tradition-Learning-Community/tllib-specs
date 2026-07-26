@@ -1,0 +1,85 @@
+schema_version: 1
+domain_id: competencies
+phase: domain_finalization
+status: selected_for_competencies_implementation_specification
+base:
+  branch: main
+  head_sha: c34d40713bf444d38f92f76e1c6239ee596d5a18
+  global_baseline: registry/global-reconciliation/current-baseline.yaml
+  authoritative_population_source: registry/global-reconciliation/domain-feature-matrix.yaml
+branch: phase4/competencies-domain-finalization-001
+population:
+  expected_count: 13
+  confirmed_count: 13
+  exact: true
+  feature_ids:
+  - TLC-FC-12-COMPETENCIES-001
+  - TLC-FC-12-COMPETENCIES-002
+  - TLC-FC-12-COMPETENCIES-004
+  - TLC-FC-12-COMPETENCIES-005
+  - TLC-FC-12-COMPETENCIES-006
+  - TLC-FC-12-COMPETENCIES-007
+  - TLC-FC-12-COMPETENCIES-008
+  - TLC-FC-12-COMPETENCIES-009
+  - TLC-FC-12-COMPETENCIES-010
+  - TLC-FC-12-COMPETENCIES-011
+  - TLC-FC-12-COMPETENCIES-012
+  - TLC-FC-12-COMPETENCIES-013
+  - TLC-FC-12-COMPETENCIES-016
+source_authorities:
+- registry/domain-progress/competencies/feature-catalogue.yaml
+- registry/domain-progress/competencies/production-readiness.yaml
+- registry/domain-progress/competencies/scientific-inventory.yaml
+- registry/ir-batches/competencies-domain-completion-001/manifest.yaml
+- reports/ir-batches/competencies-domain-completion-001/completion-report.md
+- maths/12-competencies.md
+raw_ir_status:
+  value: canonical_declarative_ir_with_reservations
+  preserved_for_all_features: true
+  promoted_to_scientific_executability: false
+artifacts:
+  domain:
+  - registry/domain-finalization/competencies/manifest.yaml
+  - registry/domain-finalization/competencies/feature-status.yaml
+  - registry/domain-finalization/competencies/patterns.yaml
+  - registry/domain-finalization/competencies/module-specification.yaml
+  - registry/domain-finalization/competencies/implementation-tasks.yaml
+  - registry/domain-finalization/competencies/decision-required.yaml
+  per_feature:
+    optimized_ir: registry/optimized-ir/competencies/<FEATURE_ID>/ir.yaml
+    algorithm: registry/algorithms/competencies/<FEATURE_ID>/algorithm.yaml
+    oracle: registry/oracles/competencies/<FEATURE_ID>/oracle.yaml
+  report: reports/domain-finalization/competencies/finalization-report.md
+  validator: tools/domain-finalization/validate_competencies_finalization.py
+preservation:
+  source_ir_preserved: true
+  source_contract_preserved: true
+  source_science_preserved: true
+  feature_population_preserved: true
+  source_order_preserved: true
+  source_unresolved_preserved: true
+  source_reservations_preserved: true
+  other_domains_modified: false
+  global_registry_regenerated: false
+non_invention:
+  competency_invented: false
+  measurement_invented: false
+  level_invented: false
+  threshold_invented: false
+  comparison_invented: false
+  progression_invented: false
+  execution_dependency_invented: false
+implementation_scope:
+  ready_package: structural_declarative_module_specification
+  scientific_execution: not_authorized_by_source_contracts
+  reference_implementation: not_produced
+  cpp: not_produced
+  python_bindings: not_produced
+closure_condition:
+  every_feature_has_source_contract: true
+  every_feature_has_source_ir: true
+  every_feature_has_source_test_plan: true
+  every_feature_requires_finalized_ir: true
+  every_feature_requires_algorithm: true
+  every_feature_requires_oracle: true
+  no_feature_rejected: true
