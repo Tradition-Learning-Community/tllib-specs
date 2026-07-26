@@ -19,13 +19,12 @@ hypotheses:
 preconditions:
   - The axiom reference and all three source clause identifiers are present.
 conditions_of_application:
-  - source references remain attached to every supplied component
+  - the supplied components correspond to the cited source claim
 ordered_steps:
   - validate axiom_reference presence
   - validate completeness of claim_clauses
   - preserve experience_symbol without transformation
-  - construct a descriptor from the supplied components
-  - attach source and proof-status metadata
+  - construct a descriptor from exactly the supplied components
   - validate exact-component postcondition
 branching:
   - condition: axiom_reference is missing
@@ -38,11 +37,11 @@ dependencies:
   - RESULT-THEOREMS-007
   - PROOF-THEOREMS-006
 statement_handling:
-  construction: source-traceable_unevaluated_descriptor
+  construction: unevaluated_descriptor
   validation: structural_only
 proof_status_control:
-  input_status: partial_not_formalized
-  output_metadata: preserve_partial_and_external_proof_required
+  specification_metadata: partial_not_formalized_with_PROOF-THEOREMS-006
+  runtime_output_field_added: false
   truth_value_returned: false
 errors:
   - MISSING_AXIOM_REFERENCE
@@ -52,7 +51,7 @@ postconditions:
   - output contains no evaluated scientific value
 determinism: identical structural inputs produce an identical structural result
 edge_cases:
-  - opaque experience payload may be empty only if its opaque type permits it; the algorithm does not interpret it
+  - opaque experience payload is never interpreted
   - additional clause identifiers are rejected because the contract requires exactly three in the result
 unresolved_conserved: []
 pseudocode: |
@@ -64,10 +63,7 @@ pseudocode: |
       result = UnevaluatedConservationClaim(
           axiom_reference = preserve_identity(axiom_reference),
           experience_symbol = preserve_identity(experience_symbol),
-          claim_clauses = preserve_identifiers(claim_clauses),
-          source_references = ["maths/06-theorems.md:141-144"],
-          proof_status = "partial_not_formalized",
-          proof_reference = "PROOF-THEOREMS-006"
+          claim_clauses = preserve_identifiers(claim_clauses)
       )
       assert result contains exactly the supplied components
       return result
