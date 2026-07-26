@@ -1,0 +1,112 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-001
+algorithm_id: TLC-ALG-INVARIANTS-001-FINAL-001
+status: selected_for_invariants_implementation_specification
+optimized_ir_ref: registry/optimized-ir/invariants/TLC-FC-04-INVARIANTS-001/ir.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-001/contract.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-001/ir.prototype.json
+oracle_ref: registry/oracles/invariants/TLC-FC-04-INVARIANTS-001/oracle.yaml
+signature:
+  name: build_admissibility_constraint_set
+  input: AdmissibilityAxiomRecord[]
+  output: ConstraintSet
+inputs:
+- ordered records containing a covered axiom ID, source reference, opaque statement, status, assumptions, and reservations
+outputs:
+- immutable constraint set with exactly one entry per validated input record
+validations:
+- input is present and iterable
+- every record has a non-empty axiom ID
+- every axiom ID is source-covered
+- every axiom ID is unique
+- every record has a source reference
+- preservation metadata is present when supplied by the source IR
+preconditions:
+- every record has a unique covered axiom ID and a source reference
+conditions_of_application:
+- operation is structural only
+- axiom truth and opaque statement bodies are not evaluated
+ordered_steps:
+- step: 1
+  action: create an empty local identity set and empty output-entry list
+- step: 2
+  action: visit records in supplied source order
+- step: 3
+  action: validate the current axiom ID against feature coverage
+- step: 4
+  action: reject the current record when its ID already exists in the local identity set
+- step: 5
+  action: validate the source reference without dereferencing or interpreting source content
+- step: 6
+  action: create an immutable entry by exact-copying identity, source reference, opaque values, catalogue status, assumptions, and reservations
+- step: 7
+  action: append the immutable entry and record its identity
+- step: 8
+  action: construct an immutable ConstraintSet from the ordered entries
+- step: 9
+  action: verify cardinality, identity uniqueness, source order, references, statuses, assumptions, reservations, and opaque-value conservation
+- step: 10
+  action: return the frozen ConstraintSet
+branching:
+- condition: axiom ID is unknown
+  action: raise UnknownAxiomId
+- condition: axiom ID is duplicate
+  action: raise DuplicateAxiomId
+- condition: source reference is absent
+  action: raise MissingSourceReference
+- condition: scientific evaluation is requested
+  action: raise ScientificEvaluationProhibited
+- condition: any conservation check fails
+  action: raise PreservationViolation
+state_before:
+  input_records: caller_owned
+  output_exists: false
+state_after:
+  input_records_mutated: false
+  output: immutable_constraint_set
+verification_of_conservation:
+- compare ordered input identity sequence with ordered output identity sequence
+- compare every source reference exactly
+- compare opaque values exactly
+- compare catalogue status, assumptions, and reservations exactly
+errors:
+- DuplicateAxiomId
+- UnknownAxiomId
+- MissingSourceReference
+- ScientificEvaluationProhibited
+- PreservationViolation
+postconditions:
+- one immutable output entry exists for every validated input record
+- no additional entry exists
+- no scientific truth value exists in the result
+determinism:
+  random_sources: none
+  external_state: none
+  result_rule: structurally equal inputs yield structurally equal outputs
+effects:
+  input_mutation: none
+  external_io: none
+  scientific_evaluation: none
+edge_cases:
+- empty input is accepted only when allowed by the caller-level contract; result is an empty immutable set and no source axiom is invented
+- duplicate IDs fail before output publication
+- opaque content of any size remains unchanged
+- input order is preserved and never sorted
+unresolved_conserved: []
+dependencies:
+  internal_structural: [TLC-FC-04-INVARIANTS-008]
+  execution: []
+pseudocode:
+- REQUIRE records is present
+- seen_ids := empty identity set
+- entries := empty ordered list
+- FOR record IN records IN supplied order
+- REQUIRE record.axiom_id is covered, ELSE UnknownAxiomId
+- REQUIRE record.axiom_id not in seen_ids, ELSE DuplicateAxiomId
+- REQUIRE record.source_reference is present, ELSE MissingSourceReference
+- entry := immutable exact copy of record and preservation metadata
+- append entry to entries; add record.axiom_id to seen_ids
+- END FOR
+- result := freeze ConstraintSet(entries)
+- REQUIRE result preserves ordered identities, references, opaque values, statuses, assumptions, and reservations, ELSE PreservationViolation
+- RETURN result
