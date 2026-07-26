@@ -1,0 +1,59 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-05-DYNAMICS-002
+feature_id: TLC-FC-05-DYNAMICS-002
+status: selected_for_dynamics_implementation_specification
+ir_ref: registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-002/ir.yaml
+algorithm_ref: registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-002/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-05-DYNAMICS-002/test-plan.yaml
+oracle_kind: structural_property_oracle
+fixture_policy:
+  values: opaque_equation_records_and_source_identifiers_only
+  arbitrary_scientific_values: forbidden
+acceptance_cases:
+  - case_id: DYN-002-NOMINAL
+    categories: [nominal, order, traceability]
+    given: the eight covered opaque equation sources and a covering symbol table
+    expect:
+      - output type is DynamicsBundle[OpaqueEquation]
+      - membership and order equal the input sequence
+      - each equation retains payload, source object, source relation, and classification
+  - case_id: DYN-002-OPAQUE-EQUATION
+    categories: [opaque_value, stochastic_metadata]
+    given: an equation with undefined state type or stochastic details
+    expect:
+      - equation remains present and opaque
+      - no evaluation, distribution, or initial condition is added
+  - case_id: DYN-002-MISSING-SYMBOL
+    categories: [error, dependency]
+    given: an equation references a symbol absent from the symbol table
+    expect: [unknown_source_identifier, no_partial_bundle]
+  - case_id: DYN-002-TYPE-SHAPE
+    categories: [type, shape, error]
+    given: a non-sequence equation carrier or invalid symbol-table carrier
+    expect: [type_shape_mismatch, no_output]
+  - case_id: DYN-002-ORDER
+    categories: [order, property]
+    property: every permutation of valid input records is reproduced in the same supplied order without canonical reordering
+  - case_id: DYN-002-UNRESOLVED
+    categories: [unresolved_propagation]
+    expect:
+      - unresolved metadata equals [types_initial_conditions_stochastic_details, solver_and_discretization]
+  - case_id: DYN-002-DETERMINISM
+    categories: [determinism, reproducibility]
+    property: identical ordered opaque equations and symbols produce structurally identical bundles
+  - case_id: DYN-002-METAMORPHIC-PAYLOAD
+    categories: [metamorphic]
+    transformation: replace one equation opaque payload while preserving its IDs and position
+    expect: only that payload changes; all other bundle structure and metadata remain unchanged
+  - case_id: DYN-002-FORBIDDEN-SEMANTICS
+    categories: [negative_property]
+    expect_absent: [solved_trajectory, selected_solver, time_step, initial_condition, probability_distribution, executable_transition]
+invariants_checked:
+  - equation identities remain distinct
+  - source ordering is conserved
+  - opaque payloads and unresolved are conserved
+  - no scientific execution occurs
+dependency_checks:
+  - feature 006 remains a non-executable candidate reference
+  - external domain references remain symbolic or documentary
+acceptance_rule: all cases pass and no solver, state initialization, sampling, or transition field is produced
