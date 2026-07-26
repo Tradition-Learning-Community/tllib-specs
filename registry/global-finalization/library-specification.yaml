@@ -1,0 +1,41 @@
+schema_version: 1
+library_id: tllib
+status: structural_specification_ready_for_implementation
+modules: [master, disciple, community, huit-dimensions, invariants, dynamics, theorems, message, principle, values, virtues, capacities, competencies, practice, lived-experience, relations]
+active_features: 166
+public_contract:
+  preserve_source_identity: true
+  preserve_scientific_payloads: true
+  preserve_unresolved: true
+  reject_unsupported_scientific_execution: true
+  deterministic_structural_behavior: true
+  structured_errors: true
+  lossless_serialization_where_declared: true
+shared_infrastructure:
+  - feature identifiers
+  - source references
+  - opaque scientific values
+  - unresolved propagation
+  - traceability
+  - structured errors
+  - immutable structural descriptors
+  - deterministic serialization adapters
+module_contracts_ref: registry/global-finalization/module-interfaces.yaml
+shared_types_ref: registry/global-finalization/shared-types.yaml
+shared_patterns_ref: registry/global-finalization/shared-patterns.yaml
+dependency_graph_ref: registry/global-finalization/dependency-graph.yaml
+implementation_backlog_ref: registry/global-finalization/implementation-backlog.yaml
+out_of_scope:
+  - scientific semantics absent from source contracts
+  - automatic theorem proving
+  - invented numerical solvers or thresholds
+  - invented value, virtue or competency evaluation
+  - invented dynamics transition rules
+  - invented relation causality
+  - production C++ in this phase
+  - Python bindings in this phase
+acceptance:
+  - all 16 domain validators pass on integrated main
+  - global validator passes
+  - exactly 166 finalized IRs, algorithms and oracles are discoverable
+  - source contracts, source IRs, test plans and maths remain unchanged from the authoritative baseline lineage
