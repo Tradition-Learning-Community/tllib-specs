@@ -1,0 +1,257 @@
+schema_version: 1
+module_id: TLC-MODULE-THEOREMS-001
+module_name: Theorems
+status: selected_for_theorems_implementation_specification
+scope:
+  active_feature_count: 9
+  purpose: represent, validate, index, and compose source-traceable theorem-related structures without inventing or executing scientific proofs
+public_operations:
+  - operation: assemble_experiential_conservation_claim
+    feature_id: TLC-FC-06-THEOREMS-001
+    input_types: [OpaqueAxiomReference, OpaqueExperienceSymbol, ConservationClauseSet]
+    output_type: UnevaluatedConservationClaim
+  - operation: register_theorem_dynamics_equations
+    feature_id: TLC-FC-06-THEOREMS-002
+    input_types: ["Mapping<ScientificObjectId,OpaqueEquation>", "Mapping<ScientificObjectId,DynamicsRole>"]
+    output_type: DynamicsEquationRegistry
+  - operation: catalogue_explicit_theorem_equations
+    feature_id: TLC-FC-06-THEOREMS-003
+    input_types: ["Sequence<TheoremEquationEntry>"]
+    output_type: TheoremEquationCatalogue
+  - operation: construct_transmission_ergodicity_hypothesis
+    feature_id: TLC-FC-06-THEOREMS-004
+    input_types: [OpaqueOperatorSymbol, OpaqueSpectralGapCondition]
+    output_type: TransmissionErgodicityHypothesis
+  - operation: register_cns_operator_claims
+    feature_id: TLC-FC-06-THEOREMS-005
+    input_types: [OpaqueTransformationClaim, "Mapping<DimensionId,OpaqueRemovalEffectClaim>"]
+    output_type: CNSOperatorClaimSet
+  - operation: index_theorem_declarations
+    feature_id: TLC-FC-06-THEOREMS-006
+    input_types: ["Sequence<OpaqueTheoremDeclaration>", "Mapping<ScientificObjectId,ProofStatus>"]
+    output_type: TheoremDeclarationIndex
+  - operation: construct_community_stability_state
+    feature_id: TLC-FC-06-THEOREMS-007
+    input_types: [OpaqueCommunitySequence, OpaqueCommunityState, CommunityStabilityContextComponents]
+    output_type: CommunityStabilityStateDescriptor
+  - operation: assemble_eight_dimension_sufficiency_roles
+    feature_id: TLC-FC-06-THEOREMS-008
+    input_types: ["Mapping<SourceOrdinal,OpaqueDimensionRole>", "Mapping<OpaqueDimensionRole,UnresolvedMappingId>"]
+    output_type: EightDimensionSufficiencyRoleBundle
+  - operation: construct_principles_role_descriptor
+    feature_id: TLC-FC-06-THEOREMS-009
+    input_types: [OpaqueDimensionRole, SourceOrdinal]
+    output_type: PrinciplesRoleDescriptor
+internal_operations:
+  - validate_required_inputs
+  - validate_source_references
+  - validate_covered_object_population
+  - validate_unique_identifiers
+  - validate_relation_targets
+  - preserve_opaque_payload
+  - attach_unresolved_metadata
+  - attach_proof_status_metadata
+  - construct_traceability_record
+  - validate_postconditions
+  - lookup_by_scientific_object_id
+operation_boundaries:
+  represent_theorem:
+    supported: true
+    meaning: retain declaration, hypotheses, conclusion, source and proof-status metadata
+  validate_theorem_structure:
+    supported: true
+    meaning: check required identifiers, fields, references, and source-defined structural conditions
+  verify_preconditions:
+    supported: true
+    meaning: validate only preconditions stated by the source contract
+  verify_existing_proof:
+    supported: metadata_only
+    meaning: validate presence and declared status of an existing proof reference; do not validate mathematical correctness
+  produce_proof_obligation:
+    supported: true
+    meaning: return a structured external-proof requirement when proof is partial, absent, or not formalized
+  prove_theorem:
+    supported: false
+    meaning: no automatic or constructive theorem proving is specified
+statement_types:
+  StructuredTheoremStatement:
+    fields: [scientific_object_id, source_references, statement_payload, hypotheses, conclusion, quantifiers, proof_status, proof_reference, unresolved]
+  UnevaluatedClaim:
+    fields: [claim_id, claim_payload, source_references, status, reservations]
+  StructuredHypothesis:
+    fields: [hypothesis_id, opaque_components, source_references, verification_status]
+  ProofObligation:
+    fields: [feature_id, result_id, required_reference, current_proof_status, external_action_required]
+hypothesis_representation:
+  source: source contract preconditions and explicit source theorem hypotheses
+  rules:
+    - preserve text and identifiers without strengthening
+    - do not infer omitted hypotheses
+    - distinguish scientific hypotheses from software preconditions
+conclusion_representation:
+  source: explicit source conclusion or source contract postcondition
+  rules:
+    - preserve source wording or traceable opaque payload
+    - do not convert a descriptor postcondition into theorem truth
+quantifiers:
+  policy: preserve only explicitly declared quantifiers
+  explicit_source_results:
+    - result_id: RESULT-THEOREMS-002
+      status: explicit
+      count: 1
+    - result_id: RESULT-THEOREMS-003
+      status: explicit
+      count: 1
+  unspecified_quantifiers: preserved_as_unspecified
+logical_relations:
+  implication:
+    supported_when: explicitly present in source metadata
+    inference_allowed: false
+  equivalence:
+    supported_when: explicitly declared and traced
+    inference_allowed: false
+  necessary_condition:
+    supported_when: explicitly declared
+    inference_allowed: false
+  sufficient_condition:
+    supported_when: explicitly declared
+    inference_allowed: false
+proof_statuses:
+  - partial
+  - absent
+  - not_formalized
+  - not_a_proof_operation
+  - external_proof_required
+  - proof_reference_required
+proof_references:
+  known:
+    - PROOF-THEOREMS-001
+    - PROOF-THEOREMS-002
+    - PROOF-THEOREMS-003
+    - PROOF-THEOREMS-004
+    - PROOF-THEOREMS-005
+    - PROOF-THEOREMS-006
+  complete_local_proofs: 0
+  partial_local_proofs: 6
+  absent_local_proofs: 1
+  mechanical_check_available: false
+proof_obligation_rules:
+  - partial proof produces external_proof_required without changing proof status
+  - absent proof produces proof_reference_required
+  - a valid structural record never implies theorem truth
+  - no missing proof step may be synthesized
+opaque_values:
+  policy: preserve identity and payload without scientific interpretation
+  common_types:
+    - OpaqueScientificValue
+    - OpaqueScientificExpression
+    - OpaqueAxiomReference
+    - OpaqueTheoremDeclaration
+    - OpaqueOperatorSymbol
+    - OpaqueDimensionRole
+unresolved:
+  propagation: exact_identifier_preservation
+  identifiers:
+    - TLC-UT-THEOREMS-001
+    - TLC-UT-THEOREMS-002
+    - TLC-UT-THEOREMS-003
+    - TLC-UT-THEOREMS-004
+    - TLC-UT-THEOREMS-005
+    - TLC-UT-THEOREMS-006
+    - TLC-UT-THEOREMS-007
+    - TLC-UT-THEOREMS-008
+    - TLC-UT-THEOREMS-009
+    - TLC-UT-THEOREMS-010
+    - TLC-UT-THEOREMS-011
+    - TLC-UT-THEOREMS-012
+  classification_resolution_performed: false
+common_errors:
+  representation:
+    - MISSING_REQUIRED_INPUT
+    - MISSING_SOURCE_REFERENCE
+    - DUPLICATE_SCIENTIFIC_OBJECT
+    - UNKNOWN_SCIENTIFIC_OBJECT
+    - DANGLING_RELATION
+    - DROPPED_UNRESOLVED
+  feature_specific_policy: use exact contract error codes in each feature algorithm
+  common_shape: StructuredTheoremError
+patterns:
+  reference: registry/domain-finalization/theorems/patterns.yaml
+  shared:
+    - traceable_opaque_record
+    - deterministic_validate_construct_validate
+    - structured_statement_metadata
+    - source_addressable_collection
+    - proof_status_without_proof_execution
+    - unresolved_attachment
+internal_dependencies:
+  - finalized feature records may reference each other by identifier only when source traceability already establishes the relation
+  - TLC-FC-06-THEOREMS-006 indexes declarations and does not execute operations 001-005 or 007-009
+external_dependencies:
+  - dependency_id: DEP-THEOREMS-DYNAMICS-001
+    affected_features: [TLC-FC-06-THEOREMS-002, TLC-FC-06-THEOREMS-003, TLC-FC-06-THEOREMS-004, TLC-FC-06-THEOREMS-006]
+    role: theorem_premise
+    structural_implementation_blocking: false
+    proof_representation_blocking: true
+  - dependency_id: DEP-THEOREMS-HUIT-001
+    affected_features: [TLC-FC-06-THEOREMS-005, TLC-FC-06-THEOREMS-006, TLC-FC-06-THEOREMS-008, TLC-FC-06-THEOREMS-009]
+    role: definition
+    structural_implementation_blocking: false
+    proof_representation_blocking: true
+  - dependency_id: DEP-THEOREMS-MASTER-001
+    affected_features: [TLC-FC-06-THEOREMS-006]
+    role: definition_symbol
+    structural_implementation_blocking: false
+  - dependency_id: DEP-THEOREMS-DISCIPLE-001
+    affected_features: [TLC-FC-06-THEOREMS-006]
+    role: definition_symbol
+    structural_implementation_blocking: false
+  - dependency_id: DEP-THEOREMS-COMMUNITY-001
+    affected_features: [TLC-FC-06-THEOREMS-006]
+    role: definition
+    structural_implementation_blocking: false
+  - dependency_id: DEP-THEOREMS-MESSAGE-001
+    affected_features: [TLC-FC-06-THEOREMS-008]
+    role: definition_symbol
+    structural_implementation_blocking: false
+  - dependency_id: DEP-THEOREMS-PRINCIPLE-001
+    affected_features: [TLC-FC-06-THEOREMS-009]
+    role: definition_symbol
+    structural_implementation_blocking: false
+  - dependency_id: DEP-THEOREMS-INVARIANTS-001
+    affected_features: []
+    role: informational_candidate
+    structural_implementation_blocking: false
+composition_rules:
+  - preserve public feature identifiers even when an operation exposes multiple internal records
+  - compose by identifier and traceability, never by inferred scientific equivalence
+  - retain source ordering only where source order is part of the postcondition
+  - reject duplicate identifiers where the source contract requires uniqueness
+  - never drop unresolved or proof-status metadata during composition
+determinism:
+  structural_operations: deterministic_for_identical_inputs
+  mapping_normalization: deterministic_by_declared_identifier_except_source_ordered_feature_008
+  stochastic_behavior: none_specified
+interfaces_for_library:
+  style: pure_function_or_small_builder
+  ownership: value_semantics_preferred_without_prescribing_language_implementation
+  serialization: schema_driven_and_lossless_for_opaque_payloads
+  error_delivery: structured_errors_with_exact_source_codes
+out_of_scope:
+  - mathematical proof synthesis
+  - proof correctness verification
+  - numerical evaluation of equations
+  - simulation
+  - automatic theorem truth values
+  - algebraic simplification
+  - resolving scientific classifications
+  - defining missing units, dimensions, probability laws, or precision
+  - C++ implementation
+  - Python bindings
+  - reference implementation
+future_tasks_reference: registry/domain-finalization/theorems/implementation-tasks.yaml
+readiness:
+  specification_package_complete: true
+  ready_for_structural_library_implementation: true
+  ready_for_automatic_theorem_proving: false
+  ready_for_production_release: false
