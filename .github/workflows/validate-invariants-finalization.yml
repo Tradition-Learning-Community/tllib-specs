@@ -1,0 +1,76 @@
+name: Validate Invariants Finalization
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-invariants-finalization:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Ensure main comparison ref
+        run: git fetch origin main:refs/remotes/origin/main
+
+      - name: Install validator dependency
+        run: python -m pip install --disable-pip-version-check pyyaml
+
+      - name: Run Invariants finalization validator
+        run: python tools/domain-finalization/validate_invariants_finalization.py
+
+      - name: Check whitespace
+        run: git diff --check origin/main...HEAD
+
+      - name: Verify modified paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --name-only origin/main...HEAD | tee /tmp/invariants-changed-paths.txt
+          python - <<'PY'
+          from pathlib import Path
+
+          changed = [
+              line.strip().replace('\\', '/')
+              for line in Path('/tmp/invariants-changed-paths.txt').read_text(encoding='utf-8').splitlines()
+              if line.strip()
+          ]
+          allowed_prefixes = (
+              'registry/domain-finalization/invariants/',
+              'registry/optimized-ir/invariants/',
+              'registry/algorithms/invariants/',
+              'registry/oracles/invariants/',
+              'reports/domain-finalization/invariants/',
+          )
+          allowed_exact = {
+              'tools/domain-finalization/validate_invariants_finalization.py',
+              '.github/workflows/validate-invariants-finalization.yml',
+          }
+          invalid = [
+              path for path in changed
+              if not path.startswith(allowed_prefixes) and path not in allowed_exact
+          ]
+          if invalid:
+              raise SystemExit('Out-of-scope paths: ' + ', '.join(invalid))
+          PY
+
+      - name: Verify scientific and domain preservation
+        shell: bash
+        run: |
+          set -euo pipefail
+          changed="$(git diff --name-only origin/main...HEAD)"
+          ! grep -E '^maths/' <<<"$changed"
+          ! grep -E '^registry/global-reconciliation/' <<<"$changed"
+          ! grep -E '^registry/math-contracts/TLC-FC-04-INVARIANTS-' <<<"$changed"
+          ! grep -E '^ir/TLC-FC-04-INVARIANTS-' <<<"$changed"
+          ! grep -E 'domain-finalization/(master|disciple|community|huit-dimensions)/' <<<"$changed"
+          ! grep -E '\.(cpp|cc|cxx|hpp|hh|hxx|h)$' <<<"$changed"
+          ! grep -Ei '(^|/)(bindings?|python-bindings?)(/|$)|reference[-_]implementation' <<<"$changed"
