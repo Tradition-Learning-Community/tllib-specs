@@ -1,0 +1,63 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-05-DYNAMICS-007
+feature_id: TLC-FC-05-DYNAMICS-007
+status: selected_for_dynamics_implementation_specification
+ir_ref: registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-007/ir.yaml
+algorithm_ref: registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-007/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-05-DYNAMICS-007/test-plan.yaml
+oracle_kind: structural_property_oracle
+fixture_policy:
+  values: opaque_expression_and_optional_opaque_hint_only
+  arbitrary_scientific_values: forbidden
+acceptance_cases:
+  - case_id: DYN-007-NOMINAL
+    categories: [nominal, structure, traceability]
+    given: the opaque TLC-SO-DYNAMICS-008 expression with no hint
+    expect:
+      - output type is UnclassifiedStateEvolutionNode
+      - expression payload is unchanged
+      - TLC-SR-DYNAMICS-007 is traceable
+      - classification equals unresolved
+  - case_id: DYN-007-OPAQUE-HINT
+    categories: [opaque_value, boundary]
+    given: a valid opaque classification hint
+    expect:
+      - hint is retained unchanged as metadata
+      - output remains unclassified
+  - case_id: DYN-007-NO-HINT
+    categories: [boundary, type]
+    given: classification_hint is absent
+    expect: valid unclassified output with absent hint
+  - case_id: DYN-007-WRONG-EXPRESSION-SHAPE
+    categories: [type, shape, error]
+    given: source_expression is absent or not an OpaqueExpression
+    expect: [type_shape_mismatch, no_output]
+  - case_id: DYN-007-WRONG-HINT-SHAPE
+    categories: [type, shape, error]
+    given: a present hint is not an OpaqueTag
+    expect: [type_shape_mismatch, no_output]
+  - case_id: DYN-007-UNRESOLVED
+    categories: [unresolved_propagation]
+    expect:
+      - unresolved metadata equals [TLC-UT-DYNAMICS-007, state_vs_evolution_boundary]
+  - case_id: DYN-007-CONSERVATION
+    categories: [conservation, property]
+    property: serialization round-trip preserves expression, optional hint, unclassified status, traceability, and unresolved
+  - case_id: DYN-007-DETERMINISM
+    categories: [determinism, reproducibility]
+    property: identical expression and hint produce structurally identical nodes without a seed
+  - case_id: DYN-007-METAMORPHIC-HINT
+    categories: [metamorphic]
+    transformation: replace or remove the opaque hint while retaining the expression
+    expect: only hint metadata changes; classification remains unresolved and expression is unchanged
+  - case_id: DYN-007-FORBIDDEN-SEMANTICS
+    categories: [negative_property]
+    expect_absent: [state_classification, evolution_classification, transition_semantics, initial_state, terminal_state, stochastic_execution]
+invariants_checked:
+  - state-versus-evolution ambiguity remains explicit
+  - opaque payloads and unresolved are conserved
+  - no classification authority is assigned to the hint
+dependency_checks:
+  - feature 006 boundary remains unresolved and non-executable
+  - Master and Disciple references remain symbolic
+acceptance_rule: all cases pass and the output remains explicitly unclassified
