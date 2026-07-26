@@ -1,0 +1,37 @@
+schema_version: 1
+domain: master
+status: ready_for_developer_assignment
+common_tasks:
+  - task_id: TLC-MASTER-IMPL-COMMON-001
+    title: Implement immutable Master common types and closed feature registry
+    acceptance: all sixteen feature identifiers register in the declared deterministic order
+  - task_id: TLC-MASTER-IMPL-COMMON-002
+    title: Implement exact reference and unresolved validation
+    acceptance: mismatched object, relation, or unresolved sets return the specified common errors
+  - task_id: TLC-MASTER-IMPL-COMMON-003
+    title: Implement opaque operation provider boundary
+    acceptance: payloads cross the boundary unchanged and missing providers produce unresolved or provider-required results
+  - task_id: TLC-MASTER-IMPL-COMMON-004
+    title: Implement oracle-driven test harness
+    acceptance: every feature oracle is executable without invented scientific values
+feature_tasks:
+  - {task_id: TLC-MASTER-IMPL-001, feature_id: TLC-FC-00-MASTER-001, deliverable: empirical-threshold configuration descriptor, depends_on: [TLC-MASTER-IMPL-COMMON-001, TLC-MASTER-IMPL-COMMON-002], acceptance_oracle: registry/oracles/master/TLC-FC-00-MASTER-001/oracle.yaml}
+  - {task_id: TLC-MASTER-IMPL-002, feature_id: TLC-FC-00-MASTER-002, deliverable: theoretical-constant configuration descriptor with unresolved propagation, depends_on: [TLC-MASTER-IMPL-COMMON-001, TLC-MASTER-IMPL-COMMON-002], acceptance_oracle: registry/oracles/master/TLC-FC-00-MASTER-002/oracle.yaml}
+  - {task_id: TLC-MASTER-IMPL-003, feature_id: TLC-FC-00-MASTER-003, deliverable: admissible-constraint opaque adapter, depends_on: [TLC-MASTER-IMPL-COMMON-001, TLC-MASTER-IMPL-COMMON-002, TLC-MASTER-IMPL-COMMON-003], acceptance_oracle: registry/oracles/master/TLC-FC-00-MASTER-003/oracle.yaml}
+  - {task_id: TLC-MASTER-IMPL-004, feature_id: TLC-FC-00-MASTER-004, deliverable: reserved-constraint opaque adapter, depends_on: [TLC-MASTER-IMPL-COMMON-001, TLC-MASTER-IMPL-COMMON-002, TLC-MASTER-IMPL-COMMON-003], acceptance_oracle: registry/oracles/master/TLC-FC-00-MASTER-004/oracle.yaml}
+  - {task_id: TLC-MASTER-IMPL-005, feature_id: TLC-FC-00-MASTER-005, deliverable: seven-tuple definition descriptor, depends_on: [TLC-MASTER-IMPL-COMMON-001, TLC-MASTER-IMPL-COMMON-002], acceptance_oracle: registry/oracles/master/TLC-FC-00-MASTER-005/oracle.yaml}
+  - {task_id: TLC-MASTER-IMPL-006, feature_id: TLC-FC-00-MASTER-006, deliverable: conceptual definition descriptor with unresolved propagation, depends_on: [TLC-MASTER-IMPL-COMMON-001, TLC-MASTER-IMPL-COMMON-002], acceptance_oracle: registry/oracles/master/TLC-FC-00-MASTER-006/oracle.yaml}
+  - {task_id: TLC-MASTER-IMPL-007, feature_id: TLC-FC-00-MASTER-007, deliverable: admissible-dynamics opaque adapter, depends_on: [TLC-MASTER-IMPL-COMMON-001, TLC-MASTER-IMPL-COMMON-002, TLC-MASTER-IMPL-COMMON-003], acceptance_oracle: registry/oracles/master/TLC-FC-00-MASTER-007/oracle.yaml}
+  - {task_id: TLC-MASTER-IMPL-008, feature_id: TLC-FC-00-MASTER-008, deliverable: reserved-dynamics opaque adapter, depends_on: [TLC-MASTER-IMPL-COMMON-001, TLC-MASTER-IMPL-COMMON-002, TLC-MASTER-IMPL-COMMON-003], acceptance_oracle: registry/oracles/master/TLC-FC-00-MASTER-008/oracle.yaml}
+  - {task_id: TLC-MASTER-IMPL-009, feature_id: TLC-FC-00-MASTER-009, deliverable: rupture-equation opaque adapter, depends_on: [TLC-MASTER-IMPL-COMMON-001, TLC-MASTER-IMPL-COMMON-002, TLC-MASTER-IMPL-COMMON-003], acceptance_oracle: registry/oracles/master/TLC-FC-00-MASTER-009/oracle.yaml}
+  - {task_id: TLC-MASTER-IMPL-010, feature_id: TLC-FC-00-MASTER-010, deliverable: invariant-check opaque adapter, depends_on: [TLC-MASTER-IMPL-COMMON-001, TLC-MASTER-IMPL-COMMON-002, TLC-MASTER-IMPL-COMMON-003], acceptance_oracle: registry/oracles/master/TLC-FC-00-MASTER-010/oracle.yaml}
+  - {task_id: TLC-MASTER-IMPL-011, feature_id: TLC-FC-00-MASTER-011, deliverable: metric-evaluation opaque adapter, depends_on: [TLC-MASTER-IMPL-COMMON-001, TLC-MASTER-IMPL-COMMON-002, TLC-MASTER-IMPL-COMMON-003], acceptance_oracle: registry/oracles/master/TLC-FC-00-MASTER-011/oracle.yaml}
+  - {task_id: TLC-MASTER-IMPL-012, feature_id: TLC-FC-00-MASTER-012, deliverable: operator-evaluation opaque adapter, depends_on: [TLC-MASTER-IMPL-COMMON-001, TLC-MASTER-IMPL-COMMON-002, TLC-MASTER-IMPL-COMMON-003], acceptance_oracle: registry/oracles/master/TLC-FC-00-MASTER-012/oracle.yaml}
+  - {task_id: TLC-MASTER-IMPL-013, feature_id: TLC-FC-00-MASTER-013, deliverable: Master-versus-expert predicate descriptor, depends_on: [TLC-MASTER-IMPL-COMMON-001, TLC-MASTER-IMPL-COMMON-002], acceptance_oracle: registry/oracles/master/TLC-FC-00-MASTER-013/oracle.yaml}
+  - {task_id: TLC-MASTER-IMPL-014, feature_id: TLC-FC-00-MASTER-014, deliverable: Master-Disciple relation opaque adapter, depends_on: [TLC-MASTER-IMPL-COMMON-001, TLC-MASTER-IMPL-COMMON-002, TLC-MASTER-IMPL-COMMON-003], acceptance_oracle: registry/oracles/master/TLC-FC-00-MASTER-014/oracle.yaml}
+  - {task_id: TLC-MASTER-IMPL-015, feature_id: TLC-FC-00-MASTER-015, deliverable: value-and-symbolic-state descriptor, depends_on: [TLC-MASTER-IMPL-COMMON-001, TLC-MASTER-IMPL-COMMON-002], acceptance_oracle: registry/oracles/master/TLC-FC-00-MASTER-015/oracle.yaml}
+  - {task_id: TLC-MASTER-IMPL-016, feature_id: TLC-FC-00-MASTER-016, deliverable: composite Master state descriptor with unresolved propagation, depends_on: [TLC-MASTER-IMPL-COMMON-001, TLC-MASTER-IMPL-COMMON-002], acceptance_oracle: registry/oracles/master/TLC-FC-00-MASTER-016/oracle.yaml}
+constraints:
+  - implementations must follow finalized IR and algorithms without modifying source contracts or theory
+  - opaque providers are separately injectable and may not be invented by feature implementers
+  - C++ and Python bindings are future phases and are not part of this package
