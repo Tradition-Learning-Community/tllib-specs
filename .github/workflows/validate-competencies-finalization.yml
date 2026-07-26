@@ -15,6 +15,8 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    outputs:
+      diagnostic: ${{ steps.validator.outputs.diagnostic }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -25,7 +27,8 @@ jobs:
       - name: Install validator dependency
         run: python3 -m pip install --quiet --disable-pip-version-check pyyaml
 
-      - name: Run Competencies finalization validator
+      - id: validator
+        name: Run Competencies finalization validator
         env:
           COMPETENCIES_ALLOW_TEMPORARY_VALIDATION_FILES: '1'
         shell: bash
@@ -34,6 +37,8 @@ jobs:
           output="$(python3 tools/domain-finalization/validate_competencies_finalization.py 2>&1)"
           status=$?
           printf '%s\n' "$output"
+          diagnostic="$(printf '%s\n' "$output" | tail -n 8 | tr '\n' '|' | cut -c1-220)"
+          echo "diagnostic=$diagnostic" >> "$GITHUB_OUTPUT"
           exit "$status"
 
       - name: Check whitespace errors
@@ -50,3 +55,11 @@ jobs:
           ! git diff --name-only c34d40713bf444d38f92f76e1c6239ee596d5a18..HEAD | grep -E '^(maths/|registry/global-reconciliation/|registry/math-contracts/|registry/ir/|registry/test-plans/)'
           ! git diff --name-only c34d40713bf444d38f92f76e1c6239ee596d5a18..HEAD | grep -E '\.(cpp|cc|cxx|hpp|hh|h)$'
           ! git diff --name-only c34d40713bf444d38f92f76e1c6239ee596d5a18..HEAD | grep -E '(__pycache__|\.status$|\.log$|\.cache/)'
+
+  diagnostic:
+    needs: validate
+    if: always()
+    name: "diagnostic ${{ needs.validate.outputs.diagnostic }}"
+    runs-on: ubuntu-latest
+    steps:
+      - run: printf '%s\n' '${{ needs.validate.outputs.diagnostic }}'
