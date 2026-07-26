@@ -1,0 +1,67 @@
+schema_version: 1
+domain_id: invariants
+finalization_id: invariants-domain-finalization-001
+status: selected_for_invariants_implementation_specification
+baseline:
+  main_head: c34d40713bf444d38f92f76e1c6239ee596d5a18
+  current_baseline: registry/global-reconciliation/current-baseline.yaml
+  domain_feature_matrix: registry/global-reconciliation/domain-feature-matrix.yaml
+  feature_contract_matrix: registry/global-reconciliation/feature-contract-matrix.yaml
+  feature_ir_matrix: registry/global-reconciliation/feature-ir-matrix.yaml
+  status_taxonomy: registry/global-reconciliation/status-taxonomy.yaml
+branch: phase4/invariants-domain-finalization-001
+authoritative_population:
+  expected_count: 10
+  baseline_confirms_count: true
+  feature_ids:
+  - TLC-FC-04-INVARIANTS-001
+  - TLC-FC-04-INVARIANTS-002
+  - TLC-FC-04-INVARIANTS-003
+  - TLC-FC-04-INVARIANTS-004
+  - TLC-FC-04-INVARIANTS-005
+  - TLC-FC-04-INVARIANTS-006
+  - TLC-FC-04-INVARIANTS-007
+  - TLC-FC-04-INVARIANTS-008
+  - TLC-FC-04-INVARIANTS-009
+  - TLC-FC-04-INVARIANTS-010
+source_sets:
+  authoritative_catalogue: registry/domain-progress/invariants/feature-inventory.yaml
+  domain_status: registry/domain-progress/invariants/feature-status.yaml
+  classifications: registry/domain-progress/invariants/feature-classification.yaml
+  invariant_semantics: registry/domain-progress/invariants/invariant-semantics.yaml
+  unresolved_status: registry/domain-progress/invariants/unresolved-status.yaml
+  contract_plan: registry/domain-progress/invariants/contract-production-plan.yaml
+  ir_plan: registry/domain-progress/invariants/ir-production-plan.yaml
+  scientific_source: maths/04-invariants.md
+  scientific_objects: registry/scientific-objects/invariants/scientific-objects.candidate.yaml
+  scientific_relations: registry/scientific-objects/invariants/scientific-relations.candidate.yaml
+  provisional_assumptions: registry/math-contract-batches/invariants-engineering-batch-001/provisional-assumptions.yaml
+artifact_layout:
+  feature_status: registry/domain-finalization/invariants/feature-status.yaml
+  patterns: registry/domain-finalization/invariants/patterns.yaml
+  module_specification: registry/domain-finalization/invariants/module-specification.yaml
+  implementation_tasks: registry/domain-finalization/invariants/implementation-tasks.yaml
+  decision_required: registry/domain-finalization/invariants/decision-required.yaml
+  optimized_ir_template: registry/optimized-ir/invariants/<FEATURE_ID>/ir.yaml
+  algorithm_template: registry/algorithms/invariants/<FEATURE_ID>/algorithm.yaml
+  oracle_template: registry/oracles/invariants/<FEATURE_ID>/oracle.yaml
+  report: reports/domain-finalization/invariants/finalization-report.md
+  validator: tools/domain-finalization/validate_invariants_finalization.py
+counts:
+  source_contracts: 10
+  source_irs: 10
+  source_test_plans: 10
+  optimized_irs: 10
+  algorithms: 10
+  oracles: 10
+conservation:
+  source_contracts_preserved: true
+  source_irs_preserved: true
+  scientific_source_modified: false
+  rejected_features: 0
+  global_registry_regenerated: false
+  other_domains_modified: false
+  cpp_produced: false
+  python_bindings_produced: false
+  reference_implementation_produced: false
+completion_criterion: every_active_feature_has_preserved_sources_optimized_ir_algorithm_oracle_module_integration_and_future_task
