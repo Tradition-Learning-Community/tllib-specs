@@ -1,0 +1,65 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-010
+status: selected_for_virtues_implementation_specification
+ir_ref: registry/optimized-ir/virtues/TLC-FC-10-VIRTUES-010/ir.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-010/contract.yaml
+entrypoint: register_essential_property_indicators
+signature: register_essential_property_indicators(request: VirtuesRequest) -> VirtuesResult
+inputs: [feature_id, artifact, provenance, reservations]
+outputs: [accepted declarative result or named error]
+validations:
+  - exact feature id
+  - provenance contains TLC-SO-VIRTUES-003 and TLC-SO-VIRTUES-067
+  - no indicator interpretation, metric computation, progression evaluation, score, or ranking requested
+preconditions: [request uses VirtuesRequest]
+conditions_of_application: [indicator categories remain opaque descriptors]
+ordered_steps:
+  - validate feature id
+  - validate provenance
+  - reject metric, progression, and unsupported completion requests
+  - copy supplied essential-property categories and descriptors
+  - attach scientific ambiguity
+  - build accepted source-bound result
+branching:
+  invalid_feature: invalid_feature_id
+  incomplete_provenance: missing_provenance
+  interpretation_or_evaluation_requested: unsupported_scientific_completion_request
+construction_or_reading: register opaque indicator categories
+identity_scope_context_validation:
+  identity: exact feature and source objects
+  scope: indicator-category registration only
+  context: opaque
+relation_processing: []
+observation: none
+comparison: none
+effects: result construction only; no indicator or progression computation
+errors: [missing_provenance, unsupported_scientific_completion_request, invalid_feature_id]
+postconditions:
+  - categories, descriptors, provenance, reservations, and scientific ambiguity are preserved
+  - no degree, metric, progression, score, or ordering is created
+invariants: [opaque categories unchanged, unresolved unchanged, source order unchanged]
+determinism: deterministic for identical requests
+edge_cases:
+  - empty category list is preserved
+  - unknown category labels remain opaque
+  - numeric-looking descriptors are copied but not evaluated
+  - requests for mastery progression are rejected
+dependencies: [common Virtues validation, opaque category registrar, unresolved propagation, result envelope]
+unresolved_conserved: [scientific ambiguity]
+pseudocode: |
+  function register_essential_property_indicators(request):
+      if request.feature_id != "TLC-FC-10-VIRTUES-010":
+          return error("invalid_feature_id")
+      required = ["TLC-SO-VIRTUES-003", "TLC-SO-VIRTUES-067"]
+      if not provenance_contains(request.provenance, required):
+          return error("missing_provenance")
+      if requests_indicator_or_progression_evaluation(request) or requests_unsupported_completion(request):
+          return error("unsupported_scientific_completion_request")
+      return accepted_result(
+          feature_id=request.feature_id,
+          entrypoint="register_essential_property_indicators",
+          source_objects=required,
+          artifact=copy_opaque(request.artifact),
+          reservations=copy_opaque(request.reservations),
+          unresolved=["scientific ambiguity"],
+          assumptions=["source fragments are metadata, not executable science"])
