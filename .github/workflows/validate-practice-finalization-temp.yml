@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   validate-practice:
@@ -31,3 +31,16 @@ jobs:
           git diff --name-only c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD | tee /tmp/practice-paths.txt
           ! grep -E '^(maths/|registry/global-reconciliation/|registry/math-contracts/|registry/ir/TLC-FC-13-PRACTICE-|registry/test-plans/)' /tmp/practice-paths.txt
           ! grep -E '\.(cpp|cc|cxx|hpp|h)$' /tmp/practice-paths.txt
+      - name: Record successful validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          report='reports/domain-finalization/practice/finalization-report.md'
+          if ! grep -q 'GitHub Actions validation: PASSED' "$report"; then
+            printf '\n## GitHub validation result\n\n- GitHub Actions validation: PASSED.\n- Practice validator: PASSED.\n- Whitespace check: PASSED.\n- Changed-path and protected-source checks: PASSED.\n' >> "$report"
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add "$report"
+            git commit -m 'docs(practice): record successful GitHub validation [skip ci]'
+            git push
+          fi
