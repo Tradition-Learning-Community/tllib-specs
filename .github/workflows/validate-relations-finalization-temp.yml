@@ -1,0 +1,51 @@
+name: Temporary Relations finalization validation
+
+'on':
+  push:
+    branches:
+      - phase4/relations-domain-finalization-001
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout complete history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install validator dependency
+        run: python -m pip install --disable-pip-version-check PyYAML
+
+      - name: Run Relations validator
+        run: python tools/domain-finalization/validate_relations_finalization.py
+
+      - name: Check diff whitespace
+        run: git diff --check c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD
+
+      - name: Show and verify changed paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --name-only c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD | tee /tmp/relations-changed-paths.txt
+          ! grep -E '^maths/' /tmp/relations-changed-paths.txt
+          ! grep -E '^registry/global-reconciliation/' /tmp/relations-changed-paths.txt
+          ! grep -E '^registry/(optimized-ir|algorithms|oracles)/' /tmp/relations-changed-paths.txt | grep -v '/relations/'
+          ! grep -E '^registry/domain-finalization/' /tmp/relations-changed-paths.txt | grep -v '^registry/domain-finalization/relations/'
+          ! grep -E '^reports/domain-finalization/' /tmp/relations-changed-paths.txt | grep -v '^reports/domain-finalization/relations/'
+
+      - name: Verify no temporary artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          ! find registry reports tools -type d -name '__pycache__' -print -quit | grep .
+          ! find registry reports tools -type f \( -name '*.status' -o -name '*.log' -o -name '*.pyc' \) -print -quit | grep .
