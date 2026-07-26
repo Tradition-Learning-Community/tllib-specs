@@ -1,0 +1,63 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-016
+status: selected_for_competencies_implementation_specification
+source_contract: {id: TLC-MC-TLC-FC-12-COMPETENCIES-016, path: registry/math-contracts/TLC-FC-12-COMPETENCIES-016/contract.yaml}
+source_ir: {id: TLC-IR-TLC-FC-12-COMPETENCIES-016, path: registry/ir/TLC-FC-12-COMPETENCIES-016/ir.yaml, raw_status: canonical_declarative_ir_with_reservations}
+source_test_plan: registry/test-plans/TLC-FC-12-COMPETENCIES-016/test-plan.yaml
+nature: declarative
+competency_or_reference:
+  representation: opaque_scientific_object_set
+  ordered_object_ids: [TLC-SO-COMPETENCIES-056]
+  objects:
+  - {object_id: TLC-SO-COMPETENCIES-056, canonical_name: Intégration, object_type: Relation, source_status: candidate}
+identity: {public_feature_id: TLC-FC-12-COMPETENCIES-016, preservation: exact}
+scope: {category: relation_evaluation, canonical_name: '12-competencies: relation (provisionally_separated)', boundary_label: provisionally_separated, boundary_reopened: false}
+context: {kind: source_defined_and_opaque, scientific_source: maths/12-competencies.md}
+inputs:
+- {name: competencies_feature_id, type: FeatureId, required: true, expected_value: TLC-FC-12-COMPETENCIES-016}
+- {name: object_payloads, type: 'Map<ObjectId,OpaqueScientificObject>', required: true, required_keys: [TLC-SO-COMPETENCIES-056]}
+- {name: provenance, type: 'Map<ObjectId,SourceReference>', required: true}
+- {name: request_mode, type: RequestMode, required: true, allowed_value: structural_descriptor_only}
+outputs: [{name: artifact, type: CompetenciesCanonicalDescriptor, semantics: immutable_structural_relation_descriptor_no_scientific_value}]
+types: [FeatureId, ObjectId, OpaqueScientificObject, OpaqueScientificValue, SourceReference, CompetenciesCanonicalDescriptor, RequestMode]
+opaque_values: [integration_relation_statement, covariance_expression, technical_component_reference, cognitive_component_reference, association_claim]
+preconditions: [exact feature id, exact object 056 once, complete provenance, structural request mode]
+prerequisites_explicit: []
+application_conditions: [structural construction only, no covariance computation association strength endpoint resolution or relation truth evaluation]
+manifestations_explicit: {declared_for_execution: false, handling: preserve_source_statement_as_opaque}
+relations_explicit:
+  relation_object_declared: true
+  object_ids: [TLC-SO-COMPETENCIES-056]
+  endpoints_declared_by_selected_contract: false
+  endpoint_inference: forbidden
+  executable: false
+operations: [validate_request_mode, validate_feature_identity, validate_exact_object_set, validate_provenance, build_immutable_relation_descriptor, preserve_unresolved_endpoints, propagate_reservations_and_unresolved, reject_unsupported_scientific_operation]
+execution_order: [validate_request_mode, validate_feature_identity, validate_exact_object_set, validate_provenance, build_immutable_relation_descriptor, preserve_unresolved_endpoints, propagate_reservations_and_unresolved]
+control_flow: [structural errors stop construction, endpoint relation covariance comparison or evaluation requests are rejected, valid structural input returns immutable descriptor]
+scientific_behaviors:
+  mobilization: {source_declaration: absent, executable: false, handling: not_declared}
+  exercise: {source_declaration: absent, executable: false, handling: not_declared}
+  acquisition: {source_declaration: absent, executable: false, handling: not_declared}
+  development: {source_declaration: absent, executable: false, handling: not_declared}
+  mastery: {source_declaration: absent, executable: false, handling: not_declared}
+  evaluation: {source_declaration: relation_evaluation_purpose_only, executable: false, handling: external_evaluator_required}
+  comparison: {source_declaration: covariance_association_content_only, executable: false, handling: external_comparator_required}
+effects: []
+postconditions: [relation object 056 and source statement preserved, endpoints remain unresolved, no covariance association relation truth or comparison produced]
+invariants: [Relation source type remains declarative, covered_relations remains empty, endpoint identity is never inferred, structural validity not scientific validity]
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, UnexpectedCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+determinism: {status: deterministic, key: [feature_id, ordered_object_ids, payload_identities, provenance, reservations, unresolved]}
+dependencies: {internal: [competencies_feature_profile, structural_validation_pipeline], external: [], capacities: not_directly_evidenced}
+unresolved_propagated: []
+reservations: [no full mathematical contract or production semantics asserted, relation endpoints covariance domain measure and evaluator semantics incomplete, scientific unresolved preserved]
+transformations_applied: [normalized relation descriptor schema, extracted shared validation, made unresolved endpoint preservation explicit, added evaluator comparator guards, normalized traceability]
+preservation_obligations: [preserve relation object identity source statement provenance raw status empty covered_relations reservations and unresolved]
+links: {algorithm: registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-016/algorithm.yaml, oracle: registry/oracles/competencies/TLC-FC-12-COMPETENCIES-016/oracle.yaml}
+actual_implementation_readiness: {structural_descriptor: ready, scientific_execution: not_ready_not_authorized, blocker_for_structural_layer: false}
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+competency_invented: false
+measurement_invented: false
+ordering_invented: false
