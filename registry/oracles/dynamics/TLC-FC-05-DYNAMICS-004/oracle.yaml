@@ -1,0 +1,59 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-05-DYNAMICS-004
+feature_id: TLC-FC-05-DYNAMICS-004
+status: selected_for_dynamics_implementation_specification
+ir_ref: registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-004/ir.yaml
+algorithm_ref: registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-004/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-05-DYNAMICS-004/test-plan.yaml
+oracle_kind: structural_property_oracle
+fixture_policy:
+  values: opaque_signal_kernel_and_parameter_records_only
+  arbitrary_scientific_values: forbidden
+acceptance_cases:
+  - case_id: DYN-004-NOMINAL
+    categories: [nominal, structure, traceability]
+    given: an opaque external input, opaque kernel, and source-addressable parameters
+    expect:
+      - output type is UnevaluatedIntegralExpression
+      - input, kernel, and parameters remain distinct and unchanged
+      - both source objects and relations remain traceable
+  - case_id: DYN-004-OPAQUE-KERNEL
+    categories: [opaque_value, boundary]
+    given: a kernel with no domain or convergence evidence
+    expect:
+      - construction succeeds structurally
+      - kernel remains opaque
+      - no integral evaluation or convergence claim exists
+  - case_id: DYN-004-UNKNOWN-PARAMETER
+    categories: [error, dependency]
+    given: a parameter source identifier outside the covered objects
+    expect: [unknown_source_identifier, no_output]
+  - case_id: DYN-004-TYPE-SHAPE
+    categories: [type, shape, error]
+    given: an invalid signal, kernel, or parameter-map carrier
+    expect: [type_shape_mismatch, no_output]
+  - case_id: DYN-004-UNRESOLVED
+    categories: [unresolved_propagation]
+    expect:
+      - unresolved metadata equals [domains_and_convergence, kernel_parameter_types]
+  - case_id: DYN-004-CONSERVATION
+    categories: [conservation, property]
+    property: serialization round-trip preserves all three opaque inputs and the two distinct source identities
+  - case_id: DYN-004-DETERMINISM
+    categories: [determinism, reproducibility]
+    property: identical opaque inputs produce structurally identical expressions
+  - case_id: DYN-004-METAMORPHIC-KERNEL
+    categories: [metamorphic]
+    transformation: replace only the opaque kernel payload while retaining IDs
+    expect: only the stored kernel payload changes; signal, parameters, traceability, and unresolved remain unchanged
+  - case_id: DYN-004-FORBIDDEN-SEMANTICS
+    categories: [negative_property]
+    expect_absent: [numeric_integral, convergence_claim, inferred_kernel_domain, inferred_parameter_type, executable_transition]
+invariants_checked:
+  - feedback and kernel source identities remain distinct
+  - opaque payloads and unresolved are conserved
+  - no integration occurs
+dependency_checks:
+  - Disciple dependency remains symbolic
+  - feature 006 remains a non-executable candidate reference
+acceptance_rule: all cases pass and no integral value, convergence result, or inferred domain is produced
