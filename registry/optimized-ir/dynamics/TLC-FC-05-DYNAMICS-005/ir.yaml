@@ -1,0 +1,97 @@
+schema_version: 1
+ir_id: TLC-OPT-IR-TLC-FC-05-DYNAMICS-005
+feature_id: TLC-FC-05-DYNAMICS-005
+status: selected_for_dynamics_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-05-DYNAMICS-005/contract.yaml
+source_ir_ref: ir/TLC-FC-05-DYNAMICS-005/ir.prototype.json
+source_test_plan_ref: registry/test-plans/TLC-FC-05-DYNAMICS-005/test-plan.yaml
+source_ir_status: prototype
+source_ir_nature: structural
+finalized_ir_nature: declarative_structural
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+traceability:
+  source_objects: [TLC-SO-DYNAMICS-014]
+  source_relations: [TLC-SR-DYNAMICS-013]
+  scientific_source: maths/05-dynamics.md
+  source_lines: 136-145
+inputs:
+  - {name: operator_id, type: InteractionOperatorId}
+  - {name: arguments, type: "Sequence[OpaqueEntityRef]"}
+outputs:
+  - {name: application, type: UnevaluatedOperatorApplication}
+types:
+  opaque: [OpaqueEntityRef, OpaqueValue, OpaqueExpression]
+  identifiers: [InteractionOperatorId, ScientificObjectId, ScientificRelationId]
+  parameterized: ["Sequence[T]", "Mapping[K,V]", "Optional[T]"]
+opaque_values: [arguments]
+states: []
+initial_state: not_applicable
+terminal_state: not_applicable
+preconditions:
+  - operator_id is source-listed under TLC-SO-DYNAMICS-014
+  - argument references preserve their declared opaque carrier and input order
+transition_conditions: []
+operations:
+  - operation_id: OP-005-001
+    kind: construct_opaque_interaction_application
+    evaluation: unevaluated
+    behavior: construct a traceable application record without inferring arity, return type, derivative contribution, or execution semantics
+execution_order:
+  - validate_operator_identifier
+  - validate_argument_shapes_and_references
+  - copy_arguments_in_supplied_order
+  - construct_unevaluated_operator_application
+  - attach_traceability_unresolved_and_reservations
+  - validate_postconditions
+control_flow:
+  kind: linear_with_validation_failure
+  branches:
+    - condition: unknown operator or argument reference
+      result: error_without_output
+    - condition: input shape mismatch
+      result: error_without_output
+transitions: []
+effects:
+  scientific: none
+  mutation: none
+  structural: create_unevaluated_operator_application
+postconditions:
+  - operator identity, argument identity, and argument order are preserved
+  - output is marked unevaluated and linked to TLC-SR-DYNAMICS-013
+  - no operator signature or result semantics is inferred
+invariants:
+  - opaque arguments remain unchanged
+  - source identities remain stable and distinct
+stop_conditions: []
+errors: [unknown_source_identifier, type_shape_mismatch, unresolved_scientific_semantics]
+determinism: deterministic_structure_construction_only
+stochasticity: not_specified
+seed_management: not_defined
+dependencies:
+  internal:
+    - {feature_id: TLC-FC-05-DYNAMICS-006, kind: inferred_state_candidate, execution_dependency: false}
+  external:
+    - {domain: master, kind: symbolic, execution_dependency: false}
+    - {domain: disciple, kind: symbolic, execution_dependency: false}
+    - {domain: community, kind: future_reconciliation, execution_dependency: false}
+unresolved_propagated: [operator_signatures_absent, community_symbol_reconciliation]
+reservations:
+  - operator arity, parameter types, codomain, and execution behavior are absent
+  - interaction contribution notation is not converted into a transition
+transformations_applied:
+  - normalized a common opaque operator-application carrier
+  - normalized validation and atomic error behavior
+  - preserved source argument order
+preservation_obligations:
+  - preserve operator and argument identities
+  - preserve argument order
+  - do not infer arity, return type, or executable interaction
+algorithm_ref: registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-005/algorithm.yaml
+oracle_ref: registry/oracles/dynamics/TLC-FC-05-DYNAMICS-005/oracle.yaml
+implementation_aptitude:
+  structural_package: ready
+  scientific_execution: not_ready
+  reason: operator signatures and cross-domain reconciliation are absent
