@@ -1,0 +1,163 @@
+schema_version: 1
+domain_id: capacities
+analysis_basis:
+  source_contracts: 15
+  source_irs: 15
+  source_test_plans: 15
+  scientific_source: maths/11-capacities.md
+pattern_rules:
+  resemblance_is_not_equivalence: true
+  textual_duplication_is_not_scientific_equivalence: true
+  structural_duplication_may_share_engineering_components: true
+  same_representation_schema_preserves_public_feature_identity: true
+  scientific_equivalence_requires_explicit_source_proof: true
+shared_types:
+  FeatureId:
+    representation: canonical string
+    validation: exact active identifier from authoritative population
+  ObjectId:
+    representation: canonical scientific-object identifier
+  OpaqueScientificObject:
+    representation: caller-supplied payload
+    semantics: never inspected or rewritten
+  OpaqueScientificValue:
+    representation: uninterpreted value token
+    semantics: propagated unchanged
+  UnevaluatedSymbol:
+    representation: source symbol token associated with an ObjectId
+  UnevaluatedExpression:
+    representation: source expression node without execution semantics
+  SourceReference:
+    fields: [source_path, start_line, end_line, section, source_commit]
+  DecisionBlocker:
+    representation: preserved textual decision requirement
+  CapacityArtifactEnvelope:
+    fields: [feature_id, artifact_kind, object_ids, symbols, provenance, unresolved, reservations, structurally_valid]
+input_patterns:
+  object_map_descriptor:
+    features: [TLC-FC-11-CAPACITIES-001, TLC-FC-11-CAPACITIES-005, TLC-FC-11-CAPACITIES-008, TLC-FC-11-CAPACITIES-010, TLC-FC-11-CAPACITIES-013, TLC-FC-11-CAPACITIES-018]
+    requirements:
+      - exact required object-key set
+      - each required object appears once
+      - complete provenance per object
+      - source order restored from the contract inventory
+  ordered_symbolic_bundle:
+    features: [TLC-FC-11-CAPACITIES-002, TLC-FC-11-CAPACITIES-003, TLC-FC-11-CAPACITIES-006, TLC-FC-11-CAPACITIES-007, TLC-FC-11-CAPACITIES-009, TLC-FC-11-CAPACITIES-011, TLC-FC-11-CAPACITIES-012, TLC-FC-11-CAPACITIES-014, TLC-FC-11-CAPACITIES-015]
+    requirements:
+      - exact ordered object sequence
+      - explicit symbol-table entry for every object
+      - complete provenance per object
+      - decision blocker preserved as a non-evaluation guard
+shared_validations:
+  - validate exact feature identity
+  - validate exact covered-object membership
+  - reject duplicate or unexpected objects
+  - preserve contract-defined object order
+  - validate source-reference completeness
+  - validate explicit symbol-table entries when required
+  - validate decision blocker when required
+  - reject scientific evaluation requests
+shared_errors:
+  - UnknownFeatureId
+  - MissingCoveredObject
+  - UnexpectedCoveredObject
+  - DuplicateCoveredObject
+  - ObjectOrderMismatch
+  - MissingSymbolTableEntry
+  - MissingSourceReference
+  - MissingDecisionBlocker
+  - ScientificEvaluationRequested
+  - BlockedScientificDecision
+non_evaluation_guard:
+  rejects:
+    - formula execution
+    - solving
+    - optimization
+    - scoring
+    - ranking
+    - generated thresholds
+    - threshold decisions
+    - generated measurement values
+    - temporal progression inference
+    - probability inference
+    - causal interpretation
+    - aggregation
+    - curvature computation
+    - geodesic computation
+    - endpoint inference
+  allows:
+    - structural construction
+    - identity validation
+    - source-order preservation
+    - provenance lookup
+    - symbolic lookup
+    - opaque-value propagation
+    - unresolved propagation
+    - structural comparison of identifiers and shape
+reusable_subgraphs:
+  - name: validate_object_map_envelope
+    use: object_map_descriptor
+    preserves: [feature_identity, object_membership, source_order, provenance]
+  - name: validate_ordered_symbolic_envelope
+    use: ordered_symbolic_bundle
+    preserves: [feature_identity, object_membership, object_order, symbol_entries, provenance, decision_blocker]
+  - name: attach_non_evaluation_guard
+    use: all_features
+    preserves: [scientific_reservations, unresolved]
+  - name: construct_immutable_capacity_artifact
+    use: all_features
+    preserves: [opaque_payload_identity, source_symbols, source_references]
+  - name: expose_structural_queries
+    use: all_features
+    queries: [feature_id, object_ids, symbols, provenance, unresolved, reservations]
+feature_specific_artifacts:
+  TLC-FC-11-CAPACITIES-001: CapacityPrototypeDescriptor
+  TLC-FC-11-CAPACITIES-002: CapacityConstraintAst
+  TLC-FC-11-CAPACITIES-003: CapacityConstraintBundle
+  TLC-FC-11-CAPACITIES-005: CapacityPrototypeDescriptor
+  TLC-FC-11-CAPACITIES-006: CapacityDynamicsAstBundle
+  TLC-FC-11-CAPACITIES-007: CapacityHamiltonianAst
+  TLC-FC-11-CAPACITIES-008: CapacityPrototypeDescriptor
+  TLC-FC-11-CAPACITIES-009: CapacityEquationAstBundle
+  TLC-FC-11-CAPACITIES-010: CapacityPrototypeDescriptor
+  TLC-FC-11-CAPACITIES-011: CapacityMetricDescriptor
+  TLC-FC-11-CAPACITIES-012: CapacityMetricStructureIndex
+  TLC-FC-11-CAPACITIES-013: CapacityPrototypeDescriptor
+  TLC-FC-11-CAPACITIES-014: CapacityOperatorSignature
+  TLC-FC-11-CAPACITIES-015: CapacityValidityDomainPredicateAst
+  TLC-FC-11-CAPACITIES-018: CapacityRelationDescriptor
+optimizations_applied:
+  - name: common structural envelope
+    effect: normalizes identity, object, symbol, provenance, unresolved and reservation fields
+    semantic_change: false
+  - name: shared validation vocabulary
+    effect: replaces incompatible validation labels with a common error taxonomy while retaining feature-specific errors
+    semantic_change: false
+  - name: explicit non-evaluation boundary
+    effect: makes absent scientific execution observable as a guard rather than an implicit omission
+    semantic_change: false
+  - name: normalized traceability
+    effect: provides direct contract to source IR to finalized IR to algorithm to oracle links
+    semantic_change: false
+  - name: immutable artifact construction
+    effect: improves determinism and testability without inspecting opaque payloads
+    semantic_change: false
+  - name: shared symbolic query interface
+    effect: allows uniform lookup without equating scientific objects
+    semantic_change: false
+optimizations_not_applied:
+  - merge constraint features
+  - merge dynamics features
+  - merge metric features
+  - execute any source equation
+  - infer capacity endpoints
+  - introduce numeric capacity values
+  - introduce ordering or comparison semantics
+  - introduce activation, mobilization or development engines
+dependency_classification:
+  internal_execution_dependencies: []
+  external_execution_dependencies: []
+  documentary_and_symbolic_dependencies:
+    source: registry/domain-progress/capacities/external-dependencies.yaml
+    handling: external_reference
+    modification_of_external_domain: false
