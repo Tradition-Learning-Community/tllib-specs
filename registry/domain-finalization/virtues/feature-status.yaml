@@ -1,0 +1,196 @@
+schema_version: 1
+domain_id: virtues
+status: selected_for_virtues_implementation_specification
+active_feature_count: 10
+features:
+  - feature_id: TLC-FC-10-VIRTUES-001
+    title: Apprentissage par compagnonnage
+    source_objects: [TLC-SO-VIRTUES-100]
+    contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-001/contract.yaml
+    source_ir_ref: registry/ir/TLC-FC-10-VIRTUES-001/ir.yaml
+    source_ir_status: limited_engineering_contract_with_reservations
+    test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-001/test-plan.yaml
+    entrypoint: check_apprenticeship_responsibility
+    nature: structural_validation
+    virtue_reference: opaque_source_bound_virtue
+    scope: apprenticeship responsibility handoff record
+    context: caller-supplied opaque context inside artifact
+    conditions_of_application: complete provenance and no unsupported scientific completion request
+    explicit_relations: [bounded_roles, guided_responsibility]
+    dependencies: []
+    unresolved: []
+    reservations: [no moral score, no hierarchy, no metric completion]
+    boundary_review: not_reopened
+    implementation_aptitude: ready_for_structural_implementation
+  - feature_id: TLC-FC-10-VIRTUES-002
+    title: Apprentissage observationnel et imitation
+    source_objects: [TLC-SO-VIRTUES-016]
+    contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-002/contract.yaml
+    source_ir_ref: registry/ir/TLC-FC-10-VIRTUES-002/ir.yaml
+    source_ir_status: limited_engineering_contract_with_reservations
+    test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-002/test-plan.yaml
+    entrypoint: register_observational_learning_assumption
+    nature: declarative
+    virtue_reference: opaque_source_bound_virtue
+    scope: observational-learning exposure claims
+    context: modelage, shadowing, apprenticeship, and community labels remain opaque
+    conditions_of_application: complete provenance and no request to derive a learning algorithm
+    explicit_relations: []
+    dependencies: []
+    unresolved: [scientific ambiguity]
+    reservations: [no derived learning algorithm, no moral score]
+    boundary_review: preserved_provisional_separation
+    implementation_aptitude: ready_for_declarative_structural_implementation
+  - feature_id: TLC-FC-10-VIRTUES-005
+    title: Dynamique développementale et dynamique vice-vertu
+    source_objects: [TLC-SO-VIRTUES-196, TLC-SO-VIRTUES-199]
+    contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-005/contract.yaml
+    source_ir_ref: registry/ir/TLC-FC-10-VIRTUES-005/ir.yaml
+    source_ir_status: limited_engineering_contract_with_reservations
+    test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-005/test-plan.yaml
+    entrypoint: package_developmental_dynamics_rhs
+    nature: structural_symbolic
+    virtue_reference: opaque_source_bound_virtue
+    scope: supplied symbolic right-hand-side terms
+    context: developmental and vice-virtue dynamics descriptors
+    conditions_of_application: symbolic packaging only; numeric integration is unsupported
+    explicit_relations: []
+    dependencies: []
+    unresolved: []
+    reservations: [parameters and integration semantics are not selected]
+    boundary_review: not_reopened
+    implementation_aptitude: ready_for_symbolic_representation_implementation
+  - feature_id: TLC-FC-10-VIRTUES-006
+    title: Représentations et mappings formels
+    source_objects: [TLC-SO-VIRTUES-070, TLC-SO-VIRTUES-194, TLC-SO-VIRTUES-195, TLC-SO-VIRTUES-197, TLC-SO-VIRTUES-198]
+    contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-006/contract.yaml
+    source_ir_ref: registry/ir/TLC-FC-10-VIRTUES-006/ir.yaml
+    source_ir_status: limited_engineering_contract_with_reservations
+    test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-006/test-plan.yaml
+    entrypoint: register_virtue_equation_forms
+    nature: declarative_structural
+    virtue_reference: opaque_source_bound_virtue
+    scope: equation forms, free symbols, duplicate-candidate links, and opaque operators
+    context: source equation context remains opaque
+    conditions_of_application: registration only; no solving or ranking
+    explicit_relations: [duplicate_candidate_link]
+    dependencies: []
+    unresolved: []
+    reservations: [operator semantics and scientific equivalence are not inferred]
+    boundary_review: not_reopened
+    implementation_aptitude: ready_for_structural_representation_implementation
+  - feature_id: TLC-FC-10-VIRTUES-007
+    title: V_fonction
+    source_objects: [TLC-SO-VIRTUES-060]
+    contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-007/contract.yaml
+    source_ir_ref: registry/ir/TLC-FC-10-VIRTUES-007/ir.yaml
+    source_ir_status: limited_engineering_contract_with_reservations
+    test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-007/test-plan.yaml
+    entrypoint: check_virtue_function_invariant
+    nature: structural_validation
+    virtue_reference: opaque_source_bound_virtue
+    scope: source-declared invariant role labels
+    context: role labels are preserved as labels only
+    conditions_of_application: complete provenance and exact label preservation
+    explicit_relations: []
+    dependencies: []
+    unresolved: []
+    reservations: [no semantics inferred for ancrage, guidage, unification, or contrainte]
+    boundary_review: not_reopened
+    implementation_aptitude: ready_for_structural_validation_implementation
+  - feature_id: TLC-FC-10-VIRTUES-008
+    title: Évaluation, reconnaissance, correction et compensation
+    source_objects: [TLC-SO-VIRTUES-007, TLC-SO-VIRTUES-019, TLC-SO-VIRTUES-021, TLC-SO-VIRTUES-025, TLC-SO-VIRTUES-026, TLC-SO-VIRTUES-112, TLC-SO-VIRTUES-136]
+    contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-008/contract.yaml
+    source_ir_ref: registry/ir/TLC-FC-10-VIRTUES-008/ir.yaml
+    source_ir_status: limited_engineering_contract_with_reservations
+    test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-008/test-plan.yaml
+    entrypoint: build_measure_observation_ledger
+    nature: structural_observation
+    virtue_reference: opaque_source_bound_virtue
+    scope: observation-ledger schema for cited measurement families
+    context: observations remain source-bound and opaque
+    conditions_of_application: no weights, thresholds, metric selection, or virtue score
+    explicit_relations: []
+    dependencies: []
+    unresolved: []
+    reservations: [ledger construction is not evaluation]
+    boundary_review: not_reopened
+    implementation_aptitude: ready_for_observation_ledger_implementation
+  - feature_id: TLC-FC-10-VIRTUES-009
+    title: Mesures quantitatives
+    source_objects: [TLC-SO-VIRTUES-022]
+    contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-009/contract.yaml
+    source_ir_ref: registry/ir/TLC-FC-10-VIRTUES-009/ir.yaml
+    source_ir_status: limited_engineering_contract_with_reservations
+    test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-009/test-plan.yaml
+    entrypoint: register_quantitative_measure_reservations
+    nature: declarative
+    virtue_reference: opaque_source_bound_virtue
+    scope: named quantitative measurement dimensions
+    context: scales and thresholds are absent
+    conditions_of_application: dimensions are recorded only as unresolved semantic commitments
+    explicit_relations: []
+    dependencies: []
+    unresolved: [scientific ambiguity]
+    reservations: [no scale, no threshold, no computed measure]
+    boundary_review: preserved_blocked_local_semantics
+    implementation_aptitude: ready_for_declarative_structural_implementation
+  - feature_id: TLC-FC-10-VIRTUES-010
+    title: Propriétés essentielles et mesurabilité
+    source_objects: [TLC-SO-VIRTUES-003, TLC-SO-VIRTUES-067]
+    contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-010/contract.yaml
+    source_ir_ref: registry/ir/TLC-FC-10-VIRTUES-010/ir.yaml
+    source_ir_status: limited_engineering_contract_with_reservations
+    test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-010/test-plan.yaml
+    entrypoint: register_essential_property_indicators
+    nature: declarative
+    virtue_reference: opaque_source_bound_virtue
+    scope: essential-property indicator categories
+    context: indicator, metric, and progression semantics remain opaque
+    conditions_of_application: registration only; no metric or progression computation
+    explicit_relations: []
+    dependencies: []
+    unresolved: [scientific ambiguity]
+    reservations: [no indicator interpretation, no progression scale]
+    boundary_review: preserved_provisional_separation
+    implementation_aptitude: ready_for_declarative_structural_implementation
+  - feature_id: TLC-FC-10-VIRTUES-011
+    title: Dialectique vertu-vice et fonction diagnostique
+    source_objects: [TLC-SO-VIRTUES-055, TLC-SO-VIRTUES-212]
+    contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-011/contract.yaml
+    source_ir_ref: registry/ir/TLC-FC-10-VIRTUES-011/ir.yaml
+    source_ir_status: limited_engineering_contract_with_reservations
+    test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-011/test-plan.yaml
+    entrypoint: package_vice_diagnostic_function
+    nature: structural_observation_relation
+    virtue_reference: opaque_source_bound_virtue
+    scope: diagnostic observations mapping supplied vice evidence to supplied development-domain labels
+    context: human-supplied labels and evidence remain opaque
+    conditions_of_application: no prescribed correction and no inferred diagnosis
+    explicit_relations: [vice_evidence_to_development_domain_label]
+    dependencies: []
+    unresolved: []
+    reservations: [diagnostic packaging is not psychological diagnosis or normative correction]
+    boundary_review: not_reopened
+    implementation_aptitude: ready_for_structural_observation_implementation
+  - feature_id: TLC-FC-10-VIRTUES-014
+    title: Relations contextuelles, maître, discours
+    source_objects: [TLC-SO-VIRTUES-013, TLC-SO-VIRTUES-020, TLC-SO-VIRTUES-054, TLC-SO-VIRTUES-093, TLC-SO-VIRTUES-116]
+    contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-014/contract.yaml
+    source_ir_ref: registry/ir/TLC-FC-10-VIRTUES-014/ir.yaml
+    source_ir_status: limited_engineering_contract_with_reservations
+    test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-014/test-plan.yaml
+    entrypoint: map_contextual_virtue_relations
+    nature: declarative_relation
+    virtue_reference: opaque_source_bound_virtue
+    scope: contextual virtue relation claims among supplied entities
+    context: context and endpoints are caller-supplied and opaque
+    conditions_of_application: provenance is complete and endpoint identity is not inferred
+    explicit_relations: [contextual_virtue_relation]
+    dependencies: []
+    unresolved: []
+    reservations: [cross-domain endpoint identity remains external]
+    boundary_review: not_reopened
+    implementation_aptitude: ready_for_relation_mapping_implementation
+no_feature_rejected: true
