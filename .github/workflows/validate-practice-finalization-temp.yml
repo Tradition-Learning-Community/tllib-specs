@@ -1,0 +1,33 @@
+name: Temporary Practice finalization validation
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-practice:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install YAML parser
+        run: python -m pip install --disable-pip-version-check PyYAML
+      - name: Run Practice validator
+        run: python tools/domain-finalization/validate_practice_finalization.py
+      - name: Check whitespace
+        run: git diff --check c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD
+      - name: Check changed paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --name-only c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD | tee /tmp/practice-paths.txt
+          ! grep -E '^(maths/|registry/global-reconciliation/|registry/math-contracts/|registry/ir/TLC-FC-13-PRACTICE-|registry/test-plans/)' /tmp/practice-paths.txt
+          ! grep -E '\.(cpp|cc|cxx|hpp|h)$' /tmp/practice-paths.txt
