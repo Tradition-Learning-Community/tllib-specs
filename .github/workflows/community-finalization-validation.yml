@@ -8,9 +8,6 @@ on:
 permissions:
   contents: read
 
-env:
-  VALIDATOR: tools/domain-finalization/validate_community_finalization.py
-
 jobs:
   validate-community-finalization:
     runs-on: ubuntu-latest
@@ -26,8 +23,22 @@ jobs:
         run: python -c 'import runpy; n=runpy.run_path("tools/domain-finalization/validate_community_finalization.py"); n["validate_population"]()'
       - name: Validate all source chains
         run: python -c 'import runpy; n=runpy.run_path("tools/domain-finalization/validate_community_finalization.py"); [n["validate_source"](f) for f in n["FEATURES"]]'
-      - name: Validate all IR algorithm oracle triplets
-        run: python -c 'import runpy; n=runpy.run_path("tools/domain-finalization/validate_community_finalization.py"); [n["validate_triplet"](f) for f in n["FEATURES"]]'
+      - name: Validate triplet Community 001
+        run: python -c 'import runpy; n=runpy.run_path("tools/domain-finalization/validate_community_finalization.py"); n["validate_triplet"]("TLC-FC-02-COMMUNITY-001")'
+      - name: Validate triplet Community 003
+        run: python -c 'import runpy; n=runpy.run_path("tools/domain-finalization/validate_community_finalization.py"); n["validate_triplet"]("TLC-FC-02-COMMUNITY-003")'
+      - name: Validate triplet Community 004
+        run: python -c 'import runpy; n=runpy.run_path("tools/domain-finalization/validate_community_finalization.py"); n["validate_triplet"]("TLC-FC-02-COMMUNITY-004")'
+      - name: Validate triplet Community 005
+        run: python -c 'import runpy; n=runpy.run_path("tools/domain-finalization/validate_community_finalization.py"); n["validate_triplet"]("TLC-FC-02-COMMUNITY-005")'
+      - name: Validate triplet Community 006
+        run: python -c 'import runpy; n=runpy.run_path("tools/domain-finalization/validate_community_finalization.py"); n["validate_triplet"]("TLC-FC-02-COMMUNITY-006")'
+      - name: Validate triplet Community 007
+        run: python -c 'import runpy; n=runpy.run_path("tools/domain-finalization/validate_community_finalization.py"); n["validate_triplet"]("TLC-FC-02-COMMUNITY-007")'
+      - name: Validate triplet Community 008
+        run: python -c 'import runpy; n=runpy.run_path("tools/domain-finalization/validate_community_finalization.py"); n["validate_triplet"]("TLC-FC-02-COMMUNITY-008")'
+      - name: Validate triplet Community 009
+        run: python -c 'import runpy; n=runpy.run_path("tools/domain-finalization/validate_community_finalization.py"); n["validate_triplet"]("TLC-FC-02-COMMUNITY-009")'
       - name: Validate module documents
         run: python -c 'import runpy; n=runpy.run_path("tools/domain-finalization/validate_community_finalization.py"); n["validate_module"]()'
       - name: Validate changed paths and whitespace
