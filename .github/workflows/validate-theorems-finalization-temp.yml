@@ -35,7 +35,10 @@ jobs:
         env:
           THEOREMS_BASE_REF: origin/main
           THEOREMS_ALLOW_TEMP_WORKFLOW: "1"
-        run: python tools/domain-finalization/validate_theorems_finalization.py
+        shell: bash
+        run: |
+          set -o pipefail
+          python tools/domain-finalization/validate_theorems_finalization.py 2>&1 | tee /tmp/theorems-validator.log
 
       - name: Check whitespace
         id: whitespace
@@ -88,16 +91,25 @@ jobs:
           python - "$result" <<'PY'
           from pathlib import Path
           import sys
+
           result = sys.argv[1]
-          path = Path('reports/domain-finalization/theorems/finalization-report.md')
-          text = path.read_text(encoding='utf-8')
+          report = Path('reports/domain-finalization/theorems/finalization-report.md')
+          text = report.read_text(encoding='utf-8')
+          marker = '\n### Last validation diagnostics\n'
+          text = text.split(marker, 1)[0].rstrip() + '\n'
           lines = []
           for line in text.splitlines():
               if line.startswith('Validation result:'):
                   lines.append(f'Validation result: **{result}** on GitHub Actions for the branch validation commit.')
               else:
                   lines.append(line)
-          path.write_text('\n'.join(lines) + '\n', encoding='utf-8')
+          text = '\n'.join(lines) + '\n'
+          if result == 'FAIL':
+              log_path = Path('/tmp/theorems-validator.log')
+              diagnostics = log_path.read_text(encoding='utf-8', errors='replace') if log_path.exists() else 'validator log unavailable'
+              diagnostics = '\n'.join(diagnostics.splitlines()[-30:])
+              text += marker + '\n```text\n' + diagnostics + '\n```\n'
+          report.write_text(text, encoding='utf-8')
           PY
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
