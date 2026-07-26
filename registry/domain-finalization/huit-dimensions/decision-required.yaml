@@ -1,0 +1,73 @@
+schema_version: 1
+domain: huit-dimensions
+blocking: []
+non_blocking:
+- decision_id: HD-DEC-NB-001
+  topic: canonical_types_and_units
+  scope: all_features
+  treatment: parameter_required
+  reason: structural records can preserve opaque payloads without selecting scientific types or units
+- decision_id: HD-DEC-NB-002
+  topic: normative_dimension_order
+  scope: module
+  treatment: descriptive_scope
+  reason: named non-ordinal lookup is fully observable and implementable
+- decision_id: HD-DEC-NB-003
+  topic: global_aggregation_operator
+  scope: module
+  treatment: implementation_out_of_scope
+  reason: none of the eleven operations requires global aggregation
+- decision_id: HD-DEC-NB-004
+  topic: exact_numeric_oracles
+  scope: all_features
+  treatment: implementation_out_of_scope
+  reason: structural, property, preservation, and error oracles are sufficient for declared behavior
+deferred_to_scientific_review:
+- decision_id: HD-DEC-SCI-001
+  topic: feature_boundary_and_identity
+  scope:
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013
+  treatment: unresolved_propagated
+  current_behavior: preserve public identifiers and distinct source objects without equivalence claims
+- decision_id: HD-DEC-SCI-002
+  topic: cross_domain_ownership
+  scope: all_features
+  treatment: external_reference
+  current_behavior: documentary references only with no execution edge
+- decision_id: HD-DEC-SCI-003
+  topic: scientific_verification_of_invariants_metrics_and_cns
+  scope:
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012
+  - TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013
+  treatment: descriptive_scope
+  current_behavior: expose claims and verification status without proving or evaluating them
+preserved_as_opaque:
+- decision_id: HD-DEC-OPAQUE-001
+  values: [Gamma, limit, distance, argmin]
+  scope: [TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002, TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006]
+- decision_id: HD-DEC-OPAQUE-002
+  values: [differential_laws, stochastic_law, time_domain, solver, precision]
+  scope: [TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005]
+- decision_id: HD-DEC-OPAQUE-003
+  values: [metric_tensor, carrier_space, geodesic_operation]
+  scope: [TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010, TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011]
+- decision_id: HD-DEC-OPAQUE-004
+  values: [measure_token, nonzero_relation, units, truth_value]
+  scope: [TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012]
+- decision_id: HD-DEC-OPAQUE-005
+  values: [activation_operator, completeness_claim, necessity_claim, fulfillment_status]
+  scope: [TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013]
+closure_assessment:
+  real_blockers_for_declared_observable_behavior: 0
+  scientific_questions_preserved: true
+  package_closure_blocked: false
