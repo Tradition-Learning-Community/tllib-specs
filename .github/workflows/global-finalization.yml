@@ -24,8 +24,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
+          show-progress: false
       - name: Validate all sixteen integrated domains
-        run: python tools/global-finalization/validate_global_finalization.py
+        run: python3 tools/global-finalization/validate_global_finalization.py
