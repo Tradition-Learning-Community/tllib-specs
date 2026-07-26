@@ -1,0 +1,46 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-005
+algorithm_id: TLC-ALG-TLC-FC-12-COMPETENCIES-005
+finalized_ir: registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-005/ir.yaml
+signature: 'build_evolution_descriptor_005(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>, RequestMode) -> Result<CompetenciesCanonicalDescriptor,CompetenciesError>'
+inputs: [competencies_feature_id, object_payloads, provenance, request_mode]
+outputs: [immutable CompetenciesCanonicalDescriptor]
+validations: [structural request mode, exact feature id, exact objects 072 101 106, uniqueness, no extras, complete provenance]
+preconditions: [finalized IR types satisfied]
+prerequisites: []
+conditions_of_application: [structural representation only]
+ordered_steps: [validate request mode, validate feature identity, validate exact object set, validate provenance, load profile, copy opaque identities in contract order, attach traceability reservations and unresolved, mark structurally_valid, return]
+branches:
+- {condition: scientific dynamics or social influence evaluation requested, result: ScientificEvaluationRequested}
+- {condition: invalid structural input, result: corresponding_structured_error}
+- {condition: valid structural request, result: return_descriptor}
+competency_construction: {operation: construct_reference_descriptor, scientific_interpretation: false}
+identity_validation: exact_feature_and_object_identity
+scope_validation: evolution_dynamics_descriptor_only
+context_validation: opaque_source_context_only
+relation_processing: no_endpoint_or_social_kernel_inference
+mobilization: preserve_opaque_mentoring_and_engagement_content_only
+exercise: not_declared
+acquisition: preserve_opaque_learning_content_only
+development: preserve_opaque_motivation_and_feedback_content_only
+mastery: not_declared
+evaluation: external_evaluator_required
+comparison: external_comparator_required
+effects: []
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, UnexpectedCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+postconditions: [objects 072 101 106 preserved in order, no temporal or social computation produced, reservations unresolved unchanged]
+invariants: [opaque equations never parsed, structural validity not scientific validity]
+determinism: deterministic_for_identical_structural_inputs
+edge_cases: [missing mentoring equation, extra object, incomplete provenance, permuted input order, evaluation request]
+dependencies: {internal: [competencies_feature_profile, structural_validation_pipeline], external: []}
+unresolved_preserved: [scientific_unresolved, validated_executable_contract_absent]
+pseudocode: |-
+  function build_evolution_descriptor_005(feature_id, object_payloads, provenance, request_mode):
+      if request_mode != structural_descriptor_only: return error ScientificEvaluationRequested
+      if feature_id != TLC-FC-12-COMPETENCIES-005: return error UnknownFeatureId
+      required = [072, 101, 106] as Competencies ObjectIds
+      validate_exact_object_set(object_payloads, required)
+      validate_provenance(provenance, required)
+      descriptor = construct_immutable_descriptor(profile(TLC-FC-12-COMPETENCIES-005), copy_opaque_identities(object_payloads, required), copy(provenance for required), copy(source_reservations), copy(source_unresolved))
+      descriptor.structural_status = structurally_valid
+      return descriptor
