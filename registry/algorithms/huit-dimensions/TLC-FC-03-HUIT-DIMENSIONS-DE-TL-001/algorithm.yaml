@@ -1,0 +1,64 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001
+operation: assemble_principle_constraint_profile
+signature: assemble_principle_constraint_profile(declarations, source_refs) -> PrincipleConstraintProfile
+source_contract: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001/contract.yaml
+finalized_ir: registry/optimized-ir/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001/ir.yaml
+inputs:
+- principle_properties: OpaquePropertyDeclaration
+- principle_functional_roles: OpaqueRoleDeclaration
+- generativity_property: OpaquePropertyDeclaration
+output: PrincipleConstraintProfile
+validations:
+- require each declared role exactly once
+- require known scientific object ids and complete source references
+- require complete reservation and assumption sets
+- reject any request to evaluate or enrich payloads
+preconditions: [required_roles_present, traceability_complete, reservations_attached]
+steps:
+- validate roles and traceability
+- reject duplicate unknown or aliased bindings
+- copy each opaque binding into its named result slot
+- attach feature contract source reservation and assumption identifiers
+- verify exact slot cardinality identity preservation and opaque propagation
+branching:
+- missing trace or role: FAIL-HUIT-001-MISSING-TRACE
+- missing or unknown slot: FAIL-HUIT-001-OPERATION
+- requested unstated semantics: FAIL-HUIT-001-SCIENTIFIC-INVENTION
+dimension_access: semantic_roles_only
+transformations: identity_preserving_envelope_normalization_only
+errors: [FAIL-HUIT-001-MISSING-TRACE, FAIL-HUIT-001-OPERATION, FAIL-HUIT-001-SCIENTIFIC-INVENTION]
+postconditions:
+- exactly three named slots exist
+- all source identities and opaque payloads are unchanged
+- all unresolved identifiers remain unresolved
+invariants: [distinct_object_identity, source_trace_preserved, limited_contract_status_preserved]
+determinism: deterministic_for_identical_role_bindings
+effects: none
+case_limits:
+- empty input is rejected
+- extra roles are rejected
+- input container order does not alter named slot bindings
+dependencies:
+  execution: []
+  documentary: [principles]
+unresolved_conserved:
+- TLC-UNRES-HUIT-001-TYPE
+- TLC-UNRES-HUIT-001-SIGNATURE
+- TLC-UNRES-HUIT-001-UNITS
+- TLC-UNRES-HUIT-001-ORDER
+- TLC-UNRES-HUIT-001-AGGREGATION
+- TLC-UNRES-HUIT-001-NUMERICS
+- TLC-UNRES-HUIT-001-ORACLE
+- TLC-UNRES-HUIT-001-BOUNDARY
+pseudocode: |
+  function assemble_principle_constraint_profile(declarations, source_refs):
+      require_exact_roles(declarations, [principle_properties, principle_functional_roles, generativity_property])
+      validate_traceability(declarations, source_refs)
+      reject_scientific_evaluation_request(declarations)
+      result = new PrincipleConstraintProfile()
+      for role in [principle_properties, principle_functional_roles, generativity_property]:
+          result.bind(role, copy_opaque(declarations[role]), source_refs[role])
+      result.attach(feature_id, contract_id, reservations, assumptions)
+      verify_identity_and_propagation(result)
+      return result
