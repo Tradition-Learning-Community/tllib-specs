@@ -1,0 +1,72 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-05-DYNAMICS-002
+feature_id: TLC-FC-05-DYNAMICS-002
+status: selected_for_dynamics_implementation_specification
+ir_ref: registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-002/ir.yaml
+signature: "build_unevaluated_dynamics_bundle(equation_sources: Sequence[OpaqueEquation], symbols: SymbolTable) -> DynamicsBundle[OpaqueEquation]"
+inputs:
+  equation_sources: ordered opaque equation source records
+  symbols: source-addressable symbol bindings
+outputs:
+  bundle: ordered unevaluated equation bundle
+validations:
+  - verify every equation source identifier
+  - verify every referenced symbol exists in symbols
+  - verify sequence and equation carrier shapes
+preconditions:
+  - inputs preserve source order and opaque payloads
+  - symbol table covers all supplied references
+initial_state: not_defined
+ordered_steps:
+  - validate all equation identifiers before bundle construction
+  - validate all symbol references before bundle construction
+  - validate input carrier shapes
+  - copy each equation record in supplied order
+  - retain source classification and stochastic metadata exactly
+  - attach per-equation source-object and source-relation traceability
+  - attach unresolved and reservations to the bundle
+  - validate postconditions and return
+transitions: []
+branches:
+  - if an equation or symbol identifier is unknown, return unknown_source_identifier and no partial bundle
+  - if a carrier shape is invalid, return type_shape_mismatch and no partial bundle
+repetitions:
+  - iterate once over equation_sources in supplied order
+effects: [construct_immutable_dynamics_bundle]
+final_state: not_defined
+stop_conditions: []
+errors: [unknown_source_identifier, type_shape_mismatch]
+postconditions:
+  - output membership and order equal input membership and order
+  - opaque equation payloads and classifications are unchanged
+  - no trajectory, solver, initial condition, or distribution is produced
+invariants:
+  - source identities remain distinct
+  - stochastic notation remains metadata only
+determinism: deterministic_for_identical_inputs_and_order
+stochasticity:
+  preservation_only: true
+  sampling: false
+  seed: not_defined
+edge_cases:
+  - equations with undefined state types or stochastic details remain valid opaque records
+  - an empty supplied sequence yields an empty traceable bundle only when carrier and symbol validation succeed
+dependencies:
+  internal: [TLC-FC-05-DYNAMICS-006_as_non_executable_candidate_reference]
+  external: [master_symbolic_reference, disciple_symbolic_reference, community_future_reconciliation]
+unresolved_preserved: [types_initial_conditions_stochastic_details, solver_and_discretization]
+pseudocode: |
+  function build_unevaluated_dynamics_bundle(equation_sources, symbols):
+      validate_shape(equation_sources, Sequence[OpaqueEquation])
+      validate_shape(symbols, SymbolTable)
+      validate_all_source_identifiers(equation_sources)
+      validate_all_symbol_references(equation_sources, symbols)
+      bundle = empty DynamicsBundle[OpaqueEquation]
+      for equation in equation_sources:
+          bundle.append(copy_opaque(equation))
+          attach_equation_traceability(bundle.last, equation.source_ids)
+      attach_unresolved(bundle, SOURCE_UNRESOLVED)
+      assert bundle.order == equation_sources.order
+      assert no_equation_was_evaluated(bundle)
+      return bundle
+forbidden_operations: [solve_equation, discretize_time, synthesize_initial_condition, select_distribution, reorder_equations]
