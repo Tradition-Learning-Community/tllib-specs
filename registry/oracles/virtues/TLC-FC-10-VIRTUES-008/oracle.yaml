@@ -1,0 +1,47 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-008
+status: selected_for_virtues_implementation_specification
+ir_ref: registry/optimized-ir/virtues/TLC-FC-10-VIRTUES-008/ir.yaml
+algorithm_ref: registry/algorithms/virtues/TLC-FC-10-VIRTUES-008/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-008/test-plan.yaml
+entrypoint: build_measure_observation_ledger
+oracle_kind: observation_ledger_acceptance
+fixtures:
+  required_source_objects: [TLC-SO-VIRTUES-007, TLC-SO-VIRTUES-019, TLC-SO-VIRTUES-021, TLC-SO-VIRTUES-025, TLC-SO-VIRTUES-026, TLC-SO-VIRTUES-112, TLC-SO-VIRTUES-136]
+  nominal_artifact: {measurement_families: [opaque_family_a, opaque_family_b], observations: [opaque_observation_a, opaque_observation_b], context: opaque_context}
+acceptance_cases:
+  - id: nominal
+    assertions: [accepted is true, entrypoint and source objects are exact, ledger exists]
+  - id: ledger_shape
+    assertions: [ledger entries mirror supplied families and observations in supplied order]
+  - id: identity_scope_context
+    assertions: [feature identity, observation scope, and opaque context are preserved]
+  - id: observation_only
+    assertions: [observations are recorded without aggregation, evaluation, correction, or compensation decision]
+error_cases:
+  - request: wrong feature id
+    expected_error: invalid_feature_id
+  - request: incomplete source provenance
+    expected_error: missing_provenance
+  - request: select metric, assign weight or threshold, compute score, compare, rank, or decide correction
+    expected_error: unsupported_scientific_completion_request
+property_tests:
+  - every supplied ledger entry round-trips unchanged
+  - duplicate observations remain duplicate entries
+  - no metric value, score, threshold, or correction is emitted
+  - no manifestation outside supplied observations is created
+metamorphic_tests:
+  - appending an observation appends only that observation
+  - changing one descriptor changes only that ledger field
+  - adding a reservation changes only reservations
+  - identical requests return identical results
+determinism_test: repeated identical request returns equivalent logical data
+composition_tests:
+  - common validation precedes ledger construction
+  - rejected evaluation requests emit no accepted result
+unresolved_tests:
+  expected: []
+dependency_tests:
+  - no evaluator, comparator, observer, or external domain execution is invoked
+forbidden_outputs: [virtue score, selected metric, weight, threshold, ranking, correction decision, invented observation]
+acceptance_rule: Ledger structure and opacity pass and all forbidden outputs are absent.
