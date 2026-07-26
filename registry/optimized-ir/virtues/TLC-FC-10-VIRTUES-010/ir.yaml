@@ -1,0 +1,89 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-010
+domain: virtues
+status: selected_for_virtues_implementation_specification
+source:
+  contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-010/contract.yaml
+  source_ir_ref: registry/ir/TLC-FC-10-VIRTUES-010/ir.yaml
+  source_ir_raw_status: limited_engineering_contract_with_reservations
+  test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-010/test-plan.yaml
+  scientific_source_ref: maths/10-virtues.md
+  source_objects: [TLC-SO-VIRTUES-003, TLC-SO-VIRTUES-067]
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+virtue_invented: false
+measurement_invented: false
+ordering_invented: false
+nature: declarative
+entrypoint: register_essential_property_indicators
+virtue_or_reference:
+  type: OpaqueVirtue
+  identity: source-bound virtue reference associated with essential-property categories
+scope: essential-property indicator categories
+context: indicator, metric, and progression semantics remain opaque
+inputs:
+  feature_id: exact feature identifier
+  artifact: opaque indicator-category bundle
+  provenance: ordered ProvenanceRef collection
+  reservations: caller-supplied unresolved and assumptions
+outputs:
+  result: VirtuesResult containing opaque categories or named error
+types: [OpaqueVirtue, OpaqueEvidence, OpaqueContext, OpaqueMetricDescriptor, ProvenanceRef, UnresolvedItem, VirtuesRequest, VirtuesResult]
+opaque_values: [indicator categories, indicator descriptors, metric descriptors, progression descriptors, context, reservations]
+preconditions:
+  - feature_id equals TLC-FC-10-VIRTUES-010
+  - provenance contains TLC-SO-VIRTUES-003 and TLC-SO-VIRTUES-067
+  - request does not ask for indicator interpretation, metric computation, progression evaluation, score, or ranking
+conditions_of_application:
+  - categories are registered exactly as supplied
+relations_explicitly_defined: []
+manifestations_explicitly_defined: []
+operations:
+  - validate feature identity and provenance
+  - reject indicator, metric, or progression completion requests
+  - register supplied essential-property categories as opaque descriptors
+  - propagate scientific ambiguity
+  - construct source-bound result envelope
+order_of_execution: [validate_feature_id, validate_provenance, enforce_opaque_indicator_guard, register_categories, propagate_unresolved, build_result]
+control_flow:
+  - on invalid feature id return invalid_feature_id
+  - on missing provenance return missing_provenance
+  - on interpretation, evaluation, score, or progression request return unsupported_scientific_completion_request
+  - otherwise return accepted declarative result
+observations: []
+comparisons: []
+effects:
+  - records supplied categories only
+  - computes no indicator, metric, degree, or progression
+postconditions:
+  - categories, provenance, and reservations are preserved
+  - scientific ambiguity is present
+  - no measurement, degree, progression, score, or comparison is produced
+invariants:
+  - source object identity and order are conserved
+  - opaque categories and unresolved items remain unchanged
+errors: [missing_provenance, unsupported_scientific_completion_request, invalid_feature_id]
+determinism: {deterministic: true, randomness: none}
+dependencies:
+  internal: [common validation, opaque category registration, unresolved propagation, result envelope]
+  external_execution: []
+  documentary: [maths/10-virtues.md]
+unresolved_propagated: [scientific ambiguity]
+reservations:
+  - indicator, metric, and progression semantics are not selected
+  - source measurability language does not define an executable evaluator
+transformations_applied:
+  - normalized opaque category registration
+  - separated representation from metric and progression evaluation
+obligations_of_preservation:
+  - preserve source contract and IR
+  - preserve categories and scientific ambiguity
+  - invent no metric, degree, progression, score, or ordering
+algorithm_ref: registry/algorithms/virtues/TLC-FC-10-VIRTUES-010/algorithm.yaml
+oracle_ref: registry/oracles/virtues/TLC-FC-10-VIRTUES-010/oracle.yaml
+implementation_aptitude:
+  ready: true
+  level: declarative_structural_implementation
+  excluded_scope: [indicator interpretation, metric evaluation, progression engine, scoring, ranking]
