@@ -7,7 +7,7 @@ algorithm: registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-004/algorithm
 oracle_kind: structural_acceptance_oracle
 fixture_policy: {competency_instances_created: false, payloads: opaque_tokens_named_by_source_object_id, numeric_values: none, random_sampling: none}
 acceptance_tests:
-- {test_id: C004-NOM-001, category: nominal, given: exact five opaque objects complete provenance and structural mode, expect: immutable descriptor preserving [066, 096, 097, 098, 114]}
+- {test_id: C004-NOM-001, category: nominal, given: exact five opaque objects complete provenance and structural mode, expect: 'immutable descriptor preserving [066, 096, 097, 098, 114]'}
 - {test_id: C004-PRE-001, category: precondition, mutation: remove object 096, expect_error: MissingCoveredObject}
 - {test_id: C004-ERR-001, category: errors, mutation: add an unlisted equation object, expect_error: UnexpectedCoveredObject}
 - {test_id: C004-ERR-002, category: errors, mutation: duplicate object 114 in entry-form input, expect_error: DuplicateCoveredObject}
@@ -15,7 +15,7 @@ acceptance_tests:
 - {test_id: C004-ID-001, category: identity, mutation: use another feature id, expect_error: UnknownFeatureId}
 - {test_id: C004-SCOPE-001, category: scope, property: descriptor category remains evolution_dynamics and boundary remains admissible}
 - {test_id: C004-PROP-001, category: opaque_value_propagation, property: all five equation payload identities and source statements remain opaque and unchanged}
-- {test_id: C004-META-001, category: metamorphic, transformation: permute caller map order, invariant: output order remains [066, 096, 097, 098, 114]}
+- {test_id: C004-META-001, category: metamorphic, transformation: permute caller map order, invariant: 'output order remains [066, 096, 097, 098, 114]'}
 - {test_id: C004-DET-001, category: determinism, property: identical structural inputs produce structurally equal descriptors}
 - {test_id: C004-DEP-001, category: dependencies, property: Capacities is preserved as external_unreconciled scientific documentary metadata and not runtime dependency}
 - {test_id: C004-REJ-001, category: acquisition_rejection, mutation: request acquisition step or stochastic sample, expect_error: ScientificEvaluationRequested}
