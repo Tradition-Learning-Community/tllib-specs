@@ -1,0 +1,64 @@
+name: Dynamics finalization validation
+
+on:
+  push:
+    branches:
+      - phase4/dynamics-domain-finalization-001
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch repository quietly
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git init -q
+          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git fetch -q --no-tags origin "${GITHUB_SHA}"
+          git checkout -q --detach "${GITHUB_SHA}"
+          git fetch -q --no-tags origin c34d40713bf444d38f92f76e1c6239ee596d5a18
+      - name: Install validator dependency
+        run: python3 -m pip install --quiet --disable-pip-version-check PyYAML
+      - name: Parse generated YAML
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import yaml
+          roots = [
+              Path('registry/domain-finalization/dynamics'),
+              Path('registry/optimized-ir/dynamics'),
+              Path('registry/algorithms/dynamics'),
+              Path('registry/oracles/dynamics'),
+          ]
+          paths = [path for root in roots for path in sorted(root.rglob('*.yaml'))]
+          for path in paths:
+              yaml.safe_load(path.read_text(encoding='utf-8'))
+          print(f'Generated YAML parsed: {len(paths)} files')
+          PY
+      - name: Validate Dynamics finalization
+        run: python3 tools/domain-finalization/validate_dynamics_finalization.py
+      - name: Check patch whitespace
+        run: git diff --check c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD
+      - name: Verify changed paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --name-only c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD > /tmp/dynamics-paths.txt
+          if grep -E '^(maths/|registry/global-reconciliation/)' /tmp/dynamics-paths.txt; then
+            echo 'Forbidden source or global registry path changed.' >&2
+            exit 1
+          fi
+          if grep -E '\.(cpp|cc|cxx|h|hpp|pyi)$' /tmp/dynamics-paths.txt; then
+            echo 'Forbidden implementation artifact present.' >&2
+            exit 1
+          fi
