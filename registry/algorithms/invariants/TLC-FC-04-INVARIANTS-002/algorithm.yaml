@@ -1,0 +1,108 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-002
+algorithm_id: TLC-ALG-INVARIANTS-002-FINAL-001
+status: selected_for_invariants_implementation_specification
+optimized_ir_ref: registry/optimized-ir/invariants/TLC-FC-04-INVARIANTS-002/ir.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-002/contract.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-002/ir.prototype.json
+oracle_ref: registry/oracles/invariants/TLC-FC-04-INVARIANTS-002/oracle.yaml
+signature:
+  name: index_definition_fragments
+  input: DefinitionFragment[]
+  output: DefinitionEvidenceIndex
+inputs:
+- definition fragments carrying covered IDs, refers_to relations, source ranges, rejected status, opaque text, and preservation metadata
+outputs:
+- immutable index keyed by definition object ID
+validations:
+- each definition ID is one of the nine covered IDs
+- IDs are unique
+- each source range and source relation is present and covered
+- each fragment carries rejected_as_feature source status
+- no fragment requests executable or predicate semantics
+preconditions:
+- each fragment has a covered definition ID, source range, and rejected-as-feature marker
+conditions_of_application:
+- indexing is documentary only
+- text and truth conditions stay opaque
+ordered_steps:
+- step: 1
+  action: initialize an empty ordered map and identity set
+- step: 2
+  action: visit fragments in supplied source order
+- step: 3
+  action: validate definition ID, source relation, source range, and source status
+- step: 4
+  action: reject duplicate IDs or any status promotion
+- step: 5
+  action: construct an immutable documentary entry by exact-copying all source and opaque fields
+- step: 6
+  action: insert the entry under its definition object ID
+- step: 7
+  action: freeze the map as DefinitionEvidenceIndex
+- step: 8
+  action: verify exact identity, provenance, status, assumptions, reservations, and non-executable markers
+- step: 9
+  action: return the index
+branching:
+- condition: duplicate definition ID
+  action: raise DuplicateDefinitionId
+- condition: unknown ID or relation
+  action: raise InvalidCoveredIdentifier
+- condition: missing source range
+  action: raise MissingSourceReference
+- condition: executable, predicate, or scientific status promotion is requested
+  action: raise FeatureStatusPromotion
+- condition: text interpretation or truth evaluation is requested
+  action: raise ScientificEvaluationProhibited
+state_before:
+  fragments: caller_owned
+state_after:
+  fragments_mutated: false
+  result: immutable_documentary_index
+verification_of_conservation:
+- compare exact nine-or-subset validated identity sequence with index keys
+- compare source ranges and relations exactly
+- assert every entry remains documentary and non-executable
+- compare opaque text, status, assumptions, and reservations exactly
+errors:
+- DuplicateDefinitionId
+- InvalidCoveredIdentifier
+- MissingSourceReference
+- FeatureStatusPromotion
+- ScientificEvaluationProhibited
+- PreservationViolation
+postconditions:
+- one entry exists per validated unique definition ID
+- no predicate, truth result, executable state, or inferred type is created
+determinism:
+  random_sources: none
+  result_rule: structurally equal ordered fragments yield structurally equal indexes
+effects:
+  input_mutation: none
+  external_io: none
+  scientific_evaluation: none
+edge_cases:
+- an empty fragment sequence produces an empty documentary index and invents no definition
+- a valid subset remains a subset and is not filled automatically
+- duplicate definitions fail atomically
+- opaque text remains exact even when unparsable
+unresolved_conserved: []
+dependencies:
+  internal_structural: [TLC-FC-04-INVARIANTS-008]
+  execution: []
+pseudocode:
+- REQUIRE fragments is present
+- index := empty ordered map
+- seen_ids := empty identity set
+- FOR fragment IN fragments IN supplied order
+- REQUIRE fragment.definition_id is covered, ELSE InvalidCoveredIdentifier
+- REQUIRE fragment.definition_id not in seen_ids, ELSE DuplicateDefinitionId
+- REQUIRE fragment.source_range and covered relation are present, ELSE MissingSourceReference
+- REQUIRE fragment.catalogue_status equals rejected_as_feature, ELSE FeatureStatusPromotion
+- entry := immutable exact documentary copy of fragment
+- index[fragment.definition_id] := entry; add ID to seen_ids
+- END FOR
+- result := freeze DefinitionEvidenceIndex(index)
+- REQUIRE all identities, ranges, relations, statuses, opaque values, assumptions, and reservations are preserved, ELSE PreservationViolation
+- RETURN result
