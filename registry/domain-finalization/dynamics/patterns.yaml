@@ -1,0 +1,128 @@
+schema_version: 1
+domain_id: dynamics
+analysis_basis:
+  - registry/domain-progress/dynamics/dynamic-semantics.yaml
+  - registry/domain-progress/dynamics/concept-separation.yaml
+  - registry/domain-progress/dynamics/feature-dependencies.yaml
+  - ir/TLC-FC-05-DYNAMICS-001/ir.prototype.json
+  - ir/TLC-FC-05-DYNAMICS-002/ir.prototype.json
+  - ir/TLC-FC-05-DYNAMICS-003/ir.prototype.json
+  - ir/TLC-FC-05-DYNAMICS-004/ir.prototype.json
+  - ir/TLC-FC-05-DYNAMICS-005/ir.prototype.json
+  - ir/TLC-FC-05-DYNAMICS-006/ir.prototype.json
+  - ir/TLC-FC-05-DYNAMICS-007/ir.prototype.json
+classification_rules:
+  resemblance: shared vocabulary or scientific neighborhood only
+  textual_duplication: repeated wording without proof of identical behavior
+  structural_duplication: same validation-and-construction graph with feature-specific carriers
+  demonstrated_equivalence: identical observable behavior, operation order, errors, and preservation obligations
+patterns:
+  - pattern_id: DYN-PATTERN-OPAQUE-CONSTRUCTION
+    classification: structural_duplication
+    features: [TLC-FC-05-DYNAMICS-001, TLC-FC-05-DYNAMICS-002, TLC-FC-05-DYNAMICS-003, TLC-FC-05-DYNAMICS-004, TLC-FC-05-DYNAMICS-005, TLC-FC-05-DYNAMICS-006, TLC-FC-05-DYNAMICS-007]
+    behavior:
+      - validate identifiers against the Dynamics inventory
+      - validate declared carrier shape without evaluating payloads
+      - construct exactly one source-addressable output representation
+      - preserve supplied order when the input is ordered
+      - attach unresolved and reservations unchanged
+      - emit no partial result after validation failure
+    equivalence_scope: validation_and_packaging_only
+    factorization_allowed: true
+  - pattern_id: DYN-PATTERN-SOURCE-TRACEABILITY
+    classification: demonstrated_equivalence
+    features: [TLC-FC-05-DYNAMICS-001, TLC-FC-05-DYNAMICS-002, TLC-FC-05-DYNAMICS-003, TLC-FC-05-DYNAMICS-004, TLC-FC-05-DYNAMICS-005, TLC-FC-05-DYNAMICS-006, TLC-FC-05-DYNAMICS-007]
+    behavior:
+      - preserve stable scientific object and relation identifiers
+      - retain source contract and source IR references
+      - keep covered objects and relations distinct and addressable
+    factorization_allowed: true
+  - pattern_id: DYN-PATTERN-UNEVALUATED-EXPRESSION
+    classification: structural_duplication
+    features: [TLC-FC-05-DYNAMICS-001, TLC-FC-05-DYNAMICS-002, TLC-FC-05-DYNAMICS-003, TLC-FC-05-DYNAMICS-004, TLC-FC-05-DYNAMICS-005, TLC-FC-05-DYNAMICS-007]
+    behavior:
+      - retain expression payload byte-for-byte or value-for-value
+      - mark output as unevaluated
+      - prohibit solver, integration, sampling, truth evaluation, or operator execution
+    equivalence_scope: opaque_payload_preservation
+    factorization_allowed: true
+  - pattern_id: DYN-PATTERN-STATE-CANDIDATE
+    classification: resemblance
+    features: [TLC-FC-05-DYNAMICS-006, TLC-FC-05-DYNAMICS-007]
+    behavior:
+      - feature 006 constructs a StateCandidateRecord
+      - feature 007 constructs an UnclassifiedStateEvolutionNode
+    factorization_allowed: false
+    reason: state/evolution equivalence is not scientifically demonstrated
+  - pattern_id: DYN-PATTERN-TRANSITION
+    classification: absence_confirmed
+    features: []
+    behavior: []
+    factorization_allowed: false
+    reason: no explicit before/after transition rule exists in the authoritative Dynamics sources
+  - pattern_id: DYN-PATTERN-STOCHASTICITY
+    classification: descriptive_scope
+    features: [TLC-FC-05-DYNAMICS-002, TLC-FC-05-DYNAMICS-003]
+    behavior:
+      - preserve stochastic notation and stochastic classification metadata
+      - do not infer distribution, covariance, filtration, process type, integration convention, or seed
+    factorization_allowed: true
+    equivalence_scope: metadata_and_opaque_carrier_only
+shared_types:
+  - OpaqueValue
+  - OpaqueExpression
+  - ScientificObjectId
+  - Sequence[T]
+  - Mapping[K,V]
+  - Optional[T]
+shared_validations:
+  - identifier_exists_in_dynamics_inventory
+  - declared_input_shape_matches
+  - source_references_are_preserved
+  - unresolved_are_preserved
+  - opaque_payload_is_not_evaluated
+shared_errors:
+  - unknown_source_identifier
+  - type_shape_mismatch
+error_model:
+  atomicity: no_partial_output_on_validation_error
+  structured_fields: [feature_id, operation_id, error_code, offending_reference]
+common_control_flow:
+  - validate_identifiers
+  - validate_types_and_shapes
+  - construct_opaque_or_unevaluated_representation
+  - attach_traceability
+  - attach_unresolved_and_reservations
+  - validate_postconditions
+causal_order:
+  required: true
+  order: validation_before_construction_before_postcondition_validation
+  scientific_temporal_order_inferred: false
+determinism:
+  structural_construction: deterministic_for_identical_ordered_inputs
+  scientific_evaluation: not_performed
+stochasticity:
+  explicit_in_sources: true
+  executable_sampling_defined: false
+  seed_management_defined: false
+dependencies:
+  internal:
+    root_feature_candidate: TLC-FC-05-DYNAMICS-006
+    dependency_strength: inferred_candidate_or_unresolved
+    execution_dependency_promoted: false
+  external:
+    documentary_or_symbolic_only: [master, disciple, community, huit-dimensions, invariants, theorems, values, relations, lived-experience]
+    execution_dependency_created: false
+optimizations_applied:
+  - normalize common carrier and traceability fields
+  - normalize deterministic validation order
+  - normalize atomic error behavior
+  - extract reusable validation and packaging subgraphs
+  - preserve ordered inputs without reordering
+  - remove no source operation and add no scientific operation
+optimizations_not_applied:
+  - merging state admissible with state blocked locally
+  - converting equations into executable transitions
+  - selecting a solver or discretization
+  - inventing initial or terminal states
+  - assigning stochastic distributions or seeds
