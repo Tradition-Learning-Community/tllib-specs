@@ -1,0 +1,103 @@
+schema_version: 1
+ir_id: TLC-OPT-IR-TLC-FC-05-DYNAMICS-007
+feature_id: TLC-FC-05-DYNAMICS-007
+status: selected_for_dynamics_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-05-DYNAMICS-007/contract.yaml
+source_ir_ref: ir/TLC-FC-05-DYNAMICS-007/ir.prototype.json
+source_test_plan_ref: registry/test-plans/TLC-FC-05-DYNAMICS-007/test-plan.yaml
+source_ir_status: prototype
+source_ir_nature: structural
+finalized_ir_nature: declarative_structural
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+traceability:
+  source_objects: [TLC-SO-DYNAMICS-008]
+  source_relations: [TLC-SR-DYNAMICS-007]
+  scientific_source: maths/05-dynamics.md
+  source_lines: 62-70
+inputs:
+  - {name: source_expression, type: OpaqueExpression}
+  - {name: classification_hint, type: "Optional[OpaqueTag]"}
+outputs:
+  - {name: candidate, type: UnclassifiedStateEvolutionNode}
+types:
+  opaque: [OpaqueExpression, OpaqueTag, OpaqueValue]
+  identifiers: [ScientificObjectId, ScientificRelationId]
+  parameterized: ["Optional[T]", "Sequence[T]", "Mapping[K,V]"]
+opaque_values: [source_expression, classification_hint]
+states: []
+state_candidates: []
+unclassified_nodes: [TLC-SO-DYNAMICS-008]
+initial_state: not_defined
+terminal_state: not_defined
+preconditions:
+  - source expression references TLC-SO-DYNAMICS-008 and known source identifiers
+  - source_expression has the OpaqueExpression carrier
+  - classification_hint, when present, has the OpaqueTag carrier
+transition_conditions: []
+operations:
+  - operation_id: OP-007-001
+    kind: preserve_state_or_evolution_expression
+    evaluation: unevaluated
+    behavior: preserve the source expression in an explicitly unclassified node; retain any hint only as non-authoritative metadata
+execution_order:
+  - validate_source_identifier
+  - validate_expression_shape
+  - validate_optional_hint_shape
+  - copy_expression_and_optional_hint_unchanged
+  - construct_unclassified_state_evolution_node
+  - attach_traceability_unresolved_and_reservations
+  - validate_postconditions
+control_flow:
+  kind: linear_with_validation_failure
+  branches:
+    - condition: source expression absent or wrong shape
+      result: error_without_output
+    - condition: optional hint has wrong shape
+      result: error_without_output
+transitions: []
+effects:
+  scientific: none
+  mutation: none
+  structural: create_unclassified_state_evolution_node
+postconditions:
+  - output remains explicitly unclassified
+  - optional hint does not classify the output
+  - expression and hint payloads remain unchanged and source-addressable
+invariants:
+  - TLC-SO-DYNAMICS-008 and TLC-SR-DYNAMICS-007 remain traceable
+  - state-versus-evolution ambiguity remains explicit
+stop_conditions: []
+errors: [unknown_source_identifier, type_shape_mismatch, unresolved_scientific_semantics]
+determinism: deterministic_structure_construction_only
+stochasticity:
+  source_notation_present: true
+  executable_sampling: false
+  semantics_defined: false
+seed_management: not_defined
+dependencies:
+  internal:
+    - {feature_id: TLC-FC-05-DYNAMICS-006, kind: unresolved_definition_boundary, execution_dependency: false}
+  external:
+    - {domain: master, kind: symbolic, execution_dependency: false}
+    - {domain: disciple, kind: symbolic, execution_dependency: false}
+unresolved_propagated: [TLC-UT-DYNAMICS-007, state_vs_evolution_boundary]
+reservations:
+  - classification hint is never scientific authority
+  - no state, evolution, derivative, or transition semantics is inferred
+transformations_applied:
+  - normalized the ambiguous expression into an explicit unclassified carrier
+  - separated metadata hints from authoritative classification
+  - normalized validation and traceability fields
+preservation_obligations:
+  - preserve source expression and optional hint exactly
+  - preserve unclassified status
+  - do not infer state, evolution, transition, or stochastic execution semantics
+algorithm_ref: registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-007/algorithm.yaml
+oracle_ref: registry/oracles/dynamics/TLC-FC-05-DYNAMICS-007/oracle.yaml
+implementation_aptitude:
+  structural_package: ready
+  scientific_execution: not_ready
+  reason: the state-versus-evolution boundary requires targeted scientific review
