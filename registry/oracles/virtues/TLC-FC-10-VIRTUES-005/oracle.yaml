@@ -1,0 +1,47 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-005
+status: selected_for_virtues_implementation_specification
+ir_ref: registry/optimized-ir/virtues/TLC-FC-10-VIRTUES-005/ir.yaml
+algorithm_ref: registry/algorithms/virtues/TLC-FC-10-VIRTUES-005/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-005/test-plan.yaml
+entrypoint: package_developmental_dynamics_rhs
+oracle_kind: symbolic_structural_acceptance
+fixtures:
+  required_source_objects: [TLC-SO-VIRTUES-196, TLC-SO-VIRTUES-199]
+  nominal_artifact: {developmental_rhs: opaque_expression_a, vice_virtue_rhs: opaque_expression_b, parameters: opaque_parameters}
+acceptance_cases:
+  - id: nominal
+    assertions: [accepted is true, entrypoint and source objects are exact, symbolic terms are unchanged]
+  - id: identity_scope_context
+    assertions: [feature identity and symbolic scope are preserved, context remains opaque]
+  - id: symbolic_only
+    assertions: [right-hand-side descriptors are packaged, no integration or trajectory exists]
+  - id: parameter_opacity
+    assertions: [supplied parameters are copied without estimation or defaulting]
+error_cases:
+  - request: wrong feature id
+    expected_error: invalid_feature_id
+  - request: missing either required source object provenance
+    expected_error: missing_provenance
+  - request: numeric integration, parameter completion, score, hierarchy, threshold, weight, or moral decision
+    expected_error: unsupported_scientific_completion_request
+property_tests:
+  - every symbolic token round-trips unchanged
+  - source object order is conserved
+  - no initial condition, time step, solver, duration, or parameter value is invented
+  - no score or ranking is emitted
+metamorphic_tests:
+  - replacing one opaque expression changes only that expression in the result
+  - adding an opaque parameter changes only the copied parameter bundle
+  - adding a reservation changes only reservations
+  - identical requests return identical results
+determinism_test: repeated identical request returns equivalent logical data
+composition_tests:
+  - common validation precedes symbolic packaging
+  - rejected integration requests emit no accepted result
+unresolved_tests:
+  expected: []
+dependency_tests:
+  - no Dynamics-domain execution or solver is invoked
+forbidden_outputs: [numeric trajectory, integration step, parameter estimate, virtue score, hierarchy, comparison]
+acceptance_rule: All symbolic preservation assertions pass and all forbidden outputs are absent.
