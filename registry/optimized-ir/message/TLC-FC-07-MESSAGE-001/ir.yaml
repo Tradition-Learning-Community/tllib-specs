@@ -1,0 +1,44 @@
+schema_version: 1
+feature_id: TLC-FC-07-MESSAGE-001
+status: selected_for_message_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-07-MESSAGE-001/contract.yaml
+source_ir: registry/ir/TLC-FC-07-MESSAGE-001/ir.yaml
+source_test_plan: registry/test-plans/TLC-FC-07-MESSAGE-001/test-plan.yaml
+source_ir_status: prototype_ir_with_reservations
+nature: structural
+inputs:
+  - {name: definition_evidence, type: MessageDefinitionEvidenceSet, content_policy: opaque_candidate_evidence}
+outputs:
+  - {name: message_quadruplet_ast, type: ImmutableMessageQuadrupletAst, status: unevaluated_candidate}
+types:
+  opaque: [OpaqueScientificPayload, OpaqueSourceContext]
+  parameterized: [MessageDefinitionEvidenceSet, ImmutableMessageQuadrupletAst]
+  symbolic: [ImmutableSymbolicAst]
+content_or_reference: preserve TLC-SO-MESSAGE-002, TLC-SO-MESSAGE-003, TLC-SO-MESSAGE-025 and the source formal expression
+opaque_values: [slot_runtime_types, encoding, transport, sender_receiver_interfaces, execution_semantics]
+roles_explicitly_defined: [four_source_named_symbolic_slots, definition_evidence]
+context: source-declared Message quadruplet
+metadata: [feature_id, source_references, object_ids, contextual_relation_ids, candidate_status]
+preconditions: [all three evidence objects and the formal four-slot expression are present]
+operations: [validate_required_identifiers_and_source_references, construct_immutable_four_slot_ast, attach_provenance, verify_postcondition]
+execution_order: [validate, construct, attach_provenance, verify]
+control_flow: fail_on_missing_evidence_or_malformed_four_slot_expression
+transformations_authorized: [identity_preserving_symbolic_ast_construction]
+effects: [create_immutable_structural_result]
+postconditions: [one Message tuple root, exactly four source-named slots, three provenance links]
+invariants: [object_identity_preserved, source_addressability_preserved, non_executable_evidence]
+errors: [MissingDefinitionEvidence, MalformedFourSlotExpression]
+determinism: deterministic_for_identical_ordered_evidence
+dependencies: [TLC-FC-07-MESSAGE-006]
+unresolved_propagated: []
+reservations: [TLC-DUP-MESSAGE-001]
+transformations_applied_to_ir: [normalized_traceability, explicit_preservation_flags, explicit_behavior_separation]
+preservation_obligations: [content, identity, slot_order, provenance, candidate_status]
+algorithm: registry/algorithms/message/TLC-FC-07-MESSAGE-001/algorithm.yaml
+oracle: registry/oracles/message/TLC-FC-07-MESSAGE-001/oracle.yaml
+implementation_aptitude: ready_for_structural_implementation_with_opaque_runtime_slots
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+message_content_invented: false
