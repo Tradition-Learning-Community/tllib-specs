@@ -1,0 +1,46 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-006
+status: selected_for_virtues_implementation_specification
+ir_ref: registry/optimized-ir/virtues/TLC-FC-10-VIRTUES-006/ir.yaml
+algorithm_ref: registry/algorithms/virtues/TLC-FC-10-VIRTUES-006/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-006/test-plan.yaml
+entrypoint: register_virtue_equation_forms
+oracle_kind: declarative_structural_acceptance
+fixtures:
+  required_source_objects: [TLC-SO-VIRTUES-070, TLC-SO-VIRTUES-194, TLC-SO-VIRTUES-195, TLC-SO-VIRTUES-197, TLC-SO-VIRTUES-198]
+  nominal_artifact: {forms: [opaque_form_a, opaque_form_b], free_symbols: [opaque_symbol], operators: [opaque_operator], duplicate_candidates: [[opaque_a, opaque_b]]}
+acceptance_cases:
+  - id: nominal
+    assertions: [accepted is true, entrypoint and source objects are exact, all supplied structures are preserved]
+  - id: forms_and_symbols
+    assertions: [forms and free symbols are unchanged and remain ordered]
+  - id: opaque_operators
+    assertions: [operators are copied without interpretation]
+  - id: candidate_links
+    assertions: [duplicate-candidate links are preserved without merge or equivalence assertion]
+error_cases:
+  - request: wrong feature id
+    expected_error: invalid_feature_id
+  - request: incomplete source provenance
+    expected_error: missing_provenance
+  - request: solve forms, rank them, merge candidates, assert equivalence, or complete formulas
+    expected_error: unsupported_scientific_completion_request
+property_tests:
+  - object identity and notation are conserved
+  - duplicate candidate never becomes identity or scientific equivalence
+  - no formula result, score, or order is emitted
+metamorphic_tests:
+  - adding an opaque free symbol changes only the copied free-symbol list
+  - replacing an operator changes only that copied operator
+  - adding a candidate link does not alter either endpoint identity
+  - identical requests return identical results
+determinism_test: repeated identical request returns equivalent logical data
+composition_tests:
+  - common validation precedes registration
+  - rejected solving or merging requests emit no accepted result
+unresolved_tests:
+  expected: []
+dependency_tests:
+  - no equation solver or external domain execution is invoked
+forbidden_outputs: [equation solution, scientific merge, equivalence assertion, ranking, virtue score, invented operator semantics]
+acceptance_rule: All structural preservation assertions pass and all forbidden outputs are absent.
