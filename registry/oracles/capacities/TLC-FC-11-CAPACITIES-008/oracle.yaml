@@ -1,0 +1,25 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-008
+oracle_id: CAP-ORACLE-008
+status: selected_for_capacities_implementation_specification
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-008/test-plan.yaml
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-008/algorithm.yaml
+exact_result_available: false
+oracle_basis: eight-node equation descriptor, order, indexes, manifestation representation and non-evaluation
+acceptance_tests:
+  - id: nominal_descriptor
+    expect: {type: CapacityPrototypeDescriptor, object_count: 8, manifestation_object: TLC-SO-CAPACITIES-094, manifestation_observed: false}
+  - {id: missing_object, mutation: omit object, expect_error: MissingCoveredObject}
+  - {id: duplicate_object, mutation: repeat object, expect_error: DuplicateCoveredObject}
+  - {id: missing_provenance, mutation: omit source reference, expect_error: MissingSourceReference}
+  - {id: equation_guard, request: evaluate any equation, expect_error: ScientificEvaluationRequested}
+  - {id: manifestation_guard, request: infer behavior from object 094, expect_error: ScientificEvaluationRequested}
+properties: {identity_conservation: true, scope_conservation: true, context_provenance_conservation: true, opaque_expression_conservation: true, deterministic_for_identical_inputs: true}
+metamorphic_tests:
+  - repeated construction yields equivalent eight-node projection
+  - opaque payload changes do not trigger formula parsing or execution
+  - ninth object fails exact-set validation
+composition_tests: [all object ids remain independently queryable]
+dependency_tests: [no metric, observer, values, virtues or collective engine invoked]
+forbidden_observations: [metric value, normalized output, behavior observation, development result, collective potential, score]
+pass_condition: all tests pass with eight expressions unevaluated
