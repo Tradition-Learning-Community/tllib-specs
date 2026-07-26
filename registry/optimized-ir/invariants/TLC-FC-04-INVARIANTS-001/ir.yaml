@@ -1,0 +1,135 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-001
+domain: invariants
+status: selected_for_invariants_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-001/contract.yaml
+source_contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-001-001
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-001/ir.prototype.json
+source_ir_id: TLC-IR-TLC-FC-04-INVARIANTS-001-PROTOTYPE-001
+source_test_plan_ref: ir/TLC-FC-04-INVARIANTS-001/test-plan.yaml
+source_ir_raw_status: prototype_ir_with_reservations
+source_catalogue_status: retained_with_reservations
+nature: declarative_structural
+invariant_referenced:
+  concept: admissibility_and_rupture_axioms
+  source_object_ids:
+  - TLC-SO-INVARIANTS-010
+  - TLC-SO-INVARIANTS-032
+  - TLC-SO-INVARIANTS-033
+  - TLC-SO-INVARIANTS-046
+scope: master_and_disciple_source_axioms
+inputs:
+- id: IR-IN-001-SPECIALIZED
+  type: AdmissibilityAxiomRecord[]
+  required: true
+outputs:
+- id: IR-OUT-001-SPECIALIZED
+  type: ConstraintSet
+  immutable: true
+  observable_effect: returns exactly one entry per supplied covered axiom ID with source order and references retained
+types:
+  input_record: AdmissibilityAxiomRecord
+  output_collection: ConstraintSet
+  identifier: EvidenceIdentifier
+  source_reference: SourceReference
+  preservation: PreservationEnvelope
+opaque_values:
+- OpaqueSourceStatement
+- OpaqueScientificTruthConditions
+preconditions:
+- id: PRE-INVARIANTS-001-SPECIALIZED
+  statement: every record has a unique covered axiom ID and a source reference
+conditions_of_application:
+- every axiom ID belongs to the four source-covered IDs
+- source references are present
+- scientific truth evaluation is not requested
+operations:
+- id: INV001-OP-VALIDATE
+  name: validate_admissibility_records
+  effect: validate identity uniqueness, coverage, and source references
+- id: INV001-OP-CONSTRUCT
+  name: construct_constraint_set
+  effect: copy each validated record into an immutable entry in source order
+- id: INV001-OP-PRESERVE
+  name: attach_preservation_envelope
+  effect: retain source status, references, assumptions, reservations, and opaque values
+execution_order:
+- INV001-OP-VALIDATE
+- INV001-OP-CONSTRUCT
+- INV001-OP-PRESERVE
+control_flow:
+- if a duplicate axiom ID is found, fail with DuplicateAxiomId
+- if an axiom ID is outside source coverage, fail with UnknownAxiomId
+- if scientific evaluation is requested, fail with ScientificEvaluationProhibited
+- otherwise construct, freeze, verify postconditions, and return
+state_before:
+  value: caller-owned ordered axiom records
+  mutated: false
+state_after:
+  value: immutable ConstraintSet with one entry per validated record
+  input_mutated: false
+effects:
+  external_side_effects: []
+  scientific_evaluation: prohibited
+postconditions:
+- output cardinality equals validated input cardinality
+- each input axiom ID occurs exactly once
+- source order and source references are unchanged
+- catalogue status, assumptions, reservations, and opaque content are unchanged
+conditions_of_conservation:
+- identity set equality
+- source-order equality
+- source-reference equality
+- opaque-value exact equality
+- catalogue-status equality
+conditions_of_violation:
+- duplicate covered identity
+- unknown identity
+- missing source reference
+- loss or mutation of source order, references, status, assumptions, reservations, or opaque content
+errors:
+- DuplicateAxiomId
+- UnknownAxiomId
+- MissingSourceReference
+- ScientificEvaluationProhibited
+- PreservationViolation
+determinism:
+  status: deterministic
+  rule: identical ordered records and preservation metadata produce structurally equal outputs
+dependencies:
+  internal_structural:
+  - TLC-FC-04-INVARIANTS-008
+  documentary:
+  - TLC-INV-DEP-MASTER-001
+  - TLC-INV-DEP-DISCIPLE-001
+  - TLC-INV-DEP-DYNAMICS-001
+  scientific:
+  - maths/04-invariants.md
+  execution: []
+unresolved_propagated: []
+provisional_assumptions_propagated:
+- TLC-EA-INVARIANTS-001-001
+reservations:
+- axiom bodies may remain opaque source statements
+- no concrete runtime type or truth evaluator is supplied
+- source catalogue status is preserved without scientific promotion
+transformations_applied:
+- common traceability envelope
+- normalized validation-before-construction order
+- shared typed preservation errors
+- explicit immutable output
+obligations_of_preservation:
+- preserve four source object IDs and relations
+- preserve all source references and order
+- never evaluate axiom truth
+algorithm_ref: registry/algorithms/invariants/TLC-FC-04-INVARIANTS-001/algorithm.yaml
+oracle_ref: registry/oracles/invariants/TLC-FC-04-INVARIANTS-001/oracle.yaml
+implementation_aptitude:
+  structural_implementation: ready
+  acceptance_tests: ready
+  scientific_evaluation: external_evaluator_required
+  production_scientific_execution: not_ready
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
