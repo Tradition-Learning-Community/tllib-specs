@@ -1,0 +1,34 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-002
+oracle_id: CAP-ORACLE-002
+status: selected_for_capacities_implementation_specification
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-002/test-plan.yaml
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-002/algorithm.yaml
+exact_result_available: false
+oracle_basis: AST shape, order, symbols, provenance, blocker and non-evaluation behavior
+acceptance_tests:
+  - id: nominal_ast
+    expect: {type: CapacityConstraintAst, root_order: [TLC-SO-CAPACITIES-043, TLC-SO-CAPACITIES-090], blocker: scientific decision required}
+  - {id: missing_object, mutation: omit object, expect_error: MissingCoveredObject}
+  - {id: unexpected_object, mutation: add object, expect_error: UnexpectedCoveredObject}
+  - {id: order_mismatch, mutation: reverse objects, expect_error: ObjectOrderMismatch}
+  - {id: missing_symbol_entry, mutation: omit symbol-table key, expect_error: MissingSymbolTableEntry}
+  - {id: missing_provenance, mutation: omit source reference, expect_error: MissingSourceReference}
+  - {id: missing_blocker, mutation: omit decision blocker, expect_error: MissingDecisionBlocker}
+  - {id: evaluation_guard, request: solve or optimize mastery constraint, expect_error: ScientificEvaluationRequested}
+properties:
+  identity_conservation: true
+  scope_conservation: true
+  context_provenance_conservation: true
+  symbol_conservation: true
+  unresolved_conservation: true
+  deterministic_for_identical_inputs: true
+metamorphic_tests:
+  - changing opaque payload internals leaves structural projection unchanged
+  - repeating construction yields equivalent AST projection
+  - changing blocker text causes validation failure
+composition_tests:
+  - registry lookup returns the guarded AST without evaluating it
+dependency_tests: [no external execution dependency]
+forbidden_observations: [truth value, satisfiability, mastery score, optimization result, generated threshold]
+pass_condition: all tests pass and scientific decision required remains unresolved
