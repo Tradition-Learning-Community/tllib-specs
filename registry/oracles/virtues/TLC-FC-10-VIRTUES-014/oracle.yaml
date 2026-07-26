@@ -1,0 +1,47 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-014
+status: selected_for_virtues_implementation_specification
+ir_ref: registry/optimized-ir/virtues/TLC-FC-10-VIRTUES-014/ir.yaml
+algorithm_ref: registry/algorithms/virtues/TLC-FC-10-VIRTUES-014/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-014/test-plan.yaml
+entrypoint: map_contextual_virtue_relations
+oracle_kind: contextual_relation_acceptance
+fixtures:
+  required_source_objects: [TLC-SO-VIRTUES-013, TLC-SO-VIRTUES-020, TLC-SO-VIRTUES-054, TLC-SO-VIRTUES-093, TLC-SO-VIRTUES-116]
+  nominal_artifact: {relations: [{left: opaque_endpoint_a, label: opaque_relation, right: opaque_endpoint_b, context: opaque_context}]}
+acceptance_cases:
+  - id: nominal
+    assertions: [accepted is true, entrypoint and source objects are exact, relation map is preserved]
+  - id: endpoint_identity
+    assertions: [endpoint tokens are copied exactly and not resolved]
+  - id: scope_context
+    assertions: [contextual relation scope and opaque context are unchanged]
+  - id: relation_cardinality
+    assertions: [the number and supplied order of claims are preserved]
+error_cases:
+  - request: wrong feature id
+    expected_error: invalid_feature_id
+  - request: incomplete source provenance
+    expected_error: missing_provenance
+  - request: infer endpoint identity or type, execute external relation, compare, score, rank, or issue moral decision
+    expected_error: unsupported_scientific_completion_request
+property_tests:
+  - endpoints, labels, context, and relation order round-trip unchanged
+  - lexical similarity does not create endpoint identity or type equivalence
+  - documentary references do not become execution dependencies
+  - no comparison, score, hierarchy, or relation absent from the input is emitted
+metamorphic_tests:
+  - appending a supplied relation appends only that relation
+  - replacing one endpoint changes only that endpoint in the copied claim
+  - adding a reservation changes only reservations
+  - identical requests return identical results
+determinism_test: repeated identical request returns equivalent logical data
+composition_tests:
+  - common validation precedes relation mapping
+  - rejected endpoint-resolution requests emit no accepted result
+unresolved_tests:
+  expected: []
+dependency_tests:
+  - no Master, Disciple, Community, Message, Principle, Value, Practice, or Relations execution is invoked
+forbidden_outputs: [resolved endpoint, inferred identity, inferred type equivalence, external execution dependency, virtue score, comparison, ranking]
+acceptance_rule: Contextual relation preservation passes and all forbidden outputs are absent.
