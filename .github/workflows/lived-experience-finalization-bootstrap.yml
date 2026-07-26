@@ -1,0 +1,1257 @@
+name: Lived Experience finalization bootstrap
+
+on:
+  push:
+    branches:
+      - phase4/lived-experience-domain-finalization-001
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    if: github.event.head_commit.message == 'chore(lived-experience): bootstrap domain finalization'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: phase4/lived-experience-domain-finalization-001
+          fetch-depth: 0
+
+      - name: Install YAML support
+        run: python -m pip install --disable-pip-version-check pyyaml
+
+      - name: Generate Lived Experience specification package
+        env:
+          TLC_BASE_COMMIT: c34d40713bf444d38f92f76e1c6239ee596d5a18
+          TLC_WORKFLOW_RUN_ID: ${{ github.run_id }}
+        run: |
+          cat > /tmp/generate_lived_experience.py <<'PY'
+          from __future__ import annotations
+
+          import hashlib
+          import json
+          import os
+          import subprocess
+          from pathlib import Path
+          from typing import Any
+
+          import yaml
+
+          ROOT = Path.cwd()
+          BASE = os.environ["TLC_BASE_COMMIT"]
+          RUN_ID = os.environ.get("TLC_WORKFLOW_RUN_ID", "unknown")
+          DOMAIN = "lived-experience"
+          EXPECTED = [
+              "TLC-FC-14-LIVED-EXPERIENCE-001",
+              "TLC-FC-14-LIVED-EXPERIENCE-002",
+              "TLC-FC-14-LIVED-EXPERIENCE-004",
+              "TLC-FC-14-LIVED-EXPERIENCE-005",
+              "TLC-FC-14-LIVED-EXPERIENCE-006",
+              "TLC-FC-14-LIVED-EXPERIENCE-007",
+              "TLC-FC-14-LIVED-EXPERIENCE-008",
+              "TLC-FC-14-LIVED-EXPERIENCE-009",
+              "TLC-FC-14-LIVED-EXPERIENCE-010",
+              "TLC-FC-14-LIVED-EXPERIENCE-011",
+              "TLC-FC-14-LIVED-EXPERIENCE-012",
+              "TLC-FC-14-LIVED-EXPERIENCE-013",
+          ]
+          BLOCKED = set(EXPECTED) - {
+              "TLC-FC-14-LIVED-EXPERIENCE-005",
+              "TLC-FC-14-LIVED-EXPERIENCE-009",
+              "TLC-FC-14-LIVED-EXPERIENCE-011",
+          }
+          SCIENTIFIC_REQUESTS = [
+              "numeric_scoring",
+              "threshold_evaluation",
+              "time_evolution",
+              "event_chronology_inference",
+              "synergy_evaluation",
+              "metric_evaluation",
+              "probability_evaluation",
+              "causal_effect",
+              "psychological_interpretation",
+              "scientific_resolution",
+          ]
+
+          def load_yaml(path: str) -> dict[str, Any]:
+              data = yaml.safe_load((ROOT / path).read_text(encoding="utf-8"))
+              if not isinstance(data, dict):
+                  raise ValueError(f"Expected mapping in {path}")
+              return data
+
+          def write_yaml(path: str, data: dict[str, Any]) -> None:
+              target = ROOT / path
+              target.parent.mkdir(parents=True, exist_ok=True)
+              target.write_text(
+                  yaml.safe_dump(data, allow_unicode=True, sort_keys=False, width=110),
+                  encoding="utf-8",
+              )
+
+          def write_text(path: str, content: str) -> None:
+              target = ROOT / path
+              target.parent.mkdir(parents=True, exist_ok=True)
+              target.write_text(content.rstrip() + "\n", encoding="utf-8")
+
+          def git_blob(path: str) -> str:
+              return subprocess.check_output(["git", "hash-object", path], text=True).strip()
+
+          def sha256(path: str) -> str:
+              return hashlib.sha256((ROOT / path).read_bytes()).hexdigest()
+
+          matrix = load_yaml("registry/global-reconciliation/domain-feature-matrix.yaml")
+          rows = [row for row in matrix.get("rows", []) if row.get("domain") == DOMAIN]
+          population = [row["feature_id"] for row in rows]
+          if population != EXPECTED:
+              raise SystemExit(f"Unexpected population: {population}")
+
+          production_plan = load_yaml("registry/domain-progress/lived-experience/contract-production-plan.yaml")
+          plan_by_feature = {item["feature_id"]: item for item in production_plan.get("plans", [])}
+          records: list[dict[str, Any]] = []
+          source_hashes: list[dict[str, str]] = []
+
+          for row in rows:
+              feature_id = row["feature_id"]
+              contract_path = row["contract_ref"]
+              source_ir_path = row["ir_registry_ref"]
+              test_plan_path = row["test_plan_ref"]
+              external_ir_path = row.get("ir_artifact_ref")
+              contract = load_yaml(contract_path)
+              source_ir = load_yaml(source_ir_path)
+              test_plan = load_yaml(test_plan_path)
+              plan = plan_by_feature[feature_id]
+              covered_objects = contract.get("covered_objects", []) or []
+              object_ids = [item["object_id"] for item in covered_objects]
+              source_refs = contract.get("source_references", []) or []
+              sections = []
+              for ref in source_refs:
+                  section = ref.get("section") or "unspecified_source_section"
+                  span = f"{ref.get('start_line')}-{ref.get('end_line')}"
+                  marker = {"section": section, "source_path": ref.get("source_path"), "line_span": span}
+                  if marker not in sections:
+                      sections.append(marker)
+              declared_relations = list(contract.get("covered_relations", []) or []) + list(
+                  contract.get("contextual_relations", []) or []
+              )
+              raw_status = row.get("selection_status")
+              source_ir_kind = source_ir.get("ir_kind")
+              propagated_unresolved = list(source_ir.get("propagated_unresolved", []) or [])
+              reservations = list(source_ir.get("propagated_reservations", []) or [])
+              if feature_id == "TLC-FC-14-LIVED-EXPERIENCE-005":
+                  for item in ["UNRES-N", "UNRES-EXPERIENCE-TYPE", "UNRES-SIGMA", "UNRES-SYNERGY"]:
+                      if item not in propagated_unresolved:
+                          propagated_unresolved.append(item)
+              blocked = feature_id in BLOCKED
+              final_ir_path = f"registry/optimized-ir/lived-experience/{feature_id}/ir.yaml"
+              algorithm_path = f"registry/algorithms/lived-experience/{feature_id}/algorithm.yaml"
+              oracle_path = f"registry/oracles/lived-experience/{feature_id}/oracle.yaml"
+              object_records = []
+              for obj in covered_objects:
+                  object_records.append(
+                      {
+                          "object_id": obj.get("object_id"),
+                          "canonical_name": obj.get("canonical_name"),
+                          "object_type": obj.get("object_type"),
+                          "source_status": obj.get("status"),
+                          "symbols": obj.get("symbols", []) or [],
+                          "source_statement": obj.get("source_statement"),
+                      }
+                  )
+
+              final_ir = {
+                  "schema_version": 1,
+                  "status": "selected_for_lived_experience_implementation_specification",
+                  "feature_id": feature_id,
+                  "source_contract": {"path": contract_path, "contract_id": contract.get("contract_id")},
+                  "source_ir": {
+                      "path": source_ir_path,
+                      "ir_id": source_ir.get("ir_id"),
+                      "raw_status": raw_status,
+                      "raw_ir_kind": source_ir_kind,
+                      "external_artifact_path": external_ir_path if external_ir_path != source_ir_path else None,
+                  },
+                  "source_test_plan": {"path": test_plan_path, "test_plan_id": test_plan.get("test_plan_id")},
+                  "ir_nature": "declarative",
+                  "experience": {
+                      "representation": "ordered_external_scientific_object_references",
+                      "ordered_object_ids": object_ids,
+                      "objects": object_records,
+                      "scientific_value": "opaque_not_evaluated",
+                  },
+                  "identity": {
+                      "feature_id": feature_id,
+                      "ordered_object_ids": object_ids,
+                      "identity_rule": "feature_id and ordered covered object identifiers are conserved exactly",
+                  },
+                  "scope": {
+                      "contract_scope": contract.get("scope") or "exactly_the_covered_source_objects",
+                      "source_sections": sections,
+                      "boundary_status": plan.get("classification"),
+                  },
+                  "context": {
+                      "declared_source_context": sections,
+                      "runtime_context_schema": None,
+                      "status": "descriptive_scope_only",
+                  },
+                  "actors_explicitly_defined": [],
+                  "inputs": contract.get("inputs", []) or [],
+                  "outputs": contract.get("outputs", []) or [],
+                  "types": {
+                      "contract_types": contract.get("types", {}) or {},
+                      "opaque": source_ir.get("opaque_types", []) or [],
+                      "parameterized": source_ir.get("parameterized_types", []) or [],
+                      "symbolic": source_ir.get("symbolic_types", []) or [],
+                  },
+                  "opaque_values": [
+                      "object_payloads",
+                      "source_statements",
+                      "unevaluated_symbols_and_expressions",
+                      "unresolved_scientific_values",
+                  ],
+                  "preconditions": contract.get("preconditions", []) or [],
+                  "conditions_of_application": contract.get("preconditions", []) or [],
+                  "events_explicitly_defined": [],
+                  "states_explicitly_defined": [],
+                  "order": {
+                      "covered_object_order": object_ids,
+                      "temporal_order": [],
+                      "temporal_order_status": "not_declared_by_selected_contract_or_ir",
+                  },
+                  "operations": source_ir.get("operations", []) or [],
+                  "control_flow": source_ir.get("operation_sequence", []) or [],
+                  "transitions_explicitly_defined": [],
+                  "observations_explicitly_defined": [],
+                  "perceptions_explicitly_defined": [],
+                  "interpretations_explicitly_defined": [],
+                  "results_explicitly_defined": [],
+                  "effects_explicitly_defined": [],
+                  "relations_explicitly_defined": declared_relations,
+                  "postconditions": contract.get("postconditions", []) or [],
+                  "invariants": contract.get("explicitly_sourced_invariants", source_ir.get("invariants", [])) or [],
+                  "errors": contract.get("errors", []) or [],
+                  "determinism": {
+                      "structural_descriptor": source_ir.get("determinism_status"),
+                      "scientific_operation": (contract.get("behavior", {}) or {}).get("determinism", {}).get("status", "not_declared"),
+                  },
+                  "dependencies": {
+                      "documentary": [contract_path, source_ir_path, test_plan_path, "maths/14-lived-experience.md"],
+                      "scientific_reconciliation": plan.get("required_external_reconciliation", []) or [],
+                      "execution": [],
+                      "source_declared": contract.get("dependencies", {}) or {},
+                  },
+                  "unresolved_propagated": propagated_unresolved,
+                  "domain_unresolved_registry": "registry/scientific-objects/lived-experience/unresolved-terms.yaml",
+                  "reservations": reservations,
+                  "undefined_behaviors": contract.get("undefined_behaviors", []) or [],
+                  "transformations_applied_to_ir": [
+                      "normalized_field_order",
+                      "explicit_semantic_absence_slots",
+                      "normalized_traceability_links",
+                      "shared_structural_error_envelope",
+                      "no_scientific_operation_added",
+                  ],
+                  "preservation_obligations": [
+                      "preserve feature identity",
+                      "preserve ordered covered objects",
+                      "preserve source statements and symbols as opaque values",
+                      "preserve source provenance",
+                      "preserve unresolved and reservations",
+                      "reject undeclared scientific evaluation",
+                  ],
+                  "algorithm_ref": algorithm_path,
+                  "oracle_ref": oracle_path,
+                  "implementation_aptitude": {
+                      "structural_descriptor": "ready_for_declarative_descriptor_implementation",
+                      "scientific_execution": "blocked_or_not_authorized_by_sources",
+                      "production_readiness_asserted": False,
+                      "source_raw_readiness_preserved": True,
+                      "local_scientific_blocker": blocked,
+                  },
+                  "source_ir_preserved": True,
+                  "source_contract_preserved": True,
+                  "replaces_source_ir": False,
+                  "scientific_source_modified": False,
+                  "experience_invented": False,
+                  "event_invented": False,
+                  "state_invented": False,
+                  "chronology_invented": False,
+                  "interpretation_invented": False,
+                  "causality_invented": False,
+              }
+              write_yaml(final_ir_path, final_ir)
+
+              entrypoint = source_ir.get("entrypoint") or feature_id.lower().replace("-", "_")
+              pseudocode = "\n".join(
+                  [
+                      f"FUNCTION {entrypoint}(feature_id, object_payloads, provenance):",
+                      f"  REQUIRE feature_id == {feature_id} ELSE RAISE UnknownFeatureId",
+                      f"  REQUIRE supplied object identifiers equal {json.dumps(object_ids)}",
+                      "  REQUIRE every required object appears exactly once ELSE RAISE MissingCoveredObject or DuplicateCoveredObject",
+                      "  REQUIRE every required object has a source reference ELSE RAISE MissingSourceReference",
+                      "  DO NOT inspect or interpret opaque payload internals",
+                      "  BUILD an immutable descriptor from the ordered object identifiers, source statements, symbols, provenance, unresolved and reservations",
+                      "  PRESERVE all source ordering and opaque values exactly",
+                      "  RETURN the descriptor",
+                      "",
+                      "FUNCTION reject_scientific_evaluation_request(request_kind):",
+                      f"  IF request_kind IN {json.dumps(SCIENTIFIC_REQUESTS)}:",
+                      "    RAISE ScientificEvaluationRequested",
+                      "  OTHERWISE delegate only to a separately authorized external component",
+                  ]
+              )
+              algorithm = {
+                  "schema_version": 1,
+                  "feature_id": feature_id,
+                  "status": "selected_for_lived_experience_implementation_specification",
+                  "source_contract_ref": contract_path,
+                  "source_ir_ref": source_ir_path,
+                  "finalized_ir_ref": final_ir_path,
+                  "nature": "structural_declarative_algorithm",
+                  "signature": f"{entrypoint}(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>) -> LivedExperienceDescriptor",
+                  "guard_signature": "reject_scientific_evaluation_request(RequestKind) -> never",
+                  "inputs": contract.get("inputs", []) or [],
+                  "outputs": contract.get("outputs", []) or [],
+                  "validations": [
+                      "feature identifier equals the selected feature",
+                      "covered object identifiers equal the authoritative ordered set",
+                      "each covered object appears exactly once",
+                      "each covered object has provenance",
+                      "no scientific evaluation request is accepted",
+                  ],
+                  "preconditions": contract.get("preconditions", []) or [],
+                  "conditions_of_application": contract.get("preconditions", []) or [],
+                  "ordered_steps": [
+                      "validate feature identity",
+                      "validate ordered object set and uniqueness",
+                      "validate provenance completeness",
+                      "construct immutable descriptor without scientific interpretation",
+                      "propagate unresolved and reservations",
+                      "return descriptor",
+                  ],
+                  "branching": [
+                      {"condition": "wrong feature identifier", "action": "raise UnknownFeatureId"},
+                      {"condition": "missing or duplicate covered object", "action": "raise structural object error"},
+                      {"condition": "missing provenance", "action": "raise MissingSourceReference"},
+                      {"condition": "scientific operation requested", "action": "raise ScientificEvaluationRequested"},
+                  ],
+                  "experience_processing": "read and preserve external scientific object references only",
+                  "identity_validation": {"feature_id": feature_id, "ordered_object_ids": object_ids},
+                  "scope_validation": "accept only the exact contract source objects and source sections",
+                  "context_validation": "preserve source context as provenance; no runtime context semantics inferred",
+                  "actor_processing": "none; no structured actor declaration in the selected contract or IR",
+                  "event_processing": "none; no structured event declaration in the selected contract or IR",
+                  "state_processing": "none; no structured state declaration in the selected contract or IR",
+                  "transitions": [],
+                  "observations": [],
+                  "interpretations": [],
+                  "results_and_effects": [],
+                  "errors": contract.get("errors", []) or [],
+                  "postconditions": contract.get("postconditions", []) or [],
+                  "invariants": contract.get("explicitly_sourced_invariants", []) or [],
+                  "determinism": source_ir.get("determinism_status"),
+                  "edge_cases": [
+                      "empty supplied object collection",
+                      "extra undeclared object",
+                      "duplicate object before map construction",
+                      "missing provenance",
+                      "opaque payload with unknown internal representation",
+                      "unsupported scientific request",
+                  ],
+                  "dependencies": {"execution": [], "documentary": [contract_path, source_ir_path]},
+                  "unresolved_preserved": propagated_unresolved,
+                  "pseudocode": pseudocode,
+                  "forbidden_operations": SCIENTIFIC_REQUESTS,
+              }
+              write_yaml(algorithm_path, algorithm)
+
+              source_cases = test_plan.get("test_cases", []) or []
+              acceptance = [
+                  {
+                      "test_id": "LE-ACC-IDENTITY",
+                      "category": "identity",
+                      "assertion": f"descriptor feature_id equals {feature_id} and ordered object ids equal {object_ids}",
+                  },
+                  {
+                      "test_id": "LE-ACC-PROVENANCE",
+                      "category": "traceability",
+                      "assertion": "each covered object retains its exact source reference",
+                  },
+                  {
+                      "test_id": "LE-ACC-OPAQUE",
+                      "category": "opaque_value_propagation",
+                      "assertion": "opaque payload identities, source statements and symbols are preserved without inspection",
+                  },
+                  {
+                      "test_id": "LE-ACC-UNRESOLVED",
+                      "category": "unresolved_propagation",
+                      "assertion": f"all source unresolved are present: {propagated_unresolved}",
+                  },
+                  {
+                      "test_id": "LE-ACC-NO-INVENTION",
+                      "category": "structural",
+                      "assertion": "actors, events, states, temporal order, transitions, observations, perceptions, interpretations, results, effects and relations remain empty unless sourced",
+                  },
+                  {
+                      "test_id": "LE-ACC-DETERMINISM",
+                      "category": "determinism",
+                      "assertion": "identical structural inputs produce structurally identical descriptors",
+                  },
+                  {
+                      "test_id": "LE-ACC-ROUNDTRIP",
+                      "category": "serialization_round_trip",
+                      "assertion": "lossless serialization and deserialization preserve every field, order, opaque identifier, unresolved and reservation",
+                  },
+                  {
+                      "test_id": "LE-ACC-REJECT-SCIENCE",
+                      "category": "errors",
+                      "assertion": f"each unsupported request is rejected: {SCIENTIFIC_REQUESTS}",
+                  },
+              ]
+              if feature_id == "TLC-FC-14-LIVED-EXPERIENCE-005":
+                  acceptance.extend(
+                      [
+                          {
+                              "test_id": "LE-005-EQUATION-PRESERVED",
+                              "category": "source_expression",
+                              "assertion": "the collective-memory equation is preserved verbatim as an unevaluated expression",
+                          },
+                          {
+                              "test_id": "LE-005-UNRESOLVED-N-SYNERGY",
+                              "category": "unresolved_propagation",
+                              "assertion": "N domain, experience type, sigma and Synergie remain unresolved and prevent scientific evaluation",
+                          },
+                      ]
+                  )
+              if feature_id == "TLC-FC-14-LIVED-EXPERIENCE-004":
+                  acceptance.append(
+                      {
+                          "test_id": "LE-004-NO-TEMPORAL-SOLVER",
+                          "category": "chronology_non_invention",
+                          "assertion": "no timestep, solver, duration, stochastic process realization or trajectory is produced",
+                      }
+                  )
+              if feature_id == "TLC-FC-14-LIVED-EXPERIENCE-010":
+                  acceptance.append(
+                      {
+                          "test_id": "LE-010-NO-METRIC-EVALUATION",
+                          "category": "metric_non_invention",
+                          "assertion": "the three source metric expressions are preserved but no numeric value or division policy is produced",
+                      }
+                  )
+              if feature_id == "TLC-FC-14-LIVED-EXPERIENCE-011":
+                  acceptance.append(
+                      {
+                          "test_id": "LE-011-OBJECT-ORDER",
+                          "category": "order",
+                          "assertion": "object 043 precedes object 051 exactly; this is object inventory order, not temporal order",
+                      }
+                  )
+              if feature_id == "TLC-FC-14-LIVED-EXPERIENCE-012":
+                  acceptance.append(
+                      {
+                          "test_id": "LE-012-SIGNATURES-PRESERVED",
+                          "category": "source_expression",
+                          "assertion": "all five operator signatures remain ordered, opaque and unevaluated",
+                      }
+                  )
+
+              oracle = {
+                  "schema_version": 1,
+                  "feature_id": feature_id,
+                  "status": "selected_for_lived_experience_implementation_specification",
+                  "source_contract_ref": contract_path,
+                  "source_ir_ref": source_ir_path,
+                  "source_test_plan_ref": test_plan_path,
+                  "finalized_ir_ref": final_ir_path,
+                  "algorithm_ref": algorithm_path,
+                  "oracle_kind": "structural_acceptance_oracle_with_scientific_non_invention",
+                  "exact_scientific_result_oracle": "not_available_and_not_invented",
+                  "source_test_cases": source_cases,
+                  "acceptance_tests": acceptance,
+                  "error_expectations": contract.get("errors", []) or [],
+                  "property_tests": [
+                      "identity and ordered covered objects are conserved",
+                      "provenance is total for covered objects",
+                      "source statements and symbols are opaque and unchanged",
+                      "unresolved and reservations are monotonic: none may disappear",
+                      "structural descriptor construction is deterministic",
+                      "lossless serialization round-trip is identity-preserving",
+                  ],
+                  "metamorphic_tests": [
+                      "repeating construction with identical structural inputs yields the same descriptor",
+                      "adding an undeclared object changes success into a structural validation error",
+                      "removing one provenance entry changes success into MissingSourceReference",
+                  ],
+                  "dependency_tests": [
+                      "scientific reconciliation references are documentary/scientific only and create no execution dependency"
+                  ],
+                  "blocked_oracles": test_plan.get("blocked_tests", []) or [],
+                  "non_goals": list(test_plan.get("non_goals", []) or []) + [
+                      "no invented experience instance",
+                      "no invented event or state",
+                      "no invented chronology, duration or ordering",
+                      "no invented observation, perception or interpretation",
+                      "no invented measurement, score, cause or consequence",
+                  ],
+                  "acceptance_gate": "all structural tests pass and every unavailable scientific operation is rejected explicitly",
+              }
+              write_yaml(oracle_path, oracle)
+
+              for source_path in [contract_path, source_ir_path, test_plan_path]:
+                  source_hashes.append(
+                      {"path": source_path, "git_blob_sha": git_blob(source_path), "sha256": sha256(source_path)}
+                  )
+              records.append(
+                  {
+                      "feature_id": feature_id,
+                      "canonical_name": contract.get("canonical_name"),
+                      "source_object_ids": object_ids,
+                      "source_object_types": [obj.get("object_type") for obj in covered_objects],
+                      "raw_selection_status": raw_status,
+                      "source_ir_kind": source_ir_kind,
+                      "source_execution_status": contract.get("execution_status"),
+                      "contract_ref": contract_path,
+                      "source_ir_ref": source_ir_path,
+                      "source_ir_artifact_ref": external_ir_path,
+                      "test_plan_ref": test_plan_path,
+                      "finalized_ir_ref": final_ir_path,
+                      "algorithm_ref": algorithm_path,
+                      "oracle_ref": oracle_path,
+                      "unresolved": propagated_unresolved,
+                      "reservations": reservations,
+                      "local_scientific_blocker": blocked,
+                  }
+              )
+
+          maths_path = "maths/14-lived-experience.md"
+          source_hashes.append({"path": maths_path, "git_blob_sha": git_blob(maths_path), "sha256": sha256(maths_path)})
+          source_hashes = sorted(source_hashes, key=lambda item: item["path"])
+
+          manifest = {
+              "schema_version": 1,
+              "domain_id": DOMAIN,
+              "phase": "phase4_domain_finalization",
+              "status": "implementation_specification_package_complete",
+              "main_head_used": BASE,
+              "branch": "phase4/lived-experience-domain-finalization-001",
+              "authoritative_population_source": "registry/global-reconciliation/domain-feature-matrix.yaml",
+              "baseline_source": "registry/global-reconciliation/current-baseline.yaml",
+              "feature_count": len(records),
+              "features": [record["feature_id"] for record in records],
+              "source_science": maths_path,
+              "source_hashes": source_hashes,
+              "domain_sources": [
+                  "registry/domain-progress/lived-experience/feature-inventory.yaml",
+                  "registry/domain-progress/lived-experience/pattern-analysis.yaml",
+                  "registry/domain-progress/lived-experience/concept-boundaries.yaml",
+                  "registry/domain-progress/lived-experience/historical-artifact-assessment.yaml",
+                  "registry/scientific-objects/lived-experience/unresolved-terms.yaml",
+              ],
+              "artifacts": {
+                  "feature_status": "registry/domain-finalization/lived-experience/feature-status.yaml",
+                  "patterns": "registry/domain-finalization/lived-experience/patterns.yaml",
+                  "module_specification": "registry/domain-finalization/lived-experience/module-specification.yaml",
+                  "implementation_tasks": "registry/domain-finalization/lived-experience/implementation-tasks.yaml",
+                  "decision_required": "registry/domain-finalization/lived-experience/decision-required.yaml",
+                  "report": "reports/domain-finalization/lived-experience/finalization-report.md",
+                  "validator": "tools/domain-finalization/validate_lived_experience_finalization.py",
+              },
+              "per_feature_artifacts": [
+                  {
+                      "feature_id": record["feature_id"],
+                      "ir": record["finalized_ir_ref"],
+                      "algorithm": record["algorithm_ref"],
+                      "oracle": record["oracle_ref"],
+                  }
+                  for record in records
+              ],
+              "constraints": {
+                  "source_contracts_preserved": True,
+                  "source_irs_preserved": True,
+                  "maths_preserved": True,
+                  "other_domains_modified": False,
+                  "global_registry_regenerated": False,
+                  "cpp_produced": False,
+                  "python_bindings_produced": False,
+                  "reference_implementation_produced": False,
+                  "features_rejected": 0,
+              },
+              "validation": {
+                  "github_actions_run_id": RUN_ID,
+                  "validator_command": "python tools/domain-finalization/validate_lived_experience_finalization.py",
+                  "diff_check": "git diff --check",
+                  "commit_is_created_only_after_all_checks_pass": True,
+              },
+          }
+          write_yaml("registry/domain-finalization/lived-experience/manifest.yaml", manifest)
+
+          feature_status = {
+              "schema_version": 1,
+              "domain_id": DOMAIN,
+              "authoritative_feature_count": len(records),
+              "status_policy": "raw source statuses are preserved; final selection does not assert scientific or production readiness",
+              "features": [
+                  {
+                      **record,
+                      "final_status": "selected_for_lived_experience_implementation_specification",
+                      "structural_descriptor_specification": "complete",
+                      "scientific_execution": "not_authorized_or_blocked",
+                      "feature_rejected": False,
+                  }
+                  for record in records
+              ],
+          }
+          write_yaml("registry/domain-finalization/lived-experience/feature-status.yaml", feature_status)
+
+          patterns = {
+              "schema_version": 1,
+              "domain_id": DOMAIN,
+              "analysis_scope": "selected source IRs and contracts only",
+              "distinctions": {
+                  "resemblance": "features may share vocabulary without shared behavior",
+                  "textual_duplication": "descriptor boilerplate is repeated in source artifacts",
+                  "structural_duplication": "validation, provenance and rejection graphs are isomorphic",
+                  "same_representation_schema": "all selected IRs use an ordered opaque-object descriptor envelope",
+                  "scientific_equivalence": "not demonstrated for any pair of active features",
+              },
+              "shared_patterns": [
+                  {
+                      "pattern_id": "LE-PAT-001",
+                      "name": "opaque_scientific_object_reference",
+                      "applied": True,
+                      "preserves": ["identity", "source statement", "symbols", "provenance", "unresolved"],
+                  },
+                  {
+                      "pattern_id": "LE-PAT-002",
+                      "name": "ordered_feature_descriptor",
+                      "applied": True,
+                      "note": "covered-object order only; never interpreted as temporal order",
+                  },
+                  {
+                      "pattern_id": "LE-PAT-003",
+                      "name": "common_structural_validation",
+                      "applied": True,
+                      "checks": ["feature id", "exact object set", "uniqueness", "provenance completeness"],
+                  },
+                  {
+                      "pattern_id": "LE-PAT-004",
+                      "name": "structured_rejection_of_unauthorized_science",
+                      "applied": True,
+                      "requests": SCIENTIFIC_REQUESTS,
+                  },
+                  {
+                      "pattern_id": "LE-PAT-005",
+                      "name": "monotonic_unresolved_propagation",
+                      "applied": True,
+                      "rule": "normalization may add traceability but may not remove an unresolved or reservation",
+                  },
+              ],
+              "source_level_patterns_not_promoted_to_execution": [
+                  {"name": "lived_experience_pair", "evidence": "LE=(T,H)", "reason": "not selected as an executable feature contract"},
+                  {"name": "temporal_trace", "evidence": "event triplet (t,s,a)", "reason": "time, state and action schemas unresolved"},
+                  {"name": "holistic_interpretation", "evidence": "H maps traces to meaning", "reason": "executable representation unspecified"},
+                  {"name": "synthesis", "evidence": "Sigma extracts a core", "reason": "algorithm and invariant structure unspecified"},
+              ],
+              "optimizations_applied": [
+                  "normalized common descriptor envelope",
+                  "normalized traceability and error representation",
+                  "shared structural validation contract",
+                  "explicit empty semantic slots instead of inferred semantics",
+                  "consistent IR-to-algorithm-to-oracle links",
+                  "source-specific object lists and expressions retained",
+              ],
+              "optimizations_rejected": [
+                  "scientific feature merging",
+                  "metric evaluation unification",
+                  "operator execution unification",
+                  "temporal sequence synthesis",
+                  "causal or psychological model extraction",
+                  "promotion of historical feature 005 pilot",
+              ],
+              "dependency_classification": {
+                  "documentary": ["contracts", "source IRs", "test plans", "maths/14-lived-experience.md"],
+                  "scientific_reconciliation": ["capacities", "competencies", "practice"],
+                  "execution": [],
+              },
+          }
+          write_yaml("registry/domain-finalization/lived-experience/patterns.yaml", patterns)
+
+          module_spec = {
+              "schema_version": 1,
+              "module_id": "tllib.lived_experience",
+              "status": "selected_for_lived_experience_implementation_specification",
+              "feature_count": len(records),
+              "features": [
+                  {
+                      "feature_id": record["feature_id"],
+                      "canonical_name": record["canonical_name"],
+                      "public_operation": f"{record['feature_id'].split('-')[-1]}_descriptor",
+                      "ordered_source_object_ids": record["source_object_ids"],
+                      "finalized_ir_ref": record["finalized_ir_ref"],
+                  }
+                  for record in records
+              ],
+              "public_operations": [
+                  "build_descriptor(feature_id, object_payloads, provenance)",
+                  "validate_descriptor(descriptor)",
+                  "serialize_descriptor_losslessly(descriptor)",
+                  "deserialize_descriptor_losslessly(serialized_descriptor)",
+                  "structurally_equal(left, right)",
+                  "reject_unauthorized_scientific_request(request_kind)",
+              ],
+              "internal_operations": [
+                  "validate_feature_identity",
+                  "validate_exact_ordered_object_set",
+                  "validate_unique_object_entries",
+                  "validate_provenance_completeness",
+                  "propagate_opaque_values",
+                  "propagate_unresolved_and_reservations",
+              ],
+              "shared_types": {
+                  "FeatureId": "string constrained to an active Lived Experience feature id",
+                  "ObjectId": "opaque scientific object identifier",
+                  "OpaqueScientificObject": "caller-supplied value never interpreted by this module",
+                  "SourceReference": "source path, line span, commit and section",
+                  "LivedExperienceDescriptor": "immutable ordered feature record",
+                  "UnevaluatedSymbol": "source symbol preserved as text",
+                  "UnevaluatedExpression": "source expression preserved as text",
+                  "UnresolvedReference": "opaque unresolved identifier or registry reference",
+              },
+              "source_level_lived_experience_types": {
+                  "status": "documentary_only_not_promoted_to_executable_variants",
+                  "types": [
+                      "expérience d’immersion",
+                      "expérience de pratique",
+                      "expérience d’épreuve",
+                      "expérience réflexive",
+                      "expérience de transmission",
+                  ],
+                  "source_ref": "maths/14-lived-experience.md sections 6.1-6.5",
+              },
+              "identity_representation": "feature id plus exact ordered covered scientific object ids",
+              "scopes": "exact source-object scope per feature; no cross-feature scientific scope inferred",
+              "contexts": "source sections and provenance only; no runtime context model inferred",
+              "actors_explicitly_defined": [],
+              "events_explicitly_defined": [],
+              "states_explicitly_defined": [],
+              "sequences_explicitly_defined": [],
+              "transitions_explicitly_defined": [],
+              "observations_explicitly_defined": [],
+              "perceptions_explicitly_defined": [],
+              "interpretations_explicitly_defined": [],
+              "results_and_effects_explicitly_defined": [],
+              "relations_to_other_tl_objects": [],
+              "opaque_values": ["scientific objects", "symbols", "expressions", "payload internals", "unresolved"],
+              "common_errors": [
+                  "UnknownFeatureId",
+                  "MissingCoveredObject",
+                  "DuplicateCoveredObject",
+                  "MissingSourceReference",
+                  "ScientificEvaluationRequested",
+                  "BlockedScientificDecision",
+              ],
+              "shared_patterns_ref": "registry/domain-finalization/lived-experience/patterns.yaml",
+              "internal_dependencies": ["descriptor validation", "lossless serialization", "structured errors"],
+              "external_dependencies": {
+                  "documentary": ["maths/14-lived-experience.md"],
+                  "scientific_reconciliation": ["capacities", "competencies", "practice"],
+                  "execution": [],
+              },
+              "composition_rules": [
+                  "composition preserves each feature identity and ordered object list",
+                  "composition never merges source expressions or unresolved values",
+                  "documentary/scientific dependencies never become execution dependencies automatically",
+                  "structural equality is not scientific equivalence",
+              ],
+              "order_rules": [
+                  "preserve covered-object inventory order",
+                  "do not infer temporal order from inventory order",
+                  "no event chronology is available in the selected feature contracts",
+              ],
+              "determinism_rules": [
+                  "structural descriptor construction is deterministic for identical structural inputs",
+                  "scientific determinism is not asserted",
+              ],
+              "unresolved": {
+                  "registry_ref": "registry/scientific-objects/lived-experience/unresolved-terms.yaml",
+                  "count_preserved": 43,
+                  "feature_specific": {record["feature_id"]: record["unresolved"] for record in records},
+              },
+              "behavior_boundaries": {
+                  "represent_lived_experience": "supported only as selected object references and opaque descriptors",
+                  "validate_lived_experience": "supported structurally",
+                  "reference_lived_experience": "supported through source object identifiers and provenance",
+                  "associate_context": "source provenance only; runtime context semantics absent",
+                  "record_event": "not supported by selected contracts",
+                  "record_state": "not supported by selected contracts",
+                  "order_events": "not supported; no selected temporal schema",
+                  "observe_experience": "external_observer_required",
+                  "interpret_experience": "external_interpreter_required",
+                  "compare_experiences": "structural comparison only; scientific comparison unsupported",
+                  "establish_causality": "implementation_out_of_scope",
+                  "evolve_experience": "external_temporal_model_required",
+              },
+              "library_interfaces": [
+                  "language-neutral immutable descriptor interface",
+                  "language-neutral validation result and structured error interface",
+                  "lossless serialization interface",
+                  "feature-specific descriptor entrypoints",
+              ],
+              "out_of_scope": SCIENTIFIC_REQUESTS + [
+                  "C++ implementation in this phase",
+                  "Python bindings in this phase",
+                  "reference implementation in this phase",
+              ],
+              "future_tasks_ref": "registry/domain-finalization/lived-experience/implementation-tasks.yaml",
+          }
+          write_yaml("registry/domain-finalization/lived-experience/module-specification.yaml", module_spec)
+
+          common_tasks = [
+              {
+                  "task_id": "LE-IMPL-COMMON-001",
+                  "title": "Implement immutable descriptor and structured errors",
+                  "deliverables": ["shared types", "identity validation", "exact object-set validation", "provenance validation"],
+                  "acceptance": "common structural oracle cases pass for all 12 features",
+                  "non_goals": SCIENTIFIC_REQUESTS,
+              },
+              {
+                  "task_id": "LE-IMPL-COMMON-002",
+                  "title": "Implement lossless descriptor serialization",
+                  "deliverables": ["serializer", "deserializer", "round-trip equality"],
+                  "acceptance": "all fields, ordered objects, opaque identifiers, unresolved and reservations survive round-trip",
+                  "non_goals": ["payload interpretation", "scientific normalization"],
+              },
+              {
+                  "task_id": "LE-IMPL-COMMON-003",
+                  "title": "Implement feature dispatch and rejection guard",
+                  "deliverables": ["12 feature entrypoints", "unsupported scientific request guard"],
+                  "acceptance": "unknown feature and every unauthorized request return the specified structured error",
+                  "non_goals": ["scientific evaluator", "temporal solver", "metric engine"],
+              },
+              {
+                  "task_id": "LE-IMPL-COMMON-004",
+                  "title": "Implement acceptance-test harness",
+                  "deliverables": ["IR-algorithm-oracle conformance tests", "source preservation tests"],
+                  "acceptance": "all 12 per-feature oracle files are executable as test specifications",
+                  "non_goals": ["numerical oracle", "reference implementation"],
+              },
+          ]
+          feature_tasks = []
+          for record in records:
+              feature_tasks.append(
+                  {
+                      "task_id": f"LE-IMPL-{record['feature_id'].split('-')[-1]}",
+                      "feature_id": record["feature_id"],
+                      "title": f"Implement structural descriptor for {record['canonical_name']}",
+                      "inputs": record["source_object_ids"],
+                      "deliverables": [
+                          "feature-specific descriptor entrypoint",
+                          "feature-specific object and provenance validation",
+                          "unresolved and reservation propagation",
+                          "oracle acceptance tests",
+                      ],
+                      "acceptance_refs": [record["finalized_ir_ref"], record["algorithm_ref"], record["oracle_ref"]],
+                      "blocked_scientific_work": record["local_scientific_blocker"],
+                      "non_goals": SCIENTIFIC_REQUESTS,
+                  }
+              )
+          tasks = {
+              "schema_version": 1,
+              "domain_id": DOMAIN,
+              "package_status": "ready_for_future_implementation",
+              "implementation_language": "not_selected_by_this_specification_phase",
+              "common_tasks": common_tasks,
+              "feature_tasks": feature_tasks,
+              "completion_definition": [
+                  "all 12 structural descriptors implemented",
+                  "all per-feature oracles pass",
+                  "source identities, provenance, opaque values, unresolved and reservations preserved",
+                  "no unavailable scientific operation silently implemented",
+              ],
+          }
+          write_yaml("registry/domain-finalization/lived-experience/implementation-tasks.yaml", tasks)
+
+          decisions = [
+              {
+                  "decision_id": "LE-DEC-DOMAIN-001",
+                  "classification": "preserved_as_opaque",
+                  "subject": "43 domain unresolved terms",
+                  "source_ref": "registry/scientific-objects/lived-experience/unresolved-terms.yaml",
+                  "blocks": [],
+                  "does_not_block": ["structural descriptor implementation"],
+              },
+              {
+                  "decision_id": "LE-DEC-DOMAIN-002",
+                  "classification": "non_blocking",
+                  "subject": "external reconciliation with capacities, competencies and practice",
+                  "blocks": ["scientific cross-domain claims"],
+                  "does_not_block": ["standalone descriptor representation and validation"],
+              },
+              {
+                  "decision_id": "LE-DEC-DOMAIN-003",
+                  "classification": "deferred_to_scientific_review",
+                  "subject": "historical duplicate candidate",
+                  "blocks": ["scientific deduplication"],
+                  "does_not_block": ["current authoritative population of 12 features"],
+              },
+          ]
+          for record in records:
+              if record["local_scientific_blocker"]:
+                  decisions.append(
+                      {
+                          "decision_id": f"LE-DEC-{record['feature_id'].split('-')[-1]}-SCIENCE",
+                          "feature_id": record["feature_id"],
+                          "classification": "deferred_to_scientific_review",
+                          "subject": "local scientific classification and execution semantics",
+                          "blocks": ["scientific execution"],
+                          "does_not_block": ["declarative descriptor implementation"],
+                      }
+                  )
+          decisions.extend(
+              [
+                  {
+                      "decision_id": "LE-DEC-005-TYPES",
+                      "feature_id": "TLC-FC-14-LIVED-EXPERIENCE-005",
+                      "classification": "blocking",
+                      "subject": "experience type, finite collection representation and Synergie signature",
+                      "blocks": ["scientific equation execution", "code generation for the equation"],
+                      "does_not_block": ["opaque equation descriptor implementation"],
+                  },
+                  {
+                      "decision_id": "LE-DEC-005-N",
+                      "feature_id": "TLC-FC-14-LIVED-EXPERIENCE-005",
+                      "classification": "blocking",
+                      "subject": "N domain and failure policy for N zero or incompatible operands",
+                      "blocks": ["scientific equation execution", "numeric acceptance oracle"],
+                      "does_not_block": ["opaque equation descriptor implementation"],
+                  },
+              ]
+          )
+          decision_file = {
+              "schema_version": 1,
+              "domain_id": DOMAIN,
+              "package_blockers": [],
+              "real_remaining_blocker_count_for_structural_package": 0,
+              "decisions": decisions,
+              "policy": "a decision blocks closure only when it prevents the structural observable behavior specified in this package",
+          }
+          write_yaml("registry/domain-finalization/lived-experience/decision-required.yaml", decision_file)
+
+          table_rows = []
+          for record in records:
+              table_rows.append(
+                  f"| `{record['feature_id']}` | {record['raw_selection_status']} | {', '.join(record['source_object_ids'])} | complete | complete | complete | {'deferred scientific execution' if record['local_scientific_blocker'] else 'structural only'} |"
+              )
+          report = f"""# Lived Experience domain finalization report
+
+## Baseline and scope
+
+- Main HEAD used: `{BASE}`.
+- Branch: `phase4/lived-experience-domain-finalization-001`.
+- Authoritative population: exactly 12 active features from `registry/global-reconciliation/domain-feature-matrix.yaml`.
+- Scientific source: `maths/14-lived-experience.md`, preserved without modification.
+- GitHub Actions validation run: `{RUN_ID}`. The final commits are pushed only after all validator and diff checks pass.
+
+## Population and deliverables
+
+| Feature | Raw status preserved | Source objects | Finalized IR | Algorithm | Oracle | Scientific execution |
+|---|---|---|---|---|---|---|
+{chr(10).join(table_rows)}
+
+Every active feature now has a source contract, source IR, source test plan, finalized implementation IR, structural algorithm, acceptance oracle and future implementation task.
+
+## Patterns and optimizations
+
+The source artifacts share an ordered opaque-object descriptor schema, exact feature identity, provenance validation, unresolved propagation and structured rejection of unauthorized scientific evaluation. These are structural duplications, not scientific equivalences.
+
+Applied optimizations:
+
+- normalized the descriptor envelope and field ordering;
+- normalized traceability and structured errors;
+- extracted common structural validations;
+- made absent semantic categories explicit instead of inferring them;
+- linked every finalized IR to one algorithm and one oracle;
+- retained every feature-specific object list, symbol, expression, raw status, unresolved and reservation.
+
+Rejected optimizations include scientific merging, metric evaluation, operator execution, temporal synthesis, causal interpretation and automatic promotion of the historical feature 005 pilot.
+
+## Behavioral boundary
+
+The module represents, references and structurally validates selected source objects. It does not invent or execute experiences, actors, events, states, chronology, duration, transitions, observations, perceptions, interpretations, measurements, causes or consequences. Structural equality is not scientific equivalence.
+
+## Remaining decisions
+
+No remaining decision blocks the structural implementation package. Scientific execution remains deferred for the nine locally blocked declarative features. Feature 005 additionally preserves unresolved types, `N`, `sigma` and `Synergie`; these block scientific equation execution and numeric code generation, not opaque descriptor implementation. External reconciliation with capacities, competencies and practice remains scientific/documentary only.
+
+## Validation
+
+The temporary GitHub Actions workflow executes:
+
+1. `python tools/domain-finalization/validate_lived_experience_finalization.py`;
+2. `git diff --check` against `{BASE}`;
+3. changed-path validation;
+4. source blob preservation checks for every contract, source IR, test plan and `maths/14-lived-experience.md`;
+5. absence checks for other domains, global registry changes, C++, Python bindings and reference implementations.
+
+The workflow removes itself before the final push, leaving no temporary workflow, logs, status files, cache or `__pycache__` in the pull-request diff.
+
+## Conclusion
+
+Lived Experience is complete for this phase through the implementation-ready specification package. No feature or declarative IR was rejected, and no scientific maturity or production readiness was silently asserted.
+"""
+          write_text("reports/domain-finalization/lived-experience/finalization-report.md", report)
+
+          validator = r'''#!/usr/bin/env python3
+          from __future__ import annotations
+
+          import os
+          import subprocess
+          import sys
+          from pathlib import Path
+          from typing import Any
+
+          import yaml
+
+          ROOT = Path(__file__).resolve().parents[2]
+          MANIFEST_PATH = ROOT / "registry/domain-finalization/lived-experience/manifest.yaml"
+          EXPECTED = [
+              "TLC-FC-14-LIVED-EXPERIENCE-001",
+              "TLC-FC-14-LIVED-EXPERIENCE-002",
+              "TLC-FC-14-LIVED-EXPERIENCE-004",
+              "TLC-FC-14-LIVED-EXPERIENCE-005",
+              "TLC-FC-14-LIVED-EXPERIENCE-006",
+              "TLC-FC-14-LIVED-EXPERIENCE-007",
+              "TLC-FC-14-LIVED-EXPERIENCE-008",
+              "TLC-FC-14-LIVED-EXPERIENCE-009",
+              "TLC-FC-14-LIVED-EXPERIENCE-010",
+              "TLC-FC-14-LIVED-EXPERIENCE-011",
+              "TLC-FC-14-LIVED-EXPERIENCE-012",
+              "TLC-FC-14-LIVED-EXPERIENCE-013",
+          ]
+          REQUIRED_FLAGS = {
+              "source_ir_preserved": True,
+              "source_contract_preserved": True,
+              "replaces_source_ir": False,
+              "scientific_source_modified": False,
+              "experience_invented": False,
+              "event_invented": False,
+              "state_invented": False,
+              "chronology_invented": False,
+              "interpretation_invented": False,
+              "causality_invented": False,
+          }
+
+          def fail(message: str) -> None:
+              print(f"ERROR: {message}", file=sys.stderr)
+              raise SystemExit(1)
+
+          def load_yaml(path: Path) -> dict[str, Any]:
+              if not path.is_file():
+                  fail(f"missing file: {path.relative_to(ROOT)}")
+              try:
+                  data = yaml.safe_load(path.read_text(encoding="utf-8"))
+              except Exception as exc:
+                  fail(f"YAML parse failure in {path.relative_to(ROOT)}: {exc}")
+              if not isinstance(data, dict):
+                  fail(f"expected mapping in {path.relative_to(ROOT)}")
+              return data
+
+          def git(*args: str, check: bool = True) -> str:
+              result = subprocess.run(["git", *args], cwd=ROOT, text=True, capture_output=True)
+              if check and result.returncode != 0:
+                  fail(f"git {' '.join(args)} failed: {result.stderr.strip()}")
+              return result.stdout.strip()
+
+          manifest = load_yaml(MANIFEST_PATH)
+          base = manifest.get("main_head_used")
+          matrix = load_yaml(ROOT / "registry/global-reconciliation/domain-feature-matrix.yaml")
+          rows = [row for row in matrix.get("rows", []) if row.get("domain") == "lived-experience"]
+          population = [row.get("feature_id") for row in rows]
+          if population != EXPECTED:
+              fail(f"authoritative population mismatch: {population}")
+          if len(population) != 12 or manifest.get("feature_count") != 12:
+              fail("baseline does not confirm exactly 12 features")
+          if manifest.get("features") != EXPECTED:
+              fail("manifest feature order differs from baseline")
+
+          row_by_feature = {row["feature_id"]: row for row in rows}
+          expected_final_paths: set[str] = set()
+          for feature_id in EXPECTED:
+              row = row_by_feature[feature_id]
+              for key in ["contract_ref", "ir_registry_ref", "test_plan_ref"]:
+                  ref = row.get(key)
+                  if not ref or not (ROOT / ref).is_file():
+                      fail(f"{feature_id}: missing source {key}: {ref}")
+              contract = load_yaml(ROOT / row["contract_ref"])
+              source_ir = load_yaml(ROOT / row["ir_registry_ref"])
+              load_yaml(ROOT / row["test_plan_ref"])
+              object_ids = [obj["object_id"] for obj in contract.get("covered_objects", [])]
+
+              ir_path = f"registry/optimized-ir/lived-experience/{feature_id}/ir.yaml"
+              algorithm_path = f"registry/algorithms/lived-experience/{feature_id}/algorithm.yaml"
+              oracle_path = f"registry/oracles/lived-experience/{feature_id}/oracle.yaml"
+              expected_final_paths.update({ir_path, algorithm_path, oracle_path})
+              final_ir = load_yaml(ROOT / ir_path)
+              algorithm = load_yaml(ROOT / algorithm_path)
+              oracle = load_yaml(ROOT / oracle_path)
+              for artifact_name, artifact in [("IR", final_ir), ("algorithm", algorithm), ("oracle", oracle)]:
+                  if artifact.get("feature_id") != feature_id:
+                      fail(f"{feature_id}: {artifact_name} feature id mismatch")
+                  if artifact.get("status") != "selected_for_lived_experience_implementation_specification":
+                      fail(f"{feature_id}: invalid {artifact_name} selection status")
+              if final_ir.get("source_contract", {}).get("path") != row["contract_ref"]:
+                  fail(f"{feature_id}: contract traceability mismatch")
+              if final_ir.get("source_ir", {}).get("path") != row["ir_registry_ref"]:
+                  fail(f"{feature_id}: source IR traceability mismatch")
+              if final_ir.get("source_ir", {}).get("raw_status") != row.get("selection_status"):
+                  fail(f"{feature_id}: raw source status not preserved")
+              if final_ir.get("source_ir", {}).get("raw_ir_kind") != source_ir.get("ir_kind"):
+                  fail(f"{feature_id}: raw source IR kind not preserved")
+              if final_ir.get("identity", {}).get("ordered_object_ids") != object_ids:
+                  fail(f"{feature_id}: identity or object order mismatch")
+              if final_ir.get("experience", {}).get("ordered_object_ids") != object_ids:
+                  fail(f"{feature_id}: experience references mismatch")
+              if final_ir.get("order", {}).get("covered_object_order") != object_ids:
+                  fail(f"{feature_id}: covered object order mismatch")
+              if final_ir.get("order", {}).get("temporal_order"):
+                  fail(f"{feature_id}: temporal order invented")
+              source_relations = list(contract.get("covered_relations", []) or []) + list(contract.get("contextual_relations", []) or [])
+              if final_ir.get("relations_explicitly_defined", []) != source_relations:
+                  fail(f"{feature_id}: relation conservation mismatch")
+              for field in [
+                  "actors_explicitly_defined", "events_explicitly_defined", "states_explicitly_defined",
+                  "transitions_explicitly_defined", "observations_explicitly_defined", "perceptions_explicitly_defined",
+                  "interpretations_explicitly_defined", "results_explicitly_defined", "effects_explicitly_defined",
+              ]:
+                  if final_ir.get(field):
+                      fail(f"{feature_id}: undeclared semantic content in {field}")
+              source_unresolved = set(source_ir.get("propagated_unresolved", []) or [])
+              final_unresolved = set(final_ir.get("unresolved_propagated", []) or [])
+              if not source_unresolved.issubset(final_unresolved):
+                  fail(f"{feature_id}: source unresolved removed")
+              source_reservations = set(source_ir.get("propagated_reservations", []) or [])
+              if not source_reservations.issubset(set(final_ir.get("reservations", []) or [])):
+                  fail(f"{feature_id}: source reservation removed")
+              for flag, expected in REQUIRED_FLAGS.items():
+                  if final_ir.get(flag) is not expected:
+                      fail(f"{feature_id}: preservation flag {flag} must be {expected}")
+              if final_ir.get("algorithm_ref") != algorithm_path or final_ir.get("oracle_ref") != oracle_path:
+                  fail(f"{feature_id}: IR links mismatch")
+              if algorithm.get("finalized_ir_ref") != ir_path:
+                  fail(f"{feature_id}: algorithm-to-IR link mismatch")
+              if oracle.get("finalized_ir_ref") != ir_path or oracle.get("algorithm_ref") != algorithm_path:
+                  fail(f"{feature_id}: oracle links mismatch")
+              if final_ir.get("implementation_aptitude", {}).get("production_readiness_asserted") is not False:
+                  fail(f"{feature_id}: production readiness was incorrectly asserted")
+
+          for folder, suffix in [
+              ("registry/optimized-ir/lived-experience", "/ir.yaml"),
+              ("registry/algorithms/lived-experience", "/algorithm.yaml"),
+              ("registry/oracles/lived-experience", "/oracle.yaml"),
+          ]:
+              actual = {str(path.relative_to(ROOT)) for path in (ROOT / folder).glob("*/*.yaml") if str(path).endswith(suffix)}
+              expected = {path for path in expected_final_paths if path.startswith(folder + "/")}
+              if actual != expected:
+                  fail(f"unexpected or missing files under {folder}: actual={sorted(actual)}")
+
+          required_domain_files = [
+              "registry/domain-finalization/lived-experience/manifest.yaml",
+              "registry/domain-finalization/lived-experience/feature-status.yaml",
+              "registry/domain-finalization/lived-experience/patterns.yaml",
+              "registry/domain-finalization/lived-experience/module-specification.yaml",
+              "registry/domain-finalization/lived-experience/implementation-tasks.yaml",
+              "registry/domain-finalization/lived-experience/decision-required.yaml",
+              "reports/domain-finalization/lived-experience/finalization-report.md",
+              "tools/domain-finalization/validate_lived_experience_finalization.py",
+          ]
+          for path in required_domain_files:
+              if not (ROOT / path).is_file():
+                  fail(f"missing required domain artifact: {path}")
+
+          for item in manifest.get("source_hashes", []):
+              path = item["path"]
+              current_blob = git("hash-object", path)
+              if current_blob != item["git_blob_sha"]:
+                  fail(f"source file modified: {path}")
+
+          changed: set[str] = set()
+          if base:
+              changed.update(filter(None, git("diff", "--name-only", f"{base}...HEAD").splitlines()))
+          changed.update(filter(None, git("diff", "--cached", "--name-only").splitlines()))
+          allowed_prefixes = (
+              "registry/domain-finalization/lived-experience/",
+              "registry/optimized-ir/lived-experience/",
+              "registry/algorithms/lived-experience/",
+              "registry/oracles/lived-experience/",
+              "reports/domain-finalization/lived-experience/",
+          )
+          allowed_exact = {"tools/domain-finalization/validate_lived_experience_finalization.py"}
+          if os.environ.get("ALLOW_TEMP_WORKFLOW") == "1":
+              allowed_exact.add(".github/workflows/lived-experience-finalization-bootstrap.yml")
+          illegal = sorted(path for path in changed if path not in allowed_exact and not path.startswith(allowed_prefixes))
+          if illegal:
+              fail(f"modified paths outside Lived Experience scope: {illegal}")
+          if any(path.startswith("maths/") for path in changed):
+              fail("maths/ modification detected")
+          if any(path.startswith("registry/global-reconciliation/") for path in changed):
+              fail("global reconciliation registry modification detected")
+          forbidden_extensions = (".cpp", ".cc", ".cxx", ".hpp", ".hxx", ".pyi")
+          if any(path.endswith(forbidden_extensions) for path in changed):
+              fail("C++ or binding artifact detected")
+          reference_markers = ("reference-implementation", "reference_implementation", "bindings/python")
+          if any(any(marker in path for marker in reference_markers) for path in changed):
+              fail("reference implementation or Python binding detected")
+          if any("__pycache__" in path or path.endswith(".status") or path.endswith(".log") for path in changed):
+              fail("temporary diagnostic artifact detected")
+
+          constraints = manifest.get("constraints", {})
+          required_constraints = {
+              "source_contracts_preserved": True,
+              "source_irs_preserved": True,
+              "maths_preserved": True,
+              "other_domains_modified": False,
+              "global_registry_regenerated": False,
+              "cpp_produced": False,
+              "python_bindings_produced": False,
+              "reference_implementation_produced": False,
+              "features_rejected": 0,
+          }
+          for key, expected in required_constraints.items():
+              if constraints.get(key) != expected:
+                  fail(f"manifest constraint {key} mismatch")
+
+          print("Lived Experience finalization validation passed")
+          print("features=12 finalized_ir=12 algorithms=12 oracles=12")
+          print(f"changed_paths={len(changed)} source_hashes={len(manifest.get('source_hashes', []))}")
+          '''
+          validator = "\n".join(line[10:] if line.startswith("          ") else line for line in validator.splitlines())
+          write_text("tools/domain-finalization/validate_lived_experience_finalization.py", validator)
+
+          print("Generated Lived Experience finalization package")
+          print(f"features={len(records)} files=44")
+          PY
+          python /tmp/generate_lived_experience.py
+
+      - name: Validate, commit, remove workflow, and validate final tree
+        env:
+          TLC_BASE_COMMIT: c34d40713bf444d38f92f76e1c6239ee596d5a18
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add registry/domain-finalization/lived-experience \
+                  registry/optimized-ir/lived-experience \
+                  registry/algorithms/lived-experience \
+                  registry/oracles/lived-experience \
+                  reports/domain-finalization/lived-experience \
+                  tools/domain-finalization/validate_lived_experience_finalization.py
+          ALLOW_TEMP_WORKFLOW=1 python tools/domain-finalization/validate_lived_experience_finalization.py
+          git diff --cached --check
+          git commit -m "feat(lived-experience): finalize implementation specifications"
+          git rm .github/workflows/lived-experience-finalization-bootstrap.yml
+          git commit -m "chore(lived-experience): remove temporary validation workflow"
+          python tools/domain-finalization/validate_lived_experience_finalization.py
+          git diff --check "${TLC_BASE_COMMIT}...HEAD"
+          test -z "$(git diff --name-only "${TLC_BASE_COMMIT}...HEAD" | grep '^maths/' || true)"
+          test -z "$(git diff --name-only "${TLC_BASE_COMMIT}...HEAD" | grep '^registry/global-reconciliation/' || true)"
+          git push origin phase4/lived-experience-domain-finalization-001
