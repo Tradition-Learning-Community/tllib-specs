@@ -1,0 +1,92 @@
+schema_version: 1
+artifact_kind: theorems_algorithm_specification
+feature_id: TLC-FC-06-THEOREMS-006
+operation: index_theorem_declarations
+signature: index_theorem_declarations(Sequence<OpaqueTheoremDeclaration> declarations, Mapping<ScientificObjectId,ProofStatus> proof_statuses) -> TheoremDeclarationIndex
+inputs:
+  - {name: declarations, type: "Sequence<OpaqueTheoremDeclaration>"}
+  - {name: proof_statuses, type: "Mapping<ScientificObjectId,ProofStatus>"}
+outputs:
+  - {name: theorem_index, type: TheoremDeclarationIndex}
+validations:
+  - exactly the six covered theorem object identifiers occur once
+  - each declaration has a source reference
+  - every covered object has a proof status
+  - supplied proof statuses are preserved and not promoted
+hypotheses:
+  - TLC-EA-THEOREMS-006-001 is retained
+preconditions:
+  - Each covered theorem object occurs exactly once and has a source reference plus proof status.
+conditions_of_application:
+  - index and lookup operate only on the six covered declarations
+ordered_steps:
+  - validate unique theorem identifiers
+  - validate exact covered population
+  - validate source references
+  - validate proof-status presence
+  - preserve declarations and statuses
+  - construct identifier index
+  - validate lookup returns unchanged metadata
+branching:
+  - {condition: duplicate theorem identifier, result: DUPLICATE_THEOREM_ID}
+  - {condition: missing proof status, result: MISSING_PROOF_STATUS}
+  - {condition: lookup identifier outside covered set, result: UNKNOWN_THEOREM_ID}
+  - {condition: all construction validations pass, result: return theorem_index}
+dependencies:
+  - DEP-THEOREMS-MASTER-001
+  - DEP-THEOREMS-DISCIPLE-001
+  - DEP-THEOREMS-COMMUNITY-001
+  - DEP-THEOREMS-HUIT-001
+  - DEP-THEOREMS-DYNAMICS-001
+statement_handling:
+  construction: declaration_index
+  hypotheses_and_conclusions: preserved_inside_opaque_declaration_metadata
+  quantifiers: preserve_explicit_or_unspecified_source_status
+proof_status_control:
+  expected_statuses:
+    TLC-SO-THEOREMS-002: partial
+    TLC-SO-THEOREMS-003: partial
+    TLC-SO-THEOREMS-004: partial
+    TLC-SO-THEOREMS-008: partial
+    TLC-SO-THEOREMS-009: absent
+    TLC-SO-THEOREMS-010: partial
+  truth_value_returned: false
+  proof_verification_performed: false
+errors: [DUPLICATE_THEOREM_ID, MISSING_PROOF_STATUS, UNKNOWN_THEOREM_ID]
+postconditions:
+  - lookup returns unchanged declaration metadata
+  - lookup never returns a theorem truth value
+determinism: identical declarations and statuses produce an identical index
+edge_cases:
+  - a declaration with absent proof remains indexable and queryable
+  - partial proof status cannot be promoted to complete
+  - unknown lookup never falls back to a similar theorem
+unresolved_conserved: []
+pseudocode: |
+  function index_theorem_declarations(declarations, proof_statuses):
+      if any scientific object identifier occurs more than once:
+          raise DUPLICATE_THEOREM_ID
+      require identifiers equal the six covered theorem object identifiers
+      if any declaration lacks a source reference:
+          raise MISSING_PROOF_STATUS only if its proof status is also absent; otherwise reject as failed precondition
+      if any covered object has no proof status:
+          raise MISSING_PROOF_STATUS
+      index = empty TheoremDeclarationIndex
+      for declaration in deterministic_object_identifier_order(declarations):
+          object_id = declaration.scientific_object_id
+          index[object_id] = preserve_declaration_with_status(
+              declaration,
+              proof_statuses[object_id]
+          )
+      assert every lookup returns unchanged declaration metadata and no truth value
+      return index
+
+  function lookup_theorem(theorem_index, object_id):
+      if object_id not in theorem_index:
+          raise UNKNOWN_THEOREM_ID
+      return theorem_index[object_id]
+forbidden_operations:
+  - prove or disprove declarations
+  - validate mathematical proof correctness
+  - promote proof status
+  - synthesize missing hypotheses or conclusions
