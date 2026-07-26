@@ -1,0 +1,148 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-009
+domain: invariants
+status: selected_for_invariants_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-009/contract.yaml
+source_contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-009-001
+source_traceability_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-009/traceability.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-009/ir.prototype.json
+source_ir_id: TLC-IR-TLC-FC-04-INVARIANTS-009-PROTOTYPE-001
+source_test_plan_ref: ir/TLC-FC-04-INVARIANTS-009/test-plan.yaml
+source_ir_raw_status: prototype_ir_with_reservations
+source_catalogue_status: rejected_as_feature
+nature: algorithmic_symbolic
+invariant_referenced:
+  concept: community_relational_invariant_cohesion_interval
+  source_object_ids: [TLC-SO-INVARIANTS-065]
+  source_relation_ids: [TLC-SR-INVARIANTS-064]
+scope: community
+inputs:
+- id: IR-IN-009-SYMBOLS
+  type: CohesionIntervalSymbols
+  required_fields:
+  - relational_invariant_symbol
+  - lower_bound_symbol
+  - upper_bound_symbol
+outputs:
+- id: IR-OUT-009-SYMBOLIC
+  type: SymbolicCohesionIntervalConstraint
+  immutable: true
+  evaluated: false
+  observable_effect: produces interval membership, below-bound fragmentation annotation, and above-bound centralization-and-rigidity annotation ASTs with TLC-UT-INVARIANTS-009 preserved
+types:
+  symbol: OpaqueSymbolId
+  ast: ImmutableSymbolicAst
+  output: SymbolicCohesionIntervalConstraint
+  unresolved_reference: UnresolvedReference
+  preservation: PreservationEnvelope
+opaque_values:
+- relational_invariant_symbol
+- lower_bound_symbol
+- upper_bound_symbol
+- numeric domain, comparator, ordering implementation, bound values, metric, score, transition rule, and cohesion evaluator
+preconditions:
+- id: PRE-INVARIANTS-009-SYMBOLS
+  statement: the three named symbols, TLC-SO-INVARIANTS-065, TLC-SR-INVARIANTS-064, and TLC-UT-INVARIANTS-009 are present
+conditions_of_application:
+- symbols are non-empty opaque identifiers only
+- exactly three source templates are instantiated in source order
+- TLC-UT-INVARIANTS-009 remains attached and unresolved
+- no comparison or scientific evaluation occurs
+operations:
+- id: INV009-OP-VALIDATE
+  name: validate_cohesion_symbols_and_evidence
+  effect: validate three symbols, object, relation, unresolved ID, status, and provenance
+- id: INV009-OP-MEMBERSHIP
+  name: construct_interval_membership_ast
+  template: member(relational_invariant_symbol, closed_interval(lower_bound_symbol, upper_bound_symbol))
+- id: INV009-OP-BELOW
+  name: construct_below_bound_annotation_ast
+  template: implies(below(relational_invariant_symbol, lower_bound_symbol), annotation(community_fragmentation_into_isolated_subgroups))
+- id: INV009-OP-ABOVE
+  name: construct_above_bound_annotation_ast
+  template: implies(above(relational_invariant_symbol, upper_bound_symbol), annotation(community_overcentralized_and_rigid))
+- id: INV009-OP-FREEZE
+  name: attach_unresolved_provenance_and_freeze
+  effect: preserve rejected source status, unresolved, assumptions, reservations, evidence, and opaque IDs; freeze ordered roots
+execution_order:
+- INV009-OP-VALIDATE
+- INV009-OP-MEMBERSHIP
+- INV009-OP-BELOW
+- INV009-OP-ABOVE
+- INV009-OP-FREEZE
+control_flow:
+- missing or empty symbol raises MissingIntervalSymbol
+- missing unresolved raises MissingCohesionReservation
+- missing covered evidence raises MissingCohesionEvidence
+- evaluation or comparison request raises ScientificEvaluationProhibited
+- otherwise instantiate three roots, freeze, verify, and return
+state_before:
+  value: caller-owned opaque symbols, evidence, and TLC-UT-INVARIANTS-009
+  mutated: false
+state_after:
+  value: immutable ordered SymbolicCohesionIntervalConstraint with three AST roots
+  input_mutated: false
+effects:
+  external_side_effects: []
+  scientific_evaluation: prohibited
+postconditions:
+- output contains exactly the three source templates in source order
+- all opaque symbols remain at their source-defined positions
+- TLC-UT-INVARIANTS-009 is preserved unchanged
+- every node remains unevaluated
+- source status, evidence, assumptions, reservations, and provenance are unchanged
+conditions_of_conservation:
+- exact AST root order and shape
+- exact symbol identities and positions
+- exact unresolved ID and source-status preservation
+- exact evidence and provenance
+conditions_of_violation:
+- missing symbol, unresolved, or evidence
+- changed AST shape, order, or annotation identity
+- comparator, ordering, bound, metric, score, transition, or evaluator execution
+- loss or resolution of TLC-UT-INVARIANTS-009
+errors:
+- MissingIntervalSymbol
+- MissingCohesionReservation
+- MissingCohesionEvidence
+- ScientificEvaluationProhibited
+- PreservationViolation
+determinism:
+  status: deterministic
+  rule: identical three symbol IDs and preservation metadata produce structurally equal ordered ASTs
+dependencies:
+  internal_structural: [TLC-FC-04-INVARIANTS-008]
+  documentary:
+  - TLC-INV-DEP-COMMUNITY-001
+  - TLC-INV-DEP-DYNAMICS-001
+  scientific: [maths/04-invariants.md]
+  execution: []
+unresolved_propagated:
+- TLC-UT-INVARIANTS-009
+provisional_assumptions_propagated: [TLC-EA-INVARIANTS-009-001]
+reservations:
+- no numeric domain, comparator, ordering implementation, bound values, metric, score, transition rule, or cohesion evaluator is supplied or inferred
+- source catalogue status rejected_as_feature is preserved as metadata while the baseline-active feature is not rejected by finalization
+transformations_applied:
+- normalized immutable symbolic AST node representation
+- reused common source-defined AST builder shape without merging public behavior
+- explicit unresolved attachment and non-evaluation policy
+- common provenance envelope
+obligations_of_preservation:
+- preserve all three opaque symbol IDs
+- preserve exact three source templates and order
+- preserve TLC-UT-INVARIANTS-009, source status, evidence, assumptions, and reservations
+- never compare or evaluate
+algorithm_ref: registry/algorithms/invariants/TLC-FC-04-INVARIANTS-009/algorithm.yaml
+oracle_ref: registry/oracles/invariants/TLC-FC-04-INVARIANTS-009/oracle.yaml
+implementation_aptitude:
+  structural_implementation: ready
+  symbolic_ast_construction: ready
+  unresolved_propagation: ready
+  acceptance_tests: ready
+  scientific_evaluation: external_evaluator_required
+  production_scientific_execution: not_ready
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
