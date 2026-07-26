@@ -1,0 +1,146 @@
+schema_version: 1
+domain_id: invariants
+analysis_scope: all_ten_active_source_irs
+comparison_rules:
+  resemblance:
+    definition: similar vocabulary or purpose without proof of identical behavior
+    factorization_allowed: false
+  textual_duplication:
+    definition: repeated wording in contracts or IR envelopes
+    factorization_allowed: only_for_nonsemantic_metadata
+  structural_duplication:
+    definition: identical validation, preservation, immutable-construction, and error-flow shapes
+    factorization_allowed: true_when_feature_specific_conditions_remain_parameters
+  demonstrated_equivalence:
+    definition: same observable behavior, scientific conditions, ordering, status propagation, and failures
+    factorization_allowed: true
+shared_patterns:
+- pattern_id: INV-PATTERN-001
+  name: evidence_identity_validation
+  kind: validation
+  behavior: validate covered object, relation, unresolved, source, and status identifiers before construction
+  used_by:
+  - TLC-FC-04-INVARIANTS-001
+  - TLC-FC-04-INVARIANTS-002
+  - TLC-FC-04-INVARIANTS-003
+  - TLC-FC-04-INVARIANTS-004
+  - TLC-FC-04-INVARIANTS-005
+  - TLC-FC-04-INVARIANTS-007
+  - TLC-FC-04-INVARIANTS-008
+  - TLC-FC-04-INVARIANTS-010
+- pattern_id: INV-PATTERN-002
+  name: opaque_value_preservation
+  kind: conservation
+  behavior: copy opaque identifiers and source statement bodies without dereference, interpretation, normalization, or evaluation
+  used_by: all_features
+- pattern_id: INV-PATTERN-003
+  name: immutable_traceable_result
+  kind: construction
+  behavior: construct a new immutable representation carrying exact identifiers, provenance, catalogue status, unresolved IDs, and assumptions
+  used_by: all_features
+- pattern_id: INV-PATTERN-004
+  name: symbolic_ast_construction
+  kind: algorithmic
+  behavior: instantiate only source-defined AST templates from opaque symbols and freeze them without evaluation
+  used_by:
+  - TLC-FC-04-INVARIANTS-006
+  - TLC-FC-04-INVARIANTS-009
+- pattern_id: INV-PATTERN-005
+  name: documentary_nonpromotion
+  kind: status_preservation
+  behavior: documentary or rejected-as-feature source status remains metadata and cannot be promoted to executable scientific truth
+  used_by:
+  - TLC-FC-04-INVARIANTS-002
+  - TLC-FC-04-INVARIANTS-005
+  - TLC-FC-04-INVARIANTS-010
+- pattern_id: INV-PATTERN-006
+  name: unresolved_attachment
+  kind: propagation
+  behavior: unresolved identifiers are attached exactly to affected records and never replaced or removed
+  used_by:
+  - TLC-FC-04-INVARIANTS-008
+  - TLC-FC-04-INVARIANTS-009
+- pattern_id: INV-PATTERN-007
+  name: boundary_error
+  kind: error
+  behavior: attempts to infer missing scientific semantics or evaluate opaque content fail explicitly
+  used_by: all_features
+- pattern_id: INV-PATTERN-008
+  name: deterministic_identity_preserving_order
+  kind: determinism
+  behavior: preserve source order when declared; otherwise preserve validated input order and never impose a scientific order
+  used_by: all_features
+optimized_common_types:
+- OpaqueSourceStatement
+- OpaqueScientificTruthConditions
+- OpaqueSymbolId
+- ImmutableEvidenceRecord
+- ImmutableSourceReference
+- CatalogueStatus
+- UnresolvedReference
+- ProvisionalAssumptionReference
+- PreservationEnvelope
+- ImmutableSymbolicAst
+- StructuralVerificationResult
+common_error_families:
+- InvalidCoveredIdentifier
+- MissingSourceReference
+- DuplicateIdentifier
+- RelationshipMismatch
+- StatusPromotionProhibited
+- UnresolvedMappingLoss
+- ScientificEvaluationProhibited
+- PreservationViolation
+normalizations_applied:
+- normalization_id: INV-OPT-001
+  transformation: common_traceability_envelope
+  semantic_effect: none
+  proof_basis: repeated source contract, IR, and test-plan preservation requirements
+- normalization_id: INV-OPT-002
+  transformation: common_validation_phase_order
+  semantic_effect: none
+  order:
+  - validate_presence_and_type
+  - validate_covered_identifiers_and_relations
+  - preserve_opaque_values_and_status
+  - construct_feature_specific_result
+  - validate_postconditions
+  - freeze_and_return
+- normalization_id: INV-OPT-003
+  transformation: shared_boundary_error_taxonomy
+  semantic_effect: none
+  condition: source-specific error names remain traceable aliases
+- normalization_id: INV-OPT-004
+  transformation: parameterized_symbolic_ast_builder_shape
+  semantic_effect: none
+  applied_to:
+  - TLC-FC-04-INVARIANTS-006
+  - TLC-FC-04-INVARIANTS-009
+  condition: expression templates remain feature-owned and source-ordered
+- normalization_id: INV-OPT-005
+  transformation: explicit_dependency_classification
+  semantic_effect: none
+  categories:
+  - documentary
+  - scientific
+  - internal_structural
+  - execution
+factorizations_not_applied:
+- candidate: merge_features_002_005_010_as_annotations
+  reason: textual and structural resemblance does not demonstrate identical status, cardinality, targets, or observable result type
+- candidate: merge_features_006_009_as_one_public_ast_operation
+  reason: shared AST construction pattern exists but templates, evidence, unresolved propagation, outputs, and scientific scopes differ
+- candidate: treat_all_invariants_as_boolean_predicates
+  reason: contradicted by declarative, documentary, relational, state-vocabulary, and symbolic source contracts
+- candidate: infer_transition_graph_from_feature_008
+  reason: explicitly outside the source IR boundary
+- candidate: evaluate_source_thresholds
+  reason: no runtime domains, comparators, values, units, or evaluators are supplied
+preservation_obligations:
+- public feature identifiers remain distinct
+- source contracts and source IRs remain unchanged
+- source catalogue statuses remain metadata
+- unresolved and provisional assumptions remain exact
+- documentary dependencies are not converted into execution dependencies
+- scientific equations and thresholds are not altered or evaluated
+- no normalization may reorder source-defined AST templates or ordered evidence
