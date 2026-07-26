@@ -1,0 +1,177 @@
+schema_version: 1
+module_id: TLC-MODULE-HUIT-DIMENSIONS-001
+domain: huit-dimensions
+status: ready_for_structural_implementation
+scientific_status: limited_engineering_specification_with_reservations
+purpose: >-
+  Provide traceable software representations and observable structural operations
+  for the eleven active Huit Dimensions features without evaluating unresolved science.
+dimensions:
+  cardinality: 8
+  representation: non_ordinal_named_descriptor_collection
+  names:
+  - Message
+  - Principles
+  - Values
+  - Virtues
+  - Capacities
+  - Competencies
+  - Practice
+  - Lived Experience
+  rules:
+  - each descriptor preserves its semantic name and documentary domain reference
+  - presentation order is not normative
+  - no descriptor is inferred to be a number, axis, vector, coordinate, continuous variable, or Euclidean object
+  - the collection does not define a global aggregation, metric, projection, or state transition
+common_types:
+- name: FeatureId
+  semantics: stable_identifier
+- name: ScientificObjectId
+  semantics: stable_identifier
+- name: SourceReference
+  fields: [source_path, source_commit, source_blob_sha, section, subsection, start_line, end_line]
+- name: ReservationId
+  semantics: stable_unresolved_identifier
+- name: OpaqueScientificValue
+  fields: [feature_id, role, scientific_object_id, source_reference, payload, reservations, assumptions]
+  payload_rule: stored_and_returned_without_evaluation_or_coercion
+- name: RoleBinding
+  fields: [role, opaque_value]
+- name: StructuredHuitDimensionsError
+  fields: [feature_id, source_error_code, category, role, detail]
+common_collections:
+- name: NamedDimensionDescriptors
+  cardinality: exactly_eight
+  key: semantic_name
+  ordering: non_ordinal
+- name: RoleBindingMap
+  key: declared_role
+  duplicate_policy: reject
+- name: ReservationSet
+  equality: exact_identifier_set
+common_internal_operations:
+- validate_required_roles
+- validate_traceability
+- validate_distinct_scientific_object_identities
+- reject_scientific_evaluation_request
+- construct_identity_preserving_record
+- verify_postconditions
+- verify_unresolved_and_reservation_propagation
+- serialize_with_stable_technical_field_order
+public_operations:
+- feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001
+  name: assemble_principle_constraint_profile
+  result: PrincipleConstraintProfile
+- feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002
+  name: build_message_convergence_constraint
+  result: MessageConvergenceConstraint
+- feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005
+  name: index_dimension_dynamics_laws
+  result: DimensionDynamicsCatalogue
+- feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006
+  name: bind_symbolic_equation_definitions
+  result: SymbolicEquationSet
+- feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007
+  name: catalogue_declared_invariant_groups
+  result: InvariantGroupCatalogue
+- feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008
+  name: register_partial_invariance_claims
+  result: PartialInvarianceRegistry
+- feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009
+  name: compare_principle_invariance_declarations
+  result: InvarianceDeclarationComparison
+- feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010
+  name: describe_capacity_metric_requirements
+  result: CapacityMetricRequirements
+- feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011
+  name: register_riemannian_metric_declaration
+  result: RiemannianMetricDeclaration
+- feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012
+  name: build_nonzero_latency_measure_claim
+  result: NonzeroLatencyMeasureClaim
+- feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013
+  name: assemble_activation_and_cns_obligations
+  result: ActivationCNSObligationSet
+internal_dependencies:
+  confirmed_feature_edges: []
+  shared_technical_components:
+  - opaque_value_envelope
+  - role_binding_validation
+  - traceability_validation
+  - reservation_propagation
+  - structured_error_mapping
+external_dependencies:
+  execution: []
+  documentary:
+  - message
+  - principles
+  - values
+  - virtues
+  - capacities
+  - competencies
+  - practice
+  - lived-experience
+  rule: documentary references do not create runtime dependencies
+interdimension_constraints:
+- exactly eight named dimension descriptors are exposed at module level
+- dimension identities remain distinct
+- no normative order is inferred
+- no universal aggregation is performed
+- cross-domain ownership remains unresolved and documentary
+composition_rules:
+- compose only by explicit feature operation and declared semantic role
+- preserve each public feature identifier even when an operation contains multiple internal records
+- never merge records based on lexical similarity
+- reject missing, duplicate, aliased, or untraceable required roles
+- propagate opaque payloads, reservations, assumptions, and unresolved statuses unchanged
+determinism:
+  operations: pure_structural_construction
+  same_input_same_output: true
+  technical_serialization_order: stable
+  scientific_order_created: false
+states_and_effects:
+  persistent_state: none
+  external_effects: none
+  mutation_of_inputs: forbidden
+  scientific_evaluation: forbidden
+common_errors:
+- missing_required_role
+- missing_traceability
+- unknown_scientific_object
+- duplicate_or_aliased_role
+- scientific_evaluation_forbidden
+- unresolved_propagation_failure
+- preservation_invariant_violation
+unresolved_preserved:
+- canonical_types_and_units
+- normative_dimension_order
+- global_aggregation_operator
+- universal_metric
+- canonical_state_representation
+- numerical_methods_and_solvers
+- scientific_equivalence_and_feature_boundaries_flagged_by_sources
+- cross_domain_ownership
+- convergence_limit_argmin_distance_measure_metric_geodesic_activation_and_cns_evaluation
+library_interfaces:
+  value_semantics: immutable_records
+  ownership: caller_owned_opaque_payloads_copied_or_referenced_without_interpretation
+  error_model: structured_errors_with_source_codes
+  serialization: deterministic_technical_representation
+  backend_contract: all_backends_must_preserve_structure_identifiers_and_opaque_bytes
+out_of_scope:
+- scientific proof or canonization
+- numerical solvers or stochastic simulation
+- convergence computation
+- metric tensor or geodesic implementation
+- truth evaluation of invariant or measure claims
+- activation execution
+- CNS completeness necessity or sufficiency validation
+- implementation of component domains
+- C++ code
+- Python bindings
+- reference implementation
+implementation_package:
+  optimized_ir_count: 11
+  algorithm_count: 11
+  oracle_count: 11
+  future_task_registry: registry/domain-finalization/huit-dimensions/implementation-tasks.yaml
