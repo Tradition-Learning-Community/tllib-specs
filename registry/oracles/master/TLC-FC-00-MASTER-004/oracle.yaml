@@ -1,0 +1,24 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-00-MASTER-004
+feature_id: TLC-FC-00-MASTER-004
+status: acceptance_ready
+finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-004/ir.yaml
+algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-004/algorithm.yaml
+oracle_kind: structural_property_unresolved_and_opaque_provider
+fixtures:
+  valid_object_refs: [TLC-SO-MASTER-004, TLC-SO-MASTER-006, TLC-SO-MASTER-017, TLC-SO-MASTER-018, TLC-SO-MASTER-019, TLC-SO-MASTER-020, TLC-SO-MASTER-021, TLC-SO-MASTER-034]
+  valid_relation_refs: [TLC-SR-MASTER-003, TLC-SR-MASTER-005, TLC-SR-MASTER-016, TLC-SR-MASTER-017, TLC-SR-MASTER-018, TLC-SR-MASTER-019, TLC-SR-MASTER-020, TLC-SR-MASTER-031, TLC-SR-MASTER-036, TLC-SR-MASTER-037]
+  valid_unresolved: [TLC-GU-00319, TLC-GU-00321, TLC-GU-00328, TLC-GU-00329, TLC-GU-00330, TLC-GU-00332, TLC-GU-00339, TLC-RELISS-MASTER-003, TLC-UT-MASTER-002, TLC-UT-MASTER-004, TLC-UT-MASTER-011, TLC-UT-MASTER-012, TLC-UT-MASTER-013, TLC-UT-MASTER-015, TLC-UT-MASTER-022]
+  opaque_echo_payload: {token: preserved_without_interpretation}
+acceptance_tests:
+  - {test_id: MASTER-004-A01, category: precondition, assertion: all exact ordered source sets are accepted}
+  - {test_id: MASTER-004-A02, category: error, mutation: remove one unresolved identifier, expected_error: MASTER_UNRESOLVED_SET_MISMATCH}
+  - {test_id: MASTER-004-A03, category: dependency, mutation: omit Disciple symbol in evaluated mode, expected_error: MASTER_EXTERNAL_DEPENDENCY_UNAVAILABLE}
+  - {test_id: MASTER-004-A04, category: property, assertion: echo provider payload is returned unchanged}
+  - {test_id: MASTER-004-A05, category: postcondition, assertion: no-evaluation mode returns all unresolved identifiers}
+  - {test_id: MASTER-004-A06, category: invariant, assertion: axioms, constraints, bounds, and inferred relations remain distinct}
+  - {test_id: MASTER-004-A07, category: determinism, assertion: wrapper output is stable for identical provider response}
+  - {test_id: MASTER-004-A08, category: conservation, assertion: no scientific equivalence, endpoint, equation, type, dimension, or method is introduced}
+  - {test_id: MASTER-004-A09, category: source_integrity, assertion: source artifacts are unmodified}
+exact_numeric_examples: []
+scientific_values_invented: false
