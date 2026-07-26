@@ -1,0 +1,72 @@
+---
+schema_version: 1
+algorithm_id: TLC-ALG-13-PRACTICE-001
+feature_id: TLC-FC-13-PRACTICE-001
+status: selected_for_practice_implementation_specification
+ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-001/ir.yaml
+signature: construct_practice_constraint_candidate(request, opaque_input) -> PracticeStructuralResult | PracticeError
+inputs:
+- request: PracticeStructuralRequest
+- opaque_input: OpaqueCandidateScientificInput
+outputs:
+- PracticeFeatureRepresentation
+- OpaqueCandidateEvaluationResult when externally supplied
+validations:
+- request.feature_id equals TLC-FC-13-PRACTICE-001
+- opaque_input is present and remains opaque
+- contract, IR and source object references are present
+preconditions:
+- input is supplied under candidate status
+prerequisites: []
+conditions_of_application:
+- operation is structural
+ordered_steps_declared: false
+branches:
+- condition: request asks for a structural operation
+  action: perform only the selected structural operation
+- condition: request asks for scientific execution
+  action: return external_executor_required
+- condition: request asks for scientific evaluation
+  action: return external_evaluator_required
+repetitions: []
+transitions: []
+stop_conditions: []
+effects: []
+errors: [invalid_feature_identity, missing_required_input, invalid_input_type, missing_source_reference, provenance_mismatch, structural_error, external_executor_required, external_evaluator_required, implementation_out_of_scope]
+postconditions:
+- representation preserves TLC-SO-PRACTICE-045 and its source path
+- any opaque value is returned unchanged
+invariants:
+- no executable constraint predicate is inferred
+- source status and reservations remain visible
+determinism:
+  structural_operations: deterministic
+  scientific_result: unspecified
+edge_cases:
+- empty opaque payload is allowed only when the carrier distinguishes present from absent
+- unknown operation returns implementation_out_of_scope
+- additional source objects are rejected as provenance mismatch
+dependencies:
+  execution: external_executor_required
+  evaluation: external_evaluator_required
+unresolved_preserved: []
+pseudocode: |
+  REQUIRE request.feature_id == "TLC-FC-13-PRACTICE-001"
+  REQUIRE opaque_input is present as OpaqueCandidateScientificInput
+  representation := new immutable PracticeFeatureRepresentation
+  representation.identity := "TLC-FC-13-PRACTICE-001"
+  representation.source_contract := canonical contract reference
+  representation.source_ir := canonical source IR reference
+  representation.covered_objects := ["TLC-SO-PRACTICE-045"]
+  representation.opaque_inputs := [opaque_input without interpretation]
+  representation.reservations := source reservations
+  IF request.operation is construct OR validate OR serialize OR deserialize OR structural_compare OR inspect_trace THEN
+      PERFORM the requested structural operation
+      RETURN representation
+  ELSE IF request.operation is scientific_execute THEN
+      RETURN error external_executor_required
+  ELSE IF request.operation is scientific_evaluate THEN
+      RETURN error external_evaluator_required
+  ELSE
+      RETURN error implementation_out_of_scope
+  END IF
