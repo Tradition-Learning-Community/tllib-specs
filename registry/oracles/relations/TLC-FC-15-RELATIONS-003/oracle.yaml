@@ -1,0 +1,93 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-15-RELATIONS-003
+feature_id: TLC-FC-15-RELATIONS-003
+status: selected_for_relations_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-15-RELATIONS-003/contract.yaml
+source_ir: registry/optimized-ir/relations/TLC-FC-15-RELATIONS-003/ir.yaml
+source_test_plan: registry/test-plans/TLC-FC-15-RELATIONS-003/test-plan.yaml
+algorithm: registry/algorithms/relations/TLC-FC-15-RELATIONS-003/algorithm.yaml
+oracle_kind: structural_acceptance_oracle_non_executable_scientific_semantics
+expected_participants:
+  - TLC-SO-RELATIONS-008
+scope_id: relations_003_master_message_tuple_record
+context_id: master_message_formalization
+expected_unresolved_count: 5
+exact_result_oracle_available: false
+observable_oracle:
+  validates:
+    - feature and participant identity
+    - source reference conservation
+    - opaque tuple text conservation
+    - blocker and unresolved propagation
+    - deterministic structural output
+    - rejection of unsupported invariant evaluation
+  does_not_validate:
+    - invariant truth
+    - tuple component values or types
+    - endpoint identity
+    - direction or runtime relation arity
+    - relational properties
+acceptance_cases:
+  - case_id: REL-003-ACC-001
+    category: nominal
+    given: exact feature id, TLC-SO-RELATIONS-008, exact tuple text and scientific_decision_required
+    expect:
+      outcome: success
+      record_type: RelationsBlockedCanonicalRecord
+      participants_preserved: true
+      tuple_text_preserved: true
+      unresolved_count: 5
+      non_execution_guard: enabled
+  - {case_id: REL-003-ACC-002, category: identity, mutation: replace feature id, expect_error: FeatureIdentityMismatch}
+  - {case_id: REL-003-ACC-003, category: participants, mutation: remove the participant, expect_error: MissingCoveredObject}
+  - {case_id: REL-003-ACC-004, category: participants, mutation: add an undeclared participant, expect_error: UnexpectedCoveredObject}
+  - {case_id: REL-003-ACC-005, category: participants, mutation: duplicate TLC-SO-RELATIONS-008, expect_error: DuplicateCoveredObject}
+  - {case_id: REL-003-ACC-006, category: traceability, mutation: remove the source reference, expect_error: MissingSourceReference}
+  - {case_id: REL-003-ACC-007, category: opaque_value, mutation: alter the tuple string, expect_error: OpaqueValueMutation}
+  - {case_id: REL-003-ACC-008, category: unresolved, mutation: remove one reservation, expect_error: UnresolvedPropagationLoss}
+  - case_id: REL-003-ACC-009
+    category: explicit_blocking
+    mutation: request invariant, semantic or numeric evaluation
+    expect_error: ExternalRelationEvaluatorRequired
+    forbidden_outputs:
+      - invariant truth value
+      - numeric value
+      - graph
+      - temporal result
+  - {case_id: REL-003-ACC-010, category: scope, mutation: replace scope_id, expect_error: ScopeMismatch}
+  - {case_id: REL-003-ACC-011, category: context, mutation: replace context_id, expect_error: ContextMismatch}
+  - case_id: REL-003-ACC-012
+    category: property
+    mutation: assert tuple component count as relation arity or assert a relational property
+    expect_error: ScientificPropertyInvented
+property_tests:
+  - property_id: REL-003-PROP-001
+    statement: successful construction preserves TLC-SO-RELATIONS-008 exactly
+  - property_id: REL-003-PROP-002
+    statement: successful construction preserves the tuple equation as opaque text
+  - property_id: REL-003-PROP-003
+    statement: successful structural construction never returns an invariant result
+metamorphic_tests:
+  - metamorphic_id: REL-003-META-001
+    transformation: replace only the opaque payload while preserving identity and source reference
+    expectation: replacement payload is carried without interpretation
+  - metamorphic_id: REL-003-META-002
+    transformation: repeat with identical inputs
+    expectation: structurally identical output
+round_trip_tests:
+  - round_trip_id: REL-003-RT-001
+    operation: implementation-defined lossless record encoding and decoding
+    expectation: identity, participant, tuple text, scope, context, opaque payload and unresolved metadata are unchanged
+    note: encoding format is not selected by this specification
+cross_feature_tests:
+  - case_id: REL-003-XF-001
+    action: validate a record belonging to another Relations feature
+    expect_error: FeatureIdentityMismatch
+determinism_tests:
+  - identical validated inputs yield structurally identical records
+  - the same invalid input selects the same first validation error
+unresolved_tests:
+  - all five reservations are propagated
+  - TLC-HR-0074 remains scientific review evidence
+  - no unresolved value receives a default interpretation
+acceptance_rule: all applicable cases pass and no invariant or scientific output is produced
