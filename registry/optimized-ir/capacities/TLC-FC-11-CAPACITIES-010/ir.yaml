@@ -1,0 +1,59 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-010
+status: selected_for_capacities_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-010/contract.yaml
+source_ir: registry/ir/TLC-FC-11-CAPACITIES-010/ir.yaml
+source_ir_status: prototype_ir_with_reservations
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-010/test-plan.yaml
+nature: structural
+artifact_kind: CapacityPrototypeDescriptor
+capacity_or_reference:
+  representation: metric-symbol descriptor without measurement execution
+  object_ids: [TLC-SO-CAPACITIES-021, TLC-SO-CAPACITIES-022, TLC-SO-CAPACITIES-034, TLC-SO-CAPACITIES-055]
+identity: {feature_id: exact, object_ids: exact, preservation: mandatory}
+scope: {kind: descriptive_scope, value: cited evaluation, metric, cognitive-load and potential-presence objects only}
+context:
+  source_file: maths/11-capacities.md
+  source_sections: [Évaluation et mesure des Capacités, Dimensions éthiques motivationnelles et cognitives, Conditions d’existence]
+inputs:
+  - {name: capacity_feature_id, type: FeatureId, expected: TLC-FC-11-CAPACITIES-010}
+  - {name: object_payloads, type: 'Map<ObjectId,OpaqueScientificObject>', required_object_ids: [TLC-SO-CAPACITIES-021, TLC-SO-CAPACITIES-022, TLC-SO-CAPACITIES-034, TLC-SO-CAPACITIES-055]}
+  - {name: provenance, type: 'Map<ObjectId,SourceReference>'}
+outputs: [{name: artifact, type: CapacityPrototypeDescriptor}]
+types: [FeatureId, ObjectId, OpaqueScientificObject, OpaqueScientificValue, UnevaluatedSymbol, UnevaluatedExpression, SourceReference, CapacityPrototypeDescriptor]
+opaque_values: {policy: preserve metric expressions as symbols only, sources: [object_payloads]}
+preconditions: [exact feature id, exact duplicate-free objects, complete provenance, structural request only]
+conditions_of_application: [metric descriptor and symbol binding only]
+relations_explicitly_defined: []
+manifestations_explicitly_defined: []
+operations: [validate_feature_and_object_set, restore_contract_object_order, build_capacity_metric_descriptor_and_symbol_bindings, attach_non_evaluation_guard, expose_structural_queries]
+execution_order: [validate_feature_and_object_set, restore_contract_object_order, build_capacity_metric_descriptor_and_symbol_bindings, attach_non_evaluation_guard]
+control_flow: {invalid_input: raise structured validation error, measurement_request: raise ScientificEvaluationRequested, valid_input: return immutable descriptor}
+activation: {declared: false}
+mobilization: {declared: false}
+development: {declared: false}
+comparison: {declared: false, structural_identity_comparison_only: true}
+effects: {scientific_state_change: false, output_construction: true}
+postconditions:
+  - four source objects and metric symbols are preserved in contract order
+  - no metric formula is evaluated
+  - no score, efficiency, variance, actualization rate or potential truth is produced
+invariants: [exact object set, metric expressions remain opaque, no measurement]
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+determinism: {status: deterministic, basis: identical structural inputs}
+dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities.md]}
+unresolved_propagated: []
+reservations: [units, dimensions, measurement protocol and evaluator unavailable]
+transformations_applied: [normalized metric descriptor envelope, normalized symbol bindings, explicit measurement guard]
+obligations_of_preservation: [four identities, order, metric symbols, provenance]
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-010/algorithm.yaml
+oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-010/oracle.yaml
+implementation_fitness: {status: ready_for_structural_implementation, scientific_evaluator_ready: false}
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+capacity_invented: false
+measurement_invented: false
+ordering_invented: false
+legacy_feature_promoted: false
