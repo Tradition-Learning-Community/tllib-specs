@@ -1,0 +1,31 @@
+schema_version: 1
+feature_id: TLC-FC-07-MESSAGE-006
+signature: declare_message_entity_profile(evidence) -> DeclaredMessageEntityProfile
+inputs: [MessageEntityDeclarationEvidence]
+outputs: [DeclaredMessageEntityProfile]
+validations: [three_distinct_objects, two_relation_ids, relation_endpoints, no_protocol_fields]
+preconditions: [TLC-SO-MESSAGE-001, TLC-SO-MESSAGE-004, TLC-SO-MESSAGE-030, TLC-SR-MESSAGE-003, TLC-SR-MESSAGE-029 supplied unchanged]
+steps: [validate objects, validate relations and endpoints, reject encoding transport execution fields, construct profile with entity essential_properties transmissibility roles, attach unresolved and provenance]
+branching: incomplete declaration, endpoint mismatch, or forbidden protocol field raises error
+content_handling: preserve opaque payload and references unchanged
+role_validation: [entity, essential_properties, transmissibility]
+metadata_handling: preserve objects relations source references and candidate status
+transformation: identity-preserving declaration construction only
+transmission: evidence_role_only; external_transport_required
+interpretation: external_interpreter_required
+effects: create non-executable root profile
+errors: [IncompleteMessageDeclaration, RelationEndpointMismatch, ForbiddenProtocolField]
+postconditions: [three roles distinct, two relations preserved, no protocol or execution interface]
+invariants: [object_identity, relation_identity, role_separation, provenance, non_execution]
+determinism: deterministic
+case_limits: [missing_object, repeated_object, missing_relation, endpoint_mismatch, forbidden_protocol_field]
+dependencies: []
+unresolved_preserved: [TLC-UT-MESSAGE-001, TLC-UT-MESSAGE-021]
+pseudocode: |
+  require_exact_objects(evidence, [001, 004, 030])
+  require_exact_relations(evidence, [003, 029])
+  validate_relation_endpoints(evidence)
+  reject_protocol_encoding_transport_execution_fields(evidence)
+  result = DeclaredMessageEntityProfile(entity=evidence[001], essential_properties=evidence[004], transmissibility=evidence[030])
+  result.attach_relations_unresolved_and_provenance(evidence)
+  return result
