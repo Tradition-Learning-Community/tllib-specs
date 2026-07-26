@@ -1,0 +1,59 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-011
+status: selected_for_capacities_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-011/contract.yaml
+source_ir: registry/ir/TLC-FC-11-CAPACITIES-011/ir.yaml
+source_ir_status: prototype_ir_with_reservations
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-011/test-plan.yaml
+nature: structural
+artifact_kind: CapacityMetricDescriptor
+capacity_or_reference:
+  representation: symbolic Riemannian metric descriptor
+  object_ids: [TLC-SO-CAPACITIES-054]
+identity: {feature_id: exact, object_ids: exact, preservation: mandatory}
+scope: {kind: descriptive_scope, value: cited Riemannian structure only}
+context: {source_file: maths/11-capacities.md, source_sections: [Propriétés essentielles]}
+inputs:
+  - {name: capacity_feature_id, type: FeatureId, expected: TLC-FC-11-CAPACITIES-011}
+  - {name: ordered_scientific_objects, type: 'List<OpaqueScientificObject>', required_order: [TLC-SO-CAPACITIES-054]}
+  - {name: symbol_table, type: 'Map<ObjectId,List<UnevaluatedSymbol>>'}
+  - {name: provenance, type: 'Map<ObjectId,SourceReference>'}
+  - {name: decision_blocker, type: DecisionBlocker, expected: scientific decision required}
+outputs: [{name: artifact, type: CapacityMetricDescriptor}]
+types: [FeatureId, ObjectId, OpaqueScientificObject, OpaqueScientificValue, UnevaluatedSymbol, UnevaluatedExpression, SourceReference, DecisionBlocker, CapacityMetricDescriptor]
+opaque_values: {policy: preserve metric, geodesic and distance annotations without interpretation, sources: [ordered_scientific_objects, symbol_table]}
+preconditions: [exact feature id, exact singleton object, explicit symbol entry, complete provenance, exact blocker, structural request]
+conditions_of_application: [metric-structure description without distance evaluation]
+relations_explicitly_defined: []
+manifestations_explicitly_defined: []
+operations: [validate_targeted_capacity_inputs, describe_riemannian_metric_symbolic_structure, attach_non_evaluation_guard, expose_symbolic_queries]
+execution_order: [validate_targeted_capacity_inputs, describe_riemannian_metric_symbolic_structure, attach_non_evaluation_guard, expose_symbolic_queries]
+control_flow: {invalid_input: raise structured validation error, metric_request: raise ScientificEvaluationRequested, valid_input: return guarded immutable descriptor}
+activation: {declared: false}
+mobilization: {declared: false}
+development: {declared: false}
+comparison: {declared: false, structural_identity_comparison_only: true}
+effects: {scientific_state_change: false, output_construction: true}
+postconditions:
+  - descriptor exposes capacity-space and metric symbols as opaque tokens
+  - geodesic and distance annotations remain opaque
+  - no distance, geodesic, norm or comparison is computed
+invariants: [singleton identity, metric token preserved, blocker propagated]
+errors: [UnknownFeatureId, MissingCoveredObject, UnexpectedCoveredObject, ObjectOrderMismatch, MissingSymbolTableEntry, MissingSourceReference, MissingDecisionBlocker, ScientificEvaluationRequested]
+determinism: {status: deterministic, basis: identical structural inputs}
+dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities.md]}
+unresolved_propagated: [scientific decision required]
+reservations: [metric domain, units, geometry and evaluator unresolved]
+transformations_applied: [normalized metric structure descriptor, normalized traceability, explicit distance guard]
+obligations_of_preservation: [object identity, metric symbol, opaque annotations, provenance, blocker]
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-011/algorithm.yaml
+oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-011/oracle.yaml
+implementation_fitness: {status: ready_for_structural_implementation, scientific_evaluator_ready: false}
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+capacity_invented: false
+measurement_invented: false
+ordering_invented: false
+legacy_feature_promoted: false
