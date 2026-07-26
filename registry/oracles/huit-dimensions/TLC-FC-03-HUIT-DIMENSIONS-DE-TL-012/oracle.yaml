@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012
+operation: build_nonzero_latency_measure_claim
+source_test_plan: ir/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012/test-plan.yaml
+finalized_ir: registry/optimized-ir/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012/ir.yaml
+algorithm: registry/algorithms/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012/algorithm.yaml
+oracle_kind: structural_acceptance_oracle
+fixture_policy: symbolic_opaque_measure_tokens_only_no_scientific_values
+tests:
+- {id: HD-012-NOMINAL, category: nominal, assertion: record links subject measure token and nonzero relation with unresolved evaluation}
+- {id: HD-012-MISSING, category: precondition_error, mutation: remove latent_capacity_measure_claim, expected_error: FAIL-HUIT-012-MISSING-TRACE}
+- {id: HD-012-TYPE, category: type, assertion: result is a predicate record not a number or boolean}
+- {id: HD-012-SOURCE, category: conservation, assertion: object id source trace subject measure and relation remain unchanged}
+- {id: HD-012-OPAQUE, category: opaque_propagation, assertion: measure and nonzero tokens round-trip unchanged}
+- {id: HD-012-UNRESOLVED, category: unresolved_propagation, assertion: exact nine unresolved ids and statuses remain unresolved}
+- {id: HD-012-DETERMINISM, category: determinism, assertion: identical claim produces identical predicate record}
+- {id: HD-012-NO-NUMERIC, category: scientific_boundary, mutation: request numeric comparison, expected_error: FAIL-HUIT-012-OPERATION}
+- {id: HD-012-NO-UNITS, category: scientific_boundary, mutation: assign units or codomain, expected_error: FAIL-HUIT-012-OPERATION}
+- {id: HD-012-NO-TRUTH, category: scientific_boundary, mutation: request truth value, expected_error: FAIL-HUIT-012-OPERATION}
+- {id: HD-012-METAMORPHIC, category: metamorphic, transformation: replace opaque measure token while preserving metadata, assertion: only opaque token changes and remains unevaluated}
+- {id: HD-012-CONFORMANCE, category: contract_ir_algorithm_conformance, assertion: role output errors and propagated sets agree}
+numeric_expected_results: []
+acceptance: all_tests_pass
