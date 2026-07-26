@@ -170,7 +170,7 @@ The GitHub branch validator verifies:
 - absence of C++, Python bindings and reference implementation artifacts;
 - changed-path confinement and whitespace validation.
 
-Validation is executed on GitHub Actions before the pull request is opened. The successful run and checks are recorded in the pull request body.
+GitHub Actions run `30207609192` completed successfully for head `8959ec83e72447e98ba253db88263bf80e8de2cb`. The Relations validator, `git diff --check`, changed-path confinement checks and temporary-artifact checks all passed. A final synchronization run validates this report update before removal of the temporary workflow.
 
 ## Conclusion
 
