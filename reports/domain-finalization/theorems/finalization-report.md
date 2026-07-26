@@ -111,7 +111,7 @@ Validator: `tools/domain-finalization/validate_theorems_finalization.py`
 
 Expected command: `python tools/domain-finalization/validate_theorems_finalization.py`
 
-Validation result: pending GitHub execution at the time this initial report commit was created. The report will be updated with the executed result before the pull request is finalized.
+Validation result: **FAIL** on GitHub Actions for the branch validation commit.
 
 ## Completion statement
 
