@@ -7,7 +7,7 @@ algorithm: registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-007/algorithm
 oracle_kind: structural_acceptance_oracle
 fixture_policy: {competency_instances_created: false, payloads: opaque_tokens_named_by_source_object_id, numeric_values: none}
 acceptance_tests:
-- {test_id: C007-NOM-001, category: nominal, given: exact objects 065 and 104 complete provenance structural mode, expect: immutable descriptor preserving [065, 104]}
+- {test_id: C007-NOM-001, category: nominal, given: exact objects 065 and 104 complete provenance structural mode, expect: 'immutable descriptor preserving [065, 104]'}
 - {test_id: C007-PRE-001, category: precondition, mutation: remove object 065, expect_error: MissingCoveredObject}
 - {test_id: C007-ERR-001, category: errors, mutation: add unlisted object, expect_error: UnexpectedCoveredObject}
 - {test_id: C007-ERR-002, category: errors, mutation: duplicate object 104, expect_error: DuplicateCoveredObject}
@@ -16,8 +16,8 @@ acceptance_tests:
 - {test_id: C007-CONTEXT-001, category: context, property: validity-domain statement and source context are preserved without evaluating affinity threshold time or environment}
 - {test_id: C007-REL-001, category: relations, property: collective coordination content remains opaque and no Disciple or community endpoint is created}
 - {test_id: C007-PROP-001, category: opaque_value_propagation, property: object payloads provenance reservations and unresolved are unchanged}
-- {test_id: C007-META-001, category: metamorphic, transformation: reverse caller order, invariant: output order remains [065, 104]}
-- {test_id: C007-DET-001, category: determinism, property: identical inputs produce structurally equal descriptors}
+- {test_id: C007-META-001, category: metamorphic, transformation: reverse caller order, invariant: 'output order remains [065, 104]'}
+- {test_id: C007-DET-001, category: determinism, property: identical structural inputs produce structurally equal descriptors}
 - {test_id: C007-REJ-001, category: conditions_of_application, mutation: request validity predicate or threshold result, expect_error: ScientificEvaluationRequested}
 - {test_id: C007-REJ-002, category: comparison, mutation: request collective score synergy or comparison, expect_error: ScientificEvaluationRequested}
 - {test_id: C007-TRACE-001, category: traceability, property: full artifact chain is unique and consistent}
