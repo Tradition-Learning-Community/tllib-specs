@@ -1,0 +1,110 @@
+---
+schema_version: 1
+domain: practice
+status: ready_for_developer_assignment
+common_tasks:
+- task_id: PRACTICE-IMPL-COMMON-001
+  title: Implement immutable structural data model
+  scope:
+  - PracticeFeatureRepresentation
+  - PracticeReference
+  - SourceObjectReference
+  - opaque input and result carriers
+  acceptance:
+  - all source identities and opaque values are losslessly preserved
+  - no scientific interpretation is performed
+- task_id: PRACTICE-IMPL-COMMON-002
+  title: Implement shared structural validation
+  scope:
+  - identity validation
+  - required opaque input validation
+  - provenance validation
+  - blocker and unresolved propagation
+  acceptance:
+  - errors use the module error taxonomy
+  - blocked scientific evaluation never rejects structural representation
+- task_id: PRACTICE-IMPL-COMMON-003
+  title: Implement deterministic serialization
+  scope:
+  - serialize
+  - deserialize
+  - round-trip equality
+  - structural comparison
+  acceptance:
+  - documentary order and opaque values are preserved
+  - canonical field order is deterministic
+- task_id: PRACTICE-IMPL-COMMON-004
+  title: Implement external execution boundaries
+  scope:
+  - ExternalPracticeExecutor
+  - ExternalPracticeObserver
+  - ExternalPracticeEvaluator
+  acceptance:
+  - no default scientific execution is provided
+  - missing executor, observer or evaluator returns the defined structured error
+feature_tasks:
+- task_id: PRACTICE-IMPL-001
+  feature_id: TLC-FC-13-PRACTICE-001
+  ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-001/ir.yaml
+  algorithm_ref: registry/algorithms/practice/TLC-FC-13-PRACTICE-001/algorithm.yaml
+  oracle_ref: registry/oracles/practice/TLC-FC-13-PRACTICE-001/oracle.yaml
+  deliverable: constraint-candidate structural adapter
+- task_id: PRACTICE-IMPL-003
+  feature_id: TLC-FC-13-PRACTICE-003
+  ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-003/ir.yaml
+  algorithm_ref: registry/algorithms/practice/TLC-FC-13-PRACTICE-003/algorithm.yaml
+  oracle_ref: registry/oracles/practice/TLC-FC-13-PRACTICE-003/oracle.yaml
+  deliverable: dynamics-candidate structural adapter
+- task_id: PRACTICE-IMPL-004
+  feature_id: TLC-FC-13-PRACTICE-004
+  ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-004/ir.yaml
+  algorithm_ref: registry/algorithms/practice/TLC-FC-13-PRACTICE-004/algorithm.yaml
+  oracle_ref: registry/oracles/practice/TLC-FC-13-PRACTICE-004/oracle.yaml
+  deliverable: blocked dynamics-candidate adapter with decision propagation
+- task_id: PRACTICE-IMPL-005
+  feature_id: TLC-FC-13-PRACTICE-005
+  ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-005/ir.yaml
+  algorithm_ref: registry/algorithms/practice/TLC-FC-13-PRACTICE-005/algorithm.yaml
+  oracle_ref: registry/oracles/practice/TLC-FC-13-PRACTICE-005/oracle.yaml
+  deliverable: equation-candidate structural adapter
+- task_id: PRACTICE-IMPL-006
+  feature_id: TLC-FC-13-PRACTICE-006
+  ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-006/ir.yaml
+  algorithm_ref: registry/algorithms/practice/TLC-FC-13-PRACTICE-006/algorithm.yaml
+  oracle_ref: registry/oracles/practice/TLC-FC-13-PRACTICE-006/oracle.yaml
+  deliverable: blocked equation-candidate adapter with decision propagation
+- task_id: PRACTICE-IMPL-007
+  feature_id: TLC-FC-13-PRACTICE-007
+  ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-007/ir.yaml
+  algorithm_ref: registry/algorithms/practice/TLC-FC-13-PRACTICE-007/algorithm.yaml
+  oracle_ref: registry/oracles/practice/TLC-FC-13-PRACTICE-007/oracle.yaml
+  deliverable: metric-candidate structural adapter
+- task_id: PRACTICE-IMPL-008
+  feature_id: TLC-FC-13-PRACTICE-008
+  ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-008/ir.yaml
+  algorithm_ref: registry/algorithms/practice/TLC-FC-13-PRACTICE-008/algorithm.yaml
+  oracle_ref: registry/oracles/practice/TLC-FC-13-PRACTICE-008/oracle.yaml
+  deliverable: blocked metric-candidate adapter with decision propagation
+- task_id: PRACTICE-IMPL-009
+  feature_id: TLC-FC-13-PRACTICE-009
+  ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-009/ir.yaml
+  algorithm_ref: registry/algorithms/practice/TLC-FC-13-PRACTICE-009/algorithm.yaml
+  oracle_ref: registry/oracles/practice/TLC-FC-13-PRACTICE-009/oracle.yaml
+  deliverable: operator-candidate structural adapter
+- task_id: PRACTICE-IMPL-010
+  feature_id: TLC-FC-13-PRACTICE-010
+  ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-010/ir.yaml
+  algorithm_ref: registry/algorithms/practice/TLC-FC-13-PRACTICE-010/algorithm.yaml
+  oracle_ref: registry/oracles/practice/TLC-FC-13-PRACTICE-010/oracle.yaml
+  deliverable: blocked operator-candidate adapter with decision propagation
+- task_id: PRACTICE-IMPL-012
+  feature_id: TLC-FC-13-PRACTICE-012
+  ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-012/ir.yaml
+  algorithm_ref: registry/algorithms/practice/TLC-FC-13-PRACTICE-012/algorithm.yaml
+  oracle_ref: registry/oracles/practice/TLC-FC-13-PRACTICE-012/oracle.yaml
+  deliverable: provisionally separated relation-candidate adapter
+completion_gate:
+- every feature passes its structural oracle
+- blocked decisions are preserved exactly
+- no scientific executor is invented
+- no C++ or Python binding is part of this task package
