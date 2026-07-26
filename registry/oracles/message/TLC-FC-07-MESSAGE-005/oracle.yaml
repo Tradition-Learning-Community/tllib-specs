@@ -1,0 +1,19 @@
+schema_version: 1
+feature_id: TLC-FC-07-MESSAGE-005
+source_test_plan: registry/test-plans/TLC-FC-07-MESSAGE-005/test-plan.yaml
+acceptance_target: registry/optimized-ir/message/TLC-FC-07-MESSAGE-005/ir.yaml
+oracle_kind: ordered_descriptor_structural
+fixtures_policy: exact source-contract identifiers and relations with opaque sentinel payloads
+tests:
+  - {id: MSG005-NOMINAL, kind: nominal, assert: 18 identities, four partitions, six ordered stage references}
+  - {id: MSG005-MISSING, kind: precondition_error, expect_error: IncompleteCycleEvidence}
+  - {id: MSG005-DUPLICATE, kind: identity_error, expect_error: DuplicateCycleIdentifier}
+  - {id: MSG005-TRANSMISSION, kind: identity_conservation, assert: TLC-SO-MESSAGE-059 and TLC-SO-MESSAGE-071 remain distinct}
+  - {id: MSG005-MERGED, kind: error, expect_error: TransmissionOccurrencesMerged}
+  - {id: MSG005-CONTENT, kind: content_conservation, assert: all opaque payloads references and relations unchanged}
+  - {id: MSG005-ORDER, kind: order, assert: six stage references retain source order}
+  - {id: MSG005-DETERMINISM, kind: determinism, assert: identical ordered records produce structurally equal descriptor}
+  - {id: MSG005-METAMORPHIC, kind: metamorphic, mutate: permute input while retaining recorded source positions, assert: descriptor unchanged}
+  - {id: MSG005-ROUNDTRIP, kind: serialization_roundtrip, assert: identities partitions order metadata opaque values and unresolved preserved}
+  - {id: MSG005-NO-TRANSITION, kind: forbidden_behavior, assert: no transition timing causal or transport operation exists}
+properties: [identity_preservation, order_preservation, unresolved_propagation, non_execution]
