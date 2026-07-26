@@ -1,0 +1,29 @@
+---
+schema_version: 1
+oracle_id: TLC-ORACLE-13-PRACTICE-005
+feature_id: TLC-FC-13-PRACTICE-005
+status: selected_for_practice_implementation_specification
+ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-005/ir.yaml
+algorithm_ref: registry/algorithms/practice/TLC-FC-13-PRACTICE-005/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-13-PRACTICE-005/test-plan.yaml
+acceptance_ready: true
+scientific_execution_oracle_available: false
+expected_identity: TLC-FC-13-PRACTICE-005
+expected_raw_status: declarative_non_executable_with_reservations
+expected_object_ids: [TLC-SO-PRACTICE-069, TLC-SO-PRACTICE-087, TLC-SO-PRACTICE-089, TLC-SO-PRACTICE-090]
+expected_input_ids: [INPUT-PRACTICE-005-1, INPUT-PRACTICE-005-2, INPUT-PRACTICE-005-3, INPUT-PRACTICE-005-4]
+expected_output_ids: [OUTPUT-PRACTICE-005-1, OUTPUT-PRACTICE-005-2, OUTPUT-PRACTICE-005-3, OUTPUT-PRACTICE-005-4]
+expected_unresolved: []
+expected_scientific_decisions: []
+tests:
+- {id: PRACTICE-005-NOMINAL, category: nominal, assertion: four opaque inputs build a traceable equation-candidate representation}
+- {id: PRACTICE-005-IDENTITY, category: identity, assertion: feature and object ids match exactly}
+- {id: PRACTICE-005-ROUNDTRIP, category: serialization, assertion: all payloads and source references survive round trip}
+- {id: PRACTICE-005-ORDER, category: structural, assertion: object order is 069, 087, 089, 090}
+- {id: PRACTICE-005-NO-EVALUATION, category: errors, assertion: equation evaluation returns external_evaluator_required}
+- {id: PRACTICE-005-NO-HABIT-RULE, category: invariants, assertion: descriptive habit wording creates no repetition or stop rule}
+- {id: PRACTICE-005-NO-EFFECT, category: invariants, assertion: no guaranteed effect is introduced}
+- {id: PRACTICE-005-OPAQUE, category: opaque_value_propagation, assertion: opaque values remain unchanged}
+properties: [each input is required, undeclared objects fail provenance validation, structural serialization is deterministic, equations remain independent]
+metamorphic_relations: [round-trip canonical serialization is stable, replacing one opaque payload changes only that payload]
+acceptance_condition: structural tests pass; no exact transformed value is asserted
