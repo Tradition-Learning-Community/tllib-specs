@@ -1,0 +1,42 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-018
+algorithm_id: CAP-ALG-018
+status: selected_for_capacities_implementation_specification
+source_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-018/ir.yaml
+signature: 'CapacityRelationDescriptor build_capacity_relation_descriptor_preserving_endpoints(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>)'
+inputs: {required_object_order: [TLC-SO-CAPACITIES-010]}
+outputs: [CapacityRelationDescriptor]
+validations: [exact feature id, exact singleton object, no duplicate, complete provenance, structural request]
+preconditions: [social-relational capacity source object present]
+conditions_of_application: [descriptor construction without endpoint inference]
+steps:
+  - validate feature and object set
+  - copy capacity object as opaque relation payload
+  - preserve only source-present endpoint tokens
+  - construct immutable relation descriptor
+  - attach provenance and non-evaluation guard
+  - return descriptor
+branching: {missing_object: MissingCoveredObject, duplicate_object: DuplicateCoveredObject, missing_provenance: MissingSourceReference, endpoint_inference_requested: ScientificEvaluationRequested}
+capacity_handling: {construction: relation descriptor only, identity_validation: exact, scope_validation: singleton, context_validation: provenance}
+relations: descriptor_only_no_direction_strength_or_endpoint_semantics
+activation: not_performed
+mobilization: not_performed
+development: not_performed
+comparison: identifier_and_shape_only
+effects: no external-domain object or relation mutation
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, MissingSourceReference, ScientificEvaluationRequested]
+postconditions: [identity, opaque endpoints and provenance preserved, no relation evaluated]
+invariants: [no endpoint invented, no competence virtue practice or person inferred]
+determinism: deterministic
+case_limits: [extra object fails, endpoint inference request fails, absent endpoints remain absent]
+unresolved_conserved: []
+dependencies: []
+pseudocode: |
+  require feature_id == TLC-FC-11-CAPACITIES-018 else UnknownFeatureId
+  require exact_keys(payloads) == [TLC-SO-CAPACITIES-010] else MissingCoveredObject
+  require no_duplicates(payloads) else DuplicateCoveredObject
+  require complete_provenance(provenance) else MissingSourceReference
+  require request_is_structural_only() else ScientificEvaluationRequested
+  descriptor = immutable_relation_descriptor(feature_id, opaque(payloads[010]), provenance[010])
+  descriptor.attach_non_evaluation_guard()
+  return descriptor
