@@ -1,0 +1,13 @@
+schema_version: 1
+domain: master
+status: no_blocking_decision_for_structural_implementation
+blocking: []
+non_blocking:
+  - id: MASTER-SCIENTIFIC-EVALUATION-EXTERNAL
+    classification: deferred_to_scientific_review
+    description: Scientific evaluation, calibration and execution semantics remain governed by source contracts, source IRs and preserved unresolved items.
+    resolution: preserve opaque values and require explicit external evaluators where declared.
+  - id: MASTER-CANONICALIZATION-NOT-PROMOTED
+    classification: preserved_as_opaque
+    description: Structural implementation readiness does not promote scientific canonicalization.
+    resolution: keep source status and reservations unchanged.
