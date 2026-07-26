@@ -1,0 +1,44 @@
+name: Dynamics finalization validation
+
+on:
+  push:
+    branches:
+      - phase4/dynamics-domain-finalization-001
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install validator dependency
+        run: python -m pip install --disable-pip-version-check PyYAML
+      - name: Validate Dynamics finalization
+        run: python tools/domain-finalization/validate_dynamics_finalization.py
+      - name: Check patch whitespace
+        run: git diff --check c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD
+      - name: Verify changed paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --name-only c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD > /tmp/dynamics-paths.txt
+          if grep -E '^(maths/|registry/global-reconciliation/)' /tmp/dynamics-paths.txt; then
+            echo 'Forbidden source or global registry path changed.' >&2
+            exit 1
+          fi
+          if grep -E '\.(cpp|cc|cxx|h|hpp|pyi)$' /tmp/dynamics-paths.txt; then
+            echo 'Forbidden implementation artifact present.' >&2
+            exit 1
+          fi
