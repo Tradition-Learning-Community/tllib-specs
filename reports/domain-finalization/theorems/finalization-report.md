@@ -111,7 +111,7 @@ Validator: `tools/domain-finalization/validate_theorems_finalization.py`
 
 Expected command: `python tools/domain-finalization/validate_theorems_finalization.py`
 
-Validation result: **PASS** on GitHub Actions for the branch validation commit.
+Validation result: **PASS** on GitHub Actions for commit `5787a613039cef657f3c5ea938eae4acbdaf789e`.
 
 ## Completion statement
 
