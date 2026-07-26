@@ -1,0 +1,75 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-004
+status: selected_for_competencies_implementation_specification
+source_contract: {id: TLC-MC-TLC-FC-12-COMPETENCIES-004, path: registry/math-contracts/TLC-FC-12-COMPETENCIES-004/contract.yaml}
+source_ir: {id: TLC-IR-TLC-FC-12-COMPETENCIES-004, path: registry/ir/TLC-FC-12-COMPETENCIES-004/ir.yaml, raw_status: canonical_declarative_ir_with_reservations}
+source_test_plan: registry/test-plans/TLC-FC-12-COMPETENCIES-004/test-plan.yaml
+nature: declarative
+competency_or_reference:
+  representation: opaque_scientific_object_set
+  ordered_object_ids: [TLC-SO-COMPETENCIES-066, TLC-SO-COMPETENCIES-096, TLC-SO-COMPETENCIES-097, TLC-SO-COMPETENCIES-098, TLC-SO-COMPETENCIES-114]
+  objects:
+  - {object_id: TLC-SO-COMPETENCIES-066, canonical_name: 'Équation — Pratique et application', object_type: DifferentialEquation, source_status: candidate}
+  - {object_id: TLC-SO-COMPETENCIES-096, canonical_name: 'Équation — Acquisition à court terme', object_type: DifferentialEquation, source_status: candidate}
+  - {object_id: TLC-SO-COMPETENCIES-097, canonical_name: 'Équation — Développement à long terme', object_type: DifferentialEquation, source_status: candidate}
+  - {object_id: TLC-SO-COMPETENCIES-098, canonical_name: 'Équation — Adaptation à des situations nouvelles', object_type: DifferentialEquation, source_status: candidate}
+  - {object_id: TLC-SO-COMPETENCIES-114, canonical_name: 'Équation — Systèmes dynamiques', object_type: DifferentialEquation, source_status: candidate}
+identity: {public_feature_id: TLC-FC-12-COMPETENCIES-004, preservation: exact}
+scope: {category: evolution_dynamics, canonical_name: '12-competencies: dynamics (admissible)', boundary_label: admissible, boundary_reopened: false}
+context: {kind: source_defined_and_opaque, scientific_source: maths/12-competencies.md}
+inputs:
+- {name: competencies_feature_id, type: FeatureId, required: true, expected_value: TLC-FC-12-COMPETENCIES-004}
+- {name: object_payloads, type: 'Map<ObjectId,OpaqueScientificObject>', required: true, required_keys: [TLC-SO-COMPETENCIES-066, TLC-SO-COMPETENCIES-096, TLC-SO-COMPETENCIES-097, TLC-SO-COMPETENCIES-098, TLC-SO-COMPETENCIES-114]}
+- {name: provenance, type: 'Map<ObjectId,SourceReference>', required: true}
+- {name: request_mode, type: RequestMode, required: true, allowed_value: structural_descriptor_only}
+outputs:
+- {name: artifact, type: CompetenciesCanonicalDescriptor, semantics: immutable_structural_descriptor_no_scientific_value}
+types: [FeatureId, ObjectId, OpaqueScientificObject, OpaqueScientificValue, SourceReference, CompetenciesCanonicalDescriptor, RequestMode]
+opaque_values: [all_five_equations, symbols, parameters, states, initial_conditions, temporal_semantics, stochastic_terms]
+preconditions:
+- feature id and exact ordered object set match the source contract
+- every object appears exactly once with provenance
+- request mode is structural_descriptor_only
+prerequisites_explicit: []
+application_conditions: [structural construction only, no dynamics integration stochastic sampling simulation scoring or scientific evaluation]
+manifestations_explicit: {declared_for_execution: false, handling: preserve_source_statements_as_opaque}
+relations_explicit: {declared_for_execution: false, endpoint_inference: forbidden}
+operations: [validate_request_mode, validate_feature_identity, validate_exact_object_set, validate_provenance, build_immutable_descriptor, propagate_external_dependency, propagate_reservations_and_unresolved, reject_unsupported_scientific_operation]
+execution_order: [validate_request_mode, validate_feature_identity, validate_exact_object_set, validate_provenance, build_immutable_descriptor, propagate_external_dependency, propagate_reservations_and_unresolved]
+control_flow:
+- invalid structural input returns a structured error
+- scientific execution request raises ScientificEvaluationRequested or BlockedScientificDecision
+- valid structural input returns one immutable descriptor
+scientific_behaviors:
+  mobilization: {source_declaration: practice_and_application_content_only, executable: false, handling: preserve_opaque}
+  exercise: {source_declaration: practice_content_present, executable: false, handling: preserve_opaque}
+  acquisition: {source_declaration: present_in_object_096, executable: false, handling: preserve_opaque}
+  development: {source_declaration: present_in_objects_097_and_114, executable: false, handling: preserve_opaque}
+  mastery: {source_declaration: absent, executable: false, handling: not_declared}
+  evaluation: {source_declaration: absent_as_runtime_contract, executable: false, handling: external_evaluator_required}
+  comparison: {source_declaration: absent_as_runtime_contract, executable: false, handling: external_comparator_required}
+effects: []
+postconditions:
+- output preserves five object identities in contract order and all provenance
+- Capacities dependency remains external_unreconciled metadata
+- output contains no computed trajectory state probability score threshold rank or progression
+invariants: [exact_source_object_set, equations_not_interpreted, raw_status_preserved, structural_validity_not_scientific_validity, no_runtime_capacities_dependency_invented]
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, UnexpectedCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+determinism: {status: deterministic, key: [feature_id, ordered_object_ids, payload_identities, provenance, reservations, unresolved, dependency_status]}
+dependencies:
+  internal: [competencies_feature_profile, structural_validation_pipeline]
+  external:
+  - {domain: capacities, kind: scientific_documentary, status: external_unreconciled, runtime_required: false}
+unresolved_propagated: []
+reservations: [no full mathematical contract or production semantics asserted, types dimensions units parameters initial conditions thresholds and temporal semantics are not completed, Capacities external dependency remains unreconciled, scientific unresolved remains preserved]
+transformations_applied: [normalized common descriptor fields, extracted shared validation subgraph, normalized dependency kind, added explicit non-execution guard, normalized traceability]
+preservation_obligations: [preserve feature object order and source equations, preserve raw status and external dependency, preserve opaque values provenance reservations and unresolved]
+links: {algorithm: registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-004/algorithm.yaml, oracle: registry/oracles/competencies/TLC-FC-12-COMPETENCIES-004/oracle.yaml}
+actual_implementation_readiness: {structural_descriptor: ready, scientific_execution: blocked_not_authorized, blocker_for_structural_layer: false}
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+competency_invented: false
+measurement_invented: false
+ordering_invented: false
