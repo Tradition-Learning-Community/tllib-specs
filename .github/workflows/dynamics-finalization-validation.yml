@@ -15,40 +15,38 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          show-progress: false
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
+      - name: Fetch repository quietly
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git init -q
+          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git fetch -q --no-tags origin "${GITHUB_SHA}"
+          git checkout -q --detach "${GITHUB_SHA}"
+          git fetch -q --no-tags origin c34d40713bf444d38f92f76e1c6239ee596d5a18
       - name: Install validator dependency
-        run: python -m pip install --disable-pip-version-check PyYAML
+        run: python3 -m pip install --quiet --disable-pip-version-check PyYAML
       - name: Parse generated YAML
         shell: bash
         run: |
-          python - <<'PY'
+          python3 - <<'PY'
           from pathlib import Path
           import yaml
-
           roots = [
               Path('registry/domain-finalization/dynamics'),
               Path('registry/optimized-ir/dynamics'),
               Path('registry/algorithms/dynamics'),
               Path('registry/oracles/dynamics'),
           ]
-          for root in roots:
-              for path in sorted(root.rglob('*.yaml')):
-                  try:
-                      yaml.safe_load(path.read_text(encoding='utf-8'))
-                  except Exception as exc:
-                      raise SystemExit(f'YAML parse failure in {path}: {exc}')
-                  print(f'parsed {path}')
+          paths = [path for root in roots for path in sorted(root.rglob('*.yaml'))]
+          for path in paths:
+              yaml.safe_load(path.read_text(encoding='utf-8'))
+          print(f'Generated YAML parsed: {len(paths)} files')
           PY
       - name: Validate Dynamics finalization
-        run: python tools/domain-finalization/validate_dynamics_finalization.py
+        run: python3 tools/domain-finalization/validate_dynamics_finalization.py
       - name: Check patch whitespace
         run: git diff --check c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD
       - name: Verify changed paths
