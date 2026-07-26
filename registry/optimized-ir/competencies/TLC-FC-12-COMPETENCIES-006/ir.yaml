@@ -1,0 +1,71 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-006
+status: selected_for_competencies_implementation_specification
+source_contract: {id: TLC-MC-TLC-FC-12-COMPETENCIES-006, path: registry/math-contracts/TLC-FC-12-COMPETENCIES-006/contract.yaml}
+source_ir: {id: TLC-IR-TLC-FC-12-COMPETENCIES-006, path: registry/ir/TLC-FC-12-COMPETENCIES-006/ir.yaml, raw_status: canonical_declarative_ir_with_reservations}
+source_test_plan: registry/test-plans/TLC-FC-12-COMPETENCIES-006/test-plan.yaml
+nature: declarative
+competency_or_reference:
+  representation: opaque_scientific_object_set
+  ordered_object_ids: [TLC-SO-COMPETENCIES-067, TLC-SO-COMPETENCIES-068, TLC-SO-COMPETENCIES-073, TLC-SO-COMPETENCIES-074, TLC-SO-COMPETENCIES-086, TLC-SO-COMPETENCIES-100, TLC-SO-COMPETENCIES-102, TLC-SO-COMPETENCIES-103, TLC-SO-COMPETENCIES-105]
+  objects:
+  - {object_id: TLC-SO-COMPETENCIES-067, canonical_name: 'Équation — Consolidation de l’habileté', object_type: Equation, source_status: candidate}
+  - {object_id: TLC-SO-COMPETENCIES-068, canonical_name: 'Équation — Intégration avec Valeurs, Vertus et Principes', object_type: Equation, source_status: candidate}
+  - {object_id: TLC-SO-COMPETENCIES-073, canonical_name: 'Équation — Apprentissage observationnel et imitation', object_type: Equation, source_status: candidate}
+  - {object_id: TLC-SO-COMPETENCIES-074, canonical_name: 'Équation — Apprentissage expérientiel et pratique itérative', object_type: Equation, source_status: candidate}
+  - {object_id: TLC-SO-COMPETENCIES-086, canonical_name: 'Équation — Indicateurs qualitatifs', object_type: Equation, source_status: candidate}
+  - {object_id: TLC-SO-COMPETENCIES-100, canonical_name: 'Équation — Alignement avec Valeurs, Vertus et Principes', object_type: Equation, source_status: candidate}
+  - {object_id: TLC-SO-COMPETENCIES-102, canonical_name: 'Équation — Charge cognitive, insight et efficacité de résolution de problèmes', object_type: Equation, source_status: candidate}
+  - {object_id: TLC-SO-COMPETENCIES-103, canonical_name: 'Équation — Intégration comportementale et performance habituelle', object_type: Equation, source_status: candidate}
+  - {object_id: TLC-SO-COMPETENCIES-105, canonical_name: 'Équation — Compétence collective émergente', object_type: Equation, source_status: candidate}
+identity: {public_feature_id: TLC-FC-12-COMPETENCIES-006, preservation: exact}
+scope: {category: transformation, canonical_name: '12-competencies: equation (admissible)', boundary_label: admissible, boundary_reopened: false}
+context: {kind: source_defined_and_opaque, scientific_source: maths/12-competencies.md}
+inputs:
+- {name: competencies_feature_id, type: FeatureId, required: true, expected_value: TLC-FC-12-COMPETENCIES-006}
+- {name: object_payloads, type: 'Map<ObjectId,OpaqueScientificObject>', required: true, required_keys: [TLC-SO-COMPETENCIES-067, TLC-SO-COMPETENCIES-068, TLC-SO-COMPETENCIES-073, TLC-SO-COMPETENCIES-074, TLC-SO-COMPETENCIES-086, TLC-SO-COMPETENCIES-100, TLC-SO-COMPETENCIES-102, TLC-SO-COMPETENCIES-103, TLC-SO-COMPETENCIES-105]}
+- {name: provenance, type: 'Map<ObjectId,SourceReference>', required: true}
+- {name: request_mode, type: RequestMode, required: true, allowed_value: structural_descriptor_only}
+outputs: [{name: artifact, type: CompetenciesCanonicalDescriptor, semantics: immutable_structural_descriptor_no_scientific_value}]
+types: [FeatureId, ObjectId, OpaqueScientificObject, OpaqueScientificValue, SourceReference, CompetenciesCanonicalDescriptor, RequestMode]
+opaque_values: [nine_equations, all_symbols_parameters_functions_metrics_states_contexts_and_collective_terms]
+preconditions: [exact feature id, exact nine-object set once each, complete provenance, structural request mode]
+prerequisites_explicit: []
+application_conditions: [structural construction only, no transformation learning metric behavior or collective computation]
+manifestations_explicit: {declared_for_execution: false, source_manifestation_content_present: true, handling: external_observer_required}
+relations_explicit: {declared_for_execution: false, source_cross_domain_content_present: true, endpoint_inference: forbidden}
+operations: [validate_request_mode, validate_feature_identity, validate_exact_object_set, validate_provenance, build_immutable_descriptor, propagate_external_dependency, propagate_reservations_and_unresolved, reject_unsupported_scientific_operation]
+execution_order: [validate_request_mode, validate_feature_identity, validate_exact_object_set, validate_provenance, build_immutable_descriptor, propagate_external_dependency, propagate_reservations_and_unresolved]
+control_flow:
+- invalid structural input returns structured error
+- scientific transformation metric observer or dependency execution request is rejected
+- valid structural input returns immutable descriptor
+scientific_behaviors:
+  mobilization: {source_declaration: absent_as_selected_operation, executable: false, handling: not_declared}
+  exercise: {source_declaration: present_in_object_074, executable: false, handling: preserve_opaque}
+  acquisition: {source_declaration: learning_and_consolidation_content_present, executable: false, handling: preserve_opaque}
+  development: {source_declaration: consolidation_integration_and_collective_content_present, executable: false, handling: preserve_opaque}
+  mastery: {source_declaration: metric_content_in_object_086_only, executable: false, handling: preserve_opaque}
+  evaluation: {source_declaration: indicator_and_coherence_content_present, executable: false, handling: external_evaluator_required}
+  comparison: {source_declaration: absent_as_selected_comparator, executable: false, handling: external_comparator_required}
+effects: []
+postconditions: [nine object identities preserved in source order, Capacities dependency preserved as external_unreconciled metadata, no transformed competency metric response collective result score threshold or progression produced]
+invariants: [exact source object set, equations not interpreted, raw status preserved, structural validity not scientific validity, no runtime dependency invented]
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, UnexpectedCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+determinism: {status: deterministic, key: [feature_id, ordered_object_ids, payload_identities, provenance, reservations, unresolved, dependency_status]}
+dependencies:
+  internal: [competencies_feature_profile, structural_validation_pipeline]
+  external: [{domain: capacities, kind: scientific_documentary, status: external_unreconciled, runtime_required: false}]
+unresolved_propagated: []
+reservations: [no full mathematical contract or production semantics asserted, types dimensions units functions parameters thresholds observers evaluators and temporal semantics are incomplete, Capacities dependency external_unreconciled, scientific unresolved preserved]
+transformations_applied: [normalized descriptor schema, extracted shared structural subgraph, normalized dependency kind, normalized traceability, added unsupported-operation guards]
+preservation_obligations: [preserve all nine identities order equations provenance raw status dependency reservations and unresolved]
+links: {algorithm: registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-006/algorithm.yaml, oracle: registry/oracles/competencies/TLC-FC-12-COMPETENCIES-006/oracle.yaml}
+actual_implementation_readiness: {structural_descriptor: ready, scientific_execution: blocked_not_authorized, blocker_for_structural_layer: false}
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+competency_invented: false
+measurement_invented: false
+ordering_invented: false
