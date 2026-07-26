@@ -1,0 +1,43 @@
+schema_version: 1
+feature_id: TLC-FC-07-MESSAGE-003
+status: selected_for_message_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-07-MESSAGE-003/contract.yaml
+source_ir: registry/ir/TLC-FC-07-MESSAGE-003/ir.yaml
+source_test_plan: registry/test-plans/TLC-FC-07-MESSAGE-003/test-plan.yaml
+source_ir_status: prototype_ir_with_reservations
+nature: structural
+inputs:
+  - {name: existential_discourse_records, type: ExistentialDiscourseEvidencePair, content_policy: opaque_candidate_evidence}
+outputs:
+  - {name: candidate_oracle_evidence, type: CandidateExistentialOracleEvidence, oracle_acceptance_rule: unresolved_propagated}
+types:
+  opaque: [OpaqueScientificPayload, OpaqueSourceContext]
+  parameterized: [ExistentialDiscourseEvidencePair, CandidateExistentialOracleEvidence]
+content_or_reference: preserve TLC-SO-MESSAGE-020 and TLC-SO-MESSAGE-049
+opaque_values: [existential_classification, energetic_semantics, acceptance_criteria]
+roles_explicitly_defined: [discourse_format_evidence, existential_label_evidence]
+context: shared existential-discourse source subsection
+metadata: [feature_id, source_subsection, object_ids, candidate_status, oracle_acceptance_rule]
+preconditions: [both objects present and distinct, same source subsection]
+operations: [validate_pair, validate_shared_subsection, construct_evidence_descriptor, mark_acceptance_rule_unresolved]
+execution_order: [validate_identifiers, validate_context, construct, attach_unresolved]
+control_flow: fail_on_incomplete_pair_or_mismatched_subsection
+transformations_authorized: [identity_preserving_evidence_pairing]
+effects: [create_candidate_evidence_descriptor]
+postconditions: [both identities retained, subsection provenance retained, acceptance rule unresolved]
+invariants: [identity_preserved, no_scientific_acceptance_evaluation, non_executable_evidence]
+errors: [IncompleteExistentialEvidencePair, MismatchedSourceSubsection]
+determinism: deterministic_for_identical_pair_and_context
+dependencies: [TLC-FC-07-MESSAGE-006]
+unresolved_propagated: [oracle_acceptance_rule]
+reservations: []
+transformations_applied_to_ir: [normalized_traceability, explicit_unresolved_acceptance_marker]
+preservation_obligations: [content, identities, provenance, candidate_status]
+algorithm: registry/algorithms/message/TLC-FC-07-MESSAGE-003/algorithm.yaml
+oracle: registry/oracles/message/TLC-FC-07-MESSAGE-003/oracle.yaml
+implementation_aptitude: ready_for_candidate_evidence_assembly
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+message_content_invented: false
