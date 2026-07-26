@@ -1,0 +1,90 @@
+---
+schema_version: 1
+domain: practice
+analysis_scope: authoritative_active_features_only
+patterns:
+- pattern_id: PRACTICE-PATTERN-OPAQUE-CANDIDATE-ENVELOPE
+  kind: shared_structural_schema
+  applies_to: all
+  evidence:
+  - every source IR declares OpaqueCandidateScientificInput
+  - every source IR declares OpaqueCandidateEvaluationResult
+  - every source output preserves unresolved scientific semantics
+  reusable_components:
+  - required opaque input validation
+  - opaque result propagation
+  - source provenance preservation
+  scientific_equivalence_asserted: false
+- pattern_id: PRACTICE-PATTERN-TRACEABILITY-FIRST
+  kind: shared_validation
+  applies_to: all
+  evidence:
+  - source contracts require covered object identities and references to be preserved
+  - source test plans require complete traceability
+  reusable_components:
+  - identity validation
+  - source-reference validation
+  - contract-to-IR-to-algorithm-to-oracle link validation
+- pattern_id: PRACTICE-PATTERN-DECLARATIVE-BOUNDARY
+  kind: shared_control_boundary
+  applies_to: all
+  evidence:
+  - every source IR is declarative_non_executable
+  - no source IR defines a numerical method or executable practice procedure
+  behavior:
+  - structural operations are allowed
+  - scientific execution is delegated to an external executor
+  - scientific evaluation is delegated to an external evaluator
+  - blocked features preserve scientific decisions before evaluation
+- pattern_id: PRACTICE-PATTERN-BLOCKER-PROPAGATION
+  kind: shared_error_model
+  applies_to:
+  - TLC-FC-13-PRACTICE-004
+  - TLC-FC-13-PRACTICE-006
+  - TLC-FC-13-PRACTICE-008
+  - TLC-FC-13-PRACTICE-010
+  - TLC-FC-13-PRACTICE-012
+  behavior:
+  - blockers remain feature-specific
+  - blockers do not reject structural representation
+  - blockers prevent only the unspecified scientific evaluation
+- pattern_id: PRACTICE-PATTERN-STRUCTURAL-DETERMINISM
+  kind: shared_property
+  applies_to: all
+  behavior:
+  - canonical serialization is deterministic
+  - round-trip serialization preserves every opaque value and source reference
+  - scientific result determinism is not asserted
+comparisons:
+  resemblance:
+    finding: all features expose candidate scientific material
+    consequence: no factorization by resemblance alone
+  textual_duplication:
+    finding: contracts and source IRs repeat the same reservation and traceability wording
+    consequence: common errors and validations are normalized
+  structural_duplication:
+    finding: inputs, outputs, provenance, blockers and reservations share one envelope
+    consequence: one parameterized structural envelope is selected
+  same_practice_schema:
+    finding: the software envelope is shared, but covered scientific objects differ
+    consequence: operations are parameterized without merging feature identities
+  scientific_equivalence:
+    finding: no equivalence between features is demonstrated
+    consequence: no feature or scientific operation is merged
+optimizations_applied:
+- common opaque input and output types normalized
+- common provenance and identity validation normalized
+- common structural error taxonomy normalized
+- serialization, deserialization and structural comparison normalized
+- source object order preserved as documentary order
+- feature-specific blockers and reservations retained
+- empty executable-step, repetition, transition, stop-condition and effect sections made explicit
+- dependency classes separated into documentary, scientific and execution dependencies
+optimizations_not_applied:
+- no equation fusion
+- no operator fusion
+- no metric fusion
+- no conversion of descriptive repetition into a loop
+- no conversion of textual order into executable sequence
+- no inferred duration, frequency, threshold, progression or effect
+- no cross-feature functional dependency introduced
