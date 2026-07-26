@@ -1,0 +1,81 @@
+schema_version: 1
+artifact_kind: theorems_algorithm_specification
+feature_id: TLC-FC-06-THEOREMS-008
+operation: assemble_eight_dimension_sufficiency_roles
+signature: assemble_eight_dimension_sufficiency_roles(Mapping<SourceOrdinal,OpaqueDimensionRole> dimension_roles, Mapping<OpaqueDimensionRole,UnresolvedMappingId> cross_domain_mappings) -> EightDimensionSufficiencyRoleBundle
+inputs:
+  - {name: dimension_roles, type: "Mapping<SourceOrdinal,OpaqueDimensionRole>"}
+  - {name: cross_domain_mappings, type: "Mapping<OpaqueDimensionRole,UnresolvedMappingId>"}
+outputs:
+  - {name: sufficiency_role_bundle, type: EightDimensionSufficiencyRoleBundle}
+validations:
+  - exact source ordinals one through eight are present
+  - no source ordinal is duplicated
+  - each role has its required unresolved mapping identifier
+  - role labels match the source order
+hypotheses:
+  - TLC-EA-THEOREMS-008-001 is retained
+  - eight scientific classifications remain unresolved and opaque
+preconditions:
+  - Exactly the eight source ordinals are present and every unresolved mapping remains attached to its role.
+conditions_of_application:
+  - source order and role labels are preserved as declared structure
+ordered_steps:
+  - validate missing roles
+  - validate duplicate ordinals
+  - validate unresolved mapping attachment
+  - validate source-order labels
+  - preserve each opaque role payload
+  - construct ordered bundle
+  - validate exact postcondition
+branching:
+  - {condition: any required ordinal lacks a role, result: MISSING_DIMENSION_ROLE}
+  - {condition: any source ordinal is duplicated, result: DUPLICATE_SOURCE_ORDINAL}
+  - {condition: any required unresolved mapping is absent, result: DROPPED_CROSS_DOMAIN_UNRESOLVED}
+  - {condition: all validations pass, result: return sufficiency_role_bundle}
+dependencies: [DEP-THEOREMS-HUIT-001, DEP-THEOREMS-MESSAGE-001, RESULT-THEOREMS-003, PROOF-THEOREMS-003]
+statement_handling:
+  construction: ordered_opaque_role_bundle
+  sufficiency_validation: none
+proof_status_control:
+  specification_metadata: partial_not_formalized_with_PROOF-THEOREMS-003
+  runtime_truth_value_returned: false
+errors: [MISSING_DIMENSION_ROLE, DUPLICATE_SOURCE_ORDINAL, DROPPED_CROSS_DOMAIN_UNRESOLVED]
+postconditions:
+  - eight role labels occur once each in source order
+  - every required unresolved identifier remains attached
+  - no sufficiency assertion is produced
+determinism: identical mappings produce an identical source-ordered bundle
+edge_cases:
+  - input mapping iteration order cannot replace source ordinal order
+  - identical opaque role payloads remain distinct by ordinal and label
+unresolved_conserved: [TLC-UT-THEOREMS-001, TLC-UT-THEOREMS-005, TLC-UT-THEOREMS-007, TLC-UT-THEOREMS-008, TLC-UT-THEOREMS-009, TLC-UT-THEOREMS-010, TLC-UT-THEOREMS-011, TLC-UT-THEOREMS-012]
+pseudocode: |
+  function assemble_eight_dimension_sufficiency_roles(dimension_roles, cross_domain_mappings):
+      required_ordinals = [1, 2, 3, 4, 5, 6, 7, 8]
+      required_labels = [
+          "Message", "Principles", "Values", "Virtues",
+          "Capacities", "Competencies", "Practice", "Lived Experience"
+      ]
+      if any required ordinal has no role:
+          raise MISSING_DIMENSION_ROLE
+      if any ordinal occurs more than once:
+          raise DUPLICATE_SOURCE_ORDINAL
+      if any role lacks its required unresolved mapping identifier:
+          raise DROPPED_CROSS_DOMAIN_UNRESOLVED
+      bundle = empty EightDimensionSufficiencyRoleBundle
+      for ordinal in required_ordinals:
+          role = dimension_roles[ordinal]
+          bundle.append(
+              ordinal = ordinal,
+              label = required_labels[ordinal - 1],
+              role = preserve_identity(role),
+              unresolved_id = preserve_identity(cross_domain_mappings[role])
+          )
+      assert bundle preserves exact labels, ordinals, source order, and unresolved mappings
+      return bundle
+forbidden_operations:
+  - assert sufficiency
+  - define the unresolved scientific types
+  - reorder by map iteration order
+  - merge role records
