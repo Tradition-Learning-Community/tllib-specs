@@ -1,0 +1,28 @@
+---
+schema_version: 1
+oracle_id: TLC-ORACLE-13-PRACTICE-012
+feature_id: TLC-FC-13-PRACTICE-012
+status: selected_for_practice_implementation_specification
+ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-012/ir.yaml
+algorithm_ref: registry/algorithms/practice/TLC-FC-13-PRACTICE-012/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-13-PRACTICE-012/test-plan.yaml
+acceptance_ready: true
+scientific_execution_oracle_available: false
+expected_identity: TLC-FC-13-PRACTICE-012
+expected_raw_status: blocked_declarative_non_executable
+expected_object_ids: [TLC-SO-PRACTICE-061]
+expected_input_ids: [INPUT-PRACTICE-012-1]
+expected_output_ids: [OUTPUT-PRACTICE-012-1]
+expected_unresolved: []
+expected_scientific_decisions: [TLC-HR-0100]
+tests:
+- {id: PRACTICE-012-STRUCTURE, category: nominal, assertion: provisionally separated relation remains structurally representable}
+- {id: PRACTICE-012-DECISION, category: dependencies, assertion: TLC-HR-0100 is preserved exactly}
+- {id: PRACTICE-012-ENDPOINTS, category: errors, assertion: inferred endpoints return implementation_out_of_scope}
+- {id: PRACTICE-012-EVALUATION, category: errors, assertion: scientific evaluation returns scientific_decision_required}
+- {id: PRACTICE-012-ROUNDTRIP, category: serialization, assertion: round trip preserves relation identity payload and decision}
+- {id: PRACTICE-012-NO-METRIC, category: invariants, assertion: no indicator type scale or evaluation formula is inferred}
+- {id: PRACTICE-012-BOUNDARY, category: identity, assertion: provisional feature separation is preserved}
+properties: [removing or replacing HR-0100 fails conformity, endpoint additions fail, serialization is deterministic, opaque payload is unchanged]
+metamorphic_relations: [round-trip serialization is stable, replacing the opaque payload changes only that payload]
+acceptance_condition: structural tests pass; relation endpoints and scientific evaluation remain unresolved
