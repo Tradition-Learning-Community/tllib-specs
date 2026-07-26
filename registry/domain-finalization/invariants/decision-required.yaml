@@ -1,0 +1,103 @@
+schema_version: 1
+domain_id: invariants
+blocking_decisions: []
+blocking_count: 0
+classification_policy:
+  blocking: prevents definition of required observable implementation behavior
+  non_blocking: does not prevent structural implementation or acceptance testing
+  deferred_to_scientific_review: requires scientific authority before execution semantics
+  preserved_as_opaque: represented and propagated without interpretation
+decisions:
+- decision_id: INV-DEC-001
+  classification: deferred_to_scientific_review
+  implementation_classification: unresolved_propagated
+  affected_feature_ids: [TLC-FC-04-INVARIANTS-008]
+  affected_unresolved_ids:
+  - TLC-UT-INVARIANTS-001
+  - TLC-UT-INVARIANTS-002
+  - TLC-UT-INVARIANTS-003
+  - TLC-UT-INVARIANTS-004
+  - TLC-UT-INVARIANTS-005
+  - TLC-UT-INVARIANTS-006
+  - TLC-UT-INVARIANTS-007
+  - TLC-UT-INVARIANTS-008
+  - TLC-UT-INVARIANTS-010
+  - TLC-UT-INVARIANTS-011
+  - TLC-UT-INVARIANTS-012
+  question: scientific types and executable meanings of the eleven state vocabulary terms
+  observable_behavior_available: preserve exact identifiers and attach them to affected terms
+  blocks_structural_specification: false
+  blocks_scientific_execution: true
+- decision_id: INV-DEC-002
+  classification: deferred_to_scientific_review
+  implementation_classification: parameter_required
+  affected_feature_ids: [TLC-FC-04-INVARIANTS-009]
+  affected_unresolved_ids: [TLC-UT-INVARIANTS-009]
+  question: scientific type, domain, ordering, comparator, and concrete bounds for cohesion
+  observable_behavior_available: construct the source-defined interval and consequence ASTs from opaque symbol identifiers
+  blocks_structural_specification: false
+  blocks_scientific_execution: true
+- decision_id: INV-DEC-003
+  classification: preserved_as_opaque
+  implementation_classification: external_evaluator_required
+  affected_feature_ids:
+  - TLC-FC-04-INVARIANTS-001
+  - TLC-FC-04-INVARIANTS-002
+  - TLC-FC-04-INVARIANTS-003
+  - TLC-FC-04-INVARIANTS-004
+  - TLC-FC-04-INVARIANTS-005
+  - TLC-FC-04-INVARIANTS-006
+  - TLC-FC-04-INVARIANTS-007
+  - TLC-FC-04-INVARIANTS-008
+  - TLC-FC-04-INVARIANTS-009
+  - TLC-FC-04-INVARIANTS-010
+  question: concrete scientific truth evaluators and runtime types
+  observable_behavior_available: representation, validation, immutable construction, provenance, and explicit external-evaluator result
+  blocks_structural_specification: false
+  blocks_scientific_execution: true
+- decision_id: INV-DEC-004
+  classification: preserved_as_opaque
+  implementation_classification: descriptive_scope
+  affected_feature_ids: [TLC-FC-04-INVARIANTS-004]
+  question: exact members and validation rule of the disciple invariant scope
+  observable_behavior_available: declare the TLC-SO-INVARIANTS-007 scoped evidence record and retain scientifically deferred status
+  blocks_structural_specification: false
+  blocks_scientific_execution: true
+- decision_id: INV-DEC-005
+  classification: preserved_as_opaque
+  implementation_classification: implementation_out_of_scope
+  affected_feature_ids: [TLC-FC-04-INVARIANTS-002, TLC-FC-04-INVARIANTS-009, TLC-FC-04-INVARIANTS-010]
+  question: reconciliation of active baseline membership with historical source catalogue status rejected_as_feature
+  observable_behavior_available: keep the source status as metadata while finalizing every baseline-active feature without rejection
+  blocks_structural_specification: false
+  scientific_decision_changed: false
+- decision_id: INV-DEC-006
+  classification: non_blocking
+  implementation_classification: external_reference
+  affected_feature_ids:
+  - TLC-FC-04-INVARIANTS-001
+  - TLC-FC-04-INVARIANTS-002
+  - TLC-FC-04-INVARIANTS-003
+  - TLC-FC-04-INVARIANTS-004
+  - TLC-FC-04-INVARIANTS-005
+  - TLC-FC-04-INVARIANTS-006
+  - TLC-FC-04-INVARIANTS-007
+  - TLC-FC-04-INVARIANTS-008
+  - TLC-FC-04-INVARIANTS-009
+  - TLC-FC-04-INVARIANTS-010
+  question: future upstream reconciliation with Master, Disciple, Community, and Dynamics
+  observable_behavior_available: preserve documentary dependency identifiers without runtime coupling
+  blocks_structural_specification: false
+- decision_id: INV-DEC-007
+  classification: preserved_as_opaque
+  implementation_classification: precondition_required
+  affected_feature_ids: [TLC-FC-04-INVARIANTS-006, TLC-FC-04-INVARIANTS-009]
+  question: availability of concrete symbol targets and evaluators
+  observable_behavior_available: require non-empty opaque symbol identifiers and reject evaluation requests
+  blocks_structural_specification: false
+  blocks_scientific_execution: true
+closure:
+  observable_behavior_defined_for_all_features: true
+  all_source_reservations_retained: true
+  all_unresolved_retained: true
+  real_blockers_remaining: 0
