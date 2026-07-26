@@ -19,12 +19,34 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          show-progress: false
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: Install validator dependency
         run: python -m pip install --disable-pip-version-check PyYAML
+      - name: Parse generated YAML
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+
+          roots = [
+              Path('registry/domain-finalization/dynamics'),
+              Path('registry/optimized-ir/dynamics'),
+              Path('registry/algorithms/dynamics'),
+              Path('registry/oracles/dynamics'),
+          ]
+          for root in roots:
+              for path in sorted(root.rglob('*.yaml')):
+                  try:
+                      yaml.safe_load(path.read_text(encoding='utf-8'))
+                  except Exception as exc:
+                      raise SystemExit(f'YAML parse failure in {path}: {exc}')
+                  print(f'parsed {path}')
+          PY
       - name: Validate Dynamics finalization
         run: python tools/domain-finalization/validate_dynamics_finalization.py
       - name: Check patch whitespace
