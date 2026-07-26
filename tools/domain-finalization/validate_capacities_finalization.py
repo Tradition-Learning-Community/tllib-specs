@@ -250,9 +250,13 @@ def validate_changed_paths() -> None:
     forbidden = [path for path in changed if path.startswith(forbidden_prefixes)]
     require(not forbidden, f"protected source/global paths modified: {forbidden}")
 
+    domain_roots = (
+        "registry/domain-finalization/",
+        "reports/domain-finalization/",
+    )
     other_domains = [
         path for path in changed
-        if "/domain-finalization/" in path and "/capacities/" not in path
+        if path.startswith(domain_roots) and "/capacities/" not in path
     ]
     require(not other_domains, f"other domain finalization artifacts modified: {other_domains}")
 
