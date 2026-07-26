@@ -42,7 +42,8 @@ jobs:
             description='16-feature Master finalization passed'
           else
             state=failure
-            reason=$(printf '%s' "$output" | tail -n 1 | sed 's/[^A-Za-z0-9._ -]/_/g' | cut -c1-80)
+            reason=$(printf '%s\n' "$output" | grep 'master-finalization validation failed' | tail -n 1 | sed 's/[^A-Za-z0-9._ -]/_/g' | cut -c1-80)
+            if [ -z "$reason" ]; then reason='validator traceback'; fi
             context="master-finalization/$reason"
             description='Master finalization validation failed'
           fi
