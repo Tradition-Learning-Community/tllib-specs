@@ -16,7 +16,8 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     outputs:
-      diagnostic: ${{ steps.validator.outputs.diagnostic }}
+      diagnostic_head: ${{ steps.validator.outputs.diagnostic_head }}
+      diagnostic_tail: ${{ steps.validator.outputs.diagnostic_tail }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -37,8 +38,10 @@ jobs:
           output="$(python3 tools/domain-finalization/validate_competencies_finalization.py 2>&1)"
           status=$?
           printf '%s\n' "$output"
-          diagnostic="$(printf '%s\n' "$output" | tail -n 8 | tr '\n' '|' | cut -c1-220)"
-          echo "diagnostic=$diagnostic" >> "$GITHUB_OUTPUT"
+          diagnostic_head="$(printf '%s\n' "$output" | head -n 6 | tr '\n' '|' | cut -c1-220)"
+          diagnostic_tail="$(printf '%s\n' "$output" | tail -n 6 | tr '\n' '|' | cut -c1-220)"
+          echo "diagnostic_head=$diagnostic_head" >> "$GITHUB_OUTPUT"
+          echo "diagnostic_tail=$diagnostic_tail" >> "$GITHUB_OUTPUT"
           exit "$status"
 
       - name: Check whitespace errors
@@ -56,10 +59,18 @@ jobs:
           ! git diff --name-only c34d40713bf444d38f92f76e1c6239ee596d5a18..HEAD | grep -E '\.(cpp|cc|cxx|hpp|hh|h)$'
           ! git diff --name-only c34d40713bf444d38f92f76e1c6239ee596d5a18..HEAD | grep -E '(__pycache__|\.status$|\.log$|\.cache/)'
 
-  diagnostic:
+  diagnostic-head:
     needs: validate
     if: always()
-    name: "diagnostic ${{ needs.validate.outputs.diagnostic }}"
+    name: "diagnostic-head ${{ needs.validate.outputs.diagnostic_head }}"
     runs-on: ubuntu-latest
     steps:
-      - run: printf '%s\n' '${{ needs.validate.outputs.diagnostic }}'
+      - run: printf '%s\n' '${{ needs.validate.outputs.diagnostic_head }}'
+
+  diagnostic-tail:
+    needs: validate
+    if: always()
+    name: "diagnostic-tail ${{ needs.validate.outputs.diagnostic_tail }}"
+    runs-on: ubuntu-latest
+    steps:
+      - run: printf '%s\n' '${{ needs.validate.outputs.diagnostic_tail }}'
