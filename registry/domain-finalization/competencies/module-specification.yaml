@@ -1,0 +1,259 @@
+schema_version: 1
+module_id: tl.competencies
+domain_id: competencies
+status: selected_for_competencies_implementation_specification
+module_nature: declarative_structural_descriptor_module
+feature_count: 13
+scientific_execution_authorized: false
+public_types:
+  FeatureId:
+    representation: string
+    constraint: one of the 13 authoritative Competencies feature identifiers
+  ObjectId:
+    representation: string
+    constraint: source object identifier from the feature profile
+  OpaqueScientificObject:
+    representation: caller_supplied_opaque_payload
+    interpretation: forbidden
+  OpaqueScientificValue:
+    representation: opaque_payload_or_external_reference
+    interpretation: forbidden
+  SourceReference:
+    fields: [source_path, source_commit, section, subsection, start_line, end_line]
+  CompetencyReference:
+    fields: [feature_id, ordered_object_ids, source_references]
+    semantics: reference_only
+  CompetenciesFeatureProfile:
+    fields: [feature_id, category, canonical_name, ordered_object_ids, raw_ir_status, dependency_status, reservations, unresolved]
+  CompetenciesCanonicalDescriptor:
+    immutability: required
+    fields: [feature_id, domain_id, category, canonical_name, ordered_objects, provenance, source_ir_status, structural_status, dependencies, reservations, unresolved]
+  RequestMode:
+    allowed: [structural_descriptor_only]
+  CompetenciesError:
+    variants: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, UnexpectedCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+public_operations:
+- name: build_constraint_descriptor_001
+  feature_id: TLC-FC-12-COMPETENCIES-001
+  behavior: represent_and_validate_only
+- name: build_constraint_descriptor_002
+  feature_id: TLC-FC-12-COMPETENCIES-002
+  behavior: represent_and_validate_only
+- name: build_evolution_descriptor_004
+  feature_id: TLC-FC-12-COMPETENCIES-004
+  behavior: represent_and_validate_only
+- name: build_evolution_descriptor_005
+  feature_id: TLC-FC-12-COMPETENCIES-005
+  behavior: represent_and_validate_only
+- name: build_transformation_descriptor_006
+  feature_id: TLC-FC-12-COMPETENCIES-006
+  behavior: represent_and_validate_only
+- name: build_transformation_descriptor_007
+  feature_id: TLC-FC-12-COMPETENCIES-007
+  behavior: represent_and_validate_only
+- name: build_transformation_descriptor_008
+  feature_id: TLC-FC-12-COMPETENCIES-008
+  behavior: represent_and_validate_only
+- name: build_metric_descriptor_009
+  feature_id: TLC-FC-12-COMPETENCIES-009
+  behavior: represent_and_validate_only
+- name: build_metric_descriptor_010
+  feature_id: TLC-FC-12-COMPETENCIES-010
+  behavior: represent_and_validate_only
+- name: build_metric_descriptor_011
+  feature_id: TLC-FC-12-COMPETENCIES-011
+  behavior: represent_and_validate_only
+- name: build_operator_descriptor_012
+  feature_id: TLC-FC-12-COMPETENCIES-012
+  behavior: represent_and_validate_only
+- name: build_operator_descriptor_013
+  feature_id: TLC-FC-12-COMPETENCIES-013
+  behavior: represent_and_validate_only
+- name: build_relation_descriptor_016
+  feature_id: TLC-FC-12-COMPETENCIES-016
+  behavior: represent_and_validate_only
+internal_operations:
+- resolve_feature_profile
+- validate_request_mode
+- validate_feature_identity
+- validate_exact_object_set
+- validate_provenance_completeness
+- order_objects_by_feature_profile
+- copy_opaque_payload_identity
+- attach_source_traceability
+- propagate_dependency_status
+- propagate_reservations
+- propagate_unresolved
+- construct_immutable_descriptor
+- reject_unsupported_scientific_operation
+behavior_boundaries:
+  represent_competency:
+    supported: true
+    meaning: construct an opaque provenance-preserving descriptor for source competency objects
+  validate_competency:
+    supported: structural_only
+    meaning: validate feature identity, exact object membership, uniqueness and provenance
+  reference_competency:
+    supported: true
+    meaning: retain ordered object identifiers and source references without scientific interpretation
+  associate_context:
+    supported: source_reference_only
+    meaning: preserve context statements inside opaque source content; no context model is inferred
+  relate_to_other_tl_object:
+    supported: declared_reference_only
+    meaning: preserve source relation/dependency labels without endpoint or runtime inference
+  mobilize_competency:
+    supported: false
+    reason: no executable mobilization contract selected
+  exercise_competency:
+    supported: false
+    reason: practice/exercise statements remain opaque scientific content
+  observe_manifestation:
+    supported: false
+    reason: no observer interface or observable predicate is selected by the source contracts
+  acquire_competency:
+    supported: false
+    reason: acquisition equations remain opaque and lack executable contract parameters
+  develop_competency:
+    supported: false
+    reason: development dynamics remain opaque and lack executable domains and initial conditions
+  master_competency:
+    supported: false
+    reason: mastery constraints and metrics remain opaque; no level, score or threshold is selected
+  compare_competencies:
+    supported: false
+    reason: no comparator or ordering contract is selected
+  evaluate_competency:
+    supported: false
+    reason: metric names and equations do not authorize runtime evaluation
+competency_types:
+  source_status: preserved_inside_opaque_objects
+  executable_type_taxonomy: not_created
+  explicitly_referenced_source_forms:
+  - technical_or_functional
+  - cognitive_or_problem_solving
+  - social_or_collaborative
+  - adaptive_or_contextual
+  - metacognitive
+  note: these source forms are not promoted to runtime enums by this specification
+identity:
+  public_identity: feature_id
+  scientific_object_identity: ObjectId
+  descriptor_identity: tuple(feature_id, ordered_object_ids, provenance_identity)
+  preservation: exact
+scopes:
+- constraint_evaluation_descriptor
+- evolution_dynamics_descriptor
+- transformation_descriptor
+- metric_evaluation_descriptor
+- scientific_operator_descriptor
+- relation_evaluation_descriptor
+contexts:
+  representation: opaque_source_context
+  context_transfer_execution: unsupported
+prerequisites:
+  explicit_runtime_prerequisites: []
+  documentary_scientific_dependencies:
+  - feature_ids: [TLC-FC-12-COMPETENCIES-004, TLC-FC-12-COMPETENCIES-006]
+    dependency: capacities
+    status: external_unreconciled
+manifestations:
+  executable_manifestation_predicates: []
+  source_statements_preserved: true
+mobilizations:
+  executable_operations: []
+exercises:
+  executable_operations: []
+acquisitions:
+  executable_operations: []
+developments:
+  executable_operations: []
+masteries:
+  executable_operations: []
+evaluations:
+  executable_operations: []
+comparisons:
+  executable_operations: []
+relations:
+  executable_relations: []
+  relation_feature:
+    feature_id: TLC-FC-12-COMPETENCIES-016
+    object_id: TLC-SO-COMPETENCIES-056
+    endpoint_identity: unresolved
+    handling: opaque_relation_record
+opaque_values:
+- source_statements
+- equations
+- symbols
+- scientific_payloads
+- dimensions
+- units
+- thresholds
+- initial_conditions
+- temporal_semantics
+- observer_results
+- evaluator_results
+common_errors:
+- UnknownFeatureId
+- MissingCoveredObject
+- DuplicateCoveredObject
+- UnexpectedCoveredObject
+- MissingSourceReference
+- ScientificEvaluationRequested
+- BlockedScientificDecision
+composition_rules:
+- each public operation selects exactly one immutable feature profile
+- a descriptor contains exactly the ordered objects declared by that feature profile
+- profiles may share implementation utilities but never share public feature identity
+- source relations and dependencies are copied, not executed
+- descriptors may be collected without merging their scientific identities
+order_rules:
+- preserve baseline feature order in registries and reports
+- preserve contract object order in each descriptor
+- do not depend on caller map iteration order
+- do not introduce scientific progression order
+determinism:
+  structural_construction: deterministic
+  key: [feature_id, ordered_object_ids, payload_identities, provenance, reservations, unresolved]
+  opaque_payload_internals_inspected: false
+internal_dependencies:
+- feature_profile_registry
+- structural_validation_pipeline
+- traceability_builder
+- structured_error_model
+external_dependencies:
+- name: capacities
+  feature_ids: [TLC-FC-12-COMPETENCIES-004, TLC-FC-12-COMPETENCIES-006]
+  kind: scientific_documentary
+  runtime_required: false
+  status: external_unreconciled
+unresolved_policy:
+  propagate_without_resolution: true
+  executable_semantics_absent: true
+  external_observer_required_when_observation_requested: true
+  external_comparator_required_when_comparison_requested: true
+  external_evaluator_required_when_evaluation_requested: true
+interfaces_for_library:
+  language_neutral: true
+  value_semantics: immutable_records
+  ownership: caller_payloads_referenced_or_copied_without_interpretation
+  exception_or_result_mapping: structured_errors
+  cpp_generation_ready_for_structural_layer: true
+  python_binding_design_ready_for_structural_layer: true
+  generated_code_present: false
+out_of_scope:
+- scientific equation evaluation
+- temporal simulation
+- stochastic sampling
+- score computation
+- level assignment
+- threshold selection
+- progression engine
+- acquisition engine
+- mastery engine
+- diagnosis
+- automatic observation
+- automatic comparison
+- automatic relation endpoint inference
+- modification of source science
+future_implementation_tasks: registry/domain-finalization/competencies/implementation-tasks.yaml
