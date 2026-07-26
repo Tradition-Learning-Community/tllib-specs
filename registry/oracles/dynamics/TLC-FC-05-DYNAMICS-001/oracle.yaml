@@ -1,0 +1,61 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-05-DYNAMICS-001
+feature_id: TLC-FC-05-DYNAMICS-001
+status: selected_for_dynamics_implementation_specification
+ir_ref: registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-001/ir.yaml
+algorithm_ref: registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-001/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-05-DYNAMICS-001/test-plan.yaml
+oracle_kind: structural_property_oracle
+fixture_policy:
+  values: opaque_source_addressable_placeholders_only
+  arbitrary_scientific_values: forbidden
+  exact_numeric_results: not_required
+acceptance_cases:
+  - case_id: DYN-001-NOMINAL
+    categories: [nominal, structure, traceability]
+    given: an opaque community state and source-addressable opaque bounds for the four source-defined predicates
+    expect:
+      - output type is UnevaluatedPredicateSet
+      - four distinct predicate records are present
+      - TLC-SO-DYNAMICS-015 and TLC-SR-DYNAMICS-014 are traceable
+      - source order and comparator notation are preserved
+  - case_id: DYN-001-OPAQUE-BOUNDARY
+    categories: [opaque_value, property]
+    given: bound payloads with no permitted numerical comparison
+    expect:
+      - construction succeeds structurally
+      - bound payloads round-trip unchanged
+      - no truth value or pass/fail aggregation exists
+  - case_id: DYN-001-UNKNOWN-SOURCE
+    categories: [error, precondition]
+    given: one unknown predicate or bound source identifier
+    expect:
+      - error code is unknown_source_identifier
+      - no result or partial predicate set is emitted
+  - case_id: DYN-001-TYPE-SHAPE
+    categories: [type, shape, error]
+    given: a community state or bounds carrier with the wrong declared shape
+    expect: [type_shape_mismatch, no_output]
+  - case_id: DYN-001-UNRESOLVED
+    categories: [unresolved_propagation]
+    expect:
+      - unresolved metadata equals [UNRES-TIME, UNRES-L, UNRES-NORM, UNRES-MEMORY-NOTATION, UNRES-OUTPUT]
+  - case_id: DYN-001-DETERMINISM
+    categories: [determinism, reproducibility]
+    property: identical ordered opaque inputs produce structurally identical outputs and traceability
+  - case_id: DYN-001-METAMORPHIC-OPAQUE
+    categories: [metamorphic]
+    transformation: replace one opaque scalar payload with another opaque payload while preserving identifiers
+    expect: only the corresponding stored payload changes; predicate identities, order, and metadata do not
+  - case_id: DYN-001-FORBIDDEN-SEMANTICS
+    categories: [negative_property]
+    expect_absent: [numeric_viability_result, boolean_aggregation, collapse_transition, terminal_state]
+invariants_checked:
+  - covered source identities remain distinct
+  - opaque payloads are conserved
+  - unresolved are conserved
+  - no scientific evaluation occurs
+dependency_checks:
+  - feature 006 reference remains non-executable
+  - Community reference remains documentary or symbolic
+acceptance_rule: all cases pass and no forbidden semantic field is produced
