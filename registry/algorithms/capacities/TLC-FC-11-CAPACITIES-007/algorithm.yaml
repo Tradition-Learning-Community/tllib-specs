@@ -1,0 +1,47 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-007
+algorithm_id: CAP-ALG-007
+status: selected_for_capacities_implementation_specification
+source_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-007/ir.yaml
+signature: 'CapacityHamiltonianAst construct_hamiltonian_capacity_dynamics_ast(FeatureId, List<OpaqueScientificObject>, Map<ObjectId,List<UnevaluatedSymbol>>, Map<ObjectId,SourceReference>, DecisionBlocker)'
+inputs: {required_object_order: [TLC-SO-CAPACITIES-098]}
+outputs: [CapacityHamiltonianAst]
+validations: [exact feature id, exact singleton membership, explicit symbol entry, complete provenance, exact blocker, structural request]
+preconditions: [target object supplied once]
+conditions_of_application: [no Hamiltonian evaluation]
+steps:
+  - validate targeted envelope
+  - create opaque root for object 098
+  - attach only cited kinetic, potential and coupling labels found in source tokens
+  - attach symbols, provenance, blocker and non-evaluation guard
+  - return immutable AST
+branching:
+  invalid_membership: MissingCoveredObject or UnexpectedCoveredObject
+  missing_symbol: MissingSymbolTableEntry
+  missing_blocker: MissingDecisionBlocker
+  evaluation_requested: ScientificEvaluationRequested
+capacity_handling: {construction: Hamiltonian-style AST only, identity_validation: exact, scope_validation: singleton, context_validation: provenance}
+relations: none
+activation: not_performed
+mobilization: not_performed
+development: opaque_expression_only
+comparison: identifier_and_shape_only
+effects: no trajectory or conservation calculation
+errors: [UnknownFeatureId, MissingCoveredObject, UnexpectedCoveredObject, ObjectOrderMismatch, MissingSymbolTableEntry, MissingSourceReference, MissingDecisionBlocker, ScientificEvaluationRequested]
+postconditions: [opaque root preserved, labels not inferred beyond source tokens, blocker unchanged]
+invariants: [no term evaluation, no missing term invented]
+determinism: deterministic
+case_limits: [extra object fails, absent symbol entry fails, evaluation or optimization fails]
+unresolved_conserved: [scientific decision required]
+dependencies: []
+pseudocode: |
+  require feature_id == TLC-FC-11-CAPACITIES-007 else UnknownFeatureId
+  require exact_order(objects, [098]) else membership_or_order_error
+  require symbol_entry(symbol_table, 098) else MissingSymbolTableEntry
+  require complete_provenance(provenance) else MissingSourceReference
+  require blocker == "scientific decision required" else MissingDecisionBlocker
+  require request_is_structural_only() else ScientificEvaluationRequested
+  root = opaque_hamiltonian_root(objects[0])
+  root.attach_source_present_child_labels(symbol_table[098])
+  root.attach(provenance, blocker, non_evaluation_guard)
+  return immutable(root)
