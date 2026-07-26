@@ -1,0 +1,26 @@
+schema_version: 1
+feature_id: TLC-FC-14-LIVED-EXPERIENCE-010
+status: selected_for_lived_experience_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-010/contract.yaml
+source_ir_ref: registry/ir/TLC-FC-14-LIVED-EXPERIENCE-010/ir.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-14-LIVED-EXPERIENCE-010/test-plan.yaml
+finalized_ir_ref: registry/optimized-ir/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-010/ir.yaml
+algorithm_ref: registry/algorithms/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-010/algorithm.yaml
+oracle_kind: structural_acceptance_oracle_with_scientific_non_invention
+exact_scientific_result_oracle: not_available_and_not_invented
+test_categories: [nominal, errors, identity, provenance, expression_order, metric_non_invention, serialization, unresolved]
+acceptance_tests:
+- {id: LE-010-NOMINAL, assertion: descriptor preserves object 018 and all three source metric expressions}
+- {id: LE-010-ORDER, assertion: richness, integration-depth and transmission-efficiency expressions retain source order}
+- {id: LE-010-NO-NUMERIC, assertion: no metric value, threshold, precision or tolerance is produced}
+- {id: LE-010-NO-DIVISION-POLICY, assertion: zero-denominator behavior is not invented}
+- {id: LE-010-ERRORS, assertion: structural omissions return specified errors}
+- {id: LE-010-UNRESOLVED, assertion: source unresolved and reservations remain present}
+- {id: LE-010-NO-INVENTION, assertion: no comparison, ranking, interpretation, actor, event or cause is added}
+- {id: LE-010-ROUNDTRIP, assertion: all expressions survive serialization losslessly}
+- {id: LE-010-REJECT, assertion: metric evaluation requests are rejected}
+property_tests: [identity conservation, expression-order conservation, provenance totality, unresolved monotonicity]
+metamorphic_tests: [repeat identical construction, remove provenance produces error, add undeclared object produces error]
+blocked_oracles: [scientific_execution_oracle, numeric_metric_oracle, denominator_policy_oracle]
+non_goals: [numeric metric, norm implementation, ratio policy, comparison, ranking]
+acceptance_gate: all structural tests pass and no metric value is invented

@@ -1,0 +1,40 @@
+schema_version: 1
+domain_id: lived-experience
+package_blockers: []
+real_remaining_blocker_count_for_structural_package: 0
+policy: a decision blocks closure only when it prevents the structural observable behavior specified in this package
+decisions:
+- decision_id: LE-DEC-DOMAIN-001
+  classification: preserved_as_opaque
+  subject: 43 domain unresolved terms
+  source_ref: registry/scientific-objects/lived-experience/unresolved-terms.yaml
+  blocks: []
+  does_not_block: [structural descriptor implementation]
+- decision_id: LE-DEC-DOMAIN-002
+  classification: non_blocking
+  subject: external reconciliation with capacities, competencies and practice
+  blocks: [scientific cross-domain claims]
+  does_not_block: [standalone descriptor representation and validation]
+- decision_id: LE-DEC-DOMAIN-003
+  classification: deferred_to_scientific_review
+  subject: historical duplicate candidate
+  blocks: [scientific deduplication]
+  does_not_block: [current authoritative population of 12 features]
+- decision_id: LE-DEC-BLOCKED-FEATURES
+  classification: deferred_to_scientific_review
+  feature_ids: [TLC-FC-14-LIVED-EXPERIENCE-001, TLC-FC-14-LIVED-EXPERIENCE-002, TLC-FC-14-LIVED-EXPERIENCE-004, TLC-FC-14-LIVED-EXPERIENCE-006, TLC-FC-14-LIVED-EXPERIENCE-007, TLC-FC-14-LIVED-EXPERIENCE-008, TLC-FC-14-LIVED-EXPERIENCE-010, TLC-FC-14-LIVED-EXPERIENCE-012, TLC-FC-14-LIVED-EXPERIENCE-013]
+  subject: local scientific classification and execution semantics
+  blocks: [scientific execution]
+  does_not_block: [declarative descriptor implementation]
+- decision_id: LE-DEC-005-TYPES
+  feature_id: TLC-FC-14-LIVED-EXPERIENCE-005
+  classification: blocking
+  subject: experience type, finite collection representation and Synergie signature
+  blocks: [scientific equation execution, code generation for the equation]
+  does_not_block: [opaque equation descriptor implementation]
+- decision_id: LE-DEC-005-N
+  feature_id: TLC-FC-14-LIVED-EXPERIENCE-005
+  classification: blocking
+  subject: N domain and failure policy for N zero or incompatible operands
+  blocks: [scientific equation execution, numeric acceptance oracle]
+  does_not_block: [opaque equation descriptor implementation]

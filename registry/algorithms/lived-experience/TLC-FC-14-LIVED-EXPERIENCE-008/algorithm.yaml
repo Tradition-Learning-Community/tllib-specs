@@ -1,0 +1,43 @@
+schema_version: 1
+feature_id: TLC-FC-14-LIVED-EXPERIENCE-008
+status: selected_for_lived_experience_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-008/contract.yaml
+source_ir_ref: registry/ir/TLC-FC-14-LIVED-EXPERIENCE-008/ir.yaml
+finalized_ir_ref: registry/optimized-ir/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-008/ir.yaml
+nature: structural_declarative_algorithm
+signature: lived_experience_008_descriptor(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>) -> LivedExperienceDescriptor
+inputs: [feature_id, object_payloads, provenance]
+outputs: [artifact]
+validations: [exact feature id, exact object 003 set, uniqueness, provenance, no property evaluation]
+preconditions: [feature id matches, object 003 present exactly once, provenance present]
+conditions_of_application: [preserve one composite source object]
+ordered_steps: [validate identity, validate object set, validate provenance, copy composite source object, propagate unresolved, return]
+branching:
+- {condition: invalid structure, action: raise structural error}
+- {condition: request to split or evaluate component properties, action: raise ScientificEvaluationRequested}
+experience_processing: preserve composite reference only
+identity_validation: [TLC-FC-14-LIVED-EXPERIENCE-008, TLC-SO-LIVED-EXPERIENCE-003]
+scope_validation: exact composite object only
+context_validation: source provenance only
+actor_processing: none declared
+event_processing: none declared
+state_processing: none declared
+transitions: []
+observations: []
+interpretations: []
+results_and_effects: []
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+postconditions: [composite object unchanged, no executable subfeature created]
+invariants: [exact object set, composite boundary preserved]
+determinism: structural only
+edge_cases: [component property requested separately, legitimacy score requested, memory transition requested, interpretation requested]
+dependencies: {execution: [], documentary: [source contract, source IR]}
+unresolved_preserved: [scientific_decision_required, external_reconciliation_pending]
+pseudocode: |
+  FUNCTION lived_experience_008_descriptor(feature_id, object_payloads, provenance):
+    VALIDATE feature_id and exact object [TLC-SO-LIVED-EXPERIENCE-003]
+    VALIDATE provenance
+    COPY the composite source statement and all symbols as one opaque object
+    DO NOT split synthesis, integration, legitimacy, memory or incorporation into executable operations
+    RETURN immutable descriptor with unresolved and reservations
+  ON component evaluation request: RAISE ScientificEvaluationRequested

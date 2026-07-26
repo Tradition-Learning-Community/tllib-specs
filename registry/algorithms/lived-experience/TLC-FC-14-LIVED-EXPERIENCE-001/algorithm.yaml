@@ -1,0 +1,53 @@
+schema_version: 1
+feature_id: TLC-FC-14-LIVED-EXPERIENCE-001
+status: selected_for_lived_experience_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-001/contract.yaml
+source_ir_ref: registry/ir/TLC-FC-14-LIVED-EXPERIENCE-001/ir.yaml
+finalized_ir_ref: registry/optimized-ir/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-001/ir.yaml
+nature: structural_declarative_algorithm
+signature: lived_experience_001_descriptor(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>) -> LivedExperienceDescriptor
+inputs: [feature_id, object_payloads, provenance]
+outputs: [artifact]
+validations: [exact feature id, exact covered object set, uniqueness, provenance completeness, absence of scientific request]
+preconditions: [feature id matches, TLC-SO-LIVED-EXPERIENCE-039 present exactly once, provenance present]
+conditions_of_application: [structural descriptor construction only]
+ordered_steps:
+- validate feature identity
+- validate exact ordered object set and uniqueness
+- validate provenance completeness
+- construct immutable descriptor without inspecting payload internals
+- propagate unresolved and reservations
+- return descriptor
+branching:
+- {condition: wrong feature id, action: raise UnknownFeatureId}
+- {condition: missing or duplicate object, action: raise structural object error}
+- {condition: missing provenance, action: raise MissingSourceReference}
+- {condition: scientific operation requested, action: raise ScientificEvaluationRequested}
+experience_processing: preserve external object reference only
+identity_validation: [TLC-FC-14-LIVED-EXPERIENCE-001, TLC-SO-LIVED-EXPERIENCE-039]
+scope_validation: exact source object and source section only
+context_validation: provenance only
+actor_processing: none declared
+event_processing: none declared
+state_processing: none declared
+transitions: []
+observations: []
+interpretations: []
+results_and_effects: []
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+postconditions: [identity preserved, provenance complete, opaque values unchanged, unresolved preserved]
+invariants: [exact object set, no source reinterpretation]
+determinism: structural only
+edge_cases: [empty collection, extra object, duplicate entry, missing provenance, opaque unknown payload, scientific request]
+dependencies: {execution: [], documentary: [source contract, source IR]}
+unresolved_preserved: [scientific_decision_required, external_reconciliation_pending]
+pseudocode: |
+  FUNCTION lived_experience_001_descriptor(feature_id, object_payloads, provenance):
+    REQUIRE feature_id == TLC-FC-14-LIVED-EXPERIENCE-001 ELSE RAISE UnknownFeatureId
+    REQUIRE object entries equal [TLC-SO-LIVED-EXPERIENCE-039] exactly once
+    REQUIRE provenance contains TLC-SO-LIVED-EXPERIENCE-039
+    BUILD immutable descriptor without inspecting opaque payloads
+    COPY source reference, symbols, unresolved and reservations unchanged
+    RETURN descriptor
+  FUNCTION reject_scientific_evaluation_request(request_kind):
+    RAISE ScientificEvaluationRequested

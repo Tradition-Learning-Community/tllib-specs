@@ -1,0 +1,43 @@
+schema_version: 1
+feature_id: TLC-FC-14-LIVED-EXPERIENCE-011
+status: selected_for_lived_experience_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-011/contract.yaml
+source_ir_ref: registry/ir/TLC-FC-14-LIVED-EXPERIENCE-011/ir.yaml
+finalized_ir_ref: registry/optimized-ir/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-011/ir.yaml
+nature: structural_declarative_algorithm
+signature: lived_experience_011_descriptor(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>) -> LivedExperienceDescriptor
+inputs: [feature_id, object_payloads, provenance]
+outputs: [artifact]
+validations: [exact feature id, exact two-object set, uniqueness, source inventory order, provenance, no interpretation or encoding execution]
+preconditions: [feature id matches, objects 043 and 051 present exactly once, provenance present]
+conditions_of_application: [preserve function and operator declarations only]
+ordered_steps: [validate identity, validate ordered object set, validate provenance, copy both source objects, propagate reservation, return]
+branching:
+- {condition: invalid structure or order, action: raise structural error}
+- {condition: request to interpret a trace or encode an event, action: raise ScientificEvaluationRequested}
+experience_processing: preserve two external references only
+identity_validation: [TLC-FC-14-LIVED-EXPERIENCE-011, TLC-SO-LIVED-EXPERIENCE-043, TLC-SO-LIVED-EXPERIENCE-051]
+scope_validation: exact function 043 and operator 051 only
+context_validation: source provenance only
+actor_processing: none structured in selected contract
+event_processing: none structured in selected contract
+state_processing: none structured in selected contract
+transitions: []
+observations: []
+interpretations: []
+results_and_effects: []
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+postconditions: [both declarations unchanged, inventory order preserved, no interpretation or encoding result]
+invariants: [exact two-object set, inventory order is not temporal order]
+determinism: structural only
+edge_cases: [object order reversed, meaning-space type absent, event schema absent, encoding implementation requested]
+dependencies: {execution: [], documentary: [source contract, source IR]}
+unresolved_preserved: [external_reconciliation_pending]
+pseudocode: |
+  FUNCTION lived_experience_011_descriptor(feature_id, object_payloads, provenance):
+    VALIDATE feature_id
+    REQUIRE ordered objects == [TLC-SO-LIVED-EXPERIENCE-043, TLC-SO-LIVED-EXPERIENCE-051]
+    VALIDATE provenance for both objects
+    COPY both declarations without applying H or an encoding operator
+    RETURN immutable descriptor with reservation
+  ON interpretation or encoding execution request: RAISE ScientificEvaluationRequested

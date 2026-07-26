@@ -1,0 +1,25 @@
+schema_version: 1
+feature_id: TLC-FC-14-LIVED-EXPERIENCE-008
+status: selected_for_lived_experience_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-008/contract.yaml
+source_ir_ref: registry/ir/TLC-FC-14-LIVED-EXPERIENCE-008/ir.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-14-LIVED-EXPERIENCE-008/test-plan.yaml
+finalized_ir_ref: registry/optimized-ir/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-008/ir.yaml
+algorithm_ref: registry/algorithms/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-008/algorithm.yaml
+oracle_kind: structural_acceptance_oracle_with_scientific_non_invention
+exact_scientific_result_oracle: not_available_and_not_invented
+test_categories: [nominal, errors, identity, composite_boundary, provenance, unresolved, serialization]
+acceptance_tests:
+- {id: LE-008-NOMINAL, assertion: descriptor preserves object 003 as one composite source object}
+- {id: LE-008-COMPOSITE, assertion: synthesis, integration, legitimacy, living memory and incorporation are not split into new features or operations}
+- {id: LE-008-NO-METRIC, assertion: no richness, legitimacy or integration score is produced}
+- {id: LE-008-NO-PSYCHOLOGY, assertion: no psychological or causal interpretation is created}
+- {id: LE-008-ERRORS, assertion: structural omissions return specified errors}
+- {id: LE-008-UNRESOLVED, assertion: source unresolved and reservations remain present}
+- {id: LE-008-ROUNDTRIP, assertion: the full composite statement survives serialization losslessly}
+- {id: LE-008-REJECT, assertion: component evaluation requests are rejected}
+property_tests: [composite identity conservation, provenance totality, unresolved monotonicity]
+metamorphic_tests: [repeat identical construction, remove provenance produces error, add undeclared object produces error]
+blocked_oracles: [scientific_execution_oracle, component_property_oracle]
+non_goals: [subfeature extraction, metric evaluation, memory model, psychological interpretation]
+acceptance_gate: all structural tests pass and composite semantics remain unexpanded

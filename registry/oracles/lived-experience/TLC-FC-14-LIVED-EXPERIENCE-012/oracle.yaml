@@ -1,0 +1,26 @@
+schema_version: 1
+feature_id: TLC-FC-14-LIVED-EXPERIENCE-012
+status: selected_for_lived_experience_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-012/contract.yaml
+source_ir_ref: registry/ir/TLC-FC-14-LIVED-EXPERIENCE-012/ir.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-14-LIVED-EXPERIENCE-012/test-plan.yaml
+finalized_ir_ref: registry/optimized-ir/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-012/ir.yaml
+algorithm_ref: registry/algorithms/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-012/algorithm.yaml
+oracle_kind: structural_acceptance_oracle_with_scientific_non_invention
+exact_scientific_result_oracle: not_available_and_not_invented
+test_categories: [nominal, errors, identity, provenance, signature_count, signature_order, non_execution, serialization]
+acceptance_tests:
+- {id: LE-012-NOMINAL, assertion: descriptor preserves object 038 and five operator signatures}
+- {id: LE-012-COUNT, assertion: signature count is exactly five}
+- {id: LE-012-ORDER, assertion: source signature order is preserved}
+- {id: LE-012-NO-EXECUTION, assertion: no encoding, consolidation, recall, attention or transmission result is produced}
+- {id: LE-012-ERRORS, assertion: structural omissions return specified errors}
+- {id: LE-012-UNRESOLVED, assertion: source unresolved and reservations remain present}
+- {id: LE-012-NO-INVENTION, assertion: no actor, event, state, temporal model, attention policy or relation is added}
+- {id: LE-012-ROUNDTRIP, assertion: all signatures and order survive serialization losslessly}
+- {id: LE-012-REJECT, assertion: operator execution requests are rejected}
+property_tests: [identity conservation, signature-count conservation, signature-order conservation, provenance totality]
+metamorphic_tests: [repeat identical construction, remove a signature produces failure, remove provenance produces error]
+blocked_oracles: [scientific_execution_oracle, operator_output_oracle]
+non_goals: [operator implementation, attention softmax, temporal consolidation, experiential transmission]
+acceptance_gate: all structural tests pass and no operator is executed

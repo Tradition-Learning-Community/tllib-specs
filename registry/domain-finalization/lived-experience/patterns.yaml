@@ -1,0 +1,53 @@
+schema_version: 1
+domain_id: lived-experience
+analysis_scope: active contracts and source IRs only
+distinctions:
+  resemblance: shared vocabulary without shared behavior
+  textual_duplication: repeated descriptor wording
+  structural_duplication: isomorphic validation and preservation graphs
+  same_representation_schema: ordered opaque-object descriptor envelope
+  scientific_equivalence: not demonstrated for any feature pair
+shared_patterns:
+- pattern_id: LE-PAT-001
+  name: opaque_scientific_object_reference
+  applied: true
+  preserves: [feature identity, object identity, source statements, symbols, provenance, unresolved]
+- pattern_id: LE-PAT-002
+  name: ordered_feature_descriptor
+  applied: true
+  note: covered-object inventory order is preserved and never interpreted as temporal order
+- pattern_id: LE-PAT-003
+  name: common_structural_validation
+  applied: true
+  checks: [feature id, exact object set, uniqueness, provenance completeness]
+- pattern_id: LE-PAT-004
+  name: structured_rejection_of_unauthorized_science
+  applied: true
+  requests: [score, threshold, temporal evolution, chronology inference, metric value, probability, causal effect, psychological interpretation, scientific resolution]
+- pattern_id: LE-PAT-005
+  name: monotonic_unresolved_propagation
+  applied: true
+  rule: normalization may add traceability but may not remove unresolved or reservations
+source_level_patterns_not_promoted_to_execution:
+- {name: lived_experience_pair, evidence: 'LE=(T,H)', reservation: selected feature contracts do not expose an executable pair constructor}
+- {name: temporal_trace, evidence: 'event triplet (t,s,a)', reservation: time unit and state/action schemas unresolved}
+- {name: holistic_interpretation, evidence: H maps traces to meaning, reservation: executable representation unspecified}
+- {name: synthesis, evidence: Sigma extracts an experiential core, reservation: algorithm and invariant structure unspecified}
+optimizations_applied:
+- normalized common descriptor envelope
+- normalized traceability and structured errors
+- shared structural validation graph
+- explicit empty semantic slots instead of inferred semantics
+- consistent IR to algorithm to oracle links
+- source-specific expressions and object order retained
+optimizations_rejected:
+- scientific feature merging
+- metric evaluation unification
+- operator execution unification
+- temporal sequence synthesis
+- causal or psychological model extraction
+- promotion of historical feature 005 pilot
+dependency_classification:
+  documentary: [contracts, source IRs, test plans, maths/14-lived-experience.md]
+  scientific_reconciliation: [capacities, competencies, practice]
+  execution: []

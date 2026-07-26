@@ -1,0 +1,43 @@
+schema_version: 1
+feature_id: TLC-FC-14-LIVED-EXPERIENCE-012
+status: selected_for_lived_experience_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-012/contract.yaml
+source_ir_ref: registry/ir/TLC-FC-14-LIVED-EXPERIENCE-012/ir.yaml
+finalized_ir_ref: registry/optimized-ir/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-012/ir.yaml
+nature: structural_declarative_algorithm
+signature: lived_experience_012_descriptor(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>) -> LivedExperienceDescriptor
+inputs: [feature_id, object_payloads, provenance]
+outputs: [artifact]
+validations: [exact feature id, exact object 038 set, uniqueness, provenance, five signatures retained, no operator execution]
+preconditions: [feature id matches, object 038 present exactly once, provenance present]
+conditions_of_application: [preserve the signature bundle only]
+ordered_steps: [validate identity, validate object set, validate provenance, copy five signatures in source order, propagate unresolved, return]
+branching:
+- {condition: invalid structure, action: raise structural error}
+- {condition: encoding, consolidation, recall or transmission execution requested, action: raise ScientificEvaluationRequested}
+experience_processing: preserve operator-bundle reference only
+identity_validation: [TLC-FC-14-LIVED-EXPERIENCE-012, TLC-SO-LIVED-EXPERIENCE-038]
+scope_validation: exact operator bundle object only
+context_validation: source provenance only
+actor_processing: none declared
+event_processing: none declared
+state_processing: none declared
+transitions: []
+observations: []
+interpretations: []
+results_and_effects: []
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+postconditions: [five signatures unchanged, no output or algorithm generated]
+invariants: [exact object set, signature count and source order preserved]
+determinism: structural only
+edge_cases: [missing signature, reordered signature, unknown domains or codomains, external operator requested]
+dependencies: {execution: [], documentary: [source contract, source IR]}
+unresolved_preserved: [scientific_decision_required, external_reconciliation_pending]
+pseudocode: |
+  FUNCTION lived_experience_012_descriptor(feature_id, object_payloads, provenance):
+    VALIDATE feature_id and exact object [TLC-SO-LIVED-EXPERIENCE-038]
+    VALIDATE provenance
+    COPY all five operator signatures in source order as opaque content
+    DO NOT implement encoding, consolidation, recall, attention or transmission
+    RETURN immutable descriptor with unresolved and reservations
+  ON operator execution request: RAISE ScientificEvaluationRequested

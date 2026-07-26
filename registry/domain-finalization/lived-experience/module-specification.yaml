@@ -1,0 +1,94 @@
+schema_version: 1
+module_id: tllib.lived_experience
+status: selected_for_lived_experience_implementation_specification
+feature_count: 12
+features:
+- {feature_id: TLC-FC-14-LIVED-EXPERIENCE-001, operation: lived_experience_001_descriptor}
+- {feature_id: TLC-FC-14-LIVED-EXPERIENCE-002, operation: lived_experience_002_descriptor}
+- {feature_id: TLC-FC-14-LIVED-EXPERIENCE-004, operation: lived_experience_004_descriptor}
+- {feature_id: TLC-FC-14-LIVED-EXPERIENCE-005, operation: lived_experience_005_descriptor}
+- {feature_id: TLC-FC-14-LIVED-EXPERIENCE-006, operation: lived_experience_006_descriptor}
+- {feature_id: TLC-FC-14-LIVED-EXPERIENCE-007, operation: lived_experience_007_descriptor}
+- {feature_id: TLC-FC-14-LIVED-EXPERIENCE-008, operation: lived_experience_008_descriptor}
+- {feature_id: TLC-FC-14-LIVED-EXPERIENCE-009, operation: lived_experience_009_descriptor}
+- {feature_id: TLC-FC-14-LIVED-EXPERIENCE-010, operation: lived_experience_010_descriptor}
+- {feature_id: TLC-FC-14-LIVED-EXPERIENCE-011, operation: lived_experience_011_descriptor}
+- {feature_id: TLC-FC-14-LIVED-EXPERIENCE-012, operation: lived_experience_012_descriptor}
+- {feature_id: TLC-FC-14-LIVED-EXPERIENCE-013, operation: lived_experience_013_descriptor}
+public_operations:
+- build_descriptor(feature_id, object_payloads, provenance)
+- validate_descriptor(descriptor)
+- serialize_descriptor_losslessly(descriptor)
+- deserialize_descriptor_losslessly(serialized_descriptor)
+- structurally_equal(left, right)
+- reject_unauthorized_scientific_request(request_kind)
+internal_operations: [validate_feature_identity, validate_exact_ordered_object_set, validate_unique_entries, validate_provenance, propagate_opaque_values, propagate_unresolved_and_reservations]
+shared_types:
+  FeatureId: active Lived Experience feature identifier
+  ObjectId: opaque scientific object identifier
+  OpaqueScientificObject: caller supplied value not interpreted by this module
+  SourceReference: source path, line span, commit and section
+  LivedExperienceDescriptor: immutable ordered feature record
+  UnevaluatedSymbol: source symbol preserved as text
+  UnevaluatedExpression: source expression preserved as text
+  UnresolvedReference: unresolved identifier or registry reference
+source_level_lived_experience_types:
+  status: documentary_only_not_promoted_to_executable_variants
+  source_ref: maths/14-lived-experience.md sections 6.1-6.5
+  types: [expérience d’immersion, expérience de pratique, expérience d’épreuve, expérience réflexive, expérience de transmission]
+identity_representation: feature id plus exact ordered covered object ids
+scopes: exact source-object scope per feature
+contexts: source sections and provenance only; no runtime context model inferred
+actors_explicitly_defined: []
+events_explicitly_defined: []
+states_explicitly_defined: []
+sequences_explicitly_defined: []
+transitions_explicitly_defined: []
+observations_explicitly_defined: []
+perceptions_explicitly_defined: []
+interpretations_explicitly_defined: []
+results_and_effects_explicitly_defined: []
+relations_to_other_tl_objects: []
+opaque_values: [scientific objects, symbols, expressions, payload internals, unresolved]
+common_errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+shared_patterns_ref: registry/domain-finalization/lived-experience/patterns.yaml
+internal_dependencies: [descriptor validation, lossless serialization, structured errors]
+external_dependencies:
+  documentary: [maths/14-lived-experience.md]
+  scientific_reconciliation: [capacities, competencies, practice]
+  execution: []
+composition_rules:
+- preserve every feature identity and ordered object list
+- never merge source expressions or unresolved values
+- never promote a documentary or scientific dependency to execution automatically
+- structural equality is not scientific equivalence
+order_rules:
+- preserve covered-object inventory order
+- do not infer temporal order from inventory order
+- no event chronology is available in selected feature contracts
+determinism_rules:
+- descriptor construction is deterministic for identical structural inputs
+- scientific determinism is not asserted
+unresolved:
+  registry_ref: registry/scientific-objects/lived-experience/unresolved-terms.yaml
+  domain_count_preserved: 43
+behavior_boundaries:
+  represent_lived_experience: supported as selected object references and opaque descriptors
+  validate_lived_experience: supported structurally
+  reference_lived_experience: supported through object identifiers and provenance
+  associate_context: source provenance only; runtime semantics absent
+  record_event: not supported by selected contracts
+  record_state: not supported by selected contracts
+  order_events: not supported; no selected temporal schema
+  observe_experience: external_observer_required
+  interpret_experience: external_interpreter_required
+  compare_experiences: structural comparison only; scientific comparison unsupported
+  establish_causality: implementation_out_of_scope
+  evolve_experience: external_temporal_model_required
+library_interfaces:
+- language-neutral immutable descriptor interface
+- language-neutral validation and structured error interface
+- lossless serialization interface
+- feature-specific descriptor entrypoints
+out_of_scope: [scientific scoring, threshold evaluation, temporal solver, chronology inference, psychological interpretation, causal model, C++ code in this phase, Python bindings in this phase, reference implementation]
+future_tasks_ref: registry/domain-finalization/lived-experience/implementation-tasks.yaml
