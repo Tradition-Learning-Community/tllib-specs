@@ -1,0 +1,68 @@
+---
+schema_version: 1
+domain: practice
+blocking_for_structural_implementation: []
+summary:
+  blocking: 0
+  non_blocking: 3
+  deferred_to_scientific_review: 5
+  preserved_as_opaque: 1
+decisions:
+- decision_id: PRACTICE-DECISION-RUNTIME-DATA-MODEL
+  classification: non_blocking
+  scope: all
+  source_basis: implementation_decisions_required in every source contract
+  question: Select the concrete immutable carrier for opaque candidate inputs and results.
+  constraint: the carrier must not interpret, coerce or assign scientific dimensions
+- decision_id: PRACTICE-DECISION-ERROR-BINDING
+  classification: non_blocking
+  scope: all
+  source_basis: implementation_decisions_required in every source contract
+  question: Bind the common Practice error taxonomy to the future library error system.
+  constraint: source blockers and unresolved values must remain distinguishable
+- decision_id: PRACTICE-DECISION-API-SURFACE
+  classification: non_blocking
+  scope: all
+  source_basis: implementation_decisions_required in every source contract
+  question: Select language-specific names without changing the finalized observable behavior.
+  constraint: this package defines no C++ or Python binding
+- decision_id: PRACTICE-SCIENTIFIC-004
+  classification: deferred_to_scientific_review
+  feature_id: TLC-FC-13-PRACTICE-004
+  blocks: scientific_evaluation_only
+  does_not_block: structural_representation
+  references: [TLC-SO-PRACTICE-068, TLC-SO-PRACTICE-085, TLC-SO-PRACTICE-086, TLC-SO-PRACTICE-088, TLC-SR-PRACTICE-067, TLC-SR-PRACTICE-084, TLC-SR-PRACTICE-085, TLC-SR-PRACTICE-087, TLC-HR-0046, TLC-HR-0049, TLC-HR-0055, TLC-HR-0056]
+- decision_id: PRACTICE-SCIENTIFIC-006
+  classification: deferred_to_scientific_review
+  feature_id: TLC-FC-13-PRACTICE-006
+  blocks: scientific_evaluation_only
+  does_not_block: structural_representation
+  references: [TLC-SO-PRACTICE-062, TLC-SO-PRACTICE-091, TLC-SR-PRACTICE-061, TLC-SR-PRACTICE-090, TLC-HR-0048, TLC-HR-0051]
+- decision_id: PRACTICE-SCIENTIFIC-008
+  classification: deferred_to_scientific_review
+  feature_id: TLC-FC-13-PRACTICE-008
+  blocks: scientific_evaluation_only
+  does_not_block: structural_representation
+  references: [TLC-SO-PRACTICE-022, TLC-SR-PRACTICE-021, TLC-HR-0101]
+- decision_id: PRACTICE-SCIENTIFIC-010
+  classification: deferred_to_scientific_review
+  feature_id: TLC-FC-13-PRACTICE-010
+  blocks: scientific_evaluation_only
+  does_not_block: structural_representation
+  references: [TLC-SO-PRACTICE-018, TLC-SR-PRACTICE-017, TLC-HR-0108]
+- decision_id: PRACTICE-SCIENTIFIC-012
+  classification: deferred_to_scientific_review
+  feature_id: TLC-FC-13-PRACTICE-012
+  blocks: scientific_evaluation_only
+  does_not_block: structural_representation
+  references: [TLC-HR-0100]
+- decision_id: PRACTICE-DOMAIN-UNRESOLVED
+  classification: preserved_as_opaque
+  scope: domain_global
+  reference: registry/domain-progress/practice/unresolved-status.yaml
+  handling: unresolved_propagated
+  constraint: domain-global classification questions are not silently attached to unrelated active features
+closure:
+  structural_package_blocked: false
+  scientific_execution_defined: false
+  new_scientific_decision_made: false
