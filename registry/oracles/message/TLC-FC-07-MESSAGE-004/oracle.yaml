@@ -1,0 +1,19 @@
+schema_version: 1
+feature_id: TLC-FC-07-MESSAGE-004
+source_test_plan: registry/test-plans/TLC-FC-07-MESSAGE-004/test-plan.yaml
+acceptance_target: registry/optimized-ir/message/TLC-FC-07-MESSAGE-004/ir.yaml
+oracle_kind: catalogue_structural
+fixtures_policy: exact source-contract identifiers with opaque sentinel payloads
+tests:
+  - {id: MSG004-NOMINAL, kind: nominal, assert: exact 45-object coverage and both indexes complete}
+  - {id: MSG004-MISSING, kind: precondition_error, expect_error: MissingMessageStateRecord}
+  - {id: MSG004-DUPLICATE, kind: identity_error, expect_error: DuplicateMessageStateIdentifier}
+  - {id: MSG004-UNKNOWN, kind: reference_error, expect_error: UnknownMessageStateIdentifier}
+  - {id: MSG004-CONTENT, kind: content_conservation, assert: every opaque payload and source reference unchanged}
+  - {id: MSG004-ORDER, kind: order, assert: recorded source order preserved within each context}
+  - {id: MSG004-NO-MERGE, kind: identity_conservation, assert: all 45 identities remain distinct}
+  - {id: MSG004-DETERMINISM, kind: determinism, assert: identical ordered records produce structurally equal catalogue}
+  - {id: MSG004-METAMORPHIC, kind: metamorphic, mutate: permute input while retaining recorded source order, assert: canonical catalogue unchanged}
+  - {id: MSG004-ROUNDTRIP, kind: serialization_roundtrip, assert: 45 identities indexes metadata opaque values and unresolved preserved}
+  - {id: MSG004-NO-HIERARCHY, kind: forbidden_behavior, assert: no inferred hierarchy or transition exists}
+properties: [complete_coverage, identity_preservation, context_order_preservation, unresolved_propagation]
