@@ -1,0 +1,35 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-00-MASTER-003
+feature_id: TLC-FC-00-MASTER-003
+status: selected_for_master_implementation_specification
+finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-003/ir.yaml
+signature: evaluate_admissible_master_constraints(reference_bundle, opaque_inputs, provider, community_symbol) -> MasterOpaqueEvaluationResult
+inputs:
+  reference_bundle: exact Master scientific references
+  opaque_inputs: uninterpreted provider payload
+  provider: OpaqueOperationProvider
+  community_symbol: read-only external symbol
+outputs: {result: MasterOpaqueEvaluationResult}
+validations:
+  - require exact feature, object, relation, and empty unresolved lists
+  - require community_symbol and provider for evaluated mode
+steps:
+  - validate the immutable reference bundle
+  - build provenance
+  - when evaluated mode is not requested, return unresolved with no invented reason
+  - validate the read-only community symbol and provider
+  - pass the bundle and opaque inputs to the provider without transformation
+  - copy the provider status and payload unchanged
+  - verify reference and payload preservation
+  - return the result
+branches:
+  - {condition: descriptor-only or no evaluation request, action: return evaluation_status unresolved}
+  - {condition: missing community symbol, action: return MASTER_EXTERNAL_DEPENDENCY_UNAVAILABLE}
+  - {condition: missing provider in evaluated mode, action: return MASTER_OPAQUE_PROVIDER_REQUIRED}
+  - {condition: provider failure, action: return MASTER_OPAQUE_PROVIDER_FAILURE}
+errors: [MASTER_INVALID_FEATURE_ID, MASTER_REFERENCE_SET_MISMATCH, MASTER_EXTERNAL_DEPENDENCY_UNAVAILABLE, MASTER_OPAQUE_PROVIDER_REQUIRED, MASTER_OPAQUE_PROVIDER_FAILURE, MASTER_PRESERVATION_VIOLATION]
+invariants: [opaque payload unchanged, exact references, no scientific interpretation]
+determinism: wrapper deterministic; provider determinism is declared by provider
+effects: no mutation
+edge_cases: [empty opaque payload is valid, provider unresolved result is propagated]
+necessary_dependencies: [{domain: community, access: read_only, required_for: evaluated_mode}]
