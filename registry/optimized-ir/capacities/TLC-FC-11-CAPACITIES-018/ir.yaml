@@ -1,0 +1,58 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-018
+status: selected_for_capacities_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-018/contract.yaml
+source_ir: registry/ir/TLC-FC-11-CAPACITIES-018/ir.yaml
+source_ir_status: prototype_ir_with_reservations
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-018/test-plan.yaml
+nature: structural
+artifact_kind: CapacityRelationDescriptor
+capacity_or_reference:
+  representation: social-relational capacity descriptor with opaque endpoints
+  object_ids: [TLC-SO-CAPACITIES-010]
+identity: {feature_id: exact, object_ids: exact, preservation: mandatory}
+scope: {kind: descriptive_scope, value: cited social or relational capacity object only}
+context: {source_file: maths/11-capacities.md, source_sections: [Types et formes de Capacités]}
+inputs:
+  - {name: capacity_feature_id, type: FeatureId, expected: TLC-FC-11-CAPACITIES-018}
+  - {name: object_payloads, type: 'Map<ObjectId,OpaqueScientificObject>', required_object_ids: [TLC-SO-CAPACITIES-010]}
+  - {name: provenance, type: 'Map<ObjectId,SourceReference>'}
+outputs: [{name: artifact, type: CapacityRelationDescriptor}]
+types: [FeatureId, ObjectId, OpaqueScientificObject, OpaqueScientificValue, SourceReference, CapacityRelationDescriptor]
+opaque_values: {policy: preserve relation and any endpoint tokens without inference, sources: [object_payloads]}
+preconditions: [exact feature id, exact singleton object, complete provenance, structural request only]
+conditions_of_application: [relation descriptor construction only]
+relations_explicitly_defined: []
+manifestations_explicitly_defined: []
+operations: [validate_feature_and_object_set, build_capacity_relation_descriptor_preserving_endpoints, attach_non_evaluation_guard, expose_structural_queries]
+execution_order: [validate_feature_and_object_set, build_capacity_relation_descriptor_preserving_endpoints, attach_non_evaluation_guard]
+control_flow: {invalid_input: raise structured validation error, relation_evaluation_request: raise ScientificEvaluationRequested, valid_input: return immutable descriptor}
+activation: {declared: false}
+mobilization: {declared: false}
+development: {declared: false}
+comparison: {declared: false, structural_identity_comparison_only: true}
+effects: {scientific_state_change: false, output_construction: true}
+postconditions:
+  - social-relational capacity identity and provenance are preserved
+  - any source endpoint tokens remain opaque
+  - no person, group, competence, virtue or practice endpoint is inferred
+  - no relation strength or direction is computed
+invariants: [singleton identity, endpoint opacity, no external-domain mutation]
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+determinism: {status: deterministic, basis: identical structural inputs}
+dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities.md, registry/domain-progress/capacities/external-dependencies.yaml]}
+unresolved_propagated: []
+reservations: [relation endpoints and external-domain semantics are not established]
+transformations_applied: [normalized relation descriptor envelope, normalized traceability, explicit endpoint-inference guard]
+obligations_of_preservation: [object identity, opaque endpoints, provenance]
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-018/algorithm.yaml
+oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-018/oracle.yaml
+implementation_fitness: {status: ready_for_structural_implementation, scientific_evaluator_ready: false}
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+capacity_invented: false
+measurement_invented: false
+ordering_invented: false
+legacy_feature_promoted: false
