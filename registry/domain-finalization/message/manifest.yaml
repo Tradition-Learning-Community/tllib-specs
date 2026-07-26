@@ -1,0 +1,30 @@
+schema_version: 1
+domain: message
+status: selected_for_message_implementation_specification
+baseline:
+  path: registry/global-reconciliation/current-baseline.yaml
+  main_head: c34d40713bf444d38f92f76e1c6239ee596d5a18
+  baseline_id: TLC-GLOBAL-BASELINE-IR-001
+  expected_active_feature_count: 6
+population:
+  - TLC-FC-07-MESSAGE-001
+  - TLC-FC-07-MESSAGE-002
+  - TLC-FC-07-MESSAGE-003
+  - TLC-FC-07-MESSAGE-004
+  - TLC-FC-07-MESSAGE-005
+  - TLC-FC-07-MESSAGE-006
+artifacts:
+  feature_status: registry/domain-finalization/message/feature-status.yaml
+  patterns: registry/domain-finalization/message/patterns.yaml
+  module_specification: registry/domain-finalization/message/module-specification.yaml
+  implementation_tasks: registry/domain-finalization/message/implementation-tasks.yaml
+  decisions: registry/domain-finalization/message/decision-required.yaml
+  report: reports/domain-finalization/message/finalization-report.md
+  validator: tools/domain-finalization/validate_message_finalization.py
+preservation:
+  source_ir_preserved: true
+  source_contract_preserved: true
+  scientific_source_modified: false
+  message_content_invented: false
+  global_registry_regenerated: false
+  other_domains_modified: false
