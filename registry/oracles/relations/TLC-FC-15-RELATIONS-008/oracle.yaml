@@ -1,0 +1,110 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-15-RELATIONS-008
+feature_id: TLC-FC-15-RELATIONS-008
+status: selected_for_relations_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-15-RELATIONS-008/contract.yaml
+source_ir: registry/optimized-ir/relations/TLC-FC-15-RELATIONS-008/ir.yaml
+source_test_plan: registry/test-plans/TLC-FC-15-RELATIONS-008/test-plan.yaml
+algorithm: registry/algorithms/relations/TLC-FC-15-RELATIONS-008/algorithm.yaml
+oracle_kind: structural_acceptance_oracle_non_executable_scientific_semantics
+expected_participants:
+  - TLC-SO-RELATIONS-014
+  - TLC-SO-RELATIONS-020
+scope_id: relations_008_virtue_value_tuple_records
+context_id: master_virtue_and_master_value_formalizations
+expected_unresolved_count: 5
+expected_tuple_text_count: 2
+exact_result_oracle_available: false
+observable_oracle:
+  validates:
+    - feature and participant identity
+    - participant order and distinctness
+    - source reference conservation
+    - preservation and ordering of two opaque tuple strings
+    - blocker and unresolved propagation
+    - deterministic structural output
+    - rejection of fusion and unsupported evaluation
+  does_not_validate:
+    - relation truth or value
+    - tuple component values or types
+    - endpoint identity
+    - direction or runtime relation arity
+    - relational properties, composition or causality
+acceptance_cases:
+  - case_id: REL-008-ACC-001
+    category: nominal
+    given: exact feature id, exact two participants, exact two tuple strings and scientific_decision_required
+    expect:
+      outcome: success
+      record_type: RelationsBlockedCanonicalRecord
+      participants_preserved: true
+      tuple_text_count: 2
+      tuple_text_order_preserved: true
+      unresolved_count: 5
+      non_execution_guard: enabled
+  - {case_id: REL-008-ACC-002, category: identity, mutation: replace feature id, expect_error: FeatureIdentityMismatch}
+  - {case_id: REL-008-ACC-003, category: participants, mutation: remove a participant, expect_error: MissingCoveredObject}
+  - {case_id: REL-008-ACC-004, category: participants, mutation: add a participant, expect_error: UnexpectedCoveredObject}
+  - {case_id: REL-008-ACC-005, category: participants, mutation: duplicate a participant, expect_error: DuplicateCoveredObject}
+  - {case_id: REL-008-ACC-006, category: participants, mutation: swap the two participants, expect_error: ObjectOrderMismatch}
+  - {case_id: REL-008-ACC-007, category: traceability, mutation: remove a source reference, expect_error: MissingSourceReference}
+  - {case_id: REL-008-ACC-008, category: opaque_value, mutation: alter a tuple string, expect_error: OpaqueValueMutation}
+  - {case_id: REL-008-ACC-009, category: opaque_value, mutation: swap the two tuple strings, expect_error: OpaqueValueMutation}
+  - {case_id: REL-008-ACC-010, category: shape, mutation: provide one or three tuple strings, expect_error: OpaqueValueMutation}
+  - {case_id: REL-008-ACC-011, category: unresolved, mutation: remove one reservation, expect_error: UnresolvedPropagationLoss}
+  - {case_id: REL-008-ACC-012, category: identity, mutation: fuse the two tuple records, expect_error: IdentityMergeProhibited}
+  - case_id: REL-008-ACC-013
+    category: explicit_blocking
+    mutation: request relation, numeric, graph, temporal, composition, inversion or projection evaluation
+    expect_error: ExternalRelationEvaluatorRequired
+    forbidden_outputs:
+      - relation result
+      - numeric value
+      - graph
+      - temporal trajectory
+      - composed, inverted or projected relation
+  - {case_id: REL-008-ACC-014, category: scope, mutation: replace scope_id, expect_error: ScopeMismatch}
+  - {case_id: REL-008-ACC-015, category: context, mutation: replace context_id, expect_error: ContextMismatch}
+  - case_id: REL-008-ACC-016
+    category: property
+    mutation: infer tuple counts as relation arity or assert direction, symmetry, transitivity, equivalence or causality
+    expect_error: ScientificPropertyInvented
+property_tests:
+  - property_id: REL-008-PROP-001
+    statement: successful construction preserves both participant identities and order
+  - property_id: REL-008-PROP-002
+    statement: successful construction preserves both tuple strings and their order
+  - property_id: REL-008-PROP-003
+    statement: the two tuple records remain distinct in every successful output
+  - property_id: REL-008-PROP-004
+    statement: successful structural construction never returns a relation result
+metamorphic_tests:
+  - metamorphic_id: REL-008-META-001
+    transformation: replace one participant opaque payload while preserving identity and source reference
+    expectation: replacement payload is carried without interpretation and the other participant is unchanged
+  - metamorphic_id: REL-008-META-002
+    transformation: repeat construction with identical inputs
+    expectation: structurally identical output
+  - metamorphic_id: REL-008-META-003
+    transformation: swap participants and tuple strings together and then restore the original order
+    expectation: swapped input fails because canonical order changed; restored input succeeds
+round_trip_tests:
+  - round_trip_id: REL-008-RT-001
+    operation: implementation-defined lossless record encoding and decoding
+    expectation: identity, participant order, two tuple strings, scope, context, opaque payloads and unresolved metadata are unchanged
+    note: encoding format is not selected by this specification
+cross_feature_tests:
+  - case_id: REL-008-XF-001
+    action: validate another Relations feature record as Relations-008
+    expect_error: FeatureIdentityMismatch
+  - case_id: REL-008-XF-002
+    action: substitute the Relations-003 tuple record for either Relations-008 participant
+    expect_error: UnexpectedCoveredObject
+determinism_tests:
+  - identical validated inputs yield structurally identical records
+  - the same invalid input selects the same first validation error
+unresolved_tests:
+  - all five reservations are propagated
+  - TLC-HR-0074 remains scientific review evidence
+  - no unresolved value receives a default interpretation
+acceptance_rule: all applicable cases pass, both tuple records remain distinct and no relation result is produced

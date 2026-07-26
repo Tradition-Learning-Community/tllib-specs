@@ -1,0 +1,153 @@
+schema_version: 1
+domain: relations
+analysis_status: complete_with_reservations
+pattern_policy:
+  resemblance_is_equivalence: false
+  textual_duplication_is_equivalence: false
+  structural_duplication_is_equivalence: false
+  shared_schema_is_scientific_equivalence: false
+  scientific_equivalence_requires_source_proof: true
+patterns:
+  - pattern_id: REL-PAT-001
+    name: opaque_ordered_participant_sequence
+    classification: shared_structural_schema
+    applies_to:
+      - TLC-FC-15-RELATIONS-002
+      - TLC-FC-15-RELATIONS-003
+      - TLC-FC-15-RELATIONS-004
+      - TLC-FC-15-RELATIONS-007
+      - TLC-FC-15-RELATIONS-008
+    reusable_elements:
+      - ordered participant identifiers
+      - participant identity validation
+      - missing, extra, duplicate and order error reporting
+    preserved_differences:
+      - participant identities
+      - participant count
+      - feature scope
+      - scientific source ranges
+    scientific_factorization_applied: false
+    implementation_factorization_allowed: true
+  - pattern_id: REL-PAT-002
+    name: source_traceability_envelope
+    classification: shared_structural_schema
+    applies_to:
+      - TLC-FC-15-RELATIONS-002
+      - TLC-FC-15-RELATIONS-003
+      - TLC-FC-15-RELATIONS-004
+      - TLC-FC-15-RELATIONS-007
+      - TLC-FC-15-RELATIONS-008
+    reusable_elements:
+      - feature identity
+      - contract reference
+      - source IR reference
+      - source text or source-range references
+      - raw source statuses
+    semantic_equivalence_claimed: false
+    implementation_factorization_allowed: true
+  - pattern_id: REL-PAT-003
+    name: non_execution_guard
+    classification: shared_observable_behavior
+    applies_to:
+      - TLC-FC-15-RELATIONS-002
+      - TLC-FC-15-RELATIONS-003
+      - TLC-FC-15-RELATIONS-004
+      - TLC-FC-15-RELATIONS-007
+      - TLC-FC-15-RELATIONS-008
+    rejects:
+      - semantic relation evaluation
+      - graph construction
+      - endpoint inference
+      - invented source or target
+      - invented direction or arity
+      - scoring or thresholding
+      - temporal simulation
+      - numerical computation
+      - invented composition, inversion or projection
+      - causal interpretation
+    error: ExternalRelationEvaluatorRequired
+    implementation_factorization_allowed: true
+  - pattern_id: REL-PAT-004
+    name: unresolved_and_opaque_propagation
+    classification: shared_preservation_rule
+    applies_to:
+      - TLC-FC-15-RELATIONS-002
+      - TLC-FC-15-RELATIONS-003
+      - TLC-FC-15-RELATIONS-004
+      - TLC-FC-15-RELATIONS-007
+      - TLC-FC-15-RELATIONS-008
+    reusable_elements:
+      - unresolved identifiers and counts
+      - opaque values
+      - decision classification
+      - documentary dependency classification
+    rule: copy_without_resolution_promotion_or_semantic_interpretation
+    implementation_factorization_allowed: true
+  - pattern_id: REL-PAT-005
+    name: one_to_one_candidate_result_traceability
+    classification: same_schema_not_scientific_equivalence
+    applies_to:
+      - TLC-FC-15-RELATIONS-004
+      - TLC-FC-15-RELATIONS-007
+    reusable_elements:
+      - one opaque candidate result per covered participant
+      - exact source participant reference
+      - candidate status preservation
+    preserved_differences:
+      - three operator-function blocks versus five named relation objects
+      - source sections and contextual relations
+      - unresolved sets
+    scientific_factorization_applied: false
+    implementation_factorization_allowed: true
+  - pattern_id: REL-PAT-006
+    name: preserved_tuple_text
+    classification: source_explicit_tuple_shape_only
+    applies_to:
+      - TLC-FC-15-RELATIONS-003
+      - TLC-FC-15-RELATIONS-008
+    rule: preserve tuple equations as opaque text without assigning runtime tuple component types
+    arity_inference_allowed: false
+    component_type_inference_allowed: false
+  - pattern_id: REL-PAT-007
+    name: documentary_external_dependencies
+    classification: shared_dependency_policy
+    applies_to:
+      - TLC-FC-15-RELATIONS-004
+      - TLC-FC-15-RELATIONS-007
+    rule: external domain references remain documentary and are not execution prerequisites
+    imported_semantics: false
+    execution_dependency_created: false
+non_patterns:
+  - name: universal_relation_graph
+    reason: no graph representation is authorized
+  - name: universal_binary_relation
+    reason: binary arity is not established
+  - name: universal_master_to_dimension_direction
+    reason: endpoint identity and executable direction are not established by the contracts
+  - name: common algebraic_properties
+    reason: symmetry, reflexivity, transitivity, antisymmetry and equivalence are unresolved or absent
+  - name: common composition_inverse_projection
+    reason: no such operation is declared by a source contract or source IR
+optimizations_applied:
+  - normalization_id: REL-OPT-001
+    description: common field order and traceability vocabulary
+    semantic_change: false
+  - normalization_id: REL-OPT-002
+    description: common participant-validation error taxonomy
+    semantic_change: false
+  - normalization_id: REL-OPT-003
+    description: common non-execution guard and external evaluator signal
+    semantic_change: false
+  - normalization_id: REL-OPT-004
+    description: explicit separation of structural readiness from semantic execution readiness
+    semantic_change: false
+  - normalization_id: REL-OPT-005
+    description: explicit documentary, scientific and execution dependency classes
+    semantic_change: false
+optimizations_not_applied:
+  - merge of feature 003 and feature 008
+  - merge of the five named relation objects in feature 007
+  - merge of the three function blocks in feature 004
+  - inferred domain, codomain, direction, arity or relational property
+  - graph conversion
+  - executable evaluator generation

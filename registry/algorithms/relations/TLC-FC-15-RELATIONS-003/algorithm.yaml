@@ -1,0 +1,135 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-15-RELATIONS-003
+feature_id: TLC-FC-15-RELATIONS-003
+status: selected_for_relations_implementation_specification
+source_ir: registry/optimized-ir/relations/TLC-FC-15-RELATIONS-003/ir.yaml
+signature: >-
+  build_relations_003_record(feature_id, ordered_scientific_objects,
+  decision_blocker, source_equations, evaluation_request=null)
+  -> RelationsBlockedCanonicalRecord
+inputs:
+  - {name: feature_id, type: FeatureId}
+  - {name: ordered_scientific_objects, type: List<OpaqueScientificObject>}
+  - {name: decision_blocker, type: DecisionBlocker}
+  - {name: source_equations, type: List<OpaqueSourceText>}
+  - {name: evaluation_request, type: Optional<RelationsEvaluationRequest>}
+outputs:
+  - {name: record, type: RelationsBlockedCanonicalRecord}
+expected_participants:
+  - TLC-SO-RELATIONS-008
+scope_id: relations_003_master_message_tuple_record
+context_id: master_message_formalization
+validations:
+  - exact feature identity
+  - exactly one expected participant
+  - no duplicate or extra participant
+  - decision blocker equals scientific_decision_required
+  - tuple equation text matches the preserved opaque string
+  - required source reference exists
+preconditions:
+  - the caller requests structural construction only
+  - opaque tuple text can be copied without interpretation
+conditions_of_application:
+  - no invariant evaluator is supplied by this module
+  - no scientific operation is requested
+ordered_steps:
+  - {step: 1, action: compare feature_id with TLC-FC-15-RELATIONS-003}
+  - {step: 2, action: validate the exact single participant TLC-SO-RELATIONS-008}
+  - {step: 3, action: validate its source reference}
+  - {step: 4, action: compare source_equations with the contract-preserved tuple text}
+  - {step: 5, action: require scientific_decision_required}
+  - {step: 6, action: reject a non-null evaluation_request}
+  - {step: 7, action: construct the structural record by exact copying}
+  - {step: 8, action: attach the non-execution guard}
+  - {step: 9, action: validate postconditions and return}
+branching:
+  - {condition: feature_id mismatch, result: FeatureIdentityMismatch}
+  - {condition: participant missing, result: MissingCoveredObject}
+  - {condition: participant extra, result: UnexpectedCoveredObject}
+  - {condition: participant duplicated, result: DuplicateCoveredObject}
+  - {condition: source reference missing, result: MissingSourceReference}
+  - {condition: tuple text differs, result: OpaqueValueMutation}
+  - {condition: decision blocker differs, result: UnresolvedPropagationLoss}
+  - {condition: evaluation_request is not null, result: ExternalRelationEvaluatorRequired}
+construction_or_reading:
+  construction: structural_record_only
+  relation_created: false
+  invariant_evaluated: false
+  source_text_copied: true
+identity_validation:
+  feature: exact
+  participants: exact_and_ordered
+scope_context_validation:
+  scope: exact scope_id
+  context: exact context_id
+creation: {declared: false}
+membership: {declared: false}
+composition: {declared: false}
+inversion: {declared: false}
+projection: {declared: false}
+effects:
+  mutation: none
+  external_io: none
+  scientific_result: none
+errors:
+  - FeatureIdentityMismatch
+  - MissingCoveredObject
+  - UnexpectedCoveredObject
+  - DuplicateCoveredObject
+  - MissingSourceReference
+  - OpaqueValueMutation
+  - UnresolvedPropagationLoss
+  - ExternalRelationEvaluatorRequired
+postconditions:
+  - output identity, participant, scope and context equal the validated inputs
+  - tuple equation remains opaque and unchanged
+  - all five unresolved reservations are present
+  - no invariant truth value is returned
+invariants:
+  - participant identity and order are stable
+  - tuple component count is not converted into relation arity
+  - no endpoint, direction, property or causality is inferred
+  - source references remain unchanged
+determinism:
+  structural_path: deterministic
+  semantic_path: unavailable
+edge_cases:
+  - empty participant list is rejected
+  - duplicate TLC-SO-RELATIONS-008 is rejected
+  - an additional participant is rejected
+  - tuple text normalization or reordering is rejected
+  - null opaque payload is allowed when identity and source reference remain valid
+  - any evaluation request is rejected
+dependencies:
+  internal:
+    - shared Relations structural validators
+    - shared non-execution guard
+  external_execution: []
+  scientific_review:
+    - TLC-HR-0074
+unresolved_preserved:
+  - scientific_decision_required
+  - signature_not_specified
+  - types_not_specified
+  - oracle_not_identified
+  - relation_semantics_unresolved
+pseudocode: |
+  EXPECTED_IDS := [TLC-SO-RELATIONS-008]
+  EXPECTED_TUPLE_TEXT := contract-preserved opaque equation
+  require feature_id == TLC-FC-15-RELATIONS-003
+  validate_exact_ordered_participants(ordered_scientific_objects, EXPECTED_IDS)
+  validate_source_references(ordered_scientific_objects)
+  require source_equations == [EXPECTED_TUPLE_TEXT]
+  require decision_blocker == scientific_decision_required
+  if evaluation_request is not null:
+      raise ExternalRelationEvaluatorRequired
+  record := RelationsBlockedCanonicalRecord(
+      feature_id = feature_id,
+      participants = copy_without_interpretation(ordered_scientific_objects),
+      scope_id = relations_003_master_message_tuple_record,
+      context_id = master_message_formalization,
+      unevaluated_source_equations = copy_exact(source_equations),
+      unresolved = copy_exact(contract_unresolved),
+      non_execution_guard = enabled)
+  validate_record_postconditions(record)
+  return record

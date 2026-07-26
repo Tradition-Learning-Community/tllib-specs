@@ -1,0 +1,135 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-15-RELATIONS-002
+feature_id: TLC-FC-15-RELATIONS-002
+status: selected_for_relations_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-15-RELATIONS-002/contract.yaml
+source_ir: registry/optimized-ir/relations/TLC-FC-15-RELATIONS-002/ir.yaml
+source_test_plan: registry/test-plans/TLC-FC-15-RELATIONS-002/test-plan.yaml
+algorithm: registry/algorithms/relations/TLC-FC-15-RELATIONS-002/algorithm.yaml
+oracle_kind: structural_acceptance_oracle_non_executable_scientific_semantics
+expected_participants:
+  - TLC-SO-RELATIONS-047
+  - TLC-SO-RELATIONS-048
+  - TLC-SO-RELATIONS-064
+  - TLC-SO-RELATIONS-077
+  - TLC-SO-RELATIONS-088
+  - TLC-SO-RELATIONS-100
+scope_id: relations_002_source_equation_bundle
+context_id: master_message_virtue_value_capacity_competence_formalizations
+expected_unresolved_count: 5
+exact_result_oracle_available: false
+observable_oracle:
+  validates:
+    - structural identity
+    - exact participant identities and order
+    - source reference conservation
+    - opaque equation conservation
+    - blocker and unresolved propagation
+    - deterministic structural output
+    - rejection of unsupported evaluation
+  does_not_validate:
+    - truth of source equations
+    - numeric values
+    - relation endpoints
+    - relation direction or arity
+    - relational properties
+    - causality
+acceptance_cases:
+  - case_id: REL-002-ACC-001
+    category: nominal
+    given: exact feature id, exact ordered participants, exact equation text and scientific_decision_required
+    expect:
+      outcome: success
+      record_type: RelationsBlockedCanonicalRecord
+      participants_preserved: true
+      equation_text_preserved: true
+      unresolved_count: 5
+      non_execution_guard: enabled
+  - case_id: REL-002-ACC-002
+    category: identity
+    mutation: replace feature id
+    expect_error: FeatureIdentityMismatch
+  - case_id: REL-002-ACC-003
+    category: participants
+    mutation: remove one participant
+    expect_error: MissingCoveredObject
+  - case_id: REL-002-ACC-004
+    category: participants
+    mutation: add an undeclared participant
+    expect_error: UnexpectedCoveredObject
+  - case_id: REL-002-ACC-005
+    category: participants
+    mutation: duplicate one participant
+    expect_error: DuplicateCoveredObject
+  - case_id: REL-002-ACC-006
+    category: participants
+    mutation: reorder two valid participants
+    expect_error: ObjectOrderMismatch
+  - case_id: REL-002-ACC-007
+    category: traceability
+    mutation: remove one required source reference
+    expect_error: MissingSourceReference
+  - case_id: REL-002-ACC-008
+    category: opaque_value
+    mutation: alter one equation string or its order
+    expect_error: OpaqueValueMutation
+  - case_id: REL-002-ACC-009
+    category: unresolved
+    mutation: remove scientific_decision_required or another reservation
+    expect_error: UnresolvedPropagationLoss
+  - case_id: REL-002-ACC-010
+    category: explicit_blocking
+    mutation: request numeric or semantic evaluation
+    expect_error: ExternalRelationEvaluatorRequired
+    forbidden_outputs:
+      - numeric result
+      - truth value
+      - graph
+      - temporal trajectory
+      - threshold result
+  - case_id: REL-002-ACC-011
+    category: scope
+    mutation: replace scope_id
+    expect_error: ScopeMismatch
+  - case_id: REL-002-ACC-012
+    category: context
+    mutation: replace context_id
+    expect_error: ContextMismatch
+  - case_id: REL-002-ACC-013
+    category: property
+    mutation: assert symmetry, reflexivity, transitivity, equivalence or causality
+    expect_error: ScientificPropertyInvented
+property_tests:
+  - property_id: REL-002-PROP-001
+    statement: successful construction preserves the exact participant sequence
+  - property_id: REL-002-PROP-002
+    statement: successful construction preserves every equation as opaque text
+  - property_id: REL-002-PROP-003
+    statement: no successful structural construction produces a scientific result
+metamorphic_tests:
+  - metamorphic_id: REL-002-META-001
+    transformation: replace only an opaque payload while preserving identity and source reference
+    expectation: construction remains structurally valid and carries the replacement payload without interpretation
+  - metamorphic_id: REL-002-META-002
+    transformation: repeat construction with byte-identical inputs
+    expectation: structurally identical output
+  - metamorphic_id: REL-002-META-003
+    transformation: reorder participants and then restore the original order
+    expectation: reordered input fails; restored input succeeds
+round_trip_tests:
+  - round_trip_id: REL-002-RT-001
+    operation: implementation-defined lossless record encoding and decoding
+    expectation: identity, participant order, equations, scope, context, opaque payloads and unresolved metadata are unchanged
+    note: encoding format is not selected by this specification
+cross_feature_tests:
+  - case_id: REL-002-XF-001
+    action: pass a Relations-003, 004, 007 or 008 record to the Relations-002 validator
+    expect_error: FeatureIdentityMismatch
+determinism_tests:
+  - identical validated inputs yield structurally identical records
+  - error selection is stable for the same first failing validation
+unresolved_tests:
+  - all five reservations are propagated
+  - TLC-HR-0054 remains external scientific review evidence
+  - no unresolved value is replaced by a default
+acceptance_rule: all applicable cases pass and no forbidden scientific output is produced

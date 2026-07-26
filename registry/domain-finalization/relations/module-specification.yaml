@@ -1,0 +1,302 @@
+schema_version: 1
+module_id: TLC-MODULE-RELATIONS-001
+module_name: Relations
+status: selected_for_relations_implementation_specification
+purpose: >-
+  Provide source-faithful structural representations for the five authoritative
+  Relations features, validate identity and traceability, preserve opaque and
+  unresolved values, and reject scientific evaluation not authorized by the
+  source contracts and IRs.
+active_features:
+  - TLC-FC-15-RELATIONS-002
+  - TLC-FC-15-RELATIONS-003
+  - TLC-FC-15-RELATIONS-004
+  - TLC-FC-15-RELATIONS-007
+  - TLC-FC-15-RELATIONS-008
+public_operations:
+  - operation: build_relations_record
+    behavior: construct the feature-specific structural record after exact validation
+    semantic_evaluation: false
+  - operation: validate_relations_record
+    behavior: validate feature identity, ordered participants, scope, context, source references, opaque values and unresolved propagation
+    semantic_evaluation: false
+  - operation: inspect_relations_record
+    behavior: expose preserved structural and traceability fields without interpretation
+    semantic_evaluation: false
+  - operation: request_relation_evaluation
+    behavior: always return ExternalRelationEvaluatorRequired for this specification package
+    semantic_evaluation: false
+internal_operations:
+  - validate_feature_identity
+  - validate_ordered_participants
+  - validate_scope_and_context
+  - validate_source_references
+  - preserve_source_text
+  - preserve_opaque_values
+  - preserve_unresolved
+  - construct_feature_record
+  - attach_non_execution_guard
+  - compare_structural_identity
+operation_distinctions:
+  represent_relation:
+    supported: true
+    meaning: store an opaque feature-specific relation or relation-reference record
+  validate_relation:
+    supported: true
+    meaning: validate only explicitly specified structural obligations
+  reference_relation:
+    supported: true
+    meaning: preserve source and contextual references without importing semantics
+  create_relation:
+    supported: false
+    reason: no contract declares creation of a new scientific relation
+  verify_relation_existence:
+    supported: false
+    reason: no source existence evaluator is declared
+  verify_membership:
+    supported: false
+    reason: no membership operation is declared
+  compose_relations:
+    supported: false
+    reason: no composition is declared
+  invert_relation:
+    supported: false
+    reason: no inversion is declared
+  project_relation:
+    supported: false
+    reason: no projection is declared
+  deduce_relation:
+    supported: false
+    reason: no deduction rule is declared
+  interpret_as_causal:
+    supported: false
+    reason: causality is not declared
+shared_types:
+  OpaqueScientificObject:
+    fields:
+      - object_id
+      - source_reference
+      - opaque_payload
+    constraints:
+      - object_id must match the feature-specific expected participant
+      - opaque_payload is never interpreted by this module
+  RelationsStructuralRecord:
+    fields:
+      - feature_id
+      - contract_reference
+      - source_ir_reference
+      - source_ir_raw_status
+      - identity
+      - ordered_participants
+      - scope_id
+      - context_id
+      - source_text_payload
+      - opaque_values
+      - unresolved
+      - reservations
+      - non_execution_guard
+  RelationsBlockedCanonicalRecord:
+    base: RelationsStructuralRecord
+    fields:
+      - decision_blocker
+      - unevaluated_source_equations
+  OpaqueCandidateResult:
+    fields:
+      - participant_id
+      - candidate_status
+      - source_reference
+      - opaque_payload
+    constraints:
+      - exactly one result per declared participant when required by the contract
+  RelationsLimitedCandidateRecord:
+    base: RelationsStructuralRecord
+    fields:
+      - candidate_results
+  DecisionBlocker:
+    allowed_values:
+      - scientific_decision_required
+      - unresolved_propagated
+      - external_relation_evaluator_required
+  ExternalReference:
+    fields:
+      - reference_id
+      - target
+      - dependency_class
+      - imported_semantics
+relation_types:
+  blocked_equation_bundle:
+    features:
+      - TLC-FC-15-RELATIONS-002
+    executable_semantics: false
+  blocked_invariant_tuple_record:
+    features:
+      - TLC-FC-15-RELATIONS-003
+    executable_semantics: false
+  limited_opaque_operator_bundle:
+    features:
+      - TLC-FC-15-RELATIONS-004
+    executable_semantics: false
+  limited_opaque_named_relation_bundle:
+    features:
+      - TLC-FC-15-RELATIONS-007
+    executable_semantics: false
+  blocked_relational_tuple_bundle:
+    features:
+      - TLC-FC-15-RELATIONS-008
+    executable_semantics: false
+identity_representation:
+  feature_identity: exact feature_id string
+  participant_identity: exact ordered scientific object identifiers
+  relation_identity: feature-specific record identity only
+  cross_feature_identity_inference: prohibited
+participants:
+  representation: ordered opaque scientific objects
+  order_semantic_status: preserved because source contracts and IRs require exact order
+  duplicates: rejected unless explicitly present in the expected participant sequence
+sources_and_targets:
+  materialized: false
+  reason: endpoint identity is unresolved or must not be inferred
+  written_arrow_notation_policy: preserve as opaque source text, not as an executable endpoint model
+arities:
+  materialized: false
+  tuple_shape_policy: source tuple text is preserved without turning component count into runtime relation arity
+directions:
+  materialized: false
+  reason: no executable direction is selected by the source contracts and IRs
+scopes:
+  TLC-FC-15-RELATIONS-002: relations_002_source_equation_bundle
+  TLC-FC-15-RELATIONS-003: relations_003_master_message_tuple_record
+  TLC-FC-15-RELATIONS-004: relations_004_three_function_blocks
+  TLC-FC-15-RELATIONS-007: relations_007_five_named_relation_objects
+  TLC-FC-15-RELATIONS-008: relations_008_virtue_value_tuple_records
+contexts:
+  TLC-FC-15-RELATIONS-002: master_message_virtue_value_capacity_competence_formalizations
+  TLC-FC-15-RELATIONS-003: master_message_formalization
+  TLC-FC-15-RELATIONS-004: master_message_value_capacity_essential_functions
+  TLC-FC-15-RELATIONS-007: master_message_virtue_value_capacity_competence_relation_names
+  TLC-FC-15-RELATIONS-008: master_virtue_and_master_value_formalizations
+relation_properties:
+  asserted: []
+  explicitly_not_selected:
+    - symmetry
+    - reflexivity
+    - transitivity
+    - antisymmetry
+    - equivalence
+    - functionality
+    - causality
+    - weight
+    - permanence
+compositions:
+  declared: []
+  cross_feature_composition: prohibited_without_future_source_authorization
+inversions:
+  declared: []
+projections:
+  declared: []
+opaque_values:
+  policy: preserve byte-for-byte or value-for-value according to the future implementation type
+  interpretation: prohibited
+  loss: prohibited
+common_errors:
+  - error: UnknownRelationsFeature
+    condition: feature_id is not in the authoritative population
+  - error: FeatureIdentityMismatch
+    condition: record feature identity differs from the selected feature
+  - error: MissingCoveredObject
+    condition: an expected participant is absent
+  - error: UnexpectedCoveredObject
+    condition: an undeclared participant is present
+  - error: DuplicateCoveredObject
+    condition: a participant is duplicated contrary to the expected sequence
+  - error: ObjectOrderMismatch
+    condition: participants are not in the exact required order
+  - error: ScopeMismatch
+    condition: scope differs from the feature specification
+  - error: ContextMismatch
+    condition: context differs from the feature specification
+  - error: MissingSourceReference
+    condition: required source evidence is absent
+  - error: UnresolvedPropagationLoss
+    condition: an unresolved item or required count is lost
+  - error: OpaqueValueMutation
+    condition: an opaque value is interpreted or changed
+  - error: ScientificPropertyInvented
+    condition: an undeclared relational property is asserted
+  - error: EndpointInferenceProhibited
+    condition: source or target identity is inferred
+  - error: ExternalRelationEvaluatorRequired
+    condition: semantic, numerical, graph, temporal, membership, composition, inversion, projection, deduction or causal evaluation is requested
+shared_patterns:
+  - REL-PAT-001
+  - REL-PAT-002
+  - REL-PAT-003
+  - REL-PAT-004
+  - REL-PAT-005
+  - REL-PAT-006
+  - REL-PAT-007
+internal_dependencies:
+  execution_edges: []
+  ordering_edges: []
+  note: no intra-domain dependency or feature execution order is authorized
+external_dependencies:
+  documentary:
+    - master
+    - disciple
+    - community
+    - message
+    - principle
+    - values
+    - virtues
+    - capacities
+    - competencies
+    - practice
+  scientific_review:
+    - TLC-HR-0054
+    - TLC-HR-0074
+    - TLC-DUP-RELATIONS-002
+    - TLC-GCYCLE-DOMAIN-001
+  execution: []
+  imported_semantics: false
+composition_rules:
+  structural_record_aggregation: not_declared
+  scientific_relation_composition: not_declared
+  automatic_composition: prohibited
+order_rules:
+  participant_order: feature-specific and mandatory
+  feature_execution_order: not_declared
+determinism:
+  structural_construction: deterministic for validated identities, references, source text, opaque payload carriage and unresolved metadata
+  semantic_evaluation: unavailable
+  candidate_result_values: opaque and not computed
+unresolved_policy:
+  preserve: true
+  propagate: true
+  resolve_automatically: false
+  promote_to_semantics: false
+interfaces_for_library:
+  - interface: RelationsRecordBuilder
+    scope: structural construction only
+  - interface: RelationsRecordValidator
+    scope: structural validation only
+  - interface: RelationsRecordInspector
+    scope: traceability and opaque-field access only
+  - interface: RelationsEvaluationGuard
+    scope: reject unsupported evaluation and identify required external evaluator
+out_of_scope:
+  - scientific relation evaluator
+  - numerical evaluator
+  - graph model or graph algorithms
+  - endpoint inference
+  - relation creation
+  - existence or membership evaluation
+  - composition, inversion or projection
+  - causal inference
+  - reference implementation
+  - C++ implementation
+  - Python bindings
+implementation_readiness:
+  package_ready_for_structural_implementation: true
+  package_ready_for_semantic_relation_evaluation: false
+  external_relation_evaluator_required: true
+future_implementation_tasks: registry/domain-finalization/relations/implementation-tasks.yaml

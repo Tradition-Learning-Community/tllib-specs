@@ -1,0 +1,69 @@
+schema_version: 1
+domain: relations
+status: finalized_with_preserved_scientific_decisions
+blocking: []
+non_blocking:
+  - decision_id: REL-DEC-001
+    subject: TLC-HR-0054
+    features: [TLC-FC-15-RELATIONS-002]
+    classification: deferred_to_scientific_review
+    preserved_as: external_relation_evaluator_required
+    blocks_structural_implementation: false
+    blocks_semantic_evaluation: true
+    required_for_this_phase: false
+  - decision_id: REL-DEC-002
+    subject: TLC-HR-0074
+    features: [TLC-FC-15-RELATIONS-003, TLC-FC-15-RELATIONS-008]
+    classification: deferred_to_scientific_review
+    preserved_as: external_relation_evaluator_required
+    blocks_structural_implementation: false
+    blocks_semantic_evaluation: true
+    required_for_this_phase: false
+  - decision_id: REL-DEC-003
+    subject: TLC-DUP-RELATIONS-002
+    features: [TLC-FC-15-RELATIONS-004]
+    classification: preserved_as_opaque
+    preserved_as: unresolved_propagated
+    blocks_structural_implementation: false
+    blocks_automatic_merge: true
+    required_for_this_phase: false
+  - decision_id: REL-DEC-004
+    subject: grouped_object_decomposition
+    features: [TLC-FC-15-RELATIONS-007]
+    classification: deferred_to_scientific_review
+    preserved_as: descriptive_scope
+    blocks_structural_implementation: false
+    blocks_full_scientific_contract: true
+    required_for_this_phase: false
+  - decision_id: REL-DEC-005
+    subject: TLC-GCYCLE-DOMAIN-001
+    features: [TLC-FC-15-RELATIONS-004, TLC-FC-15-RELATIONS-007]
+    classification: deferred_to_scientific_review
+    preserved_as: external_reference
+    blocks_structural_implementation: false
+    blocks_use_as_execution_dependency: true
+    required_for_this_phase: false
+preserved_as_opaque:
+  - topic: relation_semantics
+    features: [TLC-FC-15-RELATIONS-002, TLC-FC-15-RELATIONS-003, TLC-FC-15-RELATIONS-004, TLC-FC-15-RELATIONS-007, TLC-FC-15-RELATIONS-008]
+  - topic: endpoint_identity
+    features: [TLC-FC-15-RELATIONS-002, TLC-FC-15-RELATIONS-003, TLC-FC-15-RELATIONS-004, TLC-FC-15-RELATIONS-007, TLC-FC-15-RELATIONS-008]
+  - topic: types_and_dimensions
+    features: [TLC-FC-15-RELATIONS-002, TLC-FC-15-RELATIONS-003, TLC-FC-15-RELATIONS-004, TLC-FC-15-RELATIONS-007, TLC-FC-15-RELATIONS-008]
+  - topic: direction
+    features: [TLC-FC-15-RELATIONS-002, TLC-FC-15-RELATIONS-003, TLC-FC-15-RELATIONS-004, TLC-FC-15-RELATIONS-007, TLC-FC-15-RELATIONS-008]
+  - topic: arity_or_cardinality
+    features: [TLC-FC-15-RELATIONS-002, TLC-FC-15-RELATIONS-003, TLC-FC-15-RELATIONS-004, TLC-FC-15-RELATIONS-007, TLC-FC-15-RELATIONS-008]
+  - topic: symmetry_reflexivity_transitivity_antisymmetry_equivalence
+    features: [TLC-FC-15-RELATIONS-002, TLC-FC-15-RELATIONS-003, TLC-FC-15-RELATIONS-004, TLC-FC-15-RELATIONS-007, TLC-FC-15-RELATIONS-008]
+  - topic: composition_inversion_projection
+    features: [TLC-FC-15-RELATIONS-002, TLC-FC-15-RELATIONS-003, TLC-FC-15-RELATIONS-004, TLC-FC-15-RELATIONS-007, TLC-FC-15-RELATIONS-008]
+  - topic: determinism_of_scientific_evaluation
+    features: [TLC-FC-15-RELATIONS-002, TLC-FC-15-RELATIONS-003, TLC-FC-15-RELATIONS-004, TLC-FC-15-RELATIONS-007, TLC-FC-15-RELATIONS-008]
+  - topic: executable_oracle
+    features: [TLC-FC-15-RELATIONS-002, TLC-FC-15-RELATIONS-003, TLC-FC-15-RELATIONS-004, TLC-FC-15-RELATIONS-007, TLC-FC-15-RELATIONS-008]
+closure:
+  observable_structural_behavior_defined: true
+  real_blockers_for_this_phase: 0
+  scientific_questions_erased: false
+  semantic_execution_deferred: true

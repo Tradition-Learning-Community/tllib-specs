@@ -1,0 +1,215 @@
+schema_version: 1
+ir_id: TLC-OPT-IR-TLC-FC-15-RELATIONS-003
+feature_id: TLC-FC-15-RELATIONS-003
+status: selected_for_relations_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-15-RELATIONS-003/contract.yaml
+source_ir: registry/ir/TLC-FC-15-RELATIONS-003/ir.yaml
+source_test_plan: registry/test-plans/TLC-FC-15-RELATIONS-003/test-plan.yaml
+source_ir_raw_status: canonical_declarative_ir_non_executable
+source_ir_nature: declarative
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+relation_invented: false
+direction_invented: false
+property_invented: false
+causality_invented: false
+accepted_despite_non_executable: true
+relation_reference:
+  representation_kind: blocked_invariant_tuple_record
+  relation_identity:
+    feature_id: TLC-FC-15-RELATIONS-003
+    contract_id: TLC-MC-TLC-FC-15-RELATIONS-003
+    source_ir_id: TLC-IR-TLC-FC-15-RELATIONS-003
+  relation_object_materialized: false
+  reason: tuple text is preserved but relation semantics are unresolved
+identity:
+  feature_id: TLC-FC-15-RELATIONS-003
+  canonical_name: "15-relations: invariant (provisionally_separated)"
+  validation: exact_match
+participants:
+  ordered: true
+  expected_ids:
+    - TLC-SO-RELATIONS-008
+  representation: OpaqueScientificObject
+  fusion_allowed: false
+source: null
+target: null
+arity:
+  status: not_materialized
+  source_tuple_component_count: 8
+  component_count_use: source_text_traceability_only
+  reason: tuple component count is not promoted to runtime relation arity
+direction:
+  status: not_materialized
+  source_notation: preserved_as_opaque_text
+  reason: endpoint identity and executable direction are not authorized
+scope:
+  scope_id: relations_003_master_message_tuple_record
+  source_sections:
+    - Relation Maître-Message / Formalisation mathématique
+context:
+  context_id: master_message_formalization
+  scientific_source: maths/15-relations.md
+  interpretation: descriptive_source_traceability_only
+inputs:
+  - name: ordered_scientific_objects
+    type: List<OpaqueScientificObject>
+    required: true
+  - name: decision_blocker
+    type: DecisionBlocker
+    required: true
+    expected_value: scientific_decision_required
+  - name: source_equations
+    type: List<OpaqueSourceText>
+    required: true
+outputs:
+  - name: record
+    type: RelationsBlockedCanonicalRecord
+types:
+  OpaqueScientificObject: module_shared
+  DecisionBlocker: module_shared
+  OpaqueSourceText: uninterpreted_text
+  RelationsBlockedCanonicalRecord: module_shared
+opaque_values:
+  source_equations:
+    - '\\mathcal{R}_{\\mathcal{M}\\to\\mathcal{M}sg} = (\\mathcal{O},\\mathcal{E},\\mathcal{F},\\mathcal{I},\\mathcal{A},\\mathcal{C},\\mathcal{T},\\mathcal{L})'
+  interpretation_allowed: false
+preconditions:
+  - feature identity equals TLC-FC-15-RELATIONS-003
+  - participant sequence contains exactly TLC-SO-RELATIONS-008
+  - source reference remains available
+  - decision_blocker equals scientific_decision_required
+  - no semantic or numerical evaluation is requested
+conditions_of_application:
+  - structural construction or validation only
+  - tuple text remains opaque
+properties:
+  explicitly_defined: []
+  deferred:
+    - invariant_semantics
+    - relation_kind
+    - endpoint_identity
+    - direction
+    - arity
+    - symmetry
+    - reflexivity
+    - transitivity
+    - antisymmetry
+    - equivalence
+    - causality
+operations:
+  - operation_id: REL-003-OP-001
+    name: validate_identity
+    behavior: require the exact feature identity
+  - operation_id: REL-003-OP-002
+    name: validate_participants
+    behavior: require the exact single ordered participant
+  - operation_id: REL-003-OP-003
+    name: validate_source_references
+    behavior: require the contract-declared source reference
+  - operation_id: REL-003-OP-004
+    name: preserve_tuple_text
+    behavior: copy the tuple equation as unevaluated opaque text
+  - operation_id: REL-003-OP-005
+    name: propagate_blockers
+    behavior: preserve scientific_decision_required and all unresolved reservations
+  - operation_id: REL-003-OP-006
+    name: construct_record
+    behavior: build a RelationsBlockedCanonicalRecord without evaluating an invariant
+  - operation_id: REL-003-OP-007
+    name: enforce_non_execution_guard
+    behavior: reject every unsupported scientific operation
+execution_order:
+  - REL-003-OP-001
+  - REL-003-OP-002
+  - REL-003-OP-003
+  - REL-003-OP-004
+  - REL-003-OP-005
+  - REL-003-OP-006
+  - REL-003-OP-007
+control_flow:
+  - if: identity validation fails
+    then: raise FeatureIdentityMismatch
+  - if: participant validation fails
+    then: raise the applicable participant error
+  - if: source reference is absent
+    then: raise MissingSourceReference
+  - if: evaluation is requested
+    then: raise ExternalRelationEvaluatorRequired
+  - otherwise: return the structural record
+creation:
+  declared: false
+consultation:
+  declared: true
+  scope: inspect preserved structural and traceability fields only
+composition:
+  declared: false
+inversion:
+  declared: false
+projection:
+  declared: false
+effects:
+  state_mutation: false
+  external_io: false
+  scientific_evaluation: false
+postconditions:
+  - record feature id is unchanged
+  - participant identity is unchanged
+  - tuple equation is unchanged and unevaluated
+  - scientific_decision_required is present
+  - no invariant truth value or relation property is produced
+invariants:
+  - canonical feature identity is conserved
+  - participant identity and order are conserved
+  - scope and context are conserved
+  - maths/15-relations.md remains read-only evidence
+  - source contract and source IR remain unchanged
+errors:
+  - FeatureIdentityMismatch
+  - MissingCoveredObject
+  - UnexpectedCoveredObject
+  - DuplicateCoveredObject
+  - ObjectOrderMismatch
+  - MissingSourceReference
+  - OpaqueValueMutation
+  - UnresolvedPropagationLoss
+  - ExternalRelationEvaluatorRequired
+  - ScientificPropertyInvented
+determinism:
+  structural_construction: deterministic
+  semantic_evaluation: unavailable
+dependencies:
+  documentary: []
+  scientific_review:
+    - TLC-HR-0074
+  execution: []
+unresolved_propagated:
+  count: 5
+  values:
+    - scientific_decision_required
+    - signature_not_specified
+    - types_not_specified
+    - oracle_not_identified
+    - relation_semantics_unresolved
+reservations:
+  - invariant validation semantics are unavailable
+  - tuple component types, endpoints and oracle remain unspecified
+transformations_applied:
+  - normalized field order
+  - separated source tuple shape from runtime relation arity
+  - made structural readiness explicit
+  - expanded shared validation and error vocabulary
+obligations_of_preservation:
+  - preserve TLC-SO-RELATIONS-008
+  - preserve the tuple equation exactly
+  - preserve every unresolved reservation
+  - never infer invariant truth, endpoints, direction, properties or causality
+links:
+  algorithm: registry/algorithms/relations/TLC-FC-15-RELATIONS-003/algorithm.yaml
+  oracle: registry/oracles/relations/TLC-FC-15-RELATIONS-003/oracle.yaml
+implementation_readiness:
+  structural_record_and_guard: ready
+  scientific_relation_evaluation: external_relation_evaluator_required
+  aptitude: ready_for_implementation_within_declared_structural_scope

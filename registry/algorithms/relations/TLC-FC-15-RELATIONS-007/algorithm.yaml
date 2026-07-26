@@ -1,0 +1,182 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-15-RELATIONS-007
+feature_id: TLC-FC-15-RELATIONS-007
+status: selected_for_relations_implementation_specification
+source_ir: registry/optimized-ir/relations/TLC-FC-15-RELATIONS-007/ir.yaml
+signature: >-
+  build_relations_007_record(feature_id, ordered_scientific_objects,
+  candidate_payloads, unresolved_reference, endpoint_claim=null,
+  evaluation_request=null) -> RelationsLimitedCandidateRecord
+inputs:
+  - {name: feature_id, type: FeatureId}
+  - {name: ordered_scientific_objects, type: List<OpaqueScientificObject>}
+  - {name: candidate_payloads, type: List<OpaquePayload>}
+  - {name: unresolved_reference, type: UnresolvedSetReference}
+  - {name: endpoint_claim, type: Optional<EndpointClaim>}
+  - {name: evaluation_request, type: Optional<RelationsEvaluationRequest>}
+outputs:
+  - {name: record, type: RelationsLimitedCandidateRecord}
+expected_participants:
+  - TLC-SO-RELATIONS-002
+  - TLC-SO-RELATIONS-009
+  - TLC-SO-RELATIONS-015
+  - TLC-SO-RELATIONS-021
+  - TLC-SO-RELATIONS-027
+scope_id: relations_007_five_named_relation_objects
+context_id: master_message_virtue_value_capacity_competence_relation_names
+validations:
+  - exact feature identity
+  - exact participant count, identities, distinctness and order
+  - exactly five opaque payloads with one-to-one pairing
+  - complete source traceability rows
+  - unresolved source is the feature contract unresolved file
+  - unresolved received and propagated counts equal 12
+  - endpoint_claim is absent
+  - no object fusion or automatic decomposition is requested
+preconditions:
+  - each covered object remains a source-traceable candidate
+  - source names are identities, not executable endpoint declarations
+  - payloads are opaque and not evaluable by this module
+conditions_of_application:
+  - limited structural construction only
+  - documentary dependencies are contextual only
+  - no semantic relation operation is requested
+ordered_steps:
+  - {step: 1, action: require feature_id TLC-FC-15-RELATIONS-007}
+  - {step: 2, action: validate exact ordered and distinct participants}
+  - {step: 3, action: validate all source references and traceability rows}
+  - {step: 4, action: require exactly five opaque payloads}
+  - {step: 5, action: load the unresolved metadata without interpretation}
+  - {step: 6, action: require 12 received and 12 propagated unresolved items}
+  - {step: 7, action: reject a non-null endpoint_claim}
+  - {step: 8, action: reject object fusion, automatic decomposition or evaluation requests}
+  - {step: 9, action: construct one OpaqueCandidateResult per participant and payload}
+  - {step: 10, action: assemble the limited candidate record with no source or target}
+  - {step: 11, action: attach the non-execution guard and validate postconditions}
+  - {step: 12, action: return the record}
+branching:
+  - {condition: feature id differs, result: FeatureIdentityMismatch}
+  - {condition: participant absent, result: MissingCoveredObject}
+  - {condition: participant extra, result: UnexpectedCoveredObject}
+  - {condition: participant duplicated, result: DuplicateCoveredObject}
+  - {condition: participant order differs, result: ObjectOrderMismatch}
+  - {condition: source evidence absent, result: MissingSourceReference}
+  - {condition: payload count is not five, result: CandidatePayloadCountMismatch}
+  - {condition: unresolved source, count or identity differs, result: UnresolvedPropagationLoss}
+  - {condition: endpoint_claim is not null, result: EndpointInferenceProhibited}
+  - {condition: fusion or automatic decomposition is requested, result: IdentityMergeProhibited}
+  - {condition: evaluation_request is not null, result: ExternalRelationEvaluatorRequired}
+construction_or_reading:
+  construction: limited_structural_candidate_record
+  scientific_relation_created: false
+  source_or_target_created: false
+  opaque_candidate_results_created: true
+  candidate_values_computed: false
+identity_validation:
+  feature: exact
+  participants: exact_distinct_and_ordered
+scope_context_validation:
+  scope: exact scope_id
+  context: exact context_id
+creation:
+  declared: false
+  internal_record_construction: true
+membership: {declared: false}
+composition: {declared: false}
+inversion: {declared: false}
+projection: {declared: false}
+effects:
+  mutation: none
+  external_io: none
+  scientific_result: none
+errors:
+  - FeatureIdentityMismatch
+  - MissingCoveredObject
+  - UnexpectedCoveredObject
+  - DuplicateCoveredObject
+  - ObjectOrderMismatch
+  - MissingSourceReference
+  - CandidatePayloadCountMismatch
+  - UnresolvedPropagationLoss
+  - EndpointInferenceProhibited
+  - IdentityMergeProhibited
+  - OpaqueValueMutation
+  - ExternalRelationEvaluatorRequired
+postconditions:
+  - output preserves feature identity, participants, order, scope and context
+  - exactly five results are paired one-to-one with the five participants
+  - result payloads equal input payloads without interpretation
+  - all 12 unresolved items remain attached
+  - source and target fields remain absent
+  - no documentary reference becomes an execution dependency
+invariants:
+  - five covered objects remain distinct
+  - candidate status and source names remain unchanged
+  - no endpoint, direction, cardinality, property or causality is inferred
+  - source contract and source IR references remain unchanged
+determinism:
+  structural_path: deterministic
+  candidate_values: opaque_not_computed
+  semantic_path: unavailable
+edge_cases:
+  - zero, four or six payloads are rejected
+  - correct objects in the wrong order are rejected
+  - identical payloads do not merge participant identities
+  - source names containing arrows do not authorize endpoint_claim
+  - automatic decomposition of a grouped object is rejected
+  - any evaluation request is rejected
+dependencies:
+  internal:
+    - shared Relations structural validators
+    - shared unresolved validator
+    - shared non-execution guard
+  documentary:
+    - master
+    - message
+    - values
+    - virtues
+    - capacities
+    - competencies
+  external_execution: []
+  scientific_review:
+    - grouped_object_decomposition
+    - TLC-GCYCLE-DOMAIN-001
+unresolved_preserved:
+  source: registry/math-contracts/TLC-FC-15-RELATIONS-007/unresolved.yaml
+  count: 12
+pseudocode: |
+  EXPECTED_IDS := [TLC-SO-RELATIONS-002, TLC-SO-RELATIONS-009,
+                   TLC-SO-RELATIONS-015, TLC-SO-RELATIONS-021,
+                   TLC-SO-RELATIONS-027]
+  require feature_id == TLC-FC-15-RELATIONS-007
+  validate_exact_distinct_ordered_participants(ordered_scientific_objects, EXPECTED_IDS)
+  validate_source_references(ordered_scientific_objects)
+  require length(candidate_payloads) == 5
+  unresolved := read_metadata_without_interpretation(unresolved_reference)
+  require unresolved.received_count == 12
+  require unresolved.propagated_count == 12
+  if endpoint_claim is not null:
+      raise EndpointInferenceProhibited
+  if request_requires_fusion_or_decomposition(evaluation_request):
+      raise IdentityMergeProhibited
+  if evaluation_request is not null:
+      raise ExternalRelationEvaluatorRequired
+  results := []
+  for index from 0 through 4:
+      results.append(OpaqueCandidateResult(
+          participant_id = EXPECTED_IDS[index],
+          candidate_status = candidate,
+          source_reference = ordered_scientific_objects[index].source_reference,
+          opaque_payload = copy_without_interpretation(candidate_payloads[index])))
+  record := RelationsLimitedCandidateRecord(
+      feature_id = feature_id,
+      participants = copy_without_interpretation(ordered_scientific_objects),
+      scope_id = relations_007_five_named_relation_objects,
+      context_id = master_message_virtue_value_capacity_competence_relation_names,
+      source = null,
+      target = null,
+      candidate_results = results,
+      unresolved = copy_exact(unresolved),
+      non_execution_guard = enabled)
+  validate_record_postconditions(record)
+  return record

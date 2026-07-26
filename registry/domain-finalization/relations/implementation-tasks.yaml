@@ -1,0 +1,135 @@
+schema_version: 1
+domain: relations
+status: ready_for_future_developer_assignment
+rules:
+  - follow finalized IR, algorithms and oracles exactly
+  - preserve opaque values and unresolved items
+  - do not infer relation semantics, endpoints, direction, arity or properties
+  - do not add creation, membership, composition, inversion, projection, deduction or causality
+  - keep documentary dependencies outside execution prerequisites
+shared_tasks:
+  - task_id: REL-TASK-SHARED-001
+    title: Build shared structural record types
+    outputs:
+      - OpaqueScientificObject
+      - RelationsStructuralRecord
+      - RelationsBlockedCanonicalRecord
+      - OpaqueCandidateResult
+      - RelationsLimitedCandidateRecord
+    acceptance:
+      - exact feature and participant identities are representable
+      - opaque payloads remain uninterpreted
+      - unresolved metadata remains lossless
+  - task_id: REL-TASK-SHARED-002
+    title: Build shared structural validators
+    outputs:
+      - feature identity validation
+      - ordered participant validation
+      - scope and context validation
+      - source reference validation
+      - opaque and unresolved preservation validation
+    depends_on: [REL-TASK-SHARED-001]
+    acceptance:
+      - common module errors are used
+      - validation is deterministic
+  - task_id: REL-TASK-SHARED-003
+    title: Build the non-execution guard
+    outputs:
+      - ExternalRelationEvaluatorRequired
+      - rejection of unsupported scientific operations
+    depends_on: [REL-TASK-SHARED-001]
+    acceptance:
+      - no scientific, graph, numeric, temporal or causal result is returned
+  - task_id: REL-TASK-SHARED-004
+    title: Build structural inspection and comparison
+    depends_on: [REL-TASK-SHARED-001]
+    acceptance:
+      - comparison claims structural identity only
+      - no scientific equivalence is inferred
+feature_tasks:
+  - task_id: REL-TASK-002
+    feature_id: TLC-FC-15-RELATIONS-002
+    title: Build the blocked equation-bundle record
+    ir: registry/optimized-ir/relations/TLC-FC-15-RELATIONS-002/ir.yaml
+    algorithm: registry/algorithms/relations/TLC-FC-15-RELATIONS-002/algorithm.yaml
+    oracle: registry/oracles/relations/TLC-FC-15-RELATIONS-002/oracle.yaml
+    acceptance:
+      - exact six-participant sequence
+      - unevaluated equation text preserved
+      - TLC-HR-0054 propagated
+    depends_on: [REL-TASK-SHARED-001, REL-TASK-SHARED-002, REL-TASK-SHARED-003]
+  - task_id: REL-TASK-003
+    feature_id: TLC-FC-15-RELATIONS-003
+    title: Build the blocked Master-Message tuple record
+    ir: registry/optimized-ir/relations/TLC-FC-15-RELATIONS-003/ir.yaml
+    algorithm: registry/algorithms/relations/TLC-FC-15-RELATIONS-003/algorithm.yaml
+    oracle: registry/oracles/relations/TLC-FC-15-RELATIONS-003/oracle.yaml
+    acceptance:
+      - exact single-participant sequence
+      - tuple equation preserved as opaque text
+      - TLC-HR-0074 propagated
+    depends_on: [REL-TASK-SHARED-001, REL-TASK-SHARED-002, REL-TASK-SHARED-003]
+  - task_id: REL-TASK-004
+    feature_id: TLC-FC-15-RELATIONS-004
+    title: Build the limited opaque operator bundle
+    ir: registry/optimized-ir/relations/TLC-FC-15-RELATIONS-004/ir.yaml
+    algorithm: registry/algorithms/relations/TLC-FC-15-RELATIONS-004/algorithm.yaml
+    oracle: registry/oracles/relations/TLC-FC-15-RELATIONS-004/oracle.yaml
+    acceptance:
+      - exact three-participant sequence
+      - one opaque candidate result per participant
+      - all 31 unresolved items propagated
+      - TLC-DUP-RELATIONS-002 remains unmerged
+    depends_on: [REL-TASK-SHARED-001, REL-TASK-SHARED-002, REL-TASK-SHARED-003]
+  - task_id: REL-TASK-007
+    feature_id: TLC-FC-15-RELATIONS-007
+    title: Build the limited opaque named-relation bundle
+    ir: registry/optimized-ir/relations/TLC-FC-15-RELATIONS-007/ir.yaml
+    algorithm: registry/algorithms/relations/TLC-FC-15-RELATIONS-007/algorithm.yaml
+    oracle: registry/oracles/relations/TLC-FC-15-RELATIONS-007/oracle.yaml
+    acceptance:
+      - exact five-participant sequence
+      - one opaque candidate result per participant
+      - all 12 unresolved items propagated
+      - no endpoint inference or object fusion
+    depends_on: [REL-TASK-SHARED-001, REL-TASK-SHARED-002, REL-TASK-SHARED-003]
+  - task_id: REL-TASK-008
+    feature_id: TLC-FC-15-RELATIONS-008
+    title: Build the blocked Virtue-Value tuple bundle
+    ir: registry/optimized-ir/relations/TLC-FC-15-RELATIONS-008/ir.yaml
+    algorithm: registry/algorithms/relations/TLC-FC-15-RELATIONS-008/algorithm.yaml
+    oracle: registry/oracles/relations/TLC-FC-15-RELATIONS-008/oracle.yaml
+    acceptance:
+      - exact two-participant sequence
+      - two tuple equations preserved in order as opaque text
+      - TLC-HR-0074 propagated
+    depends_on: [REL-TASK-SHARED-001, REL-TASK-SHARED-002, REL-TASK-SHARED-003]
+integration_tasks:
+  - task_id: REL-TASK-INTEGRATION-001
+    title: Add module dispatch for exactly five feature identifiers
+    depends_on: [REL-TASK-002, REL-TASK-003, REL-TASK-004, REL-TASK-007, REL-TASK-008]
+    acceptance:
+      - no cross-feature conversion or equivalence is inferred
+  - task_id: REL-TASK-INTEGRATION-002
+    title: Run every feature oracle and module acceptance check
+    depends_on: [REL-TASK-INTEGRATION-001]
+    acceptance:
+      - all oracle cases pass
+      - unsupported operations fail uniformly
+scientific_follow_up:
+  - subject: TLC-HR-0054
+    classification: deferred_to_scientific_review
+    blocks_structural_implementation: false
+    blocks_semantic_evaluation: true
+  - subject: TLC-HR-0074
+    classification: deferred_to_scientific_review
+    blocks_structural_implementation: false
+    blocks_semantic_evaluation: true
+  - subject: TLC-DUP-RELATIONS-002
+    classification: preserved_as_opaque
+    blocks_structural_implementation: false
+    blocks_automatic_merge: true
+  - subject: TLC-GCYCLE-DOMAIN-001
+    classification: deferred_to_scientific_review
+    blocks_structural_implementation: false
+    blocks_use_as_execution_dependency: true

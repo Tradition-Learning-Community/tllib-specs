@@ -1,0 +1,122 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-15-RELATIONS-007
+feature_id: TLC-FC-15-RELATIONS-007
+status: selected_for_relations_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-15-RELATIONS-007/contract.yaml
+source_ir: registry/optimized-ir/relations/TLC-FC-15-RELATIONS-007/ir.yaml
+source_test_plan: registry/test-plans/TLC-FC-15-RELATIONS-007/test-plan.yaml
+algorithm: registry/algorithms/relations/TLC-FC-15-RELATIONS-007/algorithm.yaml
+oracle_kind: limited_structural_acceptance_oracle
+expected_participants:
+  - TLC-SO-RELATIONS-002
+  - TLC-SO-RELATIONS-009
+  - TLC-SO-RELATIONS-015
+  - TLC-SO-RELATIONS-021
+  - TLC-SO-RELATIONS-027
+scope_id: relations_007_five_named_relation_objects
+context_id: master_message_virtue_value_capacity_competence_relation_names
+expected_unresolved_count: 12
+expected_candidate_result_count: 5
+exact_result_oracle_available: false
+observable_oracle:
+  validates:
+    - feature identity
+    - participant identity, order and distinctness
+    - source traceability
+    - one-to-one opaque result mapping
+    - complete unresolved propagation
+    - absence of endpoint inference and object fusion
+    - documentary dependency classification
+    - non-execution behavior
+  does_not_validate:
+    - candidate relation meaning or value
+    - endpoints, direction or cardinality
+    - symmetry, reflexivity, transitivity or equivalence
+    - composition, inversion, projection or causality
+acceptance_cases:
+  - case_id: REL-007-ACC-001
+    category: nominal
+    given: exact feature id, exact five participants, five opaque payloads and complete unresolved reference
+    expect:
+      outcome: success
+      record_type: RelationsLimitedCandidateRecord
+      candidate_results: 5
+      one_to_one_traceability: true
+      unresolved_count: 12
+      source: null
+      target: null
+      non_execution_guard: enabled
+  - {case_id: REL-007-ACC-002, category: identity, mutation: replace feature id, expect_error: FeatureIdentityMismatch}
+  - {case_id: REL-007-ACC-003, category: participants, mutation: remove a participant, expect_error: MissingCoveredObject}
+  - {case_id: REL-007-ACC-004, category: participants, mutation: add a participant, expect_error: UnexpectedCoveredObject}
+  - {case_id: REL-007-ACC-005, category: participants, mutation: duplicate a participant, expect_error: DuplicateCoveredObject}
+  - {case_id: REL-007-ACC-006, category: participants, mutation: reorder valid participants, expect_error: ObjectOrderMismatch}
+  - {case_id: REL-007-ACC-007, category: shape, mutation: supply fewer or more than five payloads, expect_error: CandidatePayloadCountMismatch}
+  - {case_id: REL-007-ACC-008, category: traceability, mutation: remove a source reference or traceability row, expect_error: MissingSourceReference}
+  - {case_id: REL-007-ACC-009, category: unresolved, mutation: propagate fewer than 12 items, expect_error: UnresolvedPropagationLoss}
+  - {case_id: REL-007-ACC-010, category: endpoints, mutation: provide or infer source and target, expect_error: EndpointInferenceProhibited}
+  - {case_id: REL-007-ACC-011, category: identity, mutation: fuse two named relation objects, expect_error: IdentityMergeProhibited}
+  - {case_id: REL-007-ACC-012, category: identity, mutation: automatically decompose a grouped object, expect_error: IdentityMergeProhibited}
+  - {case_id: REL-007-ACC-013, category: opaque_value, mutation: alter a payload during construction, expect_error: OpaqueValueMutation}
+  - case_id: REL-007-ACC-014
+    category: explicit_blocking
+    mutation: request relation evaluation, existence, membership, composition, inversion or projection
+    expect_error: ExternalRelationEvaluatorRequired
+    forbidden_outputs:
+      - computed relation value
+      - existence or membership result
+      - composed, inverted or projected relation
+      - graph, numeric or temporal result
+  - {case_id: REL-007-ACC-015, category: scope, mutation: replace scope_id, expect_error: ScopeMismatch}
+  - {case_id: REL-007-ACC-016, category: context, mutation: replace context_id, expect_error: ContextMismatch}
+  - case_id: REL-007-ACC-017
+    category: dependency
+    mutation: promote a documentary dependency to execution prerequisite
+    expect_error: ScientificPropertyInvented
+  - case_id: REL-007-ACC-018
+    category: property
+    mutation: assert direction, cardinality, symmetry, transitivity, equivalence or causality
+    expect_error: ScientificPropertyInvented
+property_tests:
+  - property_id: REL-007-PROP-001
+    statement: successful construction has exactly one result for each expected participant in the same order
+  - property_id: REL-007-PROP-002
+    statement: source and target remain absent in every successful record
+  - property_id: REL-007-PROP-003
+    statement: all five participant identities remain distinct even when payloads are equal
+  - property_id: REL-007-PROP-004
+    statement: every successful record contains all 12 unresolved items
+  - property_id: REL-007-PROP-005
+    statement: no successful structural construction computes a relation result
+metamorphic_tests:
+  - metamorphic_id: REL-007-META-001
+    transformation: replace one opaque payload while preserving participant identity and source reference
+    expectation: only the corresponding carried payload changes
+  - metamorphic_id: REL-007-META-002
+    transformation: give all participants identical payloads
+    expectation: five distinct results remain traceable to five distinct participants
+  - metamorphic_id: REL-007-META-003
+    transformation: repeat construction with identical inputs
+    expectation: structurally identical output
+round_trip_tests:
+  - round_trip_id: REL-007-RT-001
+    operation: implementation-defined lossless record encoding and decoding
+    expectation: identity, order, candidate mappings, opaque payloads, null endpoints, scope, context and unresolved items remain unchanged
+    note: encoding format is not selected by this specification
+cross_feature_tests:
+  - case_id: REL-007-XF-001
+    action: validate another Relations feature record as Relations-007
+    expect_error: FeatureIdentityMismatch
+  - case_id: REL-007-XF-002
+    action: combine Relations-004 and Relations-007 participants
+    expect_error: UnexpectedCoveredObject
+determinism_tests:
+  - identical inputs yield structurally identical records
+  - error selection is stable for the same first failing validation
+unresolved_tests:
+  - received_count and propagated_count remain 12
+  - endpoint identity remains must_not_be_inferred
+  - grouped_object_decomposition remains unresolved
+  - TLC-GCYCLE-DOMAIN-001 remains documentary scientific-review context
+  - no unresolved value is defaulted or promoted
+acceptance_rule: all applicable cases pass, all 12 unresolved items remain present and no endpoint or relation result is produced
