@@ -1,0 +1,48 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-001
+status: selected_for_virtues_implementation_specification
+ir_ref: registry/optimized-ir/virtues/TLC-FC-10-VIRTUES-001/ir.yaml
+algorithm_ref: registry/algorithms/virtues/TLC-FC-10-VIRTUES-001/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-001/test-plan.yaml
+entrypoint: check_apprenticeship_responsibility
+oracle_kind: structural_acceptance
+fixtures:
+  required_source_objects: [TLC-SO-VIRTUES-100]
+  nominal_artifact: {roles: opaque_roles, guidance: opaque_guidance, context: opaque_context}
+acceptance_cases:
+  - id: nominal
+    assertions: [accepted is true, entrypoint is preserved, source objects are exact, artifact is unchanged]
+  - id: identity
+    assertions: [feature id is exact, virtue identity fields remain opaque]
+  - id: scope_context
+    assertions: [handoff scope is preserved, context is unchanged]
+  - id: relations
+    assertions: [supplied bounded-role and guided-responsibility fields are preserved]
+  - id: provenance
+    assertions: [required provenance is echoed, source order is unchanged]
+error_cases:
+  - request: wrong feature id
+    expected_error: invalid_feature_id
+  - request: missing TLC-SO-VIRTUES-100 provenance
+    expected_error: missing_provenance
+  - request: moral grade, score, ranking, threshold, hierarchy, weight, or formula completion
+    expected_error: unsupported_scientific_completion_request
+property_tests:
+  - opaque artifact round-trips without interpretation
+  - no accepted result contains a computed score or moral decision
+  - no feature, source object, relation, or context is added
+metamorphic_tests:
+  - adding one opaque reservation changes only the returned reservations
+  - replacing opaque context changes only the copied context
+  - permuting non-source artifact fields does not alter source identity or acceptance
+  - identical requests return identical results
+determinism_test: repeated identical request returns byte-equivalent logical data
+composition_tests:
+  - common validation runs before handoff packaging
+  - rejected requests emit no accepted result
+unresolved_tests:
+  expected: []
+dependency_tests:
+  - no external domain execution is invoked
+forbidden_outputs: [virtue score, moral grade, hierarchy, priority, comparison, invented manifestation]
+acceptance_rule: All assertions pass and all forbidden outputs are absent.
