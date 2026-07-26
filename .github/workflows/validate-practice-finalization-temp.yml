@@ -3,10 +3,14 @@ name: Temporary Practice finalization validation
 on:
   push:
     branches: [phase4/practice-domain-finalization-001]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pull-requests: write
+  issues: write
 
 jobs:
   validate-practice:
@@ -20,27 +24,53 @@ jobs:
           python-version: '3.12'
       - name: Install YAML parser
         run: python -m pip install --disable-pip-version-check PyYAML
-      - name: Run Practice validator
-        run: python tools/domain-finalization/validate_practice_finalization.py
-      - name: Check whitespace
-        run: git diff --check c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD
-      - name: Check changed paths
+      - id: validator
+        name: Run Practice validator
+        continue-on-error: true
         shell: bash
         run: |
-          set -euo pipefail
+          set -o pipefail
+          python tools/domain-finalization/validate_practice_finalization.py 2>&1 | tee /tmp/practice-validator.log
+      - id: whitespace
+        name: Check whitespace
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          git diff --check c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD 2>&1 | tee /tmp/practice-whitespace.log
+      - id: paths
+        name: Check changed paths
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
           git diff --name-only c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD | tee /tmp/practice-paths.txt
           ! grep -E '^(maths/|registry/global-reconciliation/|registry/math-contracts/|registry/ir/TLC-FC-13-PRACTICE-|registry/test-plans/)' /tmp/practice-paths.txt
           ! grep -E '\.(cpp|cc|cxx|hpp|h)$' /tmp/practice-paths.txt
-      - name: Record successful validation
+      - name: Publish validation result to PR
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VALIDATOR_OUTCOME: ${{ steps.validator.outcome }}
+          WHITESPACE_OUTCOME: ${{ steps.whitespace.outcome }}
+          PATHS_OUTCOME: ${{ steps.paths.outcome }}
         shell: bash
         run: |
-          set -euo pipefail
-          report='reports/domain-finalization/practice/finalization-report.md'
-          if ! grep -q 'GitHub Actions validation: PASSED' "$report"; then
-            printf '\n## GitHub validation result\n\n- GitHub Actions validation: PASSED.\n- Practice validator: PASSED.\n- Whitespace check: PASSED.\n- Changed-path and protected-source checks: PASSED.\n' >> "$report"
-            git config user.name 'github-actions[bot]'
-            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add "$report"
-            git commit -m 'docs(practice): record successful GitHub validation [skip ci]'
-            git push
-          fi
+          {
+            echo '## Temporary Practice validation result'
+            echo
+            echo "- Validator: **${VALIDATOR_OUTCOME}**"
+            echo "- Whitespace: **${WHITESPACE_OUTCOME}**"
+            echo "- Paths/protected sources: **${PATHS_OUTCOME}**"
+            echo
+            echo '<details><summary>Validator output</summary>'
+            echo
+            echo '```text'
+            cat /tmp/practice-validator.log 2>/dev/null || true
+            echo '```'
+            echo '</details>'
+          } > /tmp/practice-validation-comment.md
+          gh pr comment 88 --repo Tradition-Learning-Community/tllib-specs --body-file /tmp/practice-validation-comment.md
+      - name: Enforce successful result
+        if: steps.validator.outcome != 'success' || steps.whitespace.outcome != 'success' || steps.paths.outcome != 'success'
+        run: exit 1
