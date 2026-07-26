@@ -1,0 +1,37 @@
+---
+schema_version: 1
+algorithm_id: TLC-ALG-13-PRACTICE-005
+feature_id: TLC-FC-13-PRACTICE-005
+status: selected_for_practice_implementation_specification
+ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-005/ir.yaml
+signature: construct_practice_equation_candidate(request, opaque_inputs[4]) -> PracticeStructuralResult | PracticeError
+inputs: [PracticeStructuralRequest, four keyed OpaqueCandidateScientificInput values]
+outputs: [PracticeFeatureRepresentation, externally supplied opaque results]
+validations: [exact identity, all required input ids, exact source object order, canonical provenance]
+preconditions: [inputs are supplied under candidate status]
+prerequisites: []
+conditions_of_application: [structural operation only]
+ordered_steps_declared: false
+branches:
+- {condition: structural operation, action: perform without equation evaluation}
+- {condition: scientific execution, action: return external_executor_required}
+- {condition: scientific evaluation, action: return external_evaluator_required}
+repetitions: []
+transitions: []
+stop_conditions: []
+effects: []
+errors: [invalid_feature_identity, missing_required_input, invalid_input_type, provenance_mismatch, structural_error, external_executor_required, external_evaluator_required, implementation_out_of_scope]
+postconditions: [four equations remain independent candidate source statements]
+invariants: [no numerical method is selected, no habit or repetition semantics is operationalized]
+determinism: {structural_operations: deterministic, scientific_result: unspecified}
+edge_cases: [missing or duplicate input id fails, changed object order fails, unknown operation is out of scope]
+dependencies: {execution: external_executor_required, evaluation: external_evaluator_required}
+unresolved_preserved: []
+pseudocode: |
+  REQUIRE feature id 005 and exact four opaque input ids
+  BUILD immutable representation with objects [069, 087, 089, 090]
+  PRESERVE source order, provenance, reservations and opaque payloads
+  IF request is structural THEN RETURN requested structural result
+  IF request is scientific_execute THEN RETURN external_executor_required
+  IF request is scientific_evaluate THEN RETURN external_evaluator_required
+  RETURN implementation_out_of_scope
