@@ -22,6 +22,8 @@ This package adds only global structural integration metadata, shared software p
 
 No scientific object, equation, metric, invariant, proof, threshold, transition, ordering, value, virtue, capacity, competency, practice, experience or relation semantics are invented.
 
+The integration also adds the missing `registry/domain-finalization/master/decision-required.yaml` file so all sixteen domain packages now expose the same six-file finalization registry surface. It records no new scientific decision.
+
 ## Shared software layer
 
 Confirmed common structures are limited to identifiers, source references, opaque payload carriers, unresolved propagation, traceability, structured errors, deterministic structural validation and lossless serialization where declared.
@@ -30,7 +32,20 @@ Scientific types and algorithms remain domain-specific unless source evidence pr
 
 ## Message validation gap closure
 
-The Message pull request did not expose an observable pull-request workflow run on its final branch head. The global validator therefore checks the complete Message package directly on the integrated tree together with every other domain package.
+The Message pull request did not expose an observable pull-request workflow run on its final branch head. GitHub Actions run `30217758860` validated Message artifact parity on the integrated tree together with all other domains and the complete global integrity gate.
+
+## Validation
+
+GitHub Actions run `30217758860` completed successfully:
+
+- all 16 independent domain jobs passed;
+- all expected feature counts passed;
+- every domain has matching finalized-IR, algorithm and oracle directory populations;
+- exactly 166 unique active feature directories are present;
+- no historical Capacities Goose identifier is promoted;
+- no protected scientific source, source contract, source IR, source test plan or global-reconciliation file changed;
+- no runtime C++ implementation, Python binding, cache, log or temporary status artifact is present;
+- `git diff --check` passed.
 
 ## Remaining decisions
 
