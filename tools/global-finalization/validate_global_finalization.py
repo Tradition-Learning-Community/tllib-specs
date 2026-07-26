@@ -38,6 +38,11 @@ GLOBAL_FILES = [
     "registry/global-finalization/decision-required.yaml",
     "registry/global-finalization/implementation-backlog.yaml",
     "registry/global-finalization/library-specification.yaml",
+    "registry/scientific-review/engineering-disposition.yaml",
+    "registry/symbols/README.md",
+    "registry/symbols/namespaces.yaml",
+    "registry/symbols/canonical-identifiers.yaml",
+    "registry/symbols/representation-policy.yaml",
     "reports/global-finalization/finalization-report.md",
     "reports/global-finalization/implementation-readiness.md",
 ]
@@ -57,6 +62,9 @@ FORBIDDEN_PREFIXES = (
     "registry/global-reconciliation/",
 )
 FORBIDDEN_SUFFIXES = (".cpp", ".cc", ".cxx", ".hpp", ".hxx", ".so", ".pyd")
+EXPECTED_MANIFEST_STATUS = "status: integrated_structural_specification_finalized"
+EXPECTED_LIBRARY_STATUS = "status: structurally_finalized_engineering_specification"
+EXPECTED_SCIENTIFIC_DECISION_COUNT = "scientific_decision_count: 147"
 
 
 def fail(message: str) -> None:
@@ -67,6 +75,13 @@ def fail(message: str) -> None:
 def require_file(path: Path) -> None:
     if not path.is_file():
         fail(f"missing file: {path.relative_to(ROOT)}")
+
+
+def require_text(path: Path, expected: str) -> None:
+    require_file(path)
+    content = path.read_text(encoding="utf-8")
+    if expected not in content:
+        fail(f"{path.relative_to(ROOT)} does not contain required text: {expected}")
 
 
 def changed_paths() -> list[str]:
@@ -108,9 +123,36 @@ def validate_domain(domain: str, expected: int) -> set[str]:
     return ir_ids
 
 
+def validate_governance() -> None:
+    require_text(
+        ROOT / "registry/global-finalization/manifest.yaml",
+        EXPECTED_MANIFEST_STATUS,
+    )
+    require_text(
+        ROOT / "registry/global-finalization/library-specification.yaml",
+        EXPECTED_LIBRARY_STATUS,
+    )
+    require_text(
+        ROOT / "registry/scientific-review/engineering-disposition.yaml",
+        EXPECTED_SCIENTIFIC_DECISION_COUNT,
+    )
+
+    root_algorithms = ROOT / "algorithms"
+    if root_algorithms.exists():
+        active_files = sorted(path for path in root_algorithms.rglob("*") if path.is_file())
+        if active_files:
+            relative = [str(path.relative_to(ROOT)) for path in active_files]
+            fail(
+                "active root-level algorithm specifications are forbidden; "
+                f"use registry/algorithms/: {relative}"
+            )
+
+
 def main() -> None:
     for relative in GLOBAL_FILES:
         require_file(ROOT / relative)
+
+    validate_governance()
 
     if sum(DOMAIN_COUNTS.values()) != 166:
         fail("internal expected population does not sum to 166")
@@ -140,11 +182,13 @@ def main() -> None:
         fail(f"runtime implementation files are out of scope: {runtime_files}")
 
     temporary = [
-        path for path in changed
+        path
+        for path in changed
         if path.endswith(".status")
         or "__pycache__" in path
         or path.endswith(".log")
-        or path.startswith(".github/workflows/") and "global-finalization" not in path
+        or path.startswith(".github/workflows/")
+        and "global-finalization" not in path
     ]
     if temporary:
         fail(f"temporary or unrelated integration artifacts found: {temporary}")
@@ -152,8 +196,10 @@ def main() -> None:
     subprocess.run(["git", "diff", "--check", f"{BASE}...HEAD"], cwd=ROOT, check=True)
 
     print(
-        "Global finalization validation: PASS "
+        "Global structural finalization validation: PASS "
         "(16 domains, 166 finalized IRs, 166 algorithms, 166 oracles, "
+        "147 scientific decisions preserved with non-blocking engineering disposition, "
+        "canonical symbol registry present, 0 root-level algorithm specifications, "
         "0 source modifications, 0 legacy promotions, 0 runtime implementations)"
     )
 
