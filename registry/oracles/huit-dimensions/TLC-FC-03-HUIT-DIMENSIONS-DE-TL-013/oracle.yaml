@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013
+operation: assemble_activation_and_cns_obligations
+source_test_plan: ir/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013/test-plan.yaml
+finalized_ir: registry/optimized-ir/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013/ir.yaml
+algorithm: registry/algorithms/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013/algorithm.yaml
+oracle_kind: structural_acceptance_oracle
+fixture_policy: symbolic_opaque_claims_only_no_scientific_values
+tests:
+- {id: HD-013-NOMINAL, category: nominal, assertion: set contains exactly activation completeness and necessity obligations}
+- {id: HD-013-MISSING, category: precondition_error, mutation: remove activation_operator_claim, expected_error: FAIL-HUIT-013-MISSING-TRACE}
+- {id: HD-013-TYPES, category: types, assertion: three obligation claim types remain distinct and non-substitutable}
+- {id: HD-013-SUBSTITUTE, category: operation_error, mutation: substitute completeness for necessity, expected_error: FAIL-HUIT-013-OPERATION}
+- {id: HD-013-CARDINALITY, category: cardinality, assertion: obligation count equals three}
+- {id: HD-013-IDENTITY, category: conservation, assertion: object ids claim types source traces and payloads remain distinct}
+- {id: HD-013-OPAQUE, category: opaque_propagation, assertion: activation and theorem claims round-trip unchanged}
+- {id: HD-013-UNRESOLVED, category: unresolved_propagation, assertion: exact nine unresolved ids and fulfillment statuses remain unresolved}
+- {id: HD-013-DETERMINISM, category: determinism, assertion: identical claims produce identical obligation set}
+- {id: HD-013-NO-ACTIVATE, category: scientific_boundary, mutation: request activation execution, expected_error: FAIL-HUIT-013-OPERATION}
+- {id: HD-013-NO-CNS, category: scientific_boundary, mutation: request CNS proof or dimension removal simulation, expected_error: FAIL-HUIT-013-OPERATION}
+- {id: HD-013-CONFORMANCE, category: contract_ir_algorithm_conformance, assertion: roles output errors and propagated sets agree}
+numeric_expected_results: []
+acceptance: all_tests_pass
