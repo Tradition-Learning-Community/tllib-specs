@@ -1,0 +1,68 @@
+---
+schema_version: 1
+ir_id: TLC-OPT-IR-13-PRACTICE-007
+feature_id: TLC-FC-13-PRACTICE-007
+domain: practice
+status: selected_for_practice_implementation_specification
+canonical_name: '13-practice: metric (admissible)'
+source_contract_ref: registry/math-contracts/TLC-FC-13-PRACTICE-007/contract.yaml
+source_ir_ref: registry/ir/TLC-FC-13-PRACTICE-007/ir.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-13-PRACTICE-007/test-plan.yaml
+source_contract_status: declarative_non_executable_with_reservations
+source_ir_status: declarative_non_executable_with_reservations
+nature: declarative_structural
+practice_reference:
+  feature_kind: metric_candidate
+  covered_objects:
+  - {object_id: TLC-SO-PRACTICE-021, canonical_name: Évaluation et métriques de la Pratique, object_type: Metric, source_path: maths/13-practice.md}
+  - {object_id: TLC-SO-PRACTICE-034, canonical_name: Charge cognitive effets de mémoire et insight, object_type: Metric, source_path: maths/13-practice.md}
+identity: {preserved: true, public_feature_id: TLC-FC-13-PRACTICE-007}
+scope: {kind: descriptive_scope, statement: candidate metrics cited by the source contract}
+context: {kind: descriptive_context, statement: evaluation context remains documentary and unresolved}
+inputs:
+- {input_id: INPUT-PRACTICE-007-1, type: OpaqueCandidateScientificInput, required: true}
+- {input_id: INPUT-PRACTICE-007-2, type: OpaqueCandidateScientificInput, required: true}
+outputs:
+- {output_id: OUTPUT-PRACTICE-007-1, type: OpaqueCandidateEvaluationResult, semantics: unresolved}
+- {output_id: OUTPUT-PRACTICE-007-2, type: OpaqueCandidateEvaluationResult, semantics: unresolved}
+types: [OpaqueCandidateScientificInput, OpaqueCandidateEvaluationResult, SourceProvenance, DecisionBlocker, PracticeFeatureRepresentation]
+opaque_values: [INPUT-PRACTICE-007-1, INPUT-PRACTICE-007-2, OUTPUT-PRACTICE-007-1, OUTPUT-PRACTICE-007-2]
+preconditions: [cited scientific inputs are supplied under candidate status]
+prerequisites_explicitly_defined: []
+conditions_of_application: [structural processing only]
+steps_explicitly_defined: []
+order_explicitly_defined: false
+operations: [construct_declarative_representation, validate_required_opaque_inputs, attach_source_provenance, serialize, deserialize, structural_compare, propagate_opaque_result]
+control_flow: [validate structure, require an external evaluator for a metric value]
+repetitions_declared: []
+transitions_declared: []
+stop_conditions_declared: []
+results_declared: []
+effects_declared: []
+postconditions: [result remains candidate and traceable to both metric objects]
+invariants: [no metric formula, scale, unit or threshold is inferred, object identities are preserved]
+errors: [invalid_feature_identity, missing_required_input, invalid_input_type, missing_source_reference, provenance_mismatch, structural_error, external_evaluator_required, implementation_out_of_scope]
+determinism: {structural_serialization: deterministic, scientific_evaluation: unspecified}
+dependencies:
+  documentary: [maths/13-practice.md]
+  scientific: [TLC-SO-PRACTICE-021, TLC-SO-PRACTICE-034]
+  execution: [external_evaluator_required]
+unresolved_propagated: []
+scientific_decisions_required: []
+reservations: [no invented type, no invented unit, no invented threshold, no invented temporal semantics]
+transformations_applied: [normalized metric candidate envelope, normalized validation and serialization, exposed no metric computation]
+preservation_obligations: [preserve object order, preserve opaque values, do not define a metric formula]
+algorithm_ref: registry/algorithms/practice/TLC-FC-13-PRACTICE-007/algorithm.yaml
+oracle_ref: registry/oracles/practice/TLC-FC-13-PRACTICE-007/oracle.yaml
+implementation_aptitude: {structural_representation: ready, scientific_execution: external_executor_required, scientific_evaluation: external_evaluator_required}
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+practice_invented: false
+step_invented: false
+sequence_invented: false
+duration_invented: false
+frequency_invented: false
+progression_invented: false
+effect_invented: false
