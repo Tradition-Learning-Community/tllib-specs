@@ -1,0 +1,125 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-007
+domain: invariants
+status: selected_for_invariants_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-007/contract.yaml
+source_contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-007-001
+source_traceability_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-007/traceability.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-007/ir.prototype.json
+source_ir_id: TLC-IR-TLC-FC-04-INVARIANTS-007-PROTOTYPE-001
+source_test_plan_ref: ir/TLC-FC-04-INVARIANTS-007/test-plan.yaml
+source_ir_raw_status: prototype_ir_with_reservations
+source_catalogue_status: retained_with_reservations
+nature: structural
+invariant_referenced:
+  concept: community_disintegration_relation
+  source_object_ids: [TLC-SO-INVARIANTS-068]
+  source_relation_ids: [TLC-SR-INVARIANTS-067]
+scope: community
+inputs:
+- id: IR-IN-007-SPECIALIZED
+  type: RelationEndpointsAndEvidence
+  required: true
+outputs:
+- id: IR-OUT-007-SPECIALIZED
+  type: DisintegrationRelationRecord
+  immutable: true
+  observable_effect: returns one refers_to edge with source, target, relation ID, and evidence reference preserved
+types:
+  input: RelationEndpointsAndEvidence
+  output: DisintegrationRelationRecord
+  endpoint: EvidenceIdentifier
+  preservation: PreservationEnvelope
+opaque_values:
+- OpaqueSourceStatement
+- OpaqueScientificTruthConditions
+preconditions:
+- id: PRE-INVARIANTS-007-SPECIALIZED
+  statement: source, target, and relation IDs match TLC-SR-INVARIANTS-067
+conditions_of_application:
+- exact source relation and endpoints are required
+- relation meaning is limited to the source-backed refers_to edge
+- causality, symmetry, transitivity, and temporal meaning are not inferred
+operations:
+- id: INV007-OP-VALIDATE
+  name: validate_disintegration_endpoints
+  effect: validate source object, invariant-root target, relation ID, and evidence reference
+- id: INV007-OP-CONSTRUCT
+  name: construct_disintegration_relation_record
+  effect: create one immutable exact relation record
+- id: INV007-OP-PRESERVE
+  name: preserve_relation_boundary
+  effect: retain provenance, status, assumptions, reservations, and opaque content
+execution_order:
+- INV007-OP-VALIDATE
+- INV007-OP-CONSTRUCT
+- INV007-OP-PRESERVE
+control_flow:
+- endpoint mismatch raises EndpointMismatch
+- unknown relation ID raises UnknownRelationId
+- missing evidence reference raises MissingSourceReference
+- relation inference request raises ScientificEvaluationProhibited
+- otherwise construct, freeze, verify, and return
+state_before:
+  value: caller-owned endpoints and evidence
+  mutated: false
+state_after:
+  value: one immutable DisintegrationRelationRecord
+  input_mutated: false
+effects:
+  external_side_effects: []
+  scientific_evaluation: prohibited
+postconditions:
+- one relation record exists with exact source, target, relation ID, and evidence reference
+- catalogue status, assumptions, reservations, and opaque content are unchanged
+- no additional relation property is asserted
+conditions_of_conservation:
+- exact endpoint tuple
+- exact relation identity
+- exact evidence and provenance
+- exact source status and opaque values
+conditions_of_violation:
+- endpoint or relation mismatch
+- absent evidence
+- inferred causality, symmetry, transitivity, or time meaning
+- preservation loss
+errors:
+- EndpointMismatch
+- UnknownRelationId
+- MissingSourceReference
+- ScientificEvaluationProhibited
+- PreservationViolation
+determinism:
+  status: deterministic
+  rule: identical valid endpoints and evidence produce a structurally equal relation record
+dependencies:
+  internal_structural: [TLC-FC-04-INVARIANTS-008]
+  documentary:
+  - TLC-INV-DEP-COMMUNITY-001
+  - TLC-INV-DEP-DYNAMICS-001
+  scientific: [maths/04-invariants.md]
+  execution: []
+unresolved_propagated: []
+provisional_assumptions_propagated: [TLC-EA-INVARIANTS-007-001]
+reservations:
+- causality, symmetry, transitivity, and temporal meaning are not inferred
+- scientific truth conditions and concrete runtime types remain unspecified
+transformations_applied:
+- normalized immutable relation record
+- shared endpoint validator
+- common preservation envelope
+obligations_of_preservation:
+- preserve TLC-SO-INVARIANTS-068 and TLC-SR-INVARIANTS-067
+- preserve exact endpoints and evidence reference
+- never infer relation properties
+algorithm_ref: registry/algorithms/invariants/TLC-FC-04-INVARIANTS-007/algorithm.yaml
+oracle_ref: registry/oracles/invariants/TLC-FC-04-INVARIANTS-007/oracle.yaml
+implementation_aptitude:
+  structural_implementation: ready
+  acceptance_tests: ready
+  scientific_evaluation: external_evaluator_required
+  production_scientific_execution: not_ready
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
