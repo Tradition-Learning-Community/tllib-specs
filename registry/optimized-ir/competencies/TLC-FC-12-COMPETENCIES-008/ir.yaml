@@ -1,0 +1,61 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-008
+status: selected_for_competencies_implementation_specification
+source_contract: {id: TLC-MC-TLC-FC-12-COMPETENCIES-008, path: registry/math-contracts/TLC-FC-12-COMPETENCIES-008/contract.yaml}
+source_ir: {id: TLC-IR-TLC-FC-12-COMPETENCIES-008, path: registry/ir/TLC-FC-12-COMPETENCIES-008/ir.yaml, raw_status: canonical_declarative_ir_with_reservations}
+source_test_plan: registry/test-plans/TLC-FC-12-COMPETENCIES-008/test-plan.yaml
+nature: declarative
+competency_or_reference:
+  representation: opaque_scientific_object_set
+  ordered_object_ids: [TLC-SO-COMPETENCIES-108, TLC-SO-COMPETENCIES-109, TLC-SO-COMPETENCIES-110, TLC-SO-COMPETENCIES-111]
+  objects:
+  - {object_id: TLC-SO-COMPETENCIES-108, canonical_name: 'Équation — Fondements axiomatiques', object_type: Equation, source_status: candidate}
+  - {object_id: TLC-SO-COMPETENCIES-109, canonical_name: 'Équation — Fondements axiomatiques', object_type: Equation, source_status: candidate}
+  - {object_id: TLC-SO-COMPETENCIES-110, canonical_name: 'Équation — Fondements axiomatiques', object_type: Equation, source_status: candidate}
+  - {object_id: TLC-SO-COMPETENCIES-111, canonical_name: 'Équation — Fondements axiomatiques', object_type: Equation, source_status: candidate}
+identity: {public_feature_id: TLC-FC-12-COMPETENCIES-008, preservation: exact, same_name_objects_remain_distinct_by_object_id: true}
+scope: {category: transformation, canonical_name: '12-competencies: equation (provisionally_separated)', boundary_label: provisionally_separated, boundary_reopened: false}
+context: {kind: source_defined_and_opaque, scientific_source: maths/12-competencies.md}
+inputs:
+- {name: competencies_feature_id, type: FeatureId, required: true, expected_value: TLC-FC-12-COMPETENCIES-008}
+- {name: object_payloads, type: 'Map<ObjectId,OpaqueScientificObject>', required: true, required_keys: [TLC-SO-COMPETENCIES-108, TLC-SO-COMPETENCIES-109, TLC-SO-COMPETENCIES-110, TLC-SO-COMPETENCIES-111]}
+- {name: provenance, type: 'Map<ObjectId,SourceReference>', required: true}
+- {name: request_mode, type: RequestMode, required: true, allowed_value: structural_descriptor_only}
+outputs: [{name: artifact, type: CompetenciesCanonicalDescriptor, semantics: immutable_structural_descriptor_no_scientific_value}]
+types: [FeatureId, ObjectId, OpaqueScientificObject, OpaqueScientificValue, SourceReference, CompetenciesCanonicalDescriptor, RequestMode]
+opaque_values: [four_axiomatic_equations, measures, context_functions, metrics, decompositions, virtue_relations, constants]
+preconditions: [exact feature id, exact four-object set once each, complete provenance, structural request mode]
+prerequisites_explicit: []
+application_conditions: [structural construction only, no axiom proof equation evaluation context transfer decomposition or virtue computation]
+manifestations_explicit: {declared_for_execution: false, handling: preserve_source_statements_as_opaque}
+relations_explicit: {declared_for_execution: false, virtue_and_context_mentions_present: true, endpoint_inference: forbidden}
+operations: [validate_request_mode, validate_feature_identity, validate_exact_object_set, validate_provenance, build_immutable_descriptor, propagate_reservations_and_unresolved, reject_unsupported_scientific_operation]
+execution_order: [validate_request_mode, validate_feature_identity, validate_exact_object_set, validate_provenance, build_immutable_descriptor, propagate_reservations_and_unresolved]
+control_flow: [structural errors stop construction, scientific requests are rejected, valid structural input returns immutable descriptor]
+scientific_behaviors:
+  mobilization: {source_declaration: absent, executable: false, handling: not_declared}
+  exercise: {source_declaration: absent, executable: false, handling: not_declared}
+  acquisition: {source_declaration: contextual_actualization_content_present, executable: false, handling: preserve_opaque}
+  development: {source_declaration: virtue_reinforcement_content_present, executable: false, handling: preserve_opaque}
+  mastery: {source_declaration: level_symbol_inside_opaque_content_only, executable: false, handling: preserve_opaque}
+  evaluation: {source_declaration: axiomatic_expressions_only, executable: false, handling: external_evaluator_required}
+  comparison: {source_declaration: contextual_difference_expression_only, executable: false, handling: external_comparator_required}
+effects: []
+postconditions: [four distinct object identities preserved despite repeated names, source order and provenance preserved, no proof metric transfer decomposition level or relation result produced]
+invariants: [same-name objects are not merged, exact source object set, equations not interpreted, structural validity not scientific validity]
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, UnexpectedCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+determinism: {status: deterministic, key: [feature_id, ordered_object_ids, payload_identities, provenance, reservations, unresolved]}
+dependencies: {internal: [competencies_feature_profile, structural_validation_pipeline], external: [], capacities: not_directly_evidenced}
+unresolved_propagated: []
+reservations: [no full mathematical contract or production semantics asserted, spaces metrics constants dimensions units levels context distances and operators are incomplete for execution, scientific unresolved preserved]
+transformations_applied: [normalized descriptor schema, preserved repeated names with distinct identities, extracted shared validation, normalized traceability, added unsupported-operation guards]
+preservation_obligations: [preserve four object ids separately, preserve source order equations provenance raw status reservations and unresolved]
+links: {algorithm: registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-008/algorithm.yaml, oracle: registry/oracles/competencies/TLC-FC-12-COMPETENCIES-008/oracle.yaml}
+actual_implementation_readiness: {structural_descriptor: ready, scientific_execution: not_ready_not_authorized, blocker_for_structural_layer: false}
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+competency_invented: false
+measurement_invented: false
+ordering_invented: false
