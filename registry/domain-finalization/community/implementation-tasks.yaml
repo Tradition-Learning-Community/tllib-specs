@@ -1,0 +1,75 @@
+schema_version: '1.0'
+domain: community
+package_status: ready_for_developer_implementation
+constraints:
+- Implement only observable behavior specified by finalized IR and algorithms.
+- Preserve all source contracts, source IRs, scientific files and unresolved identifiers.
+- Do not implement scientific computation until the corresponding blocking decisions are resolved.
+- Do not promote symbol-only or advisory dependencies to execution.
+workstreams:
+- workstream_id: COMMUNITY-IMPL-SHARED
+  title: Shared structural module
+  tasks:
+  - task_id: COMMUNITY-TASK-001
+    title: Implement software-only Community structural types
+    inputs: registry/domain-finalization/community/module-specification.yaml#software_types
+    acceptance: Types carry identifiers, references, opaque handles and errors without introducing scientific types.
+  - task_id: COMMUNITY-TASK-002
+    title: Implement authoritative feature registry and dispatcher
+    inputs: registry/domain-finalization/community/manifest.yaml#authoritative_population
+    acceptance: Exactly eight IDs are accepted; unknown and non-active lineage IDs are rejected deterministically.
+  - task_id: COMMUNITY-TASK-003
+    title: Implement shared validation subgraph
+    inputs: registry/domain-finalization/community/patterns.yaml#patterns
+    acceptance: Identity, source presence, traceability, object-order, unresolved-set, opaque-boundary and dependency checks execute in specified order.
+  - task_id: COMMUNITY-TASK-004
+    title: Implement structured Community errors
+    inputs: registry/domain-finalization/community/module-specification.yaml#common_errors
+    acceptance: Every algorithm error maps to a stable code and preserves feature and unresolved context.
+  - task_id: COMMUNITY-TASK-005
+    title: Implement deterministic serialization
+    inputs: registry/domain-finalization/community/module-specification.yaml#rules_of_determinism
+    acceptance: Repeated equivalent structural requests produce byte-equivalent normalized results.
+- workstream_id: COMMUNITY-IMPL-FEATURES
+  title: Per-feature specification adapters
+  tasks:
+  - {task_id: COMMUNITY-TASK-101, feature_id: TLC-FC-02-COMMUNITY-001, ir: registry/optimized-ir/community/TLC-FC-02-COMMUNITY-001/ir.yaml, algorithm: registry/algorithms/community/TLC-FC-02-COMMUNITY-001/algorithm.yaml, oracle: registry/oracles/community/TLC-FC-02-COMMUNITY-001/oracle.yaml}
+  - {task_id: COMMUNITY-TASK-103, feature_id: TLC-FC-02-COMMUNITY-003, ir: registry/optimized-ir/community/TLC-FC-02-COMMUNITY-003/ir.yaml, algorithm: registry/algorithms/community/TLC-FC-02-COMMUNITY-003/algorithm.yaml, oracle: registry/oracles/community/TLC-FC-02-COMMUNITY-003/oracle.yaml}
+  - {task_id: COMMUNITY-TASK-104, feature_id: TLC-FC-02-COMMUNITY-004, ir: registry/optimized-ir/community/TLC-FC-02-COMMUNITY-004/ir.yaml, algorithm: registry/algorithms/community/TLC-FC-02-COMMUNITY-004/algorithm.yaml, oracle: registry/oracles/community/TLC-FC-02-COMMUNITY-004/oracle.yaml}
+  - {task_id: COMMUNITY-TASK-105, feature_id: TLC-FC-02-COMMUNITY-005, ir: registry/optimized-ir/community/TLC-FC-02-COMMUNITY-005/ir.yaml, algorithm: registry/algorithms/community/TLC-FC-02-COMMUNITY-005/algorithm.yaml, oracle: registry/oracles/community/TLC-FC-02-COMMUNITY-005/oracle.yaml}
+  - {task_id: COMMUNITY-TASK-106, feature_id: TLC-FC-02-COMMUNITY-006, ir: registry/optimized-ir/community/TLC-FC-02-COMMUNITY-006/ir.yaml, algorithm: registry/algorithms/community/TLC-FC-02-COMMUNITY-006/algorithm.yaml, oracle: registry/oracles/community/TLC-FC-02-COMMUNITY-006/oracle.yaml}
+  - {task_id: COMMUNITY-TASK-107, feature_id: TLC-FC-02-COMMUNITY-007, ir: registry/optimized-ir/community/TLC-FC-02-COMMUNITY-007/ir.yaml, algorithm: registry/algorithms/community/TLC-FC-02-COMMUNITY-007/algorithm.yaml, oracle: registry/oracles/community/TLC-FC-02-COMMUNITY-007/oracle.yaml}
+  - {task_id: COMMUNITY-TASK-108, feature_id: TLC-FC-02-COMMUNITY-008, ir: registry/optimized-ir/community/TLC-FC-02-COMMUNITY-008/ir.yaml, algorithm: registry/algorithms/community/TLC-FC-02-COMMUNITY-008/algorithm.yaml, oracle: registry/oracles/community/TLC-FC-02-COMMUNITY-008/oracle.yaml}
+  - {task_id: COMMUNITY-TASK-109, feature_id: TLC-FC-02-COMMUNITY-009, ir: registry/optimized-ir/community/TLC-FC-02-COMMUNITY-009/ir.yaml, algorithm: registry/algorithms/community/TLC-FC-02-COMMUNITY-009/algorithm.yaml, oracle: registry/oracles/community/TLC-FC-02-COMMUNITY-009/oracle.yaml}
+  acceptance_common:
+  - Adapter exposes describe and validate behavior only.
+  - Scientific execution returns the specified structured error.
+  - Source-object references and all 29 unresolved identifiers are conserved.
+- workstream_id: COMMUNITY-IMPL-TESTS
+  title: Acceptance and conformance tests
+  tasks:
+  - task_id: COMMUNITY-TASK-201
+    title: Implement all per-feature oracle cases
+    acceptance: Every oracle case is automated without arbitrary scientific values.
+  - task_id: COMMUNITY-TASK-202
+    title: Implement module composition tests
+    acceptance: Registry dispatch covers exactly eight features and feature 008 dependencies remain non-executable.
+  - task_id: COMMUNITY-TASK-203
+    title: Implement source-preservation and forbidden-path tests
+    acceptance: Changes to contracts, source IRs, maths, Master, Disciple or global reconciliation fail validation.
+- workstream_id: COMMUNITY-IMPL-SCIENTIFIC-GATES
+  title: Deferred scientific execution gates
+  tasks:
+  - task_id: COMMUNITY-TASK-301
+    title: Keep execution gate closed
+    acceptance: No scientific execution path is enabled while decision-required.yaml reports blockers.
+  - task_id: COMMUNITY-TASK-302
+    title: Integrate future reviewed semantics without replacing sources
+    blocked_by: [COMMUNITY-DECISION-001, COMMUNITY-DECISION-002, COMMUNITY-DECISION-003]
+    acceptance: A future change adds reviewed semantics as a new traced layer and reruns all conservation oracles.
+completion_definition:
+- shared module interfaces implemented
+- eight adapters implemented
+- every oracle automated
+- no scientific computation inferred
+- all preservation checks passing
