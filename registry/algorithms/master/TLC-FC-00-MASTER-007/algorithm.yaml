@@ -1,0 +1,17 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-00-MASTER-007
+feature_id: TLC-FC-00-MASTER-007
+status: selected_for_master_implementation_specification
+finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-007/ir.yaml
+signature: evaluate_admissible_master_dynamics(reference_bundle, opaque_inputs, provider) -> MasterOpaqueEvaluationResult
+inputs: {reference_bundle: ScientificReferenceBundle, opaque_inputs: OpaqueScientificPayload, provider: OpaqueOperationProvider}
+outputs: {result: MasterOpaqueEvaluationResult}
+validations: [exact feature id, exact two object refs, exact two relation refs, empty unresolved list]
+steps: [validate exact bundle, build provenance, return unresolved when evaluation is not requested, invoke provider unchanged, preserve payload unchanged, verify no solver or discretization was added, return]
+branches: [{condition: missing provider in evaluated mode, action: return MASTER_OPAQUE_PROVIDER_REQUIRED}, {condition: provider failure, action: return MASTER_OPAQUE_PROVIDER_FAILURE}]
+errors: [MASTER_INVALID_FEATURE_ID, MASTER_REFERENCE_SET_MISMATCH, MASTER_OPAQUE_PROVIDER_REQUIRED, MASTER_OPAQUE_PROVIDER_FAILURE, MASTER_PRESERVATION_VIOLATION]
+invariants: [opaque payload unchanged, source dynamics distinct, no numerical method]
+determinism: wrapper deterministic; provider determinism provider-declared
+effects: none
+edge_cases: [empty initial-condition payload allowed, unresolved provider result propagated]
+necessary_dependencies: []
