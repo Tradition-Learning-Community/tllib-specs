@@ -1,0 +1,26 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-015
+oracle_id: CAP-ORACLE-015
+status: selected_for_capacities_implementation_specification
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-015/test-plan.yaml
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-015/algorithm.yaml
+exact_result_available: false
+oracle_basis: predicate token AST, provenance, blocker and absence of predicate evaluation
+acceptance_tests:
+  - id: nominal_ast
+    expect: {type: CapacityValidityDomainPredicateAst, object_ids: [TLC-SO-CAPACITIES-005], predicate_evaluated: false, blocker: scientific decision required}
+  - {id: missing_object, mutation: omit object, expect_error: MissingCoveredObject}
+  - {id: extra_object, mutation: add object, expect_error: UnexpectedCoveredObject}
+  - {id: missing_symbol, mutation: omit symbol key, expect_error: MissingSymbolTableEntry}
+  - {id: missing_provenance, mutation: omit source reference, expect_error: MissingSourceReference}
+  - {id: missing_blocker, mutation: omit blocker, expect_error: MissingDecisionBlocker}
+  - {id: predicate_guard, request: decide validity membership or threshold, expect_error: ScientificEvaluationRequested}
+properties: {identity_conservation: true, scope_conservation: true, context_provenance_conservation: true, symbol_conservation: true, unresolved_conservation: true, deterministic_for_identical_inputs: true}
+metamorphic_tests:
+  - removing a source token removes its AST node without replacement
+  - adding an unsourced predicate token is not reflected in accepted projection
+  - repeated construction yields equivalent AST projection
+composition_tests: [registry exposes predicate tokens without comparator or evaluator]
+dependency_tests: [no environment, affinity or context service invoked]
+out_of_scope_observations: [boolean validity, threshold decision, context score, affinity score, capacity comparison result]
+pass_condition: all tests pass and scientific decision required remains unresolved

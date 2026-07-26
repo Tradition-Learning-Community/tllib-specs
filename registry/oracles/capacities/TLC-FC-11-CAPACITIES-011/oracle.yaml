@@ -1,0 +1,26 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-011
+oracle_id: CAP-ORACLE-011
+status: selected_for_capacities_implementation_specification
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-011/test-plan.yaml
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-011/algorithm.yaml
+exact_result_available: false
+oracle_basis: symbolic metric descriptor, provenance, blocker and absence of geometry evaluation
+acceptance_tests:
+  - id: nominal_descriptor
+    expect: {type: CapacityMetricDescriptor, object_ids: [TLC-SO-CAPACITIES-054], distance_computed: false, blocker: scientific decision required}
+  - {id: missing_object, mutation: omit object, expect_error: MissingCoveredObject}
+  - {id: extra_object, mutation: add object, expect_error: UnexpectedCoveredObject}
+  - {id: missing_symbol, mutation: omit symbol key, expect_error: MissingSymbolTableEntry}
+  - {id: missing_provenance, mutation: omit source reference, expect_error: MissingSourceReference}
+  - {id: missing_blocker, mutation: omit blocker, expect_error: MissingDecisionBlocker}
+  - {id: distance_guard, request: compute distance or geodesic, expect_error: ScientificEvaluationRequested}
+properties: {identity_conservation: true, scope_conservation: true, context_provenance_conservation: true, symbol_conservation: true, unresolved_conservation: true, deterministic_for_identical_inputs: true}
+metamorphic_tests:
+  - repeated construction yields equivalent descriptor projection
+  - opaque annotation changes do not trigger geometry parsing
+  - an absent symbol is not generated
+composition_tests: [registry exposes metric tokens without a comparator]
+dependency_tests: [no geometry or measurement engine invoked]
+forbidden_observations: [distance, geodesic, norm, metric value, capacity comparison]
+pass_condition: all tests pass and scientific decision required remains unresolved

@@ -1,0 +1,52 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-001
+oracle_id: CAP-ORACLE-001
+status: selected_for_capacities_implementation_specification
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-001/test-plan.yaml
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-001/algorithm.yaml
+exact_result_available: false
+oracle_basis: structural identity, object order, provenance, errors and non-evaluation behavior
+acceptance_tests:
+  - id: nominal_structure
+    given: exact feature id, both opaque objects and complete provenance
+    expect:
+      type: CapacityPrototypeDescriptor
+      feature_id: TLC-FC-11-CAPACITIES-001
+      object_ids: [TLC-SO-CAPACITIES-013, TLC-SO-CAPACITIES-064]
+      structurally_valid: true
+  - id: missing_object
+    mutation: remove one required object
+    expect_error: MissingCoveredObject
+  - id: duplicate_object
+    mutation: repeat a required object identity
+    expect_error: DuplicateCoveredObject
+  - id: missing_provenance
+    mutation: remove one SourceReference
+    expect_error: MissingSourceReference
+  - id: wrong_feature
+    mutation: replace canonical feature id
+    expect_error: UnknownFeatureId
+  - id: evaluation_guard
+    request: score, rank, threshold, probability, progression or causal value
+    expect_error: ScientificEvaluationRequested
+properties:
+  identity_conservation: true
+  scope_conservation: true
+  context_provenance_conservation: true
+  opaque_payload_conservation: true
+  unresolved_conservation: true
+  deterministic_for_identical_inputs: true
+metamorphic_tests:
+  - changing opaque payload internals without changing identity does not cause semantic inspection
+  - repeated construction preserves the same structural projection
+  - adding an unknown object changes success into exact-set validation failure
+composition_tests:
+  - artifact can be registered and retrieved only under TLC-FC-11-CAPACITIES-001
+dependency_tests:
+  - no external execution dependency is invoked
+forbidden_observations:
+  - generated capacity
+  - metric or measurement value
+  - priority, ordering or comparison decision
+  - progression or activation result
+pass_condition: all acceptance, property, metamorphic, composition and dependency tests pass

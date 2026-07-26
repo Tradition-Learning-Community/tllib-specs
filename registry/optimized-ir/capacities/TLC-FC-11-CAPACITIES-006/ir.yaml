@@ -1,0 +1,61 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-006
+status: selected_for_capacities_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-006/contract.yaml
+source_ir: registry/ir/TLC-FC-11-CAPACITIES-006/ir.yaml
+source_ir_status: prototype_ir_with_reservations
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-006/test-plan.yaml
+nature: structural
+artifact_kind: CapacityDynamicsAstBundle
+capacity_or_reference:
+  representation: ordered context-and-motivation dynamics bundle
+  object_ids: [TLC-SO-CAPACITIES-089, TLC-SO-CAPACITIES-092]
+identity: {feature_id: exact, object_ids: exact, preservation: mandatory}
+scope: {kind: descriptive_scope, value: context adaptation and motivational engagement equations only}
+context:
+  source_file: maths/11-capacities.md
+  source_sections: [Dynamique temporelle et développementale, Dimensions éthiques motivationnelles et cognitives]
+inputs:
+  - {name: capacity_feature_id, type: FeatureId, expected: TLC-FC-11-CAPACITIES-006}
+  - {name: ordered_scientific_objects, type: 'List<OpaqueScientificObject>', required_order: [TLC-SO-CAPACITIES-089, TLC-SO-CAPACITIES-092]}
+  - {name: symbol_table, type: 'Map<ObjectId,List<UnevaluatedSymbol>>'}
+  - {name: provenance, type: 'Map<ObjectId,SourceReference>'}
+  - {name: decision_blocker, type: DecisionBlocker, expected: scientific decision required}
+outputs: [{name: artifact, type: CapacityDynamicsAstBundle}]
+types: [FeatureId, ObjectId, OpaqueScientificObject, OpaqueScientificValue, UnevaluatedSymbol, UnevaluatedExpression, SourceReference, DecisionBlocker, CapacityDynamicsAstBundle]
+opaque_values: {policy: preserve without semantic inspection, sources: [ordered_scientific_objects, symbol_table]}
+preconditions: [exact feature id, exact object order, complete symbols and provenance, exact blocker, structural request]
+conditions_of_application: [construction without context or motivation dynamics execution]
+relations_explicitly_defined: []
+manifestations_explicitly_defined: []
+operations: [validate_targeted_capacity_inputs, construct_context_and_motivation_dynamics_ast, attach_non_evaluation_guard, expose_symbolic_queries]
+execution_order: [validate_targeted_capacity_inputs, construct_context_and_motivation_dynamics_ast, attach_non_evaluation_guard, expose_symbolic_queries]
+control_flow: {invalid_input: raise structured validation error, evaluation_request: raise ScientificEvaluationRequested, valid_input: return guarded immutable bundle}
+activation: {declared: false}
+mobilization: {declared: false}
+development: {declared: true, representation_only: true, executable: false, source_object_ids: [TLC-SO-CAPACITIES-089, TLC-SO-CAPACITIES-092]}
+comparison: {declared: false, structural_identity_comparison_only: true}
+effects: {scientific_state_change: false, output_construction: true}
+postconditions:
+  - exactly two independent equation nodes are exposed
+  - source sections, symbols, provenance and blocker are preserved
+  - no context gradient or motivation derivative is evaluated
+invariants: [exact order, independent source contexts retained, blocker propagated]
+errors: [UnknownFeatureId, MissingCoveredObject, UnexpectedCoveredObject, ObjectOrderMismatch, MissingSymbolTableEntry, MissingSourceReference, MissingDecisionBlocker, ScientificEvaluationRequested]
+determinism: {status: deterministic, basis: identical structural inputs}
+dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities.md]}
+unresolved_propagated: [scientific decision required]
+reservations: [context representation, dimensions, parameters and dynamics execution unresolved]
+transformations_applied: [normalized two-node dynamics bundle, normalized traceability, explicit guard]
+obligations_of_preservation: [two object identities, order, independent sections, symbols, provenance, blocker]
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-006/algorithm.yaml
+oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-006/oracle.yaml
+implementation_fitness: {status: ready_for_structural_implementation, scientific_evaluator_ready: false}
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+capacity_invented: false
+measurement_invented: false
+ordering_invented: false
+legacy_feature_promoted: false

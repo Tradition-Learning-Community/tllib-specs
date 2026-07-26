@@ -1,0 +1,61 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-008
+status: selected_for_capacities_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-008/contract.yaml
+source_ir: registry/ir/TLC-FC-11-CAPACITIES-008/ir.yaml
+source_ir_status: prototype_ir_with_reservations
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-008/test-plan.yaml
+nature: structural
+artifact_kind: CapacityPrototypeDescriptor
+capacity_or_reference:
+  representation: unevaluated capacity-equation object set with symbol index
+  object_ids: [TLC-SO-CAPACITIES-062, TLC-SO-CAPACITIES-068, TLC-SO-CAPACITIES-086, TLC-SO-CAPACITIES-088, TLC-SO-CAPACITIES-091, TLC-SO-CAPACITIES-093, TLC-SO-CAPACITIES-094, TLC-SO-CAPACITIES-096]
+identity: {feature_id: exact, object_ids: exact, preservation: mandatory}
+scope: {kind: descriptive_scope, value: eight cited transformation equations only}
+context:
+  source_file: maths/11-capacities.md
+  source_sections: [Potentiel et capacités latentes, Transmission et activation des Capacités, Évaluation et mesure des Capacités, Dynamique temporelle et développementale, Dimensions éthiques motivationnelles et cognitives, Interaction avec la communauté et capacités collectives]
+inputs:
+  - {name: capacity_feature_id, type: FeatureId, expected: TLC-FC-11-CAPACITIES-008}
+  - {name: object_payloads, type: 'Map<ObjectId,OpaqueScientificObject>', required_object_ids: [TLC-SO-CAPACITIES-062, TLC-SO-CAPACITIES-068, TLC-SO-CAPACITIES-086, TLC-SO-CAPACITIES-088, TLC-SO-CAPACITIES-091, TLC-SO-CAPACITIES-093, TLC-SO-CAPACITIES-094, TLC-SO-CAPACITIES-096]}
+  - {name: provenance, type: 'Map<ObjectId,SourceReference>'}
+outputs: [{name: artifact, type: CapacityPrototypeDescriptor}]
+types: [FeatureId, ObjectId, OpaqueScientificObject, OpaqueScientificValue, UnevaluatedSymbol, UnevaluatedExpression, SourceReference, CapacityPrototypeDescriptor]
+opaque_values: {policy: preserve without semantic inspection, sources: [object_payloads]}
+preconditions: [exact feature id, exact duplicate-free objects, complete provenance, structural request only]
+conditions_of_application: [equation AST and symbol-index construction only]
+relations_explicitly_defined: []
+manifestations_explicitly_defined:
+  - {object_id: TLC-SO-CAPACITIES-094, handling: unevaluated_expression_representation, observation: external_observer_required}
+operations: [validate_feature_and_object_set, restore_contract_object_order, build_capacity_equation_ast_with_symbol_table, attach_non_evaluation_guard, expose_structural_queries]
+execution_order: [validate_feature_and_object_set, restore_contract_object_order, build_capacity_equation_ast_with_symbol_table, attach_non_evaluation_guard]
+control_flow: {invalid_input: raise structured validation error, evaluation_request: raise ScientificEvaluationRequested, valid_input: return immutable descriptor}
+activation: {declared: false}
+mobilization: {declared: false}
+development: {declared: true, representation_only: true, executable: false, source_object_ids: [TLC-SO-CAPACITIES-086, TLC-SO-CAPACITIES-088]}
+comparison: {declared: false, structural_identity_comparison_only: true}
+effects: {scientific_state_change: false, output_construction: true}
+postconditions:
+  - eight equations remain distinct unevaluated nodes in contract order
+  - symbols and provenance are queryable by object id
+  - manifestation is represented but not observed
+  - no normalization, metric, score, progression or collective value is computed
+invariants: [exact object set, source expressions opaque, no equation execution]
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+determinism: {status: deterministic, basis: identical structural inputs}
+dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities.md]}
+unresolved_propagated: []
+reservations: [equation parameters, units, evaluator and cross-domain semantics unavailable]
+transformations_applied: [normalized equation node envelope, normalized symbol and provenance lookup, explicit guard]
+obligations_of_preservation: [eight identities, order, symbols, provenance, manifestation as opaque expression]
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-008/algorithm.yaml
+oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-008/oracle.yaml
+implementation_fitness: {status: ready_for_structural_implementation, scientific_evaluator_ready: false}
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+capacity_invented: false
+measurement_invented: false
+ordering_invented: false
+legacy_feature_promoted: false

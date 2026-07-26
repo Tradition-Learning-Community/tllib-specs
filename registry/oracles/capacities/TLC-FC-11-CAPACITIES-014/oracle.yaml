@@ -1,0 +1,26 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-014
+oracle_id: CAP-ORACLE-014
+status: selected_for_capacities_implementation_specification
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-014/test-plan.yaml
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-014/algorithm.yaml
+exact_result_available: false
+oracle_basis: operator signature tokens, provenance, blocker and absence of activation
+acceptance_tests:
+  - id: nominal_signature
+    expect: {type: CapacityOperatorSignature, object_ids: [TLC-SO-CAPACITIES-051], operator_applied: false, blocker: scientific decision required}
+  - {id: missing_object, mutation: omit object, expect_error: MissingCoveredObject}
+  - {id: extra_object, mutation: add object, expect_error: UnexpectedCoveredObject}
+  - {id: missing_symbol, mutation: omit symbol key, expect_error: MissingSymbolTableEntry}
+  - {id: missing_provenance, mutation: omit source reference, expect_error: MissingSourceReference}
+  - {id: missing_blocker, mutation: omit blocker, expect_error: MissingDecisionBlocker}
+  - {id: activation_guard, request: apply actualization operator, expect_error: ScientificEvaluationRequested}
+properties: {identity_conservation: true, scope_conservation: true, context_provenance_conservation: true, symbol_conservation: true, unresolved_conservation: true, deterministic_for_identical_inputs: true}
+metamorphic_tests:
+  - repeated construction yields equivalent signature projection
+  - absent domain or codomain token is not generated
+  - source token changes remain opaque
+composition_tests: [registry exposes signature without an activation engine]
+dependency_tests: [no competence, learning or acquisition engine invoked]
+out_of_scope_observations: [activated capacity, acquired capacity, activation threshold, operator output, progression]
+pass_condition: all tests pass and scientific decision required remains unresolved

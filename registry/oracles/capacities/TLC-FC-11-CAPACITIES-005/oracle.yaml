@@ -1,0 +1,30 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-005
+oracle_id: CAP-ORACLE-005
+status: selected_for_capacities_implementation_specification
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-005/test-plan.yaml
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-005/algorithm.yaml
+exact_result_available: false
+oracle_basis: six-node structural projection, order, provenance and absence of execution
+acceptance_tests:
+  - id: nominal_dynamics_descriptor
+    expect: {type: CapacityPrototypeDescriptor, object_order: [TLC-SO-CAPACITIES-066, TLC-SO-CAPACITIES-067, TLC-SO-CAPACITIES-069, TLC-SO-CAPACITIES-070, TLC-SO-CAPACITIES-087, TLC-SO-CAPACITIES-097]}
+  - {id: missing_object, mutation: omit object, expect_error: MissingCoveredObject}
+  - {id: duplicate_object, mutation: repeat object, expect_error: DuplicateCoveredObject}
+  - {id: missing_provenance, mutation: omit source reference, expect_error: MissingSourceReference}
+  - {id: dynamics_guard, request: integrate or advance time, expect_error: ScientificEvaluationRequested}
+  - {id: stochastic_guard, request: sample stochastic term, expect_error: ScientificEvaluationRequested}
+properties:
+  identity_conservation: true
+  scope_conservation: true
+  context_provenance_conservation: true
+  opaque_expression_conservation: true
+  deterministic_for_identical_inputs: true
+metamorphic_tests:
+  - repeated construction yields equivalent structural projection
+  - changing opaque equation text does not trigger evaluation
+  - adding a seventh object fails exact-set validation
+composition_tests: [registry preserves six independent equation identities]
+dependency_tests: [no integrator, random generator or external domain is invoked]
+forbidden_observations: [time-evolved capacity, random sample, derivative value, causal effect, progression]
+pass_condition: all tests pass with every equation unevaluated

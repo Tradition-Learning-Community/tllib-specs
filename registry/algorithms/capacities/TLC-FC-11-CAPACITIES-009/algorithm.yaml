@@ -1,0 +1,43 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-009
+algorithm_id: CAP-ALG-009
+status: selected_for_capacities_implementation_specification
+source_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-009/ir.yaml
+signature: 'CapacityEquationAstBundle construct_validity_and_collective_equation_ast_bundle(FeatureId, List<OpaqueScientificObject>, Map<ObjectId,List<UnevaluatedSymbol>>, Map<ObjectId,SourceReference>, DecisionBlocker)'
+inputs: {required_object_order: [TLC-SO-CAPACITIES-059, TLC-SO-CAPACITIES-095]}
+outputs: [CapacityEquationAstBundle]
+validations: [exact feature id, exact membership and order, complete symbols, complete provenance, exact blocker, structural request]
+preconditions: [both source equations present]
+conditions_of_application: [no predicate decision or aggregation]
+steps:
+  - validate targeted envelope
+  - create validity-domain equation node
+  - create collective-coordination equation node
+  - preserve independent source tags and order
+  - attach symbols, provenance, blocker and guard
+  - return immutable bundle
+branching: {invalid_membership: MissingCoveredObject or UnexpectedCoveredObject, invalid_order: ObjectOrderMismatch, missing_symbol: MissingSymbolTableEntry, missing_blocker: MissingDecisionBlocker, evaluation_requested: ScientificEvaluationRequested}
+capacity_handling: {construction: equation bundle only, identity_validation: exact, scope_validation: exact, context_validation: independent source sections}
+relations: none
+activation: not_performed
+mobilization: not_performed
+development: collective_expression_represented_only
+comparison: identifier_and_shape_only
+effects: no membership, mean or aggregation computation
+errors: [UnknownFeatureId, MissingCoveredObject, UnexpectedCoveredObject, ObjectOrderMismatch, MissingSymbolTableEntry, MissingSourceReference, MissingDecisionBlocker, ScientificEvaluationRequested]
+postconditions: [two nodes preserved in order, blocker unchanged, no numeric result]
+invariants: [equations remain independent, no collective endpoint inferred]
+determinism: deterministic
+case_limits: [reversal fails, missing explicit symbol entry fails, validity or aggregation request fails]
+unresolved_conserved: [scientific decision required]
+dependencies: []
+pseudocode: |
+  require feature_id == TLC-FC-11-CAPACITIES-009 else UnknownFeatureId
+  require exact_order(objects, [059, 095]) else membership_or_order_error
+  require symbol_entry_for_each_object(symbol_table) else MissingSymbolTableEntry
+  require complete_provenance(provenance) else MissingSourceReference
+  require blocker == "scientific decision required" else MissingDecisionBlocker
+  require request_is_structural_only() else ScientificEvaluationRequested
+  bundle = immutable_equation_bundle(opaque_node(059), opaque_node(095))
+  bundle.attach(symbol_table, provenance, blocker, non_evaluation_guard)
+  return bundle

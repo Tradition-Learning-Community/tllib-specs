@@ -1,0 +1,61 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-009
+status: selected_for_capacities_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-009/contract.yaml
+source_ir: registry/ir/TLC-FC-11-CAPACITIES-009/ir.yaml
+source_ir_status: prototype_ir_with_reservations
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-009/test-plan.yaml
+nature: structural
+artifact_kind: CapacityEquationAstBundle
+capacity_or_reference:
+  representation: ordered validity-and-collective equation bundle
+  object_ids: [TLC-SO-CAPACITIES-059, TLC-SO-CAPACITIES-095]
+identity: {feature_id: exact, object_ids: exact, preservation: mandatory}
+scope: {kind: descriptive_scope, value: validity-domain and collective-coordination equations only}
+context:
+  source_file: maths/11-capacities.md
+  source_sections: [Domaines de validité, Interaction avec la communauté et capacités collectives]
+inputs:
+  - {name: capacity_feature_id, type: FeatureId, expected: TLC-FC-11-CAPACITIES-009}
+  - {name: ordered_scientific_objects, type: 'List<OpaqueScientificObject>', required_order: [TLC-SO-CAPACITIES-059, TLC-SO-CAPACITIES-095]}
+  - {name: symbol_table, type: 'Map<ObjectId,List<UnevaluatedSymbol>>'}
+  - {name: provenance, type: 'Map<ObjectId,SourceReference>'}
+  - {name: decision_blocker, type: DecisionBlocker, expected: scientific decision required}
+outputs: [{name: artifact, type: CapacityEquationAstBundle}]
+types: [FeatureId, ObjectId, OpaqueScientificObject, OpaqueScientificValue, UnevaluatedSymbol, UnevaluatedExpression, SourceReference, DecisionBlocker, CapacityEquationAstBundle]
+opaque_values: {policy: preserve without semantic inspection, sources: [ordered_scientific_objects, symbol_table]}
+preconditions: [exact feature id, exact object order, complete symbols and provenance, exact blocker, structural request]
+conditions_of_application: [construction without validity decision or collective aggregation]
+relations_explicitly_defined: []
+manifestations_explicitly_defined: []
+operations: [validate_targeted_capacity_inputs, construct_validity_and_collective_equation_ast_bundle, attach_non_evaluation_guard, expose_symbolic_queries]
+execution_order: [validate_targeted_capacity_inputs, construct_validity_and_collective_equation_ast_bundle, attach_non_evaluation_guard, expose_symbolic_queries]
+control_flow: {invalid_input: raise structured validation error, evaluation_request: raise ScientificEvaluationRequested, valid_input: return guarded immutable bundle}
+activation: {declared: false}
+mobilization: {declared: false}
+development: {declared: true, representation_only: true, executable: false, source_object_ids: [TLC-SO-CAPACITIES-095]}
+comparison: {declared: false, structural_identity_comparison_only: true}
+effects: {scientific_state_change: false, output_construction: true}
+postconditions:
+  - validity and collective equation nodes remain separate and ordered
+  - source sections, symbols, provenance and blocker are preserved
+  - no membership decision, mean, aggregation or coordination score is computed
+invariants: [exact order, no cross-equation execution, blocker propagated]
+errors: [UnknownFeatureId, MissingCoveredObject, UnexpectedCoveredObject, ObjectOrderMismatch, MissingSymbolTableEntry, MissingSourceReference, MissingDecisionBlocker, ScientificEvaluationRequested]
+determinism: {status: deterministic, basis: identical structural inputs}
+dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities.md]}
+unresolved_propagated: [scientific decision required]
+reservations: [validity threshold and collective aggregation semantics unresolved]
+transformations_applied: [normalized equation bundle envelope, normalized traceability, explicit guard]
+obligations_of_preservation: [two identities, order, independent sections, symbols, provenance, blocker]
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-009/algorithm.yaml
+oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-009/oracle.yaml
+implementation_fitness: {status: ready_for_structural_implementation, scientific_evaluator_ready: false}
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+capacity_invented: false
+measurement_invented: false
+ordering_invented: false
+legacy_feature_promoted: false

@@ -1,0 +1,62 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-005
+status: selected_for_capacities_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-005/contract.yaml
+source_ir: registry/ir/TLC-FC-11-CAPACITIES-005/ir.yaml
+source_ir_status: prototype_ir_with_reservations
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-005/test-plan.yaml
+nature: structural
+artifact_kind: CapacityPrototypeDescriptor
+capacity_or_reference:
+  representation: unevaluated capacity-dynamics object set
+  object_ids: [TLC-SO-CAPACITIES-066, TLC-SO-CAPACITIES-067, TLC-SO-CAPACITIES-069, TLC-SO-CAPACITIES-070, TLC-SO-CAPACITIES-087, TLC-SO-CAPACITIES-097]
+identity: {feature_id: exact, object_ids: exact, preservation: mandatory}
+scope: {kind: descriptive_scope, value: six cited dynamics equations only}
+context:
+  source_file: maths/11-capacities.md
+  source_sections: [Potentiel et capacités latentes, Transmission et activation des Capacités, Dynamique temporelle et développementale, Interaction avec la communauté et capacités collectives]
+inputs:
+  - {name: capacity_feature_id, type: FeatureId, expected: TLC-FC-11-CAPACITIES-005}
+  - {name: object_payloads, type: 'Map<ObjectId,OpaqueScientificObject>', required_object_ids: [TLC-SO-CAPACITIES-066, TLC-SO-CAPACITIES-067, TLC-SO-CAPACITIES-069, TLC-SO-CAPACITIES-070, TLC-SO-CAPACITIES-087, TLC-SO-CAPACITIES-097]}
+  - {name: provenance, type: 'Map<ObjectId,SourceReference>'}
+outputs: [{name: artifact, type: CapacityPrototypeDescriptor}]
+types: [FeatureId, ObjectId, OpaqueScientificObject, OpaqueScientificValue, UnevaluatedSymbol, UnevaluatedExpression, SourceReference, CapacityPrototypeDescriptor]
+opaque_values: {policy: preserve without semantic inspection, sources: [object_payloads]}
+preconditions: [exact feature id, exact duplicate-free objects, complete provenance, structural request only]
+conditions_of_application: [AST construction without differential or stochastic execution]
+relations_explicitly_defined: []
+manifestations_explicitly_defined: []
+operations: [validate_feature_and_object_set, restore_contract_object_order, build_unevaluated_capacity_dynamics_ast, attach_non_evaluation_guard, expose_structural_queries]
+execution_order: [validate_feature_and_object_set, restore_contract_object_order, build_unevaluated_capacity_dynamics_ast, attach_non_evaluation_guard]
+control_flow:
+  invalid_input: raise structured validation error
+  evaluation_request: raise ScientificEvaluationRequested
+  valid_input: return immutable unevaluated descriptor
+activation: {declared: true, representation_only: true, executable: false, source_object_ids: [TLC-SO-CAPACITIES-087]}
+mobilization: {declared: false}
+development: {declared: true, representation_only: true, executable: false, source_object_ids: [TLC-SO-CAPACITIES-066, TLC-SO-CAPACITIES-067, TLC-SO-CAPACITIES-069, TLC-SO-CAPACITIES-070, TLC-SO-CAPACITIES-087, TLC-SO-CAPACITIES-097]}
+comparison: {declared: false, structural_identity_comparison_only: true}
+effects: {scientific_state_change: false, output_construction: true}
+postconditions:
+  - all six equations remain distinct unevaluated nodes in contract order
+  - provenance and source symbols are preserved
+  - no time step, random sample, derivative, causal effect or progression is computed
+invariants: [exact object set, source statements opaque, no dynamics execution]
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+determinism: {status: deterministic, stochastic_source_tokens_executed: false}
+dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities.md]}
+unresolved_propagated: []
+reservations: [parameters, dimensions, stochastic semantics and execution contracts remain unavailable]
+transformations_applied: [normalized dynamics node envelope, normalized traceability, explicit non-evaluation guard]
+obligations_of_preservation: [six object identities, contract order, symbols, provenance]
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-005/algorithm.yaml
+oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-005/oracle.yaml
+implementation_fitness: {status: ready_for_structural_implementation, scientific_evaluator_ready: false}
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+capacity_invented: false
+measurement_invented: false
+ordering_invented: false
+legacy_feature_promoted: false

@@ -1,0 +1,137 @@
+schema_version: 1
+domain_id: capacities
+status: ready_for_future_implementation_assignment
+global_tasks:
+  - task_id: CAP-IMPL-CORE-001
+    title: Implement shared immutable capacity artifact envelope
+    scope: structural records and views only
+    prerequisites: [module-specification, patterns]
+    acceptance:
+      - preserves canonical feature and object identities
+      - preserves source order and provenance
+      - exposes symbols, unresolved and reservations
+      - contains no evaluator
+  - task_id: CAP-IMPL-CORE-002
+    title: Implement shared validation and error layer
+    scope: feature, object, order, symbol, provenance and blocker validation
+    prerequisites: [CAP-IMPL-CORE-001]
+    acceptance:
+      - emits common structured errors
+      - validates exact population-specific inputs
+      - rejects scientific evaluation requests
+  - task_id: CAP-IMPL-CORE-003
+    title: Implement structural registry and query views
+    scope: lookup by feature id, object id and symbolic role
+    prerequisites: [CAP-IMPL-CORE-001, CAP-IMPL-CORE-002]
+    acceptance:
+      - deterministic lookup
+      - no endpoint or semantic inference
+      - unresolved and opaque values remain unchanged
+feature_tasks:
+  - task_id: CAP-IMPL-001
+    feature_id: TLC-FC-11-CAPACITIES-001
+    operation: build_capacity_constraint_record_and_verify_required_symbols
+    output_type: CapacityPrototypeDescriptor
+    prerequisites: [CAP-IMPL-CORE-001, CAP-IMPL-CORE-002]
+    acceptance_oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-001/oracle.yaml
+  - task_id: CAP-IMPL-002
+    feature_id: TLC-FC-11-CAPACITIES-002
+    operation: construct_mastery_constraint_ast_with_axiom_guard
+    output_type: CapacityConstraintAst
+    prerequisites: [CAP-IMPL-CORE-001, CAP-IMPL-CORE-002]
+    acceptance_oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-002/oracle.yaml
+  - task_id: CAP-IMPL-003
+    feature_id: TLC-FC-11-CAPACITIES-003
+    operation: assemble_latence_mastery_constraint_bundle
+    output_type: CapacityConstraintBundle
+    prerequisites: [CAP-IMPL-CORE-001, CAP-IMPL-CORE-002]
+    acceptance_oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-003/oracle.yaml
+  - task_id: CAP-IMPL-005
+    feature_id: TLC-FC-11-CAPACITIES-005
+    operation: build_unevaluated_capacity_dynamics_ast
+    output_type: CapacityPrototypeDescriptor
+    prerequisites: [CAP-IMPL-CORE-001, CAP-IMPL-CORE-002]
+    acceptance_oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-005/oracle.yaml
+  - task_id: CAP-IMPL-006
+    feature_id: TLC-FC-11-CAPACITIES-006
+    operation: construct_context_and_motivation_dynamics_ast
+    output_type: CapacityDynamicsAstBundle
+    prerequisites: [CAP-IMPL-CORE-001, CAP-IMPL-CORE-002]
+    acceptance_oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-006/oracle.yaml
+  - task_id: CAP-IMPL-007
+    feature_id: TLC-FC-11-CAPACITIES-007
+    operation: construct_hamiltonian_capacity_dynamics_ast
+    output_type: CapacityHamiltonianAst
+    prerequisites: [CAP-IMPL-CORE-001, CAP-IMPL-CORE-002]
+    acceptance_oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-007/oracle.yaml
+  - task_id: CAP-IMPL-008
+    feature_id: TLC-FC-11-CAPACITIES-008
+    operation: build_capacity_equation_ast_with_symbol_table
+    output_type: CapacityPrototypeDescriptor
+    prerequisites: [CAP-IMPL-CORE-001, CAP-IMPL-CORE-002]
+    acceptance_oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-008/oracle.yaml
+  - task_id: CAP-IMPL-009
+    feature_id: TLC-FC-11-CAPACITIES-009
+    operation: construct_validity_and_collective_equation_ast_bundle
+    output_type: CapacityEquationAstBundle
+    prerequisites: [CAP-IMPL-CORE-001, CAP-IMPL-CORE-002]
+    acceptance_oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-009/oracle.yaml
+  - task_id: CAP-IMPL-010
+    feature_id: TLC-FC-11-CAPACITIES-010
+    operation: build_capacity_metric_descriptor_and_symbol_bindings
+    output_type: CapacityPrototypeDescriptor
+    prerequisites: [CAP-IMPL-CORE-001, CAP-IMPL-CORE-002]
+    acceptance_oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-010/oracle.yaml
+  - task_id: CAP-IMPL-011
+    feature_id: TLC-FC-11-CAPACITIES-011
+    operation: describe_riemannian_metric_symbolic_structure
+    output_type: CapacityMetricDescriptor
+    prerequisites: [CAP-IMPL-CORE-001, CAP-IMPL-CORE-002]
+    acceptance_oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-011/oracle.yaml
+  - task_id: CAP-IMPL-012
+    feature_id: TLC-FC-11-CAPACITIES-012
+    operation: index_hilbert_riemannian_structure_components
+    output_type: CapacityMetricStructureIndex
+    prerequisites: [CAP-IMPL-CORE-001, CAP-IMPL-CORE-002, CAP-IMPL-CORE-003]
+    acceptance_oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-012/oracle.yaml
+  - task_id: CAP-IMPL-013
+    feature_id: TLC-FC-11-CAPACITIES-013
+    operation: build_capacity_operator_signature_descriptor
+    output_type: CapacityPrototypeDescriptor
+    prerequisites: [CAP-IMPL-CORE-001, CAP-IMPL-CORE-002]
+    acceptance_oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-013/oracle.yaml
+  - task_id: CAP-IMPL-014
+    feature_id: TLC-FC-11-CAPACITIES-014
+    operation: build_actualization_operator_signature
+    output_type: CapacityOperatorSignature
+    prerequisites: [CAP-IMPL-CORE-001, CAP-IMPL-CORE-002]
+    acceptance_oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-014/oracle.yaml
+  - task_id: CAP-IMPL-015
+    feature_id: TLC-FC-11-CAPACITIES-015
+    operation: build_validity_domain_predicate_ast
+    output_type: CapacityValidityDomainPredicateAst
+    prerequisites: [CAP-IMPL-CORE-001, CAP-IMPL-CORE-002]
+    acceptance_oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-015/oracle.yaml
+  - task_id: CAP-IMPL-018
+    feature_id: TLC-FC-11-CAPACITIES-018
+    operation: build_capacity_relation_descriptor_preserving_endpoints
+    output_type: CapacityRelationDescriptor
+    prerequisites: [CAP-IMPL-CORE-001, CAP-IMPL-CORE-002]
+    acceptance_oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-018/oracle.yaml
+integration_tasks:
+  - task_id: CAP-IMPL-INTEGRATION-001
+    title: Register all 15 constructors in the Capacities module registry
+    acceptance:
+      - registry population equals authoritative 15-feature set
+      - no legacy Goose identifier is registered
+      - every artifact is queryable by canonical feature id
+  - task_id: CAP-IMPL-INTEGRATION-002
+    title: Execute oracle-driven conformance suite across supported backends
+    acceptance:
+      - all structural, error, provenance, opaque and unresolved tests pass
+      - no backend introduces evaluation semantics
+constraints:
+  cxx_in_this_phase: false
+  python_bindings_in_this_phase: false
+  reference_implementation_in_this_phase: false
+  scientific_evaluator_in_scope: false

@@ -1,0 +1,43 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-010
+algorithm_id: CAP-ALG-010
+status: selected_for_capacities_implementation_specification
+source_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-010/ir.yaml
+signature: 'CapacityPrototypeDescriptor build_capacity_metric_descriptor_and_symbol_bindings(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>)'
+inputs: {required_object_order: [TLC-SO-CAPACITIES-021, TLC-SO-CAPACITIES-022, TLC-SO-CAPACITIES-034, TLC-SO-CAPACITIES-055]}
+outputs: [CapacityPrototypeDescriptor]
+validations: [exact feature id, exact duplicate-free object set, complete provenance, structural request]
+preconditions: [all four source objects available]
+conditions_of_application: [no metric evaluation requested]
+steps:
+  - validate feature and exact object set
+  - restore contract order
+  - copy metric and condition objects as opaque nodes
+  - expose cited symbols as unevaluated bindings
+  - attach provenance and non-evaluation guard
+  - return immutable descriptor
+branching: {missing_object: MissingCoveredObject, duplicate_object: DuplicateCoveredObject, missing_provenance: MissingSourceReference, measurement_requested: ScientificEvaluationRequested}
+capacity_handling: {construction: metric descriptor only, identity_validation: exact, scope_validation: exact, context_validation: provenance}
+relations: none
+activation: not_performed
+mobilization: not_performed
+development: not_performed
+comparison: identifier_and_shape_only
+effects: no metric, score or truth calculation
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, MissingSourceReference, ScientificEvaluationRequested]
+postconditions: [four objects and symbol bindings preserved, no evaluated value]
+invariants: [metric expressions opaque, units and dimensions not inferred]
+determinism: deterministic
+case_limits: [missing object fails, numeric metric request fails, potential-membership decision fails]
+unresolved_conserved: []
+dependencies: []
+pseudocode: |
+  require feature_id == TLC-FC-11-CAPACITIES-010 else UnknownFeatureId
+  require exact_keys(payloads) == required_ids else MissingCoveredObject
+  require no_duplicates(payloads) else DuplicateCoveredObject
+  require complete_provenance(provenance) else MissingSourceReference
+  require request_is_structural_only() else ScientificEvaluationRequested
+  nodes = copy_opaque_in_contract_order(payloads, required_ids)
+  artifact = immutable_metric_descriptor(feature_id, nodes, source_symbol_bindings(nodes), provenance)
+  artifact.attach_non_evaluation_guard()
+  return artifact

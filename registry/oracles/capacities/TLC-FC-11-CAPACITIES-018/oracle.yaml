@@ -1,0 +1,25 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-018
+oracle_id: CAP-ORACLE-018
+status: selected_for_capacities_implementation_specification
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-018/test-plan.yaml
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-018/algorithm.yaml
+exact_result_available: false
+oracle_basis: relation descriptor identity, endpoint opacity, provenance and absence of relation evaluation
+acceptance_tests:
+  - id: nominal_descriptor
+    expect: {type: CapacityRelationDescriptor, object_ids: [TLC-SO-CAPACITIES-010], endpoints_inferred: false}
+  - {id: missing_object, mutation: omit object, expect_error: MissingCoveredObject}
+  - {id: duplicate_object, mutation: repeat object, expect_error: DuplicateCoveredObject}
+  - {id: missing_provenance, mutation: omit source reference, expect_error: MissingSourceReference}
+  - {id: endpoint_guard, request: infer person group competence virtue or practice endpoint, expect_error: ScientificEvaluationRequested}
+  - {id: relation_guard, request: compute relation direction strength or effect, expect_error: ScientificEvaluationRequested}
+properties: {identity_conservation: true, scope_conservation: true, context_provenance_conservation: true, opaque_endpoint_conservation: true, deterministic_for_identical_inputs: true}
+metamorphic_tests:
+  - repeated construction yields equivalent descriptor projection
+  - changing opaque endpoint tokens does not trigger endpoint interpretation
+  - absent endpoint remains absent
+composition_tests: [registry exposes descriptor only under canonical feature id]
+dependency_tests: [no other TL domain is read as an execution dependency or modified]
+out_of_scope_observations: [endpoint identity, relation direction, relation strength, competence link, virtue link, practice link]
+pass_condition: all tests pass without endpoint inference

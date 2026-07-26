@@ -1,0 +1,59 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-007
+status: selected_for_capacities_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-007/contract.yaml
+source_ir: registry/ir/TLC-FC-11-CAPACITIES-007/ir.yaml
+source_ir_status: prototype_ir_with_reservations
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-007/test-plan.yaml
+nature: structural
+artifact_kind: CapacityHamiltonianAst
+capacity_or_reference:
+  representation: opaque Hamiltonian-style capacity expression
+  object_ids: [TLC-SO-CAPACITIES-098]
+identity: {feature_id: exact, object_ids: exact, preservation: mandatory}
+scope: {kind: descriptive_scope, value: cited total-capacity expression only}
+context: {source_file: maths/11-capacities.md, source_sections: [Formalisation mathématique avancée]}
+inputs:
+  - {name: capacity_feature_id, type: FeatureId, expected: TLC-FC-11-CAPACITIES-007}
+  - {name: ordered_scientific_objects, type: 'List<OpaqueScientificObject>', required_order: [TLC-SO-CAPACITIES-098]}
+  - {name: symbol_table, type: 'Map<ObjectId,List<UnevaluatedSymbol>>'}
+  - {name: provenance, type: 'Map<ObjectId,SourceReference>'}
+  - {name: decision_blocker, type: DecisionBlocker, expected: scientific decision required}
+outputs: [{name: artifact, type: CapacityHamiltonianAst}]
+types: [FeatureId, ObjectId, OpaqueScientificObject, OpaqueScientificValue, UnevaluatedSymbol, UnevaluatedExpression, SourceReference, DecisionBlocker, CapacityHamiltonianAst]
+opaque_values: {policy: preserve without semantic inspection, sources: [ordered_scientific_objects, symbol_table]}
+preconditions: [exact feature id, exact singleton object order, complete symbols and provenance, exact blocker, structural request]
+conditions_of_application: [Hamiltonian-style AST construction without evaluation]
+relations_explicitly_defined: []
+manifestations_explicitly_defined: []
+operations: [validate_targeted_capacity_inputs, construct_hamiltonian_capacity_dynamics_ast, attach_non_evaluation_guard, expose_symbolic_queries]
+execution_order: [validate_targeted_capacity_inputs, construct_hamiltonian_capacity_dynamics_ast, attach_non_evaluation_guard, expose_symbolic_queries]
+control_flow: {invalid_input: raise structured validation error, evaluation_request: raise ScientificEvaluationRequested, valid_input: return guarded immutable AST}
+activation: {declared: false}
+mobilization: {declared: false}
+development: {declared: true, representation_only: true, executable: false, source_object_ids: [TLC-SO-CAPACITIES-098]}
+comparison: {declared: false, structural_identity_comparison_only: true}
+effects: {scientific_state_change: false, output_construction: true}
+postconditions:
+  - root preserves opaque kinetic, potential and coupling labels only when present
+  - provenance, symbols and blocker remain unchanged
+  - no Hamiltonian, conservation, coupling or trajectory value is computed
+invariants: [singleton object identity, opaque child labels, blocker propagated]
+errors: [UnknownFeatureId, MissingCoveredObject, UnexpectedCoveredObject, ObjectOrderMismatch, MissingSymbolTableEntry, MissingSourceReference, MissingDecisionBlocker, ScientificEvaluationRequested]
+determinism: {status: deterministic, basis: identical structural inputs}
+dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities.md]}
+unresolved_propagated: [scientific decision required]
+reservations: [Hamiltonian semantics, variables, units and conservation law unresolved]
+transformations_applied: [normalized Hamiltonian AST envelope, normalized traceability, explicit guard]
+obligations_of_preservation: [object identity, opaque child labels, symbols, provenance, blocker]
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-007/algorithm.yaml
+oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-007/oracle.yaml
+implementation_fitness: {status: ready_for_structural_implementation, scientific_evaluator_ready: false}
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+capacity_invented: false
+measurement_invented: false
+ordering_invented: false
+legacy_feature_promoted: false

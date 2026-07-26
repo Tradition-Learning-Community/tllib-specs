@@ -1,0 +1,193 @@
+schema_version: 1
+domain_id: capacities
+population_authority: registry/global-reconciliation/domain-feature-matrix.yaml
+expected_active_count: 15
+status: selected_for_capacities_implementation_specification
+features:
+  - feature_id: TLC-FC-11-CAPACITIES-001
+    canonical_name: '11-capacities: constraint (admissible)'
+    family: constraint
+    source_objects: [TLC-SO-CAPACITIES-013, TLC-SO-CAPACITIES-064]
+    source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-001/contract.yaml
+    source_ir: registry/ir/TLC-FC-11-CAPACITIES-001/ir.yaml
+    source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-001/test-plan.yaml
+    finalized_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-001/ir.yaml
+    algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-001/algorithm.yaml
+    oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-001/oracle.yaml
+    decision_class: preserved_as_opaque
+    implementation_readiness: ready_for_structural_implementation
+  - feature_id: TLC-FC-11-CAPACITIES-002
+    canonical_name: '11-capacities: constraint (blocked_locally)'
+    family: constraint
+    source_objects: [TLC-SO-CAPACITIES-043, TLC-SO-CAPACITIES-090]
+    source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-002/contract.yaml
+    source_ir: registry/ir/TLC-FC-11-CAPACITIES-002/ir.yaml
+    source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-002/test-plan.yaml
+    finalized_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-002/ir.yaml
+    algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-002/algorithm.yaml
+    oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-002/oracle.yaml
+    decision_class: deferred_to_scientific_review
+    implementation_readiness: ready_for_structural_implementation
+  - feature_id: TLC-FC-11-CAPACITIES-003
+    canonical_name: '11-capacities: constraint (provisionally_separated)'
+    family: constraint
+    source_objects: [TLC-SO-CAPACITIES-003, TLC-SO-CAPACITIES-030, TLC-SO-CAPACITIES-050]
+    source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-003/contract.yaml
+    source_ir: registry/ir/TLC-FC-11-CAPACITIES-003/ir.yaml
+    source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-003/test-plan.yaml
+    finalized_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-003/ir.yaml
+    algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-003/algorithm.yaml
+    oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-003/oracle.yaml
+    decision_class: deferred_to_scientific_review
+    implementation_readiness: ready_for_structural_implementation
+  - feature_id: TLC-FC-11-CAPACITIES-005
+    canonical_name: '11-capacities: dynamics (admissible)'
+    family: dynamics
+    source_objects: [TLC-SO-CAPACITIES-066, TLC-SO-CAPACITIES-067, TLC-SO-CAPACITIES-069, TLC-SO-CAPACITIES-070, TLC-SO-CAPACITIES-087, TLC-SO-CAPACITIES-097]
+    source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-005/contract.yaml
+    source_ir: registry/ir/TLC-FC-11-CAPACITIES-005/ir.yaml
+    source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-005/test-plan.yaml
+    finalized_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-005/ir.yaml
+    algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-005/algorithm.yaml
+    oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-005/oracle.yaml
+    decision_class: preserved_as_opaque
+    implementation_readiness: ready_for_structural_implementation
+  - feature_id: TLC-FC-11-CAPACITIES-006
+    canonical_name: '11-capacities: dynamics (blocked_locally)'
+    family: dynamics
+    source_objects: [TLC-SO-CAPACITIES-089, TLC-SO-CAPACITIES-092]
+    source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-006/contract.yaml
+    source_ir: registry/ir/TLC-FC-11-CAPACITIES-006/ir.yaml
+    source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-006/test-plan.yaml
+    finalized_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-006/ir.yaml
+    algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-006/algorithm.yaml
+    oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-006/oracle.yaml
+    decision_class: deferred_to_scientific_review
+    implementation_readiness: ready_for_structural_implementation
+  - feature_id: TLC-FC-11-CAPACITIES-007
+    canonical_name: '11-capacities: dynamics (provisionally_separated)'
+    family: dynamics
+    source_objects: [TLC-SO-CAPACITIES-098]
+    source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-007/contract.yaml
+    source_ir: registry/ir/TLC-FC-11-CAPACITIES-007/ir.yaml
+    source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-007/test-plan.yaml
+    finalized_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-007/ir.yaml
+    algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-007/algorithm.yaml
+    oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-007/oracle.yaml
+    decision_class: deferred_to_scientific_review
+    implementation_readiness: ready_for_structural_implementation
+  - feature_id: TLC-FC-11-CAPACITIES-008
+    canonical_name: '11-capacities: equation (admissible)'
+    family: equation
+    source_objects: [TLC-SO-CAPACITIES-062, TLC-SO-CAPACITIES-068, TLC-SO-CAPACITIES-086, TLC-SO-CAPACITIES-088, TLC-SO-CAPACITIES-091, TLC-SO-CAPACITIES-093, TLC-SO-CAPACITIES-094, TLC-SO-CAPACITIES-096]
+    source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-008/contract.yaml
+    source_ir: registry/ir/TLC-FC-11-CAPACITIES-008/ir.yaml
+    source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-008/test-plan.yaml
+    finalized_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-008/ir.yaml
+    algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-008/algorithm.yaml
+    oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-008/oracle.yaml
+    decision_class: preserved_as_opaque
+    implementation_readiness: ready_for_structural_implementation
+  - feature_id: TLC-FC-11-CAPACITIES-009
+    canonical_name: '11-capacities: equation (blocked_locally)'
+    family: equation
+    source_objects: [TLC-SO-CAPACITIES-059, TLC-SO-CAPACITIES-095]
+    source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-009/contract.yaml
+    source_ir: registry/ir/TLC-FC-11-CAPACITIES-009/ir.yaml
+    source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-009/test-plan.yaml
+    finalized_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-009/ir.yaml
+    algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-009/algorithm.yaml
+    oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-009/oracle.yaml
+    decision_class: deferred_to_scientific_review
+    implementation_readiness: ready_for_structural_implementation
+  - feature_id: TLC-FC-11-CAPACITIES-010
+    canonical_name: '11-capacities: metric (admissible)'
+    family: metric
+    source_objects: [TLC-SO-CAPACITIES-021, TLC-SO-CAPACITIES-022, TLC-SO-CAPACITIES-034, TLC-SO-CAPACITIES-055]
+    source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-010/contract.yaml
+    source_ir: registry/ir/TLC-FC-11-CAPACITIES-010/ir.yaml
+    source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-010/test-plan.yaml
+    finalized_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-010/ir.yaml
+    algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-010/algorithm.yaml
+    oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-010/oracle.yaml
+    decision_class: preserved_as_opaque
+    implementation_readiness: ready_for_structural_implementation
+  - feature_id: TLC-FC-11-CAPACITIES-011
+    canonical_name: '11-capacities: metric (blocked_locally)'
+    family: metric
+    source_objects: [TLC-SO-CAPACITIES-054]
+    source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-011/contract.yaml
+    source_ir: registry/ir/TLC-FC-11-CAPACITIES-011/ir.yaml
+    source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-011/test-plan.yaml
+    finalized_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-011/ir.yaml
+    algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-011/algorithm.yaml
+    oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-011/oracle.yaml
+    decision_class: deferred_to_scientific_review
+    implementation_readiness: ready_for_structural_implementation
+  - feature_id: TLC-FC-11-CAPACITIES-012
+    canonical_name: '11-capacities: metric (provisionally_separated)'
+    family: metric
+    source_objects: [TLC-SO-CAPACITIES-042]
+    source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-012/contract.yaml
+    source_ir: registry/ir/TLC-FC-11-CAPACITIES-012/ir.yaml
+    source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-012/test-plan.yaml
+    finalized_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-012/ir.yaml
+    algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-012/algorithm.yaml
+    oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-012/oracle.yaml
+    decision_class: deferred_to_scientific_review
+    implementation_readiness: ready_for_structural_implementation
+  - feature_id: TLC-FC-11-CAPACITIES-013
+    canonical_name: '11-capacities: operator (admissible)'
+    family: operator
+    source_objects: [TLC-SO-CAPACITIES-049]
+    source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-013/contract.yaml
+    source_ir: registry/ir/TLC-FC-11-CAPACITIES-013/ir.yaml
+    source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-013/test-plan.yaml
+    finalized_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-013/ir.yaml
+    algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-013/algorithm.yaml
+    oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-013/oracle.yaml
+    decision_class: preserved_as_opaque
+    implementation_readiness: ready_for_structural_implementation
+  - feature_id: TLC-FC-11-CAPACITIES-014
+    canonical_name: '11-capacities: operator (blocked_locally)'
+    family: operator
+    source_objects: [TLC-SO-CAPACITIES-051]
+    source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-014/contract.yaml
+    source_ir: registry/ir/TLC-FC-11-CAPACITIES-014/ir.yaml
+    source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-014/test-plan.yaml
+    finalized_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-014/ir.yaml
+    algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-014/algorithm.yaml
+    oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-014/oracle.yaml
+    decision_class: deferred_to_scientific_review
+    implementation_readiness: ready_for_structural_implementation
+  - feature_id: TLC-FC-11-CAPACITIES-015
+    canonical_name: '11-capacities: operator (provisionally_separated)'
+    family: operator
+    source_objects: [TLC-SO-CAPACITIES-005]
+    source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-015/contract.yaml
+    source_ir: registry/ir/TLC-FC-11-CAPACITIES-015/ir.yaml
+    source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-015/test-plan.yaml
+    finalized_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-015/ir.yaml
+    algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-015/algorithm.yaml
+    oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-015/oracle.yaml
+    decision_class: deferred_to_scientific_review
+    implementation_readiness: ready_for_structural_implementation
+  - feature_id: TLC-FC-11-CAPACITIES-018
+    canonical_name: '11-capacities: relation (admissible)'
+    family: relation
+    source_objects: [TLC-SO-CAPACITIES-010]
+    source_contract: registry/math-contracts/TLC-FC-11-CAPACITIES-018/contract.yaml
+    source_ir: registry/ir/TLC-FC-11-CAPACITIES-018/ir.yaml
+    source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-018/test-plan.yaml
+    finalized_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-018/ir.yaml
+    algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-018/algorithm.yaml
+    oracle: registry/oracles/capacities/TLC-FC-11-CAPACITIES-018/oracle.yaml
+    decision_class: preserved_as_opaque
+    implementation_readiness: ready_for_structural_implementation
+summary:
+  active: 15
+  rejected: 0
+  legacy_promoted: 0
+  blocking: 0
+  deferred_to_scientific_review: 9
+  preserved_as_opaque: 6

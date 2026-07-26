@@ -1,0 +1,39 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-012
+oracle_id: CAP-ORACLE-012
+status: selected_for_capacities_implementation_specification
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-012/test-plan.yaml
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-012/algorithm.yaml
+exact_result_available: false
+oracle_basis: source-present role index, symbols, provenance, blocker and non-evaluation behavior
+acceptance_tests:
+  - id: nominal_index
+    expect: {type: CapacityMetricStructureIndex, object_ids: [TLC-SO-CAPACITIES-042], calculated_geometry: false, blocker: scientific decision required}
+  - {id: missing_object, mutation: omit object, expect_error: MissingCoveredObject}
+  - {id: extra_object, mutation: add object, expect_error: UnexpectedCoveredObject}
+  - {id: missing_symbol, mutation: omit symbol key, expect_error: MissingSymbolTableEntry}
+  - {id: missing_provenance, mutation: omit source reference, expect_error: MissingSourceReference}
+  - {id: missing_blocker, mutation: omit blocker, expect_error: MissingDecisionBlocker}
+  - {id: non_evaluation_guard, request: request a calculated geometric result, expect_error: ScientificEvaluationRequested}
+properties:
+  identity_conservation: true
+  scope_conservation: true
+  context_provenance_conservation: true
+  symbol_conservation: true
+  unresolved_conservation: true
+  deterministic_for_identical_inputs: true
+metamorphic_tests:
+  - removing a source token removes the matching index entry without replacement
+  - an additional role without a source token is not included
+  - repeated construction yields an equivalent role index
+composition_tests:
+  - role lookup returns the cited symbol and provenance only
+dependency_tests:
+  - no external geometry component is invoked
+out_of_scope_observations:
+  - calculated curvature
+  - calculated geodesic
+  - tangent-space operation
+  - distance value
+  - inferred Hilbert semantics
+pass_condition: all tests pass and only source-present roles are indexed

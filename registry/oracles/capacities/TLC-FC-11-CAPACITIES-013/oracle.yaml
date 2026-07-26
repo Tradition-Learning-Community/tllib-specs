@@ -1,0 +1,24 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-013
+oracle_id: CAP-ORACLE-013
+status: selected_for_capacities_implementation_specification
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-013/test-plan.yaml
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-013/algorithm.yaml
+exact_result_available: false
+oracle_basis: singleton operator-signature descriptor, provenance and absence of application
+acceptance_tests:
+  - id: nominal_descriptor
+    expect: {type: CapacityPrototypeDescriptor, object_ids: [TLC-SO-CAPACITIES-049], operator_applied: false}
+  - {id: missing_object, mutation: omit object, expect_error: MissingCoveredObject}
+  - {id: duplicate_object, mutation: repeat object, expect_error: DuplicateCoveredObject}
+  - {id: missing_provenance, mutation: omit source reference, expect_error: MissingSourceReference}
+  - {id: application_guard, request: apply operator or generate capacity, expect_error: ScientificEvaluationRequested}
+properties: {identity_conservation: true, scope_conservation: true, context_provenance_conservation: true, opaque_symbol_conservation: true, deterministic_for_identical_inputs: true}
+metamorphic_tests:
+  - repeated construction yields equivalent descriptor projection
+  - changing opaque symbol payload does not trigger application
+  - absent domain and codomain remain absent
+composition_tests: [registry exposes signature descriptor under canonical feature id]
+dependency_tests: [no external operator engine invoked]
+out_of_scope_observations: [operator output, generated capacity, inferred domain, inferred codomain, score]
+pass_condition: all tests pass and the operator remains unapplied

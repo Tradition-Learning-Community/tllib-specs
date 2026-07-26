@@ -1,0 +1,45 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-008
+algorithm_id: CAP-ALG-008
+status: selected_for_capacities_implementation_specification
+source_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-008/ir.yaml
+signature: 'CapacityPrototypeDescriptor build_capacity_equation_ast_with_symbol_table(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>)'
+inputs: {required_object_order: [TLC-SO-CAPACITIES-062, TLC-SO-CAPACITIES-068, TLC-SO-CAPACITIES-086, TLC-SO-CAPACITIES-088, TLC-SO-CAPACITIES-091, TLC-SO-CAPACITIES-093, TLC-SO-CAPACITIES-094, TLC-SO-CAPACITIES-096]}
+outputs: [CapacityPrototypeDescriptor]
+validations: [exact feature id, exact duplicate-free object set, complete provenance, structural request]
+preconditions: [all eight source equations available]
+conditions_of_application: [no equation evaluator or observer requested]
+steps:
+  - validate feature and exact object set
+  - restore contract order
+  - construct one opaque unevaluated node per object
+  - build symbol and provenance indexes
+  - mark manifestation object 094 as representation-only
+  - attach non-evaluation guard
+  - return immutable descriptor
+branching: {missing_object: MissingCoveredObject, duplicate_object: DuplicateCoveredObject, missing_provenance: MissingSourceReference, evaluation_requested: ScientificEvaluationRequested}
+capacity_handling: {construction: equation descriptor only, identity_validation: exact, scope_validation: exact, context_validation: provenance}
+relations: none
+activation: not_performed
+mobilization: not_performed
+development: source_nodes_086_and_088_represented_only
+comparison: identifier_and_shape_only
+effects: no measurement, observation, integration or aggregation
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, MissingSourceReference, ScientificEvaluationRequested]
+postconditions: [eight nodes and indexes preserved, manifestation not observed, no scientific value]
+invariants: [opaque equations unexecuted, no cross-node semantics inferred]
+determinism: deterministic
+case_limits: [extra object fails, equation execution fails, behavior observation request fails]
+unresolved_conserved: []
+dependencies: []
+pseudocode: |
+  require feature_id == TLC-FC-11-CAPACITIES-008 else UnknownFeatureId
+  require exact_keys(payloads) == required_ids else MissingCoveredObject
+  require no_duplicates(payloads) else DuplicateCoveredObject
+  require complete_provenance(provenance) else MissingSourceReference
+  require request_is_structural_only() else ScientificEvaluationRequested
+  nodes = [opaque_unevaluated_node(payloads[id]) for id in required_ids]
+  mark_representation_only(nodes[object_094])
+  artifact = immutable_equation_descriptor(feature_id, nodes, provenance)
+  artifact.attach_non_evaluation_guard()
+  return artifact

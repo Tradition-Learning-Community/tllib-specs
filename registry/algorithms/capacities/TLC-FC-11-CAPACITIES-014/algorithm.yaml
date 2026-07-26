@@ -1,0 +1,42 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-014
+algorithm_id: CAP-ALG-014
+status: selected_for_capacities_implementation_specification
+source_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-014/ir.yaml
+signature: 'CapacityOperatorSignature build_actualization_operator_signature(FeatureId, List<OpaqueScientificObject>, Map<ObjectId,List<UnevaluatedSymbol>>, Map<ObjectId,SourceReference>, DecisionBlocker)'
+inputs: {required_object_order: [TLC-SO-CAPACITIES-051]}
+outputs: [CapacityOperatorSignature]
+validations: [exact feature id, exact singleton object, explicit symbol entry, complete provenance, exact blocker, structural request]
+preconditions: [activatability source object present]
+conditions_of_application: [signature construction only]
+steps:
+  - validate targeted envelope
+  - create signature record for source-present operator token
+  - attach source-present latent-domain and acquired-subset tokens
+  - attach provenance, blocker and non-evaluation guard
+  - return immutable signature
+branching: {invalid_membership: MissingCoveredObject or UnexpectedCoveredObject, missing_symbol: MissingSymbolTableEntry, missing_blocker: MissingDecisionBlocker, activation_requested: ScientificEvaluationRequested}
+capacity_handling: {construction: operator signature only, identity_validation: exact, scope_validation: singleton, context_validation: provenance}
+relations: none
+activation: signature_only_no_application
+mobilization: not_performed
+development: not_performed
+comparison: identifier_and_shape_only
+effects: no latent-to-acquired transformation
+errors: [UnknownFeatureId, MissingCoveredObject, UnexpectedCoveredObject, ObjectOrderMismatch, MissingSymbolTableEntry, MissingSourceReference, MissingDecisionBlocker, ScientificEvaluationRequested]
+postconditions: [source-present tokens preserved, blocker unchanged, no capacity state changed]
+invariants: [operator not applied, domain and codomain not expanded]
+determinism: deterministic
+case_limits: [missing token remains missing, extra object fails, activation request fails]
+unresolved_conserved: [scientific decision required]
+dependencies: []
+pseudocode: |
+  require feature_id == TLC-FC-11-CAPACITIES-014 else UnknownFeatureId
+  require exact_order(objects, [051]) else membership_or_order_error
+  require symbol_entry(symbol_table, 051) else MissingSymbolTableEntry
+  require complete_provenance(provenance) else MissingSourceReference
+  require blocker == "scientific decision required" else MissingDecisionBlocker
+  require request_is_structural_only() else ScientificEvaluationRequested
+  signature = source_token_operator_signature(objects[0], symbol_table[051])
+  signature.attach(provenance, blocker, non_evaluation_guard)
+  return immutable(signature)
