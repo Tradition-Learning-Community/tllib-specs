@@ -1,0 +1,97 @@
+schema_version: 1
+ir_id: TLC-OPT-IR-TLC-FC-05-DYNAMICS-004
+feature_id: TLC-FC-05-DYNAMICS-004
+status: selected_for_dynamics_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-05-DYNAMICS-004/contract.yaml
+source_ir_ref: ir/TLC-FC-05-DYNAMICS-004/ir.prototype.json
+source_test_plan_ref: registry/test-plans/TLC-FC-05-DYNAMICS-004/test-plan.yaml
+source_ir_status: prototype
+source_ir_nature: structural
+finalized_ir_nature: declarative_structural
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+traceability:
+  source_objects: [TLC-SO-DYNAMICS-023, TLC-SO-DYNAMICS-024]
+  source_relations: [TLC-SR-DYNAMICS-022, TLC-SR-DYNAMICS-023]
+  scientific_source: maths/05-dynamics.md
+  source_lines: 103-109
+inputs:
+  - {name: external_input, type: OpaqueSignal}
+  - {name: kernel, type: OpaqueKernel}
+  - {name: parameters, type: ParameterMap}
+outputs:
+  - {name: feedback, type: UnevaluatedIntegralExpression}
+types:
+  opaque: [OpaqueSignal, OpaqueKernel, OpaqueValue, OpaqueExpression]
+  identifiers: [ScientificObjectId, ScientificRelationId]
+  parameterized: ["Mapping[K,V]", "Sequence[T]", "Optional[T]"]
+opaque_values: [external_input, kernel, parameters.values]
+states: []
+initial_state: not_applicable
+terminal_state: not_applicable
+preconditions:
+  - every source and parameter identifier exists in the covered Dynamics inventory
+  - signal, kernel, and parameter map preserve their declared carrier shapes
+transition_conditions: []
+operations:
+  - operation_id: OP-004-001
+    kind: construct_symbolic_feedback_expression
+    evaluation: unevaluated
+    behavior: construct the source-defined integral-feedback expression and kernel representation without evaluating either
+execution_order:
+  - validate_source_and_parameter_identifiers
+  - validate_input_shapes
+  - preserve_signal_kernel_and_parameter_payloads
+  - construct_unevaluated_integral_expression
+  - preserve_distinct_feedback_and_kernel_source_identities
+  - attach_unresolved_and_reservations
+  - validate_postconditions
+control_flow:
+  kind: linear_with_validation_failure
+  branches:
+    - condition: unknown source or parameter identifier
+      result: error_without_output
+    - condition: input shape mismatch
+      result: error_without_output
+transitions: []
+effects:
+  scientific: none
+  mutation: none
+  structural: create_unevaluated_integral_expression
+postconditions:
+  - external input, kernel, parameters, and source identities remain distinct and traceable
+  - integral and kernel remain unevaluated
+  - no convergence or domain assertion is emitted
+invariants:
+  - TLC-SO-DYNAMICS-023 and TLC-SO-DYNAMICS-024 remain distinct
+  - opaque payloads remain unchanged
+stop_conditions: []
+errors: [unknown_source_identifier, type_shape_mismatch, unresolved_scientific_semantics]
+determinism: deterministic_structure_construction_only
+stochasticity: not_specified
+seed_management: not_defined
+dependencies:
+  internal:
+    - {feature_id: TLC-FC-05-DYNAMICS-006, kind: inferred_definition, execution_dependency: false}
+  external:
+    - {domain: disciple, kind: symbolic, execution_dependency: false}
+unresolved_propagated: [domains_and_convergence, kernel_parameter_types]
+reservations:
+  - kernel domain, parameter types, integral domain details, and convergence conditions remain unresolved
+  - the integral notation is not executed
+transformations_applied:
+  - normalized signal, kernel, and parameter carriers
+  - extracted common validation and traceability subgraphs
+  - preserved the two scientific source identities separately
+preservation_obligations:
+  - preserve signal, kernel, and parameter payloads
+  - preserve the explicit integration-history notation as source metadata
+  - do not compute an integral or claim convergence
+algorithm_ref: registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-004/algorithm.yaml
+oracle_ref: registry/oracles/dynamics/TLC-FC-05-DYNAMICS-004/oracle.yaml
+implementation_aptitude:
+  structural_package: ready
+  scientific_execution: not_ready
+  reason: domains, parameter types, and convergence are absent
