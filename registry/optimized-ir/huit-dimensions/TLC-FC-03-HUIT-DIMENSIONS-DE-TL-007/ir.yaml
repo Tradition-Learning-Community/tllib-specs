@@ -1,0 +1,70 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007
+domain: huit-dimensions
+status: selected_for_huit_dimensions_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007/contract.yaml
+source_ir: ir/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007/ir.prototype.json
+source_test_plan: ir/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007/test-plan.yaml
+source_ir_status: prototype_ir_with_reservations
+source_ir_scientific_status: noncanonical_engineering_prototype
+nature: structural_declarative_invariant_catalogue
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+inputs:
+- {role: value_invariant_group, type: OpaqueInvariantGroup, scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-014}
+- {role: lived_experience_invariant_group, type: OpaqueInvariantGroup, scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-035}
+outputs:
+- {role: specialized_structural_result, type: InvariantGroupCatalogue, evaluated: false}
+types:
+  opaque: [OpaqueInvariantGroup]
+  result: InvariantGroupCatalogue
+  common: [FeatureId, ScientificObjectId, SourceReference, ReservationId]
+opaque_values: [all_invariant_claims, proof_status]
+preconditions:
+- both dimension-specific groups are present and distinct
+- trace reservations and assumptions are complete
+operations:
+- name: catalogue_declared_invariant_groups
+  kind: deterministic_identity_preserving_catalogue_construction
+  behavior: preserve two separate groups with proof status unresolved
+order_of_execution: [validate, construct, verify]
+control_flow:
+  validate_failure: FAIL-HUIT-007-MISSING-TRACE
+  operation_failure: FAIL-HUIT-007-OPERATION
+  forbidden_semantics: FAIL-HUIT-007-SCIENTIFIC-INVENTION
+states_and_effects: {persistent_state: none, external_effects: none, input_mutation: forbidden}
+postconditions:
+- value and lived-experience groups remain separate
+- dimension keys source ids and proof_status unresolved are retained
+- no contained claim is proven or evaluated
+invariants:
+- scientific object identities remain distinct
+- source statements remain unchanged
+- limited engineering status remains explicit
+errors:
+- {id: FAIL-HUIT-007-MISSING-TRACE, category: missing_traceability_or_role}
+- {id: FAIL-HUIT-007-OPERATION, category: group_merge_or_proof_claim}
+- {id: FAIL-HUIT-007-SCIENTIFIC-INVENTION, category: scientific_evaluation_forbidden}
+determinism: {same_input_same_output: true, catalogue_keying: semantic_dimension_role}
+dependencies: {internal: [], execution: [], documentary: [values, lived-experience]}
+unresolved_propagated:
+- TLC-UNRES-HUIT-007-TYPE
+- TLC-UNRES-HUIT-007-SIGNATURE
+- TLC-UNRES-HUIT-007-UNITS
+- TLC-UNRES-HUIT-007-ORDER
+- TLC-UNRES-HUIT-007-AGGREGATION
+- TLC-UNRES-HUIT-007-NUMERICS
+- TLC-UNRES-HUIT-007-ORACLE
+- TLC-UNRES-HUIT-007-BOUNDARY
+reservations: [TLC-EA-HUIT-007-001]
+transformations_applied:
+- normalized separate invariant group records
+- normalized proof status and trace propagation
+preservation_obligations:
+- preserve group separation claims source ids and unresolved proof status
+- never infer a common invariant or mark a claim proven
+algorithm_ref: registry/algorithms/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007/algorithm.yaml
+oracle_ref: registry/oracles/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007/oracle.yaml
+implementation_readiness: {specification_ready: true, scientific_execution_ready: false, assessment: ready_for_structural_implementation_with_opaque_scientific_payloads}

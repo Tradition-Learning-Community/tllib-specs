@@ -1,0 +1,57 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011
+operation: register_riemannian_metric_declaration
+signature: register_riemannian_metric_declaration(metric_claim) -> RiemannianMetricDeclaration
+source_contract: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011/contract.yaml
+finalized_ir: registry/optimized-ir/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011/ir.yaml
+inputs:
+- metric_claim: OpaqueRiemannianMetricClaim
+output: RiemannianMetricDeclaration
+validations:
+- require claim source identity trace reservations assumptions and unresolved identity
+- reject concrete carrier space tensor coordinates dimensions and geodesic execution
+preconditions: [metric_claim_present, traceability_complete, unresolved_fields_attached]
+steps:
+- validate claim identity trace and propagated sets
+- reject concrete metric or geodesic parameters
+- copy source claim into declaration
+- set metric_tensor carrier_space geodesic_operation and identity unresolved
+- verify opacity source identity and propagation
+branching:
+- missing trace or role: FAIL-HUIT-011-MISSING-TRACE
+- concrete metric or geodesic request: FAIL-HUIT-011-OPERATION
+- invented semantics: FAIL-HUIT-011-SCIENTIFIC-INVENTION
+dimension_access: capacity_metric_claim_role_only
+transformations: declaration_envelope_normalization_only
+errors: [FAIL-HUIT-011-MISSING-TRACE, FAIL-HUIT-011-OPERATION, FAIL-HUIT-011-SCIENTIFIC-INVENTION]
+postconditions:
+- source claim remains unchanged
+- all metric implementation fields remain unresolved
+- no geodesic value is produced
+invariants: [source_identity, opaque_claim, limited_status]
+determinism: deterministic_declaration_construction
+effects: none
+case_limits:
+- missing claim is rejected
+- concrete tensor or carrier type is rejected
+- coordinates topology and numerical dimension are not accepted
+dependencies: {execution: [], documentary: [capacities]}
+unresolved_conserved:
+- TLC-UNRES-HUIT-011-TYPE
+- TLC-UNRES-HUIT-011-SIGNATURE
+- TLC-UNRES-HUIT-011-UNITS
+- TLC-UNRES-HUIT-011-ORDER
+- TLC-UNRES-HUIT-011-AGGREGATION
+- TLC-UNRES-HUIT-011-NUMERICS
+- TLC-UNRES-HUIT-011-ORACLE
+- TLC-UNRES-HUIT-011-BOUNDARY
+- TLC-UNRES-HUIT-011-IDENTITY
+pseudocode: |
+  function register_riemannian_metric_declaration(metric_claim):
+      require_present(metric_claim)
+      validate_traceability_and_reservations(metric_claim)
+      reject_concrete_metric_or_geodesic_request()
+      result = RiemannianMetricDeclaration(copy_opaque(metric_claim))
+      result.set_unresolved(metric_tensor, carrier_space, geodesic_operation, identity)
+      verify_identity_opacity_and_propagation(result)
+      return result

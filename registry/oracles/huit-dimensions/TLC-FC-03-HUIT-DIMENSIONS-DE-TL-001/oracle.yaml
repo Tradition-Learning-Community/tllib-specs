@@ -1,0 +1,51 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001
+operation: assemble_principle_constraint_profile
+source_test_plan: ir/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001/test-plan.yaml
+finalized_ir: registry/optimized-ir/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001/ir.yaml
+algorithm: registry/algorithms/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001/algorithm.yaml
+oracle_kind: structural_acceptance_oracle
+fixture_policy: symbolic_opaque_tokens_only_no_scientific_values
+tests:
+- id: HD-001-NOMINAL
+  category: nominal
+  assertion: result has exactly the three declared role slots and correct object ids
+- id: HD-001-MISSING-ROLE
+  category: precondition_error
+  mutation: remove principle_properties
+  expected_error: FAIL-HUIT-001-MISSING-TRACE
+- id: HD-001-UNKNOWN-ID
+  category: error
+  mutation: bind a required role to an unknown scientific object id
+  expected_error: FAIL-HUIT-001-OPERATION
+- id: HD-001-TYPE
+  category: type
+  assertion: each role retains its declared opaque type without coercion
+- id: HD-001-CARDINALITY
+  category: cardinality
+  assertion: result role count equals three
+- id: HD-001-IDENTITY
+  category: conservation
+  assertion: all three scientific object identities remain distinct and unchanged
+- id: HD-001-OPAQUE
+  category: opaque_propagation
+  assertion: opaque payload bytes round-trip unchanged
+- id: HD-001-UNRESOLVED
+  category: unresolved_propagation
+  assertion: exact eight unresolved identifiers are present and unresolved
+- id: HD-001-DETERMINISM
+  category: determinism
+  assertion: identical inputs produce structurally identical outputs
+- id: HD-001-METAMORPHIC-ORDER
+  category: metamorphic
+  transformation: reorder the input map without changing role bindings
+  assertion: named output slots and payloads remain identical
+- id: HD-001-FORBIDDEN-EVAL
+  category: scientific_boundary
+  mutation: request evaluation or inferred aggregation
+  expected_error: FAIL-HUIT-001-SCIENTIFIC-INVENTION
+- id: HD-001-CONFORMANCE
+  category: contract_ir_algorithm_conformance
+  assertion: signature roles result errors postconditions reservations and unresolved sets agree
+numeric_expected_results: []
+acceptance: all_tests_pass

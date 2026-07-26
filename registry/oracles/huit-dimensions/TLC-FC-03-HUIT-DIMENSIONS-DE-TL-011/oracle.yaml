@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011
+operation: register_riemannian_metric_declaration
+source_test_plan: ir/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011/test-plan.yaml
+finalized_ir: registry/optimized-ir/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011/ir.yaml
+algorithm: registry/algorithms/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011/algorithm.yaml
+oracle_kind: structural_acceptance_oracle
+fixture_policy: symbolic_opaque_metric_claim_only_no_scientific_values
+tests:
+- {id: HD-011-NOMINAL, category: nominal, assertion: declaration retains source claim and four unresolved fields}
+- {id: HD-011-MISSING, category: precondition_error, mutation: remove riemannian_metric_claim, expected_error: FAIL-HUIT-011-MISSING-TRACE}
+- {id: HD-011-TYPE, category: type, assertion: result is a declaration not a metric tensor or numeric object}
+- {id: HD-011-SOURCE, category: conservation, assertion: metric claim object id source trace and payload remain unchanged}
+- {id: HD-011-OPAQUE, category: opaque_propagation, assertion: carrier tensor and geodesic tokens remain opaque}
+- {id: HD-011-UNRESOLVED, category: unresolved_propagation, assertion: exact nine unresolved ids and metric fields remain unresolved}
+- {id: HD-011-DETERMINISM, category: determinism, assertion: identical claim produces identical declaration}
+- {id: HD-011-NO-GEODESIC, category: scientific_boundary, mutation: request geodesic computation, expected_error: FAIL-HUIT-011-OPERATION}
+- {id: HD-011-NO-CONCRETE, category: scientific_boundary, mutation: provide concrete carrier or tensor semantics, expected_error: FAIL-HUIT-011-OPERATION}
+- {id: HD-011-METAMORPHIC, category: metamorphic, transformation: replace opaque payload token with another token preserving metadata, assertion: only payload changes and remains unevaluated}
+- {id: HD-011-BOUNDARY, category: feature_boundary, assertion: identity and boundary statuses remain unresolved}
+- {id: HD-011-CONFORMANCE, category: contract_ir_algorithm_conformance, assertion: role output errors and propagated sets agree}
+numeric_expected_results: []
+acceptance: all_tests_pass

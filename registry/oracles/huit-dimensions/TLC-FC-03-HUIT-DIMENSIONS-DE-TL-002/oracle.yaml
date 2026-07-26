@@ -1,0 +1,22 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002
+operation: build_message_convergence_constraint
+source_test_plan: ir/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002/test-plan.yaml
+finalized_ir: registry/optimized-ir/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002/ir.yaml
+algorithm: registry/algorithms/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002/algorithm.yaml
+oracle_kind: structural_acceptance_oracle
+fixture_policy: symbolic_opaque_tokens_only_no_scientific_values
+tests:
+- {id: HD-002-NOMINAL, category: nominal, assertion: record retains declaration three phase labels and opaque Gamma and limit tokens}
+- {id: HD-002-MISSING, category: precondition_error, mutation: remove convergence_declaration, expected_error: FAIL-HUIT-002-MISSING-TRACE}
+- {id: HD-002-PHASE, category: cardinality, mutation: remove one phase label, expected_error: FAIL-HUIT-002-OPERATION}
+- {id: HD-002-TRACE, category: conservation, assertion: equation source identity and locations remain unchanged}
+- {id: HD-002-OPAQUE, category: opaque_propagation, assertion: operator and declaration bytes remain unchanged and unevaluated}
+- {id: HD-002-UNRESOLVED, category: unresolved_propagation, assertion: exact nine unresolved ids remain unresolved}
+- {id: HD-002-DETERMINISM, category: determinism, assertion: identical inputs produce identical records}
+- {id: HD-002-METAMORPHIC, category: metamorphic, transformation: reorder phase label input map, assertion: named phase bindings remain identical}
+- {id: HD-002-NO-CONVERGENCE, category: scientific_boundary, mutation: request convergence evaluation, expected_error: FAIL-HUIT-002-SCIENTIFIC-INVENTION}
+- {id: HD-002-IDENTITY, category: feature_boundary, assertion: feature_boundary_status and identity_status equal unresolved}
+- {id: HD-002-CONFORMANCE, category: contract_ir_algorithm_conformance, assertion: signature output errors and propagated sets agree}
+numeric_expected_results: []
+acceptance: all_tests_pass

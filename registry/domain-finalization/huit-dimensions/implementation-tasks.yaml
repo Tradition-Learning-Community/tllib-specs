@@ -1,0 +1,88 @@
+schema_version: 1
+domain: huit-dimensions
+status: ready_for_developer_assignment
+constraints:
+- implement from finalized IR and algorithm only
+- use oracles as acceptance criteria
+- preserve source contracts and IRs
+- do not add scientific evaluation
+shared_tasks:
+- task_id: HD-IMPL-SHARED-001
+  title: Implement immutable opaque value and traceability types
+  depends_on: []
+  acceptance: all opaque bytes and identifiers round-trip unchanged
+- task_id: HD-IMPL-SHARED-002
+  title: Implement role binding and common validation
+  depends_on: [HD-IMPL-SHARED-001]
+  acceptance: missing duplicate aliased and untraceable roles produce structured source-coded errors
+- task_id: HD-IMPL-SHARED-003
+  title: Implement unresolved and reservation propagation verifier
+  depends_on: [HD-IMPL-SHARED-001]
+  acceptance: output reservation sets exactly equal declared source sets
+- task_id: HD-IMPL-SHARED-004
+  title: Implement deterministic technical serialization
+  depends_on: [HD-IMPL-SHARED-001]
+  acceptance: identical inputs serialize identically without implying scientific order
+feature_tasks:
+- task_id: HD-IMPL-001
+  feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001
+  operation: assemble_principle_constraint_profile
+  depends_on: [HD-IMPL-SHARED-001, HD-IMPL-SHARED-002, HD-IMPL-SHARED-003]
+- task_id: HD-IMPL-002
+  feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002
+  operation: build_message_convergence_constraint
+  depends_on: [HD-IMPL-SHARED-001, HD-IMPL-SHARED-002, HD-IMPL-SHARED-003]
+- task_id: HD-IMPL-005
+  feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005
+  operation: index_dimension_dynamics_laws
+  depends_on: [HD-IMPL-SHARED-001, HD-IMPL-SHARED-002, HD-IMPL-SHARED-003]
+- task_id: HD-IMPL-006
+  feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006
+  operation: bind_symbolic_equation_definitions
+  depends_on: [HD-IMPL-SHARED-001, HD-IMPL-SHARED-002, HD-IMPL-SHARED-003]
+- task_id: HD-IMPL-007
+  feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007
+  operation: catalogue_declared_invariant_groups
+  depends_on: [HD-IMPL-SHARED-001, HD-IMPL-SHARED-002, HD-IMPL-SHARED-003]
+- task_id: HD-IMPL-008
+  feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008
+  operation: register_partial_invariance_claims
+  depends_on: [HD-IMPL-SHARED-001, HD-IMPL-SHARED-002, HD-IMPL-SHARED-003]
+- task_id: HD-IMPL-009
+  feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009
+  operation: compare_principle_invariance_declarations
+  depends_on: [HD-IMPL-SHARED-001, HD-IMPL-SHARED-002, HD-IMPL-SHARED-003]
+- task_id: HD-IMPL-010
+  feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010
+  operation: describe_capacity_metric_requirements
+  depends_on: [HD-IMPL-SHARED-001, HD-IMPL-SHARED-002, HD-IMPL-SHARED-003]
+- task_id: HD-IMPL-011
+  feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011
+  operation: register_riemannian_metric_declaration
+  depends_on: [HD-IMPL-SHARED-001, HD-IMPL-SHARED-002, HD-IMPL-SHARED-003]
+- task_id: HD-IMPL-012
+  feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012
+  operation: build_nonzero_latency_measure_claim
+  depends_on: [HD-IMPL-SHARED-001, HD-IMPL-SHARED-002, HD-IMPL-SHARED-003]
+- task_id: HD-IMPL-013
+  feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013
+  operation: assemble_activation_and_cns_obligations
+  depends_on: [HD-IMPL-SHARED-001, HD-IMPL-SHARED-002, HD-IMPL-SHARED-003]
+verification_tasks:
+- task_id: HD-VERIFY-001
+  title: Implement all per-feature oracle suites
+  depends_on: [HD-IMPL-001, HD-IMPL-002, HD-IMPL-005, HD-IMPL-006, HD-IMPL-007, HD-IMPL-008, HD-IMPL-009, HD-IMPL-010, HD-IMPL-011, HD-IMPL-012, HD-IMPL-013]
+  acceptance: every nominal error determinism preservation opaque and unresolved propagation test passes
+- task_id: HD-VERIFY-002
+  title: Verify backend structural conformance
+  depends_on: [HD-VERIFY-001, HD-IMPL-SHARED-004]
+  acceptance: all supported backends return equivalent observable records and source-coded errors
+scientific_follow_up_tasks:
+- task_id: HD-SCI-001
+  title: Review unresolved feature boundaries and identities
+  implementation_blocking: false
+  scope: [TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002, TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008, TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009, TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011, TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012, TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013]
+- task_id: HD-SCI-002
+  title: Define scientific operators types units metrics and numerical methods when authorized
+  implementation_blocking: false
+  scope: future_scientific_execution_only

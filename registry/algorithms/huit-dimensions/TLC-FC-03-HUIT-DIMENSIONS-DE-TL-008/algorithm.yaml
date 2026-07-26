@@ -1,0 +1,62 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008
+operation: register_partial_invariance_claims
+signature: register_partial_invariance_claims(value_partial_invariance, temporal_core_invariance) -> PartialInvarianceRegistry
+source_contract: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008/contract.yaml
+finalized_ir: registry/optimized-ir/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008/ir.yaml
+inputs:
+- value_partial_invariance: OpaquePerturbationInvariantClaim
+- temporal_core_invariance: OpaqueTemporalCoreClaim
+output: PartialInvarianceRegistry
+validations:
+- require both claims distinct source identities and explicit context tags
+- require trace reservations assumptions and unresolved identity status
+- reject shared-invariant inference and verification requests
+preconditions: [two_claims_present, contexts_present, traceability_complete]
+steps:
+- validate roles identities contexts and traces
+- reject aliases missing contexts equivalence or verification requests
+- copy each claim into its context-specific registry entry
+- set verification_status and identity_status unresolved
+- verify separation opacity and propagation
+branching:
+- missing trace or role: FAIL-HUIT-008-MISSING-TRACE
+- missing context or invariant inference: FAIL-HUIT-008-OPERATION
+- invented semantics: FAIL-HUIT-008-SCIENTIFIC-INVENTION
+dimension_access: semantic_contexts_values_and_lived_experience_only
+transformations: context_tagged_record_normalization_only
+errors: [FAIL-HUIT-008-MISSING-TRACE, FAIL-HUIT-008-OPERATION, FAIL-HUIT-008-SCIENTIFIC-INVENTION]
+postconditions:
+- exactly two distinct context records exist
+- verification and identity remain unresolved
+- claim payloads and traces remain unchanged
+invariants: [claim_separation, context_preservation, source_identity, limited_status]
+determinism: deterministic_registry_construction
+effects: none
+case_limits:
+- claim without context is rejected
+- shared source identity is rejected
+- lexical resemblance has no semantic effect
+dependencies: {execution: [], documentary: [values, lived-experience]}
+unresolved_conserved:
+- TLC-UNRES-HUIT-008-TYPE
+- TLC-UNRES-HUIT-008-SIGNATURE
+- TLC-UNRES-HUIT-008-UNITS
+- TLC-UNRES-HUIT-008-ORDER
+- TLC-UNRES-HUIT-008-AGGREGATION
+- TLC-UNRES-HUIT-008-NUMERICS
+- TLC-UNRES-HUIT-008-ORACLE
+- TLC-UNRES-HUIT-008-BOUNDARY
+- TLC-UNRES-HUIT-008-IDENTITY
+pseudocode: |
+  function register_partial_invariance_claims(value_partial_invariance, temporal_core_invariance):
+      require_present(value_partial_invariance, temporal_core_invariance)
+      require_context_tags_and_distinct_ids(value_partial_invariance, temporal_core_invariance)
+      validate_traceability_and_reservations([value_partial_invariance, temporal_core_invariance])
+      reject_equivalence_or_verification_request()
+      result = PartialInvarianceRegistry()
+      result.add(values_context, copy_opaque(value_partial_invariance), verification_status=unresolved)
+      result.add(lived_experience_context, copy_opaque(temporal_core_invariance), verification_status=unresolved)
+      result.set_identity_status(unresolved)
+      verify_separation_identity_and_propagation(result)
+      return result

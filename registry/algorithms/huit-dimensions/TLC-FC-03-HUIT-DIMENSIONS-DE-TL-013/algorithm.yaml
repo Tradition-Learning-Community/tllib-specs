@@ -1,0 +1,63 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013
+operation: assemble_activation_and_cns_obligations
+signature: assemble_activation_and_cns_obligations(activation_claim, completeness_claim, necessity_claim) -> ActivationCNSObligationSet
+source_contract: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013/contract.yaml
+finalized_ir: registry/optimized-ir/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013/ir.yaml
+inputs:
+- activation_claim: OpaqueActivationOperatorClaim
+- completeness_claim: OpaqueCompletenessClaim
+- necessity_claim: OpaqueNecessityClaim
+output: ActivationCNSObligationSet
+validations:
+- require all three claims with distinct ids exact traces reservations assumptions and unresolved identity
+- reject substitution activation execution exhaustive coverage assertion and dimension removal simulation
+preconditions: [three_claims_present, identities_distinct, traceability_complete]
+steps:
+- validate roles claim types identities source traces and propagated sets
+- reject aliases substitutions execution proof or simulation requests
+- copy each claim into its separately typed obligation record
+- set fulfillment_status boundary and identity unresolved
+- verify cardinality separation opacity and propagation
+branching:
+- missing trace or role: FAIL-HUIT-013-MISSING-TRACE
+- substitution execution coverage or removal simulation: FAIL-HUIT-013-OPERATION
+- invented semantics: FAIL-HUIT-013-SCIENTIFIC-INVENTION
+dimension_access: explicit_activation_completeness_and_necessity_roles_only
+transformations: three_obligation_record_normalization_only
+errors: [FAIL-HUIT-013-MISSING-TRACE, FAIL-HUIT-013-OPERATION, FAIL-HUIT-013-SCIENTIFIC-INVENTION]
+postconditions:
+- exactly three non-substitutable typed obligations exist
+- all claims and traces remain unchanged
+- fulfillment boundary and identity remain unresolved
+invariants: [obligation_separation, source_identity, limited_status]
+determinism: deterministic_obligation_set_construction
+effects: none
+case_limits:
+- missing or duplicate obligation is rejected
+- completeness and necessity may not be substituted
+- no dimension is removed or simulated
+dependencies: {execution: [], documentary: [capacities, message, principles, values, virtues, competencies, practice, lived-experience]}
+unresolved_conserved:
+- TLC-UNRES-HUIT-013-TYPE
+- TLC-UNRES-HUIT-013-SIGNATURE
+- TLC-UNRES-HUIT-013-UNITS
+- TLC-UNRES-HUIT-013-ORDER
+- TLC-UNRES-HUIT-013-AGGREGATION
+- TLC-UNRES-HUIT-013-NUMERICS
+- TLC-UNRES-HUIT-013-ORACLE
+- TLC-UNRES-HUIT-013-BOUNDARY
+- TLC-UNRES-HUIT-013-IDENTITY
+pseudocode: |
+  function assemble_activation_and_cns_obligations(activation_claim, completeness_claim, necessity_claim):
+      claims = {activation: activation_claim, completeness: completeness_claim, necessity: necessity_claim}
+      require_exact_roles(claims, [activation, completeness, necessity])
+      require_distinct_ids_and_types(claims)
+      validate_traceability_and_reservations(claims)
+      reject_substitution_execution_proof_or_simulation()
+      result = ActivationCNSObligationSet()
+      for role in [activation, completeness, necessity]:
+          result.add_typed_obligation(role, copy_opaque(claims[role]), fulfillment_status=unresolved)
+      result.set_statuses(boundary=unresolved, identity=unresolved)
+      verify_cardinality_separation_and_propagation(result, 3)
+      return result

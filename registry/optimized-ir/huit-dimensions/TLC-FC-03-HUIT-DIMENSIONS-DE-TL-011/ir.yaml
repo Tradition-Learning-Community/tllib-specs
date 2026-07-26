@@ -1,0 +1,69 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011
+domain: huit-dimensions
+status: selected_for_huit_dimensions_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011/contract.yaml
+source_ir: ir/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011/ir.prototype.json
+source_test_plan: ir/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011/test-plan.yaml
+source_ir_status: prototype_ir_with_reservations
+source_ir_scientific_status: noncanonical_engineering_prototype
+nature: structural_declarative_metric_declaration
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+inputs:
+- {role: riemannian_metric_claim, type: OpaqueRiemannianMetricClaim, scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-093}
+outputs:
+- {role: specialized_structural_result, type: RiemannianMetricDeclaration, evaluated: false}
+types:
+  opaque: [OpaqueRiemannianMetricClaim, OpaqueMetricTensor, OpaqueCarrierSpace, OpaqueGeodesicOperation]
+  result: RiemannianMetricDeclaration
+  common: [FeatureId, ScientificObjectId, SourceReference, ReservationId]
+opaque_values: [metric_tensor, carrier_space, geodesic_operation]
+preconditions:
+- metric claim is present with complete source trace
+- reservations assumptions and unresolved identity status are attached
+operations:
+- name: register_riemannian_metric_declaration
+  kind: deterministic_identity_preserving_declaration_construction
+  behavior: preserve the claim while metric tensor carrier space and geodesic operation remain unresolved
+order_of_execution: [validate, construct, verify]
+control_flow:
+  validate_failure: FAIL-HUIT-011-MISSING-TRACE
+  operation_failure: FAIL-HUIT-011-OPERATION
+  forbidden_semantics: FAIL-HUIT-011-SCIENTIFIC-INVENTION
+states_and_effects: {persistent_state: none, external_effects: none, input_mutation: forbidden}
+postconditions:
+- source claim and metric symbol remain present
+- metric_tensor carrier_space geodesic_operation and identity remain unresolved
+- no geodesic or metric calculation occurs
+invariants:
+- source object identity and statement remain unchanged
+- limited engineering status remains explicit
+errors:
+- {id: FAIL-HUIT-011-MISSING-TRACE, category: missing_traceability_or_role}
+- {id: FAIL-HUIT-011-OPERATION, category: concrete_metric_or_geodesic_request}
+- {id: FAIL-HUIT-011-SCIENTIFIC-INVENTION, category: scientific_evaluation_forbidden}
+determinism: {same_input_same_output: true, scientific_order_implied: false}
+dependencies: {internal: [], execution: [], documentary: [capacities]}
+unresolved_propagated:
+- TLC-UNRES-HUIT-011-TYPE
+- TLC-UNRES-HUIT-011-SIGNATURE
+- TLC-UNRES-HUIT-011-UNITS
+- TLC-UNRES-HUIT-011-ORDER
+- TLC-UNRES-HUIT-011-AGGREGATION
+- TLC-UNRES-HUIT-011-NUMERICS
+- TLC-UNRES-HUIT-011-ORACLE
+- TLC-UNRES-HUIT-011-BOUNDARY
+- TLC-UNRES-HUIT-011-IDENTITY
+reservations: [TLC-EA-HUIT-011-001]
+transformations_applied:
+- normalized metric claim and unresolved obligation fields
+- normalized opaque trace and identity propagation
+preservation_obligations:
+- preserve metric claim source identity and unresolved fields
+- never select carrier space tensor coordinates dimension or geodesic algorithm
+algorithm_ref: registry/algorithms/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011/algorithm.yaml
+oracle_ref: registry/oracles/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011/oracle.yaml
+implementation_readiness: {specification_ready: true, scientific_execution_ready: false, assessment: ready_for_structural_implementation_with_opaque_scientific_payloads}

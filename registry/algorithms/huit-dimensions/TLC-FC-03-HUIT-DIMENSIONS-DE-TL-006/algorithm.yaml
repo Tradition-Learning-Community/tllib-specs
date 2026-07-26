@@ -1,0 +1,60 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006
+operation: bind_symbolic_equation_definitions
+signature: bind_symbolic_equation_definitions(principle_message_equation, just_mean_equation) -> SymbolicEquationSet
+source_contract: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006/contract.yaml
+finalized_ir: registry/optimized-ir/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006/ir.yaml
+inputs:
+- principle_message_equation: OpaqueLimitEquation
+- just_mean_equation: OpaqueArgminEquation
+output: SymbolicEquationSet
+validations:
+- require both named equations and distinct scientific object ids
+- require exact source trace reservations and assumptions
+- reject aliasing and every operator evaluation request
+preconditions: [two_equations_present, identities_distinct, traceability_complete]
+steps:
+- validate required roles identities and traces
+- reject aliasing solver parameters or evaluation flags
+- copy each equation into its stable named definition
+- attach opaque operator tokens and unresolved statuses
+- verify two-entry cardinality identity and propagation
+branching:
+- missing trace or role: FAIL-HUIT-006-MISSING-TRACE
+- alias or evaluation request: FAIL-HUIT-006-OPERATION
+- invented semantics: FAIL-HUIT-006-SCIENTIFIC-INVENTION
+dimension_access: declared_principle_and_virtue_source_roles_only
+transformations: symbolic_record_normalization_without_expression_change
+errors: [FAIL-HUIT-006-MISSING-TRACE, FAIL-HUIT-006-OPERATION, FAIL-HUIT-006-SCIENTIFIC-INVENTION]
+postconditions:
+- two non-aliased definitions exist
+- limit Gamma distance and argmin remain opaque
+- all unresolved ids remain present
+invariants: [distinct_equation_identity, source_trace_preserved, limited_status]
+determinism: deterministic_record_construction
+effects: none
+case_limits:
+- one equation is rejected
+- duplicate source identity is rejected
+- expression parsing may preserve text but may not infer semantics
+dependencies: {execution: [], documentary: [principles, virtues]}
+unresolved_conserved:
+- TLC-UNRES-HUIT-006-TYPE
+- TLC-UNRES-HUIT-006-SIGNATURE
+- TLC-UNRES-HUIT-006-UNITS
+- TLC-UNRES-HUIT-006-ORDER
+- TLC-UNRES-HUIT-006-AGGREGATION
+- TLC-UNRES-HUIT-006-NUMERICS
+- TLC-UNRES-HUIT-006-ORACLE
+- TLC-UNRES-HUIT-006-BOUNDARY
+pseudocode: |
+  function bind_symbolic_equation_definitions(principle_message_equation, just_mean_equation):
+      require_present(principle_message_equation, just_mean_equation)
+      require_distinct_source_ids(principle_message_equation, just_mean_equation)
+      validate_traceability_and_reservations([principle_message_equation, just_mean_equation])
+      reject_alias_or_evaluation_request()
+      result = SymbolicEquationSet()
+      result.add(principle_message_equation, copy_opaque(principle_message_equation))
+      result.add(just_mean_equation, copy_opaque(just_mean_equation))
+      verify_cardinality_identity_and_propagation(result, 2)
+      return result
