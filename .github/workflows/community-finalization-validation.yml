@@ -8,6 +8,9 @@ on:
 permissions:
   contents: read
 
+env:
+  VALIDATOR: tools/domain-finalization/validate_community_finalization.py
+
 jobs:
   validate-community-finalization:
     runs-on: ubuntu-latest
@@ -17,12 +20,24 @@ jobs:
         with:
           fetch-depth: 0
           show-progress: false
-      - name: Validate package and protected paths
+      - name: Install validator dependency
+        run: python -m pip install -q --disable-pip-version-check pyyaml
+      - name: Validate authoritative population
+        run: python -c 'import runpy; n=runpy.run_path("tools/domain-finalization/validate_community_finalization.py"); n["validate_population"]()'
+      - name: Validate all source chains
+        run: python -c 'import runpy; n=runpy.run_path("tools/domain-finalization/validate_community_finalization.py"); [n["validate_source"](f) for f in n["FEATURES"]]'
+      - name: Validate all IR algorithm oracle triplets
+        run: python -c 'import runpy; n=runpy.run_path("tools/domain-finalization/validate_community_finalization.py"); [n["validate_triplet"](f) for f in n["FEATURES"]]'
+      - name: Validate module documents
+        run: python -c 'import runpy; n=runpy.run_path("tools/domain-finalization/validate_community_finalization.py"); n["validate_module"]()'
+      - name: Validate changed paths and whitespace
+        run: python -c 'import runpy; n=runpy.run_path("tools/domain-finalization/validate_community_finalization.py"); n["validate_paths"]()'
+      - name: Run complete Community validator
+        run: python tools/domain-finalization/validate_community_finalization.py
+      - name: Verify protected scopes independently
         shell: bash
         run: |
           set -euo pipefail
-          python -m pip install -q --disable-pip-version-check pyyaml
-          python tools/domain-finalization/validate_community_finalization.py
           git diff --check c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD
           git diff --name-only c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD | tee /tmp/community-changed-paths.txt
           ! grep -E '^(maths/|registry/global-reconciliation/|registry/math-contracts/|registry/ir/|ir/)' /tmp/community-changed-paths.txt
