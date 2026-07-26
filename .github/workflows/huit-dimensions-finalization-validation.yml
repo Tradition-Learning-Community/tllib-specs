@@ -1,0 +1,38 @@
+name: Temporary Huit Dimensions finalization validation
+
+on:
+  push:
+    branches:
+      - phase4/huit-dimensions-domain-finalization-001
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install validator dependency
+        run: python -m pip install --disable-pip-version-check PyYAML
+      - name: Run domain validator
+        run: python tools/domain-finalization/validate_huit_dimensions_finalization.py
+      - name: Check whitespace
+        run: git diff --check origin/main...HEAD
+      - name: Verify changed-path scope
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --name-only origin/main...HEAD | tee /tmp/huit-paths.txt
+          if grep -E '^(maths/|registry/global-reconciliation/)' /tmp/huit-paths.txt; then exit 1; fi
+          if grep -Ei '(^|/)(master|disciple|community)(/|$)' /tmp/huit-paths.txt; then exit 1; fi
+          if grep -Ei '\.(c|cc|cpp|cxx|h|hh|hpp|hxx)$' /tmp/huit-paths.txt; then exit 1; fi
+          if grep -Ei '(bindings/|reference[-_]implementation|__pycache__|\.status$|/logs?/|/caches?/)' /tmp/huit-paths.txt; then exit 1; fi
