@@ -1,0 +1,43 @@
+schema_version: 1
+feature_id: TLC-FC-07-MESSAGE-002
+status: selected_for_message_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-07-MESSAGE-002/contract.yaml
+source_ir: registry/ir/TLC-FC-07-MESSAGE-002/ir.yaml
+source_test_plan: registry/test-plans/TLC-FC-07-MESSAGE-002/test-plan.yaml
+source_ir_status: prototype_ir_with_reservations
+nature: declarative
+inputs:
+  - {name: preexistence_evidence, type: OpaquePreexistenceEvidence, content_policy: opaque_candidate_evidence}
+outputs:
+  - {name: preexistence_claim, type: UnevaluatedPreexistenceClaim, verification_status: unavailable_without_oracle}
+types:
+  opaque: [OpaqueScientificPayload, OpaqueSourceContext]
+  parameterized: [OpaquePreexistenceEvidence, UnevaluatedPreexistenceClaim]
+content_or_reference: preserve TLC-SO-MESSAGE-013 and its source range
+opaque_values: [ontology, time_model, existence_predicate, scientific_oracle]
+roles_explicitly_defined: [preexistence_evidence, unevaluated_claim]
+context: source-declared preexistence statement
+metadata: [feature_id, source_reference, object_id, candidate_status, verification_status]
+preconditions: [TLC-SO-MESSAGE-013 and source range supplied unchanged]
+operations: [validate_evidence_identity, construct_claim_record, set_verification_unavailable, attach_provenance]
+execution_order: [validate, construct, mark_unavailable, attach_provenance]
+control_flow: reject_missing_evidence_or_oracle_evaluation_request
+transformations_authorized: [identity_preserving_claim_registration]
+effects: [create_unevaluated_claim_record]
+postconditions: [statement preserved, no truth value produced, no executable oracle produced]
+invariants: [object_identity_preserved, source_addressability_preserved, scientific_evaluation_prohibited]
+errors: [MissingPreexistenceEvidence, OracleEvaluationRequested]
+determinism: deterministic_for_identical_evidence
+dependencies: [TLC-FC-07-MESSAGE-006]
+unresolved_propagated: []
+reservations: []
+transformations_applied_to_ir: [normalized_traceability, explicit_unavailable_oracle_status]
+preservation_obligations: [content, identity, provenance, candidate_status]
+algorithm: registry/algorithms/message/TLC-FC-07-MESSAGE-002/algorithm.yaml
+oracle: registry/oracles/message/TLC-FC-07-MESSAGE-002/oracle.yaml
+implementation_aptitude: ready_for_declarative_claim_registration
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+message_content_invented: false

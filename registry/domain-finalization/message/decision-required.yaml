@@ -1,0 +1,29 @@
+schema_version: 1
+domain: message
+blocking: []
+non_blocking:
+  - id: MESSAGE-RUNTIME-TYPES
+    classification: parameter_required
+    scope: feature_specific_runtime_representations
+  - id: MESSAGE-SERIALIZATION-FORMAT
+    classification: implementation_out_of_scope
+    scope: concrete_wire_or_storage_format
+  - id: MESSAGE-TRANSPORT
+    classification: external_transport_required
+    scope: transmission_mechanics_sender_receiver_channel_delivery
+  - id: MESSAGE-INTERPRETATION
+    classification: external_interpreter_required
+    scope: scientific_or_semantic_interpretation
+preserved_as_opaque:
+  - OpaqueScientificPayload
+  - OpaqueSourceContext
+  - all source-declared content references
+  - all unresolved terms listed by source contracts
+deferred_to_scientific_review:
+  - TLC-DUP-MESSAGE-001
+  - TLC-DUP-MESSAGE-002
+  - scientific classification and hierarchy
+  - existence predicate and oracle
+  - acceptance criteria
+  - transition and transformation semantics
+closure_effect: none_of_these_items_prevents_the_declared_structural_behaviors_from_being_implemented

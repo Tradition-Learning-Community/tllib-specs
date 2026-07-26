@@ -1,0 +1,30 @@
+schema_version: 1
+feature_id: TLC-FC-07-MESSAGE-002
+signature: register_message_preexistence_claim(preexistence_evidence) -> UnevaluatedPreexistenceClaim
+inputs: [OpaquePreexistenceEvidence]
+outputs: [UnevaluatedPreexistenceClaim]
+validations: [TLC-SO-MESSAGE-013_identity, source_range_unchanged]
+preconditions: [evidence present]
+steps: [validate evidence, construct claim record, preserve opaque statement, set verification_status unavailable_without_oracle, attach provenance]
+branching: oracle evaluation request is rejected
+content_handling: unchanged opaque evidence
+role_validation: [preexistence_evidence, unevaluated_claim]
+metadata_handling: preserve source and candidate status
+transformation: identity-preserving registration only
+transmission: external_transport_required
+interpretation: external_interpreter_required
+effects: create claim record
+errors: [MissingPreexistenceEvidence, OracleEvaluationRequested]
+postconditions: [statement preserved, truth value absent, executable oracle absent]
+invariants: [identity, provenance, non_evaluation]
+determinism: deterministic
+case_limits: [missing evidence, evaluation requested]
+dependencies: [TLC-FC-07-MESSAGE-006]
+unresolved_preserved: [ontology, time_model, existence_predicate, scientific_oracle]
+pseudocode: |
+  require_object(preexistence_evidence, TLC-SO-MESSAGE-013)
+  reject_if_oracle_evaluation_requested(preexistence_evidence)
+  claim = UnevaluatedPreexistenceClaim(reference=preexistence_evidence.reference)
+  claim.verification_status = unavailable_without_oracle
+  claim.attach_opaque_payload_and_provenance(preexistence_evidence)
+  return claim

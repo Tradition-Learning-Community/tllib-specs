@@ -1,0 +1,17 @@
+schema_version: 1
+feature_id: TLC-FC-07-MESSAGE-003
+source_test_plan: registry/test-plans/TLC-FC-07-MESSAGE-003/test-plan.yaml
+acceptance_target: registry/optimized-ir/message/TLC-FC-07-MESSAGE-003/ir.yaml
+oracle_kind: structural_evidence
+fixtures_policy: two source identifiers with opaque sentinel payloads only
+tests:
+  - {id: MSG003-NOMINAL, kind: nominal, assert: both identities and shared subsection preserved; acceptance rule unresolved}
+  - {id: MSG003-INCOMPLETE, kind: precondition_error, expect_error: IncompleteExistentialEvidencePair}
+  - {id: MSG003-CONTEXT, kind: reference_error, expect_error: MismatchedSourceSubsection}
+  - {id: MSG003-CONTENT, kind: content_conservation, assert: both opaque payloads unchanged}
+  - {id: MSG003-IDENTITY, kind: identity_conservation, assert: TLC-SO-MESSAGE-020 and TLC-SO-MESSAGE-049 remain distinct}
+  - {id: MSG003-METADATA, kind: metadata, assert: source subsection and candidate status preserved}
+  - {id: MSG003-DETERMINISM, kind: determinism, assert: identical pair gives structurally equal descriptor}
+  - {id: MSG003-ROUNDTRIP, kind: serialization_roundtrip, assert: identities provenance opaque values and unresolved marker preserved}
+  - {id: MSG003-NO-ACCEPT, kind: forbidden_behavior, assert: no scientific acceptance decision produced}
+properties: [pair_completeness, identity_preservation, unresolved_propagation]

@@ -1,0 +1,60 @@
+schema_version: 1
+module: message
+status: selected_for_message_implementation_specification
+public_operations:
+  TLC-FC-07-MESSAGE-001: construct_message_quadruplet_ast
+  TLC-FC-07-MESSAGE-002: register_message_preexistence_claim
+  TLC-FC-07-MESSAGE-003: assemble_existential_discourse_evidence
+  TLC-FC-07-MESSAGE-004: index_message_forms_and_process_states
+  TLC-FC-07-MESSAGE-005: assemble_message_existential_cycle_descriptor
+  TLC-FC-07-MESSAGE-006: declare_message_entity_profile
+internal_operations:
+  - validate_required_identifiers
+  - validate_source_references
+  - preserve_object_and_relation_identity
+  - preserve_source_order_when_declared
+  - attach_provenance
+  - attach_unresolved_and_reservations
+  - verify_feature_postcondition
+shared_types:
+  opaque: [OpaqueScientificPayload, OpaqueSourceContext, OpaqueValue, ExternalReference]
+  structural: [EvidenceReference, SourceReference, StructuredError, UnresolvedMarker]
+feature_types:
+  TLC-FC-07-MESSAGE-001: [MessageDefinitionEvidenceSet, ImmutableMessageQuadrupletAst, ImmutableSymbolicAst]
+  TLC-FC-07-MESSAGE-002: [OpaquePreexistenceEvidence, UnevaluatedPreexistenceClaim]
+  TLC-FC-07-MESSAGE-003: [ExistentialDiscourseEvidencePair, CandidateExistentialOracleEvidence]
+  TLC-FC-07-MESSAGE-004: [MessageStateConceptRecord, MessageFormsAndStatesCatalogue]
+  TLC-FC-07-MESSAGE-005: [MessageCycleDeclarationRecord, MessageExistentialCycleDescriptor]
+  TLC-FC-07-MESSAGE-006: [MessageEntityDeclarationEvidence, DeclaredMessageEntityProfile]
+behavior_separation:
+  represent: supported for all six features
+  validate: supported for all six features
+  transform: only structural construction/grouping explicitly declared by each contract
+  transmit: external_transport_required; no protocol defined
+  receive: implementation_out_of_scope; no receiver defined
+  interpret: external_interpreter_required; scientific evaluation prohibited
+roles:
+  explicitly_defined:
+    TLC-FC-07-MESSAGE-006: [entity, essential_properties, transmissibility]
+  not_invented: [sender, recipient, channel, audience, unique_endpoint]
+metadata:
+  required: [feature_id, object_ids, relation_ids, source_references, candidate_status, unresolved, reservations]
+content_policy: preserve opaque payload or source content reference unchanged
+transformations_authorized:
+  - identity-preserving AST construction
+  - identity-preserving evidence pairing
+  - identity-preserving source-context grouping and indexing
+  - identity-preserving ordered descriptor assembly
+  - identity-preserving declaration profile construction
+statuses: [unevaluated_candidate, unavailable_without_oracle, unresolved_propagated, external_transport_required, external_interpreter_required]
+common_errors: [missing_identifier, duplicate_identifier, unknown_identifier, malformed_structure, mismatched_source_context, relation_endpoint_mismatch, forbidden_protocol_field, forbidden_scientific_evaluation]
+composition:
+  dependency_root: TLC-FC-07-MESSAGE-006
+  dependents: [TLC-FC-07-MESSAGE-001, TLC-FC-07-MESSAGE-002, TLC-FC-07-MESSAGE-003, TLC-FC-07-MESSAGE-004, TLC-FC-07-MESSAGE-005]
+  rule: dependency is documentary/structural unless a source explicitly declares execution
+order:
+  default: non_semantic
+  source_order_required_for: [TLC-FC-07-MESSAGE-004, TLC-FC-07-MESSAGE-005]
+determinism: identical ordered evidence and references produce structurally equal results
+external_dependencies: []
+out_of_scope: [encoding, network_transport, delivery_guarantee, timing, automatic_interpretation, scientific_truth_evaluation, C++_implementation, Python_bindings, reference_implementation]

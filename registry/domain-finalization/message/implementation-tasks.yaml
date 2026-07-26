@@ -1,0 +1,36 @@
+schema_version: 1
+domain: message
+tasks:
+  - id: MSG-IMPL-001
+    feature_id: TLC-FC-07-MESSAGE-001
+    deliverable: implement immutable four-slot symbolic AST construction and validation
+    excludes: [slot_runtime_semantics, transport, scientific_evaluation]
+  - id: MSG-IMPL-002
+    feature_id: TLC-FC-07-MESSAGE-002
+    deliverable: implement unevaluated preexistence claim registration with unavailable oracle status
+    excludes: [ontology, time_model, existence_predicate]
+  - id: MSG-IMPL-003
+    feature_id: TLC-FC-07-MESSAGE-003
+    deliverable: implement two-object existential evidence assembly with unresolved acceptance rule
+    excludes: [classification_semantics, energetic_semantics, acceptance_oracle]
+  - id: MSG-IMPL-004
+    feature_id: TLC-FC-07-MESSAGE-004
+    deliverable: implement exact 45-object catalogue, source-context indexes, and source-order preservation
+    excludes: [scientific_hierarchy, temporal_transitions, application_validity]
+  - id: MSG-IMPL-005
+    feature_id: TLC-FC-07-MESSAGE-005
+    deliverable: implement 18-object partitioned descriptor and six source-ordered stage references
+    excludes: [transition_execution, timing, causal_effects, sender_receiver_roles, transport]
+  - id: MSG-IMPL-006
+    feature_id: TLC-FC-07-MESSAGE-006
+    deliverable: implement root declaration profile with three evidence roles and two relations
+    excludes: [protocol, encoding, audience, medium, execution]
+  - id: MSG-IMPL-SHARED-001
+    deliverable: implement shared opaque evidence, provenance, unresolved, structured-error, and structural-equality types
+  - id: MSG-IMPL-SHARED-002
+    deliverable: implement serialization and deserialization only for the declared structural records, preserving opaque values and order
+acceptance_gate:
+  - all feature oracles pass
+  - no source contract, source IR, or maths file changes
+  - no scientific evaluation or transport protocol introduced
+  - all unresolved and reservations remain observable

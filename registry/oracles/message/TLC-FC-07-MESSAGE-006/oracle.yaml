@@ -1,0 +1,18 @@
+schema_version: 1
+feature_id: TLC-FC-07-MESSAGE-006
+source_test_plan: registry/test-plans/TLC-FC-07-MESSAGE-006/test-plan.yaml
+acceptance_target: registry/optimized-ir/message/TLC-FC-07-MESSAGE-006/ir.yaml
+oracle_kind: declaration_structural
+fixtures_policy: exact source identifiers and relations with opaque sentinel payloads
+tests:
+  - {id: MSG006-NOMINAL, kind: nominal, assert: three distinct roles and two preserved relation identifiers}
+  - {id: MSG006-INCOMPLETE, kind: precondition_error, expect_error: IncompleteMessageDeclaration}
+  - {id: MSG006-ENDPOINT, kind: relation_error, expect_error: RelationEndpointMismatch}
+  - {id: MSG006-PROTOCOL, kind: forbidden_field, expect_error: ForbiddenProtocolField}
+  - {id: MSG006-CONTENT, kind: content_conservation, assert: opaque payloads and references unchanged}
+  - {id: MSG006-IDENTITY, kind: identity_conservation, assert: three objects and two relations remain distinct}
+  - {id: MSG006-ROLES, kind: role_validation, assert: entity essential_properties transmissibility remain separate}
+  - {id: MSG006-DETERMINISM, kind: determinism, assert: identical evidence produces structurally equal profile}
+  - {id: MSG006-ROUNDTRIP, kind: serialization_roundtrip, assert: roles identities relations metadata opaque values and unresolved preserved}
+  - {id: MSG006-NO-TRANSPORT, kind: forbidden_behavior, assert: no encoding transport execution sender recipient or channel field exists}
+properties: [object_identity, relation_identity, role_separation, unresolved_propagation, non_execution]
