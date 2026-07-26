@@ -1,0 +1,19 @@
+name: Message finalization validation
+on:
+  push:
+    branches:
+      - phase4/message-domain-finalization-001
+  pull_request:
+    branches:
+      - main
+jobs:
+  validate-message:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run Message validator
+        run: python tools/domain-finalization/validate_message_finalization.py
+      - name: Check diff whitespace
+        run: git diff --check c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD
