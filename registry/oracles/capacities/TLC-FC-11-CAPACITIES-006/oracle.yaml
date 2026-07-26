@@ -1,0 +1,27 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-006
+oracle_id: CAP-ORACLE-006
+status: selected_for_capacities_implementation_specification
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-006/test-plan.yaml
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-006/algorithm.yaml
+exact_result_available: false
+oracle_basis: two-node dynamics bundle, independent provenance, blocker and non-evaluation
+acceptance_tests:
+  - id: nominal_bundle
+    expect: {type: CapacityDynamicsAstBundle, object_order: [TLC-SO-CAPACITIES-089, TLC-SO-CAPACITIES-092], blocker: scientific decision required}
+  - {id: missing_object, mutation: omit object, expect_error: MissingCoveredObject}
+  - {id: extra_object, mutation: add object, expect_error: UnexpectedCoveredObject}
+  - {id: reversed_order, mutation: reverse objects, expect_error: ObjectOrderMismatch}
+  - {id: missing_symbol, mutation: omit symbol key, expect_error: MissingSymbolTableEntry}
+  - {id: missing_provenance, mutation: omit source reference, expect_error: MissingSourceReference}
+  - {id: missing_blocker, mutation: omit blocker, expect_error: MissingDecisionBlocker}
+  - {id: evaluation_guard, request: compute context adaptation or motivation derivative, expect_error: ScientificEvaluationRequested}
+properties: {identity_conservation: true, scope_conservation: true, context_provenance_conservation: true, symbol_conservation: true, unresolved_conservation: true, deterministic_for_identical_inputs: true}
+metamorphic_tests:
+  - swapping nodes converts success to ObjectOrderMismatch
+  - opaque payload changes preserve structural projection
+  - repeated construction is structurally equivalent
+composition_tests: [registry lookup preserves both independent source sections]
+dependency_tests: [no external context or motivation engine invoked]
+forbidden_observations: [context gradient, motivation intensity result, derivative, progression, causal link]
+pass_condition: all tests pass and scientific decision required remains unresolved
