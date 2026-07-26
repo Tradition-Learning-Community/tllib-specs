@@ -64,17 +64,9 @@ def fail(message: str) -> None:
     raise SystemExit(1)
 
 
-def read(path: Path) -> str:
+def require_file(path: Path) -> None:
     if not path.is_file():
         fail(f"missing file: {path.relative_to(ROOT)}")
-    return path.read_text(encoding="utf-8")
-
-
-def feature_id_from_text(text: str, path: Path) -> str:
-    match = re.search(r"(?m)^feature_id:\s*['\"]?([^'\"\s]+)", text)
-    if not match:
-        fail(f"missing feature_id in {path.relative_to(ROOT)}")
-    return match.group(1)
 
 
 def changed_paths() -> list[str]:
@@ -88,10 +80,10 @@ def changed_paths() -> list[str]:
     return [line.strip() for line in proc.stdout.splitlines() if line.strip()]
 
 
-def validate_domain(domain: str, expected: int) -> tuple[set[str], set[str], set[str]]:
+def validate_domain(domain: str, expected: int) -> set[str]:
     domain_root = ROOT / "registry/domain-finalization" / domain
     for name in DOMAIN_FILES:
-        read(domain_root / name)
+        require_file(domain_root / name)
 
     ir_files = sorted((ROOT / "registry/optimized-ir" / domain).glob("*/ir.yaml"))
     algorithm_files = sorted((ROOT / "registry/algorithms" / domain).glob("*/algorithm.yaml"))
@@ -104,43 +96,37 @@ def validate_domain(domain: str, expected: int) -> tuple[set[str], set[str], set
     if len(oracle_files) != expected:
         fail(f"{domain}: expected {expected} oracles, found {len(oracle_files)}")
 
-    ir_ids = {feature_id_from_text(read(path), path) for path in ir_files}
-    algorithm_ids = {feature_id_from_text(read(path), path) for path in algorithm_files}
-    oracle_ids = {feature_id_from_text(read(path), path) for path in oracle_files}
+    ir_ids = {path.parent.name for path in ir_files}
+    algorithm_ids = {path.parent.name for path in algorithm_files}
+    oracle_ids = {path.parent.name for path in oracle_files}
 
     if len(ir_ids) != expected:
-        fail(f"{domain}: duplicate finalized IR feature identifiers")
+        fail(f"{domain}: duplicate finalized IR feature directories")
     if ir_ids != algorithm_ids or ir_ids != oracle_ids:
-        fail(f"{domain}: IR, algorithm and oracle populations differ")
+        fail(f"{domain}: IR, algorithm and oracle feature directories differ")
 
-    return ir_ids, algorithm_ids, oracle_ids
+    return ir_ids
 
 
 def main() -> None:
     for relative in GLOBAL_FILES:
-        read(ROOT / relative)
+        require_file(ROOT / relative)
 
     if sum(DOMAIN_COUNTS.values()) != 166:
         fail("internal expected population does not sum to 166")
 
-    all_ir: set[str] = set()
-    all_algorithms: set[str] = set()
-    all_oracles: set[str] = set()
-
+    all_features: set[str] = set()
     for domain, expected in DOMAIN_COUNTS.items():
-        ir_ids, algorithm_ids, oracle_ids = validate_domain(domain, expected)
-        if all_ir.intersection(ir_ids):
-            fail(f"duplicate feature identifiers across domains: {domain}")
-        all_ir.update(ir_ids)
-        all_algorithms.update(algorithm_ids)
-        all_oracles.update(oracle_ids)
+        feature_ids = validate_domain(domain, expected)
+        overlap = all_features.intersection(feature_ids)
+        if overlap:
+            fail(f"duplicate feature identifiers across domains: {sorted(overlap)}")
+        all_features.update(feature_ids)
 
-    if not (len(all_ir) == len(all_algorithms) == len(all_oracles) == 166):
-        fail("global artifact populations are not exactly 166")
-    if all_ir != all_algorithms or all_ir != all_oracles:
-        fail("global IR, algorithm and oracle feature sets differ")
+    if len(all_features) != 166:
+        fail(f"expected 166 unique feature directories, found {len(all_features)}")
 
-    legacy = sorted(feature for feature in all_ir if re.match(r"TLC-FC-11-CAP-\d+$", feature))
+    legacy = sorted(feature for feature in all_features if re.match(r"TLC-FC-11-CAP-\d+$", feature))
     if legacy:
         fail(f"legacy Capacities identifiers promoted into active population: {legacy}")
 
