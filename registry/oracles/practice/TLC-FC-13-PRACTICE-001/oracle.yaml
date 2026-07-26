@@ -1,0 +1,60 @@
+---
+schema_version: 1
+oracle_id: TLC-ORACLE-13-PRACTICE-001
+feature_id: TLC-FC-13-PRACTICE-001
+status: selected_for_practice_implementation_specification
+ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-001/ir.yaml
+algorithm_ref: registry/algorithms/practice/TLC-FC-13-PRACTICE-001/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-13-PRACTICE-001/test-plan.yaml
+acceptance_ready: true
+scientific_execution_oracle_available: false
+expected_identity: TLC-FC-13-PRACTICE-001
+expected_raw_status: declarative_non_executable_with_reservations
+expected_object_ids: [TLC-SO-PRACTICE-045]
+expected_input_ids: [INPUT-PRACTICE-001-1]
+expected_output_ids: [OUTPUT-PRACTICE-001-1]
+expected_unresolved: []
+expected_scientific_decisions: []
+tests:
+- id: PRACTICE-001-NOMINAL
+  category: nominal
+  assertion: valid opaque input builds a traceable declarative representation
+- id: PRACTICE-001-IDENTITY
+  category: identity
+  assertion: feature and object identities equal the expected values exactly
+- id: PRACTICE-001-PRECONDITION
+  category: preconditions
+  assertion: absent required input returns missing_required_input
+- id: PRACTICE-001-TYPE
+  category: types
+  assertion: interpreted or non-opaque input returns invalid_input_type
+- id: PRACTICE-001-PROVENANCE
+  category: structural
+  assertion: contract, source IR and maths reference are preserved
+- id: PRACTICE-001-ROUNDTRIP
+  category: serialization
+  assertion: serialize then deserialize preserves semantic structure and opaque payload
+- id: PRACTICE-001-DETERMINISM
+  category: determinism
+  assertion: equivalent representations serialize identically
+- id: PRACTICE-001-OPAQUE
+  category: opaque_value_propagation
+  assertion: opaque input and externally supplied opaque result are returned unchanged
+- id: PRACTICE-001-NO-EXECUTION
+  category: errors
+  assertion: scientific execution returns external_executor_required
+- id: PRACTICE-001-NO-EVALUATION
+  category: errors
+  assertion: scientific evaluation returns external_evaluator_required
+- id: PRACTICE-001-NO-INVENTION
+  category: invariants
+  assertion: no predicate, step, sequence, duration, frequency, threshold, progression or effect is introduced
+properties:
+- source object order is preserved
+- adding an undeclared object causes provenance_mismatch
+- reordering YAML fields does not change structural equality
+- changing the feature id changes identity and is rejected
+metamorphic_relations:
+- canonical serialization after round trip is stable
+- opaque payload substitution changes only the opaque payload field
+acceptance_condition: all structural tests pass; no exact scientific result is asserted
