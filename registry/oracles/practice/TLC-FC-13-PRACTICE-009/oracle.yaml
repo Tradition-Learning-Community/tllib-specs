@@ -1,0 +1,28 @@
+---
+schema_version: 1
+oracle_id: TLC-ORACLE-13-PRACTICE-009
+feature_id: TLC-FC-13-PRACTICE-009
+status: selected_for_practice_implementation_specification
+ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-009/ir.yaml
+algorithm_ref: registry/algorithms/practice/TLC-FC-13-PRACTICE-009/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-13-PRACTICE-009/test-plan.yaml
+acceptance_ready: true
+scientific_execution_oracle_available: false
+expected_identity: TLC-FC-13-PRACTICE-009
+expected_raw_status: declarative_non_executable_with_reservations
+expected_object_ids: [TLC-SO-PRACTICE-024, TLC-SO-PRACTICE-074, TLC-SO-PRACTICE-075, TLC-SO-PRACTICE-076]
+expected_input_ids: [INPUT-PRACTICE-009-1, INPUT-PRACTICE-009-2, INPUT-PRACTICE-009-3, INPUT-PRACTICE-009-4]
+expected_output_ids: [OUTPUT-PRACTICE-009-1, OUTPUT-PRACTICE-009-2, OUTPUT-PRACTICE-009-3, OUTPUT-PRACTICE-009-4]
+expected_unresolved: []
+expected_scientific_decisions: []
+tests:
+- {id: PRACTICE-009-NOMINAL, category: nominal, assertion: four opaque inputs build an operator-candidate representation}
+- {id: PRACTICE-009-SIGNATURES, category: structural, assertion: source function and operator identities remain independent and ordered}
+- {id: PRACTICE-009-ROUNDTRIP, category: serialization, assertion: round trip preserves payloads, signatures and references}
+- {id: PRACTICE-009-NO-INVOKE, category: errors, assertion: operator invocation returns external_executor_required}
+- {id: PRACTICE-009-NO-THRESHOLD, category: invariants, assertion: no mastery threshold value is selected}
+- {id: PRACTICE-009-NO-COMPOSITION, category: invariants, assertion: no operator composition is inferred}
+- {id: PRACTICE-009-OPAQUE, category: opaque_value_propagation, assertion: all payloads remain unchanged}
+properties: [each input is independently required, object order is preserved, serialization is deterministic, added objects fail provenance validation]
+metamorphic_relations: [round-trip serialization is stable, replacing one payload changes only that payload]
+acceptance_condition: structural tests pass; no operator output is calculated
