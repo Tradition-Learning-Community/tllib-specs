@@ -1,16 +1,16 @@
 name: Temporary Theorems Finalization Validation
 
 on:
-  pull_request:
+  push:
     branches:
-      - main
-  workflow_dispatch:
+      - phase4/theorems-domain-finalization-001
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   validate:
+    if: ${{ !contains(github.event.head_commit.message, '[validation-result]') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
@@ -30,15 +30,21 @@ jobs:
         run: git fetch origin main
 
       - name: Run Theorems validator
+        id: validator
+        continue-on-error: true
         env:
           THEOREMS_BASE_REF: origin/main
           THEOREMS_ALLOW_TEMP_WORKFLOW: "1"
         run: python tools/domain-finalization/validate_theorems_finalization.py
 
       - name: Check whitespace
+        id: whitespace
+        continue-on-error: true
         run: git diff --check origin/main...HEAD
 
       - name: Check modified paths
+        id: paths
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
@@ -47,6 +53,8 @@ jobs:
           test -z "$bad" || { echo "Unexpected paths:"; echo "$bad"; exit 1; }
 
       - name: Check protected sources and parallel domains
+        id: protected
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
@@ -54,8 +62,46 @@ jobs:
           ! printf '%s\n' "$changed" | grep -E '^(maths/|registry/global-reconciliation/|registry/math-contracts/|registry/ir/|registry/test-plans/|registry/domain-progress/(master|disciple|community|huit-dimensions|invariants|dynamics)/)'
 
       - name: Check forbidden implementation artifacts
+        id: forbidden
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
           changed=$(git diff --name-only origin/main...HEAD)
           ! printf '%s\n' "$changed" | grep -Ei '\.(c|cc|cpp|cxx|h|hh|hpp|hxx)$|binding|pybind|reference[-_]implementation|__pycache__|\.status$'
+
+      - name: Record validation result
+        if: always()
+        env:
+          VALIDATOR: ${{ steps.validator.outcome }}
+          WHITESPACE: ${{ steps.whitespace.outcome }}
+          PATHS: ${{ steps.paths.outcome }}
+          PROTECTED: ${{ steps.protected.outcome }}
+          FORBIDDEN: ${{ steps.forbidden.outcome }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          result=PASS
+          for outcome in "$VALIDATOR" "$WHITESPACE" "$PATHS" "$PROTECTED" "$FORBIDDEN"; do
+            if [ "$outcome" != success ]; then result=FAIL; fi
+          done
+          python - "$result" <<'PY'
+          from pathlib import Path
+          import sys
+          result = sys.argv[1]
+          path = Path('reports/domain-finalization/theorems/finalization-report.md')
+          text = path.read_text(encoding='utf-8')
+          lines = []
+          for line in text.splitlines():
+              if line.startswith('Validation result:'):
+                  lines.append(f'Validation result: **{result}** on GitHub Actions for the branch validation commit.')
+              else:
+                  lines.append(line)
+          path.write_text('\n'.join(lines) + '\n', encoding='utf-8')
+          PY
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add reports/domain-finalization/theorems/finalization-report.md
+          git commit -m "chore(theorems): record validation result [validation-result]"
+          git push origin HEAD:phase4/theorems-domain-finalization-001
+          test "$result" = PASS
