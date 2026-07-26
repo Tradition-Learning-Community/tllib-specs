@@ -1,0 +1,22 @@
+schema_version: 1
+module: values
+tasks:
+- id: VALUES-IMPL-001
+  title: Implement shared Values envelopes and structured errors
+  depends_on: []
+- id: VALUES-IMPL-002
+  title: Implement identity, reference, scope, context, and provenance validators
+  depends_on: [VALUES-IMPL-001]
+- id: VALUES-IMPL-003
+  title: Implement source IR operation-sequence dispatcher without scientific evaluation
+  depends_on: [VALUES-IMPL-001, VALUES-IMPL-002]
+- id: VALUES-IMPL-004
+  title: Implement fourteen feature adapters from finalized IR and algorithms
+  depends_on: [VALUES-IMPL-003]
+- id: VALUES-IMPL-005
+  title: Implement oracle fixtures and acceptance suites
+  depends_on: [VALUES-IMPL-004]
+- id: VALUES-IMPL-006
+  title: Integrate external evaluator comparator and aggregator ports only where source unresolved requires them
+  depends_on: [VALUES-IMPL-004]
+acceptance: All fourteen feature oracles pass with source identity, scope, context, relations, opaque values, and unresolved preserved.

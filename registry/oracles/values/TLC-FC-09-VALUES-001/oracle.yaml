@@ -1,0 +1,18 @@
+feature_id: TLC-FC-09-VALUES-001
+oracle_kind: structural_acceptance_oracle
+source_contract: registry/math-contracts/TLC-FC-09-VALUES-001/contract.yaml
+source_ir: registry/ir/TLC-FC-09-VALUES-001/ir.yaml
+tests:
+- nominal_source_ir_operation_sequence
+- preconditions_and_conditions_of_application
+- declared_input_output_types_and_shapes
+- identity_scope_context_and_provenance_preservation
+- source_reference_and_relation_preservation
+- opaque_value_round_trip_without_coercion
+- unresolved_and_reservation_propagation
+- deterministic_repetition
+- duplicate_and_unknown_reference_errors
+- no_invented_comparison_aggregation_priority_measure_or_decision
+acceptance: output matches source IR observable structure and traceability; scientific evaluation is neither required nor invented
+source_ir_preserved: true
+source_contract_preserved: true

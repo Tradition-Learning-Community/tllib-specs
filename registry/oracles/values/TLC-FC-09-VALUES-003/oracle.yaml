@@ -1,0 +1,8 @@
+feature_id: TLC-FC-09-VALUES-003
+oracle_kind: structural_acceptance_oracle
+source_contract: registry/math-contracts/TLC-FC-09-VALUES-003/contract.yaml
+source_ir: registry/ir/TLC-FC-09-VALUES-003/ir.yaml
+tests: [nominal_source_ir_operation_sequence, preconditions, input_output_types, identity_scope_context, equation_order_preservation, symbol_reference_errors, opaque_value_round_trip, unresolved_propagation, determinism, no_solver_or_invented_semantics]
+acceptance: exact source IR observable structure and traceability are preserved
+source_ir_preserved: true
+source_contract_preserved: true

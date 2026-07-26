@@ -1,0 +1,38 @@
+schema_version: 1
+domain: values
+patterns:
+- id: opaque_value_carrier
+  scope: all_features
+  rule: Preserve symbolic and opaque payloads without evaluation, ranking, measurement, or coercion.
+- id: source_addressable_identity
+  scope: all_features
+  rule: Retain feature, object, relation, unresolved, assumption, provenance, scope, and context identifiers.
+- id: structural_validation_pipeline
+  scope: all_features
+  sequence: [validate_inputs, execute_exact_source_ir_operation_sequence, attach_traceability]
+- id: declared_order_preservation
+  scope: all_features
+  rule: Preserve source order unless the source contract explicitly declares order non-semantic.
+- id: unresolved_propagation
+  scope: all_features
+  rule: Copy every source unresolved and reservation to output metadata and errors.
+- id: common_structured_errors
+  scope: all_features
+  categories: [missing_input, unknown_reference, duplicate_identity, invalid_scope, invalid_context, unresolved_external_evaluation]
+- id: relation_guard
+  scope: relation_capable_features
+  rule: Materialize only relations explicitly present in the source contract or source IR.
+- id: no_implicit_comparator_or_aggregator
+  scope: all_features
+  rule: Comparison and aggregation remain absent unless explicitly declared by the source.
+distinctions:
+  resemblance_is_equivalence: false
+  textual_duplication_is_scientific_equivalence: false
+  structural_duplication_is_scientific_equivalence: false
+  shared_representation_is_scientific_equivalence: false
+optimizations:
+- common envelope for identity, scope, context, provenance, opaque values, errors, unresolved, and reservations
+- shared validation and trace attachment subgraphs
+- normalized IR to algorithm to oracle links
+- preserved operation order and source-specific payloads
+- no source IR, contract, or maths modification

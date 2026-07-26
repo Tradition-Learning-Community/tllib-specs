@@ -1,0 +1,20 @@
+feature_id: TLC-FC-09-VALUES-007
+signature: source_ir_entrypoint(exact_source_ir_inputs) -> exact_source_ir_outputs
+inputs: exact_source_ir_inputs
+outputs: exact_source_ir_outputs
+validations: source_ir_plus_identity_scope_context
+preconditions: source_ir_preconditions
+conditions_of_application: structural_only
+steps: [validate, execute_exact_source_ir_operation_sequence, attach_trace, return]
+branching: named_error_or_external_evaluator_required
+effects: no_membership_policy_invented
+postconditions: source_ir_postconditions
+invariants: source_ir_invariants
+determinism: deterministic_for_structure
+unresolved: propagate_all
+pseudocode: |
+  validate_source_ir_inputs_and_references(inputs)
+  result = execute_source_ir_operations_in_declared_order(inputs)
+  return attach_complete_source_trace(result)
+source_ir_preserved: true
+source_contract_preserved: true
