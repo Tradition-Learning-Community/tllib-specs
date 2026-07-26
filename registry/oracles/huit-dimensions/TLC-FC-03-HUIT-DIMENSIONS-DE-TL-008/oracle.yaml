@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008
+operation: register_partial_invariance_claims
+source_test_plan: ir/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008/test-plan.yaml
+finalized_ir: registry/optimized-ir/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008/ir.yaml
+algorithm: registry/algorithms/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008/algorithm.yaml
+oracle_kind: structural_acceptance_oracle
+fixture_policy: symbolic_opaque_claims_only_no_scientific_values
+tests:
+- {id: HD-008-NOMINAL, category: nominal, assertion: registry contains two distinct context-tagged claims}
+- {id: HD-008-MISSING, category: precondition_error, mutation: remove value_partial_invariance, expected_error: FAIL-HUIT-008-MISSING-TRACE}
+- {id: HD-008-CONTEXT, category: error, mutation: remove a context tag, expected_error: FAIL-HUIT-008-OPERATION}
+- {id: HD-008-IDENTITY, category: conservation, assertion: source identities contexts and payloads remain distinct}
+- {id: HD-008-OPAQUE, category: opaque_propagation, assertion: perturbation and temporal procedure tokens remain unchanged}
+- {id: HD-008-UNRESOLVED, category: unresolved_propagation, assertion: exact nine unresolved ids and verification statuses remain unresolved}
+- {id: HD-008-DETERMINISM, category: determinism, assertion: identical claims produce identical registry}
+- {id: HD-008-METAMORPHIC, category: metamorphic, transformation: reorder input transport, assertion: context-keyed records remain identical}
+- {id: HD-008-NO-SHARED, category: scientific_boundary, mutation: infer a common invariant, expected_error: FAIL-HUIT-008-OPERATION}
+- {id: HD-008-NO-VERIFY, category: scientific_boundary, mutation: request verification, expected_error: FAIL-HUIT-008-SCIENTIFIC-INVENTION}
+- {id: HD-008-BOUNDARY, category: feature_boundary, assertion: identity and boundary statuses remain unresolved}
+- {id: HD-008-CONFORMANCE, category: contract_ir_algorithm_conformance, assertion: roles output errors and propagated sets agree}
+numeric_expected_results: []
+acceptance: all_tests_pass
