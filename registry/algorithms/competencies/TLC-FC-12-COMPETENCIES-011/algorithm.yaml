@@ -1,0 +1,46 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-011
+algorithm_id: TLC-ALG-TLC-FC-12-COMPETENCIES-011
+finalized_ir: registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-011/ir.yaml
+signature: 'build_metric_descriptor_011(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>, RequestMode) -> Result<CompetenciesCanonicalDescriptor,CompetenciesError>'
+inputs: [competencies_feature_id, object_payloads, provenance, request_mode]
+outputs: [immutable CompetenciesCanonicalDescriptor]
+validations: [structural request mode, exact feature id, exact objects 024 038 043, uniqueness, no extras, complete provenance]
+preconditions: [finalized IR types satisfied]
+prerequisites: []
+conditions_of_application: [structural representation only]
+ordered_steps: [validate request mode, validate feature identity, validate exact object set, validate provenance, copy opaque identities in contract order, attach metric category traceability reservations unresolved, mark structurally_valid, return]
+branches:
+- {condition: qualitative rating mastery collective synergy geometry metric projection or comparison requested, result: ScientificEvaluationRequested}
+- {condition: invalid structural input, result: corresponding_structured_error}
+- {condition: valid structural input, result: return_descriptor}
+competency_construction: {operation: construct_metric_reference_descriptor, scientific_interpretation: false}
+identity_validation: exact_feature_and_object_identity
+scope_validation: metric_evaluation_descriptor_only
+context_validation: opaque_source_context_only
+relation_processing: preserve_collective_and_identity_mentions_without_endpoint_inference
+mobilization: not_declared
+exercise: not_declared
+acquisition: not_declared
+development: preserve_opaque_collective_content_only
+mastery: preserve_opaque_composite_index_only
+evaluation: external_evaluator_required
+comparison: external_comparator_required
+effects: []
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, UnexpectedCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+postconditions: [objects 024 038 043 preserved in order, no metric observer geometry or collective result produced]
+invariants: [Metric type remains descriptive, opaque formulas and structures never executed, structural validity not scientific validity]
+determinism: deterministic_for_identical_structural_inputs
+edge_cases: [missing qualitative object, extra object, absent provenance, reversed map order, mastery index request, synergy request, geometry request]
+dependencies: {internal: [competencies_feature_profile, structural_validation_pipeline], external: []}
+unresolved_preserved: [scientific_unresolved, validated_executable_contract_absent]
+pseudocode: |-
+  function build_metric_descriptor_011(feature_id, object_payloads, provenance, request_mode):
+      if request_mode != structural_descriptor_only: return error ScientificEvaluationRequested
+      if feature_id != TLC-FC-12-COMPETENCIES-011: return error UnknownFeatureId
+      required = [024, 038, 043] as Competencies ObjectIds
+      validate_exact_object_set(object_payloads, required)
+      validate_provenance(provenance, required)
+      descriptor = construct_immutable_descriptor(profile(TLC-FC-12-COMPETENCIES-011), copy_opaque_identities(object_payloads, required), copy(provenance for required), copy(source_reservations), copy(source_unresolved))
+      descriptor.structural_status = structurally_valid
+      return descriptor
