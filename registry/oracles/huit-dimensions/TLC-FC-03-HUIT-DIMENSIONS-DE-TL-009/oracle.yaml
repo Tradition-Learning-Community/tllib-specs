@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009
+operation: compare_principle_invariance_declarations
+source_test_plan: ir/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009/test-plan.yaml
+finalized_ir: registry/optimized-ir/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009/ir.yaml
+algorithm: registry/algorithms/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009/algorithm.yaml
+oracle_kind: structural_acceptance_oracle
+fixture_policy: symbolic_opaque_claims_only_no_scientific_values
+tests:
+- {id: HD-009-NOMINAL, category: nominal, assertion: comparison contains definition and introduction sides with unresolved statuses}
+- {id: HD-009-MISSING, category: precondition_error, mutation: remove definition_claim, expected_error: FAIL-HUIT-009-MISSING-TRACE}
+- {id: HD-009-SOURCE, category: trace_error, mutation: remove one source location, expected_error: FAIL-HUIT-009-OPERATION}
+- {id: HD-009-IDENTITY, category: conservation, assertion: both source ids locations types and payloads remain distinct}
+- {id: HD-009-OPAQUE, category: opaque_propagation, assertion: claim payload bytes round-trip unchanged}
+- {id: HD-009-UNRESOLVED, category: unresolved_propagation, assertion: exact nine unresolved ids and comparison statuses remain unresolved}
+- {id: HD-009-DETERMINISM, category: determinism, assertion: identical sides produce identical comparison records}
+- {id: HD-009-METAMORPHIC, category: metamorphic, transformation: change input transport order while preserving side labels, assertion: named sides remain identical}
+- {id: HD-009-NO-EQUIVALENCE, category: scientific_boundary, mutation: request equivalence true, expected_error: FAIL-HUIT-009-OPERATION}
+- {id: HD-009-NO-DEDUP, category: conservation, assertion: lexically similar claims are not deduplicated}
+- {id: HD-009-BOUNDARY, category: feature_boundary, assertion: feature_boundary_status and identity_status equal unresolved}
+- {id: HD-009-CONFORMANCE, category: contract_ir_algorithm_conformance, assertion: sides output errors and propagated sets agree}
+numeric_expected_results: []
+acceptance: all_tests_pass
