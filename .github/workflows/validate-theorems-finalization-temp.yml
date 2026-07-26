@@ -1,9 +1,9 @@
 name: Temporary Theorems Finalization Validation
 
 on:
-  push:
+  pull_request:
     branches:
-      - phase4/theorems-domain-finalization-001
+      - main
   workflow_dispatch:
 
 permissions:
