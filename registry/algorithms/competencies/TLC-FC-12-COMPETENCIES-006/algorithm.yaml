@@ -1,0 +1,52 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-006
+algorithm_id: TLC-ALG-TLC-FC-12-COMPETENCIES-006
+finalized_ir: registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-006/ir.yaml
+signature: 'build_transformation_descriptor_006(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>, RequestMode) -> Result<CompetenciesCanonicalDescriptor,CompetenciesError>'
+inputs: [competencies_feature_id, object_payloads, provenance, request_mode]
+outputs: [immutable CompetenciesCanonicalDescriptor]
+validations: [structural request mode, exact feature id, exact nine-object set, uniqueness, no extras, complete provenance]
+preconditions: [finalized IR types satisfied]
+prerequisites: []
+conditions_of_application: [structural representation only]
+ordered_steps: [validate request mode, validate feature identity, validate exact object set, validate provenance, load profile, copy opaque identities in contract order, attach traceability, attach external dependency status, propagate reservations and unresolved, mark structurally_valid, return]
+branches:
+- {condition: transformation metric observation evaluation comparison or collective computation requested, result: ScientificEvaluationRequested}
+- {condition: automatic Capacities resolution requested, result: BlockedScientificDecision}
+- {condition: invalid structural input, result: corresponding_structured_error}
+- {condition: valid structural input, result: return_descriptor}
+competency_construction: {operation: construct_reference_descriptor, scientific_interpretation: false}
+identity_validation: exact_feature_and_object_identity
+scope_validation: transformation_descriptor_only
+context_validation: opaque_source_context_only
+relation_processing: preserve_cross_domain_mentions_without_endpoint_or_runtime_inference
+mobilization: not_declared_as_selected_operation
+exercise: preserve_opaque_object_074_only
+acquisition: preserve_opaque_learning_and_consolidation_content_only
+development: preserve_opaque_integration_and_collective_content_only
+mastery: preserve_opaque_metric_content_only
+evaluation: external_evaluator_required
+comparison: external_comparator_required
+effects: []
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, UnexpectedCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+postconditions: [nine source objects preserved in order, dependency status preserved, no scientific output produced]
+invariants: [opaque equations never parsed, structural validity not scientific validity, no runtime Capacities dependency invented]
+determinism: deterministic_for_identical_structural_inputs
+edge_cases: [one of nine objects missing, extra object, missing provenance, arbitrary map order, observer request, metric request, dependency execution request]
+dependencies:
+  internal: [competencies_feature_profile, structural_validation_pipeline]
+  external: [{domain: capacities, kind: scientific_documentary, status: external_unreconciled, runtime_required: false}]
+unresolved_preserved: [scientific_unresolved, validated_executable_contract_absent, capacities_external_dependency_unreconciled]
+pseudocode: |-
+  function build_transformation_descriptor_006(feature_id, object_payloads, provenance, request_mode):
+      if request_mode != structural_descriptor_only: return error ScientificEvaluationRequested
+      if feature_id != TLC-FC-12-COMPETENCIES-006: return error UnknownFeatureId
+      required = [067, 068, 073, 074, 086, 100, 102, 103, 105] as Competencies ObjectIds
+      validate_exact_object_set(object_payloads, required)
+      validate_provenance(provenance, required)
+      profile = profile(TLC-FC-12-COMPETENCIES-006)
+      assert profile.capacities_dependency == external_unreconciled
+      descriptor = construct_immutable_descriptor(profile, copy_opaque_identities(object_payloads, required), copy(provenance for required), copy(source_reservations), copy(source_unresolved))
+      descriptor.dependencies = copy(profile.dependencies)
+      descriptor.structural_status = structurally_valid
+      return descriptor
