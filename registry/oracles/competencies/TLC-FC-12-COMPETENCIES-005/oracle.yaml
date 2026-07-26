@@ -14,7 +14,7 @@ acceptance_tests:
 - {test_id: C005-REF-001, category: references, mutation: remove provenance for 072, expect_error: MissingSourceReference}
 - {test_id: C005-ID-001, category: identity, mutation: wrong feature id, expect_error: UnknownFeatureId}
 - {test_id: C005-PROP-001, category: opaque_value_propagation, property: mentoring motivation and social feedback equation payloads remain unchanged and opaque}
-- {test_id: C005-META-001, category: metamorphic, transformation: permute caller map order, invariant: output order remains [072, 101, 106]}
+- {test_id: C005-META-001, category: metamorphic, transformation: permute caller map order, invariant: 'output order remains [072, 101, 106]'}
 - {test_id: C005-DET-001, category: determinism, property: identical inputs produce structurally equal descriptors}
 - {test_id: C005-REJ-001, category: development_rejection, mutation: request temporal evolution or motivation effect, expect_error: ScientificEvaluationRequested}
 - {test_id: C005-REJ-002, category: relation_rejection, mutation: request social kernel or collective influence computation, expect_error: ScientificEvaluationRequested}
