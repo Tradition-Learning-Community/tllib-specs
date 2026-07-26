@@ -1,0 +1,68 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-001
+algorithm_id: CAP-ALG-001
+status: selected_for_capacities_implementation_specification
+source_ir: registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-001/ir.yaml
+signature: 'CapacityPrototypeDescriptor build_capacity_constraint_record_and_verify_required_symbols(FeatureId capacity_feature_id, Map<ObjectId,OpaqueScientificObject> object_payloads, Map<ObjectId,SourceReference> provenance)'
+inputs:
+  required_object_ids: [TLC-SO-CAPACITIES-013, TLC-SO-CAPACITIES-064]
+outputs: [CapacityPrototypeDescriptor]
+validations:
+  - require exact feature id
+  - require exact duplicate-free object set
+  - require complete provenance
+  - reject evaluation intent
+preconditions:
+  - structural request only
+conditions_of_application: [all required inputs present]
+steps:
+  - validate feature identity
+  - compare object keys with required object ids
+  - order objects by contract order
+  - copy opaque payload identities and provenance
+  - construct immutable CapacityPrototypeDescriptor
+  - attach reservations and empty unresolved list
+  - attach non-evaluation guard
+  - return artifact
+branching:
+  invalid_feature: UnknownFeatureId
+  missing_object: MissingCoveredObject
+  duplicate_object: DuplicateCoveredObject
+  missing_provenance: MissingSourceReference
+  evaluation_requested: ScientificEvaluationRequested
+capacity_handling:
+  construction: descriptor only
+  identity_validation: exact
+  scope_validation: exact object set
+  context_validation: provenance source section
+relations: none
+activation: not_performed
+mobilization: not_performed
+development: not_performed
+comparison: identifier_and_shape_only
+effects: no mutation outside returned artifact
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, MissingSourceReference, ScientificEvaluationRequested]
+postconditions:
+  - output preserves feature id, objects, order and provenance
+  - output contains no scientific result
+invariants:
+  - opaque payloads are not inspected
+  - source statements are not rewritten
+determinism: deterministic
+case_limits:
+  - empty payload map fails
+  - extra object fails exact-set validation
+  - repeated call with identical structural inputs is equivalent
+  - requested numeric interpretation fails
+unresolved_conserved: []
+dependencies: []
+pseudocode: |
+  require capacity_feature_id == TLC-FC-11-CAPACITIES-001 else UnknownFeatureId
+  require exact_keys(object_payloads) == [TLC-SO-CAPACITIES-013, TLC-SO-CAPACITIES-064]
+  require no_duplicate_object_ids(object_payloads) else DuplicateCoveredObject
+  require complete_provenance(provenance, required_object_ids) else MissingSourceReference
+  require request_is_structural_only() else ScientificEvaluationRequested
+  ordered_objects = copy_opaque_in_contract_order(object_payloads, required_object_ids)
+  artifact = immutable_descriptor(capacity_feature_id, ordered_objects, provenance)
+  artifact.attach_non_evaluation_guard()
+  return artifact
