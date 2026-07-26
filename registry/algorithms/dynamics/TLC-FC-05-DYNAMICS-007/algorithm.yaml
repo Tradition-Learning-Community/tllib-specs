@@ -1,0 +1,72 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-05-DYNAMICS-007
+feature_id: TLC-FC-05-DYNAMICS-007
+status: selected_for_dynamics_implementation_specification
+ir_ref: registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-007/ir.yaml
+signature: "preserve_state_or_evolution_expression(source_expression: OpaqueExpression, classification_hint: Optional[OpaqueTag]) -> UnclassifiedStateEvolutionNode"
+inputs:
+  source_expression: opaque source expression for TLC-SO-DYNAMICS-008
+  classification_hint: optional non-authoritative metadata
+outputs:
+  candidate: explicitly unclassified state-or-evolution node
+validations:
+  - verify source identifier and expression carrier
+  - verify optional hint carrier when present
+preconditions:
+  - expression is present
+  - no classification authority is assigned to the hint
+initial_state: not_defined
+ordered_steps:
+  - validate TLC-SO-DYNAMICS-008 and TLC-SR-DYNAMICS-007 references
+  - validate source-expression shape
+  - validate optional hint shape when present
+  - copy expression and hint unchanged
+  - construct an UnclassifiedStateEvolutionNode
+  - mark classification as unresolved
+  - attach traceability, unresolved, and reservations
+  - validate postconditions and return
+transitions: []
+branches:
+  - if expression is absent or has the wrong shape, return type_shape_mismatch and no node
+  - if hint has the wrong shape, return type_shape_mismatch and no node
+  - if a source identifier is unknown, return unknown_source_identifier and no node
+repetitions: []
+effects: [construct_immutable_unclassified_node]
+final_state: not_defined
+stop_conditions: []
+errors: [unknown_source_identifier, type_shape_mismatch]
+postconditions:
+  - output remains explicitly unclassified
+  - hint is retained only as metadata
+  - expression and hint payloads remain unchanged
+invariants:
+  - state-versus-evolution ambiguity remains explicit
+  - source traceability remains complete
+determinism: deterministic_for_identical_inputs
+stochasticity:
+  source_notation_preserved: true
+  sampling: false
+  seed: not_defined
+edge_cases:
+  - absent hint is valid
+  - an opaque hint never changes classification
+  - absent expression fails atomically
+dependencies:
+  internal: [TLC-FC-05-DYNAMICS-006_unresolved_definition_boundary]
+  external: [master_symbolic_reference, disciple_symbolic_reference]
+unresolved_preserved: [TLC-UT-DYNAMICS-007, state_vs_evolution_boundary]
+pseudocode: |
+  function preserve_state_or_evolution_expression(source_expression, classification_hint):
+      validate_known_identifier(TLC-SO-DYNAMICS-008)
+      validate_shape(source_expression, OpaqueExpression)
+      if classification_hint is present:
+          validate_shape(classification_hint, OpaqueTag)
+      result = UnclassifiedStateEvolutionNode(
+          expression = copy_opaque(source_expression),
+          hint = copy_optional_opaque(classification_hint),
+          classification = UNRESOLVED)
+      attach_traceability(result, TLC-SO-DYNAMICS-008, TLC-SR-DYNAMICS-007)
+      attach_unresolved(result, SOURCE_UNRESOLVED)
+      assert result.classification == UNRESOLVED
+      return result
+forbidden_operations: [classify_as_state, classify_as_evolution, infer_transition, execute_stochastic_expression]
