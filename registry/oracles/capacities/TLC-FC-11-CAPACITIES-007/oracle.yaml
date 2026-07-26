@@ -1,0 +1,26 @@
+schema_version: 1
+feature_id: TLC-FC-11-CAPACITIES-007
+oracle_id: CAP-ORACLE-007
+status: selected_for_capacities_implementation_specification
+source_test_plan: registry/test-plans/TLC-FC-11-CAPACITIES-007/test-plan.yaml
+algorithm: registry/algorithms/capacities/TLC-FC-11-CAPACITIES-007/algorithm.yaml
+exact_result_available: false
+oracle_basis: singleton Hamiltonian-style AST, source-present labels, provenance, blocker and non-evaluation
+acceptance_tests:
+  - id: nominal_ast
+    expect: {type: CapacityHamiltonianAst, object_ids: [TLC-SO-CAPACITIES-098], blocker: scientific decision required}
+  - {id: missing_object, mutation: omit object, expect_error: MissingCoveredObject}
+  - {id: extra_object, mutation: add object, expect_error: UnexpectedCoveredObject}
+  - {id: missing_symbol_entry, mutation: omit symbol key, expect_error: MissingSymbolTableEntry}
+  - {id: missing_provenance, mutation: omit source reference, expect_error: MissingSourceReference}
+  - {id: missing_blocker, mutation: omit blocker, expect_error: MissingDecisionBlocker}
+  - {id: hamiltonian_guard, request: evaluate Hamiltonian or trajectory, expect_error: ScientificEvaluationRequested}
+properties: {identity_conservation: true, scope_conservation: true, context_provenance_conservation: true, symbol_conservation: true, unresolved_conservation: true, deterministic_for_identical_inputs: true}
+metamorphic_tests:
+  - removing a non-present optional child label does not invent it
+  - adding an unsourced child label is rejected by source-token projection
+  - repeated construction yields equivalent structural projection
+composition_tests: [registry exposes root and source labels without execution]
+dependency_tests: [no numerical solver or geometry engine invoked]
+forbidden_observations: [Hamiltonian value, trajectory, conservation result, coupling magnitude, optimization]
+pass_condition: all tests pass and only source-present child labels are exposed
