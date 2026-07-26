@@ -1,0 +1,28 @@
+schema_version: 1
+feature_id: TLC-FC-08-PRINCIPLE-001
+source_test_plan: registry/test-plans/TLC-FC-08-PRINCIPLE-001/test-plan.yaml
+oracle_kind: structural_symbolic
+acceptance_criteria:
+  - exactly_five_source_ordered_nodes
+  - exact_object_ids_and_source_ranges
+  - opaque_symbols_preserved_verbatim
+  - evaluated_is_false
+  - deterministic_for_identical_ordered_inputs
+  - missing_duplicate_and_promotion_errors_are_structured
+test_categories: [nominal, precondition, error, type, shape, scope, conservation, determinism, structural_conformity, opaque_propagation, dependency]
+tests:
+  - id: PR-001-NOMINAL
+    assert: output_contains_five_immutable_nodes_in_source_order
+  - id: PR-001-TRACE
+    assert: object_ids_source_ranges_assumptions_and_reservations_are_exact
+  - id: PR-001-OPAQUE
+    assert: arbitrary_opaque_values_round_trip_unchanged
+  - id: PR-001-DETERMINISM
+    assert: identical_ordered_inputs_produce_identical_output
+  - id: PR-001-MISSING
+    assert_error: ERR-PRINCIPLE-001-MISSING
+  - id: PR-001-DUPLICATE
+    assert_error: ERR-PRINCIPLE-001-DUPLICATE
+  - id: PR-001-PROMOTION
+    assert_error: ERR-PRINCIPLE-001-PROMOTION
+forbidden_oracle_behavior: [evaluate_constraints, infer_types, invent_truth_conditions]
