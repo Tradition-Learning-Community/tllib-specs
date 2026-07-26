@@ -1,6 +1,12 @@
 schema_version: 1
 library_id: tllib
-status: structural_specification_ready_for_implementation
+status: structurally_finalized_engineering_specification
+readiness:
+  structural_specification: finalized
+  engineering_handoff: ready
+  scientific_adjudication: unresolved_preserved
+  scientific_execution: only_where_explicitly_defined
+  implementation_repository: separate_and_out_of_scope
 modules: [master, disciple, community, huit-dimensions, invariants, dynamics, theorems, message, principle, values, virtues, capacities, competencies, practice, lived-experience, relations]
 active_features: 166
 public_contract:
@@ -11,6 +17,7 @@ public_contract:
   deterministic_structural_behavior: true
   structured_errors: true
   lossless_serialization_where_declared: true
+  expose_domain_qualified_semantic_identity: true
 shared_infrastructure:
   - feature identifiers
   - source references
@@ -23,8 +30,16 @@ shared_infrastructure:
 module_contracts_ref: registry/global-finalization/module-interfaces.yaml
 shared_types_ref: registry/global-finalization/shared-types.yaml
 shared_patterns_ref: registry/global-finalization/shared-patterns.yaml
+canonical_namespaces_ref: registry/symbols/namespaces.yaml
+canonical_identifiers_ref: registry/symbols/canonical-identifiers.yaml
+representation_policy_ref: registry/symbols/representation-policy.yaml
+scientific_review_disposition_ref: registry/scientific-review/engineering-disposition.yaml
 dependency_graph_ref: registry/global-finalization/dependency-graph.yaml
 implementation_backlog_ref: registry/global-finalization/implementation-backlog.yaml
+algorithm_authority:
+  path: registry/algorithms/
+  root_level_algorithms_directory: inactive
+  duplicate_algorithm_authorities_forbidden: true
 out_of_scope:
   - scientific semantics absent from source contracts
   - automatic theorem proving
@@ -32,10 +47,12 @@ out_of_scope:
   - invented value, virtue or competency evaluation
   - invented dynamics transition rules
   - invented relation causality
-  - production C++ in this phase
-  - Python bindings in this phase
+  - production C++ in this repository
+  - Python bindings in this repository
 acceptance:
   - all 16 domain validators pass on integrated main
   - global validator passes
   - exactly 166 finalized IRs, algorithms and oracles are discoverable
   - source contracts, source IRs, test plans and maths remain unchanged from the authoritative baseline lineage
+  - scientific review questions remain traceable without blocking structural engineering handoff
+  - no active algorithm specification exists outside registry/algorithms/
