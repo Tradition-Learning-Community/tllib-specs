@@ -1,0 +1,28 @@
+---
+schema_version: 1
+oracle_id: TLC-ORACLE-13-PRACTICE-008
+feature_id: TLC-FC-13-PRACTICE-008
+status: selected_for_practice_implementation_specification
+ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-008/ir.yaml
+algorithm_ref: registry/algorithms/practice/TLC-FC-13-PRACTICE-008/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-13-PRACTICE-008/test-plan.yaml
+acceptance_ready: true
+scientific_execution_oracle_available: false
+expected_identity: TLC-FC-13-PRACTICE-008
+expected_raw_status: blocked_declarative_non_executable
+expected_object_ids: [TLC-SO-PRACTICE-022]
+expected_input_ids: [INPUT-PRACTICE-008-1]
+expected_output_ids: [OUTPUT-PRACTICE-008-1]
+expected_unresolved: []
+expected_scientific_decisions: [TLC-SO-PRACTICE-022, TLC-SR-PRACTICE-021, TLC-HR-0101]
+tests:
+- {id: PRACTICE-008-STRUCTURE, category: nominal, assertion: blocked metric remains structurally representable}
+- {id: PRACTICE-008-DECISIONS, category: dependencies, assertion: exact three decision references are preserved}
+- {id: PRACTICE-008-EVALUATION, category: errors, assertion: scientific evaluation returns scientific_decision_required}
+- {id: PRACTICE-008-ROUNDTRIP, category: serialization, assertion: round trip preserves the opaque payload and decisions}
+- {id: PRACTICE-008-NO-FREQUENCY, category: invariants, assertion: no session unit, observation window or repetition schedule is invented}
+- {id: PRACTICE-008-NO-RATIO, category: invariants, assertion: no denominator or resource arithmetic is inferred}
+- {id: PRACTICE-008-OPAQUE, category: opaque_value_propagation, assertion: payload remains unchanged}
+properties: [adding or removing a decision fails conformity, serialization is deterministic, source object identity is exact]
+metamorphic_relations: [round-trip serialization is stable, replacing the opaque payload changes only that payload]
+acceptance_condition: structural tests pass and metric evaluation remains deferred
