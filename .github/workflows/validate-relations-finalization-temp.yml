@@ -11,6 +11,8 @@ name: Temporary Relations finalization validation
 
 permissions:
   contents: read
+  issues: write
+  pull-requests: write
 
 jobs:
   validate:
@@ -20,6 +22,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          show-progress: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -30,7 +33,25 @@ jobs:
         run: python -m pip install --disable-pip-version-check PyYAML
 
       - name: Run Relations validator
-        run: python tools/domain-finalization/validate_relations_finalization.py
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          python tools/domain-finalization/validate_relations_finalization.py > /tmp/relations-validator-output.txt 2>&1
+          status=$?
+          cat /tmp/relations-validator-output.txt
+          if [ "$status" -ne 0 ]; then
+            {
+              echo 'Temporary Relations validator diagnostic:'
+              echo
+              echo '```text'
+              cat /tmp/relations-validator-output.txt
+              echo '```'
+            } > /tmp/relations-validator-comment.md
+            gh pr comment 91 --body-file /tmp/relations-validator-comment.md
+            exit "$status"
+          fi
 
       - name: Check diff whitespace
         run: git diff --check c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD
