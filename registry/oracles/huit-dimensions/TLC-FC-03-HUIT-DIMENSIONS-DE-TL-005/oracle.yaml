@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005
+operation: index_dimension_dynamics_laws
+source_test_plan: ir/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005/test-plan.yaml
+finalized_ir: registry/optimized-ir/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005/ir.yaml
+algorithm: registry/algorithms/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005/algorithm.yaml
+oracle_kind: structural_acceptance_oracle
+fixture_policy: symbolic_opaque_law_tokens_only_no_scientific_values
+tests:
+- {id: HD-005-NOMINAL, category: nominal, assertion: catalogue has exactly four role-keyed law entries}
+- {id: HD-005-MISSING, category: precondition_error, mutation: remove virtue_development_law, expected_error: FAIL-HUIT-005-MISSING-TRACE}
+- {id: HD-005-DUPLICATE, category: error, mutation: duplicate a role key, expected_error: FAIL-HUIT-005-OPERATION}
+- {id: HD-005-TYPES, category: types, assertion: stochastic and differential law kinds remain distinct}
+- {id: HD-005-CARDINALITY, category: cardinality, assertion: entry count equals four}
+- {id: HD-005-OPAQUE, category: opaque_propagation, assertion: all expression bytes and tokens remain unchanged}
+- {id: HD-005-NO-SAMPLE, category: scientific_boundary, mutation: request stochastic sampling or differential integration, expected_error: FAIL-HUIT-005-OPERATION}
+- {id: HD-005-UNRESOLVED, category: unresolved_propagation, assertion: exact eight unresolved ids remain unresolved}
+- {id: HD-005-DETERMINISM, category: determinism, assertion: identical descriptors produce identical catalogue records}
+- {id: HD-005-METAMORPHIC, category: metamorphic, transformation: reorder input descriptors, assertion: semantic role catalogue is unchanged}
+- {id: HD-005-CONSERVATION, category: conservation, assertion: each law keeps object id source trace law kind and payload}
+- {id: HD-005-CONFORMANCE, category: contract_ir_algorithm_conformance, assertion: roles output errors and propagated sets agree}
+numeric_expected_results: []
+acceptance: all_tests_pass
