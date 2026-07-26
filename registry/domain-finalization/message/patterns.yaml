@@ -1,0 +1,33 @@
+schema_version: 1
+domain: message
+patterns:
+  - id: message_evidence_envelope
+    kind: shared_structural_pattern
+    demonstrated_by: [TLC-FC-07-MESSAGE-001, TLC-FC-07-MESSAGE-002, TLC-FC-07-MESSAGE-003, TLC-FC-07-MESSAGE-004, TLC-FC-07-MESSAGE-005, TLC-FC-07-MESSAGE-006]
+    fields: [object_id, relation_id, source_reference, opaque_payload, candidate_status]
+    preservation: [identity, content_reference, provenance, unresolved]
+  - id: exact_identifier_set_validation
+    kind: shared_validation
+    demonstrated_by: [TLC-FC-07-MESSAGE-001, TLC-FC-07-MESSAGE-003, TLC-FC-07-MESSAGE-004, TLC-FC-07-MESSAGE-005, TLC-FC-07-MESSAGE-006]
+    behavior: reject missing, duplicate, unknown, or merged identifiers according to each feature contract
+  - id: unevaluated_structural_result
+    kind: shared_output_pattern
+    demonstrated_by: [TLC-FC-07-MESSAGE-001, TLC-FC-07-MESSAGE-002, TLC-FC-07-MESSAGE-003, TLC-FC-07-MESSAGE-004, TLC-FC-07-MESSAGE-005, TLC-FC-07-MESSAGE-006]
+    behavior: expose source-declared structure while prohibiting scientific truth evaluation
+  - id: source_order_preservation
+    kind: conditional_shared_pattern
+    demonstrated_by: [TLC-FC-07-MESSAGE-004, TLC-FC-07-MESSAGE-005]
+    behavior: preserve order only where source order is explicitly observable
+  - id: opaque_value_propagation
+    kind: shared_preservation_pattern
+    demonstrated_by: [TLC-FC-07-MESSAGE-001, TLC-FC-07-MESSAGE-002, TLC-FC-07-MESSAGE-003, TLC-FC-07-MESSAGE-004, TLC-FC-07-MESSAGE-005, TLC-FC-07-MESSAGE-006]
+    behavior: carry opaque scientific payload and context without interpretation
+normalizations_applied:
+  - common traceability envelope
+  - common preservation flags
+  - common structured error shape
+  - explicit separation of representation, validation, transformation, transmission, reception, and interpretation
+  - explicit algorithm and oracle links
+not_factorized:
+  - reason: no scientific equivalence is demonstrated between the six public features
+  - preserved: feature identity, role distinctions, content references, source order, observable errors
