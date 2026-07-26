@@ -1,0 +1,68 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-05-DYNAMICS-006
+feature_id: TLC-FC-05-DYNAMICS-006
+status: selected_for_dynamics_implementation_specification
+ir_ref: registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-006/ir.yaml
+signature: "construct_opaque_state_candidate_record(components: Mapping[ScientificObjectId, OpaqueValue]) -> StateCandidateRecord"
+inputs:
+  components: complete or partial mapping of covered scientific-object IDs to opaque values
+outputs:
+  state_candidate: structural candidate record with no state-space claim
+validations:
+  - verify every component key is covered by the feature
+  - verify every component value has the OpaqueValue carrier
+preconditions:
+  - components may be partial
+  - omitted candidates require no defaults
+initial_state: not_defined
+ordered_steps:
+  - validate every component key before construction
+  - validate every opaque value carrier before construction
+  - copy all supplied key/value pairs unchanged
+  - construct a StateCandidateRecord
+  - mark completeness as unasserted and state-space membership as undefined
+  - attach per-component source traceability
+  - attach all source unresolved and reservations
+  - validate postconditions and return
+transitions: []
+branches:
+  - if any key is unknown, return unknown_source_identifier and no record
+  - if any value has the wrong shape, return type_shape_mismatch and no record
+repetitions:
+  - iterate once over supplied component entries for validation and copying
+effects: [construct_immutable_state_candidate_record]
+final_state: not_defined
+stop_conditions: []
+errors: [unknown_source_identifier, type_shape_mismatch]
+postconditions:
+  - every supplied key/value pair is retained exactly
+  - omitted components remain absent
+  - no explicit state, state space, default, or transition is created
+invariants:
+  - components remain opaque and source-addressable
+  - partial candidate status remains visible
+determinism: deterministic_for_identical_mapping_content_and_exposed_order
+stochasticity: metadata_only_when_present_in_opaque_components
+edge_cases:
+  - an empty mapping produces an empty candidate record with completeness unasserted
+  - a partial mapping is valid
+  - an unknown component aborts atomically
+dependencies:
+  internal: []
+  external: [master_symbolic_reference, disciple_symbolic_reference, community_future_reconciliation]
+unresolved_preserved: [TLC-UT-DYNAMICS-001, TLC-UT-DYNAMICS-002, TLC-UT-DYNAMICS-003, TLC-UT-DYNAMICS-004, TLC-UT-DYNAMICS-005, TLC-UT-DYNAMICS-006, TLC-UT-DYNAMICS-008, TLC-UT-DYNAMICS-009, TLC-UT-DYNAMICS-010, TLC-UT-DYNAMICS-011, TLC-UT-DYNAMICS-012]
+pseudocode: |
+  function construct_opaque_state_candidate_record(components):
+      validate_shape(components, Mapping[ScientificObjectId, OpaqueValue])
+      validate_all_component_ids_are_covered(components.keys)
+      for value in components.values:
+          validate_shape(value, OpaqueValue)
+      result = StateCandidateRecord(
+          components = copy_mapping(components),
+          completeness = UNASSERTED,
+          state_space = UNDEFINED)
+      attach_component_traceability(result)
+      attach_unresolved(result, SOURCE_UNRESOLVED)
+      assert result.components == components
+      return result
+forbidden_operations: [invent_default_component, assert_complete_state, define_state_space, infer_transition]
