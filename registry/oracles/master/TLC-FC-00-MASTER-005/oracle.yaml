@@ -1,0 +1,19 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-00-MASTER-005
+feature_id: TLC-FC-00-MASTER-005
+status: acceptance_ready
+finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-005/ir.yaml
+algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-005/algorithm.yaml
+oracle_kind: structural_and_preservation
+fixtures: {valid_object_refs: [TLC-SO-MASTER-008], valid_relation_refs: [TLC-SR-MASTER-007, TLC-SR-MASTER-008, TLC-SR-MASTER-009, TLC-SR-MASTER-010, TLC-SR-MASTER-011], valid_unresolved: []}
+acceptance_tests:
+  - {test_id: MASTER-005-A01, category: precondition, assertion: exact five-relation bundle is accepted}
+  - {test_id: MASTER-005-A02, category: postcondition, assertion: immutable seven-tuple descriptor is emitted}
+  - {test_id: MASTER-005-A03, category: error, mutation: omit a component relation, expected_error: MASTER_REFERENCE_SET_MISMATCH}
+  - {test_id: MASTER-005-A04, category: invariant, assertion: component relations remain distinct and ordered}
+  - {test_id: MASTER-005-A05, category: determinism, assertion: repeated output is identical}
+  - {test_id: MASTER-005-A06, category: conservation, assertion: no runtime type, layout, dimension, alias, or value is added}
+  - {test_id: MASTER-005-A07, category: error, mutation: request calculation, expected_error: MASTER_UNSUPPORTED_EXECUTION_MODE}
+  - {test_id: MASTER-005-A08, category: source_integrity, assertion: all source artifacts are unmodified}
+exact_numeric_examples: []
+scientific_values_invented: false
