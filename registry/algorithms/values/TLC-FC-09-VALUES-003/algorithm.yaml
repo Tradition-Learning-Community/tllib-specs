@@ -1,0 +1,24 @@
+feature_id: TLC-FC-09-VALUES-003
+signature: assemble_admissible_value_dynamics_ast(inputs_as_source_ir) -> source_ir_output
+inputs: exact_source_ir_inputs
+outputs: exact_source_ir_outputs
+validations: [required_inputs, identifiers, identity, scope, context, provenance]
+preconditions: source_ir_preconditions
+conditions_of_application: structural_assembly_without_solving
+steps: [resolve_sources, validate_inputs_and_symbols, execute_source_ir_operations_in_declared_order, attach_complete_traceability, return_declared_output]
+branching: validation_error_or_external_evaluator_required
+comparisons: source_declared_only
+aggregations: source_declared_only
+effects: no_solver_or_scientific_evaluation
+postconditions: source_ir_postconditions
+invariants: source_ir_invariants
+determinism: deterministic_for_structure
+edge_cases: [missing_equation_source, unbound_symbol, duplicate_equation_role]
+unresolved: propagate_all
+pseudocode: |
+  validate_required_inputs(inputs)
+  validate_identity_scope_context_and_references(inputs)
+  result = execute_source_ir_operations_in_declared_order(inputs)
+  return attach_complete_source_trace(result)
+source_ir_preserved: true
+source_contract_preserved: true

@@ -1,0 +1,29 @@
+feature_id: TLC-FC-09-VALUES-001
+signature: compile_axiomatic_foundation_constraint_ast(inputs_as_source_ir) -> source_ir_output
+inputs: exact_source_ir_inputs
+outputs: exact_source_ir_outputs
+validations: [required_inputs, identifiers, identity, scope, context, provenance]
+preconditions: source_ir_preconditions
+conditions_of_application: structural_compilation_without_truth_evaluation
+steps:
+- resolve source contract and source IR references
+- validate all declared inputs and references
+- execute each source IR operation in declared order without changing payloads
+- attach identity scope context provenance relations unresolved and reservations
+- return exact declared output type
+branching: on validation error return named structured error; on unresolved evaluation requirement return external_evaluator_required
+comparisons: source_declared_only
+aggregations: source_declared_only
+effects: no_scientific_evaluation
+postconditions: source_ir_postconditions
+invariants: source_ir_invariants
+determinism: deterministic_for_structure
+edge_cases: [empty_input, duplicate_identity, unknown_reference, invalid_scope, invalid_context]
+unresolved: propagate_all
+pseudocode: |
+  validate_required_inputs(inputs)
+  validate_identity_scope_context_and_references(inputs)
+  result = execute_source_ir_operations_in_declared_order(inputs)
+  return attach_complete_source_trace(result)
+source_ir_preserved: true
+source_contract_preserved: true

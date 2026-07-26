@@ -1,0 +1,46 @@
+schema_version: 1
+module: values
+status: selected_for_values_implementation_specification
+features_ref: registry/domain-finalization/values/feature-status.yaml
+public_operations:
+- construct_or_validate_feature_value
+- resolve_value_reference
+- attach_value_scope_and_context
+- record_explicit_value_relation
+- request_external_evaluation
+internal_operations:
+- validate_source_identifiers
+- validate_identity_scope_context
+- execute_source_ir_operation_sequence
+- preserve_opaque_payload
+- attach_traceability
+- propagate_unresolved_and_reservations
+types:
+- ValueIdentity
+- ValueReference
+- ValueScope
+- ValueContext
+- OpaqueScientificValue
+- ExplicitValueRelation
+- SourceProvenance
+- StructuredValuesError
+composition_rules:
+- Preserve feature boundaries and source object identity.
+- Compose only through declared references and dependencies.
+- Do not turn documentary dependencies into execution dependencies.
+- Do not compare, rank, score, weight, aggregate, or decide unless explicitly declared.
+determinism:
+- Structural validation and construction are deterministic.
+- External scientific evaluation is outside this specification.
+interfaces:
+- one feature adapter per finalized IR
+- immutable source-addressable result envelope
+- explicit external evaluator, comparator, or aggregator ports only when required by source unresolved
+out_of_scope:
+- scientific approval
+- invented value hierarchy or priority
+- normative decision engine
+- C++ implementation
+- Python bindings
+- reference implementation
+unresolved_policy: preserve_as_opaque_or_external_requirement

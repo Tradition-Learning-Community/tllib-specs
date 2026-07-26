@@ -1,0 +1,41 @@
+feature_id: TLC-FC-09-VALUES-006
+status: selected_for_values_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-09-VALUES-006/contract.yaml
+source_ir: registry/ir/TLC-FC-09-VALUES-006/ir.yaml
+source_test_plan: registry/ir/TLC-FC-09-VALUES-006/test-plan.yaml
+source_ir_status: prototype_ir_with_reservations
+nature: structural
+value_or_reference: admissible symbolic equation transformation
+identity: source identifiers
+scope: influence and collective understanding equations cited by source
+context: source provenance
+inputs: as_declared_in_source_ir
+outputs: as_declared_in_source_ir
+types: preserve_all_source_ir_types
+opaque_values: preserve_all
+preconditions: preserve_source_ir
+conditions_of_application: symbolic_transformation_only
+relations: only_source_declared
+operations: execute_exact_source_ir_operation_sequence
+execution_order: preserve_source_ir_order
+control_flow: validate_then_execute_then_trace
+comparisons: source_declared_only
+aggregations: source_declared_only
+effects: no_evaluation_beyond_source_ir
+postconditions: preserve_source_ir
+invariants: preserve_source_ir
+determinism: deterministic_structural_construction
+dependencies: source_declared_only
+unresolved_propagated: preserve_all_source_ir_unresolved
+reservations: preserve_all
+transformations: [normalized_envelope, shared_validation, normalized_traceability]
+preservation_obligations: [identity, scope, context, source_order, opaque_values, relations, unresolved]
+algorithm: registry/algorithms/values/TLC-FC-09-VALUES-006/algorithm.yaml
+oracle: registry/oracles/values/TLC-FC-09-VALUES-006/oracle.yaml
+implementation_readiness: ready_for_structural_implementation_with_external_evaluator_required
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+value_invented: false
+ordering_invented: false
