@@ -1,0 +1,32 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-011
+oracle_id: TLC-ORACLE-TLC-FC-12-COMPETENCIES-011
+source_test_plan: registry/test-plans/TLC-FC-12-COMPETENCIES-011/test-plan.yaml
+finalized_ir: registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-011/ir.yaml
+algorithm: registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-011/algorithm.yaml
+oracle_kind: structural_acceptance_oracle
+fixture_policy: {competency_instances_created: false, payloads: opaque_tokens_named_by_source_object_id, numeric_values: none, qualitative_ratings: none}
+acceptance_tests:
+- {test_id: C011-NOM-001, category: nominal, given: exact objects 024 038 043 complete provenance structural mode, expect: immutable descriptor preserving source order}
+- {test_id: C011-PRE-001, category: precondition, mutation: remove object 043, expect_error: MissingCoveredObject}
+- {test_id: C011-ERR-001, category: errors, mutation: add unlisted metric object, expect_error: UnexpectedCoveredObject}
+- {test_id: C011-ERR-002, category: errors, mutation: duplicate object 038, expect_error: DuplicateCoveredObject}
+- {test_id: C011-REF-001, category: references, mutation: remove provenance for 024, expect_error: MissingSourceReference}
+- {test_id: C011-ID-001, category: identity, mutation: wrong feature id, expect_error: UnknownFeatureId}
+- {test_id: C011-MAN-001, category: manifestations, property: qualitative indicator statements remain opaque and no observer rating is generated}
+- {test_id: C011-REL-001, category: relations, property: collective and identity compatibility content remains opaque and no endpoints are inferred}
+- {test_id: C011-MAST-001, category: mastery, property: composite mastery equation remains opaque and no index is produced}
+- {test_id: C011-PROP-001, category: opaque_value_propagation, property: all payload identities provenance reservations and unresolved remain unchanged}
+- {test_id: C011-META-001, category: metamorphic, transformation: permute caller map order, invariant: output order remains [024, 038, 043]}
+- {test_id: C011-DET-001, category: determinism, property: identical inputs produce structurally equal descriptors}
+- {test_id: C011-REJ-001, category: evaluation_rejection, mutation: request qualitative rating mastery index collective synergy or geometric metric, expect_error: ScientificEvaluationRequested}
+- {test_id: C011-REJ-002, category: comparison_rejection, mutation: request identity compatibility or collective comparison, expect_error: ScientificEvaluationRequested}
+- {test_id: C011-TRACE-001, category: traceability, property: full artifact chain is unique and consistent}
+blocked_tests: [qualitative depth creativity adaptation ratings, mastery index, collective competency metric, synergy, Hilbertian metric, curvature, projection, precision stability gradient conservation monotonicity]
+acceptance_invariants:
+- identity scope opaque context source order and provenance conserved
+- no observer evaluator geometry weight score level threshold comparator endpoint or progression invented
+- unresolved propagated
+dependency_tests:
+- expect capacities dependency status not_directly_evidenced
+no_invention: {competency: false, measurement: false, level: false, threshold: false, comparison: false, progression: false, observer_result: false}
