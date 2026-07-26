@@ -1,0 +1,45 @@
+name: Temporary Virtues finalization validation
+
+on:
+  push:
+    branches:
+      - phase4/virtues-domain-finalization-001
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install validator dependencies
+        run: python -m pip install --disable-pip-version-check PyYAML
+      - name: Validate Virtues finalization package
+        run: python tools/domain-finalization/validate_virtues_finalization.py
+      - name: Check whitespace
+        run: git diff --check c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD
+      - name: Verify changed path scope
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --name-only c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD | tee /tmp/virtues-changed-paths.txt
+          if grep -E '^(maths/|registry/global-reconciliation/|registry/math-contracts/|registry/ir/|registry/test-plans/)' /tmp/virtues-changed-paths.txt; then
+            echo "Forbidden source or global path modified"
+            exit 1
+          fi
+          if grep -Ev '^(registry/domain-finalization/virtues/|registry/optimized-ir/virtues/|registry/algorithms/virtues/|registry/oracles/virtues/|reports/domain-finalization/virtues/|tools/domain-finalization/validate_virtues_finalization.py$|.github/workflows/validate-virtues-finalization-temp.yml$)' /tmp/virtues-changed-paths.txt; then
+            echo "Path outside the Virtues finalization scope"
+            exit 1
+          fi
