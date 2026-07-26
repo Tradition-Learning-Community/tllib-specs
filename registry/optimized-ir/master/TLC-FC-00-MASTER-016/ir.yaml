@@ -1,0 +1,29 @@
+schema_version: 1
+finalized_ir_id: TLC-OIR-TLC-FC-00-MASTER-016
+feature_id: TLC-FC-00-MASTER-016
+canonical_name: '00-master: state (blocked_locally)'
+domain: master
+status: selected_for_master_implementation_specification
+traceability: {contract_ref: registry/math-contracts/TLC-FC-00-MASTER-016/contract.yaml, ir_registry_ref: registry/ir/TLC-FC-00-MASTER-016/ir.yaml, source_ir_ref: ir/TLC-FC-00-MASTER-016/ir.candidate.json, source_test_plan_ref: registry/test-plans/TLC-FC-00-MASTER-016/test-plan.yaml}
+representation: {source_kind: symbolic_type, implementation_kind: symbolic_type_descriptor, optimization: normalized_envelope_only}
+transformations: [normalized composite symbolic-state envelope, retained six source objects and twenty-five relations without flattening, exposed unresolved propagation]
+preservation_obligations: [preserve every source object, relation, and unresolved identifier exactly, do not define lifecycle transitions or convex typology space, do not infer Disciple identity, runtime layout, dimensions, aliases, or subtype equivalences]
+inputs:
+  scientific_object_refs: [TLC-SO-MASTER-001, TLC-SO-MASTER-009, TLC-SO-MASTER-012, TLC-SO-MASTER-015, TLC-SO-MASTER-035, TLC-SO-MASTER-037]
+  relation_refs: [TLC-SR-MASTER-001, TLC-SR-MASTER-002, TLC-SR-MASTER-003, TLC-SR-MASTER-004, TLC-SR-MASTER-005, TLC-SR-MASTER-006, TLC-SR-MASTER-007, TLC-SR-MASTER-008, TLC-SR-MASTER-011, TLC-SR-MASTER-012, TLC-SR-MASTER-013, TLC-SR-MASTER-014, TLC-SR-MASTER-015, TLC-SR-MASTER-016, TLC-SR-MASTER-017, TLC-SR-MASTER-019, TLC-SR-MASTER-021, TLC-SR-MASTER-022, TLC-SR-MASTER-023, TLC-SR-MASTER-025, TLC-SR-MASTER-030, TLC-SR-MASTER-032, TLC-SR-MASTER-033, TLC-SR-MASTER-034, TLC-SR-MASTER-035]
+  unresolved_refs: [TLC-GU-00321, TLC-GU-00322, TLC-GU-00323, TLC-GU-00327, TLC-GU-00340, TLC-GU-00341, TLC-GU-00343, TLC-UT-MASTER-004, TLC-UT-MASTER-005, TLC-UT-MASTER-006, TLC-UT-MASTER-010, TLC-UT-MASTER-023, TLC-UT-MASTER-024, TLC-UT-MASTER-026]
+  types: {references: ScientificReferenceBundle}
+outputs: {type: MasterSymbolicTypeDescriptor, fields: [feature_id, symbolic_object_refs, relation_refs, unresolved, dependencies, provenance]}
+opaque_values: [component runtime types, knowledge-space operations, relation capacity dimension, typology mixture space, lifecycle transitions, Disciple state]
+preconditions: [exact identity and all ordered source sets]
+operations: [validate_feature_identity, validate_exact_reference_sets, validate_exact_unresolved_set, construct_immutable_provenance, preserve_optional_external_symbol, emit_symbolic_type_descriptor, verify_preservation_obligations]
+execution_order: [validate_feature_identity, validate_exact_reference_sets, validate_exact_unresolved_set, construct_immutable_provenance, preserve_optional_external_symbol, emit_symbolic_type_descriptor, verify_preservation_obligations]
+states_and_effects: {state: immutable, scientific_mutation: none, external_domain_mutation: none}
+postconditions: [six objects and twenty-five relations remain distinct and ordered, fourteen unresolved refs remain unchanged]
+invariants: [composite state is not flattened, optional Disciple symbol absence does not trigger substitution]
+errors: [MASTER_INVALID_FEATURE_ID, MASTER_REFERENCE_SET_MISMATCH, MASTER_UNRESOLVED_SET_MISMATCH, MASTER_PRESERVATION_VIOLATION, MASTER_UNSUPPORTED_EXECUTION_MODE]
+determinism: {wrapper: deterministic, scientific_evaluation: not_applicable}
+dependencies: {internal: [], external: [{domain: disciple, mode: optional_symbol_reference_read_only}]}
+unresolved: [TLC-GU-00321, TLC-GU-00322, TLC-GU-00323, TLC-GU-00327, TLC-GU-00340, TLC-GU-00341, TLC-GU-00343, TLC-UT-MASTER-004, TLC-UT-MASTER-005, TLC-UT-MASTER-006, TLC-UT-MASTER-010, TLC-UT-MASTER-023, TLC-UT-MASTER-024, TLC-UT-MASTER-026]
+tests: {source_plan: registry/test-plans/TLC-FC-00-MASTER-016/test-plan.yaml, acceptance_oracle: registry/oracles/master/TLC-FC-00-MASTER-016/oracle.yaml}
+implementation_status: {package_ready: true, scientific_canonicalization: false, code_generation_in_this_phase: false}
