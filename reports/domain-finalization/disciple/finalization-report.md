@@ -51,7 +51,18 @@ These blockers do not prevent implementation of deterministic descriptors, valid
 
 ## Validation
 
-Validation is defined by `tools/domain-finalization/validate_disciple_finalization.py` and a temporary GitHub Actions workflow. Final result: **pending**.
+GitHub Actions run `30204579076` validated commit `4982bb4e8c5d480ce29ce6c280cf9d6d0b168347`. The following checks passed:
+
+- parsing of all Disciple finalization, optimized IR, algorithm, and oracle YAML artifacts;
+- exactly ten authoritative Disciple features and complete artifact coverage;
+- optimized IR required fields and preservation flags;
+- full propagation of unresolved tokens, opaque Master subsymbols, and catalogue reservations;
+- IR → algorithm → oracle traceability and acceptance-test coverage;
+- `python tools/domain-finalization/validate_disciple_finalization.py`;
+- `git diff --check origin/main...HEAD`;
+- changed-path restrictions proving that no scientific source, Master artifact, global registry, source contract, or source IR was modified.
+
+Final result: **passed**.
 
 ## Conservation statement
 

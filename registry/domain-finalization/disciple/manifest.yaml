@@ -2,7 +2,7 @@ schema_version: '1.0'
 manifest_id: TLC-DISCIPLE-DOMAIN-FINALIZATION-001
 domain: disciple
 phase: domain_finalization_through_algorithm_and_oracle
-status: complete_pending_repository_validation
+status: complete_validated
 main_head_used: c34d40713bf444d38f92f76e1c6239ee596d5a18
 branch: phase4/disciple-domain-finalization-001
 baseline_ref: registry/global-reconciliation/current-baseline.yaml
@@ -73,5 +73,14 @@ implementation_package:
     - deferred-operation and descriptor construction
 validation:
   command: python tools/domain-finalization/validate_disciple_finalization.py
-  diff_check: git diff --check
-  status: pending
+  diff_check: git diff --check origin/main...HEAD
+  validated_commit: 4982bb4e8c5d480ce29ce6c280cf9d6d0b168347
+  github_actions_run_id: 30204579076
+  status: passed
+  checks:
+    yaml_parsing: passed
+    authoritative_population: passed
+    optimized_ir_schema: passed
+    unresolved_and_opaque_preservation: passed
+    algorithm_oracle_coherence: passed
+    changed_path_scope: passed
