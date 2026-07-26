@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - phase4/competencies-domain-finalization-001
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -42,6 +45,6 @@ jobs:
           git diff --name-only c34d40713bf444d38f92f76e1c6239ee596d5a18..HEAD | while IFS= read -r path; do
             [[ "$path" =~ $allowed ]] || { echo "Out-of-scope path: $path"; exit 1; }
           done
-          ! git diff --name-only c34d40713bf444d38f92f76e1c6239ee596d5a18..HEAD | grep -E '^(maths/|registry/global-reconciliation/|registry/math-contracts/|registry/ir/|registry/test-plans/)' 
+          ! git diff --name-only c34d40713bf444d38f92f76e1c6239ee596d5a18..HEAD | grep -E '^(maths/|registry/global-reconciliation/|registry/math-contracts/|registry/ir/|registry/test-plans/)'
           ! git diff --name-only c34d40713bf444d38f92f76e1c6239ee596d5a18..HEAD | grep -E '\.(cpp|cc|cxx|hpp|hh|h)$'
           ! git diff --name-only c34d40713bf444d38f92f76e1c6239ee596d5a18..HEAD | grep -E '(__pycache__|\.status$|\.log$|\.cache/)'
