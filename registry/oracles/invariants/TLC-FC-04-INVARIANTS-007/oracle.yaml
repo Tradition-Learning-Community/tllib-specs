@@ -1,0 +1,61 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-007
+oracle_id: TLC-ORACLE-INVARIANTS-007-FINAL-001
+status: selected_for_invariants_implementation_specification
+source_test_plan_ref: ir/TLC-FC-04-INVARIANTS-007/test-plan.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-007/contract.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-007/ir.prototype.json
+optimized_ir_ref: registry/optimized-ir/invariants/TLC-FC-04-INVARIANTS-007/ir.yaml
+algorithm_ref: registry/algorithms/invariants/TLC-FC-04-INVARIANTS-007/algorithm.yaml
+operation_under_test: construct_disintegration_relation
+oracle_kind: structural_relation_oracle
+exact_scientific_values_required: false
+authoritative_expectations:
+- exactly one immutable TLC-SR-INVARIANTS-067 refers_to edge is returned
+- source, target, relation ID, evidence, status, assumptions, reservations, and opaque content are preserved
+- no relation property is inferred
+tests:
+- id: INV007-ACCEPT-NOMINAL
+  category: nominal
+  given: TLC-SO-INVARIANTS-068, the source-defined invariant root, TLC-SR-INVARIANTS-067, and evidence reference
+  then: one immutable exact relation record is returned
+- id: INV007-ACCEPT-RELATION-ID
+  category: precondition_error
+  given: an unknown relation ID
+  then_error: UnknownRelationId
+- id: INV007-ACCEPT-ENDPOINT
+  category: precondition_error
+  given: reversed or mismatched endpoints
+  then_error: EndpointMismatch
+- id: INV007-ACCEPT-EVIDENCE
+  category: precondition_error
+  given: missing evidence reference
+  then_error: MissingSourceReference
+- id: INV007-ACCEPT-OPAQUE
+  category: opaque_value_propagation
+  given: uninterpretable evidence body
+  then: body is retained exactly and not evaluated
+- id: INV007-ACCEPT-NO-INFERENCE
+  category: boundary
+  then:
+  - output does not assert causality
+  - output does not assert symmetry or transitivity
+  - output does not assert temporal ordering
+- id: INV007-ACCEPT-DETERMINISM
+  category: determinism
+  given: identical valid input twice
+  then: records are structurally equal
+- id: INV007-ACCEPT-RESERVATIONS
+  category: reservation_propagation
+  given: source status and TLC-EA-INVARIANTS-007-001
+  then: exact metadata is retained without resolution
+- id: INV007-ACCEPT-CONFORMANCE
+  category: traceability
+  then: endpoint tuple, callable, types, errors, and postconditions agree across linked artifacts
+properties:
+- exact relation tuple preservation
+- relation construction is not relation closure
+- no input mutation
+- no unresolved identifier introduced or removed
+numeric_expected_results: []
+acceptance_status: ready_for_test_implementation
