@@ -1,0 +1,17 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-00-MASTER-014
+feature_id: TLC-FC-00-MASTER-014
+status: selected_for_master_implementation_specification
+finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-014/ir.yaml
+signature: evaluate_master_disciple_relation(reference_bundle, opaque_inputs, provider, disciple_symbol) -> MasterOpaqueEvaluationResult
+inputs: {reference_bundle: ScientificReferenceBundle, opaque_inputs: OpaqueScientificPayload, provider: OpaqueOperationProvider, disciple_symbol: read-only external symbol}
+outputs: {result: MasterOpaqueEvaluationResult}
+validations: [exact feature id, object refs equal [TLC-SO-MASTER-003], relation refs equal [TLC-SR-MASTER-002, TLC-SR-MASTER-029], unresolved refs equal [TLC-GU-00343, TLC-RELISS-MASTER-002, TLC-UT-MASTER-026]]
+steps: [validate exact sets, construct provenance, return unresolved if evaluation not requested, validate Disciple symbol and provider, invoke provider unchanged, preserve payload and unresolved refs, verify no endpoint identity or inferred-relation validation occurred, return]
+branches: [{condition: missing Disciple symbol, action: return MASTER_EXTERNAL_DEPENDENCY_UNAVAILABLE}, {condition: missing provider, action: return MASTER_OPAQUE_PROVIDER_REQUIRED}, {condition: provider failure, action: return MASTER_OPAQUE_PROVIDER_FAILURE}]
+errors: [MASTER_INVALID_FEATURE_ID, MASTER_REFERENCE_SET_MISMATCH, MASTER_UNRESOLVED_SET_MISMATCH, MASTER_EXTERNAL_DEPENDENCY_UNAVAILABLE, MASTER_OPAQUE_PROVIDER_REQUIRED, MASTER_OPAQUE_PROVIDER_FAILURE, MASTER_PRESERVATION_VIOLATION]
+invariants: [endpoint identity opaque, inferred relation unresolved, payload unchanged]
+determinism: wrapper deterministic; provider determinism provider-declared
+effects: none
+edge_cases: [missing Disciple symbol does not block descriptor mode, provider unresolved response propagated]
+necessary_dependencies: [{domain: disciple, access: read_only, required_for: evaluated_mode}]
