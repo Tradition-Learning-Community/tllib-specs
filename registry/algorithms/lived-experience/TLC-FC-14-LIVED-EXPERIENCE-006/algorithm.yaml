@@ -5,16 +5,24 @@ source_contract_ref: registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-006/cont
 source_ir_ref: registry/ir/TLC-FC-14-LIVED-EXPERIENCE-006/ir.yaml
 finalized_ir_ref: registry/optimized-ir/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-006/ir.yaml
 nature: structural_declarative_algorithm
-signature: lived_experience_006_descriptor(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>) -> LivedExperienceDescriptor
+signature: 'lived_experience_006_descriptor(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>) -> LivedExperienceDescriptor'
 inputs: [feature_id, object_payloads, provenance]
 outputs: [artifact]
 validations: [exact feature id, exact object 054 set, uniqueness, provenance, no threshold or membership evaluation]
 preconditions: [feature id matches, object 054 present exactly once, provenance present]
 conditions_of_application: [preserve the source validity-domain expression]
-ordered_steps: [validate identity, validate object set, validate provenance, copy expression as opaque content, propagate unresolved, return]
+ordered_steps:
+- validate identity
+- validate object set
+- validate provenance
+- copy expression as opaque content
+- propagate unresolved
+- return
 branching:
-- {condition: invalid structure, action: raise structural error}
-- {condition: request to evaluate R_aff, rho_min, t_min or disciple-state membership, action: raise ScientificEvaluationRequested}
+- condition: 'Invalid structure.'
+  action: 'Raise the corresponding structural error.'
+- condition: 'Evaluation of R_aff, rho_min, t_min or disciple-state membership is requested.'
+  action: 'Raise ScientificEvaluationRequested.'
 experience_processing: preserve external equation reference only
 identity_validation: [TLC-FC-14-LIVED-EXPERIENCE-006, TLC-SO-LIVED-EXPERIENCE-054]
 scope_validation: exact validity-domain equation only
@@ -31,11 +39,13 @@ postconditions: [expression unchanged, no membership decision introduced]
 invariants: [exact object set, no threshold inference]
 determinism: structural only
 edge_cases: [unknown d type, unknown time unit, unknown context type, unknown thresholds, unknown disciple-state type]
-dependencies: {execution: [], documentary: [source contract, source IR]}
+dependencies:
+  execution: []
+  documentary: [source contract, source IR]
 unresolved_preserved: [scientific_decision_required, external_reconciliation_pending]
 pseudocode: |
   FUNCTION lived_experience_006_descriptor(feature_id, object_payloads, provenance):
-    VALIDATE feature_id and exact object [TLC-SO-LIVED-EXPERIENCE-054]
+    VALIDATE feature_id and exact object TLC-SO-LIVED-EXPERIENCE-054
     VALIDATE provenance
     COPY the validity-domain expression and symbols without evaluation
     DO NOT select types, units, thresholds or membership semantics

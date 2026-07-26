@@ -5,16 +5,24 @@ source_contract_ref: registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-010/cont
 source_ir_ref: registry/ir/TLC-FC-14-LIVED-EXPERIENCE-010/ir.yaml
 finalized_ir_ref: registry/optimized-ir/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-010/ir.yaml
 nature: structural_declarative_algorithm
-signature: lived_experience_010_descriptor(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>) -> LivedExperienceDescriptor
+signature: 'lived_experience_010_descriptor(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>) -> LivedExperienceDescriptor'
 inputs: [feature_id, object_payloads, provenance]
 outputs: [artifact]
 validations: [exact feature id, exact object 018 set, uniqueness, provenance, all three expressions retained, no metric evaluation]
 preconditions: [feature id matches, object 018 present exactly once, provenance present]
 conditions_of_application: [preserve metric expressions without selecting types or denominator policies]
-ordered_steps: [validate identity, validate object set, validate provenance, copy three expressions in source order, propagate unresolved, return]
+ordered_steps:
+- validate identity
+- validate object set
+- validate provenance
+- copy three expressions in source order
+- propagate unresolved
+- return
 branching:
-- {condition: invalid structure, action: raise structural error}
-- {condition: norm, ratio, score, denominator or comparison evaluation requested, action: raise ScientificEvaluationRequested}
+- condition: 'Invalid structure.'
+  action: 'Raise the corresponding structural error.'
+- condition: 'A norm, ratio, score, denominator policy or comparison is requested.'
+  action: 'Raise ScientificEvaluationRequested.'
 experience_processing: preserve metric-expression reference only
 identity_validation: [TLC-FC-14-LIVED-EXPERIENCE-010, TLC-SO-LIVED-EXPERIENCE-018]
 scope_validation: exact quantitative-measures object only
@@ -31,11 +39,13 @@ postconditions: [three expressions unchanged, no numeric value or zero-denominat
 invariants: [exact object set, source expression order preserved]
 determinism: structural only
 edge_cases: [zero denominator, undefined norm, unknown spaces, incompatible operands, transmission operator undefined]
-dependencies: {execution: [], documentary: [source contract, source IR]}
+dependencies:
+  execution: []
+  documentary: [source contract, source IR]
 unresolved_preserved: [scientific_decision_required, external_reconciliation_pending]
 pseudocode: |
   FUNCTION lived_experience_010_descriptor(feature_id, object_payloads, provenance):
-    VALIDATE feature_id and exact object [TLC-SO-LIVED-EXPERIENCE-018]
+    VALIDATE feature_id and exact object TLC-SO-LIVED-EXPERIENCE-018
     VALIDATE provenance
     COPY the richness, integration-depth and transmission-efficiency expressions in source order
     DO NOT evaluate norms, ratios, denominators, scores or comparisons

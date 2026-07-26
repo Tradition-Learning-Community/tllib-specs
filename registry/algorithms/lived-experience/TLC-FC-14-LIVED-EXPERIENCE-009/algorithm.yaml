@@ -5,16 +5,24 @@ source_contract_ref: registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-009/cont
 source_ir_ref: registry/ir/TLC-FC-14-LIVED-EXPERIENCE-009/ir.yaml
 finalized_ir_ref: registry/optimized-ir/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-009/ir.yaml
 nature: structural_declarative_algorithm
-signature: lived_experience_009_descriptor(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>) -> LivedExperienceDescriptor
+signature: 'lived_experience_009_descriptor(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>) -> LivedExperienceDescriptor'
 inputs: [feature_id, object_payloads, provenance]
 outputs: [artifact]
 validations: [exact feature id, exact object 017 set, uniqueness, provenance, no metric evaluation]
 preconditions: [feature id matches, object 017 present exactly once, provenance present]
 conditions_of_application: [preserve the metric category without inventing a formula]
-ordered_steps: [validate identity, validate object set, validate provenance, copy metric-category source record, propagate unresolved, return]
+ordered_steps:
+- validate identity
+- validate object set
+- validate provenance
+- copy metric-category source record
+- propagate unresolved
+- return
 branching:
-- {condition: invalid structure, action: raise structural error}
-- {condition: score, formula, comparison or threshold requested, action: raise ScientificEvaluationRequested}
+- condition: 'Invalid structure.'
+  action: 'Raise the corresponding structural error.'
+- condition: 'A score, formula, comparison or threshold is requested.'
+  action: 'Raise ScientificEvaluationRequested.'
 experience_processing: preserve metric-category reference only
 identity_validation: [TLC-FC-14-LIVED-EXPERIENCE-009, TLC-SO-LIVED-EXPERIENCE-017]
 scope_validation: exact source category object only
@@ -31,11 +39,13 @@ postconditions: [category unchanged, no metric value or formula introduced]
 invariants: [exact object set, no source reinterpretation]
 determinism: structural only
 edge_cases: [empty symbol list, metric value requested, comparison requested, threshold requested]
-dependencies: {execution: [], documentary: [source contract, source IR]}
+dependencies:
+  execution: []
+  documentary: [source contract, source IR]
 unresolved_preserved: [external_reconciliation_pending]
 pseudocode: |
   FUNCTION lived_experience_009_descriptor(feature_id, object_payloads, provenance):
-    VALIDATE feature_id and exact object [TLC-SO-LIVED-EXPERIENCE-017]
+    VALIDATE feature_id and exact object TLC-SO-LIVED-EXPERIENCE-017
     VALIDATE provenance
     COPY the metric-category title as opaque source content
     DO NOT create a formula, measurement, score, threshold or comparison

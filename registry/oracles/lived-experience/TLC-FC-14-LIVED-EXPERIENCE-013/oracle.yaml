@@ -10,17 +10,29 @@ oracle_kind: structural_acceptance_oracle_with_scientific_non_invention
 exact_scientific_result_oracle: not_available_and_not_invented
 test_categories: [nominal, errors, identity, provenance, function_reference, actor_non_invention, metric_non_invention, serialization]
 acceptance_tests:
-- {id: LE-013-NOMINAL, assertion: descriptor preserves object 046 function reference, symbols and provenance}
-- {id: LE-013-NO-SCORE, assertion: no legitimacy or experiential-richness value is produced}
-- {id: LE-013-NO-ACTOR-MODEL, assertion: the source mention of an agent does not become an invented actor schema}
-- {id: LE-013-NO-MONOTONICITY-PROOF, assertion: monotonicity is preserved as a source statement and not evaluated}
-- {id: LE-013-ERRORS, assertion: structural omissions return specified errors}
-- {id: LE-013-UNRESOLVED, assertion: source unresolved and reservations remain present}
-- {id: LE-013-NO-INVENTION, assertion: no event, state, context model, comparison, interpretation or cause is added}
-- {id: LE-013-ROUNDTRIP, assertion: function reference and opaque values survive serialization losslessly}
-- {id: LE-013-REJECT, assertion: legitimacy or richness evaluation requests are rejected}
+- id: LE-013-NOMINAL
+  assertion: 'Descriptor preserves object 046 function reference, symbols and provenance.'
+- id: LE-013-NO-SCORE
+  assertion: 'No legitimacy or experiential-richness value is produced.'
+- id: LE-013-NO-ACTOR-MODEL
+  assertion: 'The source mention of an agent does not become an invented actor schema.'
+- id: LE-013-NO-MONOTONICITY-PROOF
+  assertion: 'Monotonicity is preserved as a source statement and not evaluated.'
+- id: LE-013-ERRORS
+  assertion: 'Structural omissions return the specified errors.'
+- id: LE-013-UNRESOLVED
+  assertion: 'Source unresolved and reservations remain present.'
+- id: LE-013-NO-INVENTION
+  assertion: 'No event, state, context model, comparison, interpretation or cause is added.'
+- id: LE-013-ROUNDTRIP
+  assertion: 'Function reference and opaque values survive serialization losslessly.'
+- id: LE-013-REJECT
+  assertion: 'Legitimacy or richness evaluation requests are rejected.'
 property_tests: [identity conservation, function-reference preservation, provenance totality, unresolved monotonicity]
-metamorphic_tests: [repeat identical construction, remove provenance produces error, add undeclared object produces error]
+metamorphic_tests:
+- repeat identical construction
+- remove provenance produces an error
+- add undeclared object produces an error
 blocked_oracles: [scientific_execution_oracle, legitimacy_value_oracle, monotonicity_oracle]
 non_goals: [actor schema, legitimacy score, richness metric implementation, comparison]
 acceptance_gate: all structural tests pass and no legitimacy semantics is invented

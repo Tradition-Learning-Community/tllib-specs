@@ -10,16 +10,27 @@ oracle_kind: structural_acceptance_oracle_with_scientific_non_invention
 exact_scientific_result_oracle: not_available_and_not_invented
 test_categories: [nominal, errors, identity, provenance, invariant, order_non_invention, unresolved, serialization]
 acceptance_tests:
-- {id: LE-007-NOMINAL, assertion: descriptor preserves object 044 Sigma declaration and provenance}
-- {id: LE-007-NO-SYNTHESIS, assertion: no experiential core is extracted}
-- {id: LE-007-NO-ORDER, assertion: no event sequence or temporal order is constructed}
-- {id: LE-007-ERRORS, assertion: structural omissions return specified errors}
-- {id: LE-007-UNRESOLVED, assertion: source unresolved and reservations remain present}
-- {id: LE-007-NO-INVENTION, assertion: no event, state, transition, observation, interpretation or result is added}
-- {id: LE-007-ROUNDTRIP, assertion: Sigma declaration and opaque values survive serialization}
-- {id: LE-007-REJECT, assertion: synthesis requests are rejected}
+- id: LE-007-NOMINAL
+  assertion: 'Descriptor preserves object 044 Sigma declaration and provenance.'
+- id: LE-007-NO-SYNTHESIS
+  assertion: 'No experiential core is extracted.'
+- id: LE-007-NO-ORDER
+  assertion: 'No event sequence or temporal order is constructed.'
+- id: LE-007-ERRORS
+  assertion: 'Structural omissions return the specified errors.'
+- id: LE-007-UNRESOLVED
+  assertion: 'Source unresolved and reservations remain present.'
+- id: LE-007-NO-INVENTION
+  assertion: 'No event, state, transition, observation, interpretation or result is added.'
+- id: LE-007-ROUNDTRIP
+  assertion: 'Sigma declaration and opaque values survive serialization.'
+- id: LE-007-REJECT
+  assertion: 'Synthesis requests are rejected.'
 property_tests: [identity conservation, invariant declaration preservation, provenance totality, unresolved monotonicity]
-metamorphic_tests: [repeat identical construction, remove provenance produces error, add undeclared object produces error]
+metamorphic_tests:
+- repeat identical construction
+- remove provenance produces an error
+- add undeclared object produces an error
 blocked_oracles: [scientific_execution_oracle, experiential_core_oracle]
 non_goals: [synthesis algorithm, invariant extraction, event ordering, temporal model]
 acceptance_gate: all structural tests pass and no synthesis is invented

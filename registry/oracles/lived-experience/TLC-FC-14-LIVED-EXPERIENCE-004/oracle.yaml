@@ -10,16 +10,27 @@ oracle_kind: structural_acceptance_oracle_with_scientific_non_invention
 exact_scientific_result_oracle: not_available_and_not_invented
 test_categories: [nominal, errors, identity, provenance, source_expression, chronology_non_invention, determinism, serialization, unresolved]
 acceptance_tests:
-- {id: LE-004-NOMINAL, assertion: descriptor preserves object 064 equation, symbols and provenance}
-- {id: LE-004-EXACT-EQUATION, assertion: source equation is neither corrected nor normalized scientifically}
-- {id: LE-004-NO-SOLVER, assertion: no timestep, duration, solver, trajectory or noise realization is produced}
-- {id: LE-004-ERRORS, assertion: structural omissions return specified errors}
-- {id: LE-004-UNRESOLVED, assertion: source unresolved and reservations are preserved}
-- {id: LE-004-NO-INVENTION, assertion: no event, state, transition, chronology, observation, interpretation or effect is added}
-- {id: LE-004-ROUNDTRIP, assertion: serialization preserves the equation and all opaque values losslessly}
-- {id: LE-004-REJECT, assertion: temporal evolution and scientific execution requests are rejected}
+- id: LE-004-NOMINAL
+  assertion: 'Descriptor preserves object 064 equation, symbols and provenance.'
+- id: LE-004-EXACT-EQUATION
+  assertion: 'Source equation is neither corrected nor normalized scientifically.'
+- id: LE-004-NO-SOLVER
+  assertion: 'No timestep, duration, solver, trajectory or noise realization is produced.'
+- id: LE-004-ERRORS
+  assertion: 'Structural omissions return the specified errors.'
+- id: LE-004-UNRESOLVED
+  assertion: 'Source unresolved and reservations are preserved.'
+- id: LE-004-NO-INVENTION
+  assertion: 'No event, state, transition, chronology, observation, interpretation or effect is added.'
+- id: LE-004-ROUNDTRIP
+  assertion: 'Serialization preserves the equation and all opaque values losslessly.'
+- id: LE-004-REJECT
+  assertion: 'Temporal evolution and scientific execution requests are rejected.'
 property_tests: [equation preservation, identity conservation, provenance totality, unresolved monotonicity]
-metamorphic_tests: [repeat identical construction, remove provenance produces error, add undeclared object produces error]
+metamorphic_tests:
+- repeat identical construction
+- remove provenance produces an error
+- add undeclared object produces an error
 blocked_oracles: [scientific_execution_oracle, stochastic_trajectory_oracle]
 non_goals: [integration, simulation, chronology, probability distribution, convergence result]
 acceptance_gate: all structural tests pass and no temporal semantics is invented

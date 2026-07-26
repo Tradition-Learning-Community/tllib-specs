@@ -5,17 +5,26 @@ source_contract_ref: registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-005/cont
 source_ir_ref: registry/ir/TLC-FC-14-LIVED-EXPERIENCE-005/ir.yaml
 finalized_ir_ref: registry/optimized-ir/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-005/ir.yaml
 nature: structural_declarative_algorithm
-signature: lived_experience_005_descriptor(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>) -> LivedExperienceDescriptor
+signature: 'lived_experience_005_descriptor(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>) -> LivedExperienceDescriptor'
 inputs: [feature_id, object_payloads, provenance]
 outputs: [artifact]
 validations: [exact feature id, exact object 065 set, uniqueness, provenance, source symbols preserved, no equation evaluation]
 preconditions: [feature id matches, object 065 present exactly once, provenance present]
 conditions_of_application: [opaque equation descriptor only]
-ordered_steps: [validate identity, validate object set, validate provenance, preserve equation and symbol references, attach unresolved decisions, return]
+ordered_steps:
+- validate identity
+- validate object set
+- validate provenance
+- preserve equation and symbol references
+- attach unresolved decisions
+- return
 branching:
-- {condition: invalid structure, action: raise structural error}
-- {condition: request to compute mean, divide by N or apply Synergie, action: raise ScientificEvaluationRequested}
-- {condition: request to choose types or failure policy, action: report parameter_required or unresolved_propagated}
+- condition: 'Invalid structure.'
+  action: 'Raise the corresponding structural error.'
+- condition: 'A mean, division by N, sum or Synergie application is requested.'
+  action: 'Raise ScientificEvaluationRequested.'
+- condition: 'A type or failure policy must be selected.'
+  action: 'Return parameter_required or unresolved_propagated.'
 experience_processing: preserve collective-equation reference only
 identity_validation: [TLC-FC-14-LIVED-EXPERIENCE-005, TLC-SO-LIVED-EXPERIENCE-065]
 scope_validation: exact equation 065 only
@@ -32,13 +41,15 @@ postconditions: [equation unchanged, no numeric result, all implementation decis
 invariants: [exact object set, exact equation, historical pilot remains comparison-only]
 determinism: structural only; scientific determinism unresolved
 edge_cases: [N zero, invalid N, incompatible experience operations, undefined Synergie, unresolved sigma]
-dependencies: {execution: [], documentary: [source contract, source IR, implementation decisions]}
+dependencies:
+  execution: []
+  documentary: [source contract, source IR, implementation decisions]
 unresolved_preserved: [external_reconciliation_pending, UNRES-N, UNRES-EXPERIENCE-TYPE, UNRES-SIGMA, UNRES-SYNERGY]
 pseudocode: |
   FUNCTION lived_experience_005_descriptor(feature_id, object_payloads, provenance):
-    VALIDATE feature_id and exact object [TLC-SO-LIVED-EXPERIENCE-065]
-    VALIDATE provenance and presence of the source expression references
-    COPY the collective-memory equation without evaluating 1/N, the sum, sigma or Synergie
+    VALIDATE feature_id and exact object TLC-SO-LIVED-EXPERIENCE-065
+    VALIDATE provenance and source-expression references
+    COPY the equation without evaluating 1/N, the sum, sigma or Synergie
     ATTACH all unresolved implementation decisions and reservations
     RETURN immutable descriptor
   ON equation evaluation request: RAISE ScientificEvaluationRequested

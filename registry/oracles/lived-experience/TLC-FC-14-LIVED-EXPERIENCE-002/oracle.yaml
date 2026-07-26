@@ -10,17 +10,29 @@ oracle_kind: structural_acceptance_oracle_with_scientific_non_invention
 exact_scientific_result_oracle: not_available_and_not_invented
 test_categories: [nominal, preconditions, errors, identity, provenance, determinism, serialization, round_trip, unresolved]
 acceptance_tests:
-- {id: LE-002-NOMINAL, assertion: descriptor preserves object 040 theorem statement and symbol as opaque source content}
-- {id: LE-002-IDENTITY, assertion: exact feature and object identity are conserved}
-- {id: LE-002-ERRORS, assertion: missing, duplicate and missing provenance cases return specified errors}
-- {id: LE-002-UNRESOLVED, assertion: both source unresolved values remain present}
-- {id: LE-002-NO-THEOREM-EVALUATION, assertion: boundedness, variation control and convergence are not computed or asserted}
-- {id: LE-002-NO-INVENTION, assertion: no actors, events, states, chronology, metrics, interpretation or cause is added}
-- {id: LE-002-DETERMINISM, assertion: identical structural inputs yield identical descriptors}
-- {id: LE-002-ROUNDTRIP, assertion: serialization round-trip is lossless}
-- {id: LE-002-REJECT, assertion: scientific evaluation raises ScientificEvaluationRequested}
+- id: LE-002-NOMINAL
+  assertion: 'Descriptor preserves object 040 theorem statement and symbol as opaque source content.'
+- id: LE-002-IDENTITY
+  assertion: 'Exact feature and object identity are conserved.'
+- id: LE-002-ERRORS
+  assertion: 'Missing, duplicate and missing-provenance cases return the specified errors.'
+- id: LE-002-UNRESOLVED
+  assertion: 'Both source unresolved values remain present.'
+- id: LE-002-NO-THEOREM-EVALUATION
+  assertion: 'Boundedness, variation control and convergence are not computed or asserted.'
+- id: LE-002-NO-INVENTION
+  assertion: 'No actors, events, states, chronology, metrics, interpretation or cause is added.'
+- id: LE-002-DETERMINISM
+  assertion: 'Identical structural inputs yield identical descriptors.'
+- id: LE-002-ROUNDTRIP
+  assertion: 'Serialization round-trip is lossless.'
+- id: LE-002-REJECT
+  assertion: 'Scientific evaluation raises ScientificEvaluationRequested.'
 property_tests: [identity conservation, provenance totality, unresolved monotonicity, opaque propagation]
-metamorphic_tests: [repeat identical construction, add undeclared object produces error, remove provenance produces error]
+metamorphic_tests:
+- repeat identical construction
+- add undeclared object produces an error
+- remove provenance produces an error
 blocked_oracles: [scientific_execution_oracle]
 non_goals: [numeric theorem result, temporal evolution, interpretation, probability, causality]
 acceptance_gate: all structural tests pass and unavailable science is rejected

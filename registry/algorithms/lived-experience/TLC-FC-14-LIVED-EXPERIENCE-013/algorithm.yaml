@@ -5,16 +5,24 @@ source_contract_ref: registry/math-contracts/TLC-FC-14-LIVED-EXPERIENCE-013/cont
 source_ir_ref: registry/ir/TLC-FC-14-LIVED-EXPERIENCE-013/ir.yaml
 finalized_ir_ref: registry/optimized-ir/lived-experience/TLC-FC-14-LIVED-EXPERIENCE-013/ir.yaml
 nature: structural_declarative_algorithm
-signature: lived_experience_013_descriptor(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>) -> LivedExperienceDescriptor
+signature: 'lived_experience_013_descriptor(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>) -> LivedExperienceDescriptor'
 inputs: [feature_id, object_payloads, provenance]
 outputs: [artifact]
 validations: [exact feature id, exact object 046 set, uniqueness, provenance, no legitimacy or richness evaluation]
 preconditions: [feature id matches, object 046 present exactly once, provenance present]
 conditions_of_application: [preserve the function declaration only]
-ordered_steps: [validate identity, validate object set, validate provenance, copy function reference and monotonicity description, propagate unresolved, return]
+ordered_steps:
+- validate identity
+- validate object set
+- validate provenance
+- copy function reference and monotonicity description
+- propagate unresolved
+- return
 branching:
-- {condition: invalid structure, action: raise structural error}
-- {condition: legitimacy value, actor score, richness norm or monotonicity proof requested, action: raise ScientificEvaluationRequested}
+- condition: 'Invalid structure.'
+  action: 'Raise the corresponding structural error.'
+- condition: 'A legitimacy value, actor score, richness norm or monotonicity proof is requested.'
+  action: 'Raise ScientificEvaluationRequested.'
 experience_processing: preserve legitimacy-function reference only
 identity_validation: [TLC-FC-14-LIVED-EXPERIENCE-013, TLC-SO-LIVED-EXPERIENCE-046]
 scope_validation: exact source function object only
@@ -31,11 +39,13 @@ postconditions: [function declaration unchanged, no legitimacy result or actor m
 invariants: [exact object set, no monotonicity evaluation]
 determinism: structural only
 edge_cases: [agent schema requested, richness norm undefined, monotonicity comparison requested, legitimacy value requested]
-dependencies: {execution: [], documentary: [source contract, source IR]}
+dependencies:
+  execution: []
+  documentary: [source contract, source IR]
 unresolved_preserved: [scientific_decision_required, external_reconciliation_pending]
 pseudocode: |
   FUNCTION lived_experience_013_descriptor(feature_id, object_payloads, provenance):
-    VALIDATE feature_id and exact object [TLC-SO-LIVED-EXPERIENCE-046]
+    VALIDATE feature_id and exact object TLC-SO-LIVED-EXPERIENCE-046
     VALIDATE provenance
     COPY the legitimacy-function reference and monotonicity description as opaque content
     DO NOT create an actor schema, richness measure, legitimacy score or comparison
