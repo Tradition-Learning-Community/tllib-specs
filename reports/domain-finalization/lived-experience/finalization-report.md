@@ -6,7 +6,7 @@
 - Branch: `phase4/lived-experience-domain-finalization-001`.
 - Authoritative population: exactly 12 active features from `registry/global-reconciliation/domain-feature-matrix.yaml`.
 - Scientific source: `maths/14-lived-experience.md`, preserved without modification.
-- Validation status: `PENDING_GITHUB_VALIDATION`.
+- Validation status: `PASSED_ON_GITHUB`.
 
 ## Population and deliverables
 
