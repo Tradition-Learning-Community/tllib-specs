@@ -1,0 +1,35 @@
+schema_version: 1
+status: interfaces_integrated
+interface_policy:
+  default_dependency_kind: documentary
+  execution_dependency_requires_explicit_source_evidence: true
+  absent_dependency_behavior: preserve_external_reference_or_return_structured_error
+  ownership: immutable_value_or_explicit_borrow
+  mutation: forbidden_unless_domain_contract_declares_it
+  serialization: lossless_and_deterministic_for_structural_fields
+interface_kinds:
+  - documentary
+  - provenance
+  - definition
+  - type
+  - constraint
+  - state
+  - algorithm
+  - execution
+modules:
+  - {id: master, specification: registry/domain-finalization/master/module-specification.yaml}
+  - {id: disciple, specification: registry/domain-finalization/disciple/module-specification.yaml}
+  - {id: community, specification: registry/domain-finalization/community/module-specification.yaml}
+  - {id: huit-dimensions, specification: registry/domain-finalization/huit-dimensions/module-specification.yaml}
+  - {id: invariants, specification: registry/domain-finalization/invariants/module-specification.yaml}
+  - {id: dynamics, specification: registry/domain-finalization/dynamics/module-specification.yaml}
+  - {id: theorems, specification: registry/domain-finalization/theorems/module-specification.yaml}
+  - {id: message, specification: registry/domain-finalization/message/module-specification.yaml}
+  - {id: principle, specification: registry/domain-finalization/principle/module-specification.yaml}
+  - {id: values, specification: registry/domain-finalization/values/module-specification.yaml}
+  - {id: virtues, specification: registry/domain-finalization/virtues/module-specification.yaml}
+  - {id: capacities, specification: registry/domain-finalization/capacities/module-specification.yaml}
+  - {id: competencies, specification: registry/domain-finalization/competencies/module-specification.yaml}
+  - {id: practice, specification: registry/domain-finalization/practice/module-specification.yaml}
+  - {id: lived-experience, specification: registry/domain-finalization/lived-experience/module-specification.yaml}
+  - {id: relations, specification: registry/domain-finalization/relations/module-specification.yaml}
