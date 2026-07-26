@@ -1,0 +1,66 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-004
+algorithm_id: TLC-ALG-TLC-FC-12-COMPETENCIES-004
+finalized_ir: registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-004/ir.yaml
+signature: 'build_evolution_descriptor_004(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>, RequestMode) -> Result<CompetenciesCanonicalDescriptor,CompetenciesError>'
+inputs: [competencies_feature_id, object_payloads, provenance, request_mode]
+outputs: [immutable CompetenciesCanonicalDescriptor]
+validations:
+- request mode is structural_descriptor_only
+- feature id is TLC-FC-12-COMPETENCIES-004
+- exact objects are [066, 096, 097, 098, 114] with no duplicate or addition
+- provenance is complete
+preconditions: [finalized IR types satisfied]
+prerequisites: []
+conditions_of_application: [no equation evaluation, no temporal integration, no stochastic sampling, no Capacities execution]
+ordered_steps:
+- validate request mode
+- validate feature identity
+- validate exact object set and uniqueness
+- validate provenance
+- load immutable feature profile
+- copy opaque payload identities in contract order
+- attach source status and source references
+- attach Capacities external_unreconciled as scientific documentary metadata
+- attach reservations and unresolved
+- mark structurally_valid and return
+branches:
+- {condition: scientific execution requested, result: ScientificEvaluationRequested}
+- {condition: dependency resolution or Capacities execution requested, result: BlockedScientificDecision}
+- {condition: invalid feature or object identity, result: corresponding_structured_error}
+- {condition: valid structural request, result: return_descriptor}
+competency_construction: {operation: construct_reference_descriptor, scientific_interpretation: false}
+identity_validation: exact_feature_and_object_identity
+scope_validation: evolution_dynamics_descriptor_only
+context_validation: opaque_source_context_only
+relation_processing: none
+mobilization: preserve_opaque_practice_declaration_only
+exercise: preserve_opaque_practice_declaration_only
+acquisition: preserve_opaque_object_096_only
+development: preserve_opaque_objects_097_and_114_only
+mastery: not_declared
+evaluation: external_evaluator_required
+comparison: external_comparator_required
+effects: []
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, UnexpectedCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+postconditions: [five source objects preserved in order, external dependency label preserved, no trajectory or numeric result produced]
+invariants: [opaque equations never parsed, structural validity not scientific validity, no runtime dependency invented]
+determinism: deterministic_for_identical_structural_inputs
+edge_cases: [objects supplied in arbitrary map order, one missing equation, extra equation, incomplete provenance, dynamics request, dependency execution request]
+dependencies:
+  internal: [competencies_feature_profile, structural_validation_pipeline]
+  external: [{domain: capacities, kind: scientific_documentary, status: external_unreconciled, runtime_required: false}]
+unresolved_preserved: [scientific_unresolved, validated_executable_contract_absent, capacities_external_dependency_unreconciled]
+pseudocode: |-
+  function build_evolution_descriptor_004(feature_id, object_payloads, provenance, request_mode):
+      if request_mode != structural_descriptor_only: return error ScientificEvaluationRequested
+      if feature_id != TLC-FC-12-COMPETENCIES-004: return error UnknownFeatureId
+      required = [066, 096, 097, 098, 114] as Competencies ObjectIds
+      validate_exact_object_set(object_payloads, required)
+      validate_provenance(provenance, required)
+      profile = profile(TLC-FC-12-COMPETENCIES-004)
+      assert profile.capacities_dependency == external_unreconciled
+      descriptor = construct_immutable_descriptor(profile, copy_opaque_identities(object_payloads, required), copy(provenance for required), copy(source_reservations), copy(source_unresolved))
+      descriptor.dependencies = copy(profile.dependencies)
+      descriptor.structural_status = structurally_valid
+      return descriptor

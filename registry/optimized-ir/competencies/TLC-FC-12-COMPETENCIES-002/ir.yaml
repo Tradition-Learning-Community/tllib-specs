@@ -1,0 +1,68 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-002
+status: selected_for_competencies_implementation_specification
+source_contract: {id: TLC-MC-TLC-FC-12-COMPETENCIES-002, path: registry/math-contracts/TLC-FC-12-COMPETENCIES-002/contract.yaml}
+source_ir: {id: TLC-IR-TLC-FC-12-COMPETENCIES-002, path: registry/ir/TLC-FC-12-COMPETENCIES-002/ir.yaml, raw_status: canonical_declarative_ir_with_reservations}
+source_test_plan: registry/test-plans/TLC-FC-12-COMPETENCIES-002/test-plan.yaml
+nature: declarative
+competency_or_reference:
+  representation: opaque_scientific_object_set
+  ordered_object_ids: [TLC-SO-COMPETENCIES-031]
+  objects:
+  - {object_id: TLC-SO-COMPETENCIES-031, canonical_name: Progression vers la maîtrise, object_type: Constraint, source_status: candidate}
+identity: {public_feature_id: TLC-FC-12-COMPETENCIES-002, preservation: exact}
+scope: {category: constraint_evaluation, canonical_name: '12-competencies: constraint (provisionally_separated)', boundary_label: provisionally_separated, boundary_reopened: false}
+context: {kind: source_defined_and_opaque, scientific_source: maths/12-competencies.md}
+inputs:
+- {name: competencies_feature_id, type: FeatureId, required: true, expected_value: TLC-FC-12-COMPETENCIES-002}
+- {name: object_payloads, type: 'Map<ObjectId,OpaqueScientificObject>', required: true, required_keys: [TLC-SO-COMPETENCIES-031]}
+- {name: provenance, type: 'Map<ObjectId,SourceReference>', required: true}
+- {name: request_mode, type: RequestMode, required: true, allowed_value: structural_descriptor_only}
+outputs:
+- {name: artifact, type: CompetenciesCanonicalDescriptor, semantics: immutable_structural_descriptor_no_scientific_value}
+types: [FeatureId, ObjectId, OpaqueScientificObject, OpaqueScientificValue, SourceReference, CompetenciesCanonicalDescriptor, RequestMode]
+opaque_values: [source_statement, symbols, scientific_payload, mastery_constraint]
+preconditions:
+- feature id equals TLC-FC-12-COMPETENCIES-002
+- object payload keys equal the required object set exactly once
+- provenance exists for the required object
+- request mode is structural_descriptor_only
+prerequisites_explicit: []
+application_conditions: [structural construction only, no scoring threshold simulation or scientific evaluation]
+manifestations_explicit: {declared_for_execution: false, handling: preserve_source_statement_as_opaque}
+relations_explicit: {declared_for_execution: false, endpoint_inference: forbidden}
+operations: [validate_request_mode, validate_feature_identity, validate_exact_object_set, validate_provenance, build_immutable_descriptor, propagate_reservations_and_unresolved, reject_unsupported_scientific_operation]
+execution_order: [validate_request_mode, validate_feature_identity, validate_exact_object_set, validate_provenance, build_immutable_descriptor, propagate_reservations_and_unresolved]
+control_flow:
+- invalid structural input returns a structured error before construction
+- scientific evaluation request raises ScientificEvaluationRequested
+- valid structural input returns one immutable descriptor
+scientific_behaviors:
+  mobilization: {source_declaration: absent, executable: false, handling: not_declared}
+  exercise: {source_declaration: absent, executable: false, handling: not_declared}
+  acquisition: {source_declaration: absent, executable: false, handling: not_declared}
+  development: {source_declaration: present_in_opaque_source_content, executable: false, handling: preserve_opaque}
+  mastery: {source_declaration: present_in_opaque_source_content, executable: false, handling: preserve_opaque}
+  evaluation: {source_declaration: constraint_record_only, executable: false, handling: external_evaluator_required}
+  comparison: {source_declaration: argmax_expression_is_opaque_not_comparator, executable: false, handling: external_comparator_required}
+effects: []
+postconditions:
+- output preserves feature id, object id, provenance, reservations and unresolved
+- output has no evaluated score, level, threshold, rank, comparison or progression
+invariants: [exact_source_object_set, source_statement_not_interpreted, raw_status_preserved, structural_validity_not_scientific_validity]
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, UnexpectedCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+determinism: {status: deterministic, key: [feature_id, ordered_object_ids, payload_identities, provenance, reservations, unresolved]}
+dependencies: {internal: [competencies_feature_profile, structural_validation_pipeline], external: [], capacities: not_directly_evidenced}
+unresolved_propagated: []
+reservations: [no full mathematical contract or production semantics asserted, types dimensions units thresholds and temporal semantics are not completed, scientific unresolved and validated executable contract absence remain preserved]
+transformations_applied: [normalized common descriptor fields, normalized validation and errors, added explicit request mode and non-execution guard, normalized traceability]
+preservation_obligations: [preserve public and object identity, preserve contract order, preserve opaque source content and provenance, preserve raw status reservations and unresolved]
+links: {algorithm: registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-002/algorithm.yaml, oracle: registry/oracles/competencies/TLC-FC-12-COMPETENCIES-002/oracle.yaml}
+actual_implementation_readiness: {structural_descriptor: ready, scientific_execution: not_ready_not_authorized, blocker_for_structural_layer: false}
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+competency_invented: false
+measurement_invented: false
+ordering_invented: false

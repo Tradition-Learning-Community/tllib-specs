@@ -1,0 +1,52 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-016
+algorithm_id: TLC-ALG-TLC-FC-12-COMPETENCIES-016
+finalized_ir: registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-016/ir.yaml
+signature: 'build_relation_descriptor_016(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>, RequestMode) -> Result<CompetenciesCanonicalDescriptor,CompetenciesError>'
+inputs: [competencies_feature_id, object_payloads, provenance, request_mode]
+outputs: [immutable CompetenciesCanonicalDescriptor]
+validations: [structural request mode, exact feature id, exact object 056, no duplicate or extra, complete provenance]
+preconditions: [finalized IR types satisfied]
+prerequisites: []
+conditions_of_application: [structural relation representation only]
+ordered_steps: [validate request mode, validate feature identity, validate exact object set, validate provenance, copy opaque relation object identity, attach relation category and traceability, set endpoint status unresolved, propagate reservations and unresolved, mark structurally_valid, return]
+branches:
+- {condition: endpoint resolution covariance association relation truth or comparison requested, result: ScientificEvaluationRequested}
+- {condition: caller supplies invented endpoints as authoritative, result: BlockedScientificDecision}
+- {condition: invalid structural input, result: corresponding_structured_error}
+- {condition: valid structural input, result: return_descriptor}
+competency_construction: {operation: construct_relation_reference_descriptor, scientific_interpretation: false}
+identity_validation: exact_feature_and_relation_object_identity
+scope_validation: relation_evaluation_descriptor_only
+context_validation: source_context_preserved_as_opaque
+relation_processing:
+  preserve_relation_object: true
+  preserve_covered_relations_empty: true
+  endpoints: unresolved
+  endpoint_inference: forbidden
+mobilization: not_declared
+exercise: not_declared
+acquisition: not_declared
+development: not_declared
+mastery: not_declared
+evaluation: external_evaluator_required
+comparison: external_comparator_required
+effects: []
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, UnexpectedCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+postconditions: [object 056 preserved, endpoints unresolved, no relation result produced]
+invariants: [Relation type remains declarative, endpoint identity never inferred, covered_relations remains empty, structural validity not scientific validity]
+determinism: deterministic_for_identical_structural_inputs
+edge_cases: [missing relation object, extra object, missing provenance, caller-provided endpoint claim, covariance request, comparison request]
+dependencies: {internal: [competencies_feature_profile, structural_validation_pipeline], external: []}
+unresolved_preserved: [scientific_unresolved, validated_executable_contract_absent, relation_endpoints_unresolved]
+pseudocode: |-
+  function build_relation_descriptor_016(feature_id, object_payloads, provenance, request_mode):
+      if request_mode != structural_descriptor_only: return error ScientificEvaluationRequested
+      if feature_id != TLC-FC-12-COMPETENCIES-016: return error UnknownFeatureId
+      required = [TLC-SO-COMPETENCIES-056]
+      validate_exact_object_set(object_payloads, required)
+      validate_provenance(provenance, required)
+      descriptor = construct_immutable_descriptor(profile(TLC-FC-12-COMPETENCIES-016), copy_opaque_identities(object_payloads, required), copy(provenance for required), copy(source_reservations), copy(source_unresolved))
+      descriptor.relation_endpoints = unresolved
+      descriptor.structural_status = structurally_valid
+      return descriptor

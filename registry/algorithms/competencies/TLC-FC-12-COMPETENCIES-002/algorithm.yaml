@@ -1,0 +1,68 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-002
+algorithm_id: TLC-ALG-TLC-FC-12-COMPETENCIES-002
+finalized_ir: registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-002/ir.yaml
+signature: 'build_constraint_descriptor_002(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>, RequestMode) -> Result<CompetenciesCanonicalDescriptor,CompetenciesError>'
+inputs: [competencies_feature_id, object_payloads, provenance, request_mode]
+outputs: [immutable CompetenciesCanonicalDescriptor]
+validations:
+- request_mode equals structural_descriptor_only
+- feature id equals TLC-FC-12-COMPETENCIES-002
+- object ids equal [TLC-SO-COMPETENCIES-031]
+- no duplicate or unexpected object exists
+- provenance exists for TLC-SO-COMPETENCIES-031
+preconditions: [inputs satisfy finalized IR types]
+prerequisites: []
+conditions_of_application: [structural representation and validation only]
+ordered_steps:
+- validate request mode
+- validate exact feature identity
+- validate exact object membership and uniqueness
+- validate provenance
+- copy the opaque object identity in contract order
+- attach source profile, raw status, reservations and unresolved
+- mark structurally_valid
+- return immutable descriptor
+branches:
+- {condition: unsupported scientific request, result: ScientificEvaluationRequested}
+- {condition: wrong feature id, result: UnknownFeatureId}
+- {condition: missing object, result: MissingCoveredObject}
+- {condition: duplicate object, result: DuplicateCoveredObject}
+- {condition: unexpected object, result: UnexpectedCoveredObject}
+- {condition: missing provenance, result: MissingSourceReference}
+- {condition: validations pass, result: return_descriptor}
+competency_construction: {operation: construct_reference_descriptor, scientific_interpretation: false}
+identity_validation: exact_feature_and_object_identity
+scope_validation: category_constraint_evaluation_preserved
+context_validation: source_context_preserved_as_opaque
+relation_processing: none
+mobilization: not_declared
+exercise: not_declared
+acquisition: not_declared
+development: preserve_opaque_declaration_only
+mastery: preserve_opaque_constraint_only
+evaluation: external_evaluator_required
+comparison: external_comparator_required
+effects: []
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, UnexpectedCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+postconditions: [descriptor contains exactly object 031, descriptor contains no evaluated scientific value, source reservations and unresolved are unchanged]
+invariants: [source identity conserved, opaque payload not inspected, structural validity is not scientific validity]
+determinism: deterministic_for_identical_structural_inputs
+edge_cases: [empty object map, unexpected object, absent provenance, unsupported evaluation request]
+dependencies: {internal: [competencies_feature_profile, structural_validation_pipeline], external: []}
+unresolved_preserved: [scientific_unresolved, validated_executable_contract_absent]
+pseudocode: |-
+  function build_constraint_descriptor_002(feature_id, object_payloads, provenance, request_mode):
+      if request_mode != structural_descriptor_only: return error ScientificEvaluationRequested
+      if feature_id != TLC-FC-12-COMPETENCIES-002: return error UnknownFeatureId
+      required = [TLC-SO-COMPETENCIES-031]
+      validate_exact_object_set(object_payloads, required)
+      validate_provenance(provenance, required)
+      descriptor = construct_immutable_descriptor(
+          profile(TLC-FC-12-COMPETENCIES-002),
+          copy_opaque_identities(object_payloads, required),
+          copy(provenance for required),
+          copy(source_reservations),
+          copy(source_unresolved))
+      descriptor.structural_status = structurally_valid
+      return descriptor

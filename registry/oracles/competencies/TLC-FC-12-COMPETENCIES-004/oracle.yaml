@@ -1,0 +1,34 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-004
+oracle_id: TLC-ORACLE-TLC-FC-12-COMPETENCIES-004
+source_test_plan: registry/test-plans/TLC-FC-12-COMPETENCIES-004/test-plan.yaml
+finalized_ir: registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-004/ir.yaml
+algorithm: registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-004/algorithm.yaml
+oracle_kind: structural_acceptance_oracle
+fixture_policy: {competency_instances_created: false, payloads: opaque_tokens_named_by_source_object_id, numeric_values: none, random_sampling: none}
+acceptance_tests:
+- {test_id: C004-NOM-001, category: nominal, given: exact five opaque objects complete provenance and structural mode, expect: 'immutable descriptor preserving [066, 096, 097, 098, 114]'}
+- {test_id: C004-PRE-001, category: precondition, mutation: remove object 096, expect_error: MissingCoveredObject}
+- {test_id: C004-ERR-001, category: errors, mutation: add an unlisted equation object, expect_error: UnexpectedCoveredObject}
+- {test_id: C004-ERR-002, category: errors, mutation: duplicate object 114 in entry-form input, expect_error: DuplicateCoveredObject}
+- {test_id: C004-REF-001, category: references, mutation: remove provenance for object 098, expect_error: MissingSourceReference}
+- {test_id: C004-ID-001, category: identity, mutation: use another feature id, expect_error: UnknownFeatureId}
+- {test_id: C004-SCOPE-001, category: scope, property: descriptor category remains evolution_dynamics and boundary remains admissible}
+- {test_id: C004-PROP-001, category: opaque_value_propagation, property: all five equation payload identities and source statements remain opaque and unchanged}
+- {test_id: C004-META-001, category: metamorphic, transformation: permute caller map order, invariant: 'output order remains [066, 096, 097, 098, 114]'}
+- {test_id: C004-DET-001, category: determinism, property: identical structural inputs produce structurally equal descriptors}
+- {test_id: C004-DEP-001, category: dependencies, property: Capacities is preserved as external_unreconciled scientific documentary metadata and not runtime dependency}
+- {test_id: C004-REJ-001, category: acquisition_rejection, mutation: request acquisition step or stochastic sample, expect_error: ScientificEvaluationRequested}
+- {test_id: C004-REJ-002, category: development_rejection, mutation: request long-term trajectory or dynamic-system integration, expect_error: ScientificEvaluationRequested}
+- {test_id: C004-REJ-003, category: dependency_rejection, mutation: request automatic Capacities resolution, expect_error: BlockedScientificDecision}
+- {test_id: C004-TRACE-001, category: traceability, property: full feature chain is unique and consistent}
+blocked_tests: [numerical dynamics, stochastic reproducibility, acquisition value, development trajectory, adaptation result, stability, precision, gradient, conservation, monotonicity, scientific backend conformity]
+acceptance_invariants:
+- identity, scope, opaque context and five source references conserved
+- acquisition development and adaptation remain declarations only
+- no score level threshold comparison progression initial condition or parameter invented
+- external dependency and unresolved propagated
+dependency_tests:
+- expect capacities dependency external_unreconciled
+- expect runtime_required false
+no_invention: {competency: false, measurement: false, level: false, threshold: false, comparison: false, progression: false, stochastic_parameter: false}

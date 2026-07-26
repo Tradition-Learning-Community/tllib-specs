@@ -1,0 +1,59 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-013
+status: selected_for_competencies_implementation_specification
+source_contract: {id: TLC-MC-TLC-FC-12-COMPETENCIES-013, path: registry/math-contracts/TLC-FC-12-COMPETENCIES-013/contract.yaml}
+source_ir: {id: TLC-IR-TLC-FC-12-COMPETENCIES-013, path: registry/ir/TLC-FC-12-COMPETENCIES-013/ir.yaml, raw_status: canonical_declarative_ir_with_reservations}
+source_test_plan: registry/test-plans/TLC-FC-12-COMPETENCIES-013/test-plan.yaml
+nature: declarative
+competency_or_reference:
+  representation: opaque_scientific_object_set
+  ordered_object_ids: [TLC-SO-COMPETENCIES-003, TLC-SO-COMPETENCIES-055]
+  objects:
+  - {object_id: TLC-SO-COMPETENCIES-003, canonical_name: Propriétés essentielles, object_type: Operator, source_status: candidate}
+  - {object_id: TLC-SO-COMPETENCIES-055, canonical_name: Contextualisation, object_type: Operator, source_status: candidate}
+identity: {public_feature_id: TLC-FC-12-COMPETENCIES-013, preservation: exact}
+scope: {category: scientific_operator, canonical_name: '12-competencies: operator (provisionally_separated)', boundary_label: provisionally_separated, boundary_reopened: false}
+context: {kind: source_defined_and_opaque, scientific_source: maths/12-competencies.md, contextualization_operator_present: true}
+inputs:
+- {name: competencies_feature_id, type: FeatureId, required: true, expected_value: TLC-FC-12-COMPETENCIES-013}
+- {name: object_payloads, type: 'Map<ObjectId,OpaqueScientificObject>', required: true, required_keys: [TLC-SO-COMPETENCIES-003, TLC-SO-COMPETENCIES-055]}
+- {name: provenance, type: 'Map<ObjectId,SourceReference>', required: true}
+- {name: request_mode, type: RequestMode, required: true, allowed_value: structural_descriptor_only}
+outputs: [{name: artifact, type: CompetenciesCanonicalDescriptor, semantics: immutable_structural_descriptor_no_scientific_value}]
+types: [FeatureId, ObjectId, OpaqueScientificObject, OpaqueScientificValue, SourceReference, CompetenciesCanonicalDescriptor, RequestMode]
+opaque_values: [actualization_contextualization_integration_evolutivity_demonstrability_validity_statements, restriction_operator, norms, measures, covariance, dimension_bound]
+preconditions: [exact feature id, exact objects 003 and 055 once each, complete provenance, structural request mode]
+prerequisites_explicit: []
+application_conditions: [structural construction only, no restriction operator execution isometry test covariance evaluation dimension growth observation or recognition decision]
+manifestations_explicit: {declared_for_execution: false, demonstrability_and_validity_content_present: true, handling: external_observer_required}
+relations_explicit: {declared_for_execution: false, integration_covariance_content_present: true, endpoint_inference: forbidden}
+operations: [validate_request_mode, validate_feature_identity, validate_exact_object_set, validate_provenance, build_immutable_descriptor, propagate_reservations_and_unresolved, reject_unsupported_scientific_operation]
+execution_order: [validate_request_mode, validate_feature_identity, validate_exact_object_set, validate_provenance, build_immutable_descriptor, propagate_reservations_and_unresolved]
+control_flow: [structural errors stop construction, operator context observer evaluator or relation requests are rejected, valid structural input returns immutable descriptor]
+scientific_behaviors:
+  mobilization: {source_declaration: actualization_and_contextualization_content_present, executable: false, handling: preserve_opaque}
+  exercise: {source_declaration: action_demonstrability_content_present, executable: false, handling: preserve_opaque}
+  acquisition: {source_declaration: actualization_content_present, executable: false, handling: preserve_opaque}
+  development: {source_declaration: evolutivity_content_present, executable: false, handling: preserve_opaque}
+  mastery: {source_declaration: absent_as_selected_rule, executable: false, handling: not_declared}
+  evaluation: {source_declaration: demonstrability_validity_and_recognition_content_present, executable: false, handling: external_evaluator_required}
+  comparison: {source_declaration: contextual_operator_bounds_inside_opaque_content, executable: false, handling: external_comparator_required}
+effects: []
+postconditions: [objects 003 and 055 preserved in source order, context statements preserved, no contextualized competency covariance dimension observation validity or recognition result produced]
+invariants: [Operator source type does not imply callable operator, contextualization identity remains object-specific, structural validity not scientific validity]
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, UnexpectedCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+determinism: {status: deterministic, key: [feature_id, ordered_object_ids, payload_identities, provenance, reservations, unresolved]}
+dependencies: {internal: [competencies_feature_profile, structural_validation_pipeline], external: [], capacities: not_directly_evidenced}
+unresolved_propagated: []
+reservations: [no full mathematical contract or production semantics asserted, context space operator domain norm metric measure observer recognition and evaluator semantics incomplete, scientific unresolved preserved]
+transformations_applied: [normalized operator descriptor schema, extracted shared validation, normalized context traceability, added observer evaluator comparator guards]
+preservation_obligations: [preserve identities order contextualization statements provenance raw status reservations and unresolved]
+links: {algorithm: registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-013/algorithm.yaml, oracle: registry/oracles/competencies/TLC-FC-12-COMPETENCIES-013/oracle.yaml}
+actual_implementation_readiness: {structural_descriptor: ready, scientific_execution: not_ready_not_authorized, blocker_for_structural_layer: false}
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+competency_invented: false
+measurement_invented: false
+ordering_invented: false

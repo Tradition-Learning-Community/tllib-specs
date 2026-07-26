@@ -1,0 +1,47 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-008
+algorithm_id: TLC-ALG-TLC-FC-12-COMPETENCIES-008
+finalized_ir: registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-008/ir.yaml
+signature: 'build_transformation_descriptor_008(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>, RequestMode) -> Result<CompetenciesCanonicalDescriptor,CompetenciesError>'
+inputs: [competencies_feature_id, object_payloads, provenance, request_mode]
+outputs: [immutable CompetenciesCanonicalDescriptor]
+validations: [structural request mode, exact feature id, exact objects 108 109 110 111, uniqueness, no extras, complete provenance]
+preconditions: [finalized IR types satisfied]
+prerequisites: []
+conditions_of_application: [structural representation only]
+ordered_steps: [validate request mode, validate feature identity, validate exact object set, validate provenance, preserve four distinct ids despite repeated names, copy opaque identities in source order, attach traceability reservations unresolved, mark structurally_valid, return]
+branches:
+- {condition: axiom proof equation transfer decomposition metric level or virtue operation requested, result: ScientificEvaluationRequested}
+- {condition: repeated names are supplied with a missing distinct id, result: MissingCoveredObject}
+- {condition: invalid structural input, result: corresponding_structured_error}
+- {condition: valid structural input, result: return_descriptor}
+competency_construction: {operation: construct_reference_descriptor, scientific_interpretation: false}
+identity_validation: exact_feature_and_four_distinct_object_ids
+scope_validation: transformation_descriptor_only
+context_validation: opaque_contextual_axiom_content_only
+relation_processing: preserve_virtue_and_context_mentions_without_endpoint_inference
+mobilization: not_declared
+exercise: not_declared
+acquisition: preserve_opaque_actualization_content_only
+development: preserve_opaque_virtue_reinforcement_content_only
+mastery: preserve_opaque_level_symbol_only
+evaluation: external_evaluator_required
+comparison: external_comparator_required
+effects: []
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, UnexpectedCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+postconditions: [four distinct objects preserved in order, repeated names not merged, no scientific result produced]
+invariants: [ObjectId controls identity, source name equality does not imply equivalence, opaque equations never parsed, structural validity not scientific validity]
+determinism: deterministic_for_identical_structural_inputs
+edge_cases: [four equal canonical names with distinct ids, missing one id, duplicated id, reversed caller order, requested proof or comparison]
+dependencies: {internal: [competencies_feature_profile, structural_validation_pipeline], external: []}
+unresolved_preserved: [scientific_unresolved, validated_executable_contract_absent]
+pseudocode: |-
+  function build_transformation_descriptor_008(feature_id, object_payloads, provenance, request_mode):
+      if request_mode != structural_descriptor_only: return error ScientificEvaluationRequested
+      if feature_id != TLC-FC-12-COMPETENCIES-008: return error UnknownFeatureId
+      required = [108, 109, 110, 111] as distinct Competencies ObjectIds
+      validate_exact_object_set(object_payloads, required)
+      validate_provenance(provenance, required)
+      descriptor = construct_immutable_descriptor(profile(TLC-FC-12-COMPETENCIES-008), copy_opaque_identities(object_payloads, required), copy(provenance for required), copy(source_reservations), copy(source_unresolved))
+      descriptor.structural_status = structurally_valid
+      return descriptor

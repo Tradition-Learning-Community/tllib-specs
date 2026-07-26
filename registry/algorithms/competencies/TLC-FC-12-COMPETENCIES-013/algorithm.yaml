@@ -1,0 +1,46 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-013
+algorithm_id: TLC-ALG-TLC-FC-12-COMPETENCIES-013
+finalized_ir: registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-013/ir.yaml
+signature: 'build_operator_descriptor_013(FeatureId, Map<ObjectId,OpaqueScientificObject>, Map<ObjectId,SourceReference>, RequestMode) -> Result<CompetenciesCanonicalDescriptor,CompetenciesError>'
+inputs: [competencies_feature_id, object_payloads, provenance, request_mode]
+outputs: [immutable CompetenciesCanonicalDescriptor]
+validations: [structural request mode, exact feature id, exact objects 003 and 055, uniqueness, no extras, complete provenance]
+preconditions: [finalized IR types satisfied]
+prerequisites: []
+conditions_of_application: [structural representation only]
+ordered_steps: [validate request mode, validate feature identity, validate exact object set, validate provenance, copy opaque object identities in source order, attach context scope traceability reservations unresolved, mark structurally_valid, return]
+branches:
+- {condition: contextualization restriction isometry covariance dimension observation recognition or evaluation requested, result: ScientificEvaluationRequested}
+- {condition: invalid structural input, result: corresponding_structured_error}
+- {condition: valid structural input, result: return_descriptor}
+competency_construction: {operation: construct_operator_reference_descriptor, scientific_interpretation: false}
+identity_validation: exact_feature_and_object_identity
+scope_validation: scientific_operator_descriptor_only
+context_validation: preserve_contextualization_as_opaque_operator_record
+relation_processing: preserve_covariance_content_without_endpoint_inference
+mobilization: preserve_opaque_actualization_and_contextualization_only
+exercise: preserve_opaque_demonstrability_content_only
+acquisition: preserve_opaque_actualization_content_only
+development: preserve_opaque_evolutivity_content_only
+mastery: not_declared_as_selected_rule
+evaluation: external_evaluator_required
+comparison: external_comparator_required
+effects: []
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, UnexpectedCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+postconditions: [objects 003 and 055 preserved in order, no operator or observation result produced]
+invariants: [source Operator type remains non-callable, context not synthesized, structural validity not scientific validity]
+determinism: deterministic_for_identical_structural_inputs
+edge_cases: [missing contextualization object, extra object, missing provenance, permuted map order, restriction request, observer request, recognition request]
+dependencies: {internal: [competencies_feature_profile, structural_validation_pipeline], external: []}
+unresolved_preserved: [scientific_unresolved, validated_executable_contract_absent]
+pseudocode: |-
+  function build_operator_descriptor_013(feature_id, object_payloads, provenance, request_mode):
+      if request_mode != structural_descriptor_only: return error ScientificEvaluationRequested
+      if feature_id != TLC-FC-12-COMPETENCIES-013: return error UnknownFeatureId
+      required = [003, 055] as Competencies ObjectIds
+      validate_exact_object_set(object_payloads, required)
+      validate_provenance(provenance, required)
+      descriptor = construct_immutable_descriptor(profile(TLC-FC-12-COMPETENCIES-013), copy_opaque_identities(object_payloads, required), copy(provenance for required), copy(source_reservations), copy(source_unresolved))
+      descriptor.structural_status = structurally_valid
+      return descriptor

@@ -1,0 +1,77 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-001
+oracle_id: TLC-ORACLE-TLC-FC-12-COMPETENCIES-001
+source_test_plan: registry/test-plans/TLC-FC-12-COMPETENCIES-001/test-plan.yaml
+finalized_ir: registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-001/ir.yaml
+algorithm: registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-001/algorithm.yaml
+oracle_kind: structural_acceptance_oracle
+fixture_policy:
+  competency_instances_created: false
+  payloads: opaque_tokens_named_by_source_object_id
+  numeric_values: none
+acceptance_tests:
+- test_id: C001-NOM-001
+  category: nominal
+  given: exact feature id, opaque tokens for objects 044 and 099, complete provenance, structural request mode
+  expect: immutable descriptor with the same feature id and objects in [044, 099] order
+- test_id: C001-PRE-001
+  category: precondition
+  mutation: remove object 044
+  expect_error: MissingCoveredObject
+- test_id: C001-ERR-001
+  category: errors
+  mutation: add an unlisted object id
+  expect_error: UnexpectedCoveredObject
+- test_id: C001-ERR-002
+  category: errors
+  mutation: present one object twice in entry-form input
+  expect_error: DuplicateCoveredObject
+- test_id: C001-REF-001
+  category: references
+  mutation: remove provenance for object 099
+  expect_error: MissingSourceReference
+- test_id: C001-ID-001
+  category: identity
+  mutation: use another active feature id
+  expect_error: UnknownFeatureId
+- test_id: C001-PROP-001
+  category: property
+  property: output feature id and ordered object ids equal the source profile exactly
+- test_id: C001-PROP-002
+  category: opaque_value_propagation
+  property: opaque payload identities, reservations and unresolved are copied without interpretation
+- test_id: C001-META-001
+  category: metamorphic
+  transformation: permute caller map iteration order
+  invariant: emitted contract order remains [044, 099]
+- test_id: C001-DET-001
+  category: determinism
+  property: identical structural inputs produce structurally equal descriptors
+- test_id: C001-REJ-001
+  category: evaluation_rejection
+  mutation: request mastery score, threshold or constraint evaluation
+  expect_error: ScientificEvaluationRequested
+- test_id: C001-TRACE-001
+  category: traceability
+  property: contract, source IR, finalized IR, algorithm and oracle feature ids form one consistent chain
+blocked_tests:
+- exact scientific constraint truth
+- mastery score or level
+- threshold behavior
+- numerical precision, stability, gradient, conservation or monotonicity
+- scientific comparison
+acceptance_invariants:
+- competency identity conserved
+- scope and opaque source context conserved
+- no manifestation, relation, score, level, threshold, comparison or progression invented
+- source unresolved propagated
+- no external execution dependency created
+dependency_tests:
+- expect capacities dependency status not_directly_evidenced
+no_invention:
+  competency: false
+  measurement: false
+  level: false
+  threshold: false
+  comparison: false
+  progression: false

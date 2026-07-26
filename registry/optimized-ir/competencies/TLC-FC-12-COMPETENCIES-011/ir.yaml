@@ -1,0 +1,60 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-011
+status: selected_for_competencies_implementation_specification
+source_contract: {id: TLC-MC-TLC-FC-12-COMPETENCIES-011, path: registry/math-contracts/TLC-FC-12-COMPETENCIES-011/contract.yaml}
+source_ir: {id: TLC-IR-TLC-FC-12-COMPETENCIES-011, path: registry/ir/TLC-FC-12-COMPETENCIES-011/ir.yaml, raw_status: canonical_declarative_ir_with_reservations}
+source_test_plan: registry/test-plans/TLC-FC-12-COMPETENCIES-011/test-plan.yaml
+nature: declarative
+competency_or_reference:
+  representation: opaque_scientific_object_set
+  ordered_object_ids: [TLC-SO-COMPETENCIES-024, TLC-SO-COMPETENCIES-038, TLC-SO-COMPETENCIES-043]
+  objects:
+  - {object_id: TLC-SO-COMPETENCIES-024, canonical_name: Indicateurs qualitatifs, object_type: Metric, source_status: candidate}
+  - {object_id: TLC-SO-COMPETENCIES-038, canonical_name: Cohérence et coordination entre Disciples, object_type: Metric, source_status: candidate}
+  - {object_id: TLC-SO-COMPETENCIES-043, canonical_name: Espaces et structures, object_type: Metric, source_status: candidate}
+identity: {public_feature_id: TLC-FC-12-COMPETENCIES-011, preservation: exact}
+scope: {category: metric_evaluation, canonical_name: '12-competencies: metric (provisionally_separated)', boundary_label: provisionally_separated, boundary_reopened: false}
+context: {kind: source_defined_and_opaque, scientific_source: maths/12-competencies.md}
+inputs:
+- {name: competencies_feature_id, type: FeatureId, required: true, expected_value: TLC-FC-12-COMPETENCIES-011}
+- {name: object_payloads, type: 'Map<ObjectId,OpaqueScientificObject>', required: true, required_keys: [TLC-SO-COMPETENCIES-024, TLC-SO-COMPETENCIES-038, TLC-SO-COMPETENCIES-043]}
+- {name: provenance, type: 'Map<ObjectId,SourceReference>', required: true}
+- {name: request_mode, type: RequestMode, required: true, allowed_value: structural_descriptor_only}
+outputs: [{name: artifact, type: CompetenciesCanonicalDescriptor, semantics: immutable_structural_descriptor_no_scientific_value}]
+types: [FeatureId, ObjectId, OpaqueScientificObject, OpaqueScientificValue, SourceReference, CompetenciesCanonicalDescriptor, RequestMode]
+opaque_values: [qualitative_indicators, mastery_index_equation, collective_metric_equation, hilbertian_structure_metric, symbols, weights, curvature, compatibility, projection]
+preconditions: [exact feature id, exact three-object set once each, complete provenance, structural request mode]
+prerequisites_explicit: []
+application_conditions: [structural construction only, no qualitative rating collective synergy geometry metric projection or mastery computation]
+manifestations_explicit: {declared_for_execution: false, qualitative_and_collective_content_present: true, handling: external_observer_required}
+relations_explicit: {declared_for_execution: false, collective_and_identity_compatibility_mentions_present: true, endpoint_inference: forbidden}
+operations: [validate_request_mode, validate_feature_identity, validate_exact_object_set, validate_provenance, build_immutable_descriptor, propagate_reservations_and_unresolved, reject_unsupported_scientific_operation]
+execution_order: [validate_request_mode, validate_feature_identity, validate_exact_object_set, validate_provenance, build_immutable_descriptor, propagate_reservations_and_unresolved]
+control_flow: [structural errors stop construction, metric observer geometry or collective requests are rejected, valid structural input returns immutable descriptor]
+scientific_behaviors:
+  mobilization: {source_declaration: absent, executable: false, handling: not_declared}
+  exercise: {source_declaration: absent, executable: false, handling: not_declared}
+  acquisition: {source_declaration: absent, executable: false, handling: not_declared}
+  development: {source_declaration: collective_coordination_content_present, executable: false, handling: preserve_opaque}
+  mastery: {source_declaration: composite_index_present, executable: false, handling: preserve_opaque}
+  evaluation: {source_declaration: qualitative_collective_and_geometric_metrics_present, executable: false, handling: external_evaluator_required}
+  comparison: {source_declaration: compatibility_and_collective_differences_inside_opaque_content, executable: false, handling: external_comparator_required}
+effects: []
+postconditions: [three metric objects preserved in source order, no qualitative rating mastery index collective metric geometric value or comparison produced]
+invariants: [Metric source types remain declarative, exact source object set, no geometry or synergy interpretation, structural validity not scientific validity]
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, UnexpectedCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+determinism: {status: deterministic, key: [feature_id, ordered_object_ids, payload_identities, provenance, reservations, unresolved]}
+dependencies: {internal: [competencies_feature_profile, structural_validation_pipeline], external: [], capacities: not_directly_evidenced}
+unresolved_propagated: []
+reservations: [no full mathematical contract or production semantics asserted, qualitative scales observer rules metric geometry weights domains units and evaluator semantics incomplete, scientific unresolved preserved]
+transformations_applied: [normalized metric descriptor schema, extracted shared validation, normalized traceability, added observer evaluator comparator guards]
+preservation_obligations: [preserve three object identities order content provenance raw status reservations and unresolved]
+links: {algorithm: registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-011/algorithm.yaml, oracle: registry/oracles/competencies/TLC-FC-12-COMPETENCIES-011/oracle.yaml}
+actual_implementation_readiness: {structural_descriptor: ready, scientific_execution: not_ready_not_authorized, blocker_for_structural_layer: false}
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+competency_invented: false
+measurement_invented: false
+ordering_invented: false

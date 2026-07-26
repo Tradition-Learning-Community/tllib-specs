@@ -1,0 +1,84 @@
+schema_version: 1
+domain_id: competencies
+closure_blocked: false
+structural_implementation:
+  blocking: []
+  conclusion: observable descriptor construction and validation are fully specified
+scientific_execution:
+  blocking:
+  - decision_id: COMP-DEC-001
+    classification: blocking
+    scope: all_13_features
+    issue: validated executable scientific semantics absent
+    consequence: equations, metrics, operators and relations cannot be evaluated
+    source_to_consult: maths/12-competencies.md and the corresponding source contracts
+    resolution_in_this_phase: forbidden
+  - decision_id: COMP-DEC-002
+    classification: blocking
+    scope: [TLC-FC-12-COMPETENCIES-004, TLC-FC-12-COMPETENCIES-006]
+    issue: Capacities dependency remains external_unreconciled
+    consequence: no scientific evolution or transformation execution may be asserted
+    dependency_kind: scientific_documentary_not_execution
+    resolution_in_this_phase: forbidden
+preserved_decisions:
+- decision_id: COMP-DEC-003
+  classification: deferred_to_scientific_review
+  scope: all_13_features
+  issue: types, dimensions, units, domains, initial conditions and temporal semantics are incomplete where required for calculation
+  handling: unresolved_propagated
+- decision_id: COMP-DEC-004
+  classification: preserved_as_opaque
+  scope: all_13_features
+  issue: scientific statements, equations and symbols
+  handling: opaque_value
+- decision_id: COMP-DEC-005
+  classification: non_blocking
+  scope: all_13_features
+  issue: runtime representation of opaque source statements and symbols
+  handling: parameter_required
+  implementation_constraint: representation must not interpret content
+- decision_id: COMP-DEC-006
+  classification: non_blocking
+  scope: all_13_features
+  issue: observer requested for manifestation
+  handling: external_observer_required
+- decision_id: COMP-DEC-007
+  classification: non_blocking
+  scope: all_13_features
+  issue: comparator requested for competency comparison
+  handling: external_comparator_required
+- decision_id: COMP-DEC-008
+  classification: non_blocking
+  scope: all_13_features
+  issue: evaluator requested for metric or mastery evaluation
+  handling: external_evaluator_required
+- decision_id: COMP-DEC-009
+  classification: preserved_as_opaque
+  scope: TLC-FC-12-COMPETENCIES-016
+  issue: relation endpoint identities are not established by the selected contract
+  handling: external_reference
+- decision_id: COMP-DEC-010
+  classification: preserved_as_opaque
+  scope: [TLC-FC-12-COMPETENCIES-001, TLC-FC-12-COMPETENCIES-002, TLC-FC-12-COMPETENCIES-009, TLC-FC-12-COMPETENCIES-010, TLC-FC-12-COMPETENCIES-011]
+  issue: constraints and metrics do not authorize scores, thresholds, rankings or levels
+  handling: implementation_out_of_scope
+- decision_id: COMP-DEC-011
+  classification: preserved_as_opaque
+  scope: [TLC-FC-12-COMPETENCIES-004, TLC-FC-12-COMPETENCIES-005, TLC-FC-12-COMPETENCIES-006, TLC-FC-12-COMPETENCIES-007, TLC-FC-12-COMPETENCIES-008]
+  issue: acquisition, development, adaptation and transformation statements lack an executable selected contract
+  handling: implementation_out_of_scope
+status_interpretation:
+  selected_for_competencies_implementation_specification: selects the finalized structural IR as software work specification only
+  scientific_decision_created: false
+  source_raw_status_overwritten: false
+no_invention_attestation:
+  competency: false
+  measurement: false
+  level: false
+  score: false
+  threshold: false
+  progression: false
+  acquisition_rule: false
+  mastery_rule: false
+  evaluation_rule: false
+  comparison_rule: false

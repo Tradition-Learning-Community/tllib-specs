@@ -1,0 +1,30 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-005
+oracle_id: TLC-ORACLE-TLC-FC-12-COMPETENCIES-005
+source_test_plan: registry/test-plans/TLC-FC-12-COMPETENCIES-005/test-plan.yaml
+finalized_ir: registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-005/ir.yaml
+algorithm: registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-005/algorithm.yaml
+oracle_kind: structural_acceptance_oracle
+fixture_policy: {competency_instances_created: false, payloads: opaque_tokens_named_by_source_object_id, numeric_values: none}
+acceptance_tests:
+- {test_id: C005-NOM-001, category: nominal, given: exact objects 072 101 106 complete provenance and structural mode, expect: immutable descriptor preserving contract order}
+- {test_id: C005-PRE-001, category: precondition, mutation: remove object 101, expect_error: MissingCoveredObject}
+- {test_id: C005-ERR-001, category: errors, mutation: add an unlisted object, expect_error: UnexpectedCoveredObject}
+- {test_id: C005-ERR-002, category: errors, mutation: duplicate object 106, expect_error: DuplicateCoveredObject}
+- {test_id: C005-REF-001, category: references, mutation: remove provenance for 072, expect_error: MissingSourceReference}
+- {test_id: C005-ID-001, category: identity, mutation: wrong feature id, expect_error: UnknownFeatureId}
+- {test_id: C005-PROP-001, category: opaque_value_propagation, property: mentoring motivation and social feedback equation payloads remain unchanged and opaque}
+- {test_id: C005-META-001, category: metamorphic, transformation: permute caller map order, invariant: 'output order remains [072, 101, 106]'}
+- {test_id: C005-DET-001, category: determinism, property: identical inputs produce structurally equal descriptors}
+- {test_id: C005-REJ-001, category: development_rejection, mutation: request temporal evolution or motivation effect, expect_error: ScientificEvaluationRequested}
+- {test_id: C005-REJ-002, category: relation_rejection, mutation: request social kernel or collective influence computation, expect_error: ScientificEvaluationRequested}
+- {test_id: C005-TRACE-001, category: traceability, property: source and finalized artifacts form one feature chain}
+blocked_tests: [mentoring effect, motivation dynamics, collective feedback integral, numerical stability, precision, stochastic behavior, gradient, conservation, monotonicity]
+acceptance_invariants:
+- identity scope context object order and provenance conserved
+- no social relation endpoint or influence measure inferred
+- no acquisition development score level threshold comparison or progression invented
+- unresolved propagated
+dependency_tests:
+- expect capacities dependency status not_directly_evidenced
+no_invention: {competency: false, measurement: false, level: false, threshold: false, comparison: false, progression: false}

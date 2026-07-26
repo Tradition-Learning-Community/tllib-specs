@@ -1,0 +1,64 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-005
+status: selected_for_competencies_implementation_specification
+source_contract: {id: TLC-MC-TLC-FC-12-COMPETENCIES-005, path: registry/math-contracts/TLC-FC-12-COMPETENCIES-005/contract.yaml}
+source_ir: {id: TLC-IR-TLC-FC-12-COMPETENCIES-005, path: registry/ir/TLC-FC-12-COMPETENCIES-005/ir.yaml, raw_status: canonical_declarative_ir_with_reservations}
+source_test_plan: registry/test-plans/TLC-FC-12-COMPETENCIES-005/test-plan.yaml
+nature: declarative
+competency_or_reference:
+  representation: opaque_scientific_object_set
+  ordered_object_ids: [TLC-SO-COMPETENCIES-072, TLC-SO-COMPETENCIES-101, TLC-SO-COMPETENCIES-106]
+  objects:
+  - {object_id: TLC-SO-COMPETENCIES-072, canonical_name: 'Équation — Instruction directe et mentorat', object_type: DifferentialEquation, source_status: candidate}
+  - {object_id: TLC-SO-COMPETENCIES-101, canonical_name: 'Équation — Moteurs motivationnels et engagement', object_type: DifferentialEquation, source_status: candidate}
+  - {object_id: TLC-SO-COMPETENCIES-106, canonical_name: 'Équation — Boucles de rétroaction dans l’apprentissage collectif', object_type: DifferentialEquation, source_status: candidate}
+identity: {public_feature_id: TLC-FC-12-COMPETENCIES-005, preservation: exact}
+scope: {category: evolution_dynamics, canonical_name: '12-competencies: dynamics (blocked_locally)', boundary_label: blocked_locally, boundary_reopened: false}
+context: {kind: source_defined_and_opaque, scientific_source: maths/12-competencies.md}
+inputs:
+- {name: competencies_feature_id, type: FeatureId, required: true, expected_value: TLC-FC-12-COMPETENCIES-005}
+- {name: object_payloads, type: 'Map<ObjectId,OpaqueScientificObject>', required: true, required_keys: [TLC-SO-COMPETENCIES-072, TLC-SO-COMPETENCIES-101, TLC-SO-COMPETENCIES-106]}
+- {name: provenance, type: 'Map<ObjectId,SourceReference>', required: true}
+- {name: request_mode, type: RequestMode, required: true, allowed_value: structural_descriptor_only}
+outputs:
+- {name: artifact, type: CompetenciesCanonicalDescriptor, semantics: immutable_structural_descriptor_no_scientific_value}
+types: [FeatureId, ObjectId, OpaqueScientificObject, OpaqueScientificValue, SourceReference, CompetenciesCanonicalDescriptor, RequestMode]
+opaque_values: [three_differential_equations, symbols, kernels, measures, temporal_parameters, motivation_and_mentoring_terms]
+preconditions: [exact feature id, exact object set once each, complete provenance, structural request mode]
+prerequisites_explicit: []
+application_conditions: [structural construction only, no dynamics integration social-kernel evaluation or scientific calculation]
+manifestations_explicit: {declared_for_execution: false, handling: preserve_source_statements_as_opaque}
+relations_explicit: {declared_for_execution: false, endpoint_inference: forbidden}
+operations: [validate_request_mode, validate_feature_identity, validate_exact_object_set, validate_provenance, build_immutable_descriptor, propagate_reservations_and_unresolved, reject_unsupported_scientific_operation]
+execution_order: [validate_request_mode, validate_feature_identity, validate_exact_object_set, validate_provenance, build_immutable_descriptor, propagate_reservations_and_unresolved]
+control_flow:
+- structural errors stop construction
+- scientific execution requests raise ScientificEvaluationRequested
+- valid input returns immutable descriptor
+scientific_behaviors:
+  mobilization: {source_declaration: mentoring_and_engagement_content_only, executable: false, handling: preserve_opaque}
+  exercise: {source_declaration: absent_as_runtime_operation, executable: false, handling: not_declared}
+  acquisition: {source_declaration: learning_content_present, executable: false, handling: preserve_opaque}
+  development: {source_declaration: motivation_and_feedback_dynamics_present, executable: false, handling: preserve_opaque}
+  mastery: {source_declaration: absent, executable: false, handling: not_declared}
+  evaluation: {source_declaration: absent_as_runtime_contract, executable: false, handling: external_evaluator_required}
+  comparison: {source_declaration: social_differences_inside_opaque_equation_only, executable: false, handling: external_comparator_required}
+effects: []
+postconditions: [three object identities and provenance preserved in order, no evaluated trajectory influence score threshold probability or progression]
+invariants: [exact source object set, equations not interpreted, raw status and boundary preserved, structural validity not scientific validity]
+errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, UnexpectedCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+determinism: {status: deterministic, key: [feature_id, ordered_object_ids, payload_identities, provenance, reservations, unresolved]}
+dependencies: {internal: [competencies_feature_profile, structural_validation_pipeline], external: [], capacities: not_directly_evidenced}
+unresolved_propagated: []
+reservations: [no full mathematical contract or production semantics asserted, types dimensions units kernels measures and temporal semantics are incomplete, scientific unresolved remains preserved]
+transformations_applied: [normalized descriptor schema, extracted shared validation, added explicit non-execution guard, normalized traceability]
+preservation_obligations: [preserve feature object order equations provenance raw status reservations and unresolved]
+links: {algorithm: registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-005/algorithm.yaml, oracle: registry/oracles/competencies/TLC-FC-12-COMPETENCIES-005/oracle.yaml}
+actual_implementation_readiness: {structural_descriptor: ready, scientific_execution: not_ready_not_authorized, blocker_for_structural_layer: false}
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+competency_invented: false
+measurement_invented: false
+ordering_invented: false
