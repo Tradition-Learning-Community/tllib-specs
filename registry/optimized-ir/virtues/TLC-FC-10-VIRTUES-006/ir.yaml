@@ -1,0 +1,90 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-006
+domain: virtues
+status: selected_for_virtues_implementation_specification
+source:
+  contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-006/contract.yaml
+  source_ir_ref: registry/ir/TLC-FC-10-VIRTUES-006/ir.yaml
+  source_ir_raw_status: limited_engineering_contract_with_reservations
+  test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-006/test-plan.yaml
+  scientific_source_ref: maths/10-virtues.md
+  source_objects: [TLC-SO-VIRTUES-070, TLC-SO-VIRTUES-194, TLC-SO-VIRTUES-195, TLC-SO-VIRTUES-197, TLC-SO-VIRTUES-198]
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+virtue_invented: false
+measurement_invented: false
+ordering_invented: false
+nature: declarative_structural
+entrypoint: register_virtue_equation_forms
+virtue_or_reference:
+  type: OpaqueVirtue
+  identity: source-bound reference associated with supplied forms
+scope: equation forms, free symbols, duplicate-candidate links, and opaque operators
+context: source equation context remains opaque
+inputs:
+  feature_id: exact feature identifier
+  artifact: opaque equation-form bundle
+  provenance: ordered ProvenanceRef collection
+  reservations: caller-supplied unresolved and assumptions
+outputs:
+  result: VirtuesResult containing registered forms or named error
+types: [OpaqueVirtue, OpaqueEvidence, OpaqueContext, OpaqueRelationEndpoint, OpaqueMetricDescriptor, ProvenanceRef, VirtuesRequest, VirtuesResult]
+opaque_values: [equation forms, free symbols, operators, duplicate-candidate links, context, reservations]
+preconditions:
+  - feature_id equals TLC-FC-10-VIRTUES-006
+  - provenance contains all five source objects
+  - request does not ask to solve, rank, merge, or complete a formula
+conditions_of_application:
+  - forms are registered exactly as supplied
+relations_explicitly_defined:
+  - supplied duplicate-candidate links
+manifestations_explicitly_defined: []
+operations:
+  - validate feature identity and provenance
+  - reject solving, ranking, scientific-equivalence, and formula-completion requests
+  - register supplied equation forms and free symbols
+  - register opaque operators and duplicate-candidate links without merging objects
+  - construct source-bound result envelope
+order_of_execution: [validate_feature_id, validate_provenance, enforce_registration_only_guard, register_forms, register_candidate_links, build_result]
+control_flow:
+  - on invalid feature id return invalid_feature_id
+  - on missing provenance return missing_provenance
+  - on prohibited completion or equivalence request return unsupported_scientific_completion_request
+  - otherwise return accepted registration
+observations: []
+comparisons: []
+effects:
+  - no equation solving, ranking, normalization of symbols, or scientific merge
+postconditions:
+  - forms, symbols, operators, candidate links, and provenance are preserved
+  - no scientific equivalence is asserted
+invariants:
+  - source object identity and order are conserved
+  - duplicate-candidate does not become equivalent or identical
+  - opaque operators remain uninterpreted
+errors: [missing_provenance, unsupported_scientific_completion_request, invalid_feature_id]
+determinism: {deterministic: true, randomness: none}
+dependencies:
+  internal: [common validation, opaque registration, result envelope]
+  external_execution: []
+  documentary: [maths/10-virtues.md]
+unresolved_propagated: []
+reservations:
+  - operator semantics, basis semantics, and equation-solving semantics are not selected
+  - duplicate-candidate links do not prove equivalence
+transformations_applied:
+  - normalized traceability and registration structure
+  - extracted common opaque-form registration
+  - retained all feature-specific source objects and candidate links
+obligations_of_preservation:
+  - preserve source contract and IR
+  - preserve supplied notation and links
+  - infer no equivalence, solution, score, or ordering
+algorithm_ref: registry/algorithms/virtues/TLC-FC-10-VIRTUES-006/algorithm.yaml
+oracle_ref: registry/oracles/virtues/TLC-FC-10-VIRTUES-006/oracle.yaml
+implementation_aptitude:
+  ready: true
+  level: declarative_structural_implementation
+  excluded_scope: [equation solving, scientific merge, ranking, formula completion]
