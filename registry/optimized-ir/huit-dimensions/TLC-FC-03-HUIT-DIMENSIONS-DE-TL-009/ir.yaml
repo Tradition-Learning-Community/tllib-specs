@@ -1,0 +1,70 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009
+domain: huit-dimensions
+status: selected_for_huit_dimensions_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009/contract.yaml
+source_ir: ir/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009/ir.prototype.json
+source_test_plan: ir/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009/test-plan.yaml
+source_ir_status: prototype_ir_with_reservations
+source_ir_scientific_status: noncanonical_engineering_prototype
+nature: structural_declarative_comparison
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+inputs:
+- {role: principle_definition_invariance, type: OpaquePrincipleDefinitionClaim, scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-008}
+- {role: principle_introduction_invariance, type: OpaquePrincipleStructureClaim, scientific_object_id: TLC-SO-HUIT-DIMENSIONS-DE-TL-039}
+outputs:
+- {role: specialized_structural_result, type: InvarianceDeclarationComparison, evaluated: false}
+types:
+  opaque: [OpaquePrincipleDefinitionClaim, OpaquePrincipleStructureClaim]
+  result: InvarianceDeclarationComparison
+  common: [FeatureId, ScientificObjectId, SourceReference, ReservationId]
+opaque_values: [both_claim_payloads, equivalence_status, feature_boundary_status]
+preconditions:
+- both declaration sides are present and source locations are distinct
+- trace reservations assumptions and unresolved identity status are complete
+operations:
+- name: compare_principle_invariance_declarations
+  kind: deterministic_two_sided_structural_comparison
+  behavior: preserve both sides and set equivalence and boundary status unresolved
+order_of_execution: [validate, construct, verify]
+control_flow:
+  validate_failure: FAIL-HUIT-009-MISSING-TRACE
+  operation_failure: FAIL-HUIT-009-OPERATION
+  forbidden_semantics: FAIL-HUIT-009-SCIENTIFIC-INVENTION
+states_and_effects: {persistent_state: none, external_effects: none, input_mutation: forbidden}
+postconditions:
+- both declarations and source locations remain present
+- equivalence_status and feature_boundary_status remain unresolved
+- no duplicate elimination or scientific comparison is performed
+invariants:
+- source object identities and statements remain distinct and unchanged
+- limited engineering status remains explicit
+errors:
+- {id: FAIL-HUIT-009-MISSING-TRACE, category: missing_traceability_or_role}
+- {id: FAIL-HUIT-009-OPERATION, category: equivalence_deduplication_or_source_loss}
+- {id: FAIL-HUIT-009-SCIENTIFIC-INVENTION, category: scientific_evaluation_forbidden}
+determinism: {same_input_same_output: true, sides: [definition_claim, introduction_claim]}
+dependencies: {internal: [], execution: [], documentary: [principles]}
+unresolved_propagated:
+- TLC-UNRES-HUIT-009-TYPE
+- TLC-UNRES-HUIT-009-SIGNATURE
+- TLC-UNRES-HUIT-009-UNITS
+- TLC-UNRES-HUIT-009-ORDER
+- TLC-UNRES-HUIT-009-AGGREGATION
+- TLC-UNRES-HUIT-009-NUMERICS
+- TLC-UNRES-HUIT-009-ORACLE
+- TLC-UNRES-HUIT-009-BOUNDARY
+- TLC-UNRES-HUIT-009-IDENTITY
+reservations: [TLC-EA-HUIT-009-001]
+transformations_applied:
+- normalized two-sided comparison record
+- normalized unresolved equivalence boundary and identity propagation
+preservation_obligations:
+- preserve both claims source locations and distinct identities
+- never declare equivalence deduplicate or resolve feature boundary
+algorithm_ref: registry/algorithms/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009/algorithm.yaml
+oracle_ref: registry/oracles/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009/oracle.yaml
+implementation_readiness: {specification_ready: true, scientific_execution_ready: false, assessment: ready_for_structural_implementation_with_opaque_scientific_payloads}
