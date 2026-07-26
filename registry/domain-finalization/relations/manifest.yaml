@@ -1,0 +1,94 @@
+schema_version: 1
+manifest_id: TLC-RELATIONS-DOMAIN-FINALIZATION-001
+domain: relations
+phase: 4
+status: selected_for_relations_implementation_specification
+base_branch: main
+base_commit: c34d40713bf444d38f92f76e1c6239ee596d5a18
+baseline:
+  path: registry/global-reconciliation/current-baseline.yaml
+  baseline_id: TLC-GLOBAL-BASELINE-IR-001
+  authoritative_feature_count: 5
+  population_source: registry/global-reconciliation/domain-feature-matrix.yaml
+population:
+  - TLC-FC-15-RELATIONS-002
+  - TLC-FC-15-RELATIONS-003
+  - TLC-FC-15-RELATIONS-004
+  - TLC-FC-15-RELATIONS-007
+  - TLC-FC-15-RELATIONS-008
+source_authority:
+  scientific_source:
+    path: maths/15-relations.md
+    blob_sha: ece0d75f120bfe6a95554b768e5fd3e4b2bfed21
+    modified: false
+  catalogues:
+    - registry/domain-progress/relations/feature-inventory.yaml
+    - registry/global-reconciliation/domain-feature-matrix.yaml
+    - registry/global-reconciliation/feature-contract-matrix.yaml
+    - registry/global-reconciliation/feature-ir-matrix.yaml
+  reports:
+    - reports/ir-batches/relations-domain-completion-001/completion-report.md
+    - reports/domain-progress/relations/decision-required.yaml
+source_artifacts:
+  TLC-FC-15-RELATIONS-002:
+    contract: registry/math-contracts/TLC-FC-15-RELATIONS-002/contract.yaml
+    contract_blob_sha: 510062c45ffc645e268a902810e26e461a39b37d
+    source_ir: registry/ir/TLC-FC-15-RELATIONS-002/ir.yaml
+    source_ir_blob_sha: b146dfd9775c0e5f70c05b201c17ba7e6968c4a0
+    test_plan: registry/test-plans/TLC-FC-15-RELATIONS-002/test-plan.yaml
+    test_plan_blob_sha: e93d62cf2cdd13d77178be835f3bda8b1ccb3e74
+  TLC-FC-15-RELATIONS-003:
+    contract: registry/math-contracts/TLC-FC-15-RELATIONS-003/contract.yaml
+    contract_blob_sha: 96538701aa240a0a751ecfea63dc17395ecf189e
+    source_ir: registry/ir/TLC-FC-15-RELATIONS-003/ir.yaml
+    source_ir_blob_sha: a5e73526f72e6b3662f69528563be0bd24895617
+    test_plan: registry/test-plans/TLC-FC-15-RELATIONS-003/test-plan.yaml
+    test_plan_blob_sha: 51ff8f6428ca2d80f19e7079b02bf3e93ab433b0
+  TLC-FC-15-RELATIONS-004:
+    contract: registry/math-contracts/TLC-FC-15-RELATIONS-004/contract.yaml
+    contract_blob_sha: fe338ce9c87492e7b5ee16660cc34bd5cecdbc84
+    source_ir: registry/ir/TLC-FC-15-RELATIONS-004/ir.yaml
+    source_ir_blob_sha: 13017b9324f531e4b2969e49909853974c40ae88
+    test_plan: registry/test-plans/TLC-FC-15-RELATIONS-004/test-plan.yaml
+    test_plan_blob_sha: c852a32e45711792fde7400b31fd43963c3f9112
+    complementary_contract_files:
+      - registry/math-contracts/TLC-FC-15-RELATIONS-004/dependencies.yaml
+      - registry/math-contracts/TLC-FC-15-RELATIONS-004/traceability.yaml
+      - registry/math-contracts/TLC-FC-15-RELATIONS-004/unresolved.yaml
+      - registry/math-contracts/TLC-FC-15-RELATIONS-004/validation-criteria.yaml
+  TLC-FC-15-RELATIONS-007:
+    contract: registry/math-contracts/TLC-FC-15-RELATIONS-007/contract.yaml
+    contract_blob_sha: a0a9dace24d56e6cededeb118b453bd7fc3d3bb2
+    source_ir: registry/ir/TLC-FC-15-RELATIONS-007/ir.yaml
+    source_ir_blob_sha: cfa5424b0771643f554f98a5e505aec50528eef9
+    test_plan: registry/test-plans/TLC-FC-15-RELATIONS-007/test-plan.yaml
+    test_plan_blob_sha: 1472815e89e613941c932217e62ce1d5909f1d0f
+    complementary_contract_files:
+      - registry/math-contracts/TLC-FC-15-RELATIONS-007/dependencies.yaml
+      - registry/math-contracts/TLC-FC-15-RELATIONS-007/traceability.yaml
+      - registry/math-contracts/TLC-FC-15-RELATIONS-007/unresolved.yaml
+      - registry/math-contracts/TLC-FC-15-RELATIONS-007/validation-criteria.yaml
+  TLC-FC-15-RELATIONS-008:
+    contract: registry/math-contracts/TLC-FC-15-RELATIONS-008/contract.yaml
+    contract_blob_sha: 9cf5ca7b34a90c936ed0d618bf3e6e13c12a3174
+    source_ir: registry/ir/TLC-FC-15-RELATIONS-008/ir.yaml
+    source_ir_blob_sha: 3f565899964dcbd64cac724e91d140c2eef0c2cb
+    test_plan: registry/test-plans/TLC-FC-15-RELATIONS-008/test-plan.yaml
+    test_plan_blob_sha: 1adf3ff75e09295110610c1022e2fe38ec33a820
+finalized_artifact_patterns:
+  optimized_ir: registry/optimized-ir/relations/<FEATURE_ID>/ir.yaml
+  algorithm: registry/algorithms/relations/<FEATURE_ID>/algorithm.yaml
+  oracle: registry/oracles/relations/<FEATURE_ID>/oracle.yaml
+preservation:
+  source_ir_preserved: true
+  source_contract_preserved: true
+  scientific_source_modified: false
+  other_domains_modified: false
+  global_registry_regenerated: false
+  rejected_features: []
+completion_scope:
+  structural_implementation_specification_ready: true
+  scientific_evaluation_ready: false
+  reference_implementation_produced: false
+  cpp_produced: false
+  python_bindings_produced: false
