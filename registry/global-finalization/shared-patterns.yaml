@@ -1,0 +1,37 @@
+schema_version: 1
+patterns:
+  - id: TLC-SHARED-PATTERN-TRACEABLE-ENVELOPE
+    status: shared_pattern_confirmed
+    domains: all
+    behavior: validate source identity, attach provenance, preserve payload and reservations
+  - id: TLC-SHARED-PATTERN-OPAQUE-PAYLOAD
+    status: shared_pattern_confirmed
+    domains: all
+    behavior: carry scientific content without evaluation or coercion
+  - id: TLC-SHARED-PATTERN-UNRESOLVED-PROPAGATION
+    status: shared_pattern_confirmed
+    domains: all
+    behavior: propagate unresolved items monotonically and losslessly
+  - id: TLC-SHARED-PATTERN-DETERMINISTIC-STRUCTURAL-VALIDATION
+    status: shared_pattern_confirmed
+    domains: all
+    behavior: validate exact identifiers, cardinality, order when semantic, references and provenance
+  - id: TLC-SHARED-PATTERN-NON-EXECUTION-GUARD
+    status: shared_pattern_confirmed
+    domains: all
+    behavior: reject scientific execution not authorized by the source contract and IR
+  - id: TLC-SHARED-PATTERN-STRUCTURED-ERROR
+    status: shared_pattern_confirmed
+    domains: all
+    behavior: return stable error codes without partial scientific output
+  - id: TLC-SHARED-PATTERN-LOSSLESS-SERIALIZATION
+    status: shared_pattern_confirmed
+    domains: [community, message, principle, values, virtues, capacities, competencies, practice, lived-experience, relations]
+    behavior: preserve identity, ordering, opaque values, unresolved and provenance
+non_factorized:
+  - scientific equations and operators
+  - theorem proof semantics
+  - value and virtue evaluation
+  - dynamics transition engines
+  - relation evaluation and causality
+  - domain-specific state semantics
