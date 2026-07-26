@@ -1,0 +1,69 @@
+schema_version: 1
+artifact_kind: theorems_algorithm_specification
+feature_id: TLC-FC-06-THEOREMS-004
+operation: construct_transmission_ergodicity_hypothesis
+signature: construct_transmission_ergodicity_hypothesis(OpaqueOperatorSymbol transmission_operator, OpaqueSpectralGapCondition ergodicity_condition) -> TransmissionErgodicityHypothesis
+inputs:
+  - {name: transmission_operator, type: OpaqueOperatorSymbol}
+  - {name: ergodicity_condition, type: OpaqueSpectralGapCondition}
+outputs:
+  - {name: operator_hypothesis, type: TransmissionErgodicityHypothesis}
+validations:
+  - transmission_operator is present
+  - ergodicity_condition is present
+  - both components cite maths/06-theorems.md:20
+hypotheses:
+  - TLC-EA-THEOREMS-004-001 is retained
+preconditions:
+  - Both the transmission operator and spectral-gap condition carry the line-20 source reference.
+conditions_of_application:
+  - construction is limited to the cited source hypothesis
+ordered_steps:
+  - validate operator presence
+  - validate condition presence
+  - validate source-reference equality
+  - preserve both opaque components
+  - construct hypothesis record labelled unverified
+  - validate postcondition
+branching:
+  - {condition: operator missing, result: MISSING_OPERATOR_SYMBOL}
+  - {condition: condition missing, result: MISSING_ERGODICITY_CONDITION}
+  - {condition: source references differ or are not line 20, result: SOURCE_REFERENCE_MISMATCH}
+  - {condition: all validations pass, result: return operator_hypothesis}
+dependencies: [DEP-THEOREMS-DYNAMICS-001, RESULT-THEOREMS-001]
+statement_handling:
+  construction: unevaluated_hypothesis_record
+  validation: structural_only
+proof_status_control:
+  runtime_label: hypothesis_not_verified
+  truth_value_returned: false
+errors: [MISSING_OPERATOR_SYMBOL, MISSING_ERGODICITY_CONDITION, SOURCE_REFERENCE_MISMATCH]
+postconditions:
+  - both opaque components are preserved
+  - result is labelled as a hypothesis rather than a verified property
+determinism: identical components produce an identical hypothesis record
+edge_cases:
+  - syntactically equal opaque conditions are not interpreted as scientifically equivalent
+  - no numeric spectral-gap threshold is introduced
+unresolved_conserved: []
+pseudocode: |
+  function construct_transmission_ergodicity_hypothesis(transmission_operator, ergodicity_condition):
+      if transmission_operator is missing:
+          raise MISSING_OPERATOR_SYMBOL
+      if ergodicity_condition is missing:
+          raise MISSING_ERGODICITY_CONDITION
+      if source_reference(transmission_operator) != "maths/06-theorems.md:20" or
+         source_reference(ergodicity_condition) != "maths/06-theorems.md:20":
+          raise SOURCE_REFERENCE_MISMATCH
+      result = TransmissionErgodicityHypothesis(
+          transmission_operator = preserve_identity(transmission_operator),
+          ergodicity_condition = preserve_identity(ergodicity_condition),
+          verification_status = "hypothesis_not_verified"
+      )
+      assert result preserves both components and is not labelled verified
+      return result
+forbidden_operations:
+  - compute a spectral gap
+  - test ergodicity
+  - execute the operator
+  - infer stability

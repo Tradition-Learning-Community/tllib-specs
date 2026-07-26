@@ -1,0 +1,50 @@
+schema_version: 1
+artifact_kind: theorems_acceptance_oracle
+feature_id: TLC-FC-06-THEOREMS-002
+operation_under_test: register_theorem_dynamics_equations
+source_test_plan: registry/test-plans/TLC-FC-06-THEOREMS-002/test-plan.yaml
+oracle_scope: structural_conformance_only
+acceptance_tests:
+  - id: ORACLE-002-NOMINAL
+    kind: nominal
+    given: complete mappings for TLC-SO-THEOREMS-027, TLC-SO-THEOREMS-028, and TLC-SO-THEOREMS-030
+    expect: exactly three registry entries preserving equation and role pairs
+  - id: ORACLE-002-MISSING
+    kind: precondition_error
+    given: one covered object lacks an equation
+    expect_error: MISSING_DYNAMICS_EQUATION
+  - id: ORACLE-002-ROLE
+    kind: type_and_role_error
+    given: one role is not a prepared DynamicsRole
+    expect_error: UNKNOWN_DYNAMICS_ROLE
+  - id: ORACLE-002-DUPLICATE
+    kind: uniqueness_error
+    given: duplicate covered object identifier
+    expect_error: DUPLICATE_SCIENTIFIC_OBJECT
+  - id: ORACLE-002-OPAQUE
+    kind: opaque_propagation
+    expect: each equation payload is byte-for-byte unchanged and remains paired with its declared role
+  - id: ORACLE-002-FORM
+    kind: shape
+    expect: keys equal the exact covered object set
+  - id: ORACLE-002-DETERMINISM
+    kind: determinism
+    action: invoke twice with identical mappings
+    expect: identical keyed registries
+  - id: ORACLE-002-NO-EVALUATION
+    kind: negative_capability
+    expect: no derivative, trajectory, wave, or receptivity value is produced
+  - id: ORACLE-002-TRACE
+    kind: traceability
+    expect: finalized artifacts retain all three source ranges and DEP-THEOREMS-DYNAMICS-001
+  - id: ORACLE-002-RESERVATION
+    kind: reservation_propagation
+    expect: TLC-EA-THEOREMS-002-001 remains recorded and unresolved set remains empty
+properties:
+  equation_identity_preserved: true
+  role_identity_preserved: true
+  source_conclusion_not_computed: true
+  proof_invented: false
+acceptance_result:
+  pass_when: structural population, pairing, error, and determinism assertions hold
+  does_not_mean: any dynamics theorem is demonstrated

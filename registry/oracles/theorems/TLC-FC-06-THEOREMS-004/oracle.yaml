@@ -1,0 +1,50 @@
+schema_version: 1
+artifact_kind: theorems_acceptance_oracle
+feature_id: TLC-FC-06-THEOREMS-004
+operation_under_test: construct_transmission_ergodicity_hypothesis
+source_test_plan: registry/test-plans/TLC-FC-06-THEOREMS-004/test-plan.yaml
+oracle_scope: structural_conformance_only
+acceptance_tests:
+  - id: ORACLE-004-NOMINAL
+    kind: nominal
+    given: present opaque operator and condition, both citing line 20
+    expect: TransmissionErgodicityHypothesis preserving both components and labelled hypothesis_not_verified
+  - id: ORACLE-004-MISSING-OPERATOR
+    kind: precondition_error
+    given: missing operator
+    expect_error: MISSING_OPERATOR_SYMBOL
+  - id: ORACLE-004-MISSING-CONDITION
+    kind: precondition_error
+    given: missing condition
+    expect_error: MISSING_ERGODICITY_CONDITION
+  - id: ORACLE-004-SOURCE
+    kind: traceability_error
+    given: one component cites a different source
+    expect_error: SOURCE_REFERENCE_MISMATCH
+  - id: ORACLE-004-OPAQUE
+    kind: opaque_propagation
+    expect: operator and condition payloads are unchanged
+  - id: ORACLE-004-STATUS
+    kind: proof_and_hypothesis_status
+    expect: result is never labelled verified or proved
+  - id: ORACLE-004-NO-COMPUTE
+    kind: negative_capability
+    expect: no spectral-gap value, ergodicity test, or operator behavior is produced
+  - id: ORACLE-004-DETERMINISM
+    kind: determinism
+    action: invoke twice with identical components
+    expect: identical hypothesis records
+  - id: ORACLE-004-TRACE
+    kind: specification_traceability
+    expect: object TLC-SO-THEOREMS-014, line 20, and DEP-THEOREMS-DYNAMICS-001 remain linked
+  - id: ORACLE-004-RESERVATION
+    kind: reservation_propagation
+    expect: TLC-EA-THEOREMS-004-001 remains recorded and unresolved set remains empty
+properties:
+  hypothesis_components_preserved: true
+  verified_property_returned: false
+  spectral_computation_performed: false
+  proof_invented: false
+acceptance_result:
+  pass_when: structural, source-reference, status, error, and determinism assertions hold
+  does_not_mean: uniform ergodicity is scientifically established

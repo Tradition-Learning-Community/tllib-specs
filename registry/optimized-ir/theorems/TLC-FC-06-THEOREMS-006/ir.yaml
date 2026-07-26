@@ -1,0 +1,111 @@
+schema_version: 1
+artifact_kind: theorems_finalized_implementation_ir
+feature_id: TLC-FC-06-THEOREMS-006
+selection_status: selected_for_theorems_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-06-THEOREMS-006/contract.yaml
+source_contract_id: TLC-LEC-TLC-FC-06-THEOREMS-006-001
+source_ir: registry/ir/TLC-FC-06-THEOREMS-006/ir.yaml
+source_ir_id: TLC-PIR-TLC-FC-06-THEOREMS-006-001
+source_test_plan: registry/test-plans/TLC-FC-06-THEOREMS-006/test-plan.yaml
+source_ir_raw_status: prototype_ir_with_reservations
+nature: declarative_theorem_index
+statement:
+  purpose: Index the six prepared theorem declarations for lookup by scientific object identifier, retaining statement, source, and proof-status metadata.
+  observable_effect: return a six-entry index supporting identifier lookup and preserving each declaration's partial or absent proof status
+  source_references: [maths/06-theorems.md:13-16, maths/06-theorems.md:31-38, maths/06-theorems.md:49-52, maths/06-theorems.md:92-95, maths/06-theorems.md:114-124, maths/06-theorems.md:129-136]
+scope:
+  source_objects: [TLC-SO-THEOREMS-002, TLC-SO-THEOREMS-003, TLC-SO-THEOREMS-004, TLC-SO-THEOREMS-008, TLC-SO-THEOREMS-009, TLC-SO-THEOREMS-010]
+  source_relations: []
+  source_results: [RESULT-THEOREMS-001, RESULT-THEOREMS-002, RESULT-THEOREMS-003, RESULT-THEOREMS-004, RESULT-THEOREMS-005, RESULT-THEOREMS-006]
+quantifiers:
+  policy: preserve_source_status_per_declaration
+  explicit:
+    - {result_id: RESULT-THEOREMS-002, count: 1}
+    - {result_id: RESULT-THEOREMS-003, count: 1}
+  unspecified:
+    - RESULT-THEOREMS-001
+    - RESULT-THEOREMS-004
+    - RESULT-THEOREMS-005
+    - RESULT-THEOREMS-006
+hypotheses:
+  scientific: retained_inside_each_opaque_declaration_without_completion
+  provisional_engineering: [TLC-EA-THEOREMS-006-001]
+preconditions:
+  - Each covered theorem object occurs exactly once and has a source reference plus proof status.
+conditions_of_application:
+  - lookup is limited to the six covered theorem object identifiers
+conclusion:
+  scientific: source_conclusions_are_preserved_as_declaration_metadata_and_not_evaluated
+  software:
+    - Lookup returns the unchanged declaration metadata and never returns a theorem truth value.
+logical_relation:
+  source_relation: theorem_declarations_with_source_hypotheses_conclusions_and_proof_status
+  software_relation: identifier_index_and_lookup
+  implication_evaluated_by_software: false
+  equivalence_evaluated_by_software: false
+dependencies:
+  external: [DEP-THEOREMS-MASTER-001, DEP-THEOREMS-DISCIPLE-001, DEP-THEOREMS-COMMUNITY-001, DEP-THEOREMS-HUIT-001, DEP-THEOREMS-DYNAMICS-001]
+  documentary: [DEP-THEOREMS-MESSAGE-001, DEP-THEOREMS-PRINCIPLE-001]
+  proof_references: [PROOF-THEOREMS-001, PROOF-THEOREMS-002, PROOF-THEOREMS-003, PROOF-THEOREMS-004, PROOF-THEOREMS-005]
+operations_authorized:
+  - validate six-object population
+  - validate unique theorem identifiers
+  - validate source references and proof-status presence
+  - construct TheoremDeclarationIndex
+  - lookup declaration by identifier
+execution_order:
+  - validate population and uniqueness
+  - validate source references
+  - validate proof-status presence
+  - preserve declaration metadata
+  - construct index
+  - validate lookup postcondition
+control_flow:
+  - duplicate identifier yields DUPLICATE_THEOREM_ID
+  - missing proof status yields MISSING_PROOF_STATUS
+  - lookup outside population yields UNKNOWN_THEOREM_ID
+  - otherwise return index or unchanged declaration metadata
+effects:
+  purity: pure_structural_indexing
+  theorem_truth_evaluation: forbidden
+postconditions:
+  - Lookup returns the unchanged declaration metadata and never returns a theorem truth value.
+errors: [DUPLICATE_THEOREM_ID, MISSING_PROOF_STATUS, UNKNOWN_THEOREM_ID]
+determinism: deterministic_structural_construction_for_identical_inputs
+proof_status:
+  per_result:
+    - {result_id: RESULT-THEOREMS-001, status: partial, formalization: not_formalized, proof_reference: PROOF-THEOREMS-001}
+    - {result_id: RESULT-THEOREMS-002, status: partial, formalization: not_formalized, proof_reference: PROOF-THEOREMS-002}
+    - {result_id: RESULT-THEOREMS-003, status: partial, formalization: not_formalized, proof_reference: PROOF-THEOREMS-003}
+    - {result_id: RESULT-THEOREMS-004, status: partial, formalization: not_formalized, proof_reference: PROOF-THEOREMS-004}
+    - {result_id: RESULT-THEOREMS-005, status: absent, formalization: not_formalized, proof_reference: null}
+    - {result_id: RESULT-THEOREMS-006, status: partial, formalization: not_formalized, proof_reference: PROOF-THEOREMS-005}
+  complete_local_proofs: 0
+  proof_verification_performed: false
+unresolved_propagated: []
+opaque_values:
+  types: [OpaqueTheoremDeclaration, OpaqueScientificValue, OpaqueScientificExpression]
+  policy: a declaration with absent proof remains queryable but unevaluated
+reservations:
+  - The operation organizes source evidence but does not establish theorem truth.
+  - Missing types, units, dimensions, cardinalities, ordering, precision, probability laws, and algorithms remain unspecified.
+transformations_applied:
+  - common finalized IR envelope
+  - normalized per-declaration proof-status table
+  - normalized deterministic identifier lookup
+obligations_of_preservation:
+  - preserve six declarations exactly
+  - preserve hypotheses and conclusions inside declaration metadata
+  - preserve explicit or unspecified quantifier status
+  - preserve five partial and one absent proof status
+  - never return a theorem truth value
+algorithm_ref: registry/algorithms/theorems/TLC-FC-06-THEOREMS-006/algorithm.yaml
+oracle_ref: registry/oracles/theorems/TLC-FC-06-THEOREMS-006/oracle.yaml
+implementation_aptitude:
+  status: ready_for_structural_implementation
+  automatic_proof: false
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+proof_invented: false

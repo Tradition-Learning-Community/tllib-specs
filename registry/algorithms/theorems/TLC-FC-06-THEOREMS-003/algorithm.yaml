@@ -1,0 +1,68 @@
+schema_version: 1
+artifact_kind: theorems_algorithm_specification
+feature_id: TLC-FC-06-THEOREMS-003
+operation: catalogue_explicit_theorem_equations
+signature: catalogue_explicit_theorem_equations(Sequence<TheoremEquationEntry> equation_entries) -> TheoremEquationCatalogue
+inputs:
+  - {name: equation_entries, type: "Sequence<TheoremEquationEntry>"}
+outputs:
+  - {name: equation_catalogue, type: TheoremEquationCatalogue}
+validations:
+  - exactly four covered source objects occur once
+  - each entry has a declared equation role
+  - roles are unique
+  - each entry has a source reference and opaque expression
+hypotheses:
+  - TLC-EA-THEOREMS-003-001 is retained
+preconditions:
+  - Each of the four covered objects occurs exactly once with a source reference and opaque expression.
+conditions_of_application:
+  - catalogue construction is limited to stability bound, emergence probability, trajectory convergence, and wave speed roles
+ordered_steps:
+  - validate covered object population
+  - validate role presence
+  - validate role uniqueness
+  - validate source reference presence
+  - preserve each expression unchanged
+  - construct source-addressable catalogue
+  - validate four-role postcondition
+branching:
+  - {condition: missing equation role, result: MISSING_EQUATION_ROLE}
+  - {condition: duplicate equation role, result: DUPLICATE_EQUATION_ROLE}
+  - {condition: missing source reference, result: MISSING_SOURCE_REFERENCE}
+  - {condition: all validations pass, result: return equation_catalogue}
+dependencies: [DEP-THEOREMS-DYNAMICS-001]
+statement_handling:
+  construction: source_addressable_opaque_equation_entries
+  evaluation: none
+proof_status_control:
+  status: not_a_proof_operation
+  truth_value_returned: false
+errors: [MISSING_EQUATION_ROLE, DUPLICATE_EQUATION_ROLE, MISSING_SOURCE_REFERENCE]
+postconditions:
+  - catalogue exposes four distinct roles
+  - every expression is unchanged
+determinism: identical entry sequences produce an identical catalogue
+edge_cases:
+  - mathematically equivalent expression strings are not normalized or merged
+  - duplicate payloads remain distinct when object IDs and roles are distinct
+unresolved_conserved: []
+pseudocode: |
+  function catalogue_explicit_theorem_equations(equation_entries):
+      if any entry has no equation role:
+          raise MISSING_EQUATION_ROLE
+      if any equation role occurs more than once:
+          raise DUPLICATE_EQUATION_ROLE
+      if any entry has no source reference:
+          raise MISSING_SOURCE_REFERENCE
+      require exactly one entry for each covered source object
+      catalogue = empty TheoremEquationCatalogue
+      for entry in deterministic_object_identifier_order(equation_entries):
+          catalogue.add(preserve_entry_without_expression_normalization(entry))
+      assert catalogue exposes exactly four distinct roles
+      return catalogue
+forbidden_operations:
+  - parse or simplify expressions
+  - solve equations
+  - compare scientific equivalence
+  - infer theorem truth

@@ -1,0 +1,91 @@
+schema_version: 1
+artifact_kind: theorems_finalized_implementation_ir
+feature_id: TLC-FC-06-THEOREMS-002
+selection_status: selected_for_theorems_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-06-THEOREMS-002/contract.yaml
+source_contract_id: TLC-LEC-TLC-FC-06-THEOREMS-002-001
+source_ir: registry/ir/TLC-FC-06-THEOREMS-002/ir.yaml
+source_ir_id: TLC-PIR-TLC-FC-06-THEOREMS-002-001
+source_test_plan: registry/test-plans/TLC-FC-06-THEOREMS-002/test-plan.yaml
+source_ir_raw_status: prototype_ir_with_reservations
+nature: structural_equation_registry
+statement:
+  purpose: Register the three cited evolution equations as distinct unevaluated dynamics records with their prepared source roles.
+  observable_effect: return a registry keyed by the three prepared object identifiers and preserving each equation's declared trajectory, identity-wave, or receptivity role
+  source_references: [maths/06-theorems.md:109-111, maths/06-theorems.md:118-120, maths/06-theorems.md:133-135]
+scope:
+  source_objects: [TLC-SO-THEOREMS-027, TLC-SO-THEOREMS-028, TLC-SO-THEOREMS-030]
+  source_relations: []
+quantifiers:
+  feature_operation: none_explicitly_declared
+hypotheses:
+  scientific: equations_and_roles_are_opaque_source_records
+  provisional_engineering: [TLC-EA-THEOREMS-002-001]
+preconditions:
+  - Every covered object has one opaque equation and one prepared role.
+conditions_of_application:
+  - use only the three covered theorem dynamics objects and their declared roles
+conclusion:
+  scientific: no_scientific_conclusion_is_evaluated
+  software:
+    - The registry has one entry for each covered object and never evaluates a derivative or evolution law.
+logical_relation:
+  source_relation: equation_role_association
+  software_relation: keyed_registry_construction
+  implication_asserted_by_software: false
+  equivalence_asserted_by_software: false
+dependencies:
+  external: [DEP-THEOREMS-DYNAMICS-001]
+  source_objects: [TLC-SO-THEOREMS-027, TLC-SO-THEOREMS-028, TLC-SO-THEOREMS-030]
+operations_authorized:
+  - validate covered object population
+  - validate one equation and one role per object
+  - reject duplicates and unknown roles
+  - construct DynamicsEquationRegistry
+execution_order:
+  - validate population and uniqueness
+  - validate roles
+  - preserve opaque equations
+  - construct registry
+  - validate postcondition
+control_flow:
+  - missing equation yields MISSING_DYNAMICS_EQUATION
+  - unknown role yields UNKNOWN_DYNAMICS_ROLE
+  - duplicate object yields DUPLICATE_SCIENTIFIC_OBJECT
+  - otherwise return registry
+effects:
+  purity: pure_structural_construction
+  scientific_evaluation: forbidden
+postconditions:
+  - The registry has one entry for each covered object and never evaluates a derivative or evolution law.
+errors: [MISSING_DYNAMICS_EQUATION, UNKNOWN_DYNAMICS_ROLE, DUPLICATE_SCIENTIFIC_OBJECT]
+determinism: deterministic_structural_construction_for_identical_inputs
+proof_status:
+  status: not_a_proof_operation
+  proof_verification_performed: false
+unresolved_propagated: []
+opaque_values:
+  types: [OpaqueEquation, OpaqueScientificValue, OpaqueScientificExpression]
+  policy: opaque equation payloads with distinct roles remain distinct
+reservations:
+  - The operation organizes source evidence but does not establish theorem truth.
+  - Missing types, units, dimensions, cardinalities, ordering, precision, probability laws, and algorithms remain unspecified.
+transformations_applied:
+  - common finalized IR envelope
+  - normalized role and dependency references
+  - deterministic validation order
+obligations_of_preservation:
+  - preserve each object identifier
+  - preserve each equation payload
+  - preserve each declared role
+  - do not evaluate dynamics
+algorithm_ref: registry/algorithms/theorems/TLC-FC-06-THEOREMS-002/algorithm.yaml
+oracle_ref: registry/oracles/theorems/TLC-FC-06-THEOREMS-002/oracle.yaml
+implementation_aptitude:
+  status: ready_for_structural_implementation
+  external_dependency_mode: reference_only
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+proof_invented: false

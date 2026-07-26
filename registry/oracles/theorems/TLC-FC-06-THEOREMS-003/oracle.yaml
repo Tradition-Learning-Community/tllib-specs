@@ -1,0 +1,51 @@
+schema_version: 1
+artifact_kind: theorems_acceptance_oracle
+feature_id: TLC-FC-06-THEOREMS-003
+operation_under_test: catalogue_explicit_theorem_equations
+source_test_plan: registry/test-plans/TLC-FC-06-THEOREMS-003/test-plan.yaml
+oracle_scope: structural_conformance_only
+acceptance_tests:
+  - id: ORACLE-003-NOMINAL
+    kind: nominal
+    given: four complete entries for the covered objects and four distinct declared roles
+    expect: catalogue contains four source-addressable entries with unchanged expressions
+  - id: ORACLE-003-MISSING-ROLE
+    kind: precondition_error
+    given: an entry without role
+    expect_error: MISSING_EQUATION_ROLE
+  - id: ORACLE-003-DUPLICATE-ROLE
+    kind: uniqueness_error
+    given: two entries with the same role
+    expect_error: DUPLICATE_EQUATION_ROLE
+  - id: ORACLE-003-MISSING-SOURCE
+    kind: traceability_error
+    given: an entry without source reference
+    expect_error: MISSING_SOURCE_REFERENCE
+  - id: ORACLE-003-FORM
+    kind: shape
+    expect: exact covered object set and four distinct roles
+  - id: ORACLE-003-OPAQUE
+    kind: opaque_propagation
+    expect: expressions are byte-for-byte unchanged
+  - id: ORACLE-003-NORMALIZATION
+    kind: negative_capability
+    given: two differently written opaque expressions
+    expect: they are not simplified, normalized, merged, or compared for equivalence
+  - id: ORACLE-003-DETERMINISM
+    kind: determinism
+    action: invoke twice with identical entries
+    expect: identical catalogue
+  - id: ORACLE-003-TRACE
+    kind: specification_traceability
+    expect: all four source ranges and covered object IDs remain linked
+  - id: ORACLE-003-RESERVATION
+    kind: reservation_propagation
+    expect: TLC-EA-THEOREMS-003-001 remains recorded and unresolved set remains empty
+properties:
+  equation_identity_preserved: true
+  role_population_preserved: true
+  algebraic_normalization_performed: false
+  proof_invented: false
+acceptance_result:
+  pass_when: all structural, error, opacity, and determinism assertions hold
+  does_not_mean: any equation or theorem is mathematically validated

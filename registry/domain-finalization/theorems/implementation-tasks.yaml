@@ -1,0 +1,138 @@
+schema_version: 1
+domain: theorems
+status: ready_for_developer_assignment
+common_tasks:
+  - task_id: THEOREMS-IMPL-COMMON-001
+    title: implement shared structural types
+    scope:
+      - StructuredTheoremStatement
+      - ProofStatus
+      - ProofReference
+      - ProofObligation
+      - StructuredTheoremError
+      - SourceReference
+      - unresolved identifier attachment
+    acceptance:
+      - opaque payloads round-trip losslessly
+      - no scientific evaluator is introduced
+      - proof status cannot be promoted implicitly
+  - task_id: THEOREMS-IMPL-COMMON-002
+    title: implement common validation and traceability utilities
+    acceptance:
+      - exact feature error codes are retained
+      - object, relation, source, contract, and IR references are preserved
+      - validation is deterministic
+  - task_id: THEOREMS-IMPL-COMMON-003
+    title: implement proof-obligation metadata boundary
+    acceptance:
+      - partial and absent proofs produce structured external requirements
+      - valid preconditions never produce theorem truth
+      - no proof synthesis is present
+feature_tasks:
+  - task_id: THEOREMS-IMPL-001
+    feature_id: TLC-FC-06-THEOREMS-001
+    operation: assemble_experiential_conservation_claim
+    deliverable: structural builder for UnevaluatedConservationClaim
+    acceptance:
+      - require axiom reference and three clauses
+      - preserve experience symbol byte-for-byte
+      - never evaluate boundedness, variation, or stationarity
+      - pass oracle registry/oracles/theorems/TLC-FC-06-THEOREMS-001/oracle.yaml
+  - task_id: THEOREMS-IMPL-002
+    feature_id: TLC-FC-06-THEOREMS-002
+    operation: register_theorem_dynamics_equations
+    deliverable: deterministic DynamicsEquationRegistry
+    acceptance:
+      - exactly one equation and declared role per covered object
+      - roles remain distinct
+      - no derivative or dynamics evaluation
+      - pass feature oracle
+  - task_id: THEOREMS-IMPL-003
+    feature_id: TLC-FC-06-THEOREMS-003
+    operation: catalogue_explicit_theorem_equations
+    deliverable: source-addressable TheoremEquationCatalogue
+    acceptance:
+      - four required roles occur exactly once
+      - expressions remain unchanged
+      - no algebraic normalization
+      - pass feature oracle
+  - task_id: THEOREMS-IMPL-004
+    feature_id: TLC-FC-06-THEOREMS-004
+    operation: construct_transmission_ergodicity_hypothesis
+    deliverable: TransmissionErgodicityHypothesis builder
+    acceptance:
+      - validate line-20 source references
+      - label result as hypothesis, not verified property
+      - compute no spectral gap
+      - pass feature oracle
+  - task_id: THEOREMS-IMPL-005
+    feature_id: TLC-FC-06-THEOREMS-005
+    operation: register_cns_operator_claims
+    deliverable: CNSOperatorClaimSet registry
+    acceptance:
+      - separate transformation and removal claim families
+      - preserve blocked-local scientific status
+      - assert neither necessity nor completeness
+      - pass feature oracle
+  - task_id: THEOREMS-IMPL-006
+    feature_id: TLC-FC-06-THEOREMS-006
+    operation: index_theorem_declarations
+    deliverable: six-entry TheoremDeclarationIndex
+    acceptance:
+      - preserve five partial and one absent proof status as mapped by source results
+      - lookup returns no truth value
+      - unknown identifiers return UNKNOWN_THEOREM_ID
+      - pass feature oracle
+  - task_id: THEOREMS-IMPL-007
+    feature_id: TLC-FC-06-THEOREMS-007
+    operation: construct_community_stability_state
+    deliverable: CommunityStabilityStateDescriptor builder
+    acceptance:
+      - preserve four object IDs and three relation IDs
+      - propagate TLC-UT-THEOREMS-002 through 004
+      - assert neither convergence nor stability
+      - pass feature oracle
+  - task_id: THEOREMS-IMPL-008
+    feature_id: TLC-FC-06-THEOREMS-008
+    operation: assemble_eight_dimension_sufficiency_roles
+    deliverable: ordered EightDimensionSufficiencyRoleBundle
+    acceptance:
+      - preserve source ordinals one through eight
+      - preserve eight role labels once each
+      - propagate all eight mapped unresolved identifiers
+      - never assert sufficiency
+      - pass feature oracle
+  - task_id: THEOREMS-IMPL-009
+    feature_id: TLC-FC-06-THEOREMS-009
+    operation: construct_principles_role_descriptor
+    deliverable: PrinciplesRoleDescriptor builder
+    acceptance:
+      - require Principles label and ordinal two
+      - propagate TLC-UT-THEOREMS-006
+      - keep rational coherence opaque
+      - pass feature oracle
+integration_tasks:
+  - task_id: THEOREMS-IMPL-INTEGRATION-001
+    title: expose nine module operations through the future library interface
+    acceptance:
+      - signatures conform to algorithm specifications
+      - no cross-domain implementation is copied into Theorems
+      - external dependencies remain references
+  - task_id: THEOREMS-IMPL-INTEGRATION-002
+    title: implement acceptance test suite from nine oracles
+    acceptance:
+      - structural, error, determinism, proof-status, opaque, and unresolved tests pass
+      - tests do not claim mathematical proof
+  - task_id: THEOREMS-IMPL-INTEGRATION-003
+    title: add backend conformance tests when multiple backends exist
+    acceptance:
+      - serialized structural results and errors are identical across backends
+      - scientific evaluation remains absent
+out_of_scope_for_tasks:
+  - proof formalization
+  - theorem proving
+  - numerical solvers
+  - simulations
+  - resolving unresolved terms
+  - modifying dependent domains
+  - C++ or bindings in this specification phase

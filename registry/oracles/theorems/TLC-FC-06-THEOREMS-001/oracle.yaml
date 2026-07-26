@@ -1,0 +1,65 @@
+schema_version: 1
+artifact_kind: theorems_acceptance_oracle
+feature_id: TLC-FC-06-THEOREMS-001
+operation_under_test: assemble_experiential_conservation_claim
+source_test_plan: registry/test-plans/TLC-FC-06-THEOREMS-001/test-plan.yaml
+oracle_scope: structural_conformance_only
+fixtures_policy:
+  scientific_numeric_values: forbidden
+  opaque_payloads: arbitrary_identity_tokens_allowed
+  proof_generation: forbidden
+acceptance_tests:
+  - id: ORACLE-001-NOMINAL
+    kind: nominal
+    given: present axiom reference, opaque experience symbol, and exactly three required clause identifiers
+    expect:
+      - output type is UnevaluatedConservationClaim
+      - supplied components are preserved exactly
+      - no component is evaluated
+  - id: ORACLE-001-MISSING-AXIOM
+    kind: precondition_error
+    given: missing axiom reference
+    expect_error: MISSING_AXIOM_REFERENCE
+  - id: ORACLE-001-INCOMPLETE-CLAUSES
+    kind: precondition_error
+    given: fewer or more than the exact required clause identifiers
+    expect_error: INCOMPLETE_CONSERVATION_CLAUSES
+  - id: ORACLE-001-OPAQUE
+    kind: opaque_propagation
+    transformation: replace experience payload with a different opaque token
+    expect: only the preserved experience payload changes in the runtime output
+  - id: ORACLE-001-STATEMENT
+    kind: statement_conservation
+    expect: bounded-energy, controlled-variation, and stationary-law clause identifiers remain unevaluated
+  - id: ORACLE-001-PROOF
+    kind: specification_metadata
+    inspect: finalized IR rather than runtime output
+    expect:
+      - proof status remains partial and not formalized
+      - proof reference remains PROOF-THEOREMS-006
+      - no theorem truth value exists
+  - id: ORACLE-001-POSTCONDITION
+    kind: postcondition
+    expect: output contains exactly the supplied axiom reference, experience symbol, and three clause identifiers
+  - id: ORACLE-001-DETERMINISM
+    kind: determinism
+    action: invoke twice with identical structural inputs
+    expect: structurally identical outputs
+  - id: ORACLE-001-TRACEABILITY
+    kind: specification_traceability
+    inspect: finalized IR and algorithm artifacts
+    expect:
+      - source contains maths/06-theorems.md:141-144
+      - feature, contract, and source IR identifiers are preserved
+  - id: ORACLE-001-NO-PROOF
+    kind: negative_capability
+    expect: successful construction does not demonstrate conservation
+properties:
+  opaque_identity_preserved: true
+  source_statement_preserved: true
+  source_conclusion_not_recomputed: true
+  unresolved_preserved: true
+  proof_invented: false
+acceptance_result:
+  pass_when: all structural assertions and exact error-code assertions hold
+  does_not_mean: theorem_is_mathematically_proved

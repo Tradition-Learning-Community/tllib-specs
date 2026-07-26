@@ -1,0 +1,98 @@
+schema_version: 1
+artifact_kind: theorems_finalized_implementation_ir
+feature_id: TLC-FC-06-THEOREMS-009
+selection_status: selected_for_theorems_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-06-THEOREMS-009/contract.yaml
+source_contract_id: TLC-LEC-TLC-FC-06-THEOREMS-009-001
+source_ir: registry/ir/TLC-FC-06-THEOREMS-009/ir.yaml
+source_ir_id: TLC-PIR-TLC-FC-06-THEOREMS-009-001
+source_test_plan: registry/test-plans/TLC-FC-06-THEOREMS-009/test-plan.yaml
+source_ir_raw_status: prototype_ir_with_reservations
+nature: structural_role_descriptor
+statement:
+  purpose: Construct the isolated Principles role descriptor from the provisionally separated source statement at line 82.
+  observable_effect: return a descriptor identifying Principles, source ordinal 2, and the cited rational-coherence label without defining coherence
+  source_references: [maths/06-theorems.md:82]
+scope:
+  source_objects: [TLC-SO-THEOREMS-019]
+  source_relations: []
+  associated_result: RESULT-THEOREMS-003
+quantifiers:
+  feature_operation: fixed_source_ordinal_2
+  associated_result: explicit_quantifier_preserved_at_result_level
+hypotheses:
+  scientific: rational_coherence_and_principles_classification_remain_opaque
+  provisional_engineering: [TLC-EA-THEOREMS-009-001]
+preconditions:
+  - The supplied role cites line 82 and carries unresolved identifier TLC-UT-THEOREMS-006.
+conditions_of_application:
+  - role label must be Principles and source ordinal must be 2
+conclusion:
+  scientific: rational_coherence_is_not_defined_or_verified
+  software:
+    - The descriptor is labelled Principles and preserves ordinal 2, the opaque role payload, and its unresolved identifier.
+logical_relation:
+  source_relation: isolated_dimension_role_statement
+  software_relation: descriptor_construction_only
+  implication_asserted_by_software: false
+  equivalence_asserted_by_software: false
+dependencies:
+  external: [DEP-THEOREMS-HUIT-001, DEP-THEOREMS-PRINCIPLE-001]
+  associated_proof: PROOF-THEOREMS-003
+operations_authorized:
+  - validate Principles label
+  - validate source ordinal 2
+  - validate line-82 source and unresolved identifier
+  - preserve opaque role payload
+  - construct PrinciplesRoleDescriptor
+execution_order:
+  - validate label
+  - validate ordinal
+  - validate unresolved attachment and source
+  - preserve payload
+  - construct descriptor
+  - validate postcondition
+control_flow:
+  - wrong label yields WRONG_DIMENSION_LABEL
+  - wrong ordinal yields WRONG_SOURCE_ORDINAL
+  - missing unresolved yields MISSING_PRINCIPLES_UNRESOLVED
+  - otherwise return descriptor
+effects:
+  purity: pure_structural_construction
+  coherence_evaluation: forbidden
+postconditions:
+  - The descriptor is labelled Principles and preserves ordinal 2, the opaque role payload, and its unresolved identifier.
+errors: [WRONG_DIMENSION_LABEL, WRONG_SOURCE_ORDINAL, MISSING_PRINCIPLES_UNRESOLVED]
+determinism: deterministic_structural_construction_for_identical_inputs
+proof_status:
+  associated_result_status: partial
+  formalization_status: not_formalized
+  proof_reference: PROOF-THEOREMS-003
+  proof_verification_performed: false
+unresolved_propagated: [TLC-UT-THEOREMS-006]
+opaque_values:
+  types: [OpaqueDimensionRole, OpaqueScientificValue, OpaqueScientificExpression]
+  policy: rational coherence remains an opaque source label, not an implemented property
+reservations:
+  - The operation organizes source evidence but does not establish theorem truth.
+  - Missing types, units, dimensions, cardinalities, ordering, precision, probability laws, and algorithms remain unspecified.
+transformations_applied:
+  - common finalized IR envelope
+  - explicit fixed-label and fixed-ordinal validation
+  - normalized unresolved attachment
+obligations_of_preservation:
+  - preserve Principles label
+  - preserve ordinal 2
+  - preserve opaque role payload
+  - preserve TLC-UT-THEOREMS-006
+  - do not define or evaluate rational coherence
+algorithm_ref: registry/algorithms/theorems/TLC-FC-06-THEOREMS-009/algorithm.yaml
+oracle_ref: registry/oracles/theorems/TLC-FC-06-THEOREMS-009/oracle.yaml
+implementation_aptitude:
+  status: ready_for_structural_implementation_with_opaque_terms
+  scientific_typing_deferred: true
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+proof_invented: false

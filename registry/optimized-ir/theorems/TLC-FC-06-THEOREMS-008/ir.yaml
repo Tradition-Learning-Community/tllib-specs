@@ -1,0 +1,99 @@
+schema_version: 1
+artifact_kind: theorems_finalized_implementation_ir
+feature_id: TLC-FC-06-THEOREMS-008
+selection_status: selected_for_theorems_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-06-THEOREMS-008/contract.yaml
+source_contract_id: TLC-LEC-TLC-FC-06-THEOREMS-008-001
+source_ir: registry/ir/TLC-FC-06-THEOREMS-008/ir.yaml
+source_ir_id: TLC-PIR-TLC-FC-06-THEOREMS-008-001
+source_test_plan: registry/test-plans/TLC-FC-06-THEOREMS-008/test-plan.yaml
+source_ir_raw_status: prototype_ir_with_reservations
+nature: structural_ordered_role_bundle
+statement:
+  purpose: Assemble the eight source-enumerated sufficiency-role records into a dimension-role bundle while preserving unresolved cross-domain mappings.
+  observable_effect: return an eight-entry bundle preserving source ordinals 1 through 8, role labels, and unresolved mapping identifiers without asserting sufficiency
+  source_references: [maths/06-theorems.md:78-88]
+scope:
+  source_objects: [TLC-SO-THEOREMS-007, TLC-SO-THEOREMS-018, TLC-SO-THEOREMS-020, TLC-SO-THEOREMS-021, TLC-SO-THEOREMS-022, TLC-SO-THEOREMS-023, TLC-SO-THEOREMS-024, TLC-SO-THEOREMS-025]
+  source_relations: []
+  associated_result: RESULT-THEOREMS-003
+quantifiers:
+  feature_operation: exact_source_ordinals_one_through_eight
+  associated_result: explicit_quantifier_preserved_at_result_level
+hypotheses:
+  scientific: role_payloads_and_sufficiency_classification_remain_opaque
+  provisional_engineering: [TLC-EA-THEOREMS-008-001]
+preconditions:
+  - Exactly the eight source ordinals are present and every unresolved mapping remains attached to its role.
+conditions_of_application:
+  - source order is semantic for this bundle and must be preserved
+conclusion:
+  scientific: sufficiency_is_not_asserted
+  software:
+    - The bundle contains Message, Principles, Values, Virtues, Capacities, Competencies, Practice, and Lived Experience once each in source order.
+logical_relation:
+  source_relation: ordered_dimension_role_enumeration_with_sufficiency_language
+  software_relation: ordered_bundle_construction_only
+  sufficiency_asserted_by_software: false
+  implication_asserted_by_software: false
+  equivalence_asserted_by_software: false
+dependencies:
+  external: [DEP-THEOREMS-HUIT-001, DEP-THEOREMS-MESSAGE-001]
+  associated_proof: PROOF-THEOREMS-003
+operations_authorized:
+  - validate exact ordinals one through eight
+  - validate one role per ordinal
+  - validate unresolved attachment
+  - preserve source order and labels
+  - construct EightDimensionSufficiencyRoleBundle
+execution_order:
+  - validate missing roles
+  - validate duplicate ordinals
+  - validate unresolved mappings
+  - preserve payloads in source order
+  - construct bundle
+  - validate exact labels and order
+control_flow:
+  - missing role yields MISSING_DIMENSION_ROLE
+  - duplicate ordinal yields DUPLICATE_SOURCE_ORDINAL
+  - dropped unresolved yields DROPPED_CROSS_DOMAIN_UNRESOLVED
+  - otherwise return bundle
+effects:
+  purity: pure_structural_construction
+  sufficiency_evaluation: forbidden
+postconditions:
+  - The bundle contains Message, Principles, Values, Virtues, Capacities, Competencies, Practice, and Lived Experience once each in source order.
+errors: [MISSING_DIMENSION_ROLE, DUPLICATE_SOURCE_ORDINAL, DROPPED_CROSS_DOMAIN_UNRESOLVED]
+determinism: deterministic_structural_construction_for_identical_inputs
+proof_status:
+  associated_result_status: partial
+  formalization_status: not_formalized
+  proof_reference: PROOF-THEOREMS-003
+  proof_verification_performed: false
+unresolved_propagated: [TLC-UT-THEOREMS-001, TLC-UT-THEOREMS-005, TLC-UT-THEOREMS-007, TLC-UT-THEOREMS-008, TLC-UT-THEOREMS-009, TLC-UT-THEOREMS-010, TLC-UT-THEOREMS-011, TLC-UT-THEOREMS-012]
+opaque_values:
+  types: [OpaqueDimensionRole, UnresolvedMappingId, OpaqueScientificValue, OpaqueScientificExpression]
+  policy: each role payload remains opaque even though source order and labels are preserved
+reservations:
+  - The operation organizes source evidence but does not establish theorem truth.
+  - Missing types, units, dimensions, cardinalities, ordering, precision, probability laws, and algorithms remain unspecified.
+transformations_applied:
+  - common finalized IR envelope
+  - explicit source-order preservation
+  - normalized unresolved mapping attachment
+obligations_of_preservation:
+  - preserve ordinals one through eight
+  - preserve all eight role labels once each
+  - preserve all eight unresolved identifiers
+  - preserve source order
+  - do not assert sufficiency
+algorithm_ref: registry/algorithms/theorems/TLC-FC-06-THEOREMS-008/algorithm.yaml
+oracle_ref: registry/oracles/theorems/TLC-FC-06-THEOREMS-008/oracle.yaml
+implementation_aptitude:
+  status: ready_for_structural_implementation_with_opaque_terms
+  scientific_typing_deferred: true
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+proof_invented: false

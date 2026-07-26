@@ -1,0 +1,51 @@
+schema_version: 1
+artifact_kind: theorems_acceptance_oracle
+feature_id: TLC-FC-06-THEOREMS-007
+operation_under_test: construct_community_stability_state
+source_test_plan: registry/test-plans/TLC-FC-06-THEOREMS-007/test-plan.yaml
+oracle_scope: structural_conformance_only
+acceptance_tests:
+  - id: ORACLE-007-NOMINAL
+    kind: nominal
+    given: present sequence, limit, and valid context components
+    expect: descriptor preserving four object IDs, three relation IDs, and unresolved IDs 002 through 004
+  - id: ORACLE-007-MISSING-SEQUENCE
+    kind: precondition_error
+    given: missing sequence
+    expect_error: MISSING_COMMUNITY_SEQUENCE
+  - id: ORACLE-007-MISSING-LIMIT
+    kind: precondition_error
+    given: missing limit state
+    expect_error: MISSING_LIMIT_STATE
+  - id: ORACLE-007-DANGLING
+    kind: relation_error
+    given: a covered relation references an uncovered component
+    expect_error: DANGLING_STABILITY_RELATION
+  - id: ORACLE-007-FORM
+    kind: shape
+    expect: exact four-object and three-relation populations
+  - id: ORACLE-007-UNRESOLVED
+    kind: unresolved_propagation
+    expect: TLC-UT-THEOREMS-002, 003, and 004 remain attached exactly once
+  - id: ORACLE-007-OPAQUE
+    kind: opaque_propagation
+    expect: sequence, limit, and context payloads are unchanged
+  - id: ORACLE-007-PROOF
+    kind: specification_metadata
+    expect: associated proof remains partial, not formalized, and referenced as PROOF-THEOREMS-001
+  - id: ORACLE-007-NO-ASSERTION
+    kind: negative_capability
+    expect: output asserts neither convergence nor stability
+  - id: ORACLE-007-DETERMINISM
+    kind: determinism
+    action: invoke twice with identical inputs
+    expect: identical descriptors
+properties:
+  object_population_preserved: true
+  relation_population_preserved: true
+  unresolved_preserved: true
+  theorem_conclusion_recomputed: false
+  proof_invented: false
+acceptance_result:
+  pass_when: exact population, relation integrity, unresolved, error, and determinism assertions hold
+  does_not_mean: community stability or convergence is proved

@@ -1,0 +1,64 @@
+schema_version: 1
+artifact_kind: theorems_acceptance_oracle
+feature_id: TLC-FC-06-THEOREMS-006
+operation_under_test: index_theorem_declarations
+source_test_plan: registry/test-plans/TLC-FC-06-THEOREMS-006/test-plan.yaml
+oracle_scope: structural_conformance_only
+acceptance_tests:
+  - id: ORACLE-006-NOMINAL
+    kind: nominal
+    given: six unique sourced declarations with the source-declared proof statuses
+    expect: six-entry index addressable by exact scientific object identifier
+  - id: ORACLE-006-DUPLICATE
+    kind: uniqueness_error
+    given: duplicate theorem identifier
+    expect_error: DUPLICATE_THEOREM_ID
+  - id: ORACLE-006-MISSING-STATUS
+    kind: precondition_error
+    given: a covered declaration without proof status
+    expect_error: MISSING_PROOF_STATUS
+  - id: ORACLE-006-UNKNOWN
+    kind: lookup_error
+    given: lookup outside the covered identifier set
+    expect_error: UNKNOWN_THEOREM_ID
+  - id: ORACLE-006-POPULATION
+    kind: shape
+    expect: exact object set TLC-SO-THEOREMS-002, 003, 004, 008, 009, and 010
+  - id: ORACLE-006-PROOF-MAP
+    kind: proof_status
+    expect:
+      - TLC-SO-THEOREMS-002 is partial
+      - TLC-SO-THEOREMS-003 is partial
+      - TLC-SO-THEOREMS-004 is partial
+      - TLC-SO-THEOREMS-008 is partial
+      - TLC-SO-THEOREMS-009 is absent
+      - TLC-SO-THEOREMS-010 is partial
+      - no status is complete
+  - id: ORACLE-006-QUANTIFIERS
+    kind: quantification
+    expect:
+      - RESULT-THEOREMS-002 retains one explicit quantifier
+      - RESULT-THEOREMS-003 retains one explicit quantifier
+      - other indexed result quantifier statuses remain unspecified
+  - id: ORACLE-006-OPAQUE
+    kind: opaque_propagation
+    expect: declaration, hypotheses, conclusion, and source metadata are unchanged
+  - id: ORACLE-006-DETERMINISM
+    kind: determinism
+    action: construct and query twice with identical inputs
+    expect: identical index and lookup results
+  - id: ORACLE-006-NO-TRUTH
+    kind: negative_capability
+    expect: lookup returns metadata and never true, false, proved, or disproved
+  - id: ORACLE-006-TRACE
+    kind: traceability
+    expect: six source ranges, six result IDs, and known proof references remain linked
+properties:
+  declaration_population_preserved: true
+  hypotheses_preserved: true
+  conclusions_preserved: true
+  proof_statuses_preserved: true
+  proof_invented: false
+acceptance_result:
+  pass_when: exact population, metadata, proof-status, error, lookup, and determinism assertions hold
+  does_not_mean: any indexed theorem is mathematically proved

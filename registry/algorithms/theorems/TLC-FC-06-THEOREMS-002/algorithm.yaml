@@ -1,0 +1,68 @@
+schema_version: 1
+artifact_kind: theorems_algorithm_specification
+feature_id: TLC-FC-06-THEOREMS-002
+operation: register_theorem_dynamics_equations
+signature: register_theorem_dynamics_equations(Mapping<ScientificObjectId,OpaqueEquation> equation_records, Mapping<ScientificObjectId,DynamicsRole> declared_roles) -> DynamicsEquationRegistry
+inputs:
+  - {name: equation_records, type: "Mapping<ScientificObjectId,OpaqueEquation>"}
+  - {name: declared_roles, type: "Mapping<ScientificObjectId,DynamicsRole>"}
+outputs:
+  - {name: dynamics_registry, type: DynamicsEquationRegistry}
+validations:
+  - all three covered object identifiers are present in both mappings
+  - each covered object occurs once
+  - each declared role is one of the prepared source roles
+hypotheses:
+  - TLC-EA-THEOREMS-002-001 is retained
+preconditions:
+  - Every covered object has one opaque equation and one prepared role.
+conditions_of_application:
+  - dynamics dependency is retained as an external reference, not executed
+ordered_steps:
+  - check duplicate object identifiers
+  - check required equation presence
+  - check role validity
+  - preserve equation payloads and role associations
+  - build registry keyed by covered object identifier
+  - validate one-entry-per-object postcondition
+branching:
+  - {condition: duplicate covered object, result: DUPLICATE_SCIENTIFIC_OBJECT}
+  - {condition: missing equation, result: MISSING_DYNAMICS_EQUATION}
+  - {condition: unknown role, result: UNKNOWN_DYNAMICS_ROLE}
+  - {condition: all validations pass, result: return dynamics_registry}
+dependencies: [DEP-THEOREMS-DYNAMICS-001]
+statement_handling:
+  construction: unevaluated_equation_records
+  scientific_validation: none
+proof_status_control:
+  status: not_a_proof_operation
+  truth_value_returned: false
+errors: [MISSING_DYNAMICS_EQUATION, UNKNOWN_DYNAMICS_ROLE, DUPLICATE_SCIENTIFIC_OBJECT]
+postconditions:
+  - registry has exactly one entry for each covered object
+  - no derivative or evolution law is evaluated
+determinism: identical mappings produce an identical keyed registry
+edge_cases:
+  - distinct opaque equations with identical bytes remain distinct by object identifier and role
+  - unsupported extra object identifiers are outside the covered population and are rejected as population mismatch
+unresolved_conserved: []
+pseudocode: |
+  function register_theorem_dynamics_equations(equation_records, declared_roles):
+      if any covered object identifier occurs more than once:
+          raise DUPLICATE_SCIENTIFIC_OBJECT
+      if any covered object lacks an equation:
+          raise MISSING_DYNAMICS_EQUATION
+      if any covered object lacks a prepared role or has an unknown role:
+          raise UNKNOWN_DYNAMICS_ROLE
+      registry = empty DynamicsEquationRegistry
+      for object_id in covered_object_identifier_order:
+          registry[object_id] = preserve_pair(
+              equation_records[object_id],
+              declared_roles[object_id]
+          )
+      assert registry has one entry for each covered object
+      return registry
+forbidden_operations:
+  - evaluate derivatives
+  - execute evolution laws
+  - infer convergence or bifurcation

@@ -1,0 +1,92 @@
+schema_version: 1
+artifact_kind: theorems_finalized_implementation_ir
+feature_id: TLC-FC-06-THEOREMS-003
+selection_status: selected_for_theorems_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-06-THEOREMS-003/contract.yaml
+source_contract_id: TLC-LEC-TLC-FC-06-THEOREMS-003-001
+source_ir: registry/ir/TLC-FC-06-THEOREMS-003/ir.yaml
+source_ir_id: TLC-PIR-TLC-FC-06-THEOREMS-003-001
+source_test_plan: registry/test-plans/TLC-FC-06-THEOREMS-003/test-plan.yaml
+source_ir_raw_status: prototype_ir_with_reservations
+nature: structural_equation_catalogue
+statement:
+  purpose: Build a source-addressable catalogue of the four explicit theorem equations without evaluating or normalizing their mathematical expressions.
+  observable_effect: return entries addressable by source object and equation role for stability bound, emergence probability, trajectory convergence, and wave speed
+  source_references: [maths/06-theorems.md:24-26, maths/06-theorems.md:35-37, maths/06-theorems.md:102-104, maths/06-theorems.md:122-124]
+scope:
+  source_objects: [TLC-SO-THEOREMS-016, TLC-SO-THEOREMS-017, TLC-SO-THEOREMS-026, TLC-SO-THEOREMS-029]
+  source_relations: []
+quantifiers:
+  feature_operation: none_explicitly_declared
+  associated_source_results: preserve_result_level_quantifiers_without_interpretation
+hypotheses:
+  scientific: none_added
+  provisional_engineering: [TLC-EA-THEOREMS-003-001]
+preconditions:
+  - Each of the four covered objects occurs exactly once with a source reference and opaque expression.
+conditions_of_application:
+  - each entry corresponds to one covered source object and declared equation role
+conclusion:
+  scientific: no_equation_is_solved_or_normalized
+  software:
+    - The catalogue exposes four distinct roles and preserves each expression unchanged.
+logical_relation:
+  source_relation: object_to_equation_role_association
+  software_relation: catalogue_construction
+  implication_asserted_by_software: false
+  equivalence_asserted_by_software: false
+dependencies:
+  external: [DEP-THEOREMS-DYNAMICS-001]
+operations_authorized:
+  - validate four covered entries
+  - validate role uniqueness and source reference presence
+  - preserve opaque expression
+  - construct TheoremEquationCatalogue
+execution_order:
+  - validate entry population
+  - validate role uniqueness
+  - validate source references
+  - preserve expressions
+  - construct catalogue
+  - validate postcondition
+control_flow:
+  - missing role yields MISSING_EQUATION_ROLE
+  - duplicate role yields DUPLICATE_EQUATION_ROLE
+  - missing source reference yields MISSING_SOURCE_REFERENCE
+  - otherwise return catalogue
+effects:
+  purity: pure_structural_construction
+  algebraic_normalization: forbidden
+postconditions:
+  - The catalogue exposes four distinct roles and preserves each expression unchanged.
+errors: [MISSING_EQUATION_ROLE, DUPLICATE_EQUATION_ROLE, MISSING_SOURCE_REFERENCE]
+determinism: deterministic_structural_construction_for_identical_inputs
+proof_status:
+  status: not_a_proof_operation
+  proof_verification_performed: false
+unresolved_propagated: []
+opaque_values:
+  types: [TheoremEquationEntry, OpaqueScientificValue, OpaqueScientificExpression]
+  policy: an unevaluated expression is stored without algebraic normalization
+reservations:
+  - The operation organizes source evidence but does not establish theorem truth.
+  - Missing types, units, dimensions, cardinalities, ordering, precision, probability laws, and algorithms remain unspecified.
+transformations_applied:
+  - common finalized IR envelope
+  - normalized equation-role catalogue schema
+  - deterministic validation order
+obligations_of_preservation:
+  - preserve four object IDs
+  - preserve four roles
+  - preserve source references
+  - preserve expressions byte-for-byte
+algorithm_ref: registry/algorithms/theorems/TLC-FC-06-THEOREMS-003/algorithm.yaml
+oracle_ref: registry/oracles/theorems/TLC-FC-06-THEOREMS-003/oracle.yaml
+implementation_aptitude:
+  status: ready_for_structural_implementation
+  scientific_computation: false
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+proof_invented: false

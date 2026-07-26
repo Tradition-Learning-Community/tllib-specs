@@ -1,0 +1,100 @@
+schema_version: 1
+artifact_kind: theorems_finalized_implementation_ir
+feature_id: TLC-FC-06-THEOREMS-007
+selection_status: selected_for_theorems_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-06-THEOREMS-007/contract.yaml
+source_contract_id: TLC-LEC-TLC-FC-06-THEOREMS-007-001
+source_ir: registry/ir/TLC-FC-06-THEOREMS-007/ir.yaml
+source_ir_id: TLC-PIR-TLC-FC-06-THEOREMS-007-001
+source_test_plan: registry/test-plans/TLC-FC-06-THEOREMS-007/test-plan.yaml
+source_ir_raw_status: prototype_ir_with_reservations
+nature: structural_context_descriptor
+statement:
+  purpose: Construct the source-traceable community-stability context used by theorem C5 from the prepared state objects and relations.
+  observable_effect: return a descriptor linking sequence, limit, and cited relation components without asserting convergence or stability
+  source_references: [maths/06-theorems.md:1-5, maths/06-theorems.md:18-21]
+scope:
+  source_objects: [TLC-SO-THEOREMS-001, TLC-SO-THEOREMS-012, TLC-SO-THEOREMS-013, TLC-SO-THEOREMS-015]
+  source_relations: [TLC-SR-THEOREMS-011, TLC-SR-THEOREMS-012, TLC-SR-THEOREMS-014]
+  associated_result: RESULT-THEOREMS-001
+quantifiers:
+  feature_operation: none_explicitly_declared
+  associated_result: not_specified
+hypotheses:
+  scientific:
+    - TLC-UT-THEOREMS-002 remains an opaque source hypothesis component
+    - TLC-UT-THEOREMS-003 remains an opaque source hypothesis component
+    - TLC-UT-THEOREMS-004 remains an opaque source hypothesis component
+  provisional_engineering: [TLC-EA-THEOREMS-007-001]
+preconditions:
+  - The sequence and limit identities exist and every covered relation references a covered state component.
+conditions_of_application:
+  - all four covered object IDs, three relation IDs, and three unresolved IDs remain attached
+conclusion:
+  scientific: convergence_and_stability_are_not_asserted_by_this_feature
+  software:
+    - The descriptor preserves all four object IDs, three relation IDs, and three unresolved term IDs.
+logical_relation:
+  source_relation: context_for_community_stability_theorem
+  software_relation: object_relation_descriptor_construction
+  implication_asserted_by_software: false
+  equivalence_asserted_by_software: false
+dependencies:
+  associated_result: RESULT-THEOREMS-001
+  proof_references: [PROOF-THEOREMS-001]
+operations_authorized:
+  - validate sequence and limit identity presence
+  - validate relation targets
+  - preserve context components
+  - attach unresolved identifiers
+  - construct CommunityStabilityStateDescriptor
+execution_order:
+  - validate sequence
+  - validate limit
+  - validate relation targets
+  - preserve opaque components and unresolved
+  - construct descriptor
+  - validate exact population postcondition
+control_flow:
+  - missing sequence yields MISSING_COMMUNITY_SEQUENCE
+  - missing limit yields MISSING_LIMIT_STATE
+  - dangling relation yields DANGLING_STABILITY_RELATION
+  - otherwise return descriptor
+effects:
+  purity: pure_structural_construction
+  convergence_evaluation: forbidden
+postconditions:
+  - The descriptor preserves all four object IDs, three relation IDs, and three unresolved term IDs.
+errors: [MISSING_COMMUNITY_SEQUENCE, MISSING_LIMIT_STATE, DANGLING_STABILITY_RELATION]
+determinism: deterministic_structural_construction_for_identical_inputs
+proof_status:
+  associated_result_status: partial
+  formalization_status: not_formalized
+  proof_reference: PROOF-THEOREMS-001
+  proof_verification_performed: false
+unresolved_propagated: [TLC-UT-THEOREMS-002, TLC-UT-THEOREMS-003, TLC-UT-THEOREMS-004]
+opaque_values:
+  types: [OpaqueCommunitySequence, OpaqueCommunityState, OpaqueScientificValue, OpaqueScientificExpression]
+  policy: unresolved community, convergence, and stability semantics remain attached
+reservations:
+  - The operation organizes source evidence but does not establish theorem truth.
+  - Missing types, units, dimensions, cardinalities, ordering, precision, probability laws, and algorithms remain unspecified.
+transformations_applied:
+  - common finalized IR envelope
+  - normalized object-relation integrity validation
+  - explicit unresolved attachment
+obligations_of_preservation:
+  - preserve sequence and limit identities
+  - preserve four object IDs and three relation IDs
+  - preserve TLC-UT-THEOREMS-002 through 004
+  - do not assert convergence or stability
+algorithm_ref: registry/algorithms/theorems/TLC-FC-06-THEOREMS-007/algorithm.yaml
+oracle_ref: registry/oracles/theorems/TLC-FC-06-THEOREMS-007/oracle.yaml
+implementation_aptitude:
+  status: ready_for_structural_implementation_with_opaque_terms
+  scientific_typing_deferred: true
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+proof_invented: false

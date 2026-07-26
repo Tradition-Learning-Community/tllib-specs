@@ -1,0 +1,74 @@
+schema_version: 1
+artifact_kind: theorems_algorithm_specification
+feature_id: TLC-FC-06-THEOREMS-001
+operation: assemble_experiential_conservation_claim
+signature: assemble_experiential_conservation_claim(OpaqueAxiomReference axiom_reference, OpaqueExperienceSymbol experience_symbol, ConservationClauseSet claim_clauses) -> UnevaluatedConservationClaim
+inputs:
+  - {name: axiom_reference, type: OpaqueAxiomReference}
+  - {name: experience_symbol, type: OpaqueExperienceSymbol}
+  - {name: claim_clauses, type: ConservationClauseSet}
+outputs:
+  - {name: conservation_claim, type: UnevaluatedConservationClaim}
+validations:
+  - axiom_reference is present
+  - claim_clauses contains the bounded-energy clause identifier
+  - claim_clauses contains the controlled-variation clause identifier
+  - claim_clauses contains the stationary-law clause identifier
+hypotheses:
+  - TLC-EA-THEOREMS-001-001 is retained as a provisional engineering assumption
+preconditions:
+  - The axiom reference and all three source clause identifiers are present.
+conditions_of_application:
+  - the supplied components correspond to the cited source claim
+ordered_steps:
+  - validate axiom_reference presence
+  - validate completeness of claim_clauses
+  - preserve experience_symbol without transformation
+  - construct a descriptor from exactly the supplied components
+  - validate exact-component postcondition
+branching:
+  - condition: axiom_reference is missing
+    result: MISSING_AXIOM_REFERENCE
+  - condition: any required clause identifier is missing
+    result: INCOMPLETE_CONSERVATION_CLAUSES
+  - condition: all validations pass
+    result: return conservation_claim
+dependencies:
+  - RESULT-THEOREMS-007
+  - PROOF-THEOREMS-006
+statement_handling:
+  construction: unevaluated_descriptor
+  validation: structural_only
+proof_status_control:
+  specification_metadata: partial_not_formalized_with_PROOF-THEOREMS-006
+  runtime_output_field_added: false
+  truth_value_returned: false
+errors:
+  - MISSING_AXIOM_REFERENCE
+  - INCOMPLETE_CONSERVATION_CLAUSES
+postconditions:
+  - output contains exactly the supplied axiom reference, experience symbol, and three clause identifiers
+  - output contains no evaluated scientific value
+determinism: identical structural inputs produce an identical structural result
+edge_cases:
+  - opaque experience payload is never interpreted
+  - additional clause identifiers are rejected because the contract requires exactly three in the result
+unresolved_conserved: []
+pseudocode: |
+  function assemble_experiential_conservation_claim(axiom_reference, experience_symbol, claim_clauses):
+      if axiom_reference is missing:
+          raise MISSING_AXIOM_REFERENCE
+      if claim_clauses does not contain exactly the three required source clause identifiers:
+          raise INCOMPLETE_CONSERVATION_CLAUSES
+      result = UnevaluatedConservationClaim(
+          axiom_reference = preserve_identity(axiom_reference),
+          experience_symbol = preserve_identity(experience_symbol),
+          claim_clauses = preserve_identifiers(claim_clauses)
+      )
+      assert result contains exactly the supplied components
+      return result
+forbidden_operations:
+  - evaluate energy boundedness
+  - evaluate variation control
+  - evaluate stationary convergence
+  - infer theorem truth

@@ -1,0 +1,183 @@
+schema_version: 1
+domain: theorems
+analysis_scope:
+  source_irs: 9
+  source_contracts: 9
+  scientific_results: 7
+pattern_distinctions:
+  resemblance: similar vocabulary or purpose without shared software structure
+  textual_duplication: repeated wording with no assertion of scientific identity
+  structural_duplication: repeated validation-construction-traceability shape
+  same_logical_schema: same declared relation shape with feature-specific operands preserved
+  scientific_equivalence: requires explicit source proof and is never inferred here
+shared_patterns:
+  - pattern_id: THEOREMS-PATTERN-001
+    name: traceable_opaque_record
+    applies_to:
+      - TLC-FC-06-THEOREMS-001
+      - TLC-FC-06-THEOREMS-002
+      - TLC-FC-06-THEOREMS-003
+      - TLC-FC-06-THEOREMS-004
+      - TLC-FC-06-THEOREMS-005
+      - TLC-FC-06-THEOREMS-006
+      - TLC-FC-06-THEOREMS-007
+      - TLC-FC-06-THEOREMS-008
+      - TLC-FC-06-THEOREMS-009
+    structure:
+      - preserve opaque payload identity
+      - preserve scientific object and relation identifiers
+      - preserve source references
+      - attach proof and unresolved metadata when supplied
+    scientific_equivalence_asserted: false
+  - pattern_id: THEOREMS-PATTERN-002
+    name: deterministic_validate_construct_validate
+    applies_to: all_active_features
+    control_flow:
+      - validate source-defined preconditions
+      - construct or index without scientific evaluation
+      - validate source-defined postconditions
+      - return deterministic structural output
+    order_semantic_status: validation order is engineering-normalized; scientific content order is preserved
+  - pattern_id: THEOREMS-PATTERN-003
+    name: structured_statement_metadata
+    applies_to:
+      - TLC-FC-06-THEOREMS-001
+      - TLC-FC-06-THEOREMS-004
+      - TLC-FC-06-THEOREMS-005
+      - TLC-FC-06-THEOREMS-006
+    fields:
+      - statement_or_claim_identifier
+      - hypotheses_or_preconditions
+      - conclusion_or_postcondition
+      - source_reference
+      - proof_status
+      - proof_reference
+    limitation: fields represent source metadata and do not establish truth
+  - pattern_id: THEOREMS-PATTERN-004
+    name: source_addressable_collection
+    applies_to:
+      - TLC-FC-06-THEOREMS-002
+      - TLC-FC-06-THEOREMS-003
+      - TLC-FC-06-THEOREMS-005
+      - TLC-FC-06-THEOREMS-006
+      - TLC-FC-06-THEOREMS-008
+    shared_operations:
+      - reject missing identifiers
+      - reject duplicates where prohibited
+      - retain role separation
+      - support deterministic identifier lookup
+  - pattern_id: THEOREMS-PATTERN-005
+    name: proof_status_without_proof_execution
+    applies_to:
+      - TLC-FC-06-THEOREMS-001
+      - TLC-FC-06-THEOREMS-005
+      - TLC-FC-06-THEOREMS-006
+      - TLC-FC-06-THEOREMS-007
+      - TLC-FC-06-THEOREMS-008
+      - TLC-FC-06-THEOREMS-009
+    allowed_statuses:
+      - partial
+      - absent
+      - not_formalized
+      - external_proof_required
+      - not_a_proof_operation
+    forbidden_behavior:
+      - infer theorem truth from valid preconditions
+      - return true as a proof
+      - promote partial proof to complete
+      - synthesize missing proof steps
+  - pattern_id: THEOREMS-PATTERN-006
+    name: unresolved_attachment
+    applies_to:
+      - TLC-FC-06-THEOREMS-007
+      - TLC-FC-06-THEOREMS-008
+      - TLC-FC-06-THEOREMS-009
+    behavior:
+      - preserve unresolved identifiers exactly
+      - keep scientific payload opaque
+      - reject dropped required unresolved metadata
+      - permit structural construction despite scientific typing deferral
+  - pattern_id: THEOREMS-PATTERN-007
+    name: normalized_dependency_reference
+    applies_to: all_active_features
+    dependency_classes:
+      - scientific_definition
+      - theorem_premise
+      - documentary_reference
+      - proof_reference
+      - future_reconciliation
+    rule: dependency availability is validated only to the level declared by its source registry
+common_types:
+  opaque:
+    - OpaqueScientificValue
+    - OpaqueScientificExpression
+    - OpaqueTheoremDeclaration
+    - OpaqueAxiomReference
+    - OpaqueOperatorSymbol
+    - OpaqueDimensionRole
+  structural:
+    - ScientificObjectId
+    - SourceReference
+    - SourceOrdinal
+    - ProofStatus
+    - ProofReference
+    - UnresolvedMappingId
+    - StructuredTheoremError
+  parameterized:
+    - Mapping<K,V>
+    - Sequence<T>
+common_validations:
+  - required input presence
+  - identifier uniqueness where declared
+  - source-reference consistency
+  - covered-object completeness
+  - relation target integrity
+  - unresolved preservation
+  - postcondition conservation
+common_error_shape:
+  fields:
+    - code
+    - feature_id
+    - operation
+    - violated_condition
+  code_source: feature_source_contract_only
+optimizations_applied:
+  - optimization_id: THEOREMS-OPT-001
+    transformation: common finalized IR envelope
+    justification: structural duplication across nine source IRs
+    semantic_effect: none
+  - optimization_id: THEOREMS-OPT-002
+    transformation: normalized traceability sections
+    justification: source references, objects, relations, contract, IR, algorithm, and oracle become uniformly addressable
+    semantic_effect: none
+  - optimization_id: THEOREMS-OPT-003
+    transformation: common structured error representation
+    justification: source error codes remain unchanged while diagnostics become uniform
+    semantic_effect: none
+  - optimization_id: THEOREMS-OPT-004
+    transformation: explicit proof-status boundary
+    justification: prevents confusion between representation, validation, proof checking, and theorem proving
+    semantic_effect: none
+  - optimization_id: THEOREMS-OPT-005
+    transformation: explicit unresolved and opaque propagation policy
+    justification: improves testability without resolving scientific terms
+    semantic_effect: none
+  - optimization_id: THEOREMS-OPT-006
+    transformation: deterministic validation ordering based on source-listed conditions and errors
+    justification: source does not assign scientific meaning to validation order
+    semantic_effect: none
+factorizations_not_applied:
+  - no feature merge
+  - no theorem equivalence inference
+  - no shared numerical evaluator
+  - no proof engine
+  - no algebraic normalization
+  - no cross-domain scientific type substitution
+preservation_guards:
+  hypotheses_preserved: true
+  conclusions_preserved: true
+  quantifiers_preserved_when_explicit: true
+  conditions_preserved: true
+  traceability_preserved: true
+  source_ir_modified: false
+  source_contract_modified: false
