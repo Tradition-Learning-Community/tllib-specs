@@ -1,0 +1,112 @@
+schema_version: '1.0'
+domain: disciple
+status: pattern_analysis_completed_and_applied
+analysis_scope:
+  feature_count: 10
+  source_ir_status: active_candidate_not_canonical
+classification_rules:
+  resemblance: similar purpose or naming without proof of identical behavior
+  textual_duplication: repeated wording or metadata only
+  structural_duplication: identical envelope, validation, propagation, or error shape
+  demonstrated_equivalence: same observable input-output and error behavior under preserved source semantics
+patterns:
+  - pattern_id: TLC-DISCIPLE-PATTERN-001
+    name: source_preserving_traceability_envelope
+    classification: demonstrated_equivalence
+    features: all_10
+    shared_behavior:
+      - validate feature identity
+      - preserve source object and relation references exactly
+      - attach contract, source IR, and test-plan traceability
+    factorization: shared types and validation contract
+  - pattern_id: TLC-DISCIPLE-PATTERN-002
+    name: opaque_scientific_value_propagation
+    classification: demonstrated_equivalence
+    features: all_10
+    shared_behavior:
+      - never infer types, dimensions, aliases, values, or numerical methods
+      - propagate opaque values unchanged
+    factorization: OpaqueScientificValue and ScientificReference
+  - pattern_id: TLC-DISCIPLE-PATTERN-003
+    name: structured_error_normalization
+    classification: structural_duplication
+    features: all_10
+    shared_behavior:
+      - invalid identity
+      - missing source artifact
+      - source reference mismatch
+    factorization: DiscipleError vocabulary
+  - pattern_id: TLC-DISCIPLE-PATTERN-004
+    name: validation_descriptor
+    classification: demonstrated_equivalence
+    features:
+      - TLC-FC-01-DISCIPLE-001
+      - TLC-FC-01-DISCIPLE-006
+    shared_behavior: emit a descriptor without evaluating the cited constraint or invariant
+    factorization: shared validation descriptor skeleton; feature references remain separate
+  - pattern_id: TLC-DISCIPLE-PATTERN-005
+    name: deferred_computational_operation
+    classification: demonstrated_equivalence
+    features:
+      - TLC-FC-01-DISCIPLE-003
+      - TLC-FC-01-DISCIPLE-005
+    shared_behavior:
+      - preserve one unresolved source operation
+      - refuse execution deterministically
+      - emit a DeferredScientificOperation
+    factorization: shared deferred-operation shape, not shared scientific computation
+  - pattern_id: TLC-DISCIPLE-PATTERN-006
+    name: blocked_structural_descriptor
+    classification: structural_duplication
+    features:
+      - TLC-FC-01-DISCIPLE-004
+      - TLC-FC-01-DISCIPLE-007
+      - TLC-FC-01-DISCIPLE-010
+    shared_behavior:
+      - attach an existing blocker
+      - preserve source references
+      - refuse scientific execution
+    factorization: shared blocker propagation and errors
+  - pattern_id: TLC-DISCIPLE-PATTERN-007
+    name: symbol_only_master_dependency_gate
+    classification: demonstrated_equivalence
+    features:
+      - TLC-FC-01-DISCIPLE-002
+      - TLC-FC-01-DISCIPLE-004
+      - TLC-FC-01-DISCIPLE-009
+      - TLC-FC-01-DISCIPLE-010
+    shared_behavior: dependency availability affects scientific execution only, never descriptor construction
+    factorization: DependencyToken and dependency state
+  - pattern_id: TLC-DISCIPLE-PATTERN-008
+    name: state_root_dependency
+    classification: demonstrated_equivalence
+    features:
+      - TLC-FC-01-DISCIPLE-001
+      - TLC-FC-01-DISCIPLE-002
+      - TLC-FC-01-DISCIPLE-003
+      - TLC-FC-01-DISCIPLE-004
+      - TLC-FC-01-DISCIPLE-005
+      - TLC-FC-01-DISCIPLE-006
+      - TLC-FC-01-DISCIPLE-007
+      - TLC-FC-01-DISCIPLE-008
+      - TLC-FC-01-DISCIPLE-010
+    shared_behavior: depend on TLC-FC-01-DISCIPLE-009
+    factorization: common state-envelope reference
+non_factorized:
+  - item: scientific equations or evolution laws
+    reason: no executable equivalence is established
+  - item: validation semantics of constraints and invariants
+    reason: cited relations differ and truth predicates are unresolved
+  - item: state components within 009
+    reason: the source does not establish a canonical scientific split
+optimizations_applied:
+  - shared type vocabulary
+  - shared source validation order
+  - shared traceability representation
+  - shared structured errors
+  - explicit deferred-operation nodes
+  - explicit blocker and unresolved propagation
+  - dependency metadata normalization
+  - composite envelope for 009 with parent preserved
+observable_behavior_preserved: true
+scientific_semantics_added: false

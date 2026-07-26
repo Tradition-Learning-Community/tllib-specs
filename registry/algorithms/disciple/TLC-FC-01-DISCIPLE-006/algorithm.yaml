@@ -1,0 +1,60 @@
+schema_version: '1.0'
+algorithm_id: TLC-ALG-TLC-FC-01-DISCIPLE-006
+feature_id: TLC-FC-01-DISCIPLE-006
+domain: disciple
+optimized_ir_ref: registry/optimized-ir/disciple/TLC-FC-01-DISCIPLE-006/ir.yaml
+signature: inspect_disciple_invariants(request: DiscipleFeatureRequest) -> DiscipleValidationDescriptor | DiscipleError
+inputs:
+  - request: feature identity and optional opaque payload
+outputs:
+  - invariant validation descriptor or structured error
+validations:
+  - feature_id equality
+  - source artifact presence
+  - exact reference preservation
+preconditions:
+  - no executable invariant predicate is assumed
+ordered_steps:
+  - validate request identity
+  - copy exact source references
+  - construct traceability record
+  - emit descriptor without truth evaluation
+branches:
+  - condition: invalid identity or source
+    result: corresponding structured error
+  - condition: otherwise
+    result: descriptor
+state_transitions:
+  - received -> validated -> descriptor_emitted
+  - received|validated -> rejected on error
+errors:
+  - DISCIPLE_INVALID_FEATURE_ID
+  - DISCIPLE_MISSING_SOURCE_ARTIFACT
+  - DISCIPLE_SOURCE_REFERENCE_MISMATCH
+postconditions:
+  - no invariant is declared true or false
+  - source references remain exact
+invariants:
+  - provisionally separated scientific objects remain distinct
+determinism: deterministic structural output
+effects: []
+edge_cases:
+  - empty opaque payload is accepted
+unresolved_preserved:
+  - invariant operands, types, dimensions, and executable predicates
+dependencies:
+  internal:
+    - TLC-FC-01-DISCIPLE-009
+  external: []
+complexity:
+  time: O(n)
+  space: O(n)
+pseudocode: |
+  function inspect_disciple_invariants(request):
+      require request.feature_id == "TLC-FC-01-DISCIPLE-006"
+      source = load_preserved_source_ir()
+      refs = copy_exactly(source.data, source.relations)
+      return validation_descriptor(feature_id=request.feature_id,
+                                   references=refs,
+                                   scientific_result=OPAQUE,
+                                   traceability=source provenance)

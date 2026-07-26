@@ -1,0 +1,69 @@
+schema_version: '1.0'
+algorithm_id: TLC-ALG-TLC-FC-01-DISCIPLE-010
+feature_id: TLC-FC-01-DISCIPLE-010
+domain: disciple
+optimized_ir_ref: registry/optimized-ir/disciple/TLC-FC-01-DISCIPLE-010/ir.yaml
+signature: describe_blocked_disciple_state(request: DiscipleFeatureRequest, execute: bool = false) -> DiscipleStructuralDescriptor | DiscipleError
+inputs:
+  - request: feature identity and optional opaque payload
+  - execute: explicit state transition request
+outputs:
+  - blocked state descriptor or structured error
+validations:
+  - feature_id equality
+  - source artifact presence
+  - exact source and unresolved reference preservation
+preconditions:
+  - TLC-UT-DISCIPLE-007, local blocker, and Master subsymbol remain unresolved
+ordered_steps:
+  - validate request identity
+  - copy exact source references
+  - attach TLC-UT-DISCIPLE-007 and preserved Master subsymbol
+  - attach local blocker and internal dependency on 009
+  - reject execution or emit blocked descriptor
+branches:
+  - condition: execute is true
+    result: DISCIPLE_UNRESOLVED_SEMANTICS
+  - condition: otherwise
+    result: blocked state descriptor
+state_transitions:
+  - received -> validated -> blocked_descriptor_emitted
+  - received|validated -> rejected on error
+errors:
+  - DISCIPLE_INVALID_FEATURE_ID
+  - DISCIPLE_MISSING_SOURCE_ARTIFACT
+  - DISCIPLE_SOURCE_REFERENCE_MISMATCH
+  - DISCIPLE_UNRESOLVED_SEMANTICS
+postconditions:
+  - no state transition or trajectory evolution is inferred
+  - unresolved token, Master subsymbol, blocker, and provenance are preserved
+invariants:
+  - source identity remains distinct
+determinism: deterministic descriptor and refusal behavior
+effects: []
+edge_cases:
+  - missing Master token does not block descriptor construction but remains an execution blocker
+unresolved_preserved:
+  - TLC-UT-DISCIPLE-007
+  - local_scientific_blocker:TLC-FC-01-DISCIPLE-010
+dependencies:
+  internal:
+    - TLC-FC-01-DISCIPLE-009
+  external:
+    - TLC-DDEP-DISCIPLE-MASTER-004
+complexity:
+  time: O(n)
+  space: O(n)
+pseudocode: |
+  function describe_blocked_disciple_state(request, execute = false):
+      require request.feature_id == "TLC-FC-01-DISCIPLE-010"
+      source = load_preserved_source_ir()
+      refs = copy_exactly(source.data, source.relations)
+      unresolved = copy_exactly(["TLC-UT-DISCIPLE-007"])
+      if execute:
+          return error(DISCIPLE_UNRESOLVED_SEMANTICS, unresolved)
+      return structural_descriptor(feature_id=request.feature_id,
+                                   references=refs,
+                                   unresolved=unresolved,
+                                   master_subsymbol=OPAQUE,
+                                   blocker=PRESERVED)

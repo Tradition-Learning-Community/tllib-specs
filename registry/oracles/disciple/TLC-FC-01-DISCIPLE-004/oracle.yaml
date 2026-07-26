@@ -1,0 +1,42 @@
+schema_version: '1.0'
+oracle_id: TLC-ORACLE-TLC-FC-01-DISCIPLE-004
+feature_id: TLC-FC-01-DISCIPLE-004
+domain: disciple
+status: acceptance_ready_structural_oracle
+optimized_ir_ref: registry/optimized-ir/disciple/TLC-FC-01-DISCIPLE-004/ir.yaml
+algorithm_ref: registry/algorithms/disciple/TLC-FC-01-DISCIPLE-004/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-01-DISCIPLE-004/test-plan.yaml
+oracle_basis:
+  - source structural IR
+  - local blocker reservation
+  - Master dependency metadata
+acceptance_tests:
+  - test_id: TLC-FC-01-DISCIPLE-004-AT-001
+    category: nominal_blocked
+    assertion: execute=false emits a blocked structural descriptor
+  - test_id: TLC-FC-01-DISCIPLE-004-AT-002
+    category: error
+    assertion: execute=true yields DISCIPLE_UNRESOLVED_SEMANTICS
+  - test_id: TLC-FC-01-DISCIPLE-004-AT-003
+    category: conservation
+    assertion: source object, relation, provenance, and local blocker remain exact
+  - test_id: TLC-FC-01-DISCIPLE-004-AT-004
+    category: dependency
+    assertion: TLC-DDEP-DISCIPLE-MASTER-002 remains symbol-only and blocks execution only
+  - test_id: TLC-FC-01-DISCIPLE-004-AT-005
+    category: non_invention
+    assertion: no trajectory transition or numerical behavior is emitted
+  - test_id: TLC-FC-01-DISCIPLE-004-AT-006
+    category: determinism
+    assertion: descriptor and refusal branch are deterministic
+  - test_id: TLC-FC-01-DISCIPLE-004-AT-007
+    category: dependency
+    assertion: internal dependency on 009 remains declared
+properties:
+  - blocker propagation is lossless
+  - no Master artifact is required for descriptor construction
+numerical_expected_results: []
+forbidden_assertions:
+  - trajectory evolution result
+unresolved_expected:
+  - local_scientific_blocker:TLC-FC-01-DISCIPLE-004

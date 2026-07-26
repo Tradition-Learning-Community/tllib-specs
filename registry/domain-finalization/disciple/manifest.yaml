@@ -1,0 +1,77 @@
+schema_version: '1.0'
+manifest_id: TLC-DISCIPLE-DOMAIN-FINALIZATION-001
+domain: disciple
+phase: domain_finalization_through_algorithm_and_oracle
+status: complete_pending_repository_validation
+main_head_used: c34d40713bf444d38f92f76e1c6239ee596d5a18
+branch: phase4/disciple-domain-finalization-001
+baseline_ref: registry/global-reconciliation/current-baseline.yaml
+baseline_authority: current_main_baseline
+active_feature_count: 10
+active_features:
+  - TLC-FC-01-DISCIPLE-001
+  - TLC-FC-01-DISCIPLE-002
+  - TLC-FC-01-DISCIPLE-003
+  - TLC-FC-01-DISCIPLE-004
+  - TLC-FC-01-DISCIPLE-005
+  - TLC-FC-01-DISCIPLE-006
+  - TLC-FC-01-DISCIPLE-007
+  - TLC-FC-01-DISCIPLE-008
+  - TLC-FC-01-DISCIPLE-009
+  - TLC-FC-01-DISCIPLE-010
+artifact_requirements:
+  source_contracts_preserved: 10
+  source_ir_registry_entries_preserved: 10
+  source_ir_artifacts_preserved: 10
+  source_test_plans_preserved: 10
+  optimized_irs: 10
+  algorithms: 10
+  oracles: 10
+  module_specification: registry/domain-finalization/disciple/module-specification.yaml
+  implementation_tasks: registry/domain-finalization/disciple/implementation-tasks.yaml
+  decision_register: registry/domain-finalization/disciple/decision-required.yaml
+boundary_review:
+  feature_id: TLC-FC-01-DISCIPLE-009
+  prior_issue: TLC-FBI-001
+  decision: composite_feature_with_internal_operations
+  parent_preserved: true
+  scientific_split_asserted: false
+patterns_ref: registry/domain-finalization/disciple/patterns.yaml
+feature_status_ref: registry/domain-finalization/disciple/feature-status.yaml
+report_ref: reports/domain-finalization/disciple/finalization-report.md
+validator_ref: tools/domain-finalization/validate_disciple_finalization.py
+divergences_documented:
+  - source: registry/features/revised/feature-classification.yaml
+    divergence: older review marked only a subset active and proposed rejection or conversion for some Disciple candidates
+    resolution: current baseline population of exactly ten active features is authoritative; no feature is rejected or removed
+  - source: registry/domain-progress/disciple/source-inventory.yaml
+    divergence: stale inventory reported zero test plans before later test-plan production
+    resolution: current baseline and domain-feature matrix confirm ten source test plans
+preservation:
+  source_contracts_modified: false
+  source_irs_modified: false
+  maths_modified: false
+  master_modified: false
+  global_registry_regenerated: false
+  features_rejected: false
+  cplusplus_produced: false
+  python_bindings_produced: false
+  reference_implementation_produced: false
+scientific_claims:
+  new_equations: false
+  new_dimensions: false
+  new_invariants: false
+  unresolved_arbitrarily_resolved: false
+implementation_package:
+  specification_ready: true
+  scientific_execution_ready: false
+  allowed_implementation_scope:
+    - deterministic parsing and validation
+    - traceability and exact reference preservation
+    - opaque-value and unresolved propagation
+    - structured error behavior
+    - deferred-operation and descriptor construction
+validation:
+  command: python tools/domain-finalization/validate_disciple_finalization.py
+  diff_check: git diff --check
+  status: pending

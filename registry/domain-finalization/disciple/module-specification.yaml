@@ -1,0 +1,173 @@
+schema_version: '1.0'
+module_id: TLC-MODULE-DISCIPLE-001
+module_name: Disciple
+domain: disciple
+status: ready_for_implementation_specification
+feature_count: 10
+features:
+  - TLC-FC-01-DISCIPLE-001
+  - TLC-FC-01-DISCIPLE-002
+  - TLC-FC-01-DISCIPLE-003
+  - TLC-FC-01-DISCIPLE-004
+  - TLC-FC-01-DISCIPLE-005
+  - TLC-FC-01-DISCIPLE-006
+  - TLC-FC-01-DISCIPLE-007
+  - TLC-FC-01-DISCIPLE-008
+  - TLC-FC-01-DISCIPLE-009
+  - TLC-FC-01-DISCIPLE-010
+public_operations:
+  - feature_id: TLC-FC-01-DISCIPLE-001
+    operation: inspect_disciple_constraints
+  - feature_id: TLC-FC-01-DISCIPLE-002
+    operation: describe_disciple_definition
+  - feature_id: TLC-FC-01-DISCIPLE-003
+    operation: prepare_disciple_dynamics
+  - feature_id: TLC-FC-01-DISCIPLE-004
+    operation: describe_blocked_trajectory_dynamics
+  - feature_id: TLC-FC-01-DISCIPLE-005
+    operation: prepare_disciple_equations
+  - feature_id: TLC-FC-01-DISCIPLE-006
+    operation: inspect_disciple_invariants
+  - feature_id: TLC-FC-01-DISCIPLE-007
+    operation: describe_blocked_invariant
+  - feature_id: TLC-FC-01-DISCIPLE-008
+    operation: describe_progressive_update_operator
+  - feature_id: TLC-FC-01-DISCIPLE-009
+    operation: assemble_disciple_state_envelope
+  - feature_id: TLC-FC-01-DISCIPLE-010
+    operation: describe_blocked_disciple_state
+internal_operations:
+  - validate_request_identity
+  - load_preserved_source_ir
+  - preserve_source_reference_sets
+  - validate_reference_uniqueness_without_aliasing
+  - attach_traceability
+  - attach_dependency_state
+  - attach_unresolved_tokens
+  - emit_descriptor_or_envelope
+shared_types:
+  - type: DiscipleFeatureRequest
+    fields:
+      feature_id: string
+      opaque_payload: optional map[string, OpaqueScientificValue]
+      execute: optional boolean
+  - type: DiscipleStateAssemblyRequest
+    fields:
+      feature_id: string
+      opaque_metadata: optional map[string, OpaqueScientificValue]
+  - type: ScientificReference
+    meaning: immutable source object or relation identifier
+  - type: OpaqueScientificValue
+    meaning: identity-preserved value with no inferred type, shape, dimension, or semantics
+  - type: UnresolvedToken
+    meaning: immutable unresolved identifier or reservation
+  - type: DependencyToken
+    meaning: opaque proof of dependency availability; never a scientific value
+  - type: TraceabilityRecord
+    fields:
+      source_contract_ref: path
+      source_ir_ref: path
+      source_test_plan_ref: path
+      source_provenance: preserved sequence
+  - type: DeferredScientificOperation
+    fields:
+      feature_id: string
+      source_operation: opaque record
+      executable: false
+      references: list[ScientificReference]
+  - type: DiscipleValidationDescriptor
+    fields:
+      feature_id: string
+      references: list[ScientificReference]
+      scientific_result: OpaqueScientificValue
+      traceability: TraceabilityRecord
+  - type: DiscipleStructuralDescriptor
+    fields:
+      feature_id: string
+      references: list[ScientificReference]
+      blockers: list[UnresolvedToken]
+      dependencies: list[DependencyToken]
+      traceability: TraceabilityRecord
+  - type: DiscipleOperatorDescriptor
+    fields:
+      feature_id: string
+      references: list[ScientificReference]
+      executable: false
+  - type: DiscipleDefinitionDescriptor
+    fields:
+      feature_id: string
+      references: list[ScientificReference]
+      dependency_state: opaque enum
+      reservations: list[string]
+  - type: DiscipleStateEnvelope
+    fields:
+      feature_id: string
+      objects: ordered list[ScientificReference]
+      relations: ordered list[ScientificReference]
+      unresolved: ordered list[UnresolvedToken]
+      master_subsymbols: ordered list[OpaqueScientificValue]
+      dependents: ordered list[string]
+      scientific_values: OpaqueScientificValue
+shared_states:
+  - received
+  - validated
+  - descriptor_emitted
+  - deferred
+  - blocked
+  - rejected
+shared_errors:
+  - DISCIPLE_INVALID_FEATURE_ID
+  - DISCIPLE_MISSING_SOURCE_ARTIFACT
+  - DISCIPLE_SOURCE_REFERENCE_MISMATCH
+  - DISCIPLE_DUPLICATE_REFERENCE
+  - DISCIPLE_UNRESOLVED_OPERATION
+  - DISCIPLE_UNRESOLVED_SEMANTICS
+common_patterns_ref: registry/domain-finalization/disciple/patterns.yaml
+internal_dependencies:
+  root_feature: TLC-FC-01-DISCIPLE-009
+  dependents:
+    - TLC-FC-01-DISCIPLE-001
+    - TLC-FC-01-DISCIPLE-002
+    - TLC-FC-01-DISCIPLE-003
+    - TLC-FC-01-DISCIPLE-004
+    - TLC-FC-01-DISCIPLE-005
+    - TLC-FC-01-DISCIPLE-006
+    - TLC-FC-01-DISCIPLE-007
+    - TLC-FC-01-DISCIPLE-008
+    - TLC-FC-01-DISCIPLE-010
+  cycles: []
+external_dependencies:
+  - TLC-DDEP-DISCIPLE-MASTER-001
+  - TLC-DDEP-DISCIPLE-MASTER-002
+  - TLC-DDEP-DISCIPLE-MASTER-003
+  - TLC-DDEP-DISCIPLE-MASTER-004
+external_dependency_rule: symbol-only dependencies block scientific execution only and must not be interpreted by this module
+execution_order:
+  - assemble or validate the 009 state envelope when a dependent feature requires state context
+  - validate the selected feature request
+  - preserve references and unresolved values
+  - return a descriptor, envelope, deferred operation, or structured error
+  - never execute unresolved scientific behavior
+determinism_rules:
+  - preserve source list order
+  - do not use implicit randomness
+  - canonical serialization must be stable for equivalent inputs
+  - error selection follows declared branch order
+unresolved_preservation:
+  feature_009_tokens: registry/math-contracts/TLC-FC-01-DISCIPLE-009/open-math-questions.yaml#/questions
+  feature_010_tokens: registry/math-contracts/TLC-FC-01-DISCIPLE-010/open-math-questions.yaml#/questions
+  master_subsymbols: preserved_as_opaque
+future_library_interfaces:
+  - descriptor and envelope value objects
+  - feature-specific operation entry points listed in public_operations
+  - shared error and dependency types
+  - serialization adapters defined by future implementation without changing scientific content
+out_of_scope:
+  - scientific resolution of any unresolved token
+  - numerical evaluation of equations or dynamics
+  - assertion of invariant or constraint truth values
+  - definition of missing types, shapes, dimensions, fields, aliases, or methods
+  - C++ implementation
+  - Python bindings
+  - reference implementation
+implementation_tasks_ref: registry/domain-finalization/disciple/implementation-tasks.yaml

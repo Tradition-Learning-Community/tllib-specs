@@ -1,0 +1,45 @@
+name: Disciple finalization validation
+
+on:
+  push:
+    branches:
+      - phase4/disciple-domain-finalization-001
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate-disciple-finalization:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install validator dependency
+        run: python -m pip install PyYAML
+      - name: Run Disciple finalization validator
+        env:
+          DISCIPLE_ALLOW_TEMP_WORKFLOW: '1'
+        run: python tools/domain-finalization/validate_disciple_finalization.py
+      - name: Check whitespace
+        run: git diff --check origin/main...HEAD
+      - name: Verify changed paths
+        run: |
+          changed="$(git diff --name-only origin/main...HEAD)"
+          echo "$changed"
+          if echo "$changed" | grep -E '^(maths/|registry/global-reconciliation/|registry/math-contracts/|registry/ir/|ir/TLC-FC-01-DISCIPLE-)' ; then
+            echo 'Forbidden source or global path changed'
+            exit 1
+          fi
+          if echo "$changed" | grep -Ei '(master|\.(cpp|cc|cxx|h|hh|hpp|pyi)$|reference[-_]implementation)' ; then
+            echo 'Forbidden Master, implementation, binding, or reference-implementation path changed'
+            exit 1
+          fi

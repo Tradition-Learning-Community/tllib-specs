@@ -1,0 +1,42 @@
+schema_version: '1.0'
+oracle_id: TLC-ORACLE-TLC-FC-01-DISCIPLE-003
+feature_id: TLC-FC-01-DISCIPLE-003
+domain: disciple
+status: acceptance_ready_structural_oracle
+optimized_ir_ref: registry/optimized-ir/disciple/TLC-FC-01-DISCIPLE-003/ir.yaml
+algorithm_ref: registry/algorithms/disciple/TLC-FC-01-DISCIPLE-003/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-01-DISCIPLE-003/test-plan.yaml
+oracle_basis:
+  - preserved unresolved source operation
+  - source reference lists and provenance
+acceptance_tests:
+  - test_id: TLC-FC-01-DISCIPLE-003-AT-001
+    category: nominal_deferred
+    assertion: execute=false emits a DeferredScientificOperation with executable=false
+  - test_id: TLC-FC-01-DISCIPLE-003-AT-002
+    category: error
+    assertion: execute=true yields DISCIPLE_UNRESOLVED_OPERATION
+  - test_id: TLC-FC-01-DISCIPLE-003-AT-003
+    category: conservation
+    assertion: source operation id, status, behavior text, objects, and relations are preserved exactly
+  - test_id: TLC-FC-01-DISCIPLE-003-AT-004
+    category: non_invention
+    assertion: no differential solver, stochastic process, step size, type, dimension, or numerical result is added
+  - test_id: TLC-FC-01-DISCIPLE-003-AT-005
+    category: opaque_propagation
+    assertion: opaque input payload is copied without interpretation
+  - test_id: TLC-FC-01-DISCIPLE-003-AT-006
+    category: determinism
+    assertion: preparation and execution refusal are deterministic
+  - test_id: TLC-FC-01-DISCIPLE-003-AT-007
+    category: dependency
+    assertion: internal dependency on 009 remains declared
+properties:
+  - source operation remains unresolved
+  - no scientific effect occurs
+numerical_expected_results: []
+forbidden_assertions:
+  - trajectory value
+  - stochastic distribution
+unresolved_expected:
+  - source_operation:TLC-FC-01-DISCIPLE-003-OP-UNRESOLVED

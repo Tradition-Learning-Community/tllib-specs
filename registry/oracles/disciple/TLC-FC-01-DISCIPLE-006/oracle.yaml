@@ -1,0 +1,38 @@
+schema_version: '1.0'
+oracle_id: TLC-ORACLE-TLC-FC-01-DISCIPLE-006
+feature_id: TLC-FC-01-DISCIPLE-006
+domain: disciple
+status: acceptance_ready_structural_oracle
+optimized_ir_ref: registry/optimized-ir/disciple/TLC-FC-01-DISCIPLE-006/ir.yaml
+algorithm_ref: registry/algorithms/disciple/TLC-FC-01-DISCIPLE-006/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-01-DISCIPLE-006/test-plan.yaml
+oracle_basis:
+  - source invariant references
+  - optimized IR no-truth-value obligation
+acceptance_tests:
+  - test_id: TLC-FC-01-DISCIPLE-006-AT-001
+    category: nominal_structural
+    assertion: valid request emits an invariant validation descriptor with opaque scientific result
+  - test_id: TLC-FC-01-DISCIPLE-006-AT-002
+    category: conservation
+    assertion: all source invariant object and relation references remain exact and ordered
+  - test_id: TLC-FC-01-DISCIPLE-006-AT-003
+    category: non_invention
+    assertion: no executable predicate, type, dimension, or truth value is introduced
+  - test_id: TLC-FC-01-DISCIPLE-006-AT-004
+    category: error
+    assertion: altered source reference yields DISCIPLE_SOURCE_REFERENCE_MISMATCH
+  - test_id: TLC-FC-01-DISCIPLE-006-AT-005
+    category: determinism
+    assertion: repeated equivalent requests produce identical normalized descriptors
+  - test_id: TLC-FC-01-DISCIPLE-006-AT-006
+    category: dependency
+    assertion: internal dependency on 009 remains declared
+properties:
+  - scientific truth remains opaque
+  - identities remain distinct
+numerical_expected_results: []
+forbidden_assertions:
+  - invariant is true
+  - invariant is false
+unresolved_expected: []

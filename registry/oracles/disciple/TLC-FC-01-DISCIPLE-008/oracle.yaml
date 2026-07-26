@@ -1,0 +1,37 @@
+schema_version: '1.0'
+oracle_id: TLC-ORACLE-TLC-FC-01-DISCIPLE-008
+feature_id: TLC-FC-01-DISCIPLE-008
+domain: disciple
+status: acceptance_ready_structural_oracle
+optimized_ir_ref: registry/optimized-ir/disciple/TLC-FC-01-DISCIPLE-008/ir.yaml
+algorithm_ref: registry/algorithms/disciple/TLC-FC-01-DISCIPLE-008/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-01-DISCIPLE-008/test-plan.yaml
+oracle_basis:
+  - source operator references
+  - optimized IR explicit execution refusal
+acceptance_tests:
+  - test_id: TLC-FC-01-DISCIPLE-008-AT-001
+    category: nominal_structural
+    assertion: execute=false emits an operator descriptor with executable=false
+  - test_id: TLC-FC-01-DISCIPLE-008-AT-002
+    category: error
+    assertion: execute=true yields DISCIPLE_UNRESOLVED_OPERATION
+  - test_id: TLC-FC-01-DISCIPLE-008-AT-003
+    category: conservation
+    assertion: source operator object and relation references remain exact and ordered
+  - test_id: TLC-FC-01-DISCIPLE-008-AT-004
+    category: non_invention
+    assertion: no state transition, input schema, output schema, type, or dimension is invented
+  - test_id: TLC-FC-01-DISCIPLE-008-AT-005
+    category: determinism
+    assertion: descriptor and refusal branch are deterministic
+  - test_id: TLC-FC-01-DISCIPLE-008-AT-006
+    category: dependency
+    assertion: internal dependency on 009 remains declared
+properties:
+  - operator is descriptive and non-executable
+numerical_expected_results: []
+forbidden_assertions:
+  - updated state value
+unresolved_expected:
+  - operator_execution_semantics_not_selected

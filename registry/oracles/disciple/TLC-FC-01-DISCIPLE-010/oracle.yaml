@@ -1,0 +1,45 @@
+schema_version: '1.0'
+oracle_id: TLC-ORACLE-TLC-FC-01-DISCIPLE-010
+feature_id: TLC-FC-01-DISCIPLE-010
+domain: disciple
+status: acceptance_ready_structural_oracle
+optimized_ir_ref: registry/optimized-ir/disciple/TLC-FC-01-DISCIPLE-010/ir.yaml
+algorithm_ref: registry/algorithms/disciple/TLC-FC-01-DISCIPLE-010/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-01-DISCIPLE-010/test-plan.yaml
+oracle_basis:
+  - source structural IR
+  - TLC-UT-DISCIPLE-007
+  - preserved Master subsymbol and local blocker
+acceptance_tests:
+  - test_id: TLC-FC-01-DISCIPLE-010-AT-001
+    category: nominal_blocked
+    assertion: execute=false emits a blocked state descriptor
+  - test_id: TLC-FC-01-DISCIPLE-010-AT-002
+    category: error
+    assertion: execute=true yields DISCIPLE_UNRESOLVED_SEMANTICS
+  - test_id: TLC-FC-01-DISCIPLE-010-AT-003
+    category: unresolved_propagation
+    assertion: TLC-UT-DISCIPLE-007 is preserved exactly once
+  - test_id: TLC-FC-01-DISCIPLE-010-AT-004
+    category: opaque_propagation
+    assertion: the Master subsymbol is preserved exactly and never interpreted
+  - test_id: TLC-FC-01-DISCIPLE-010-AT-005
+    category: conservation
+    assertion: source object, relation, provenance, and local blocker remain exact
+  - test_id: TLC-FC-01-DISCIPLE-010-AT-006
+    category: dependency
+    assertion: dependencies on 009 and TLC-DDEP-DISCIPLE-MASTER-004 remain declared
+  - test_id: TLC-FC-01-DISCIPLE-010-AT-007
+    category: non_invention
+    assertion: no state layout, transition, trajectory result, type, or dimension is added
+  - test_id: TLC-FC-01-DISCIPLE-010-AT-008
+    category: determinism
+    assertion: descriptor and refusal branch are deterministic
+properties:
+  - blockers and unresolved values are propagated losslessly
+numerical_expected_results: []
+forbidden_assertions:
+  - state transition result
+unresolved_expected:
+  - TLC-UT-DISCIPLE-007
+  - local_scientific_blocker:TLC-FC-01-DISCIPLE-010

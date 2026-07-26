@@ -1,0 +1,54 @@
+schema_version: '1.0'
+oracle_id: TLC-ORACLE-TLC-FC-01-DISCIPLE-009
+feature_id: TLC-FC-01-DISCIPLE-009
+domain: disciple
+status: acceptance_ready_structural_oracle
+optimized_ir_ref: registry/optimized-ir/disciple/TLC-FC-01-DISCIPLE-009/ir.yaml
+algorithm_ref: registry/algorithms/disciple/TLC-FC-01-DISCIPLE-009/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-01-DISCIPLE-009/test-plan.yaml
+oracle_basis:
+  - exact source IR object and relation lists
+  - open-math-questions token and Master subsymbol lists
+  - confirmed internal dependency graph
+  - targeted boundary decision
+acceptance_tests:
+  - test_id: TLC-FC-01-DISCIPLE-009-AT-001
+    category: nominal_composite
+    assertion: valid request emits one parent DiscipleStateEnvelope with feature_id 009
+  - test_id: TLC-FC-01-DISCIPLE-009-AT-002
+    category: boundary
+    assertion: boundary decision equals composite_feature_with_internal_operations and parent_feature_preserved is true
+  - test_id: TLC-FC-01-DISCIPLE-009-AT-003
+    category: conservation
+    assertion: object and relation lists equal the source IR lists exactly, in order, without aliases
+  - test_id: TLC-FC-01-DISCIPLE-009-AT-004
+    category: unresolved_propagation
+    assertion: all 31 open-math tokens are present exactly once
+  - test_id: TLC-FC-01-DISCIPLE-009-AT-005
+    category: opaque_propagation
+    assertion: both Master subsymbols are preserved exactly as opaque strings
+  - test_id: TLC-FC-01-DISCIPLE-009-AT-006
+    category: dependency
+    assertion: all nine dependent Disciple feature identifiers are attached and no extra dependent is added
+  - test_id: TLC-FC-01-DISCIPLE-009-AT-007
+    category: error
+    assertion: duplicate reference yields DISCIPLE_DUPLICATE_REFERENCE
+  - test_id: TLC-FC-01-DISCIPLE-009-AT-008
+    category: error
+    assertion: any missing, added, or reordered reference yields DISCIPLE_SOURCE_REFERENCE_MISMATCH
+  - test_id: TLC-FC-01-DISCIPLE-009-AT-009
+    category: determinism
+    assertion: repeated assembly yields byte-equivalent normalized envelope data
+  - test_id: TLC-FC-01-DISCIPLE-009-AT-010
+    category: non_invention
+    assertion: no component field, dimension, alias, lifecycle transition, scientific split, or value is asserted
+properties:
+  - parent identity is conserved
+  - source order is conserved
+numerical_expected_results: []
+forbidden_assertions:
+  - concrete state layout
+  - canonical scientific decomposition
+unresolved_expected:
+  source: registry/math-contracts/TLC-FC-01-DISCIPLE-009/open-math-questions.yaml
+  count: 31

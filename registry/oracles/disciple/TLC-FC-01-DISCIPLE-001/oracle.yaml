@@ -1,0 +1,42 @@
+schema_version: '1.0'
+oracle_id: TLC-ORACLE-TLC-FC-01-DISCIPLE-001
+feature_id: TLC-FC-01-DISCIPLE-001
+domain: disciple
+status: acceptance_ready_structural_oracle
+optimized_ir_ref: registry/optimized-ir/disciple/TLC-FC-01-DISCIPLE-001/ir.yaml
+algorithm_ref: registry/algorithms/disciple/TLC-FC-01-DISCIPLE-001/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-01-DISCIPLE-001/test-plan.yaml
+oracle_basis:
+  - source contract identity and provenance
+  - source IR object and relation reference lists
+  - optimized IR preservation obligations
+acceptance_tests:
+  - test_id: TLC-FC-01-DISCIPLE-001-AT-001
+    category: nominal_structural
+    assertion: valid request emits a validation descriptor with feature_id 001 and opaque scientific result
+  - test_id: TLC-FC-01-DISCIPLE-001-AT-002
+    category: precondition
+    assertion: mismatched feature_id yields DISCIPLE_INVALID_FEATURE_ID
+  - test_id: TLC-FC-01-DISCIPLE-001-AT-003
+    category: conservation
+    assertion: output object and relation references equal the source IR lists exactly and in order
+  - test_id: TLC-FC-01-DISCIPLE-001-AT-004
+    category: non_invention
+    assertion: output contains no new equation, type, dimension, alias, predicate, or numerical method
+  - test_id: TLC-FC-01-DISCIPLE-001-AT-005
+    category: determinism
+    assertion: repeated equivalent requests produce byte-equivalent normalized descriptors
+  - test_id: TLC-FC-01-DISCIPLE-001-AT-006
+    category: dependency
+    assertion: internal dependency on TLC-FC-01-DISCIPLE-009 remains declared
+  - test_id: TLC-FC-01-DISCIPLE-001-AT-007
+    category: error
+    assertion: reordered or altered source references yield DISCIPLE_SOURCE_REFERENCE_MISMATCH
+properties:
+  - scientific values remain opaque
+  - source identities remain distinct
+numerical_expected_results: []
+forbidden_assertions:
+  - constraint satisfaction truth value
+  - numerical tolerance
+unresolved_expected: []

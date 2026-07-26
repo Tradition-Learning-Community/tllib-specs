@@ -1,0 +1,62 @@
+schema_version: '1.0'
+algorithm_id: TLC-ALG-TLC-FC-01-DISCIPLE-008
+feature_id: TLC-FC-01-DISCIPLE-008
+domain: disciple
+optimized_ir_ref: registry/optimized-ir/disciple/TLC-FC-01-DISCIPLE-008/ir.yaml
+signature: describe_progressive_update_operator(request: DiscipleFeatureRequest, execute: bool = false) -> DiscipleOperatorDescriptor | DiscipleError
+inputs:
+  - request: feature identity and optional opaque payload
+  - execute: explicit operator application request
+outputs:
+  - operator descriptor or structured error
+validations:
+  - feature_id equality
+  - source artifact presence
+  - exact reference preservation
+preconditions:
+  - operator input, output, transition, type, and dimension are unresolved
+ordered_steps:
+  - validate request identity
+  - copy exact source references
+  - reject application or emit operator descriptor
+branches:
+  - condition: execute is true
+    result: DISCIPLE_UNRESOLVED_OPERATION
+  - condition: otherwise
+    result: operator descriptor
+state_transitions:
+  - received -> validated -> descriptor_emitted
+  - received|validated -> rejected on error
+errors:
+  - DISCIPLE_INVALID_FEATURE_ID
+  - DISCIPLE_MISSING_SOURCE_ARTIFACT
+  - DISCIPLE_SOURCE_REFERENCE_MISMATCH
+  - DISCIPLE_UNRESOLVED_OPERATION
+postconditions:
+  - no state update is performed
+  - operator references remain exact
+invariants:
+  - source identities and provenance are preserved
+determinism: deterministic descriptor and refusal behavior
+effects: []
+edge_cases:
+  - execute false permits structural inspection with an empty opaque payload
+unresolved_preserved:
+  - operator_execution_semantics_not_selected
+dependencies:
+  internal:
+    - TLC-FC-01-DISCIPLE-009
+  external: []
+complexity:
+  time: O(n)
+  space: O(n)
+pseudocode: |
+  function describe_progressive_update_operator(request, execute = false):
+      require request.feature_id == "TLC-FC-01-DISCIPLE-008"
+      source = load_preserved_source_ir()
+      refs = copy_exactly(source.data, source.relations)
+      if execute:
+          return error(DISCIPLE_UNRESOLVED_OPERATION)
+      return operator_descriptor(feature_id=request.feature_id,
+                                 references=refs,
+                                 executable=false)

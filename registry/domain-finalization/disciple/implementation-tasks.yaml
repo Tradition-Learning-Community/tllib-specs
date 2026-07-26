@@ -1,0 +1,136 @@
+schema_version: '1.0'
+domain: disciple
+status: tasks_ready_for_future_implementation
+shared_tasks:
+  - task_id: TLC-DISCIPLE-IMPL-SHARED-001
+    title: Implement shared Disciple specification types
+    scope:
+      - opaque values and scientific references
+      - traceability records
+      - dependency and unresolved tokens
+      - common descriptors, envelope, and errors
+    acceptance:
+      - no scientific value interpretation
+      - stable deterministic serialization
+  - task_id: TLC-DISCIPLE-IMPL-SHARED-002
+    title: Implement shared validation and preservation pipeline
+    scope:
+      - feature identity validation
+      - exact ordered reference copying
+      - source artifact traceability
+      - unresolved and dependency propagation
+    acceptance:
+      - common oracle properties pass for all ten features
+feature_tasks:
+  - task_id: TLC-DISCIPLE-IMPL-001
+    feature_id: TLC-FC-01-DISCIPLE-001
+    title: Implement constraint validation descriptor
+    dependencies:
+      - TLC-DISCIPLE-IMPL-SHARED-001
+      - TLC-DISCIPLE-IMPL-SHARED-002
+      - TLC-DISCIPLE-IMPL-009
+    deliverables:
+      - inspect_disciple_constraints operation
+    acceptance_ref: registry/oracles/disciple/TLC-FC-01-DISCIPLE-001/oracle.yaml
+  - task_id: TLC-DISCIPLE-IMPL-002
+    feature_id: TLC-FC-01-DISCIPLE-002
+    title: Implement declarative definition descriptor
+    dependencies:
+      - TLC-DISCIPLE-IMPL-SHARED-001
+      - TLC-DISCIPLE-IMPL-SHARED-002
+      - TLC-DISCIPLE-IMPL-009
+    deliverables:
+      - describe_disciple_definition operation
+      - symbol-only dependency reporting
+    acceptance_ref: registry/oracles/disciple/TLC-FC-01-DISCIPLE-002/oracle.yaml
+  - task_id: TLC-DISCIPLE-IMPL-003
+    feature_id: TLC-FC-01-DISCIPLE-003
+    title: Implement deferred dynamics operation
+    dependencies:
+      - TLC-DISCIPLE-IMPL-SHARED-001
+      - TLC-DISCIPLE-IMPL-SHARED-002
+      - TLC-DISCIPLE-IMPL-009
+    deliverables:
+      - prepare_disciple_dynamics operation
+      - deterministic unresolved-operation refusal
+    acceptance_ref: registry/oracles/disciple/TLC-FC-01-DISCIPLE-003/oracle.yaml
+  - task_id: TLC-DISCIPLE-IMPL-004
+    feature_id: TLC-FC-01-DISCIPLE-004
+    title: Implement blocked trajectory descriptor
+    dependencies:
+      - TLC-DISCIPLE-IMPL-SHARED-001
+      - TLC-DISCIPLE-IMPL-SHARED-002
+      - TLC-DISCIPLE-IMPL-009
+    deliverables:
+      - describe_blocked_trajectory_dynamics operation
+      - blocker and Master dependency propagation
+    acceptance_ref: registry/oracles/disciple/TLC-FC-01-DISCIPLE-004/oracle.yaml
+  - task_id: TLC-DISCIPLE-IMPL-005
+    feature_id: TLC-FC-01-DISCIPLE-005
+    title: Implement deferred equation operation
+    dependencies:
+      - TLC-DISCIPLE-IMPL-SHARED-001
+      - TLC-DISCIPLE-IMPL-SHARED-002
+      - TLC-DISCIPLE-IMPL-009
+    deliverables:
+      - prepare_disciple_equations operation
+      - deterministic unresolved-operation refusal
+    acceptance_ref: registry/oracles/disciple/TLC-FC-01-DISCIPLE-005/oracle.yaml
+  - task_id: TLC-DISCIPLE-IMPL-006
+    feature_id: TLC-FC-01-DISCIPLE-006
+    title: Implement invariant validation descriptor
+    dependencies:
+      - TLC-DISCIPLE-IMPL-SHARED-001
+      - TLC-DISCIPLE-IMPL-SHARED-002
+      - TLC-DISCIPLE-IMPL-009
+    deliverables:
+      - inspect_disciple_invariants operation
+    acceptance_ref: registry/oracles/disciple/TLC-FC-01-DISCIPLE-006/oracle.yaml
+  - task_id: TLC-DISCIPLE-IMPL-007
+    feature_id: TLC-FC-01-DISCIPLE-007
+    title: Implement blocked invariant descriptor
+    dependencies:
+      - TLC-DISCIPLE-IMPL-SHARED-001
+      - TLC-DISCIPLE-IMPL-SHARED-002
+      - TLC-DISCIPLE-IMPL-009
+    deliverables:
+      - describe_blocked_invariant operation
+      - deterministic unresolved-semantics refusal
+    acceptance_ref: registry/oracles/disciple/TLC-FC-01-DISCIPLE-007/oracle.yaml
+  - task_id: TLC-DISCIPLE-IMPL-008
+    feature_id: TLC-FC-01-DISCIPLE-008
+    title: Implement non-executable operator descriptor
+    dependencies:
+      - TLC-DISCIPLE-IMPL-SHARED-001
+      - TLC-DISCIPLE-IMPL-SHARED-002
+      - TLC-DISCIPLE-IMPL-009
+    deliverables:
+      - describe_progressive_update_operator operation
+    acceptance_ref: registry/oracles/disciple/TLC-FC-01-DISCIPLE-008/oracle.yaml
+  - task_id: TLC-DISCIPLE-IMPL-009
+    feature_id: TLC-FC-01-DISCIPLE-009
+    title: Implement composite Disciple state envelope
+    dependencies:
+      - TLC-DISCIPLE-IMPL-SHARED-001
+      - TLC-DISCIPLE-IMPL-SHARED-002
+    deliverables:
+      - assemble_disciple_state_envelope operation
+      - exact reference and unresolved preservation
+      - parent feature identity conservation
+    acceptance_ref: registry/oracles/disciple/TLC-FC-01-DISCIPLE-009/oracle.yaml
+  - task_id: TLC-DISCIPLE-IMPL-010
+    feature_id: TLC-FC-01-DISCIPLE-010
+    title: Implement blocked state descriptor
+    dependencies:
+      - TLC-DISCIPLE-IMPL-SHARED-001
+      - TLC-DISCIPLE-IMPL-SHARED-002
+      - TLC-DISCIPLE-IMPL-009
+    deliverables:
+      - describe_blocked_disciple_state operation
+      - TLC-UT-DISCIPLE-007 and Master subsymbol propagation
+    acceptance_ref: registry/oracles/disciple/TLC-FC-01-DISCIPLE-010/oracle.yaml
+implementation_constraints:
+  - do not change contracts, source IRs, or maths sources
+  - do not add scientific equations, dimensions, invariants, or numerical methods
+  - do not mark scientific execution ready without a future approved scientific change
+  - implement oracles before enabling any feature operation

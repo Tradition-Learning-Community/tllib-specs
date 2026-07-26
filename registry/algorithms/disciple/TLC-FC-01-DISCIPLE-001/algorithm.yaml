@@ -1,0 +1,69 @@
+schema_version: '1.0'
+algorithm_id: TLC-ALG-TLC-FC-01-DISCIPLE-001
+feature_id: TLC-FC-01-DISCIPLE-001
+domain: disciple
+optimized_ir_ref: registry/optimized-ir/disciple/TLC-FC-01-DISCIPLE-001/ir.yaml
+signature: inspect_disciple_constraints(request: DiscipleFeatureRequest) -> DiscipleValidationDescriptor | DiscipleError
+inputs:
+  - request: feature identity and optional opaque payload
+outputs:
+  - deterministic validation descriptor or structured error
+validations:
+  - feature_id equality
+  - required source artifact presence
+  - exact source object and relation reference preservation
+preconditions:
+  - source contract and source IR remain unchanged
+ordered_steps:
+  - validate request identity
+  - load source reference lists without interpreting values
+  - compare copied references with source lists
+  - construct traceability record
+  - emit validation descriptor
+branches:
+  - condition: feature_id mismatch
+    result: DISCIPLE_INVALID_FEATURE_ID
+  - condition: source artifact unavailable
+    result: DISCIPLE_MISSING_SOURCE_ARTIFACT
+  - condition: reference mismatch
+    result: DISCIPLE_SOURCE_REFERENCE_MISMATCH
+  - condition: otherwise
+    result: descriptor
+state_transitions:
+  - received -> validated
+  - validated -> descriptor_emitted
+  - received|validated -> rejected on error
+errors:
+  - DISCIPLE_INVALID_FEATURE_ID
+  - DISCIPLE_MISSING_SOURCE_ARTIFACT
+  - DISCIPLE_SOURCE_REFERENCE_MISMATCH
+postconditions:
+  - output contains no scientific truth value
+  - all source identities and provenance are preserved
+invariants:
+  - provisionally separated scientific objects remain distinct
+determinism: deterministic for identical request and source artifacts
+effects: []
+edge_cases:
+  - empty opaque payload is accepted
+  - duplicate or reordered references are rejected as a mismatch
+unresolved_preserved:
+  - missing scientific types, dimensions, aliases, and predicates
+dependencies:
+  internal:
+    - TLC-FC-01-DISCIPLE-009
+  external: []
+complexity:
+  time: O(n) over source references
+  space: O(n) for the copied descriptor
+pseudocode: |
+  function inspect_disciple_constraints(request):
+      require request.feature_id == "TLC-FC-01-DISCIPLE-001"
+      source = load_preserved_source_ir()
+      refs = copy_exactly(source.data, source.relations)
+      if refs != source reference lists:
+          return error(DISCIPLE_SOURCE_REFERENCE_MISMATCH)
+      return validation_descriptor(feature_id=request.feature_id,
+                                   references=refs,
+                                   traceability=source provenance,
+                                   scientific_result=OPAQUE)

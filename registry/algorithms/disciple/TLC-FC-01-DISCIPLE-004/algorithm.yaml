@@ -1,0 +1,67 @@
+schema_version: '1.0'
+algorithm_id: TLC-ALG-TLC-FC-01-DISCIPLE-004
+feature_id: TLC-FC-01-DISCIPLE-004
+domain: disciple
+optimized_ir_ref: registry/optimized-ir/disciple/TLC-FC-01-DISCIPLE-004/ir.yaml
+signature: describe_blocked_trajectory_dynamics(request: DiscipleFeatureRequest, execute: bool = false) -> DiscipleStructuralDescriptor | DiscipleError
+inputs:
+  - request: feature identity and optional opaque payload
+  - execute: explicit execution request
+outputs:
+  - blocked structural descriptor or structured error
+validations:
+  - feature_id equality
+  - source artifact presence
+  - exact reference preservation
+preconditions:
+  - local scientific blocker remains unresolved
+ordered_steps:
+  - validate request identity
+  - copy exact source references
+  - attach local blocker and Master dependency metadata
+  - reject execution or emit blocked descriptor
+branches:
+  - condition: execute is true
+    result: DISCIPLE_UNRESOLVED_SEMANTICS
+  - condition: invalid source reference
+    result: DISCIPLE_SOURCE_REFERENCE_MISMATCH
+  - condition: otherwise
+    result: blocked descriptor
+state_transitions:
+  - received -> validated -> blocked_descriptor_emitted
+  - received|validated -> rejected on error
+errors:
+  - DISCIPLE_INVALID_FEATURE_ID
+  - DISCIPLE_MISSING_SOURCE_ARTIFACT
+  - DISCIPLE_SOURCE_REFERENCE_MISMATCH
+  - DISCIPLE_UNRESOLVED_SEMANTICS
+postconditions:
+  - no trajectory evolution is evaluated
+  - local and external blockers remain explicit
+invariants:
+  - source identities and provenance are preserved
+determinism: deterministic descriptor and refusal behavior
+effects: []
+edge_cases:
+  - missing Master token is reported as execution-only dependency state
+unresolved_preserved:
+  - local_scientific_blocker:TLC-FC-01-DISCIPLE-004
+dependencies:
+  internal:
+    - TLC-FC-01-DISCIPLE-009
+  external:
+    - TLC-DDEP-DISCIPLE-MASTER-002
+complexity:
+  time: O(n)
+  space: O(n)
+pseudocode: |
+  function describe_blocked_trajectory_dynamics(request, execute = false):
+      require request.feature_id == "TLC-FC-01-DISCIPLE-004"
+      source = load_preserved_source_ir()
+      refs = copy_exactly(source.data, source.relations)
+      if execute:
+          return error(DISCIPLE_UNRESOLVED_SEMANTICS, "local_scientific_blocker")
+      return structural_descriptor(feature_id=request.feature_id,
+                                   references=refs,
+                                   blocker=PRESERVED,
+                                   dependency="TLC-DDEP-DISCIPLE-MASTER-002")

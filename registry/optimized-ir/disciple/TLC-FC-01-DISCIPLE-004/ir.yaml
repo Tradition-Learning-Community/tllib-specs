@@ -1,0 +1,69 @@
+schema_version: '1.0'
+ir_id: TLC-OPT-IR-TLC-FC-01-DISCIPLE-004
+feature_id: TLC-FC-01-DISCIPLE-004
+domain: disciple
+status: selected_for_disciple_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-01-DISCIPLE-004/contract.yaml
+source_ir_registry_ref: registry/ir/TLC-FC-01-DISCIPLE-004/ir.yaml
+source_ir_ref: ir/TLC-FC-01-DISCIPLE-004/ir.candidate.json
+source_test_plan_ref: registry/test-plans/TLC-FC-01-DISCIPLE-004/test-plan.yaml
+source_ir_status: {selection_status: active_candidate_not_canonical, execution_status: unresolved_not_executable}
+source_ir_preserved: true
+source_contract_preserved: true
+scientific_source_modified: false
+replaces_source_ir: false
+representation_type: blocked_structural_descriptor
+inputs:
+  - {name: request, type: DiscipleFeatureRequest, required: true}
+  - {name: master_symbol_token, type: DependencyToken, required_for_execution_only: true}
+outputs:
+  - {name: result, type: DiscipleStructuralDescriptor}
+types:
+  shared: [DiscipleFeatureRequest, ScientificReference, OpaqueScientificValue, DependencyToken, TraceabilityRecord, DiscipleError]
+  feature_specific: [DiscipleStructuralDescriptor]
+opaque_values:
+  policy: preserve_identity_without_interpretation
+  source_objects: ir/TLC-FC-01-DISCIPLE-004/ir.candidate.json#/data
+  source_relations: ir/TLC-FC-01-DISCIPLE-004/ir.candidate.json#/relations
+  master_subsymbols: []
+preconditions:
+  - request.feature_id equals TLC-FC-01-DISCIPLE-004
+  - all source artifacts are available
+operations:
+  - {operation_id: validate_request_identity, kind: deterministic_validation}
+  - {operation_id: preserve_source_reference_sets, kind: exact_reference_copy}
+  - {operation_id: attach_local_blocker, kind: unresolved_metadata}
+  - {operation_id: emit_blocked_structural_descriptor, kind: structural_output}
+execution_order: [validate_request_identity, preserve_source_reference_sets, attach_local_blocker, emit_blocked_structural_descriptor]
+control_flow:
+  - on_failed_precondition: return_structured_error
+  - on_execution_request: return_DISCIPLE_UNRESOLVED_SEMANTICS
+  - otherwise: return_structural_descriptor
+states: {initial: received, success: blocked_descriptor_emitted, failure: rejected, scientific_execution: blocked}
+effects: []
+postconditions:
+  - local blocker and dependency remain explicit
+  - no trajectory evolution is evaluated
+invariants:
+  - Provisionally separated scientific objects remain distinct.
+  - source traceability is complete
+errors: [DISCIPLE_INVALID_FEATURE_ID, DISCIPLE_MISSING_SOURCE_ARTIFACT, DISCIPLE_SOURCE_REFERENCE_MISMATCH, DISCIPLE_UNRESOLVED_SEMANTICS]
+determinism: {classification: deterministic_structural, rule: descriptor generation and refusal are deterministic}
+dependencies:
+  internal: [TLC-FC-01-DISCIPLE-009]
+  external:
+    - {dependency_id: TLC-DDEP-DISCIPLE-MASTER-002, required_level: symbol_only, execution_effect: blocks_execution_only}
+unresolved_propagated: ['local_scientific_blocker:TLC-FC-01-DISCIPLE-004']
+reservations:
+  - The cited local scientific blockers must be resolved before contract derivation.
+links_to_tests:
+  source_test_plan: registry/test-plans/TLC-FC-01-DISCIPLE-004/test-plan.yaml
+  oracle: registry/oracles/disciple/TLC-FC-01-DISCIPLE-004/oracle.yaml
+transformations_applied: [normalized_blocker_metadata, normalized_dependency_metadata, normalized_errors]
+preservation_obligations:
+  - do not infer trajectory semantics
+  - do not treat the Master symbol as resolved
+implementation_readiness:
+  specification_ready: true
+  scientific_execution_ready: false
+  permitted_scope: [blocked_descriptor_construction, validation, traceability]
