@@ -1,0 +1,175 @@
+schema_version: 1
+manifest_id: TLC-MASTER-DOMAIN-FINALIZATION-001
+domain: master
+base_main_head: c34d40713bf444d38f92f76e1c6239ee596d5a18
+branch: phase4/master-domain-finalization-001
+status: ready_for_implementation_package
+maturity_level: L6_algorithm_and_oracle
+selection_status: selected_for_master_implementation_specification
+statement: >-
+  This package selects implementation-facing representations without changing,
+  replacing, or scientifically canonicalizing the source theory, contracts, or IRs.
+feature_count: 16
+source_authorities:
+  feature_catalogue: registry/domain-progress/master/feature-catalogue.yaml
+  feature_dependencies: registry/domain-progress/master/feature-dependencies.yaml
+  scientific_objects: registry/scientific-objects/master/scientific-objects.candidate.yaml
+  scientific_relations: registry/scientific-objects/master/scientific-relations.candidate.yaml
+  maths_source: maths/00-master.md
+protection_policy:
+  immutable_prefixes:
+    - maths/
+    - registry/math-contracts/TLC-FC-00-MASTER-
+    - registry/ir/TLC-FC-00-MASTER-
+    - ir/TLC-FC-00-MASTER-
+    - registry/test-plans/TLC-FC-00-MASTER-
+  forbidden_outputs:
+    - c++ implementation
+    - Python bindings
+    - numerical method invented outside the sources
+  rejected_features: []
+features:
+  - feature_id: TLC-FC-00-MASTER-001
+    contract_ref: registry/math-contracts/TLC-FC-00-MASTER-001/contract.yaml
+    ir_registry_ref: registry/ir/TLC-FC-00-MASTER-001/ir.yaml
+    source_ir_ref: ir/TLC-FC-00-MASTER-001/ir.candidate.json
+    source_test_plan_ref: registry/test-plans/TLC-FC-00-MASTER-001/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-001/ir.yaml
+    algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-001/algorithm.yaml
+    oracle_ref: registry/oracles/master/TLC-FC-00-MASTER-001/oracle.yaml
+  - feature_id: TLC-FC-00-MASTER-002
+    contract_ref: registry/math-contracts/TLC-FC-00-MASTER-002/contract.yaml
+    ir_registry_ref: registry/ir/TLC-FC-00-MASTER-002/ir.yaml
+    source_ir_ref: ir/TLC-FC-00-MASTER-002/ir.candidate.json
+    source_test_plan_ref: registry/test-plans/TLC-FC-00-MASTER-002/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-002/ir.yaml
+    algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-002/algorithm.yaml
+    oracle_ref: registry/oracles/master/TLC-FC-00-MASTER-002/oracle.yaml
+  - feature_id: TLC-FC-00-MASTER-003
+    contract_ref: registry/math-contracts/TLC-FC-00-MASTER-003/contract.yaml
+    ir_registry_ref: registry/ir/TLC-FC-00-MASTER-003/ir.yaml
+    source_ir_ref: ir/TLC-FC-00-MASTER-003/ir.candidate.json
+    source_test_plan_ref: registry/test-plans/TLC-FC-00-MASTER-003/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-003/ir.yaml
+    algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-003/algorithm.yaml
+    oracle_ref: registry/oracles/master/TLC-FC-00-MASTER-003/oracle.yaml
+  - feature_id: TLC-FC-00-MASTER-004
+    contract_ref: registry/math-contracts/TLC-FC-00-MASTER-004/contract.yaml
+    ir_registry_ref: registry/ir/TLC-FC-00-MASTER-004/ir.yaml
+    source_ir_ref: ir/TLC-FC-00-MASTER-004/ir.candidate.json
+    source_test_plan_ref: registry/test-plans/TLC-FC-00-MASTER-004/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-004/ir.yaml
+    algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-004/algorithm.yaml
+    oracle_ref: registry/oracles/master/TLC-FC-00-MASTER-004/oracle.yaml
+  - feature_id: TLC-FC-00-MASTER-005
+    contract_ref: registry/math-contracts/TLC-FC-00-MASTER-005/contract.yaml
+    ir_registry_ref: registry/ir/TLC-FC-00-MASTER-005/ir.yaml
+    source_ir_ref: ir/TLC-FC-00-MASTER-005/ir.candidate.json
+    source_test_plan_ref: registry/test-plans/TLC-FC-00-MASTER-005/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-005/ir.yaml
+    algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-005/algorithm.yaml
+    oracle_ref: registry/oracles/master/TLC-FC-00-MASTER-005/oracle.yaml
+  - feature_id: TLC-FC-00-MASTER-006
+    contract_ref: registry/math-contracts/TLC-FC-00-MASTER-006/contract.yaml
+    ir_registry_ref: registry/ir/TLC-FC-00-MASTER-006/ir.yaml
+    source_ir_ref: ir/TLC-FC-00-MASTER-006/ir.candidate.json
+    source_test_plan_ref: registry/test-plans/TLC-FC-00-MASTER-006/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-006/ir.yaml
+    algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-006/algorithm.yaml
+    oracle_ref: registry/oracles/master/TLC-FC-00-MASTER-006/oracle.yaml
+  - feature_id: TLC-FC-00-MASTER-007
+    contract_ref: registry/math-contracts/TLC-FC-00-MASTER-007/contract.yaml
+    ir_registry_ref: registry/ir/TLC-FC-00-MASTER-007/ir.yaml
+    source_ir_ref: ir/TLC-FC-00-MASTER-007/ir.candidate.json
+    source_test_plan_ref: registry/test-plans/TLC-FC-00-MASTER-007/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-007/ir.yaml
+    algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-007/algorithm.yaml
+    oracle_ref: registry/oracles/master/TLC-FC-00-MASTER-007/oracle.yaml
+  - feature_id: TLC-FC-00-MASTER-008
+    contract_ref: registry/math-contracts/TLC-FC-00-MASTER-008/contract.yaml
+    ir_registry_ref: registry/ir/TLC-FC-00-MASTER-008/ir.yaml
+    source_ir_ref: ir/TLC-FC-00-MASTER-008/ir.candidate.json
+    source_test_plan_ref: registry/test-plans/TLC-FC-00-MASTER-008/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-008/ir.yaml
+    algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-008/algorithm.yaml
+    oracle_ref: registry/oracles/master/TLC-FC-00-MASTER-008/oracle.yaml
+  - feature_id: TLC-FC-00-MASTER-009
+    contract_ref: registry/math-contracts/TLC-FC-00-MASTER-009/contract.yaml
+    ir_registry_ref: registry/ir/TLC-FC-00-MASTER-009/ir.yaml
+    source_ir_ref: ir/TLC-FC-00-MASTER-009/ir.candidate.json
+    source_test_plan_ref: registry/test-plans/TLC-FC-00-MASTER-009/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-009/ir.yaml
+    algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-009/algorithm.yaml
+    oracle_ref: registry/oracles/master/TLC-FC-00-MASTER-009/oracle.yaml
+  - feature_id: TLC-FC-00-MASTER-010
+    contract_ref: registry/math-contracts/TLC-FC-00-MASTER-010/contract.yaml
+    ir_registry_ref: registry/ir/TLC-FC-00-MASTER-010/ir.yaml
+    source_ir_ref: ir/TLC-FC-00-MASTER-010/ir.candidate.json
+    source_test_plan_ref: registry/test-plans/TLC-FC-00-MASTER-010/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-010/ir.yaml
+    algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-010/algorithm.yaml
+    oracle_ref: registry/oracles/master/TLC-FC-00-MASTER-010/oracle.yaml
+  - feature_id: TLC-FC-00-MASTER-011
+    contract_ref: registry/math-contracts/TLC-FC-00-MASTER-011/contract.yaml
+    ir_registry_ref: registry/ir/TLC-FC-00-MASTER-011/ir.yaml
+    source_ir_ref: ir/TLC-FC-00-MASTER-011/ir.candidate.json
+    source_test_plan_ref: registry/test-plans/TLC-FC-00-MASTER-011/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-011/ir.yaml
+    algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-011/algorithm.yaml
+    oracle_ref: registry/oracles/master/TLC-FC-00-MASTER-011/oracle.yaml
+  - feature_id: TLC-FC-00-MASTER-012
+    contract_ref: registry/math-contracts/TLC-FC-00-MASTER-012/contract.yaml
+    ir_registry_ref: registry/ir/TLC-FC-00-MASTER-012/ir.yaml
+    source_ir_ref: ir/TLC-FC-00-MASTER-012/ir.candidate.json
+    source_test_plan_ref: registry/test-plans/TLC-FC-00-MASTER-012/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-012/ir.yaml
+    algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-012/algorithm.yaml
+    oracle_ref: registry/oracles/master/TLC-FC-00-MASTER-012/oracle.yaml
+  - feature_id: TLC-FC-00-MASTER-013
+    contract_ref: registry/math-contracts/TLC-FC-00-MASTER-013/contract.yaml
+    ir_registry_ref: registry/ir/TLC-FC-00-MASTER-013/ir.yaml
+    source_ir_ref: ir/TLC-FC-00-MASTER-013/ir.candidate.json
+    source_test_plan_ref: registry/test-plans/TLC-FC-00-MASTER-013/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-013/ir.yaml
+    algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-013/algorithm.yaml
+    oracle_ref: registry/oracles/master/TLC-FC-00-MASTER-013/oracle.yaml
+  - feature_id: TLC-FC-00-MASTER-014
+    contract_ref: registry/math-contracts/TLC-FC-00-MASTER-014/contract.yaml
+    ir_registry_ref: registry/ir/TLC-FC-00-MASTER-014/ir.yaml
+    source_ir_ref: ir/TLC-FC-00-MASTER-014/ir.candidate.json
+    source_test_plan_ref: registry/test-plans/TLC-FC-00-MASTER-014/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-014/ir.yaml
+    algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-014/algorithm.yaml
+    oracle_ref: registry/oracles/master/TLC-FC-00-MASTER-014/oracle.yaml
+  - feature_id: TLC-FC-00-MASTER-015
+    contract_ref: registry/math-contracts/TLC-FC-00-MASTER-015/contract.yaml
+    ir_registry_ref: registry/ir/TLC-FC-00-MASTER-015/ir.yaml
+    source_ir_ref: ir/TLC-FC-00-MASTER-015/ir.candidate.json
+    source_test_plan_ref: registry/test-plans/TLC-FC-00-MASTER-015/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-015/ir.yaml
+    algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-015/algorithm.yaml
+    oracle_ref: registry/oracles/master/TLC-FC-00-MASTER-015/oracle.yaml
+  - feature_id: TLC-FC-00-MASTER-016
+    contract_ref: registry/math-contracts/TLC-FC-00-MASTER-016/contract.yaml
+    ir_registry_ref: registry/ir/TLC-FC-00-MASTER-016/ir.yaml
+    source_ir_ref: ir/TLC-FC-00-MASTER-016/ir.candidate.json
+    source_test_plan_ref: registry/test-plans/TLC-FC-00-MASTER-016/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-016/ir.yaml
+    algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-016/algorithm.yaml
+    oracle_ref: registry/oracles/master/TLC-FC-00-MASTER-016/oracle.yaml
+common_artifacts:
+  patterns: registry/domain-finalization/master/patterns.yaml
+  module_specification: registry/domain-finalization/master/module-specification.yaml
+  implementation_tasks: registry/domain-finalization/master/implementation-tasks.yaml
+  feature_status: registry/domain-finalization/master/feature-status.yaml
+  report: reports/domain-finalization/master/finalization-report.md
+  validator: tools/domain-finalization/validate_master_finalization.py
+completion_criteria:
+  all_features_have_finalized_ir: true
+  all_features_have_algorithm: true
+  all_features_have_oracle: true
+  all_features_have_implementation_task: true
+  source_contracts_preserved: true
+  source_irs_preserved: true
+  maths_preserved: true
+  cxx_or_bindings_produced: false
