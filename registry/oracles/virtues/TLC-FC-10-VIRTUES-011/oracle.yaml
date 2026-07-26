@@ -1,0 +1,47 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-011
+status: selected_for_virtues_implementation_specification
+ir_ref: registry/optimized-ir/virtues/TLC-FC-10-VIRTUES-011/ir.yaml
+algorithm_ref: registry/algorithms/virtues/TLC-FC-10-VIRTUES-011/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-011/test-plan.yaml
+entrypoint: package_vice_diagnostic_function
+oracle_kind: supplied_observation_relation_acceptance
+fixtures:
+  required_source_objects: [TLC-SO-VIRTUES-055, TLC-SO-VIRTUES-212]
+  nominal_artifact: {vice_evidence: [opaque_evidence], development_domain_labels: [opaque_label], mappings: [[opaque_evidence, opaque_label]], context: opaque_context}
+acceptance_cases:
+  - id: nominal
+    assertions: [accepted is true, entrypoint and source objects are exact, package is preserved]
+  - id: relation
+    assertions: [supplied evidence-label pairing and cardinality are preserved]
+  - id: observation
+    assertions: [supplied observation is recorded without diagnosis inference]
+  - id: identity_scope_context
+    assertions: [endpoint tokens, diagnostic-packaging scope, and context are unchanged]
+error_cases:
+  - request: wrong feature id
+    expected_error: invalid_feature_id
+  - request: incomplete source provenance
+    expected_error: missing_provenance
+  - request: infer diagnosis, prescribe correction, score, compare, rank, or issue moral decision
+    expected_error: unsupported_scientific_completion_request
+property_tests:
+  - evidence, labels, and mappings round-trip unchanged
+  - no endpoint identity is inferred
+  - no psychological diagnosis, correction, score, or normative consequence is emitted
+  - no observation absent from the supplied artifact is created
+metamorphic_tests:
+  - appending a supplied evidence-label pair appends only that pair
+  - changing one label changes only the copied label and supplied pairing
+  - adding a reservation changes only reservations
+  - identical requests return identical results
+determinism_test: repeated identical request returns equivalent logical data
+composition_tests:
+  - common validation precedes package construction
+  - rejected diagnosis or correction requests emit no accepted result
+unresolved_tests:
+  expected: []
+dependency_tests:
+  - no psychologist, evaluator, correction engine, or external domain execution is invoked
+forbidden_outputs: [inferred diagnosis, prescribed correction, virtue score, ranking, moral decision, invented observation]
+acceptance_rule: Supplied observation and relation preservation pass and all forbidden outputs are absent.
