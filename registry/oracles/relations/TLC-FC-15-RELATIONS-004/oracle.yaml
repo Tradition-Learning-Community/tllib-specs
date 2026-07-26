@@ -1,0 +1,115 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-15-RELATIONS-004
+feature_id: TLC-FC-15-RELATIONS-004
+status: selected_for_relations_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-15-RELATIONS-004/contract.yaml
+source_ir: registry/optimized-ir/relations/TLC-FC-15-RELATIONS-004/ir.yaml
+source_test_plan: registry/test-plans/TLC-FC-15-RELATIONS-004/test-plan.yaml
+algorithm: registry/algorithms/relations/TLC-FC-15-RELATIONS-004/algorithm.yaml
+oracle_kind: limited_structural_acceptance_oracle
+expected_participants:
+  - TLC-SO-RELATIONS-004
+  - TLC-SO-RELATIONS-017
+  - TLC-SO-RELATIONS-023
+scope_id: relations_004_three_function_blocks
+context_id: master_message_value_capacity_essential_functions
+expected_unresolved_count: 31
+expected_candidate_result_count: 3
+exact_result_oracle_available: false
+observable_oracle:
+  validates:
+    - feature identity
+    - participant identity, order and distinctness
+    - source traceability
+    - one-to-one opaque result mapping
+    - complete unresolved propagation
+    - preservation of TLC-DUP-RELATIONS-002
+    - documentary dependency classification
+    - non-execution behavior
+  does_not_validate:
+    - candidate result meaning or value
+    - operator semantics
+    - endpoints, direction or cardinality
+    - relational properties or causality
+acceptance_cases:
+  - case_id: REL-004-ACC-001
+    category: nominal
+    given: exact feature id, exact three participants, three opaque payloads and complete unresolved reference
+    expect:
+      outcome: success
+      record_type: RelationsLimitedCandidateRecord
+      candidate_results: 3
+      one_to_one_traceability: true
+      unresolved_count: 31
+      duplicate_candidate_unmerged: true
+      non_execution_guard: enabled
+  - {case_id: REL-004-ACC-002, category: identity, mutation: replace feature id, expect_error: FeatureIdentityMismatch}
+  - {case_id: REL-004-ACC-003, category: participants, mutation: remove a participant, expect_error: MissingCoveredObject}
+  - {case_id: REL-004-ACC-004, category: participants, mutation: add a participant, expect_error: UnexpectedCoveredObject}
+  - {case_id: REL-004-ACC-005, category: participants, mutation: duplicate a participant, expect_error: DuplicateCoveredObject}
+  - {case_id: REL-004-ACC-006, category: participants, mutation: reorder valid participants, expect_error: ObjectOrderMismatch}
+  - {case_id: REL-004-ACC-007, category: shape, mutation: supply fewer or more than three payloads, expect_error: CandidatePayloadCountMismatch}
+  - {case_id: REL-004-ACC-008, category: traceability, mutation: remove a source reference or traceability row, expect_error: MissingSourceReference}
+  - {case_id: REL-004-ACC-009, category: unresolved, mutation: propagate fewer than 31 items, expect_error: UnresolvedPropagationLoss}
+  - {case_id: REL-004-ACC-010, category: unresolved, mutation: mark TLC-DUP-RELATIONS-002 resolved or remove it, expect_error: UnresolvedPropagationLoss}
+  - {case_id: REL-004-ACC-011, category: identity, mutation: merge two covered objects or duplicate candidates, expect_error: IdentityMergeProhibited}
+  - {case_id: REL-004-ACC-012, category: opaque_value, mutation: alter a payload during construction, expect_error: OpaqueValueMutation}
+  - case_id: REL-004-ACC-013
+    category: explicit_blocking
+    mutation: request evaluation of a candidate result or operator
+    expect_error: ExternalRelationEvaluatorRequired
+    forbidden_outputs:
+      - computed candidate value
+      - numeric result
+      - truth value
+      - graph or temporal result
+  - {case_id: REL-004-ACC-014, category: scope, mutation: replace scope_id, expect_error: ScopeMismatch}
+  - {case_id: REL-004-ACC-015, category: context, mutation: replace context_id, expect_error: ContextMismatch}
+  - case_id: REL-004-ACC-016
+    category: dependency
+    mutation: promote a documentary dependency to execution prerequisite
+    expect_error: ScientificPropertyInvented
+  - case_id: REL-004-ACC-017
+    category: property
+    mutation: assert an endpoint, direction, cardinality, symmetry, transitivity, equivalence or causality
+    expect_error: ScientificPropertyInvented
+property_tests:
+  - property_id: REL-004-PROP-001
+    statement: successful construction has exactly one result for each expected participant in the same order
+  - property_id: REL-004-PROP-002
+    statement: participant identities remain distinct even when opaque payloads are equal
+  - property_id: REL-004-PROP-003
+    statement: every successful record contains all 31 unresolved items
+  - property_id: REL-004-PROP-004
+    statement: successful structural construction never computes a candidate value
+metamorphic_tests:
+  - metamorphic_id: REL-004-META-001
+    transformation: replace one opaque payload while preserving its participant and source reference
+    expectation: only the corresponding carried opaque payload changes
+  - metamorphic_id: REL-004-META-002
+    transformation: give two participants byte-identical payloads
+    expectation: two distinct candidate results remain traceable to distinct participants
+  - metamorphic_id: REL-004-META-003
+    transformation: repeat construction with identical inputs
+    expectation: structurally identical output
+round_trip_tests:
+  - round_trip_id: REL-004-RT-001
+    operation: implementation-defined lossless record encoding and decoding
+    expectation: identity, order, candidate mappings, opaque payloads, scope, context and all unresolved items remain unchanged
+    note: encoding format is not selected by this specification
+cross_feature_tests:
+  - case_id: REL-004-XF-001
+    action: validate another Relations feature record as Relations-004
+    expect_error: FeatureIdentityMismatch
+  - case_id: REL-004-XF-002
+    action: combine participants from Relations-004 and Relations-007
+    expect_error: UnexpectedCoveredObject
+determinism_tests:
+  - identical inputs yield structurally identical records
+  - error selection is stable for the same first failing validation
+unresolved_tests:
+  - received_count and propagated_count remain 31
+  - TLC-DUP-RELATIONS-002 remains unresolved
+  - TLC-GCYCLE-DOMAIN-001 remains documentary scientific-review context
+  - no unresolved value is defaulted or promoted
+acceptance_rule: all applicable cases pass, all 31 unresolved items remain present and no candidate value is computed
