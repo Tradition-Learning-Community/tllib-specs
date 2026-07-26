@@ -1,0 +1,62 @@
+schema_version: 1
+library_id: TLC-MASTER-PATTERNS-001
+domain: master
+factorization_rule: apply_only_when_observable_behavior_and_preservation_obligations_match
+patterns:
+  - pattern_id: TLC-MASTER-PATTERN-TRACEABLE-ENVELOPE
+    features: [TLC-FC-00-MASTER-001, TLC-FC-00-MASTER-002, TLC-FC-00-MASTER-003, TLC-FC-00-MASTER-004, TLC-FC-00-MASTER-005, TLC-FC-00-MASTER-006, TLC-FC-00-MASTER-007, TLC-FC-00-MASTER-008, TLC-FC-00-MASTER-009, TLC-FC-00-MASTER-010, TLC-FC-00-MASTER-011, TLC-FC-00-MASTER-012, TLC-FC-00-MASTER-013, TLC-FC-00-MASTER-014, TLC-FC-00-MASTER-015, TLC-FC-00-MASTER-016]
+    parameters: [feature_id, contract_ref, source_ir_ref, scientific_object_refs, relation_refs, unresolved, external_dependencies]
+    common_structure: validate identity and exact reference sets, construct immutable provenance, execute the feature-specific mode, verify preservation, emit typed result
+    preservation_constraints:
+      - object, relation, and unresolved identifiers are copied exactly and remain ordered as in the source IR
+      - no equation, type, dimension, alias, endpoint, or numerical method is inferred
+      - source artifacts remain immutable
+    does_not_apply_when: an artifact cannot provide exact source references
+  - pattern_id: TLC-MASTER-PATTERN-DECLARATIVE-EMISSION
+    features: [TLC-FC-00-MASTER-001, TLC-FC-00-MASTER-002, TLC-FC-00-MASTER-005, TLC-FC-00-MASTER-006]
+    parameters: [declaration_kind, scientific_object_refs, relation_refs, unresolved]
+    common_structure: emit a validated immutable descriptor without invoking scientific evaluation
+    preservation_constraints: [the declaration is not converted into a calculation, unresolved values remain unresolved]
+    does_not_apply_when: the source IR contains an operation
+  - pattern_id: TLC-MASTER-PATTERN-OPAQUE-OPERATION-ADAPTER
+    features: [TLC-FC-00-MASTER-003, TLC-FC-00-MASTER-004, TLC-FC-00-MASTER-007, TLC-FC-00-MASTER-008, TLC-FC-00-MASTER-009, TLC-FC-00-MASTER-010, TLC-FC-00-MASTER-011, TLC-FC-00-MASTER-012, TLC-FC-00-MASTER-014]
+    parameters: [source_behavior, provider, provider_inputs, external_symbols]
+    common_structure: pass an immutable reference bundle to a provider and preserve its payload opaquely; when evaluation is unavailable, return an unresolved result instead of guessing
+    preservation_constraints:
+      - the adapter does not inspect, normalize, solve, discretize, or reinterpret the scientific payload
+      - provider outputs are preserved byte-for-byte or structurally unchanged
+      - missing provider behavior is represented as unresolved
+    does_not_apply_when: the source IR has no operation
+  - pattern_id: TLC-MASTER-PATTERN-PREDICATE-DESCRIPTOR
+    features: [TLC-FC-00-MASTER-013]
+    parameters: [proposition_ref, relation_refs, unresolved]
+    common_structure: expose predicate identity and provenance without assigning an invented truth value
+    preservation_constraints: [truth value remains unresolved unless supplied by an explicit future scientific provider]
+    does_not_apply_when: a source contract supplies an executable truth criterion
+  - pattern_id: TLC-MASTER-PATTERN-SYMBOLIC-TYPE-DESCRIPTOR
+    features: [TLC-FC-00-MASTER-015, TLC-FC-00-MASTER-016]
+    parameters: [symbolic_object_refs, relation_refs, unresolved]
+    common_structure: expose an immutable symbolic type descriptor and its relations
+    preservation_constraints: [no runtime layout, numeric representation, dimensionality, or subtype relation is invented]
+    does_not_apply_when: a source contract defines a concrete executable type
+  - pattern_id: TLC-MASTER-PATTERN-UNRESOLVED-PROPAGATION
+    features: [TLC-FC-00-MASTER-002, TLC-FC-00-MASTER-004, TLC-FC-00-MASTER-006, TLC-FC-00-MASTER-008, TLC-FC-00-MASTER-009, TLC-FC-00-MASTER-010, TLC-FC-00-MASTER-011, TLC-FC-00-MASTER-012, TLC-FC-00-MASTER-013, TLC-FC-00-MASTER-014, TLC-FC-00-MASTER-016]
+    parameters: [unresolved_identifiers]
+    common_structure: copy the exact set into every result, diagnostic, algorithm contract, and oracle expectation
+    preservation_constraints: [no unresolved identifier is removed, renamed, merged, or interpreted]
+    does_not_apply_when: the source unresolved list is empty
+  - pattern_id: TLC-MASTER-PATTERN-EXTERNAL-SYMBOL-GATE
+    features: [TLC-FC-00-MASTER-003, TLC-FC-00-MASTER-004, TLC-FC-00-MASTER-012, TLC-FC-00-MASTER-014, TLC-FC-00-MASTER-015, TLC-FC-00-MASTER-016]
+    parameters: [domain, blocking_for_evaluation, evidence]
+    common_structure: descriptor construction preserves the dependency symbol; evaluation requires blocking dependencies while optional descriptor references remain non-blocking
+    preservation_constraints: [the external domain is read-only, no external artifact is modified, missing symbols never trigger substitution]
+    does_not_apply_when: no external dependency is declared
+analysis:
+  resemblance_only:
+    - all features use candidate scientific references
+  structural_duplication:
+    - identity validation, provenance construction, unresolved propagation, and preservation verification
+  demonstrated_equivalence:
+    - only the common wrapper behavior represented by the patterns above
+  explicitly_not_equivalent:
+    - the scientific equations, constraints, metrics, predicates, relations, declarations, and symbolic types across different features
