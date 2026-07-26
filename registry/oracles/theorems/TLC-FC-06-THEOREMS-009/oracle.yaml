@@ -1,0 +1,51 @@
+schema_version: 1
+artifact_kind: theorems_acceptance_oracle
+feature_id: TLC-FC-06-THEOREMS-009
+operation_under_test: construct_principles_role_descriptor
+source_test_plan: registry/test-plans/TLC-FC-06-THEOREMS-009/test-plan.yaml
+oracle_scope: structural_conformance_only
+acceptance_tests:
+  - id: ORACLE-009-NOMINAL
+    kind: nominal
+    given: opaque Principles role citing line 82, ordinal 2, and TLC-UT-THEOREMS-006
+    expect: PrinciplesRoleDescriptor preserving label, ordinal, payload, and unresolved identifier
+  - id: ORACLE-009-LABEL
+    kind: precondition_error
+    given: role label is not Principles
+    expect_error: WRONG_DIMENSION_LABEL
+  - id: ORACLE-009-ORDINAL
+    kind: precondition_error
+    given: source ordinal is not 2
+    expect_error: WRONG_SOURCE_ORDINAL
+  - id: ORACLE-009-UNRESOLVED
+    kind: unresolved_error
+    given: TLC-UT-THEOREMS-006 is absent
+    expect_error: MISSING_PRINCIPLES_UNRESOLVED
+  - id: ORACLE-009-SOURCE
+    kind: traceability
+    expect: line 82 and TLC-SO-THEOREMS-019 remain linked
+  - id: ORACLE-009-OPAQUE
+    kind: opaque_propagation
+    expect: role payload and rational-coherence label are unchanged and uninterpreted
+  - id: ORACLE-009-PROOF
+    kind: specification_metadata
+    expect: associated CNS proof remains partial, not formalized, and referenced as PROOF-THEOREMS-003
+  - id: ORACLE-009-NO-DEFINITION
+    kind: negative_capability
+    expect: result does not define rational coherence or resolve the Principles classification
+  - id: ORACLE-009-DETERMINISM
+    kind: determinism
+    action: invoke twice with identical inputs
+    expect: identical descriptors
+  - id: ORACLE-009-NO-SUFFICIENCY
+    kind: negative_capability
+    expect: successful construction does not assert sufficiency
+properties:
+  label_preserved: Principles
+  ordinal_preserved: 2
+  unresolved_preserved: true
+  scientific_definition_invented: false
+  proof_invented: false
+acceptance_result:
+  pass_when: exact label, ordinal, unresolved, opacity, error, and determinism assertions hold
+  does_not_mean: Principles or the CNS theorem is scientifically validated
