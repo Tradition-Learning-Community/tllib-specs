@@ -1,0 +1,133 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-003
+domain: invariants
+status: selected_for_invariants_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-003/contract.yaml
+source_contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-003-001
+source_traceability_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-003/traceability.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-003/ir.prototype.json
+source_ir_id: TLC-IR-TLC-FC-04-INVARIANTS-003-PROTOTYPE-001
+source_test_plan_ref: ir/TLC-FC-04-INVARIANTS-003/test-plan.yaml
+source_ir_raw_status: prototype_ir_with_reservations
+source_catalogue_status: deferred_for_scientific_decision
+nature: declarative_structural
+invariant_referenced:
+  concept: source_declared_invariants_and_equation_fragments
+  object_coverage_count: 33
+  relation_coverage_count: 33
+  source_ids_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-003/traceability.yaml
+scope: master_disciple_and_community_invariant_declarations
+inputs:
+- id: IR-IN-003-SPECIALIZED
+  type: InvariantDeclarationEvidence[]
+  required: true
+outputs:
+- id: IR-OUT-003-SPECIALIZED
+  type: InvariantDeclarationCatalog
+  immutable: true
+  observable_effect: returns a catalogue preserving declaration IDs, object types, source scopes, and linked evidence relations
+types:
+  declaration: InvariantDeclarationEvidence
+  output_catalogue: InvariantDeclarationCatalog
+  source_scope: DescriptiveScope
+  linked_relation: EvidenceRelationReference
+  preservation: PreservationEnvelope
+opaque_values:
+- OpaqueSourceStatement
+- OpaqueScientificTruthConditions
+preconditions:
+- id: PRE-INVARIANTS-003-SPECIALIZED
+  statement: every declaration and relation ID belongs to the covered feature evidence
+conditions_of_application:
+- declarations and relations are limited to the source traceability set
+- equation bodies and truth conditions remain opaque
+- no invariant-holds decision is requested
+operations:
+- id: INV003-OP-VALIDATE
+  name: validate_declaration_evidence_graph
+  effect: validate declaration identities, source scopes, object types, relation identities, and relation endpoints
+- id: INV003-OP-CATALOGUE
+  name: construct_invariant_declaration_catalog
+  effect: build immutable catalogue entries and linked relation references
+- id: INV003-OP-PRESERVE
+  name: preserve_deferred_scientific_status
+  effect: retain catalogue status, provenance, assumptions, reservations, and opaque content
+execution_order:
+- INV003-OP-VALIDATE
+- INV003-OP-CATALOGUE
+- INV003-OP-PRESERVE
+control_flow:
+- unknown declaration identity raises UnknownDeclarationId
+- relation referring to absent or mismatched evidence raises DanglingEvidenceRelation
+- missing source scope or object type raises MissingSourceReference
+- scientific truth evaluation raises ScientificEvaluationProhibited
+- otherwise construct, freeze, verify, and return
+state_before:
+  value: caller-owned declaration evidence and relation references
+  mutated: false
+state_after:
+  value: immutable InvariantDeclarationCatalog
+  input_mutated: false
+effects:
+  external_side_effects: []
+  scientific_evaluation: prohibited
+postconditions:
+- declaration IDs, object types, source scopes, and linked evidence relations equal the validated source evidence
+- catalogue status remains deferred_for_scientific_decision
+- unresolved IDs, assumptions, reservations, and opaque values are unchanged
+conditions_of_conservation:
+- exact declaration identity and relation identity sets
+- exact object type and source scope association
+- exact relation endpoint association
+- exact provenance and opaque-value preservation
+conditions_of_violation:
+- unknown declaration identity
+- dangling or mismatched relation
+- missing scope, type, or provenance
+- truth evaluation or equation interpretation
+- any preservation loss
+errors:
+- UnknownDeclarationId
+- DanglingEvidenceRelation
+- MissingSourceReference
+- ScientificEvaluationProhibited
+- PreservationViolation
+determinism:
+  status: deterministic
+  rule: identical validated declarations and linked relations produce structurally equal catalogues
+dependencies:
+  internal_structural: [TLC-FC-04-INVARIANTS-008]
+  documentary:
+  - TLC-INV-DEP-MASTER-001
+  - TLC-INV-DEP-DISCIPLE-001
+  - TLC-INV-DEP-COMMUNITY-001
+  - TLC-INV-DEP-DYNAMICS-001
+  scientific: [maths/04-invariants.md]
+  execution: []
+unresolved_propagated: []
+provisional_assumptions_propagated: [TLC-EA-INVARIANTS-003-001]
+reservations:
+- equation bodies and scientific truth conditions remain opaque
+- no truth evaluator or formula execution is supplied
+- concrete types, dimensions, units, ordering, cardinality, time, and precision remain unspecified
+transformations_applied:
+- normalized evidence-graph validation
+- shared immutable catalogue representation
+- common traceability and preservation envelope
+- explicit scientific-evaluation boundary
+obligations_of_preservation:
+- preserve all identifiers listed by source traceability
+- preserve declaration-to-relation links
+- preserve source scopes and object types
+- never decide whether an invariant holds
+algorithm_ref: registry/algorithms/invariants/TLC-FC-04-INVARIANTS-003/algorithm.yaml
+oracle_ref: registry/oracles/invariants/TLC-FC-04-INVARIANTS-003/oracle.yaml
+implementation_aptitude:
+  structural_implementation: ready
+  acceptance_tests: ready
+  scientific_evaluation: external_evaluator_required
+  production_scientific_execution: not_ready
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
