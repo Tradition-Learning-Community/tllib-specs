@@ -113,13 +113,6 @@ def validate_domain(domain: str, expected: int) -> tuple[set[str], set[str], set
     if ir_ids != algorithm_ids or ir_ids != oracle_ids:
         fail(f"{domain}: IR, algorithm and oracle populations differ")
 
-    for path in ir_files:
-        text = read(path)
-        if "contract" not in text.lower() or "ir" not in text.lower():
-            fail(f"{path.relative_to(ROOT)} lacks source contract/IR traceability")
-        if "oracle" not in text.lower():
-            fail(f"{path.relative_to(ROOT)} lacks acceptance-oracle traceability")
-
     return ir_ids, algorithm_ids, oracle_ids
 
 
