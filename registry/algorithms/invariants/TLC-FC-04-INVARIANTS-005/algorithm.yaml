@@ -1,0 +1,99 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-005
+algorithm_id: TLC-ALG-INVARIANTS-005-FINAL-001
+status: selected_for_invariants_implementation_specification
+optimized_ir_ref: registry/optimized-ir/invariants/TLC-FC-04-INVARIANTS-005/ir.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-005/contract.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-005/ir.prototype.json
+oracle_ref: registry/oracles/invariants/TLC-FC-04-INVARIANTS-005/oracle.yaml
+signature:
+  name: attach_interpretation_annotations
+  input: InterpretationAnnotation[]
+  output: AnnotatedInvariantEvidence
+inputs:
+- invariant root evidence and the three source-covered ordered annotations
+outputs:
+- immutable annotated root evidence
+validations:
+- annotation IDs are covered and unique
+- refers_to relation IDs are covered
+- every relation target equals the invariant root
+- source order and source references are present
+- annotations remain non-normative
+preconditions:
+- every annotation ID and refers_to relation is covered and targets the invariant root
+conditions_of_application:
+- attachment does not evaluate or alter invariant truth
+ordered_steps:
+- step: 1
+  action: validate root evidence identity and source reference
+- step: 2
+  action: validate each annotation ID, uniqueness, relation ID, target, and source reference in supplied order
+- step: 3
+  action: exact-copy each annotation into an immutable ordered annotation list
+- step: 4
+  action: construct new immutable root evidence with the annotation list
+- step: 5
+  action: attach exact status, assumptions, reservations, provenance, and opaque values
+- step: 6
+  action: verify order, identities, targets, truth neutrality, status neutrality, and preservation
+- step: 7
+  action: return the annotated evidence
+branching:
+- condition: unknown annotation ID
+  action: raise UnknownAnnotationId
+- condition: relation or target mismatch
+  action: raise AnnotationTargetMismatch
+- condition: duplicate annotation ID
+  action: raise DuplicateIdentifier
+- condition: truth or status alteration is requested
+  action: raise StatusPromotionProhibited
+- condition: conservation fails
+  action: raise PreservationViolation
+state_before:
+  root_and_annotations: caller_owned
+state_after:
+  inputs_mutated: false
+  result: immutable_annotated_evidence
+verification_of_conservation:
+- compare ordered annotation IDs and exact relation-target tuples
+- compare root evidence identity
+- assert truth and catalogue status are unchanged
+- compare sources, assumptions, reservations, and opaque values exactly
+errors:
+- UnknownAnnotationId
+- AnnotationTargetMismatch
+- DuplicateIdentifier
+- StatusPromotionProhibited
+- ScientificEvaluationProhibited
+- PreservationViolation
+postconditions:
+- exactly three covered annotations are attached in source order
+- result contains no computed truth, score, or status change
+determinism:
+  random_sources: none
+  result_rule: identical root and ordered annotations yield structurally equal output
+effects:
+  input_mutation: none
+  external_io: none
+  scientific_evaluation: none
+edge_cases:
+- missing one of the expected three annotations fails coverage validation when complete source evidence is required
+- duplicate annotation fails atomically
+- opaque interpretation text remains exact
+unresolved_conserved: []
+dependencies:
+  internal_structural: [TLC-FC-04-INVARIANTS-008]
+  execution: []
+pseudocode:
+- REQUIRE root evidence and annotations are present
+- seen_ids := empty set; ordered_annotations := empty list
+- FOR annotation IN annotations IN source order
+- REQUIRE annotation.id is covered, ELSE UnknownAnnotationId
+- REQUIRE annotation.id not in seen_ids, ELSE DuplicateIdentifier
+- REQUIRE annotation.relation is covered and annotation.target equals invariant root, ELSE AnnotationTargetMismatch
+- append immutable exact copy of annotation to ordered_annotations
+- END FOR
+- result := freeze AnnotatedInvariantEvidence(exact root evidence, ordered_annotations, exact preservation metadata)
+- REQUIRE order, identities, targets, truth, status, sources, assumptions, reservations, and opaque values are preserved, ELSE PreservationViolation
+- RETURN result
