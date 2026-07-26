@@ -1,0 +1,57 @@
+name: Post domain merge validation
+on:
+  push:
+    branches:
+      - validation/post-domain-merge-001
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Validate merged domain packages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re, subprocess
+
+          root = Path('.')
+          domain_root = root / 'registry/domain-finalization'
+          domains = sorted(p.name for p in domain_root.iterdir() if p.is_dir())
+          assert len(domains) == 16, (len(domains), domains)
+
+          def feature_dirs(base):
+              return sorted(p.parent.name for p in base.glob('*/*.yaml'))
+
+          ir = sorted(p.parent.name for p in (root/'registry/optimized-ir').glob('*/*/ir.yaml'))
+          algorithms = sorted(p.parent.name for p in (root/'registry/algorithms').glob('*/*/algorithm.yaml'))
+          oracles = sorted(p.parent.name for p in (root/'registry/oracles').glob('*/*/oracle.yaml'))
+          assert len(ir) == 166, len(ir)
+          assert len(algorithms) == 166, len(algorithms)
+          assert len(oracles) == 166, len(oracles)
+          assert ir == algorithms == oracles
+
+          task_ids = set()
+          pattern = re.compile(r'TLC-FC-[A-Z0-9-]+')
+          task_files = sorted(domain_root.glob('*/implementation-tasks.yaml'))
+          assert len(task_files) == 16, len(task_files)
+          for path in task_files:
+              task_ids.update(pattern.findall(path.read_text(encoding='utf-8')))
+          missing_tasks = sorted(set(ir) - task_ids)
+          assert not missing_tasks, missing_tasks
+
+          manifests = sorted(domain_root.glob('*/manifest.yaml'))
+          assert len(manifests) == 16, len(manifests)
+
+          changed = subprocess.check_output([
+              'git','diff','--name-only','c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD'
+          ], text=True).splitlines()
+          forbidden = [p for p in changed if p.startswith('maths/') or p.startswith('registry/global-reconciliation/')]
+          assert not forbidden, forbidden
+          assert not any(p.endswith(('.cpp','.cc','.cxx','.hpp','.h')) for p in changed)
+
+          print('PASS domains=16 features=166 optimized_ir=166 algorithms=166 oracles=166 task_coverage=166')
+          PY
+      - name: Diff whitespace check
+        run: git diff --check c34d40713bf444d38f92f76e1c6239ee596d5a18...HEAD
