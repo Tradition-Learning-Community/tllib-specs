@@ -1,0 +1,28 @@
+---
+schema_version: 1
+oracle_id: TLC-ORACLE-13-PRACTICE-006
+feature_id: TLC-FC-13-PRACTICE-006
+status: selected_for_practice_implementation_specification
+ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-006/ir.yaml
+algorithm_ref: registry/algorithms/practice/TLC-FC-13-PRACTICE-006/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-13-PRACTICE-006/test-plan.yaml
+acceptance_ready: true
+scientific_execution_oracle_available: false
+expected_identity: TLC-FC-13-PRACTICE-006
+expected_raw_status: blocked_declarative_non_executable
+expected_object_ids: [TLC-SO-PRACTICE-062, TLC-SO-PRACTICE-091]
+expected_input_ids: [INPUT-PRACTICE-006-1, INPUT-PRACTICE-006-2]
+expected_output_ids: [OUTPUT-PRACTICE-006-1, OUTPUT-PRACTICE-006-2]
+expected_unresolved: []
+expected_scientific_decisions: [TLC-SO-PRACTICE-062, TLC-SO-PRACTICE-091, TLC-SR-PRACTICE-061, TLC-SR-PRACTICE-090, TLC-HR-0048, TLC-HR-0051]
+tests:
+- {id: PRACTICE-006-STRUCTURE, category: nominal, assertion: blocked feature remains structurally representable}
+- {id: PRACTICE-006-DECISIONS, category: dependencies, assertion: exact decision set is preserved}
+- {id: PRACTICE-006-EVALUATION, category: errors, assertion: scientific evaluation returns scientific_decision_required}
+- {id: PRACTICE-006-ROUNDTRIP, category: serialization, assertion: round trip preserves both payloads and decisions}
+- {id: PRACTICE-006-NO-THRESHOLD, category: invariants, assertion: no threshold value or adequacy predicate is inferred}
+- {id: PRACTICE-006-NO-COORDINATION, category: invariants, assertion: no collective coordination procedure is invented}
+- {id: PRACTICE-006-ORDER, category: structural, assertion: object order remains 062, 091}
+properties: [removing or adding a decision fails conformity, structural serialization is deterministic, opaque values are unchanged]
+metamorphic_relations: [round-trip serialization is stable, replacing one payload changes only that payload]
+acceptance_condition: structural tests pass and scientific evaluation remains deferred
