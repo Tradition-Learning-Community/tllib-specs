@@ -1,0 +1,43 @@
+schema_version: 1
+feature_id: TLC-FC-07-MESSAGE-004
+status: selected_for_message_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-07-MESSAGE-004/contract.yaml
+source_ir: registry/ir/TLC-FC-07-MESSAGE-004/ir.yaml
+source_test_plan: registry/test-plans/TLC-FC-07-MESSAGE-004/test-plan.yaml
+source_ir_status: prototype_ir_with_reservations
+nature: structural
+inputs:
+  - {name: message_state_records, type: Sequence[MessageStateConceptRecord], required_count: 45, content_policy: opaque_candidate_evidence}
+outputs:
+  - {name: message_state_catalogue, type: MessageFormsAndStatesCatalogue, status: unevaluated_candidate}
+types:
+  opaque: [OpaqueScientificPayload, OpaqueSourceContext]
+  parameterized: [MessageStateConceptRecord, MessageFormsAndStatesCatalogue]
+content_or_reference: preserve the exact 45 covered object identifiers from the source contract
+opaque_values: [scientific_classification, hierarchy, medium_semantics, temporal_transitions, application_validity]
+roles_explicitly_defined: [catalogue_record, source_section_group, source_subsection_group]
+context: source sections and subsections of maths/07-message.md
+metadata: [feature_id, object_id, source_reference, source_order, candidate_status, unresolved]
+preconditions: [each of the 45 source contract identifiers occurs exactly once with its source reference]
+operations: [validate_exact_identifier_set, group_by_source_context, preserve_order_within_context, build_identifier_index, build_context_index, attach_unresolved]
+execution_order: [validate, group, preserve_order, index, attach_unresolved, verify]
+control_flow: fail_on_missing_duplicate_or_unknown_identifier
+transformations_authorized: [identity_preserving_grouping, identity_preserving_indexing]
+effects: [create_immutable_catalogue_and_indexes]
+postconditions: [all 45 records retrievable by identifier and source context, no merge, no source-context reorder, no status promotion]
+invariants: [identity_preserved, source_order_preserved_within_context, no_inferred_hierarchy, non_executable_evidence]
+errors: [MissingMessageStateRecord, DuplicateMessageStateIdentifier, UnknownMessageStateIdentifier]
+determinism: deterministic_for_identical_ordered_records
+dependencies: [TLC-FC-07-MESSAGE-006]
+unresolved_propagated: [TLC-UT-MESSAGE-003, TLC-UT-MESSAGE-004, TLC-UT-MESSAGE-005, TLC-UT-MESSAGE-006, TLC-UT-MESSAGE-007, TLC-UT-MESSAGE-008, TLC-UT-MESSAGE-009, TLC-UT-MESSAGE-010, TLC-UT-MESSAGE-011, TLC-UT-MESSAGE-012, TLC-UT-MESSAGE-013, TLC-UT-MESSAGE-014, TLC-UT-MESSAGE-015, TLC-UT-MESSAGE-016, TLC-UT-MESSAGE-017, TLC-UT-MESSAGE-026, TLC-UT-MESSAGE-027, TLC-UT-MESSAGE-028, TLC-UT-MESSAGE-029, TLC-UT-MESSAGE-030, TLC-UT-MESSAGE-031, TLC-UT-MESSAGE-033, TLC-UT-MESSAGE-035, TLC-UT-MESSAGE-036, TLC-UT-MESSAGE-037, TLC-UT-MESSAGE-038, TLC-UT-MESSAGE-039, TLC-UT-MESSAGE-040, TLC-UT-MESSAGE-041, TLC-UT-MESSAGE-042, TLC-UT-MESSAGE-043, TLC-UT-MESSAGE-044, TLC-UT-MESSAGE-045, TLC-UT-MESSAGE-046, TLC-UT-MESSAGE-047, TLC-UT-MESSAGE-049, TLC-UT-MESSAGE-050, TLC-UT-MESSAGE-051, TLC-UT-MESSAGE-052, TLC-UT-MESSAGE-053, TLC-UT-MESSAGE-054, TLC-UT-MESSAGE-055]
+reservations: same_as_unresolved_propagated
+transformations_applied_to_ir: [normalized_traceability, common_catalogue_validation, explicit_order_semantics]
+preservation_obligations: [content, all_identifiers, source_context, source_order, candidate_status, unresolved]
+algorithm: registry/algorithms/message/TLC-FC-07-MESSAGE-004/algorithm.yaml
+oracle: registry/oracles/message/TLC-FC-07-MESSAGE-004/oracle.yaml
+implementation_aptitude: ready_for_provenance_catalogue_implementation
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+message_content_invented: false
