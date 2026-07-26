@@ -1,0 +1,101 @@
+schema_version: 1
+artifact_kind: theorems_finalized_implementation_ir
+feature_id: TLC-FC-06-THEOREMS-001
+selection_status: selected_for_theorems_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-06-THEOREMS-001/contract.yaml
+source_contract_id: TLC-LEC-TLC-FC-06-THEOREMS-001-001
+source_ir: registry/ir/TLC-FC-06-THEOREMS-001/ir.yaml
+source_ir_id: TLC-PIR-TLC-FC-06-THEOREMS-001-001
+source_test_plan: registry/test-plans/TLC-FC-06-THEOREMS-001/test-plan.yaml
+source_ir_raw_status: prototype_ir_with_reservations
+nature: structural_declarative_claim_builder
+statement:
+  purpose: Assemble an unevaluated conservation-claim descriptor from the cited experiential-energy statement and its external axiom reference.
+  observable_effect: return a descriptor containing the bounded-energy, controlled-variation, and stationary-law clause identifiers without evaluating them
+  source_references: [maths/06-theorems.md:141-144]
+scope:
+  source_objects: [TLC-SO-THEOREMS-011]
+  source_relations: []
+  associated_result: RESULT-THEOREMS-007
+quantifiers:
+  feature_operation: none_explicitly_declared
+  associated_result: not_specified
+hypotheses:
+  scientific: external_axiom_reference_preserved_without_interpretation
+  provisional_engineering: [TLC-EA-THEOREMS-001-001]
+preconditions:
+  - The axiom reference and all three source clause identifiers are present.
+conditions_of_application:
+  - apply only to the supplied source-traceable axiom reference, experience symbol, and clause set
+conclusion:
+  scientific: explicit_source_statement_represented_but_not_evaluated
+  software:
+    - The result contains exactly the supplied axiom reference, experience symbol, and three unevaluated clause identifiers.
+logical_relation:
+  source_relation: theorem_statement_with_external_axiom_reference
+  software_relation: structural_assembly_only
+  implication_asserted_by_software: false
+  equivalence_asserted_by_software: false
+dependencies:
+  theorem_results: [RESULT-THEOREMS-007]
+  proof_references: [PROOF-THEOREMS-006]
+  external_references: [section_1_45_8_axioms]
+operations_authorized:
+  - validate axiom reference presence
+  - validate completeness of three clause identifiers
+  - preserve experience symbol byte-for-byte
+  - construct UnevaluatedConservationClaim
+execution_order:
+  - validate preconditions
+  - preserve opaque inputs
+  - construct descriptor
+  - validate postcondition
+control_flow:
+  - on missing axiom reference return MISSING_AXIOM_REFERENCE
+  - on incomplete clause set return INCOMPLETE_CONSERVATION_CLAUSES
+  - otherwise construct and return the descriptor
+effects:
+  purity: pure_structural_construction
+  scientific_evaluation: forbidden
+  numeric_evaluation: forbidden
+postconditions:
+  - The result contains exactly the supplied axiom reference, experience symbol, and three unevaluated clause identifiers.
+errors:
+  - MISSING_AXIOM_REFERENCE
+  - INCOMPLETE_CONSERVATION_CLAUSES
+determinism: deterministic_structural_construction_for_identical_inputs
+proof_status:
+  associated_result_status: partial
+  formalization_status: not_formalized
+  proof_reference: PROOF-THEOREMS-006
+  proof_verification_performed: false
+  external_proof_required: true
+unresolved_propagated: []
+opaque_values:
+  types: [OpaqueAxiomReference, OpaqueExperienceSymbol, OpaqueScientificValue, OpaqueScientificExpression]
+  policy: an opaque experience symbol is preserved byte-for-byte
+reservations:
+  - The operation organizes source evidence but does not establish theorem truth.
+  - Missing types, units, dimensions, cardinalities, ordering, precision, probability laws, and algorithms remain unspecified.
+transformations_applied:
+  - normalized finalized IR envelope
+  - normalized traceability links
+  - explicit proof-status boundary
+  - deterministic validation order following source error order
+obligations_of_preservation:
+  - preserve axiom reference identity
+  - preserve experience symbol identity
+  - preserve exactly three supplied clause identifiers
+  - preserve partial proof status
+  - do not infer theorem truth
+algorithm_ref: registry/algorithms/theorems/TLC-FC-06-THEOREMS-001/algorithm.yaml
+oracle_ref: registry/oracles/theorems/TLC-FC-06-THEOREMS-001/oracle.yaml
+implementation_aptitude:
+  status: ready_for_structural_implementation
+  automatic_proof: false
+  scientific_computation: false
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+proof_invented: false
