@@ -1,0 +1,38 @@
+---
+schema_version: 1
+algorithm_id: TLC-ALG-13-PRACTICE-012
+feature_id: TLC-FC-13-PRACTICE-012
+status: selected_for_practice_implementation_specification
+ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-012/ir.yaml
+signature: construct_provisionally_separated_practice_relation(request, opaque_input) -> PracticeStructuralResult | PracticeError
+inputs: [PracticeStructuralRequest, OpaqueCandidateScientificInput]
+outputs: [PracticeFeatureRepresentation, structured decision error]
+validations: [exact identity, required input, relation object reference, exact scientific decision set, no inferred endpoint]
+preconditions: [input is supplied under candidate status]
+prerequisites: []
+conditions_of_application: [structural operations only, endpoint identity remains unresolved]
+ordered_steps_declared: false
+branches:
+- {condition: structural operation, action: preserve the provisionally separated relation}
+- {condition: endpoint inference requested, action: return implementation_out_of_scope}
+- {condition: scientific evaluation requested, action: return scientific_decision_required with TLC-HR-0100}
+repetitions: []
+transitions: []
+stop_conditions: []
+effects: []
+errors: [invalid_feature_identity, missing_required_input, invalid_input_type, provenance_mismatch, structural_error, scientific_decision_required, external_evaluator_required, implementation_out_of_scope]
+postconditions: [relation identity, opaque value, provisional boundary and decision are preserved]
+invariants: [no endpoint identity or metric semantics is inferred]
+determinism: {structural_operations: deterministic, scientific_result: blocked}
+edge_cases: [supplied endpoint identity is rejected unless future source authority selects it, missing decision fails, unknown operation is out of scope]
+dependencies: {evaluation: scientific_review_required}
+unresolved_preserved: []
+pseudocode: |
+  REQUIRE feature id 012, input 012-1, object 061 and decision HR-0100
+  REQUIRE no inferred relation endpoints are supplied
+  BUILD immutable provisionally separated relation representation
+  PRESERVE payload, provenance and decision reference without interpretation
+  IF request is structural THEN RETURN requested structural result
+  IF request infers endpoints THEN RETURN implementation_out_of_scope
+  IF request is scientific_evaluate THEN RETURN scientific_decision_required with HR-0100
+  RETURN implementation_out_of_scope
