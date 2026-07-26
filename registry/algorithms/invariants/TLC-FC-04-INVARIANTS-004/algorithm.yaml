@@ -1,0 +1,94 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-004
+algorithm_id: TLC-ALG-INVARIANTS-004-FINAL-001
+status: selected_for_invariants_implementation_specification
+optimized_ir_ref: registry/optimized-ir/invariants/TLC-FC-04-INVARIANTS-004/ir.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-004/contract.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-004/ir.prototype.json
+oracle_ref: registry/oracles/invariants/TLC-FC-04-INVARIANTS-004/oracle.yaml
+signature:
+  name: declare_disciple_invariant_scope
+  input: DiscipleInvariantScopeEvidence
+  output: ScopedInvariantDeclaration
+inputs:
+- one evidence record for TLC-SO-INVARIANTS-007 with TLC-SR-INVARIANTS-006, disciple scope, root reference, status, opaque values, assumptions, and reservations
+outputs:
+- one immutable scientifically deferred scoped declaration
+validations:
+- evidence object identity equals TLC-SO-INVARIANTS-007
+- relation identity equals TLC-SR-INVARIANTS-006
+- root reference is present
+- scope remains disciple
+- no member set, predicate, or validation rule is supplied as an inferred value
+preconditions:
+- the evidence object is TLC-SO-INVARIANTS-007 and its root reference is present
+conditions_of_application:
+- operation declares a descriptive scope only
+- scientific semantics remain external
+ordered_steps:
+- step: 1
+  action: validate evidence presence and type
+- step: 2
+  action: validate exact source object and relation identities
+- step: 3
+  action: validate disciple scope and root reference
+- step: 4
+  action: exact-copy evidence, opaque values, status, assumptions, reservations, and provenance into a declaration record
+- step: 5
+  action: mark the declaration scientifically deferred without modifying source status
+- step: 6
+  action: freeze the declaration
+- step: 7
+  action: verify identity, root, scope, status, and opaque-value conservation
+- step: 8
+  action: return the declaration
+branching:
+- condition: source object or relation is wrong
+  action: raise WrongScopeObject
+- condition: root reference is missing
+  action: raise MissingRootReference
+- condition: caller requests invented members, validation, or truth evaluation
+  action: raise ScientificEvaluationProhibited
+- condition: status is promoted
+  action: raise StatusPromotionProhibited
+state_before:
+  evidence: caller_owned
+state_after:
+  evidence_mutated: false
+  result: immutable_scoped_declaration
+verification_of_conservation:
+- compare exact object, relation, root reference, and scope
+- compare deferred status, assumptions, reservations, and opaque values
+errors:
+- WrongScopeObject
+- MissingRootReference
+- StatusPromotionProhibited
+- ScientificEvaluationProhibited
+- PreservationViolation
+postconditions:
+- exactly one disciple-scoped declaration exists
+- no scope member, predicate, validation result, or truth value is invented
+determinism:
+  random_sources: none
+  result_rule: identical evidence yields a structurally equal declaration
+effects:
+  input_mutation: none
+  external_io: none
+  scientific_evaluation: none
+edge_cases:
+- absent root reference fails before output construction
+- an empty or unknown member list is neither required nor synthesized
+- opaque source content remains exact
+unresolved_conserved: []
+dependencies:
+  internal_structural: [TLC-FC-04-INVARIANTS-008]
+  execution: []
+pseudocode:
+- REQUIRE evidence is present
+- REQUIRE evidence.object_id equals TLC-SO-INVARIANTS-007 and relation_id equals TLC-SR-INVARIANTS-006, ELSE WrongScopeObject
+- REQUIRE evidence.root_reference is present, ELSE MissingRootReference
+- REQUIRE evidence.scope equals disciple
+- REQUIRE no scientific evaluation or inferred membership is requested, ELSE ScientificEvaluationProhibited
+- result := freeze ScopedInvariantDeclaration(exact evidence copy, scientifically deferred, exact preservation metadata)
+- REQUIRE identity, root, scope, status, assumptions, reservations, and opaque values are preserved, ELSE PreservationViolation
+- RETURN result
