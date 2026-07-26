@@ -1,0 +1,16 @@
+schema_version: 1
+status: no_global_structural_blocker
+blocking: []
+non_blocking:
+  - id: GLOBAL-DECISION-MESSAGE-CI-EVIDENCE
+    classification: validation_evidence_gap
+    description: Message domain validator existed at merge time but no pull-request workflow run was observable on its branch head.
+    resolution: run all domain validators together in global integration CI.
+  - id: GLOBAL-DECISION-SCIENTIFIC-EXECUTION
+    classification: deferred_to_scientific_review
+    description: Domain-specific unresolved equations, evaluators, proofs, thresholds, transitions and relation semantics remain preserved.
+    resolution: do not resolve during structural implementation.
+  - id: GLOBAL-DECISION-CYCLE-001
+    classification: preserved_as_opaque
+    description: TLC-GCYCLE-DOMAIN-001 remains documented without an invented global execution order.
+    resolution: use feature-level dependency evidence.
