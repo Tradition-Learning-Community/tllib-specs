@@ -1,0 +1,77 @@
+schema_version: 1
+domain_id: capacities
+finalization_status: selected_for_capacities_implementation_specification
+base_branch: main
+base_head: c34d40713bf444d38f92f76e1c6239ee596d5a18
+branch: phase4/capacities-domain-finalization-001
+authoritative_baseline: registry/global-reconciliation/current-baseline.yaml
+authoritative_population_source: registry/global-reconciliation/domain-feature-matrix.yaml
+authoritative_feature_count: 15
+active_feature_ids:
+  - TLC-FC-11-CAPACITIES-001
+  - TLC-FC-11-CAPACITIES-002
+  - TLC-FC-11-CAPACITIES-003
+  - TLC-FC-11-CAPACITIES-005
+  - TLC-FC-11-CAPACITIES-006
+  - TLC-FC-11-CAPACITIES-007
+  - TLC-FC-11-CAPACITIES-008
+  - TLC-FC-11-CAPACITIES-009
+  - TLC-FC-11-CAPACITIES-010
+  - TLC-FC-11-CAPACITIES-011
+  - TLC-FC-11-CAPACITIES-012
+  - TLC-FC-11-CAPACITIES-013
+  - TLC-FC-11-CAPACITIES-014
+  - TLC-FC-11-CAPACITIES-015
+  - TLC-FC-11-CAPACITIES-018
+legacy_goose_feature_ids:
+  - TLC-FC-11-CAP-001
+  - TLC-FC-11-CAP-002
+  - TLC-FC-11-CAP-003
+  - TLC-FC-11-CAP-004
+  - TLC-FC-11-CAP-005
+  - TLC-FC-11-CAP-006
+  - TLC-FC-11-CAP-007
+  - TLC-FC-11-CAP-008
+  - TLC-FC-11-CAP-009
+legacy_ids_authoritative: false
+legacy_ids_counted_as_active: false
+source_catalogue: registry/domain-progress/capacities/feature-inventory.yaml
+scientific_source: maths/11-capacities.md
+source_matrices:
+  - registry/global-reconciliation/feature-contract-matrix.yaml
+  - registry/global-reconciliation/feature-ir-matrix.yaml
+  - registry/global-reconciliation/status-taxonomy.yaml
+domain_sources:
+  - registry/domain-progress/capacities/domain-completion-manifest.yaml
+  - registry/domain-progress/capacities/external-dependencies.yaml
+  - registry/domain-progress/capacities/relation-inventory.yaml
+  - reports/domain-progress/capacities/feature-catalogue-report.md
+  - reports/domain-progress/capacities/goose-audit-report.md
+  - reports/domain-progress/capacities/preparation-report.md
+  - reports/domain-progress/capacities/decision-required.md
+artifact_roots:
+  optimized_ir: registry/optimized-ir/capacities
+  algorithms: registry/algorithms/capacities
+  oracles: registry/oracles/capacities
+  report: reports/domain-finalization/capacities/finalization-report.md
+  validator: tools/domain-finalization/validate_capacities_finalization.py
+completion_criteria:
+  source_contract_per_feature: true
+  source_ir_per_feature: true
+  source_test_plan_per_feature: true
+  finalized_ir_per_feature: true
+  algorithm_per_feature: true
+  oracle_per_feature: true
+  module_integration_per_feature: true
+  implementation_task_per_feature: true
+preservation:
+  source_ir_preserved: true
+  source_contract_preserved: true
+  scientific_source_modified: false
+  other_domains_modified: false
+  global_registry_regenerated: false
+  legacy_feature_promoted: false
+  feature_rejected: false
+  cxx_produced: false
+  python_binding_produced: false
+  reference_implementation_produced: false
