@@ -1,0 +1,66 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-006
+status: selected_for_virtues_implementation_specification
+ir_ref: registry/optimized-ir/virtues/TLC-FC-10-VIRTUES-006/ir.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-006/contract.yaml
+entrypoint: register_virtue_equation_forms
+signature: "register_virtue_equation_forms(request: VirtuesRequest) -> VirtuesResult"
+inputs: [feature_id, artifact, provenance, reservations]
+outputs: [accepted form registration or named error]
+validations:
+  - exact feature id
+  - provenance contains all five source objects
+  - no equation solving, ranking, merging, equivalence assertion, or formula completion requested
+preconditions: [request uses VirtuesRequest]
+conditions_of_application: [forms and links are registered exactly as supplied]
+ordered_steps:
+  - validate feature id
+  - validate provenance
+  - reject prohibited solving, merging, and completion
+  - copy equation forms and free symbols
+  - copy opaque operators
+  - copy duplicate-candidate links without changing identity
+  - build accepted source-bound result
+branching:
+  invalid_feature: invalid_feature_id
+  incomplete_provenance: missing_provenance
+  prohibited_scientific_operation: unsupported_scientific_completion_request
+construction_or_reading: register supplied forms, symbols, operators, and candidate links
+identity_scope_context_validation:
+  identity: exact feature, source objects, and supplied object references
+  scope: formal representation registration only
+  context: opaque
+relation_processing: [preserve supplied duplicate-candidate links]
+observation: none
+comparison: none
+effects: result construction only
+errors: [missing_provenance, unsupported_scientific_completion_request, invalid_feature_id]
+postconditions:
+  - supplied forms, symbols, operators, and links are unchanged
+  - no solution, equivalence, ranking, or merge is produced
+invariants: [object identity conserved, source order conserved, candidate link is not equivalence]
+determinism: deterministic for identical requests
+edge_cases:
+  - free-symbol list may be empty
+  - unknown operators remain opaque
+  - repeated candidate links are preserved without deduced merge
+dependencies: [common Virtues validation, opaque form registrar, result envelope]
+unresolved_conserved: []
+pseudocode: |
+  function register_virtue_equation_forms(request):
+      if request.feature_id != "TLC-FC-10-VIRTUES-006":
+          return error("invalid_feature_id")
+      required = ["TLC-SO-VIRTUES-070", "TLC-SO-VIRTUES-194", "TLC-SO-VIRTUES-195", "TLC-SO-VIRTUES-197", "TLC-SO-VIRTUES-198"]
+      if not provenance_contains(request.provenance, required):
+          return error("missing_provenance")
+      if requests_solving_merging_or_completion(request):
+          return error("unsupported_scientific_completion_request")
+      registered = copy_opaque(request.artifact)
+      return accepted_result(
+          feature_id=request.feature_id,
+          entrypoint="register_virtue_equation_forms",
+          source_objects=required,
+          artifact=registered,
+          reservations=copy_opaque(request.reservations),
+          unresolved=[],
+          assumptions=["source fragments are metadata, not executable science"])

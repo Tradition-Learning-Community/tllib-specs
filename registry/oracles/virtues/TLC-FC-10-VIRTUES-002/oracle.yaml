@@ -1,0 +1,48 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-002
+status: selected_for_virtues_implementation_specification
+ir_ref: registry/optimized-ir/virtues/TLC-FC-10-VIRTUES-002/ir.yaml
+algorithm_ref: registry/algorithms/virtues/TLC-FC-10-VIRTUES-002/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-002/test-plan.yaml
+entrypoint: register_observational_learning_assumption
+oracle_kind: declarative_structural_acceptance
+fixtures:
+  required_source_objects: [TLC-SO-VIRTUES-016]
+  nominal_artifact: {claims: [modelage, shadowing, apprenticeship, community_exposure], evidence: opaque_evidence}
+acceptance_cases:
+  - id: nominal
+    assertions: [accepted is true, entrypoint is exact, source objects and artifact are preserved]
+  - id: identity_scope_context
+    assertions: [feature identity is exact, claim scope and opaque context are unchanged]
+  - id: declarative_only
+    assertions: [claims are registered, no learning transition or algorithm is emitted]
+  - id: unresolved
+    assertions: [scientific ambiguity is returned exactly once as a preserved unresolved value]
+error_cases:
+  - request: wrong feature id
+    expected_error: invalid_feature_id
+  - request: missing required provenance
+    expected_error: missing_provenance
+  - request: derive imitation or acquisition algorithm, score, hierarchy, threshold, weight, or moral decision
+    expected_error: unsupported_scientific_completion_request
+property_tests:
+  - exposure labels and evidence round-trip unchanged
+  - unknown exposure labels remain opaque
+  - scientific ambiguity is never replaced by a local interpretation
+  - no acquisition condition or normative consequence is invented
+metamorphic_tests:
+  - adding an opaque claim appends only that supplied claim
+  - changing evidence changes only copied evidence
+  - adding a reservation changes only reservations
+  - identical requests return identical results
+determinism_test: repeated identical request returns equivalent logical data
+composition_tests:
+  - common validation precedes claim registration
+  - rejected requests emit no accepted result
+unresolved_tests:
+  expected: [scientific ambiguity]
+  propagation: exact and unchanged
+dependency_tests:
+  - no Master, Community, Disciple, or learning-engine execution is invoked
+forbidden_outputs: [learning algorithm, acquisition transition, virtue score, hierarchy, comparison, invented manifestation]
+acceptance_rule: All structural and unresolved assertions pass and all forbidden outputs are absent.

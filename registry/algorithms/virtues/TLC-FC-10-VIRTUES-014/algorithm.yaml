@@ -1,0 +1,66 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-014
+status: selected_for_virtues_implementation_specification
+ir_ref: registry/optimized-ir/virtues/TLC-FC-10-VIRTUES-014/ir.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-014/contract.yaml
+entrypoint: map_contextual_virtue_relations
+signature: "map_contextual_virtue_relations(request: VirtuesRequest) -> VirtuesResult"
+inputs: [feature_id, artifact, provenance, reservations]
+outputs: [accepted contextual relation map or named error]
+validations:
+  - exact feature id
+  - provenance contains all five source objects
+  - no endpoint identity inference, cross-domain execution, comparison, score, or moral decision requested
+preconditions: [request uses VirtuesRequest]
+conditions_of_application: [relation endpoints, labels, and context are supplied]
+ordered_steps:
+  - validate feature id
+  - validate provenance
+  - reject endpoint inference and unsupported completion
+  - copy supplied endpoints, relation labels, and context
+  - register claims in supplied order without resolving endpoints
+  - build accepted source-bound result
+branching:
+  invalid_feature: invalid_feature_id
+  incomplete_provenance: missing_provenance
+  endpoint_inference_or_completion_requested: unsupported_scientific_completion_request
+construction_or_reading: build a declarative relation map from supplied claims
+identity_scope_context_validation:
+  identity: exact feature, source objects, and supplied endpoint tokens
+  scope: contextual relation mapping only
+  context: copied unchanged
+relation_processing: [preserve each supplied contextual relation claim]
+observation: none
+comparison: none
+effects: result construction only; no external resolution or execution
+errors: [missing_provenance, unsupported_scientific_completion_request, invalid_feature_id]
+postconditions:
+  - endpoints, context, labels, claims, provenance, and reservations are unchanged
+  - no identity, type equivalence, comparison, score, or execution dependency is inferred
+invariants: [endpoint tokens conserved, relation order conserved, source order conserved]
+determinism: deterministic for identical requests
+edge_cases:
+  - empty relation list produces an empty declarative map
+  - unknown endpoint types remain opaque
+  - self-looking endpoint tokens do not establish scientific self-relation
+  - endpoint-resolution requests are rejected
+dependencies: [common Virtues validation, contextual relation mapper, result envelope]
+unresolved_conserved: []
+pseudocode: |
+  function map_contextual_virtue_relations(request):
+      if request.feature_id != "TLC-FC-10-VIRTUES-014":
+          return error("invalid_feature_id")
+      required = ["TLC-SO-VIRTUES-013", "TLC-SO-VIRTUES-020", "TLC-SO-VIRTUES-054", "TLC-SO-VIRTUES-093", "TLC-SO-VIRTUES-116"]
+      if not provenance_contains(request.provenance, required):
+          return error("missing_provenance")
+      if requests_endpoint_inference(request) or requests_unsupported_completion(request):
+          return error("unsupported_scientific_completion_request")
+      relation_map = copy_claims_in_order(request.artifact)
+      return accepted_result(
+          feature_id=request.feature_id,
+          entrypoint="map_contextual_virtue_relations",
+          source_objects=required,
+          artifact=relation_map,
+          reservations=copy_opaque(request.reservations),
+          unresolved=[],
+          assumptions=["source fragments are metadata, not executable science"])

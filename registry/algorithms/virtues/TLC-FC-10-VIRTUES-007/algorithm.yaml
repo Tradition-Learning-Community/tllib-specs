@@ -1,0 +1,65 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-007
+status: selected_for_virtues_implementation_specification
+ir_ref: registry/optimized-ir/virtues/TLC-FC-10-VIRTUES-007/ir.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-007/contract.yaml
+entrypoint: check_virtue_function_invariant
+signature: "check_virtue_function_invariant(request: VirtuesRequest) -> VirtuesResult"
+inputs: [feature_id, artifact, provenance, reservations]
+outputs: [accepted structural result or named error]
+validations:
+  - exact feature id
+  - provenance contains TLC-SO-VIRTUES-060
+  - no semantic expansion, hierarchy, ranking, score, or formula completion requested
+preconditions: [request uses VirtuesRequest]
+conditions_of_application: [source-declared role labels remain labels only]
+ordered_steps:
+  - validate feature id
+  - validate provenance
+  - reject unsupported semantic completion
+  - copy source-declared role-label representation without substitution or interpretation
+  - build accepted source-bound result
+branching:
+  invalid_feature: invalid_feature_id
+  incomplete_provenance: missing_provenance
+  semantic_completion_requested: unsupported_scientific_completion_request
+construction_or_reading: read and preserve the supplied role-label representation
+identity_scope_context_validation:
+  identity: exact feature and source object
+  scope: V_fonction role-label preservation
+  context: opaque
+relation_processing: []
+observation: none
+comparison: none
+effects: result construction only
+errors: [missing_provenance, unsupported_scientific_completion_request, invalid_feature_id]
+postconditions:
+  - supplied role labels and provenance are unchanged
+  - no meaning, order, priority, or score is added
+invariants:
+  - ancrage, guidage, unification, and contrainte remain labels only
+  - source order and opaque payload are conserved
+determinism: deterministic for identical requests
+edge_cases:
+  - additional opaque labels are preserved without interpretation
+  - empty optional context is accepted
+  - requests to prioritize role labels are rejected
+dependencies: [common Virtues validation, exact label preservation, result envelope]
+unresolved_conserved: []
+pseudocode: |
+  function check_virtue_function_invariant(request):
+      if request.feature_id != "TLC-FC-10-VIRTUES-007":
+          return error("invalid_feature_id")
+      if not provenance_contains(request.provenance, ["TLC-SO-VIRTUES-060"]):
+          return error("missing_provenance")
+      if requests_semantic_completion(request) or requests_unsupported_completion(request):
+          return error("unsupported_scientific_completion_request")
+      labels = copy_opaque(request.artifact)
+      return accepted_result(
+          feature_id=request.feature_id,
+          entrypoint="check_virtue_function_invariant",
+          source_objects=["TLC-SO-VIRTUES-060"],
+          artifact=labels,
+          reservations=copy_opaque(request.reservations),
+          unresolved=[],
+          assumptions=["source fragments are metadata, not executable science"])

@@ -1,0 +1,102 @@
+schema_version: 1
+domain_id: virtues
+status: selected_for_virtues_implementation_specification
+analysis_scope: active Virtues IRs only
+distinctions:
+  resemblance: Similar subject matter without a demonstrated shared representation or behavior.
+  textual_duplication: Repeated wording that does not establish scientific equivalence.
+  structural_duplication: Identical envelope, validation, traceability, or error structure.
+  same_representation_schema: Shared source-bound opaque data shape with feature-specific semantics retained.
+  scientific_equivalence: Requires explicit source evidence and is not asserted by this finalization.
+shared_patterns:
+  - pattern_id: VIRTUES-PATTERN-001
+    name: source_bound_request_envelope
+    demonstrated_by: all_active_features
+    fields: [feature_id, artifact, provenance, reservations]
+    preservation_rule: Artifact and caller-supplied opaque values pass through unchanged.
+  - pattern_id: VIRTUES-PATTERN-002
+    name: opaque_virtue_reference
+    demonstrated_by: all_active_features
+    fields: [identity_ref, source_object_refs, optional_label]
+    preservation_rule: A reference never implies a score, hierarchy, identity with another TL object, or moral decision.
+  - pattern_id: VIRTUES-PATTERN-003
+    name: provenance_validation
+    demonstrated_by: all_active_features
+    rules:
+      - feature_id must match the selected feature
+      - every contract source object must be represented in provenance
+      - missing provenance returns missing_provenance and no accepted result
+  - pattern_id: VIRTUES-PATTERN-004
+    name: unsupported_scientific_completion_guard
+    demonstrated_by: all_active_features
+    rejected_requests: [moral_ranking, scoring, weighting, thresholds, hierarchy, metric_selection, formula_completion, moral_decision]
+    error: unsupported_scientific_completion_request
+  - pattern_id: VIRTUES-PATTERN-005
+    name: source_bound_result_envelope
+    demonstrated_by: all_active_features
+    fields: [accepted, feature_id, entrypoint, source_objects, artifact, reservations, unresolved, assumptions]
+    preservation_rule: No scientific computation is added.
+  - pattern_id: VIRTUES-PATTERN-006
+    name: unresolved_propagation
+    demonstrated_by: [TLC-FC-10-VIRTUES-002, TLC-FC-10-VIRTUES-009, TLC-FC-10-VIRTUES-010]
+    value: scientific ambiguity
+    preservation_rule: The unresolved value is returned unchanged and is not replaced by a local interpretation.
+  - pattern_id: VIRTUES-PATTERN-007
+    name: declarative_form_registration
+    demonstrated_by: [TLC-FC-10-VIRTUES-002, TLC-FC-10-VIRTUES-005, TLC-FC-10-VIRTUES-006, TLC-FC-10-VIRTUES-009, TLC-FC-10-VIRTUES-010]
+    preservation_rule: Equations, operators, dimensions, indicators, learning claims, and dynamics remain descriptors unless execution semantics are explicitly selected.
+  - pattern_id: VIRTUES-PATTERN-008
+    name: observation_without_evaluation
+    demonstrated_by: [TLC-FC-10-VIRTUES-008, TLC-FC-10-VIRTUES-011]
+    preservation_rule: Observation records may be packaged; scores, diagnoses, corrections, and normative conclusions are not produced.
+  - pattern_id: VIRTUES-PATTERN-009
+    name: relation_without_endpoint_inference
+    demonstrated_by: [TLC-FC-10-VIRTUES-011, TLC-FC-10-VIRTUES-014]
+    preservation_rule: Supplied endpoints and labels are retained; identity, type equivalence, and cross-domain execution dependencies are not inferred.
+  - pattern_id: VIRTUES-PATTERN-010
+    name: invariant_label_preservation
+    demonstrated_by: [TLC-FC-10-VIRTUES-007]
+    preservation_rule: ancrage, guidage, unification, and contrainte remain labels only.
+common_types:
+  OpaqueVirtue: uninterpreted virtue label or representation payload
+  VirtueReference: source-bound identity and source object references
+  OpaqueEvidence: uninterpreted evidence payload
+  OpaqueContext: uninterpreted application context
+  OpaqueRelationEndpoint: caller-supplied endpoint without inferred identity
+  OpaqueMetricDescriptor: uninterpreted metric, scale, dimension, or indicator descriptor
+  ProvenanceRef: source object id plus source span
+  UnresolvedItem: preserved unresolved identifier or text
+  VirtuesRequest: normalized request envelope
+  VirtuesResult: normalized accepted or rejected result envelope
+common_errors:
+  - missing_provenance
+  - unsupported_scientific_completion_request
+  - invalid_feature_id
+optimization_decisions:
+  - decision: factor common request and result envelopes
+    evidence: identical contract and source IR fields across all ten features
+    semantic_effect: none
+  - decision: factor common provenance and feature-id validation
+    evidence: identical preconditions and error policies
+    semantic_effect: none
+  - decision: factor opaque-value and unresolved propagation
+    evidence: identical source assumptions and postconditions
+    semantic_effect: none
+  - decision: retain feature-specific entrypoints and operations
+    evidence: operations have different observable scopes
+    semantic_effect: prevents invalid scientific fusion
+  - decision: preserve source object order
+    evidence: no proof that order is semantically irrelevant
+    semantic_effect: avoids accidental normalization loss
+  - decision: do not factor scientific descriptors into an equivalence class
+    evidence: concept separation and duplicate-candidate status do not prove equivalence
+    semantic_effect: prevents invented ontology
+rejected_optimizations:
+  - merging observation and evaluation
+  - merging representation and comparison
+  - executing quantitative measures
+  - numerically integrating dynamics
+  - solving equation forms
+  - inferring endpoint identities
+  - converting documentary dependencies into execution dependencies
+  - deriving a hierarchy, order, score, priority, or progression scale

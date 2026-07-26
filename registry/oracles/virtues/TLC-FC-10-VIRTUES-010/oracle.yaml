@@ -1,0 +1,48 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-010
+status: selected_for_virtues_implementation_specification
+ir_ref: registry/optimized-ir/virtues/TLC-FC-10-VIRTUES-010/ir.yaml
+algorithm_ref: registry/algorithms/virtues/TLC-FC-10-VIRTUES-010/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-010/test-plan.yaml
+entrypoint: register_essential_property_indicators
+oracle_kind: opaque_indicator_category_acceptance
+fixtures:
+  required_source_objects: [TLC-SO-VIRTUES-003, TLC-SO-VIRTUES-067]
+  nominal_artifact: {categories: [stability, developability, contextual_flexibility, integration, measurability], indicators: opaque_indicators, progression: opaque_progression}
+acceptance_cases:
+  - id: nominal
+    assertions: [accepted is true, entrypoint and source objects are exact, categories are preserved]
+  - id: unresolved
+    assertions: [scientific ambiguity is propagated exactly]
+  - id: opacity
+    assertions: [indicators, metrics, and progression descriptors remain uninterpreted]
+  - id: identity_scope_context
+    assertions: [feature identity, category scope, and opaque context are conserved]
+error_cases:
+  - request: wrong feature id
+    expected_error: invalid_feature_id
+  - request: incomplete source provenance
+    expected_error: missing_provenance
+  - request: interpret indicators, compute metric or degree, evaluate progression, score, compare, or rank
+    expected_error: unsupported_scientific_completion_request
+property_tests:
+  - categories and descriptors round-trip unchanged
+  - presentation order does not become hierarchy or priority
+  - no degree, scale, progression transition, score, or comparator is invented
+  - scientific ambiguity is not replaced
+metamorphic_tests:
+  - appending an opaque category appends only that category
+  - changing an indicator descriptor changes only the copied descriptor
+  - adding a reservation changes only reservations
+  - identical requests return identical results
+determinism_test: repeated identical request returns equivalent logical data
+composition_tests:
+  - common validation precedes category registration
+  - rejected evaluation requests emit no accepted result
+unresolved_tests:
+  expected: [scientific ambiguity]
+  propagation: exact and unchanged
+dependency_tests:
+  - no metric, progression, evaluator, comparator, Capacity, or Competency execution is invoked
+forbidden_outputs: [computed indicator, metric value, degree, progression state, virtue score, hierarchy, comparison]
+acceptance_rule: Category and unresolved preservation pass and all forbidden outputs are absent.

@@ -1,0 +1,63 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-002
+status: selected_for_virtues_implementation_specification
+ir_ref: registry/optimized-ir/virtues/TLC-FC-10-VIRTUES-002/ir.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-002/contract.yaml
+entrypoint: register_observational_learning_assumption
+signature: "register_observational_learning_assumption(request: VirtuesRequest) -> VirtuesResult"
+inputs: [feature_id, artifact, provenance, reservations]
+outputs: [accepted declarative result or named error]
+validations:
+  - exact feature id
+  - provenance contains TLC-SO-VIRTUES-016
+  - no learning-algorithm derivation or unsupported completion requested
+preconditions: [request uses VirtuesRequest]
+conditions_of_application: [claims are registered as opaque exposure descriptions only]
+ordered_steps:
+  - validate feature id
+  - validate provenance
+  - reject algorithm derivation, score, hierarchy, threshold, weight, formula completion, or moral decision
+  - copy supplied exposure claims without interpretation
+  - attach scientific ambiguity
+  - build accepted source-bound result
+branching:
+  invalid_feature: invalid_feature_id
+  incomplete_provenance: missing_provenance
+  unsupported_completion: unsupported_scientific_completion_request
+construction_or_reading: register opaque modelage, shadowing, apprenticeship, and community exposure claims
+identity_scope_context_validation:
+  identity: exact feature and source object
+  scope: observational-learning claims only
+  context: opaque
+relation_processing: []
+observation: none
+comparison: none
+effects: result construction only
+errors: [missing_provenance, unsupported_scientific_completion_request, invalid_feature_id]
+postconditions:
+  - claims, provenance, reservations, assumptions, and scientific ambiguity are preserved
+  - no learning transition or algorithm is created
+invariants: [opaque values unchanged, source order unchanged, scientific ambiguity unchanged]
+determinism: deterministic for identical requests
+edge_cases:
+  - empty claim bundle is preserved if provenance is complete
+  - unknown exposure labels remain opaque
+  - a request to infer imitation mechanics is rejected
+dependencies: [common Virtues validation, unresolved propagation, result envelope]
+unresolved_conserved: [scientific ambiguity]
+pseudocode: |
+  function register_observational_learning_assumption(request):
+      if request.feature_id != "TLC-FC-10-VIRTUES-002":
+          return error("invalid_feature_id")
+      if not provenance_contains(request.provenance, ["TLC-SO-VIRTUES-016"]):
+          return error("missing_provenance")
+      if requests_learning_algorithm(request) or requests_unsupported_completion(request):
+          return error("unsupported_scientific_completion_request")
+      return accepted_result(
+          feature_id=request.feature_id,
+          entrypoint="register_observational_learning_assumption",
+          source_objects=["TLC-SO-VIRTUES-016"],
+          artifact=copy_opaque(request.artifact),
+          reservations=copy_opaque(request.reservations),
+          unresolved=["scientific ambiguity"],
+          assumptions=["source fragments are metadata, not executable science"])

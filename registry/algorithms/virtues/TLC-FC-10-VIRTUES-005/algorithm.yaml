@@ -1,0 +1,63 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-005
+status: selected_for_virtues_implementation_specification
+ir_ref: registry/optimized-ir/virtues/TLC-FC-10-VIRTUES-005/ir.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-005/contract.yaml
+entrypoint: package_developmental_dynamics_rhs
+signature: "package_developmental_dynamics_rhs(request: VirtuesRequest) -> VirtuesResult"
+inputs: [feature_id, artifact, provenance, reservations]
+outputs: [accepted symbolic package or named error]
+validations:
+  - exact feature id
+  - provenance contains TLC-SO-VIRTUES-196 and TLC-SO-VIRTUES-199
+  - no numeric integration, parameter completion, scoring, ranking, or moral decision requested
+preconditions: [request uses VirtuesRequest]
+conditions_of_application: [artifact supplies symbolic right-hand-side terms]
+ordered_steps:
+  - validate feature id
+  - validate provenance
+  - reject numeric integration and unsupported completion
+  - copy symbolic terms, symbols, parameters, and labels unchanged
+  - build accepted source-bound result
+branching:
+  invalid_feature: invalid_feature_id
+  incomplete_provenance: missing_provenance
+  integration_or_completion_requested: unsupported_scientific_completion_request
+construction_or_reading: package supplied symbolic terms without evaluation
+identity_scope_context_validation:
+  identity: exact feature and source objects
+  scope: symbolic developmental and vice-virtue right-hand sides
+  context: opaque
+relation_processing: []
+observation: none
+comparison: none
+effects: result construction only; no state mutation or simulation
+errors: [missing_provenance, unsupported_scientific_completion_request, invalid_feature_id]
+postconditions:
+  - symbolic terms and provenance are preserved
+  - no trajectory, integration step, parameter estimate, or score exists
+invariants: [symbolic expressions unchanged, source order unchanged, opaque parameters unchanged]
+determinism: deterministic for identical requests
+edge_cases:
+  - empty symbolic parameter values remain empty
+  - unknown symbols remain opaque
+  - numeric integration flags are rejected
+dependencies: [common Virtues validation, symbolic package builder, result envelope]
+unresolved_conserved: []
+pseudocode: |
+  function package_developmental_dynamics_rhs(request):
+      if request.feature_id != "TLC-FC-10-VIRTUES-005":
+          return error("invalid_feature_id")
+      required = ["TLC-SO-VIRTUES-196", "TLC-SO-VIRTUES-199"]
+      if not provenance_contains(request.provenance, required):
+          return error("missing_provenance")
+      if requests_numeric_integration(request) or requests_unsupported_completion(request):
+          return error("unsupported_scientific_completion_request")
+      return accepted_result(
+          feature_id=request.feature_id,
+          entrypoint="package_developmental_dynamics_rhs",
+          source_objects=required,
+          artifact=copy_opaque(request.artifact),
+          reservations=copy_opaque(request.reservations),
+          unresolved=[],
+          assumptions=["source fragments are metadata, not executable science"])

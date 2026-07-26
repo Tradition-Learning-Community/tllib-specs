@@ -1,0 +1,66 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-008
+status: selected_for_virtues_implementation_specification
+ir_ref: registry/optimized-ir/virtues/TLC-FC-10-VIRTUES-008/ir.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-008/contract.yaml
+entrypoint: build_measure_observation_ledger
+signature: "build_measure_observation_ledger(request: VirtuesRequest) -> VirtuesResult"
+inputs: [feature_id, artifact, provenance, reservations]
+outputs: [accepted observation-ledger result or named error]
+validations:
+  - exact feature id
+  - provenance contains all seven source objects
+  - no weight, threshold, metric selection, score, ranking, or moral decision requested
+preconditions: [request uses VirtuesRequest]
+conditions_of_application: [only supplied observation descriptors are recorded]
+ordered_steps:
+  - validate feature id
+  - validate provenance
+  - reject evaluation and unsupported completion
+  - initialize a structural ledger container
+  - copy each supplied measurement-family descriptor and observation in supplied order
+  - build accepted source-bound result
+branching:
+  invalid_feature: invalid_feature_id
+  incomplete_provenance: missing_provenance
+  evaluation_requested: unsupported_scientific_completion_request
+construction_or_reading: construct a ledger from supplied opaque entries
+identity_scope_context_validation:
+  identity: exact feature and source objects
+  scope: observation-ledger construction only
+  context: opaque
+relation_processing: []
+observation: record supplied observations without evaluation
+comparison: none
+effects: create ledger and result data only
+errors: [missing_provenance, unsupported_scientific_completion_request, invalid_feature_id]
+postconditions:
+  - ledger entries mirror supplied descriptors and observations
+  - no computed metric, weight, threshold, score, comparison, correction, or moral conclusion exists
+invariants: [entry order conserved, opaque values conserved, source order conserved]
+determinism: deterministic for identical requests
+edge_cases:
+  - empty observation collection creates an empty structural ledger
+  - unknown measurement-family labels remain opaque
+  - duplicate supplied observations remain duplicate entries
+  - requests to aggregate observations are rejected when they require absent semantics
+dependencies: [common Virtues validation, structural ledger builder, result envelope]
+unresolved_conserved: []
+pseudocode: |
+  function build_measure_observation_ledger(request):
+      if request.feature_id != "TLC-FC-10-VIRTUES-008":
+          return error("invalid_feature_id")
+      required = ["TLC-SO-VIRTUES-007", "TLC-SO-VIRTUES-019", "TLC-SO-VIRTUES-021", "TLC-SO-VIRTUES-025", "TLC-SO-VIRTUES-026", "TLC-SO-VIRTUES-112", "TLC-SO-VIRTUES-136"]
+      if not provenance_contains(request.provenance, required):
+          return error("missing_provenance")
+      if requests_evaluation(request) or requests_unsupported_completion(request):
+          return error("unsupported_scientific_completion_request")
+      ledger = copy_entries_in_order(request.artifact)
+      return accepted_result(
+          feature_id=request.feature_id,
+          entrypoint="build_measure_observation_ledger",
+          source_objects=required,
+          artifact=ledger,
+          reservations=copy_opaque(request.reservations),
+          unresolved=[],
+          assumptions=["source fragments are metadata, not executable science"])

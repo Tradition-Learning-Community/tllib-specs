@@ -1,0 +1,91 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-005
+domain: virtues
+status: selected_for_virtues_implementation_specification
+source:
+  contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-005/contract.yaml
+  source_ir_ref: registry/ir/TLC-FC-10-VIRTUES-005/ir.yaml
+  source_ir_raw_status: limited_engineering_contract_with_reservations
+  test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-005/test-plan.yaml
+  scientific_source_ref: maths/10-virtues.md
+  source_objects: [TLC-SO-VIRTUES-196, TLC-SO-VIRTUES-199]
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+virtue_invented: false
+measurement_invented: false
+ordering_invented: false
+nature: structural_symbolic
+entrypoint: package_developmental_dynamics_rhs
+virtue_or_reference:
+  type: OpaqueVirtue
+  identity: source-bound reference carried by supplied symbolic descriptors
+scope: supplied symbolic right-hand-side terms for developmental and vice-virtue dynamics
+context: opaque symbolic dynamics context
+inputs:
+  feature_id: exact feature identifier
+  artifact: opaque bundle containing supplied symbolic terms
+  provenance: ordered ProvenanceRef collection
+  reservations: caller-supplied unresolved and assumptions
+outputs:
+  result: VirtuesResult containing unchanged symbolic descriptors or named error
+types: [OpaqueVirtue, OpaqueEvidence, OpaqueContext, OpaqueMetricDescriptor, ProvenanceRef, VirtuesRequest, VirtuesResult]
+opaque_values: [symbolic terms, parameters, operators, context, reservations]
+preconditions:
+  - feature_id equals TLC-FC-10-VIRTUES-005
+  - provenance contains TLC-SO-VIRTUES-196 and TLC-SO-VIRTUES-199
+  - request does not ask for numeric integration, parameter completion, scoring, or ranking
+conditions_of_application:
+  - supplied terms are packaged as symbolic descriptors only
+relations_explicitly_defined: []
+manifestations_explicitly_defined: []
+operations:
+  - validate exact feature identity
+  - validate required source provenance
+  - reject numeric integration and unsupported completion requests
+  - preserve supplied symbolic right-hand-side terms and labels
+  - construct source-bound result envelope
+order_of_execution: [validate_feature_id, validate_provenance, enforce_symbolic_only_guard, package_symbolic_terms, build_result]
+control_flow:
+  - on invalid feature id return invalid_feature_id
+  - on missing provenance return missing_provenance
+  - on numeric integration or completion request return unsupported_scientific_completion_request
+  - otherwise return accepted symbolic package
+observations: []
+comparisons: []
+effects:
+  - no state transition, integration, simulation, or parameter estimation
+  - no mutation of source artifacts
+postconditions:
+  - supplied symbolic terms, source objects, and reservations are preserved
+  - result contains no computed trajectory, score, or moral decision
+invariants:
+  - source object identity and order are conserved
+  - symbolic expressions and opaque parameters are not rewritten
+errors: [missing_provenance, unsupported_scientific_completion_request, invalid_feature_id]
+determinism:
+  deterministic: true
+  randomness: none
+dependencies:
+  internal: [common request envelope, provenance validation, symbolic-only guard, result envelope]
+  external_execution: []
+  documentary: [maths/10-virtues.md]
+unresolved_propagated: []
+reservations:
+  - integration method, durations, initial conditions, parameter values, and execution semantics are not selected
+  - source equations remain symbolic
+transformations_applied:
+  - normalized symbolic descriptor packaging
+  - separated representation from numerical execution
+  - made rejection of integration requests explicit
+obligations_of_preservation:
+  - preserve source contract and IR semantics
+  - preserve every supplied symbolic term unchanged
+  - add no dynamics solver or parameter interpretation
+algorithm_ref: registry/algorithms/virtues/TLC-FC-10-VIRTUES-005/algorithm.yaml
+oracle_ref: registry/oracles/virtues/TLC-FC-10-VIRTUES-005/oracle.yaml
+implementation_aptitude:
+  ready: true
+  level: symbolic_representation_implementation
+  excluded_scope: [numeric integration, simulation, parameter estimation, scoring]

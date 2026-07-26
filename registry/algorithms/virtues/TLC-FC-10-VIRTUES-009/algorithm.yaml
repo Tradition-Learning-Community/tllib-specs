@@ -1,0 +1,64 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-009
+status: selected_for_virtues_implementation_specification
+ir_ref: registry/optimized-ir/virtues/TLC-FC-10-VIRTUES-009/ir.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-009/contract.yaml
+entrypoint: register_quantitative_measure_reservations
+signature: "register_quantitative_measure_reservations(request: VirtuesRequest) -> VirtuesResult"
+inputs: [feature_id, artifact, provenance, reservations]
+outputs: [accepted declarative result or named error]
+validations:
+  - exact feature id
+  - provenance contains TLC-SO-VIRTUES-022
+  - no scale, threshold, numerical measure, score, comparison, or ranking requested
+preconditions: [request uses VirtuesRequest]
+conditions_of_application: [named dimensions are unresolved semantic commitments]
+ordered_steps:
+  - validate feature id
+  - validate provenance
+  - reject quantitative completion and evaluation requests
+  - copy supplied dimension names and absent-semantics reservations
+  - attach scientific ambiguity
+  - build accepted source-bound result
+branching:
+  invalid_feature: invalid_feature_id
+  incomplete_provenance: missing_provenance
+  quantitative_completion_requested: unsupported_scientific_completion_request
+construction_or_reading: register opaque dimension descriptors
+identity_scope_context_validation:
+  identity: exact feature and source object
+  scope: dimension registration only
+  context: opaque
+relation_processing: []
+observation: none
+comparison: none
+effects: result construction only; no numerical computation
+errors: [missing_provenance, unsupported_scientific_completion_request, invalid_feature_id]
+postconditions:
+  - dimension names, provenance, reservations, and scientific ambiguity are preserved
+  - no scale, threshold, value, score, or comparison is created
+invariants: [opaque descriptors unchanged, unresolved unchanged, source order unchanged]
+determinism: deterministic for identical requests
+edge_cases:
+  - empty dimension list is preserved
+  - unknown dimension labels remain opaque
+  - supplied units are copied but not validated scientifically
+  - requested calibration is rejected
+dependencies: [common Virtues validation, unresolved propagation, result envelope]
+unresolved_conserved: [scientific ambiguity]
+pseudocode: |
+  function register_quantitative_measure_reservations(request):
+      if request.feature_id != "TLC-FC-10-VIRTUES-009":
+          return error("invalid_feature_id")
+      if not provenance_contains(request.provenance, ["TLC-SO-VIRTUES-022"]):
+          return error("missing_provenance")
+      if requests_quantitative_completion(request) or requests_unsupported_completion(request):
+          return error("unsupported_scientific_completion_request")
+      return accepted_result(
+          feature_id=request.feature_id,
+          entrypoint="register_quantitative_measure_reservations",
+          source_objects=["TLC-SO-VIRTUES-022"],
+          artifact=copy_opaque(request.artifact),
+          reservations=copy_opaque(request.reservations),
+          unresolved=["scientific ambiguity"],
+          assumptions=["source fragments are metadata, not executable science"])

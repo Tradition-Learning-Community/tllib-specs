@@ -1,0 +1,92 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-011
+domain: virtues
+status: selected_for_virtues_implementation_specification
+source:
+  contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-011/contract.yaml
+  source_ir_ref: registry/ir/TLC-FC-10-VIRTUES-011/ir.yaml
+  source_ir_raw_status: limited_engineering_contract_with_reservations
+  test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-011/test-plan.yaml
+  scientific_source_ref: maths/10-virtues.md
+  source_objects: [TLC-SO-VIRTUES-055, TLC-SO-VIRTUES-212]
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+virtue_invented: false
+measurement_invented: false
+ordering_invented: false
+nature: structural_observation_relation
+entrypoint: package_vice_diagnostic_function
+virtue_or_reference:
+  type: OpaqueVirtue
+  identity: source-bound virtue or vice reference carried by supplied evidence
+scope: packaging supplied vice evidence and supplied development-domain labels
+context: diagnostic observation context remains human-supplied and opaque
+inputs:
+  feature_id: exact feature identifier
+  artifact: opaque diagnostic observation bundle
+  provenance: ordered ProvenanceRef collection
+  reservations: caller-supplied unresolved and assumptions
+outputs:
+  result: VirtuesResult containing supplied observation mappings or named error
+types: [OpaqueVirtue, OpaqueEvidence, OpaqueContext, OpaqueRelationEndpoint, ProvenanceRef, VirtuesRequest, VirtuesResult]
+opaque_values: [vice evidence, development-domain labels, context, relation endpoints, reservations]
+preconditions:
+  - feature_id equals TLC-FC-10-VIRTUES-011
+  - provenance contains TLC-SO-VIRTUES-055 and TLC-SO-VIRTUES-212
+  - request does not ask for inferred diagnosis, prescribed correction, score, ranking, or moral decision
+conditions_of_application:
+  - only human-supplied evidence and labels are packaged
+relations_explicitly_defined:
+  - supplied vice evidence mapped to supplied development-domain labels
+manifestations_explicitly_defined:
+  - supplied diagnostic observations
+operations:
+  - validate feature identity and provenance
+  - reject diagnosis inference, correction prescription, and unsupported completion
+  - preserve supplied vice evidence
+  - preserve supplied development-domain labels and their supplied mapping
+  - construct source-bound result envelope
+order_of_execution: [validate_feature_id, validate_provenance, enforce_packaging_only_guard, copy_evidence, copy_supplied_mapping, build_result]
+control_flow:
+  - on invalid feature id return invalid_feature_id
+  - on missing provenance return missing_provenance
+  - on inferred diagnosis, correction, score, or moral-decision request return unsupported_scientific_completion_request
+  - otherwise return accepted observation package
+observations:
+  - supplied diagnostic observations may be recorded
+comparisons: []
+effects:
+  - packages a supplied relation without interpreting evidence
+  - performs no psychological diagnosis or normative correction
+postconditions:
+  - evidence, labels, mapping, provenance, and reservations are preserved
+  - no inferred diagnosis, correction, score, or moral conclusion is present
+invariants:
+  - source object identity and order are conserved
+  - supplied relation endpoints and labels remain opaque
+  - mapping cardinality and supplied pairing are preserved
+errors: [missing_provenance, unsupported_scientific_completion_request, invalid_feature_id]
+determinism: {deterministic: true, randomness: none}
+dependencies:
+  internal: [common validation, observation packaging, relation preservation, result envelope]
+  external_execution: []
+  documentary: [maths/10-virtues.md]
+unresolved_propagated: []
+reservations:
+  - diagnostic packaging is not a psychological diagnosis
+  - no correction prescription or normative consequence is defined
+transformations_applied:
+  - normalized supplied-observation relation representation
+  - separated diagnostic packaging from diagnosis and correction
+obligations_of_preservation:
+  - preserve source contract and IR
+  - preserve supplied evidence, labels, and mapping
+  - infer no diagnosis, endpoint identity, score, or correction
+algorithm_ref: registry/algorithms/virtues/TLC-FC-10-VIRTUES-011/algorithm.yaml
+oracle_ref: registry/oracles/virtues/TLC-FC-10-VIRTUES-011/oracle.yaml
+implementation_aptitude:
+  ready: true
+  level: structural_observation_relation_implementation
+  excluded_scope: [diagnosis inference, correction prescription, scoring, ranking]

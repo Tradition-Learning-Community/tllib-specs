@@ -1,0 +1,76 @@
+schema_version: 1
+domain_id: virtues
+status: selected_for_virtues_implementation_specification
+blocking: []
+real_blockers_remaining: []
+decisions:
+  - decision_id: VIRTUES-DECISION-001
+    affected_features: [TLC-FC-10-VIRTUES-002]
+    subject: executable observational-learning semantics
+    classification: deferred_to_scientific_review
+    package_effect: non_blocking
+    handling: unresolved_propagated
+    preserved_value: scientific ambiguity
+    implementation_boundary: register supplied claims only; do not derive a learning algorithm
+  - decision_id: VIRTUES-DECISION-002
+    affected_features: [TLC-FC-10-VIRTUES-005]
+    subject: numerical integration, parameters, and transition semantics
+    classification: preserved_as_opaque
+    package_effect: non_blocking
+    handling: implementation_out_of_scope
+    implementation_boundary: package supplied symbolic right-hand-side terms only
+  - decision_id: VIRTUES-DECISION-003
+    affected_features: [TLC-FC-10-VIRTUES-006]
+    subject: operator semantics, equation solving, and scientific equivalence of duplicate candidates
+    classification: preserved_as_opaque
+    package_effect: non_blocking
+    handling: external_reference
+    implementation_boundary: register forms, symbols, operators, and candidate links without solving or merging
+  - decision_id: VIRTUES-DECISION-004
+    affected_features: [TLC-FC-10-VIRTUES-009]
+    subject: scales, thresholds, and semantics of named quantitative dimensions
+    classification: deferred_to_scientific_review
+    package_effect: non_blocking
+    handling: unresolved_propagated
+    preserved_value: scientific ambiguity
+    implementation_boundary: register dimensions and absence of scale or threshold; compute nothing
+  - decision_id: VIRTUES-DECISION-005
+    affected_features: [TLC-FC-10-VIRTUES-010]
+    subject: indicator, metric, and progression semantics
+    classification: deferred_to_scientific_review
+    package_effect: non_blocking
+    handling: unresolved_propagated
+    preserved_value: scientific ambiguity
+    implementation_boundary: register categories as opaque values; do not evaluate progression
+  - decision_id: VIRTUES-DECISION-006
+    affected_features: [TLC-FC-10-VIRTUES-008, TLC-FC-10-VIRTUES-011]
+    subject: observation, diagnosis, evaluation, and correction boundary
+    classification: preserved_as_opaque
+    package_effect: non_blocking
+    handling: external_observer_required
+    implementation_boundary: package supplied observations only; no score, diagnosis inference, evaluator, or correction prescription
+  - decision_id: VIRTUES-DECISION-007
+    affected_features: [TLC-FC-10-VIRTUES-014]
+    subject: cross-domain endpoint identity and relation execution
+    classification: preserved_as_opaque
+    package_effect: non_blocking
+    handling: external_reference
+    implementation_boundary: preserve supplied endpoints and context; infer no identity or execution dependency
+  - decision_id: VIRTUES-DECISION-008
+    affected_features:
+      - TLC-FC-10-VIRTUES-001
+      - TLC-FC-10-VIRTUES-002
+      - TLC-FC-10-VIRTUES-005
+      - TLC-FC-10-VIRTUES-006
+      - TLC-FC-10-VIRTUES-007
+      - TLC-FC-10-VIRTUES-008
+      - TLC-FC-10-VIRTUES-009
+      - TLC-FC-10-VIRTUES-010
+      - TLC-FC-10-VIRTUES-011
+      - TLC-FC-10-VIRTUES-014
+    subject: hierarchy, ordering, score, weight, priority, and normative consequence
+    classification: preserved_as_opaque
+    package_effect: non_blocking
+    handling: implementation_out_of_scope
+    implementation_boundary: no such behavior exists in the selected contracts or IRs
+closure_rule: A future scientific decision may extend a later specification, but no unresolved item is silently resolved by this package.

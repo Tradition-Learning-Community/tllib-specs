@@ -1,0 +1,119 @@
+schema_version: 1
+domain_id: virtues
+status: ready_for_future_developer_assignment
+shared_tasks:
+  - task_id: VIRTUES-IMPL-SHARED-001
+    title: Implement common request, result, and opaque reference types
+    scope: Virtues module only
+    inputs: [module-specification.yaml, patterns.yaml]
+    deliverables: [C++ value types, validation helpers, unit tests]
+    acceptance:
+      - opaque payloads round-trip without interpretation
+      - source object order is preserved
+      - no numeric, normative, ranking, comparison, or diagnostic semantics are introduced
+  - task_id: VIRTUES-IMPL-SHARED-002
+    title: Implement common validation and error handling
+    scope: Virtues module only
+    dependencies: [VIRTUES-IMPL-SHARED-001]
+    acceptance:
+      - invalid feature id returns invalid_feature_id
+      - incomplete provenance returns missing_provenance
+      - unsupported completion requests return unsupported_scientific_completion_request
+      - rejected requests emit no accepted result
+  - task_id: VIRTUES-IMPL-SHARED-003
+    title: Implement conformance harness for IR, algorithms, and oracles
+    scope: Virtues module only
+    dependencies: [VIRTUES-IMPL-SHARED-001, VIRTUES-IMPL-SHARED-002]
+    acceptance:
+      - all ten feature oracles execute against the implementation
+      - deterministic repetition and opaque propagation tests pass
+feature_tasks:
+  - task_id: VIRTUES-IMPL-001
+    feature_id: TLC-FC-10-VIRTUES-001
+    entrypoint: check_apprenticeship_responsibility
+    deliverable: structural validator and source-bound result builder
+    dependencies: [VIRTUES-IMPL-SHARED-001, VIRTUES-IMPL-SHARED-002]
+    acceptance: registry/oracles/virtues/TLC-FC-10-VIRTUES-001/oracle.yaml
+  - task_id: VIRTUES-IMPL-002
+    feature_id: TLC-FC-10-VIRTUES-002
+    entrypoint: register_observational_learning_assumption
+    deliverable: declarative claim registrar
+    dependencies: [VIRTUES-IMPL-SHARED-001, VIRTUES-IMPL-SHARED-002]
+    scientific_constraint: do not derive a learning algorithm
+    acceptance: registry/oracles/virtues/TLC-FC-10-VIRTUES-002/oracle.yaml
+  - task_id: VIRTUES-IMPL-005
+    feature_id: TLC-FC-10-VIRTUES-005
+    entrypoint: package_developmental_dynamics_rhs
+    deliverable: symbolic right-hand-side package builder
+    dependencies: [VIRTUES-IMPL-SHARED-001, VIRTUES-IMPL-SHARED-002]
+    scientific_constraint: do not numerically integrate or complete parameters
+    acceptance: registry/oracles/virtues/TLC-FC-10-VIRTUES-005/oracle.yaml
+  - task_id: VIRTUES-IMPL-006
+    feature_id: TLC-FC-10-VIRTUES-006
+    entrypoint: register_virtue_equation_forms
+    deliverable: equation-form, free-symbol, opaque-operator, and duplicate-candidate registrar
+    dependencies: [VIRTUES-IMPL-SHARED-001, VIRTUES-IMPL-SHARED-002]
+    scientific_constraint: do not solve forms or assert scientific equivalence
+    acceptance: registry/oracles/virtues/TLC-FC-10-VIRTUES-006/oracle.yaml
+  - task_id: VIRTUES-IMPL-007
+    feature_id: TLC-FC-10-VIRTUES-007
+    entrypoint: check_virtue_function_invariant
+    deliverable: exact role-label preservation validator
+    dependencies: [VIRTUES-IMPL-SHARED-001, VIRTUES-IMPL-SHARED-002]
+    scientific_constraint: role labels remain uninterpreted
+    acceptance: registry/oracles/virtues/TLC-FC-10-VIRTUES-007/oracle.yaml
+  - task_id: VIRTUES-IMPL-008
+    feature_id: TLC-FC-10-VIRTUES-008
+    entrypoint: build_measure_observation_ledger
+    deliverable: source-bound observation-ledger builder
+    dependencies: [VIRTUES-IMPL-SHARED-001, VIRTUES-IMPL-SHARED-002]
+    scientific_constraint: no weight, threshold, score, metric selection, or evaluation
+    acceptance: registry/oracles/virtues/TLC-FC-10-VIRTUES-008/oracle.yaml
+  - task_id: VIRTUES-IMPL-009
+    feature_id: TLC-FC-10-VIRTUES-009
+    entrypoint: register_quantitative_measure_reservations
+    deliverable: unresolved quantitative-dimension registrar
+    dependencies: [VIRTUES-IMPL-SHARED-001, VIRTUES-IMPL-SHARED-002]
+    scientific_constraint: preserve scientific ambiguity and absence of scales and thresholds
+    acceptance: registry/oracles/virtues/TLC-FC-10-VIRTUES-009/oracle.yaml
+  - task_id: VIRTUES-IMPL-010
+    feature_id: TLC-FC-10-VIRTUES-010
+    entrypoint: register_essential_property_indicators
+    deliverable: opaque indicator-category registrar
+    dependencies: [VIRTUES-IMPL-SHARED-001, VIRTUES-IMPL-SHARED-002]
+    scientific_constraint: do not interpret indicators, metrics, or progression
+    acceptance: registry/oracles/virtues/TLC-FC-10-VIRTUES-010/oracle.yaml
+  - task_id: VIRTUES-IMPL-011
+    feature_id: TLC-FC-10-VIRTUES-011
+    entrypoint: package_vice_diagnostic_function
+    deliverable: supplied-observation and supplied-label package builder
+    dependencies: [VIRTUES-IMPL-SHARED-001, VIRTUES-IMPL-SHARED-002]
+    scientific_constraint: no diagnosis inference or correction prescription
+    acceptance: registry/oracles/virtues/TLC-FC-10-VIRTUES-011/oracle.yaml
+  - task_id: VIRTUES-IMPL-014
+    feature_id: TLC-FC-10-VIRTUES-014
+    entrypoint: map_contextual_virtue_relations
+    deliverable: contextual relation-claim mapper
+    dependencies: [VIRTUES-IMPL-SHARED-001, VIRTUES-IMPL-SHARED-002]
+    scientific_constraint: no endpoint identity or cross-domain execution dependency inference
+    acceptance: registry/oracles/virtues/TLC-FC-10-VIRTUES-014/oracle.yaml
+integration_task:
+  task_id: VIRTUES-IMPL-INTEGRATION-001
+  title: Integrate ten entrypoints into the future Virtues library module
+  dependencies:
+    - VIRTUES-IMPL-001
+    - VIRTUES-IMPL-002
+    - VIRTUES-IMPL-005
+    - VIRTUES-IMPL-006
+    - VIRTUES-IMPL-007
+    - VIRTUES-IMPL-008
+    - VIRTUES-IMPL-009
+    - VIRTUES-IMPL-010
+    - VIRTUES-IMPL-011
+    - VIRTUES-IMPL-014
+    - VIRTUES-IMPL-SHARED-003
+  acceptance:
+    - public feature ids remain unchanged
+    - no feature is rejected or merged
+    - all source contracts and source IRs remain external authoritative references
+    - no scientific or normative computation beyond the selected IR is added

@@ -1,0 +1,224 @@
+schema_version: 1
+module_id: TLC-MODULE-VIRTUES
+module_name: Virtues
+status: selected_for_virtues_implementation_specification
+implementation_package_ready: true
+scientific_authority:
+  source: maths/10-virtues.md
+  active_population: registry/global-reconciliation/domain-feature-matrix.yaml
+  contracts: registry/math-contracts/TLC-FC-10-VIRTUES-*/contract.yaml
+  source_irs: registry/ir/TLC-FC-10-VIRTUES-*/ir.yaml
+  source_test_plans: registry/test-plans/TLC-FC-10-VIRTUES-*/test-plan.yaml
+active_features:
+  - TLC-FC-10-VIRTUES-001
+  - TLC-FC-10-VIRTUES-002
+  - TLC-FC-10-VIRTUES-005
+  - TLC-FC-10-VIRTUES-006
+  - TLC-FC-10-VIRTUES-007
+  - TLC-FC-10-VIRTUES-008
+  - TLC-FC-10-VIRTUES-009
+  - TLC-FC-10-VIRTUES-010
+  - TLC-FC-10-VIRTUES-011
+  - TLC-FC-10-VIRTUES-014
+public_operations:
+  - name: check_apprenticeship_responsibility
+    feature_id: TLC-FC-10-VIRTUES-001
+    behavior: validate and package a source-bound apprenticeship responsibility handoff record
+  - name: register_observational_learning_assumption
+    feature_id: TLC-FC-10-VIRTUES-002
+    behavior: register opaque observational-learning exposure claims without deriving an algorithm
+  - name: package_developmental_dynamics_rhs
+    feature_id: TLC-FC-10-VIRTUES-005
+    behavior: package supplied symbolic right-hand-side terms without numeric integration
+  - name: register_virtue_equation_forms
+    feature_id: TLC-FC-10-VIRTUES-006
+    behavior: register equation forms, free symbols, duplicate-candidate links, and opaque operators
+  - name: check_virtue_function_invariant
+    feature_id: TLC-FC-10-VIRTUES-007
+    behavior: validate preservation of source-declared role labels as labels only
+  - name: build_measure_observation_ledger
+    feature_id: TLC-FC-10-VIRTUES-008
+    behavior: construct a source-bound observation ledger schema without evaluation
+  - name: register_quantitative_measure_reservations
+    feature_id: TLC-FC-10-VIRTUES-009
+    behavior: register named quantitative dimensions as unresolved semantic commitments
+  - name: register_essential_property_indicators
+    feature_id: TLC-FC-10-VIRTUES-010
+    behavior: register indicator categories while preserving opaque metric and progression semantics
+  - name: package_vice_diagnostic_function
+    feature_id: TLC-FC-10-VIRTUES-011
+    behavior: package supplied diagnostic observations without prescribing correction
+  - name: map_contextual_virtue_relations
+    feature_id: TLC-FC-10-VIRTUES-014
+    behavior: map supplied contextual relation claims without inferring endpoint identity
+internal_operations:
+  - validate_feature_id
+  - validate_required_provenance
+  - reject_unsupported_scientific_completion_request
+  - copy_opaque_payload
+  - preserve_source_object_order
+  - propagate_reservations
+  - propagate_unresolved
+  - build_source_bound_result
+source_defined_virtue_representation:
+  type: VirtueRepresentation
+  components:
+    identity: opaque V_identite component
+    nature: opaque V_nature component
+    function: opaque V_fonction component
+    structure: opaque V_structure component
+    domain: opaque V_domaine or context component
+  rule: Components are representable and referenceable; no component receives an invented scale, hierarchy, or executable semantics.
+types:
+  OpaqueVirtue:
+    purpose: preserve a source or caller supplied virtue label or payload
+    interpreted: false
+  VirtueIdentity:
+    fields: [identity_ref, source_object_refs, optional_label]
+    equality: structural equality of supplied fields only
+  VirtueReference:
+    fields: [identity, provenance]
+    resolution: external when the referenced entity is outside the supplied artifact
+  VirtueRepresentation:
+    fields: [identity, nature, function, structure, domain]
+    component_semantics: opaque unless explicitly supplied by the source-bound operation
+  OpaqueEvidence:
+    interpreted: false
+  OpaqueContext:
+    interpreted: false
+  OpaqueRelationEndpoint:
+    interpreted: false
+    identity_inference: prohibited
+  OpaqueMetricDescriptor:
+    interpreted: false
+    numeric_evaluation: prohibited
+  ProvenanceRef:
+    fields: [source_object_id, source_path, source_span]
+  UnresolvedItem:
+    propagation: unchanged
+  VirtuesRequest:
+    fields: [feature_id, artifact, provenance, reservations]
+  VirtuesResult:
+    fields: [accepted, feature_id, entrypoint, source_objects, artifact, reservations, unresolved, assumptions, error]
+identity_rules:
+  - feature identity is exact and must match the invoked operation
+  - virtue identity is source-bound or caller-supplied
+  - structural equality does not establish scientific equivalence
+  - no endpoint identity is inferred from labels, context, or lexical similarity
+scope_rules:
+  - every operation is bounded by its source contract and source objects
+  - source descriptions outside an active feature are not converted into additional operations
+  - a composite public feature may use internal validation and packaging operations without changing its public feature id
+context_rules:
+  - context remains opaque unless a contract explicitly declares observable handling
+  - contextual variation does not create a ranking or comparison
+  - missing separately typed context is not an error when context is embedded in the artifact
+manifestations:
+  declared:
+    - feature_id: TLC-FC-10-VIRTUES-008
+      form: source-bound observation ledger entries
+    - feature_id: TLC-FC-10-VIRTUES-011
+      form: supplied vice evidence and supplied development-domain labels
+  not_declared_as_executable: all_other_manifestations
+observations:
+  allowed:
+    - ledger construction for TLC-FC-10-VIRTUES-008
+    - diagnostic observation packaging for TLC-FC-10-VIRTUES-011
+  prohibited_inferences:
+    - moral score
+    - psychological diagnosis
+    - correction prescription
+    - threshold decision
+relations:
+  explicitly_handled:
+    - feature_id: TLC-FC-10-VIRTUES-001
+      relation: bounded roles and guided responsibility in the supplied handoff record
+    - feature_id: TLC-FC-10-VIRTUES-006
+      relation: supplied duplicate-candidate links
+    - feature_id: TLC-FC-10-VIRTUES-011
+      relation: supplied vice evidence to supplied development-domain label
+    - feature_id: TLC-FC-10-VIRTUES-014
+      relation: supplied contextual virtue relation claim
+  external_or_documentary_only:
+    - master
+    - disciple
+    - community
+    - message
+    - principle
+    - values
+    - practice
+    - relations
+  unresolved_not_execution_dependencies:
+    - huit-dimensions
+    - invariants
+    - dynamics
+    - theorems
+    - capacities
+    - competencies
+    - lived-experience
+comparisons:
+  public_operations: []
+  rule: No active contract defines a virtue comparison operation; structural equality is limited to representation validation.
+evaluation:
+  public_operations: []
+  rule: Measurement names and mathematical forms do not authorize a score, threshold, ranking, diagnosis, or evaluator.
+evolution:
+  public_operations: []
+  rule: Symbolic dynamics may be packaged by TLC-FC-10-VIRTUES-005; integration and state transition execution remain out of scope.
+composition_rules:
+  - common validation precedes every feature-specific operation
+  - feature-specific operations may reuse common envelopes without sharing scientific semantics
+  - results preserve feature id, entrypoint, source objects, artifact, reservations, assumptions, and unresolved items
+  - relation endpoints are composed by reference, not by inferred identity
+  - observations may be composed into a ledger only when supplied and source-bound
+order_rules:
+  - validation order is feature id, provenance, unsupported-request guard, feature operation, result construction
+  - source object order is preserved
+  - no semantic order among virtues, categories, indicators, dimensions, or relations is asserted
+determinism:
+  deterministic_for_identical_requests: true
+  randomness: none
+  external_observer_effect: supplied observations are copied; no observer is invoked by this module
+  external_comparator_effect: no comparator is invoked
+  external_evaluator_effect: no evaluator is invoked
+common_errors:
+  missing_provenance: required source object provenance is absent
+  unsupported_scientific_completion_request: caller asks for absent scientific or normative computation
+  invalid_feature_id: request feature id does not match the operation
+unresolved_conservation:
+  feature_specific:
+    TLC-FC-10-VIRTUES-002: [scientific ambiguity]
+    TLC-FC-10-VIRTUES-009: [scientific ambiguity]
+    TLC-FC-10-VIRTUES-010: [scientific ambiguity]
+  domain_level_reference: registry/domain-progress/virtues/unresolved-status.yaml
+  rule: Domain-level unresolved items remain authoritative context and are not silently attached to unrelated feature outputs.
+interfaces_for_future_library:
+  request_model: VirtuesRequest
+  result_model: VirtuesResult
+  public_entrypoints: one per active feature
+  implementation_language_target: C++ library with future Python bindings
+  current_phase_output: specifications only
+out_of_scope:
+  - C++ implementation
+  - Python bindings
+  - reference implementation
+  - moral ranking or decision engine
+  - virtue scoring or weighting
+  - metric selection, thresholds, or calibration
+  - numerical integration of virtue or vice dynamics
+  - equation solving
+  - psychological diagnosis
+  - correction prescription
+  - acquisition or progression engine
+  - virtue comparison engine
+  - inferred cross-domain endpoint resolution
+non_invention:
+  virtue_invented: false
+  measurement_invented: false
+  priority_invented: false
+  comparison_invented: false
+  manifestation_invented: false
+  ordering_invented: false
+source_ir_preserved: true
+source_contract_preserved: true
+scientific_source_modified: false
