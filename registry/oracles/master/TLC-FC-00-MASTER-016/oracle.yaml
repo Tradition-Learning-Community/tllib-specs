@@ -1,0 +1,24 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-00-MASTER-016
+feature_id: TLC-FC-00-MASTER-016
+status: acceptance_ready
+finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-016/ir.yaml
+algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-016/algorithm.yaml
+oracle_kind: composite_symbolic_type_unresolved_and_dependency
+fixtures:
+  valid_object_refs: [TLC-SO-MASTER-001, TLC-SO-MASTER-009, TLC-SO-MASTER-012, TLC-SO-MASTER-015, TLC-SO-MASTER-035, TLC-SO-MASTER-037]
+  valid_relation_refs: [TLC-SR-MASTER-001, TLC-SR-MASTER-002, TLC-SR-MASTER-003, TLC-SR-MASTER-004, TLC-SR-MASTER-005, TLC-SR-MASTER-006, TLC-SR-MASTER-007, TLC-SR-MASTER-008, TLC-SR-MASTER-011, TLC-SR-MASTER-012, TLC-SR-MASTER-013, TLC-SR-MASTER-014, TLC-SR-MASTER-015, TLC-SR-MASTER-016, TLC-SR-MASTER-017, TLC-SR-MASTER-019, TLC-SR-MASTER-021, TLC-SR-MASTER-022, TLC-SR-MASTER-023, TLC-SR-MASTER-025, TLC-SR-MASTER-030, TLC-SR-MASTER-032, TLC-SR-MASTER-033, TLC-SR-MASTER-034, TLC-SR-MASTER-035]
+  valid_unresolved: [TLC-GU-00321, TLC-GU-00322, TLC-GU-00323, TLC-GU-00327, TLC-GU-00340, TLC-GU-00341, TLC-GU-00343, TLC-UT-MASTER-004, TLC-UT-MASTER-005, TLC-UT-MASTER-006, TLC-UT-MASTER-010, TLC-UT-MASTER-023, TLC-UT-MASTER-024, TLC-UT-MASTER-026]
+acceptance_tests:
+  - {test_id: MASTER-016-A01, category: precondition, assertion: exact composite bundle is accepted}
+  - {test_id: MASTER-016-A02, category: error, mutation: omit one relation, expected_error: MASTER_REFERENCE_SET_MISMATCH}
+  - {test_id: MASTER-016-A03, category: error, mutation: omit one unresolved ref, expected_error: MASTER_UNRESOLVED_SET_MISMATCH}
+  - {test_id: MASTER-016-A04, category: dependency, assertion: absent Disciple symbol remains non-blocking and explicit}
+  - {test_id: MASTER-016-A05, category: postcondition, assertion: descriptor retains six objects, twenty-five relations, and fourteen unresolved refs}
+  - {test_id: MASTER-016-A06, category: invariant, assertion: composite state is not flattened and all objects remain distinct}
+  - {test_id: MASTER-016-A07, category: determinism, assertion: repeated descriptor output is identical}
+  - {test_id: MASTER-016-A08, category: conservation, assertion: no lifecycle transition, typology space, layout, dimension, endpoint, subtype, or Disciple state is invented}
+  - {test_id: MASTER-016-A09, category: error, mutation: request transition execution, expected_error: MASTER_UNSUPPORTED_EXECUTION_MODE}
+  - {test_id: MASTER-016-A10, category: source_integrity, assertion: all source artifacts are unmodified}
+exact_numeric_examples: []
+scientific_values_invented: false
