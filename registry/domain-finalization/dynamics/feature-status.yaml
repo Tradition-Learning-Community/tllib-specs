@@ -1,0 +1,152 @@
+schema_version: 1
+domain_id: dynamics
+status: selected_for_dynamics_implementation_specification
+authoritative_population_count: 7
+population_matches_baseline: true
+features:
+  - feature_id: TLC-FC-05-DYNAMICS-001
+    canonical_name: constraint admissible
+    contract_ref: registry/math-contracts/TLC-FC-05-DYNAMICS-001/contract.yaml
+    source_ir_ref: ir/TLC-FC-05-DYNAMICS-001/ir.prototype.json
+    source_ir_status: pilot_only_revised
+    test_plan_ref: registry/test-plans/TLC-FC-05-DYNAMICS-001/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-001/ir.yaml
+    algorithm_ref: registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-001/algorithm.yaml
+    oracle_ref: registry/oracles/dynamics/TLC-FC-05-DYNAMICS-001/oracle.yaml
+    inputs: ["community_state: OpaqueCommunityState", "bounds: ViabilityBounds[OpaqueScalar]"]
+    outputs: ["result: UnevaluatedPredicateSet"]
+    explicit_states: []
+    explicit_transitions: []
+    initial_condition: not_defined
+    terminal_condition: not_defined
+    internal_dependencies: [TLC-FC-05-DYNAMICS-006]
+    unresolved: [UNRES-TIME, UNRES-L, UNRES-NORM, UNRES-MEMORY-NOTATION, UNRES-OUTPUT]
+    reservations: [pilot_comparison_only, no_scientific_evaluation]
+    implementation_scope: structural_predicate_construction_and_validation
+    execution_semantics_ready: false
+  - feature_id: TLC-FC-05-DYNAMICS-002
+    canonical_name: dynamics admissible
+    contract_ref: registry/math-contracts/TLC-FC-05-DYNAMICS-002/contract.yaml
+    source_ir_ref: ir/TLC-FC-05-DYNAMICS-002/ir.prototype.json
+    source_ir_status: prototype
+    test_plan_ref: registry/test-plans/TLC-FC-05-DYNAMICS-002/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-002/ir.yaml
+    algorithm_ref: registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-002/algorithm.yaml
+    oracle_ref: registry/oracles/dynamics/TLC-FC-05-DYNAMICS-002/oracle.yaml
+    inputs: ["equation_sources: Sequence[OpaqueEquation]", "symbols: SymbolTable"]
+    outputs: ["bundle: DynamicsBundle[OpaqueEquation]"]
+    explicit_states: []
+    explicit_transitions: []
+    initial_condition: not_defined
+    terminal_condition: not_defined
+    internal_dependencies: [TLC-FC-05-DYNAMICS-006]
+    unresolved: [types_initial_conditions_stochastic_details, solver_and_discretization]
+    reservations: [per_equation_semantics_not_completed, no_solver_selection]
+    implementation_scope: traceable_unevaluated_equation_bundle
+    execution_semantics_ready: false
+  - feature_id: TLC-FC-05-DYNAMICS-003
+    canonical_name: dynamics blocked locally
+    contract_ref: registry/math-contracts/TLC-FC-05-DYNAMICS-003/contract.yaml
+    source_ir_ref: ir/TLC-FC-05-DYNAMICS-003/ir.prototype.json
+    source_ir_status: prototype
+    test_plan_ref: registry/test-plans/TLC-FC-05-DYNAMICS-003/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-003/ir.yaml
+    algorithm_ref: registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-003/algorithm.yaml
+    oracle_ref: registry/oracles/dynamics/TLC-FC-05-DYNAMICS-003/oracle.yaml
+    inputs: ["source_expression: OpaqueStochasticExpression", "symbols: SymbolTable"]
+    outputs: ["expression: UnevaluatedStochasticEquation"]
+    explicit_states: []
+    explicit_transitions: []
+    initial_condition: not_defined
+    terminal_condition: not_defined
+    internal_dependencies: [TLC-FC-05-DYNAMICS-006]
+    unresolved: [catalogue_blocked_locally, stochastic_semantics]
+    reservations: [locally_blocked_scientific_semantics]
+    implementation_scope: preserve_opaque_stochastic_expression
+    execution_semantics_ready: false
+  - feature_id: TLC-FC-05-DYNAMICS-004
+    canonical_name: feedback equations
+    contract_ref: registry/math-contracts/TLC-FC-05-DYNAMICS-004/contract.yaml
+    source_ir_ref: ir/TLC-FC-05-DYNAMICS-004/ir.prototype.json
+    source_ir_status: prototype
+    test_plan_ref: registry/test-plans/TLC-FC-05-DYNAMICS-004/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-004/ir.yaml
+    algorithm_ref: registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-004/algorithm.yaml
+    oracle_ref: registry/oracles/dynamics/TLC-FC-05-DYNAMICS-004/oracle.yaml
+    inputs: ["external_input: OpaqueSignal", "kernel: OpaqueKernel", "parameters: ParameterMap"]
+    outputs: ["feedback: UnevaluatedIntegralExpression"]
+    explicit_states: []
+    explicit_transitions: []
+    initial_condition: not_applicable
+    terminal_condition: not_applicable
+    internal_dependencies: [TLC-FC-05-DYNAMICS-006]
+    unresolved: [domains_and_convergence, kernel_parameter_types]
+    reservations: [integral_not_evaluated, convergence_not_claimed]
+    implementation_scope: symbolic_feedback_expression_construction
+    execution_semantics_ready: false
+  - feature_id: TLC-FC-05-DYNAMICS-005
+    canonical_name: interaction operators
+    contract_ref: registry/math-contracts/TLC-FC-05-DYNAMICS-005/contract.yaml
+    source_ir_ref: ir/TLC-FC-05-DYNAMICS-005/ir.prototype.json
+    source_ir_status: prototype
+    test_plan_ref: registry/test-plans/TLC-FC-05-DYNAMICS-005/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-005/ir.yaml
+    algorithm_ref: registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-005/algorithm.yaml
+    oracle_ref: registry/oracles/dynamics/TLC-FC-05-DYNAMICS-005/oracle.yaml
+    inputs: ["operator_id: InteractionOperatorId", "arguments: Sequence[OpaqueEntityRef]"]
+    outputs: ["application: UnevaluatedOperatorApplication"]
+    explicit_states: []
+    explicit_transitions: []
+    initial_condition: not_applicable
+    terminal_condition: not_applicable
+    internal_dependencies: [TLC-FC-05-DYNAMICS-006]
+    unresolved: [operator_signatures_absent, community_symbol_reconciliation]
+    reservations: [arity_not_inferred, return_type_not_inferred]
+    implementation_scope: opaque_operator_application_construction
+    execution_semantics_ready: false
+  - feature_id: TLC-FC-05-DYNAMICS-006
+    canonical_name: state admissible
+    contract_ref: registry/math-contracts/TLC-FC-05-DYNAMICS-006/contract.yaml
+    source_ir_ref: ir/TLC-FC-05-DYNAMICS-006/ir.prototype.json
+    source_ir_status: prototype
+    test_plan_ref: registry/test-plans/TLC-FC-05-DYNAMICS-006/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-006/ir.yaml
+    algorithm_ref: registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-006/algorithm.yaml
+    oracle_ref: registry/oracles/dynamics/TLC-FC-05-DYNAMICS-006/oracle.yaml
+    inputs: ["components: Mapping[ScientificObjectId, OpaqueValue]"]
+    outputs: ["state_candidate: StateCandidateRecord"]
+    explicit_states: []
+    state_candidates: [TLC-SO-DYNAMICS-001, TLC-SO-DYNAMICS-002, TLC-SO-DYNAMICS-003, TLC-SO-DYNAMICS-004, TLC-SO-DYNAMICS-005, TLC-SO-DYNAMICS-006, TLC-SO-DYNAMICS-007, TLC-SO-DYNAMICS-009, TLC-SO-DYNAMICS-010, TLC-SO-DYNAMICS-011, TLC-SO-DYNAMICS-012, TLC-SO-DYNAMICS-013]
+    explicit_transitions: []
+    initial_condition: not_defined
+    terminal_condition: not_defined
+    internal_dependencies: []
+    unresolved: [TLC-UT-DYNAMICS-001, TLC-UT-DYNAMICS-002, TLC-UT-DYNAMICS-003, TLC-UT-DYNAMICS-004, TLC-UT-DYNAMICS-005, TLC-UT-DYNAMICS-006, TLC-UT-DYNAMICS-008, TLC-UT-DYNAMICS-009, TLC-UT-DYNAMICS-010, TLC-UT-DYNAMICS-011, TLC-UT-DYNAMICS-012]
+    reservations: [no_explicit_state_space, partial_candidate_allowed]
+    implementation_scope: opaque_state_candidate_record_construction
+    execution_semantics_ready: false
+  - feature_id: TLC-FC-05-DYNAMICS-007
+    canonical_name: state blocked locally
+    contract_ref: registry/math-contracts/TLC-FC-05-DYNAMICS-007/contract.yaml
+    source_ir_ref: ir/TLC-FC-05-DYNAMICS-007/ir.prototype.json
+    source_ir_status: prototype
+    test_plan_ref: registry/test-plans/TLC-FC-05-DYNAMICS-007/test-plan.yaml
+    finalized_ir_ref: registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-007/ir.yaml
+    algorithm_ref: registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-007/algorithm.yaml
+    oracle_ref: registry/oracles/dynamics/TLC-FC-05-DYNAMICS-007/oracle.yaml
+    inputs: ["source_expression: OpaqueExpression", "classification_hint: Optional[OpaqueTag]"]
+    outputs: ["candidate: UnclassifiedStateEvolutionNode"]
+    explicit_states: []
+    explicit_transitions: []
+    initial_condition: not_defined
+    terminal_condition: not_defined
+    internal_dependencies: [TLC-FC-05-DYNAMICS-006]
+    unresolved: [TLC-UT-DYNAMICS-007, state_vs_evolution_boundary]
+    reservations: [classification_hint_non_authoritative]
+    implementation_scope: preserve_unclassified_state_or_evolution_expression
+    execution_semantics_ready: false
+summary:
+  features_selected: 7
+  features_rejected: 0
+  structural_implementation_specifications_ready: 7
+  scientific_execution_semantics_ready: 0
