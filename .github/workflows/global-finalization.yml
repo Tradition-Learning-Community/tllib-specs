@@ -1,0 +1,31 @@
+name: Global finalization validation
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'registry/global-finalization/**'
+      - 'registry/domain-finalization/**'
+      - 'registry/optimized-ir/**'
+      - 'registry/algorithms/**'
+      - 'registry/oracles/**'
+      - 'reports/global-finalization/**'
+      - 'tools/global-finalization/**'
+      - '.github/workflows/global-finalization.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate all sixteen integrated domains
+        run: python tools/global-finalization/validate_global_finalization.py
