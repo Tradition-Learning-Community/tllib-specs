@@ -1,0 +1,32 @@
+schema_version: 1
+feature_id: TLC-FC-12-COMPETENCIES-013
+oracle_id: TLC-ORACLE-TLC-FC-12-COMPETENCIES-013
+source_test_plan: registry/test-plans/TLC-FC-12-COMPETENCIES-013/test-plan.yaml
+finalized_ir: registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-013/ir.yaml
+algorithm: registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-013/algorithm.yaml
+oracle_kind: structural_acceptance_oracle
+fixture_policy: {competency_instances_created: false, payloads: opaque_tokens_named_by_source_object_id, contexts_or_observations_created: false}
+acceptance_tests:
+- {test_id: C013-NOM-001, category: nominal, given: exact objects 003 and 055 complete provenance structural mode, expect: immutable descriptor preserving contextualization content}
+- {test_id: C013-PRE-001, category: precondition, mutation: remove object 055, expect_error: MissingCoveredObject}
+- {test_id: C013-ERR-001, category: errors, mutation: add unlisted object, expect_error: UnexpectedCoveredObject}
+- {test_id: C013-ERR-002, category: errors, mutation: duplicate object 003, expect_error: DuplicateCoveredObject}
+- {test_id: C013-REF-001, category: references, mutation: remove provenance for 055, expect_error: MissingSourceReference}
+- {test_id: C013-ID-001, category: identity, mutation: wrong feature id, expect_error: UnknownFeatureId}
+- {test_id: C013-CONTEXT-001, category: context, property: contextualization operator statement remains opaque and no context object or restricted competency is generated}
+- {test_id: C013-MAN-001, category: manifestations, property: demonstrability and validity statements remain opaque and no observation or recognition result is generated}
+- {test_id: C013-REL-001, category: relations, property: covariance statement remains opaque and no component relation endpoints are inferred}
+- {test_id: C013-PROP-001, category: opaque_value_propagation, property: payload identities provenance reservations and unresolved remain unchanged}
+- {test_id: C013-META-001, category: metamorphic, transformation: reverse caller map order, invariant: output order remains [003, 055]}
+- {test_id: C013-DET-001, category: determinism, property: identical inputs produce structurally equal descriptors}
+- {test_id: C013-REJ-001, category: operator_rejection, mutation: request restriction isometry covariance or dimension evaluation, expect_error: ScientificEvaluationRequested}
+- {test_id: C013-REJ-002, category: observer_rejection, mutation: request demonstration validity or social recognition decision, expect_error: ScientificEvaluationRequested}
+- {test_id: C013-TRACE-001, category: traceability, property: full artifact chain is unique and consistent}
+blocked_tests: [context restriction, isometry, covariance, dimension bound, demonstrability observation, validity, social recognition, acquisition, development, comparison]
+acceptance_invariants:
+- identity scope opaque context object order and provenance conserved
+- no context instance restricted competency observer recognition endpoint score level threshold comparison or progression invented
+- unresolved propagated
+dependency_tests:
+- expect capacities dependency status not_directly_evidenced
+no_invention: {competency: false, context: false, observation: false, measurement: false, level: false, threshold: false, comparison: false, progression: false}
