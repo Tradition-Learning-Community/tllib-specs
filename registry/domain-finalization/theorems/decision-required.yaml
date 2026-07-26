@@ -1,0 +1,92 @@
+schema_version: 1
+domain: theorems
+blocking: []
+decisions:
+  - decision_id: THEOREMS-DECISION-001
+    subject: historical_feature_population_divergence
+    classification: non_blocking
+    affected_features:
+      - TLC-FC-06-THEOREMS-005
+      - TLC-FC-06-THEOREMS-006
+      - TLC-FC-06-THEOREMS-007
+      - TLC-FC-06-THEOREMS-008
+      - TLC-FC-06-THEOREMS-009
+    evidence:
+      - registry/domain-progress/theorems/feature-inventory.yaml
+      - registry/global-reconciliation/domain-feature-matrix.yaml
+    resolution_for_this_package: current_baseline_population_is_authoritative
+    scientific_correction_made: false
+  - decision_id: THEOREMS-DECISION-002
+    subject: twelve_unresolved_scientific_classifications
+    classification: preserved_as_opaque
+    affected_features:
+      - TLC-FC-06-THEOREMS-007
+      - TLC-FC-06-THEOREMS-008
+      - TLC-FC-06-THEOREMS-009
+    unresolved_ids:
+      - TLC-UT-THEOREMS-001
+      - TLC-UT-THEOREMS-002
+      - TLC-UT-THEOREMS-003
+      - TLC-UT-THEOREMS-004
+      - TLC-UT-THEOREMS-005
+      - TLC-UT-THEOREMS-006
+      - TLC-UT-THEOREMS-007
+      - TLC-UT-THEOREMS-008
+      - TLC-UT-THEOREMS-009
+      - TLC-UT-THEOREMS-010
+      - TLC-UT-THEOREMS-011
+      - TLC-UT-THEOREMS-012
+    implementation_handling: unresolved_propagated
+    scientific_resolution_made: false
+  - decision_id: THEOREMS-DECISION-003
+    subject: incomplete_or_absent_proofs
+    classification: deferred_to_scientific_review
+    affected_features:
+      - TLC-FC-06-THEOREMS-001
+      - TLC-FC-06-THEOREMS-005
+      - TLC-FC-06-THEOREMS-006
+      - TLC-FC-06-THEOREMS-007
+      - TLC-FC-06-THEOREMS-008
+      - TLC-FC-06-THEOREMS-009
+    implementation_handling:
+      partial: external_proof_required
+      absent: proof_reference_required
+      mechanical_verification: implementation_out_of_scope
+    blocks_structural_implementation: false
+  - decision_id: THEOREMS-DECISION-004
+    subject: external_domain_authority_and_typed_mapping
+    classification: deferred_to_scientific_review
+    dependency_ids:
+      - DEP-THEOREMS-DYNAMICS-001
+      - DEP-THEOREMS-HUIT-001
+      - DEP-THEOREMS-MASTER-001
+      - DEP-THEOREMS-DISCIPLE-001
+      - DEP-THEOREMS-COMMUNITY-001
+      - DEP-THEOREMS-MESSAGE-001
+      - DEP-THEOREMS-PRINCIPLE-001
+    implementation_handling: external_reference
+    blocks_structural_implementation: false
+    blocks_typed_proof_representation: true
+  - decision_id: THEOREMS-DECISION-005
+    subject: invariant_robustness_mention_without_feature_mapping
+    classification: non_blocking
+    dependency_id: DEP-THEOREMS-INVARIANTS-001
+    implementation_handling: descriptive_scope
+    affected_features: []
+  - decision_id: THEOREMS-DECISION-006
+    subject: canonical_scientific_types_units_dimensions_and_numeric_semantics
+    classification: preserved_as_opaque
+    affected_features: all_active_features
+    implementation_handling: opaque_value
+    blocks_structural_implementation: false
+  - decision_id: THEOREMS-DECISION-007
+    subject: proof_engine_or_numeric_evaluator
+    classification: non_blocking
+    implementation_handling: implementation_out_of_scope
+    reason: no such operation is authorized by the contracts or source IRs
+summary:
+  blocking_count: 0
+  non_blocking_count: 3
+  deferred_to_scientific_review_count: 2
+  preserved_as_opaque_count: 2
+  package_closure_blocked: false
