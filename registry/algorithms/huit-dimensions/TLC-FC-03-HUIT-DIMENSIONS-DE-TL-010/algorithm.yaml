@@ -1,0 +1,59 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010
+operation: describe_capacity_metric_requirements
+signature: describe_capacity_metric_requirements(capacity_properties) -> CapacityMetricRequirements
+source_contract: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010/contract.yaml
+finalized_ir: registry/optimized-ir/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010/ir.yaml
+inputs:
+- capacity_properties: OpaqueCapacityPropertySet
+output: CapacityMetricRequirements
+validations:
+- require the source property set trace reservations and assumptions
+- require the five declared aspect labels
+- reject omission numeric conversion or scientific implementation
+preconditions: [property_set_present, five_aspects_declared, traceability_complete]
+steps:
+- validate source identity trace and propagated sets
+- validate exact aspect label set
+- reject numeric metric activation measure growth or geodesic implementation request
+- create one unevaluated reference per aspect linked to the source object
+- verify cardinality shared source identity opacity and propagation
+branching:
+- missing trace or role: FAIL-HUIT-010-MISSING-TRACE
+- omitted aspect or numeric conversion: FAIL-HUIT-010-OPERATION
+- invented semantics: FAIL-HUIT-010-SCIENTIFIC-INVENTION
+dimension_access: capacity_property_roles_only
+transformations: five_aspect_requirement_normalization_only
+errors: [FAIL-HUIT-010-MISSING-TRACE, FAIL-HUIT-010-OPERATION, FAIL-HUIT-010-SCIENTIFIC-INVENTION]
+postconditions:
+- exactly five named aspect references exist
+- all point to the source object and remain unevaluated
+- no metric value is returned
+invariants: [aspect_completeness, shared_source_identity, limited_status]
+determinism: deterministic_requirement_construction
+effects: none
+case_limits:
+- missing or extra inferred aspects are rejected
+- aspect order is technical only
+- no concrete metric type is accepted
+dependencies: {execution: [], documentary: [capacities]}
+unresolved_conserved:
+- TLC-UNRES-HUIT-010-TYPE
+- TLC-UNRES-HUIT-010-SIGNATURE
+- TLC-UNRES-HUIT-010-UNITS
+- TLC-UNRES-HUIT-010-ORDER
+- TLC-UNRES-HUIT-010-AGGREGATION
+- TLC-UNRES-HUIT-010-NUMERICS
+- TLC-UNRES-HUIT-010-ORACLE
+- TLC-UNRES-HUIT-010-BOUNDARY
+pseudocode: |
+  function describe_capacity_metric_requirements(capacity_properties):
+      require_present(capacity_properties)
+      validate_traceability_and_reservations(capacity_properties)
+      aspects = [latency, activatability, structurality, evolutivity, riemannian_structure]
+      reject_scientific_implementation_request()
+      result = CapacityMetricRequirements()
+      for aspect in aspects:
+          result.add(aspect, opaque_reference(capacity_properties), evaluated=false)
+      verify_aspect_set_source_identity_and_propagation(result)
+      return result
