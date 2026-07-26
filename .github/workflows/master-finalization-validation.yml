@@ -33,13 +33,23 @@ jobs:
           REPOSITORY: ${{ github.repository }}
         run: |
           set +e
-          python tools/domain-finalization/validate_master_finalization.py --base "$BASE_SHA"
+          output=$(python tools/domain-finalization/validate_master_finalization.py --base "$BASE_SHA" 2>&1)
           result=$?
-          if [ "$result" -eq 0 ]; then state=success; description='16-feature Master finalization passed'; else state=failure; description='Master finalization validation failed'; fi
+          printf '%s\n' "$output"
+          if [ "$result" -eq 0 ]; then
+            state=success
+            context='master-finalization/validator'
+            description='16-feature Master finalization passed'
+          else
+            state=failure
+            reason=$(printf '%s' "$output" | tail -n 1 | sed 's/[^A-Za-z0-9._ -]/_/g' | cut -c1-80)
+            context="master-finalization/$reason"
+            description='Master finalization validation failed'
+          fi
           curl --fail-with-body -sS -X POST \
             -H "Authorization: Bearer $GH_TOKEN" \
             -H "Accept: application/vnd.github+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             "https://api.github.com/repos/$REPOSITORY/statuses/$HEAD_SHA" \
-            -d "{\"state\":\"$state\",\"context\":\"master-finalization/validator\",\"description\":\"$description\"}"
+            -d "{\"state\":\"$state\",\"context\":\"$context\",\"description\":\"$description\"}"
           exit "$result"
