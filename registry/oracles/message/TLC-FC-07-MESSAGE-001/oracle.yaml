@@ -1,0 +1,18 @@
+schema_version: 1
+feature_id: TLC-FC-07-MESSAGE-001
+source_test_plan: registry/test-plans/TLC-FC-07-MESSAGE-001/test-plan.yaml
+acceptance_target: registry/optimized-ir/message/TLC-FC-07-MESSAGE-001/ir.yaml
+oracle_kind: structural
+fixtures_policy: use source identifiers and opaque sentinel payloads only
+tests:
+  - {id: MSG001-NOMINAL, kind: nominal, assert: one root, exactly four source-named slots, three evidence references}
+  - {id: MSG001-MISSING, kind: precondition_error, mutate: remove one required evidence id, expect_error: MissingDefinitionEvidence}
+  - {id: MSG001-MALFORMED, kind: shape_error, mutate: use non-four-slot formal expression, expect_error: MalformedFourSlotExpression}
+  - {id: MSG001-CONTENT, kind: content_conservation, assert: opaque payload and references unchanged}
+  - {id: MSG001-IDENTITY, kind: identity_conservation, assert: three object identities remain distinct}
+  - {id: MSG001-ORDER, kind: structural_order, assert: four slots retain source order}
+  - {id: MSG001-DETERMINISM, kind: determinism, assert: repeated identical input is structurally equal}
+  - {id: MSG001-ROUNDTRIP, kind: serialization_roundtrip, assert: structure identity metadata and opaque values preserved}
+  - {id: MSG001-NONEXEC, kind: forbidden_behavior, assert: no transport or scientific evaluation operation exists}
+properties: [identity_preservation, provenance_preservation, structural_immutability]
+unresolved_assertion: no unresolved item is silently resolved
