@@ -1,0 +1,19 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-00-MASTER-009
+feature_id: TLC-FC-00-MASTER-009
+status: acceptance_ready
+finalized_ir_ref: registry/optimized-ir/master/TLC-FC-00-MASTER-009/ir.yaml
+algorithm_ref: registry/algorithms/master/TLC-FC-00-MASTER-009/algorithm.yaml
+oracle_kind: structural_unresolved_and_opaque_provider
+fixtures: {valid_object_refs: [TLC-SO-MASTER-031], valid_relation_refs: [], valid_unresolved: [TLC-GU-00338, TLC-UT-MASTER-021], opaque_echo_payload: {equation_result: opaque}}
+acceptance_tests:
+  - {test_id: MASTER-009-A01, category: precondition, assertion: exact object and empty relation sets are accepted}
+  - {test_id: MASTER-009-A02, category: error, mutation: add a relation, expected_error: MASTER_REFERENCE_SET_MISMATCH}
+  - {test_id: MASTER-009-A03, category: error, mutation: omit an unresolved ref, expected_error: MASTER_UNRESOLVED_SET_MISMATCH}
+  - {test_id: MASTER-009-A04, category: property, assertion: provider payload is returned unchanged}
+  - {test_id: MASTER-009-A05, category: postcondition, assertion: unresolved mode retains both identifiers}
+  - {test_id: MASTER-009-A06, category: determinism, assertion: wrapper output is stable for identical response}
+  - {test_id: MASTER-009-A07, category: conservation, assertion: no relation, branch, contract, parameter, type, dimension, or numerical method is invented}
+  - {test_id: MASTER-009-A08, category: source_integrity, assertion: all source artifacts are unmodified}
+exact_numeric_examples: []
+scientific_values_invented: false
