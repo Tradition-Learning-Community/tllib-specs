@@ -94,7 +94,7 @@ There are no blockers for the structural implementation-specification package. R
 
 ## Scope integrity
 
-This branch modifies only Theorems finalization artifacts, this report, and the Theorems validator, plus a temporary validation workflow if present during GitHub execution. It does not modify:
+The final branch modifies only Theorems finalization artifacts, this report, and the Theorems validator. The temporary GitHub Actions workflow used for validation was deleted after the successful run. The final tree does not modify:
 
 - source contracts;
 - source IRs;
@@ -109,9 +109,15 @@ It produces no C++, no Python bindings, and no reference implementation.
 
 Validator: `tools/domain-finalization/validate_theorems_finalization.py`
 
-Expected command: `python tools/domain-finalization/validate_theorems_finalization.py`
+Executed checks:
 
-Validation result: **PASS** on GitHub Actions for commit `5787a613039cef657f3c5ea938eae4acbdaf789e`.
+1. `python tools/domain-finalization/validate_theorems_finalization.py`
+2. `git diff --check origin/main...HEAD`
+3. modified-path whitelist verification
+4. protected-source, `maths/`, global-registry, and parallel-domain verification
+5. forbidden C++, binding, reference-implementation, cache, and temporary-artifact verification
+
+Validation result: **PASS** on GitHub Actions for commit `5787a613039cef657f3c5ea938eae4acbdaf789e`. The subsequent cleanup removed only the temporary workflow and finalized this report; the final GitHub comparison is restricted to the permanent Theorems paths listed above.
 
 ## Completion statement
 
