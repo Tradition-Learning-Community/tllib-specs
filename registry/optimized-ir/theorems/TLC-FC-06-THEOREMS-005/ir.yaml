@@ -1,0 +1,97 @@
+schema_version: 1
+artifact_kind: theorems_finalized_implementation_ir
+feature_id: TLC-FC-06-THEOREMS-005
+selection_status: selected_for_theorems_implementation_specification
+source_contract: registry/math-contracts/TLC-FC-06-THEOREMS-005/contract.yaml
+source_contract_id: TLC-LEC-TLC-FC-06-THEOREMS-005-001
+source_ir: registry/ir/TLC-FC-06-THEOREMS-005/ir.yaml
+source_ir_id: TLC-PIR-TLC-FC-06-THEOREMS-005-001
+source_test_plan: registry/test-plans/TLC-FC-06-THEOREMS-005/test-plan.yaml
+source_ir_raw_status: prototype_ir_with_reservations
+nature: structural_claim_registry
+statement:
+  purpose: Register the two CNS operator claims: the source transformation signature and the per-dimension removal-effect claim.
+  observable_effect: return a claim set separating the transformation signature from the dimension-removal effects while leaving completeness and necessity unevaluated
+  source_references: [maths/06-theorems.md:54-55, maths/06-theorems.md:66-67]
+scope:
+  source_objects: [TLC-SO-THEOREMS-005, TLC-SO-THEOREMS-006]
+  source_relations: []
+  associated_result: RESULT-THEOREMS-003
+quantifiers:
+  feature_operation: none_explicitly_declared
+  associated_result: explicit_quantifier_preserved_at_result_level
+hypotheses:
+  scientific: none_added
+  provisional_engineering: [TLC-EA-THEOREMS-005-001]
+preconditions:
+  - The transformation claim cites lines 54-55 and every removal claim cites lines 66-67.
+conditions_of_application:
+  - transformation and removal-effect claim families remain separately addressable
+conclusion:
+  scientific: completeness_and_necessity_remain_unevaluated
+  software:
+    - The two claim families remain separately addressable and retain blocked-local scientific status.
+logical_relation:
+  source_relation: transformation_claim_and_per_dimension_removal_claims
+  software_relation: separated_claim_family_registry
+  implication_asserted_by_software: false
+  equivalence_asserted_by_software: false
+dependencies:
+  external: [DEP-THEOREMS-HUIT-001]
+  proof_references: [PROOF-THEOREMS-003]
+operations_authorized:
+  - validate transformation claim presence and source
+  - validate removal claim sources
+  - prevent claim-family collision
+  - construct CNSOperatorClaimSet
+execution_order:
+  - validate transformation claim
+  - validate removal claim sources
+  - validate family separation
+  - preserve opaque claims
+  - construct claim set
+  - validate blocked-local status
+control_flow:
+  - missing transformation yields MISSING_TRANSFORMATION_CLAIM
+  - missing removal source yields MISSING_REMOVAL_CLAIM_SOURCE
+  - family collision yields CLAIM_FAMILY_COLLISION
+  - otherwise return claim set
+effects:
+  purity: pure_structural_construction
+  removal_execution: forbidden
+postconditions:
+  - The two claim families remain separately addressable and retain blocked-local scientific status.
+errors: [MISSING_TRANSFORMATION_CLAIM, MISSING_REMOVAL_CLAIM_SOURCE, CLAIM_FAMILY_COLLISION]
+determinism: deterministic_structural_construction_for_identical_inputs
+proof_status:
+  associated_result_status: partial
+  formalization_status: not_formalized
+  proof_reference: PROOF-THEOREMS-003
+  proof_verification_performed: false
+unresolved_propagated: []
+opaque_values:
+  types: [OpaqueTransformationClaim, OpaqueRemovalEffectClaim, OpaqueScientificValue, OpaqueScientificExpression]
+  policy: removal effects remain opaque and are not executed
+reservations:
+  - The operation organizes source evidence but does not establish theorem truth.
+  - Missing types, units, dimensions, cardinalities, ordering, precision, probability laws, and algorithms remain unspecified.
+transformations_applied:
+  - common finalized IR envelope
+  - explicit claim-family separation
+  - normalized proof-status metadata
+obligations_of_preservation:
+  - preserve transformation claim
+  - preserve each removal-effect claim
+  - preserve separate claim families
+  - preserve blocked-local status
+  - do not assert completeness, necessity, or sufficiency
+algorithm_ref: registry/algorithms/theorems/TLC-FC-06-THEOREMS-005/algorithm.yaml
+oracle_ref: registry/oracles/theorems/TLC-FC-06-THEOREMS-005/oracle.yaml
+implementation_aptitude:
+  status: ready_for_structural_implementation
+  scientific_decision_deferred: true
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+proof_invented: false
