@@ -1,0 +1,27 @@
+---
+schema_version: 1
+oracle_id: TLC-ORACLE-13-PRACTICE-007
+feature_id: TLC-FC-13-PRACTICE-007
+status: selected_for_practice_implementation_specification
+ir_ref: registry/optimized-ir/practice/TLC-FC-13-PRACTICE-007/ir.yaml
+algorithm_ref: registry/algorithms/practice/TLC-FC-13-PRACTICE-007/algorithm.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-13-PRACTICE-007/test-plan.yaml
+acceptance_ready: true
+scientific_execution_oracle_available: false
+expected_identity: TLC-FC-13-PRACTICE-007
+expected_raw_status: declarative_non_executable_with_reservations
+expected_object_ids: [TLC-SO-PRACTICE-021, TLC-SO-PRACTICE-034]
+expected_input_ids: [INPUT-PRACTICE-007-1, INPUT-PRACTICE-007-2]
+expected_output_ids: [OUTPUT-PRACTICE-007-1, OUTPUT-PRACTICE-007-2]
+expected_unresolved: []
+expected_scientific_decisions: []
+tests:
+- {id: PRACTICE-007-NOMINAL, category: nominal, assertion: both opaque inputs build a metric-candidate representation}
+- {id: PRACTICE-007-IDENTITY, category: identity, assertion: feature and metric object ids match exactly}
+- {id: PRACTICE-007-ROUNDTRIP, category: serialization, assertion: round trip preserves payloads and references}
+- {id: PRACTICE-007-EVALUATOR, category: errors, assertion: metric evaluation returns external_evaluator_required}
+- {id: PRACTICE-007-NO-FORMULA, category: invariants, assertion: no formula, scale, unit or threshold is invented}
+- {id: PRACTICE-007-OPAQUE, category: opaque_value_propagation, assertion: external opaque results are preserved without numeric validation}
+properties: [both inputs remain independently required, object order is preserved, serialization is deterministic, undeclared metric objects fail provenance validation]
+metamorphic_relations: [round-trip serialization is stable, replacing one opaque payload changes only that payload]
+acceptance_condition: structural tests pass; no exact metric value is asserted
