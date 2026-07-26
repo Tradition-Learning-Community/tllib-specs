@@ -10,7 +10,7 @@ outputs:
   - {name: theorem_index, type: TheoremDeclarationIndex}
 validations:
   - exactly the six covered theorem object identifiers occur once
-  - each declaration has a source reference
+  - each declaration has the source reference registered for its covered theorem object
   - every covered object has a proof status
   - supplied proof statuses are preserved and not promoted
 hypotheses:
@@ -21,8 +21,7 @@ conditions_of_application:
   - index and lookup operate only on the six covered declarations
 ordered_steps:
   - validate unique theorem identifiers
-  - validate exact covered population
-  - validate source references
+  - validate exact covered population and registered source references
   - validate proof-status presence
   - preserve declarations and statuses
   - construct identifier index
@@ -30,7 +29,7 @@ ordered_steps:
 branching:
   - {condition: duplicate theorem identifier, result: DUPLICATE_THEOREM_ID}
   - {condition: missing proof status, result: MISSING_PROOF_STATUS}
-  - {condition: lookup identifier outside covered set, result: UNKNOWN_THEOREM_ID}
+  - {condition: identifier is outside the covered set or its source reference is not the registered theorem source, result: UNKNOWN_THEOREM_ID}
   - {condition: all construction validations pass, result: return theorem_index}
 dependencies:
   - DEP-THEOREMS-MASTER-001
@@ -60,15 +59,18 @@ determinism: identical declarations and statuses produce an identical index
 edge_cases:
   - a declaration with absent proof remains indexable and queryable
   - partial proof status cannot be promoted to complete
-  - unknown lookup never falls back to a similar theorem
+  - unknown or incorrectly sourced declarations never fall back to a similar theorem
 unresolved_conserved: []
 pseudocode: |
   function index_theorem_declarations(declarations, proof_statuses):
       if any scientific object identifier occurs more than once:
           raise DUPLICATE_THEOREM_ID
-      require identifiers equal the six covered theorem object identifiers
-      if any declaration lacks a source reference:
-          raise MISSING_PROOF_STATUS only if its proof status is also absent; otherwise reject as failed precondition
+      for declaration in declarations:
+          object_id = declaration.scientific_object_id
+          if object_id not in the six covered theorem object identifiers:
+              raise UNKNOWN_THEOREM_ID
+          if source_reference(declaration) != registered_source_reference(object_id):
+              raise UNKNOWN_THEOREM_ID
       if any covered object has no proof status:
           raise MISSING_PROOF_STATUS
       index = empty TheoremDeclarationIndex
