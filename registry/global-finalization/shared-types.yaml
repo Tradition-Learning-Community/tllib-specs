@@ -1,6 +1,16 @@
 schema_version: 1
 status: shared_patterns_confirmed
 scientific_types_created: false
+canonical_namespaces_ref: registry/symbols/namespaces.yaml
+canonical_identifiers_ref: registry/symbols/canonical-identifiers.yaml
+representation_policy_ref: registry/symbols/representation-policy.yaml
+identity_and_representation_policy:
+  stable_semantic_identifiers_remain_authoritative: true
+  domain_qualified_public_types: true
+  shared_representation_implies_alias: false
+  shared_representation_implies_scientific_equivalence: false
+  aliases_require_explicit_declaration: true
+  serialization_preserves_semantic_identity: true
 types:
   - id: TLC-SHARED-TYPE-FEATURE-ID
     status: shared_pattern_confirmed
@@ -13,7 +23,7 @@ types:
   - id: TLC-SHARED-TYPE-OPAQUE-SCIENTIFIC-VALUE
     status: shared_pattern_confirmed
     structure: {payload: opaque, source_reference: TLC-SHARED-TYPE-SOURCE-REFERENCE}
-    obligations: [no coercion, no evaluation, lossless round_trip]
+    obligations: [no coercion, no evaluation, lossless round_trip, preserve semantic type identifier]
   - id: TLC-SHARED-TYPE-UNRESOLVED
     status: shared_pattern_confirmed
     structure: {id: string, classification: string, source_reference: TLC-SHARED-TYPE-SOURCE-REFERENCE}

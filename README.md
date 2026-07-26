@@ -7,12 +7,12 @@
 **The specification repository for the TLC scientific library.**
 
 [![Global finalization validation](https://github.com/Tradition-Learning-Community/tllib-specs/actions/workflows/global-finalization.yml/badge.svg)](https://github.com/Tradition-Learning-Community/tllib-specs/actions/workflows/global-finalization.yml)
-[![Specification status](https://img.shields.io/badge/specification-implementation--ready-0f766e)](registry/global-finalization/manifest.yaml)
+[![Specification status](https://img.shields.io/badge/specification-structurally--finalized-0f766e)](registry/global-finalization/manifest.yaml)
 [![Active features](https://img.shields.io/badge/features-166-2563eb)](registry/global-finalization/feature-status.yaml)
 [![Domains](https://img.shields.io/badge/domains-16-7c3aed)](registry/global-finalization/domain-status.yaml)
 [![License](https://img.shields.io/badge/license-Apache--2.0-64748b)](LICENSE)
 
-[Overview](#overview) · [Architecture](#specification-architecture) · [Domains](#domains) · [Repository map](#repository-map) · [Examples](#working-with-a-feature) · [Validation](#validation) · [Contributing](#contributing)
+[Overview](#overview) · [Architecture](#specification-architecture) · [Governance](#engineering-governance) · [Domains](#domains) · [Repository map](#repository-map) · [Feature chain](#working-with-a-feature) · [Validation](#validation) · [Contributing](#contributing)
 
 </div>
 
@@ -33,11 +33,11 @@ The current integrated specification covers:
 | Mathematical contracts | **166** |
 | Source intermediate representations | **166** |
 | Source test plans | **166** |
-| Finalized implementation IRs | **166** |
+| Finalized engineering IRs | **166** |
 | Algorithm specifications | **166** |
 | Acceptance oracles | **166** |
 
-The global package is marked [`integrated_specification_ready_for_implementation`](registry/global-finalization/manifest.yaml). This means the **structural software layer is fully specified**. It does not mean that every preserved scientific equation, proof, metric, transition, or evaluator is already executable.
+The global package is marked [`integrated_structural_specification_finalized`](registry/global-finalization/manifest.yaml). This means the **structural engineering specification is finalized and ready for downstream handoff**. It does not mean that runtime implementation exists here, or that every preserved equation, proof, metric, transition, or evaluator is scientifically executable.
 
 ## Why this repository exists
 
@@ -50,10 +50,10 @@ flowchart LR
     A[Scientific sources<br/>maths/] --> B[Feature catalogues]
     B --> C[Mathematical contracts]
     C --> D[Source IR]
-    D --> E[Finalized implementation IR]
+    D --> E[Finalized engineering IR]
     E --> F[Algorithm specification]
     F --> G[Acceptance oracle]
-    G --> H[Implementation task]
+    G --> H[Engineering handoff task]
 
     C -. preserved .-> I[Traceability and provenance]
     D -. preserved .-> I
@@ -61,16 +61,16 @@ flowchart LR
     G -. verifies .-> I
 ```
 
-Every active feature is expected to remain connected through the complete chain:
+Every active feature remains connected through the complete chain:
 
 ```text
 scientific source
   → mathematical contract
   → source IR
-  → finalized implementation IR
+  → finalized engineering IR
   → algorithm specification
   → acceptance oracle
-  → implementation task
+  → engineering handoff task
 ```
 
 ## Specification architecture
@@ -79,7 +79,7 @@ The repository separates **scientific authority** from **software realization**.
 
 ### 1. Scientific sources
 
-The [`maths/`](maths/) directory contains the original domain texts. These files remain authoritative and are not rewritten during IR optimization or software planning.
+The [`maths/`](maths/) directory contains the authoritative domain texts. These files are not rewritten during IR finalization or software planning.
 
 ### 2. Source contracts and IR
 
@@ -89,7 +89,7 @@ Each active feature has:
 - a source IR in [`registry/ir/`](registry/ir/);
 - a source test plan in [`registry/test-plans/`](registry/test-plans/).
 
-### 3. Finalized implementation specifications
+### 3. Finalized engineering specifications
 
 Each feature also has:
 
@@ -97,19 +97,65 @@ Each feature also has:
 - an algorithm specification in [`registry/algorithms/`](registry/algorithms/);
 - an acceptance oracle in [`registry/oracles/`](registry/oracles/).
 
-These artifacts describe implementable structural behavior such as validation, immutable representation, traceability, error handling, opaque-value transport, unresolved propagation, and deterministic serialization where declared.
+These artifacts describe authorized structural behavior such as validation, immutable representation, traceability, error handling, opaque-value transport, unresolved propagation, and deterministic serialization where declared.
 
-### 4. Domain and global integration
+`registry/algorithms/` is the only active and authoritative algorithm specification tree. No parallel root-level algorithm catalogue is maintained.
+
+### 4. Canonical engineering identity
+
+The scoped canonical system under [`registry/symbols/`](registry/symbols/) covers:
+
+- stable identifiers;
+- domain-qualified namespaces;
+- shared structural types;
+- public interfaces;
+- explicit aliases;
+- mappings to reusable internal representations.
+
+It does **not** rename every theoretical term or require a globally unique mathematical glyph for every concept.
+
+A shared source symbol does not imply a shared identity. A shared internal representation does not imply an alias or scientific equivalence.
+
+### 5. Domain and global integration
 
 Domain packages live in [`registry/domain-finalization/`](registry/domain-finalization/). The integrated library-level specification lives in [`registry/global-finalization/`](registry/global-finalization/), including:
 
 - shared structural types and patterns;
 - module interfaces;
 - dependency graph;
-- implementation waves;
+- engineering waves;
 - decision register;
-- implementation backlog;
+- downstream backlog;
 - library specification.
+
+## Engineering governance
+
+### Scientific review remains preserved
+
+The repository records **147 scientific review questions**. They remain scientifically unresolved and fully traceable. Structural finalization does not mark them approved, completed, rejected, merged, or aliased.
+
+Their engineering disposition is conservative and non-blocking:
+
+- keep stable identities distinct unless an explicit alias is approved;
+- preserve missing semantics as opaque or unresolved;
+- block only feature-scoped scientific execution that requires the missing semantics;
+- do not block structural specification closure or engineering handoff.
+
+See [`registry/scientific-review/engineering-disposition.yaml`](registry/scientific-review/engineering-disposition.yaml).
+
+### Identity and representation are separate
+
+TLC distinguishes:
+
+1. **semantic identity** — stable identifier plus qualified namespace;
+2. **structural carrier** — reusable engineering representation;
+3. **backend storage** — implementation-specific choice outside this repository.
+
+Several distinct concepts may use the same carrier while retaining distinct semantic identities, provenance, and contracts.
+
+### Repository boundary
+
+This repository contains specifications only. Production C++, Python bindings, runtime kernels, packaging, and release artifacts belong in a separate implementation repository.
 
 ## Domains
 
@@ -141,23 +187,25 @@ The authoritative integrated order and counts are recorded in the [global finali
 tllib-specs/
 ├── maths/                         # Authoritative scientific domain texts
 ├── registry/
-│   ├── math-contracts/            # One mathematical contract per active feature
-│   ├── ir/                        # Preserved source intermediate representations
-│   ├── test-plans/                # Preserved source test plans
-│   ├── optimized-ir/              # Finalized implementation-facing IRs
-│   ├── algorithms/                # Algorithm specifications and pseudocode
-│   ├── oracles/                   # Acceptance oracles and test requirements
-│   ├── domain-finalization/       # Module specs, patterns, decisions, tasks
-│   ├── global-reconciliation/     # Authoritative baseline and feature matrices
-│   └── global-finalization/       # Integrated library specification and backlog
+│   ├── symbols/                  # Scoped canonical identifiers and namespaces
+│   ├── scientific-review/        # Engineering disposition of preserved review questions
+│   ├── math-contracts/           # One mathematical contract per active feature
+│   ├── ir/                       # Preserved source intermediate representations
+│   ├── test-plans/               # Preserved source test plans
+│   ├── optimized-ir/             # Finalized engineering-facing IRs
+│   ├── algorithms/               # Sole authoritative algorithm specification tree
+│   ├── oracles/                  # Acceptance oracles and test requirements
+│   ├── domain-finalization/      # Module specs, patterns, decisions, tasks
+│   ├── global-reconciliation/    # Authoritative baseline and feature matrices
+│   └── global-finalization/      # Integrated library specification and backlog
 ├── reports/
-│   ├── domain-finalization/       # Per-domain finalization reports
-│   └── global-finalization/       # Global readiness and finalization reports
+│   ├── domain-finalization/      # Per-domain finalization reports
+│   └── global-finalization/      # Global finalization and handoff reports
 ├── tools/
-│   ├── domain-finalization/       # Domain validators
-│   └── global-finalization/       # Integrated specification validator
-├── .github/workflows/             # Specification integrity CI
-└── docs/assets/                   # README and documentation visuals
+│   ├── domain-finalization/      # Domain validators
+│   └── global-finalization/      # Integrated specification validator
+├── .github/workflows/            # Specification integrity CI
+└── docs/assets/                  # README and documentation visuals
 ```
 
 ## Working with a feature
@@ -179,7 +227,7 @@ registry/algorithms/master/TLC-FC-00-MASTER-001/algorithm.yaml
 registry/oracles/master/TLC-FC-00-MASTER-001/oracle.yaml
 ```
 
-A finalized IR is implementation-facing but still preserves its sources:
+A finalized IR is engineering-facing but still preserves its sources:
 
 ```yaml
 feature_id: TLC-FC-00-MASTER-001
@@ -201,13 +249,14 @@ operations:
   - verify_preservation_obligations
 ```
 
-The corresponding algorithm explains the ordered behavior, while the oracle defines the acceptance conditions an implementation must satisfy.
+The corresponding algorithm explains the ordered behavior, while the oracle defines the acceptance conditions downstream work must satisfy.
 
-## What can be implemented now
+## Engineering handoff scope
 
-The specifications authorize implementation of the shared structural layer, including:
+The specifications authorize downstream work for the shared structural layer, including:
 
 - stable feature and source identifiers;
+- domain-qualified semantic identities;
 - immutable descriptors;
 - exact identity, input, provenance, and reference validation;
 - opaque scientific payload carriers;
@@ -217,13 +266,13 @@ The specifications authorize implementation of the shared structural layer, incl
 - module interfaces;
 - oracle-driven acceptance suites.
 
-See the [implementation readiness report](reports/global-finalization/implementation-readiness.md), [library specification](registry/global-finalization/library-specification.yaml), and [implementation backlog](registry/global-finalization/implementation-backlog.yaml).
+See the [engineering handoff readiness report](reports/global-finalization/implementation-readiness.md), [library specification](registry/global-finalization/library-specification.yaml), and [downstream backlog](registry/global-finalization/implementation-backlog.yaml).
 
 ## Scientific boundary
 
-This repository does **not** authorize an implementation to invent missing semantics.
+This repository does **not** authorize downstream work to invent missing semantics.
 
-Unless explicitly defined by the source contract, implementations must not introduce:
+Unless explicitly defined by the source contract, no implementation may introduce:
 
 - numerical solvers or convergence policies;
 - thresholds, scores, rankings, or measurement scales;
@@ -252,12 +301,14 @@ The validator checks, among other things:
 - feature populations match across artifact layers;
 - historical Capacities identifiers are not promoted;
 - protected scientific sources and source artifacts are unchanged;
+- the canonical symbol and engineering-disposition registries are present;
+- no active algorithm specification exists outside `registry/algorithms/`;
 - no C++ implementation or Python binding is introduced in this repository;
 - the Git diff is structurally clean.
 
 Domain-specific validators are available under [`tools/domain-finalization/`](tools/domain-finalization/).
 
-## Implementation roadmap
+## Downstream roadmap
 
 The integrated backlog organizes future development into dependency-aware waves:
 
@@ -267,7 +318,7 @@ The integrated backlog organizes future development into dependency-aware waves:
 4. cross-module acceptance suites;
 5. Python bindings after the C++ structural interfaces pass their oracles.
 
-Implementation code should live in the future implementation repository or explicitly designated implementation branch—not in this specification repository unless the project governance changes that boundary.
+Implementation code belongs in the future implementation repository, not in this specification repository.
 
 ## Contributing
 
@@ -279,26 +330,30 @@ Before opening a pull request:
 2. preserve the authoritative files under `maths/`, source contracts, source IRs, and source test plans unless the contribution is an explicitly approved scientific revision;
 3. update all affected finalized IR, algorithm, oracle, module, and task references together;
 4. preserve unresolved items rather than replacing them with assumptions;
-5. run the relevant domain validator and the global validator;
-6. keep implementation code outside this repository's current scope.
+5. maintain qualified semantic identities and explicit alias rules;
+6. keep active algorithm specifications under `registry/algorithms/` only;
+7. run the relevant domain validator and the global validator;
+8. keep implementation code outside this repository's scope.
 
-A good pull request explains **what changed, why it is scientifically authorized, which feature chain is affected, and which validation evidence passed**.
+A good pull request explains **what changed, why it is authorized, which feature chain is affected, and which validation evidence passed**.
 
 ## Project status
 
 | Phase | Status |
 |---|---|
 | Scientific source organization | Complete |
+| Scientific review inventory | Complete: 147 questions preserved |
+| Scientific adjudication | Unresolved; non-blocking engineering disposition recorded |
 | Mathematical contracts | Complete for 166 active features |
 | Source IR and test plans | Complete for 166 active features |
-| Finalized implementation IRs | Complete |
-| Algorithm specifications | Complete |
+| Finalized engineering IRs | Complete |
+| Algorithm specifications | Complete under `registry/algorithms/` |
 | Acceptance oracles | Complete |
+| Canonical engineering identity | Scoped registry active |
 | Domain integration | Complete |
-| Global library specification | Complete |
-| C++ implementation | Not started in this repository |
-| Python bindings | Not started in this repository |
-| Packaging and releases | Not started |
+| Global structural specification | Finalized |
+| Runtime implementation | Outside this repository |
+| Packaging and releases | Outside this repository |
 
 ## License
 

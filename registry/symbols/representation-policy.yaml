@@ -1,0 +1,41 @@
+schema_version: 1
+policy_id: TLC-SEMANTIC-REPRESENTATION-SEPARATION-V1
+status: active_engineering_policy
+core_rules:
+  - semantic identity is defined by a stable identifier and qualified namespace
+  - source notation may be reused across domains
+  - distinct semantic identities may share an internal representation
+  - shared representation never creates an alias or scientific equivalence
+  - aliases require an explicit reviewed declaration
+  - serialization must preserve the original semantic type identifier
+representation_layers:
+  semantic_type:
+    description: domain-qualified meaning-bearing identity
+    examples: [tl.master.Exemplarity, tl.values.IdentityIntegration, tl.community.CollectiveCoherence]
+  structural_carrier:
+    description: reusable engineering representation without scientific evaluation
+    examples: [OpaqueScientificValue, BoundedMeasure, OrderedReferenceSet, ImmutableDescriptor]
+  backend_storage:
+    description: implementation-specific storage selected outside this specification repository
+    examples: [opaque_bytes, scalar_wrapper, tensor_handle, symbolic_expression_handle]
+allowed_shared_representation_example:
+  semantic_types:
+    - tl.master.Exemplarity
+    - tl.values.IdentityIntegration
+    - tl.community.CollectiveCoherence
+  shared_carrier: OpaqueScientificValue
+  equivalence_asserted: false
+  alias_asserted: false
+  preservation_requirement: retain each semantic type identifier and provenance
+alias_policy:
+  implicit_aliases: forbidden
+  name_match_is_sufficient: false
+  symbol_match_is_sufficient: false
+  representation_match_is_sufficient: false
+  explicit_declaration_required: true
+  scientific_review_required_for_semantic_equivalence: true
+compatibility_policy:
+  same_carrier_does_not_imply_interchangeability: true
+  conversion_requires_explicit_contract: true
+  public_api_must_expose_semantic_identity: true
+  internal_reuse_may_be_hidden_behind_domain_types: true

@@ -1,0 +1,43 @@
+schema_version: 1
+policy_id: TLC-ENGINEERING-DISPOSITION-SCIENTIFIC-REVIEW-V1
+status: active_engineering_policy
+scope:
+  scientific_review_index: reports/scientific-auto-review/decision-classification.yaml
+  scientific_decision_count: 147
+  scientific_adjudication_status: unresolved_preserved
+  engineering_disposition_status: complete
+purpose: >-
+  Preserve all scientific review questions without asserting that they are
+  resolved, while preventing those questions from blocking the structurally
+  finalized engineering specification.
+principles:
+  - This policy does not approve, reject, merge, alias, or scientifically resolve any review item.
+  - Every scientific question remains traceable, reversible, and reopenable.
+  - Structural engineering may proceed when unresolved semantics are preserved explicitly.
+  - Scientific execution remains unavailable wherever a missing decision is required to evaluate scientific content.
+default_disposition:
+  scientific_status: unresolved_preserved
+  engineering_disposition: non_blocking_conservative_preservation
+  blocks_structural_specification: false
+  blocks_engineering_handoff: false
+  blocks_scientific_execution: when_required_by_feature_contract
+  duplicate_or_alias_candidates: keep_distinct_unless_explicitly_approved
+  missing_semantics: preserve_as_opaque_or_unresolved
+  missing_evaluator: expose_external_evaluator_boundary_or_structured_unsupported_error
+  missing_numeric_choice: do_not_select_solver_threshold_distribution_seed_or_tolerance
+  traceability: preserve_original_review_id_and_evidence
+identity_rules:
+  - A shared name or source symbol does not establish scientific identity.
+  - A shared runtime representation does not establish scientific equivalence.
+  - Alias status requires an explicit reviewed declaration.
+  - Until such a declaration exists, stable identifiers remain distinct.
+reopen_triggers:
+  - new_authoritative_scientific_source
+  - explicit_human_scientific_adjudication
+  - feature_requires_scientific_execution
+  - contradiction_detected_during_contract_or_ir_review
+closure_statement:
+  scientific_review_inventory_complete: true
+  scientific_adjudication_complete: false
+  engineering_disposition_complete: true
+  structural_specification_may_close: true
