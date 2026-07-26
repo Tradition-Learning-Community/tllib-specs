@@ -1,0 +1,109 @@
+schema_version: 1
+domain_id: competencies
+analysis_scope: all_13_authoritative_source_irs
+scientific_equivalence_claimed: false
+distinctions:
+  resemblance: shared vocabulary or neighboring source sections only
+  textual_duplication: repeated wording without identity equivalence
+  structural_duplication: repeated descriptor mechanics eligible for shared implementation utilities
+  same_representation_schema: common immutable descriptor fields with feature-specific profiles
+  scientific_equivalence: requires explicit proof and is not established for any pair
+patterns:
+- pattern_id: competencies_feature_profile
+  kind: shared_representation_schema
+  applies_to: all
+  fields: [feature_id, category, source_object_ids, source_object_order, source_references, raw_status, reservations, unresolved, dependencies]
+  factorization: admissible
+  preservation_conditions: [public_identity, category, object_set, object_order, provenance, reservations, unresolved]
+- pattern_id: opaque_competency_reference
+  kind: shared_type
+  applies_to: all
+  representation: ordered set of OpaqueScientificObject references plus SourceReference records
+  semantic_interpretation: forbidden
+  factorization: admissible
+- pattern_id: exact_object_set_validation
+  kind: shared_validation
+  applies_to: all
+  checks: [expected_feature_id, missing_object, duplicate_object, unexpected_object, missing_provenance]
+  factorization: admissible
+- pattern_id: immutable_descriptor_construction
+  kind: shared_subgraph
+  applies_to: all
+  sequence: [validate_request_mode, validate_feature_identity, validate_exact_object_set, validate_provenance, copy_opaque_payload_identities_in_catalogue_order, attach_traceability, attach_reservations_and_unresolved, mark_structurally_valid, return_descriptor]
+  factorization: admissible
+- pattern_id: prohibited_scientific_evaluation_guard
+  kind: shared_control_flow
+  applies_to: all
+  rejects: [numeric_scoring, threshold_selection, rank_generation, probability_generation, temporal_simulation, causal_inference, scientific_truth_resolution]
+  error: ScientificEvaluationRequested
+  factorization: admissible
+- pattern_id: structured_errors
+  kind: shared_error_model
+  applies_to: all
+  errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, UnexpectedCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
+  factorization: admissible
+- pattern_id: opaque_value_propagation
+  kind: shared_preservation_rule
+  applies_to: all
+  behavior: preserve payload identity and source statement without parsing or calculation
+  factorization: admissible
+- pattern_id: unresolved_and_reservation_propagation
+  kind: shared_preservation_rule
+  applies_to: all
+  behavior: copy source unresolved, scientific decisions required, readiness reservations, and dependency labels unchanged
+  factorization: admissible
+- pattern_id: external_capacities_dependency
+  kind: dependency_pattern
+  applies_to: [TLC-FC-12-COMPETENCIES-004, TLC-FC-12-COMPETENCIES-006]
+  source_status: external_unreconciled
+  normalized_kind: scientific_documentary_dependency
+  runtime_dependency_created: false
+  factorization: profile_parameter_only
+- pattern_id: relation_without_authorized_endpoints
+  kind: feature_specific_pattern
+  applies_to: [TLC-FC-12-COMPETENCIES-016]
+  behavior: preserve relation object and source statement; reject endpoint inference or executable relation evaluation
+  factorization: no_cross_feature_semantic_factorization
+optimizations_applied:
+- optimization: common_descriptor_schema
+  evidence: identical source IR input/output and construction pattern
+  semantic_change: false
+- optimization: common_validation_pipeline
+  evidence: identical preconditions and structural errors across 13 source IRs
+  semantic_change: false
+- optimization: common_rejection_guard
+  evidence: identical prohibition of unsupported scientific evaluation
+  semantic_change: false
+- optimization: normalized_traceability
+  evidence: every feature has one contract, one source IR, one test plan and one maths source chain
+  semantic_change: false
+- optimization: profile_driven_object_order
+  evidence: contracts require catalogue order preservation
+  semantic_change: false
+- optimization: dependency_kind_separation
+  evidence: source records distinguish external_unreconciled from executable behavior
+  semantic_change: false
+- optimization: test_oracle_template
+  evidence: source test plans share structural, rejection, property, determinism and traceability checks
+  semantic_change: false
+optimizations_not_applied:
+- merge_features
+- deduplicate_scientific_objects
+- evaluate_equations
+- normalize_scientific_symbols
+- infer_relation_endpoints
+- infer_competency_levels
+- infer_measurements_or_thresholds
+- infer_acquisition_or_mastery_rules
+- convert_documentary_dependency_to_runtime_dependency
+ordering:
+  catalogue_object_order: semantic_for_traceability_and_preserved
+  input_map_iteration_order: non_semantic
+  feature_public_order: baseline_order_preserved
+  invented_scientific_order: false
+cpp_generation_preparation:
+  shared_types_identified: true
+  shared_validation_identified: true
+  shared_error_model_identified: true
+  executable_scientific_kernels_identified: false
+  code_generated: false
