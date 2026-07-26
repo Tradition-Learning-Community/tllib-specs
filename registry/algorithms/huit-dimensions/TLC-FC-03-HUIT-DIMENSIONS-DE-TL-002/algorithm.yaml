@@ -1,0 +1,63 @@
+schema_version: 1
+feature_id: TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002
+operation: build_message_convergence_constraint
+signature: build_message_convergence_constraint(declaration, phase_labels, unresolved_operator) -> MessageConvergenceConstraint
+source_contract: registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002/contract.yaml
+finalized_ir: registry/optimized-ir/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002/ir.yaml
+inputs:
+- convergence_declaration: OpaqueConvergenceDeclaration
+- phase_labels: opaque_declared_labels
+- unresolved_operator: opaque_Gamma_and_limit_tokens
+output: MessageConvergenceConstraint
+validations:
+- require declaration source identity and complete trace
+- require germination crystallisation and stabilisation labels
+- require reservations assumptions and unresolved identity status
+- reject convergence execution or inferred semantics
+preconditions: [declaration_present, phase_labels_complete, traceability_complete]
+steps:
+- validate declaration labels traceability and unresolved sets
+- copy declaration and opaque operator tokens
+- construct a constraint record with three named phase labels
+- mark convergence_evaluation and feature_boundary_identity unresolved
+- verify identity opacity and propagation
+branching:
+- missing trace or declaration: FAIL-HUIT-002-MISSING-TRACE
+- source equation or phase label loss: FAIL-HUIT-002-OPERATION
+- evaluation request: FAIL-HUIT-002-SCIENTIFIC-INVENTION
+dimension_access: declared_principle_message_roles_only
+transformations: identity_preserving_envelope_normalization_only
+errors: [FAIL-HUIT-002-MISSING-TRACE, FAIL-HUIT-002-OPERATION, FAIL-HUIT-002-SCIENTIFIC-INVENTION]
+postconditions:
+- all phase labels and equation identity are present
+- Gamma and limit remain opaque
+- boundary and identity remain unresolved
+invariants: [source_identity_preserved, opaque_tokens_preserved, limited_status_preserved]
+determinism: deterministic_record_construction
+effects: none
+case_limits:
+- missing phase label is rejected
+- duplicate labels are rejected
+- no iteration or limiting process is executed
+dependencies: {execution: [], documentary: [message, principles]}
+unresolved_conserved:
+- TLC-UNRES-HUIT-002-TYPE
+- TLC-UNRES-HUIT-002-SIGNATURE
+- TLC-UNRES-HUIT-002-UNITS
+- TLC-UNRES-HUIT-002-ORDER
+- TLC-UNRES-HUIT-002-AGGREGATION
+- TLC-UNRES-HUIT-002-NUMERICS
+- TLC-UNRES-HUIT-002-ORACLE
+- TLC-UNRES-HUIT-002-BOUNDARY
+- TLC-UNRES-HUIT-002-IDENTITY
+pseudocode: |
+  function build_message_convergence_constraint(declaration, phase_labels, unresolved_operator):
+      require_present(declaration)
+      require_exact_labels(phase_labels, [germination, crystallisation, stabilisation])
+      validate_traceability_and_reservations(declaration)
+      reject_scientific_evaluation_request(declaration, unresolved_operator)
+      result = MessageConvergenceConstraint(copy_opaque(declaration), copy_labels(phase_labels))
+      result.attach_opaque_operator(copy_opaque(unresolved_operator))
+      result.set_unresolved(convergence_evaluation, feature_boundary_identity)
+      verify_identity_and_propagation(result)
+      return result
