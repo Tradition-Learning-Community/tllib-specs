@@ -1,0 +1,68 @@
+---
+schema_version: 1
+ir_id: TLC-OPT-IR-13-PRACTICE-006
+feature_id: TLC-FC-13-PRACTICE-006
+domain: practice
+status: selected_for_practice_implementation_specification
+canonical_name: '13-practice: equation (blocked_locally)'
+source_contract_ref: registry/math-contracts/TLC-FC-13-PRACTICE-006/contract.yaml
+source_ir_ref: registry/ir/TLC-FC-13-PRACTICE-006/ir.yaml
+source_test_plan_ref: registry/test-plans/TLC-FC-13-PRACTICE-006/test-plan.yaml
+source_contract_status: blocked_declarative_non_executable
+source_ir_status: blocked_declarative_non_executable
+nature: declarative_structural
+practice_reference:
+  feature_kind: equation_candidate
+  covered_objects:
+  - {object_id: TLC-SO-PRACTICE-062, canonical_name: Domaines de validité, object_type: Equation, source_path: maths/13-practice.md}
+  - {object_id: TLC-SO-PRACTICE-091, canonical_name: Cohérence et coordination entre Disciples, object_type: Equation, source_path: maths/13-practice.md}
+identity: {preserved: true, public_feature_id: TLC-FC-13-PRACTICE-006}
+scope: {kind: descriptive_scope, statement: blocked candidate equations cited by the source contract}
+context: {kind: descriptive_context, statement: validity and collective contexts remain opaque and documentary}
+inputs:
+- {input_id: INPUT-PRACTICE-006-1, type: OpaqueCandidateScientificInput, required: true}
+- {input_id: INPUT-PRACTICE-006-2, type: OpaqueCandidateScientificInput, required: true}
+outputs:
+- {output_id: OUTPUT-PRACTICE-006-1, type: OpaqueCandidateEvaluationResult, semantics: unresolved}
+- {output_id: OUTPUT-PRACTICE-006-2, type: OpaqueCandidateEvaluationResult, semantics: unresolved}
+types: [OpaqueCandidateScientificInput, OpaqueCandidateEvaluationResult, SourceProvenance, DecisionBlocker, PracticeFeatureRepresentation]
+opaque_values: [INPUT-PRACTICE-006-1, INPUT-PRACTICE-006-2, OUTPUT-PRACTICE-006-1, OUTPUT-PRACTICE-006-2]
+preconditions: [cited scientific inputs are supplied under candidate status]
+prerequisites_explicitly_defined: []
+conditions_of_application: [structural processing only, scientific evaluation requires declared decisions]
+steps_explicitly_defined: []
+order_explicitly_defined: false
+operations: [construct_declarative_representation, validate_required_opaque_inputs, attach_source_provenance, serialize, deserialize, structural_compare, propagate_opaque_result, propagate_scientific_decisions]
+control_flow: [allow structural operations, block unspecified equation evaluation]
+repetitions_declared: []
+transitions_declared: []
+stop_conditions_declared: []
+results_declared: []
+effects_declared: []
+postconditions: [result remains candidate and traceable to both objects and all decisions]
+invariants: [no threshold interpretation is added, no collective coordination algorithm is inferred, decision set is exact]
+errors: [invalid_feature_identity, missing_required_input, invalid_input_type, missing_source_reference, provenance_mismatch, structural_error, scientific_decision_required, external_executor_required, implementation_out_of_scope]
+determinism: {structural_serialization: deterministic, scientific_evaluation: blocked_by_scientific_decision}
+dependencies:
+  documentary: [maths/13-practice.md]
+  scientific: [TLC-SO-PRACTICE-062, TLC-SO-PRACTICE-091]
+  execution: [external_executor_required]
+unresolved_propagated: []
+scientific_decisions_required: [TLC-SO-PRACTICE-062, TLC-SO-PRACTICE-091, TLC-SR-PRACTICE-061, TLC-SR-PRACTICE-090, TLC-HR-0048, TLC-HR-0051]
+reservations: [no invented type, no invented unit, no invented threshold, no invented temporal semantics]
+transformations_applied: [normalized declarative envelope, normalized decision propagation, kept equations independent]
+preservation_obligations: [preserve object order, preserve opaque values, preserve exact blockers, do not infer validity predicates]
+algorithm_ref: registry/algorithms/practice/TLC-FC-13-PRACTICE-006/algorithm.yaml
+oracle_ref: registry/oracles/practice/TLC-FC-13-PRACTICE-006/oracle.yaml
+implementation_aptitude: {structural_representation: ready, scientific_execution: external_executor_required, scientific_evaluation: deferred_to_scientific_review}
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+practice_invented: false
+step_invented: false
+sequence_invented: false
+duration_invented: false
+frequency_invented: false
+progression_invented: false
+effect_invented: false
