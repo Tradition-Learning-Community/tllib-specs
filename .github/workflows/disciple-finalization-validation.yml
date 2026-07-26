@@ -20,12 +20,107 @@ jobs:
         with:
           fetch-depth: 0
           show-progress: false
-      - name: Validate Disciple package
+      - name: Install validator dependency
+        run: python -m pip install -q PyYAML
+      - name: Parse final artifacts
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+          roots = [
+              Path('registry/domain-finalization/disciple'),
+              Path('registry/optimized-ir/disciple'),
+              Path('registry/algorithms/disciple'),
+              Path('registry/oracles/disciple'),
+          ]
+          files = sorted(path for root in roots for path in root.rglob('*.yaml'))
+          for path in files:
+              data = yaml.safe_load(path.read_text(encoding='utf-8-sig'))
+              assert isinstance(data, dict), path
+          print(f'parsed={len(files)}')
+          PY
+      - name: Check authoritative population
+        run: |
+          python - <<'PY'
+          import yaml
+          from pathlib import Path
+          ids = [f'TLC-FC-01-DISCIPLE-{i:03d}' for i in range(1, 11)]
+          load = lambda p: yaml.safe_load(Path(p).read_text(encoding='utf-8-sig'))
+          baseline = load('registry/global-reconciliation/current-baseline.yaml')
+          disciple = next(x for x in baseline['domains'] if x['domain_id'] == 'disciple')
+          assert disciple['feature_count'] == 10
+          matrix = load('registry/global-reconciliation/domain-feature-matrix.yaml')
+          assert [r['feature_id'] for r in matrix['rows'] if r['domain'] == 'disciple'] == ids
+          assert load('registry/domain-finalization/disciple/feature-status.yaml')['feature_count'] == 10
+          assert load('registry/domain-finalization/disciple/manifest.yaml')['active_features'] == ids
+          assert load('registry/domain-finalization/disciple/module-specification.yaml')['features'] == ids
+          assert [x['feature_id'] for x in load('registry/domain-finalization/disciple/implementation-tasks.yaml')['feature_tasks']] == ids
+          print('population=passed')
+          PY
+      - name: Check optimized IR schema
+        run: |
+          python - <<'PY'
+          import yaml
+          from pathlib import Path
+          required = {'feature_id','source_contract_ref','source_ir_ref','source_ir_status','representation_type','inputs','outputs','types','opaque_values','preconditions','operations','execution_order','control_flow','states','effects','postconditions','invariants','errors','determinism','dependencies','unresolved_propagated','reservations','links_to_tests','transformations_applied','preservation_obligations','implementation_readiness'}
+          for i in range(1, 11):
+              fid = f'TLC-FC-01-DISCIPLE-{i:03d}'
+              path = Path(f'registry/optimized-ir/disciple/{fid}/ir.yaml')
+              data = yaml.safe_load(path.read_text(encoding='utf-8-sig'))
+              assert data['status'] == 'selected_for_disciple_implementation_specification', fid
+              assert required <= set(data), (fid, sorted(required - set(data)))
+              assert data['source_ir_preserved'] is True
+              assert data['source_contract_preserved'] is True
+              assert data['scientific_source_modified'] is False
+              assert data['replaces_source_ir'] is False
+              assert 'OpaqueScientificValue' in data['types']['shared']
+          print('optimized_ir_schema=passed')
+          PY
+      - name: Check preservation and unresolved
+        run: |
+          python - <<'PY'
+          import json, yaml
+          from pathlib import Path
+          load = lambda p: yaml.safe_load(Path(p).read_text(encoding='utf-8-sig'))
+          status = {x['feature_id']: x for x in load('registry/domain-progress/disciple/feature-status.yaml')['features']}
+          for i in range(1, 11):
+              fid = f'TLC-FC-01-DISCIPLE-{i:03d}'
+              source = json.loads(Path(f'ir/{fid}/ir.candidate.json').read_text(encoding='utf-8-sig'))
+              questions = load(f'registry/math-contracts/{fid}/open-math-questions.yaml')
+              final = load(f'registry/optimized-ir/disciple/{fid}/ir.yaml')
+              expected_u = list(source.get('unresolved', [])) + list(questions.get('questions', []))
+              assert set(expected_u) <= set(final['unresolved_propagated']), (fid, expected_u, final['unresolved_propagated'])
+              expected_m = list(dict.fromkeys(list(source.get('master_subsymbols_unresolved', [])) + list(questions.get('master_subsymbols_unresolved', []))))
+              assert expected_m == final['opaque_values']['master_subsymbols'], (fid, expected_m, final['opaque_values']['master_subsymbols'])
+              assert set(status[fid].get('scientific_unresolved', [])) <= set(final['reservations']), fid
+          print('preservation=passed')
+          PY
+      - name: Check algorithms and oracles
+        run: |
+          python - <<'PY'
+          import yaml
+          from pathlib import Path
+          load = lambda p: yaml.safe_load(Path(p).read_text(encoding='utf-8-sig'))
+          fields = {'signature','inputs','outputs','validations','preconditions','ordered_steps','branches','state_transitions','errors','postconditions','invariants','determinism','effects','edge_cases','unresolved_preserved','dependencies','complexity','pseudocode'}
+          for i in range(1, 11):
+              fid = f'TLC-FC-01-DISCIPLE-{i:03d}'
+              alg = load(f'registry/algorithms/disciple/{fid}/algorithm.yaml')
+              oracle = load(f'registry/oracles/disciple/{fid}/oracle.yaml')
+              assert fields <= set(alg), (fid, sorted(fields - set(alg)))
+              assert alg['optimized_ir_ref'] == f'registry/optimized-ir/disciple/{fid}/ir.yaml'
+              assert oracle['optimized_ir_ref'] == f'registry/optimized-ir/disciple/{fid}/ir.yaml'
+              assert oracle['algorithm_ref'] == f'registry/algorithms/disciple/{fid}/algorithm.yaml'
+              assert oracle['source_test_plan_ref'] == f'registry/test-plans/{fid}/test-plan.yaml'
+              assert oracle['acceptance_tests']
+              assert oracle['numerical_expected_results'] == []
+          print('algorithms_oracles=passed')
+          PY
+      - name: Run complete validator
         env:
           DISCIPLE_ALLOW_TEMP_WORKFLOW: '1'
+        run: python tools/domain-finalization/validate_disciple_finalization.py
+      - name: Check diff and scope
         run: |
-          python -m pip install -q PyYAML
-          python tools/domain-finalization/validate_disciple_finalization.py
           git diff --check origin/main...HEAD
           changed="$(git diff --name-only origin/main...HEAD)"
           echo "$changed"
