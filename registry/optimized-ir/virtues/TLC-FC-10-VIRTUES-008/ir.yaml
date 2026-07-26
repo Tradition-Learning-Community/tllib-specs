@@ -1,0 +1,92 @@
+schema_version: 1
+feature_id: TLC-FC-10-VIRTUES-008
+domain: virtues
+status: selected_for_virtues_implementation_specification
+source:
+  contract_ref: registry/math-contracts/TLC-FC-10-VIRTUES-008/contract.yaml
+  source_ir_ref: registry/ir/TLC-FC-10-VIRTUES-008/ir.yaml
+  source_ir_raw_status: limited_engineering_contract_with_reservations
+  test_plan_ref: registry/test-plans/TLC-FC-10-VIRTUES-008/test-plan.yaml
+  scientific_source_ref: maths/10-virtues.md
+  source_objects: [TLC-SO-VIRTUES-007, TLC-SO-VIRTUES-019, TLC-SO-VIRTUES-021, TLC-SO-VIRTUES-025, TLC-SO-VIRTUES-026, TLC-SO-VIRTUES-112, TLC-SO-VIRTUES-136]
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false
+virtue_invented: false
+measurement_invented: false
+ordering_invented: false
+nature: structural_observation
+entrypoint: build_measure_observation_ledger
+virtue_or_reference:
+  type: OpaqueVirtue
+  identity: source-bound virtue reference associated with supplied observation descriptors
+scope: observation-ledger schema for cited measurement families
+context: caller-supplied observation context remains opaque
+inputs:
+  feature_id: exact feature identifier
+  artifact: opaque supplied observation and measurement-family descriptors
+  provenance: ordered ProvenanceRef collection
+  reservations: caller-supplied unresolved and assumptions
+outputs:
+  result: VirtuesResult containing a structural observation ledger or named error
+types: [OpaqueVirtue, OpaqueEvidence, OpaqueContext, OpaqueMetricDescriptor, ProvenanceRef, VirtuesRequest, VirtuesResult]
+opaque_values: [measurement-family descriptors, observations, context, metric descriptors, reservations]
+preconditions:
+  - feature_id equals TLC-FC-10-VIRTUES-008
+  - provenance contains all seven source objects
+  - request does not ask for weights, thresholds, metric selection, scores, ranking, or moral decision
+conditions_of_application:
+  - only supplied observation descriptors are entered into the ledger
+relations_explicitly_defined: []
+manifestations_explicitly_defined:
+  - supplied source-bound observation ledger entries
+operations:
+  - validate feature identity and provenance
+  - reject evaluation and unsupported completion requests
+  - create a ledger container preserving supplied measurement-family descriptors
+  - copy supplied observations without interpretation or aggregation
+  - construct source-bound result envelope
+order_of_execution: [validate_feature_id, validate_provenance, enforce_observation_only_guard, construct_ledger, copy_observations, build_result]
+control_flow:
+  - on invalid feature id return invalid_feature_id
+  - on missing provenance return missing_provenance
+  - on evaluation, weighting, threshold, or score request return unsupported_scientific_completion_request
+  - otherwise return accepted ledger
+observations:
+  - source-bound supplied observations may be recorded
+comparisons: []
+effects:
+  - creates a structural ledger representation only
+  - performs no evaluation, aggregation, correction, or compensation decision
+postconditions:
+  - every supplied descriptor and observation is preserved
+  - no computed metric, weight, threshold, score, or moral conclusion is present
+invariants:
+  - source object identity and order are conserved
+  - ledger membership mirrors supplied entries
+  - opaque descriptors remain uninterpreted
+errors: [missing_provenance, unsupported_scientific_completion_request, invalid_feature_id]
+determinism: {deterministic: true, randomness: none}
+dependencies:
+  internal: [common validation, observation-only guard, ledger envelope, result envelope]
+  external_execution: []
+  documentary: [maths/10-virtues.md]
+unresolved_propagated: []
+reservations:
+  - measurement families are cited but weights, thresholds, scales, and scoring semantics are not selected
+  - ledger construction is not virtue evaluation
+transformations_applied:
+  - normalized observation-ledger representation
+  - separated observation recording from evaluation and correction
+  - normalized traceability
+obligations_of_preservation:
+  - preserve source contract and IR
+  - preserve supplied observations and descriptors
+  - add no evaluator, comparator, score, threshold, or correction rule
+algorithm_ref: registry/algorithms/virtues/TLC-FC-10-VIRTUES-008/algorithm.yaml
+oracle_ref: registry/oracles/virtues/TLC-FC-10-VIRTUES-008/oracle.yaml
+implementation_aptitude:
+  ready: true
+  level: structural_observation_implementation
+  excluded_scope: [evaluation, scoring, weighting, thresholding, correction]
