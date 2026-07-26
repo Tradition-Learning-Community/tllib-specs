@@ -1,0 +1,64 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-004
+oracle_id: TLC-ORACLE-INVARIANTS-004-FINAL-001
+status: selected_for_invariants_implementation_specification
+source_test_plan_ref: ir/TLC-FC-04-INVARIANTS-004/test-plan.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-004/contract.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-004/ir.prototype.json
+optimized_ir_ref: registry/optimized-ir/invariants/TLC-FC-04-INVARIANTS-004/ir.yaml
+algorithm_ref: registry/algorithms/invariants/TLC-FC-04-INVARIANTS-004/algorithm.yaml
+operation_under_test: declare_disciple_invariant_scope
+oracle_kind: structural_declaration_oracle
+exact_scientific_values_required: false
+authoritative_expectations:
+- output is one disciple-scoped declaration for TLC-SO-INVARIANTS-007
+- root reference, relation, deferred status, opaque values, assumptions, and reservations are preserved
+- members and validation rules are not invented
+tests:
+- id: INV004-ACCEPT-NOMINAL
+  category: nominal
+  given: valid TLC-SO-INVARIANTS-007 evidence with TLC-SR-INVARIANTS-006 and root reference
+  then:
+  - one immutable ScopedInvariantDeclaration is returned
+  - scope equals disciple
+  - scientific status remains deferred
+- id: INV004-ACCEPT-WRONG-OBJECT
+  category: precondition_error
+  given: an evidence object or relation other than the covered identities
+  then_error: WrongScopeObject
+- id: INV004-ACCEPT-MISSING-ROOT
+  category: precondition_error
+  given: covered evidence without its root reference
+  then_error: MissingRootReference
+- id: INV004-ACCEPT-OPAQUE
+  category: opaque_value_propagation
+  given: uninterpretable source statement and truth conditions
+  then: values are retained exactly and not evaluated
+- id: INV004-ACCEPT-NO-MEMBERS
+  category: boundary
+  given: no sourced member set or validation rule
+  then:
+  - construction succeeds as a descriptive declaration
+  - output contains no invented members, predicate, or validation result
+- id: INV004-ACCEPT-PROMOTION
+  category: status_error
+  given: a request to mark the declaration scientifically resolved
+  then_error: StatusPromotionProhibited
+- id: INV004-ACCEPT-DETERMINISM
+  category: determinism
+  given: identical valid evidence
+  then: repeated declarations are structurally equal
+- id: INV004-ACCEPT-RESERVATIONS
+  category: reservation_propagation
+  given: TLC-EA-INVARIANTS-004-001 and source reservations
+  then: exact values are retained without resolution
+- id: INV004-ACCEPT-CONFORMANCE
+  category: traceability
+  then: identifiers, callable, types, scope, errors, and postconditions agree across linked artifacts
+properties:
+- exact identity and root preservation
+- descriptive scope does not imply member enumeration
+- no input mutation
+- no unresolved identifier introduced or removed
+numeric_expected_results: []
+acceptance_status: ready_for_test_implementation

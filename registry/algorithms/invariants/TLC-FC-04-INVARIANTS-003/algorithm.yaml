@@ -1,0 +1,109 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-003
+algorithm_id: TLC-ALG-INVARIANTS-003-FINAL-001
+status: selected_for_invariants_implementation_specification
+optimized_ir_ref: registry/optimized-ir/invariants/TLC-FC-04-INVARIANTS-003/ir.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-003/contract.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-003/ir.prototype.json
+oracle_ref: registry/oracles/invariants/TLC-FC-04-INVARIANTS-003/oracle.yaml
+signature:
+  name: build_invariant_declaration_catalog
+  input: InvariantDeclarationEvidence[]
+  output: InvariantDeclarationCatalog
+inputs:
+- declaration evidence with IDs, object types, source scopes, source references, opaque bodies, and linked evidence relations
+outputs:
+- immutable catalogue preserving every validated declaration and linked relation
+validations:
+- declaration IDs are covered and unique
+- relation IDs are covered
+- relation endpoints resolve to validated evidence records
+- object type and source scope are present
+- source references and preservation metadata are present
+preconditions:
+- every declaration and relation ID belongs to the covered feature evidence
+conditions_of_application:
+- operation catalogues declarations without deciding scientific truth
+- equation bodies remain opaque
+ordered_steps:
+- step: 1
+  action: initialize empty declaration map, relation list, and identity sets
+- step: 2
+  action: validate every declaration ID, object type, source scope, and source reference
+- step: 3
+  action: construct an immutable declaration entry by exact-copying source and opaque fields
+- step: 4
+  action: validate every linked relation ID and both endpoints against validated declaration evidence
+- step: 5
+  action: construct immutable relation references without inferring additional relations
+- step: 6
+  action: assemble declarations and relations into an immutable catalogue
+- step: 7
+  action: attach deferred status, assumptions, reservations, and provenance
+- step: 8
+  action: verify exact graph, scope, type, status, unresolved, and opaque-value conservation
+- step: 9
+  action: return the frozen catalogue
+branching:
+- condition: declaration ID is uncovered
+  action: raise UnknownDeclarationId
+- condition: relation ID is uncovered or an endpoint is absent
+  action: raise DanglingEvidenceRelation
+- condition: source scope, type, or reference is absent
+  action: raise MissingSourceReference
+- condition: truth evaluation or equation interpretation is requested
+  action: raise ScientificEvaluationProhibited
+- condition: postcondition conservation fails
+  action: raise PreservationViolation
+state_before:
+  evidence: caller_owned
+state_after:
+  evidence_mutated: false
+  result: immutable_declaration_catalogue
+verification_of_conservation:
+- compare declaration identity sets
+- compare linked relation identity and endpoint tuples
+- compare object types and source scopes
+- compare source references, catalogue status, assumptions, reservations, and opaque values
+errors:
+- UnknownDeclarationId
+- DanglingEvidenceRelation
+- MissingSourceReference
+- ScientificEvaluationProhibited
+- PreservationViolation
+postconditions:
+- each validated declaration appears exactly once
+- every output relation is source-covered and endpoint-preserving
+- no new relation or truth claim exists
+determinism:
+  random_sources: none
+  result_rule: structurally equal evidence graphs yield structurally equal catalogues
+effects:
+  input_mutation: none
+  external_io: none
+  scientific_evaluation: none
+edge_cases:
+- empty evidence yields an empty immutable catalogue and invents no declaration
+- declarations without relations remain valid when covered
+- relations with missing endpoints fail atomically
+- opaque equation fragments remain exact
+unresolved_conserved: []
+dependencies:
+  internal_structural: [TLC-FC-04-INVARIANTS-008]
+  execution: []
+pseudocode:
+- REQUIRE evidence is present
+- declarations := empty ordered map
+- relations := empty ordered list
+- FOR declaration IN evidence.declarations
+- REQUIRE declaration.id is covered, ELSE UnknownDeclarationId
+- REQUIRE type, scope, and source reference are present, ELSE MissingSourceReference
+- declarations[id] := immutable exact copy of declaration
+- END FOR
+- FOR relation IN evidence.relations
+- REQUIRE relation.id is covered and both endpoints exist in validated evidence, ELSE DanglingEvidenceRelation
+- append immutable exact relation reference to relations
+- END FOR
+- result := freeze InvariantDeclarationCatalog(declarations, relations, exact preservation metadata)
+- REQUIRE result preserves graph, scopes, types, sources, statuses, assumptions, reservations, and opaque values, ELSE PreservationViolation
+- RETURN result

@@ -1,0 +1,138 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-002
+domain: invariants
+status: selected_for_invariants_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-002/contract.yaml
+source_contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-002-001
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-002/ir.prototype.json
+source_ir_id: TLC-IR-TLC-FC-04-INVARIANTS-002-PROTOTYPE-001
+source_test_plan_ref: ir/TLC-FC-04-INVARIANTS-002/test-plan.yaml
+source_ir_raw_status: prototype_ir_with_reservations
+source_catalogue_status: rejected_as_feature
+nature: declarative_structural
+invariant_referenced:
+  concept: documentary_definition_fragments
+  source_object_ids:
+  - TLC-SO-INVARIANTS-017
+  - TLC-SO-INVARIANTS-022
+  - TLC-SO-INVARIANTS-027
+  - TLC-SO-INVARIANTS-035
+  - TLC-SO-INVARIANTS-040
+  - TLC-SO-INVARIANTS-045
+  - TLC-SO-INVARIANTS-053
+  - TLC-SO-INVARIANTS-058
+  - TLC-SO-INVARIANTS-062
+scope: master_disciple_and_community_definition_evidence
+inputs:
+- id: IR-IN-002-SPECIALIZED
+  type: DefinitionFragment[]
+  required: true
+outputs:
+- id: IR-OUT-002-SPECIALIZED
+  type: DefinitionEvidenceIndex
+  immutable: true
+  observable_effect: returns an index keyed by definition object ID with every entry documentary and non-executable
+types:
+  input_record: DefinitionFragment
+  output_index: DefinitionEvidenceIndex
+  source_range: SourceReference
+  preservation: PreservationEnvelope
+opaque_values:
+- OpaqueSourceStatement
+- OpaqueScientificTruthConditions
+preconditions:
+- id: PRE-INVARIANTS-002-SPECIALIZED
+  statement: each fragment has a covered definition ID, source range, and rejected-as-feature marker
+conditions_of_application:
+- fragments are used only as documentary evidence
+- every definition ID and refers_to relation is source-covered
+- rejected_as_feature remains source metadata
+operations:
+- id: INV002-OP-VALIDATE
+  name: validate_definition_fragments
+  effect: validate IDs, uniqueness, source ranges, relations, and source status
+- id: INV002-OP-INDEX
+  name: build_definition_evidence_index
+  effect: create immutable entries keyed by definition object ID without interpreting text
+- id: INV002-OP-PRESERVE
+  name: preserve_documentary_status
+  effect: attach exact status, provenance, assumptions, reservations, and opaque text
+execution_order:
+- INV002-OP-VALIDATE
+- INV002-OP-INDEX
+- INV002-OP-PRESERVE
+control_flow:
+- duplicate definition ID raises DuplicateDefinitionId
+- unknown definition ID or relation raises InvalidCoveredIdentifier
+- missing source range raises MissingSourceReference
+- any promotion to executable feature or predicate raises FeatureStatusPromotion
+- otherwise freeze and return the documentary index
+state_before:
+  value: caller-owned definition fragments
+  mutated: false
+state_after:
+  value: immutable DefinitionEvidenceIndex
+  input_mutated: false
+effects:
+  external_side_effects: []
+  scientific_evaluation: prohibited
+postconditions:
+- each validated definition object ID has exactly one index entry
+- every entry is documentary and non-executable
+- source ranges, relations, text, status, assumptions, and reservations are unchanged
+conditions_of_conservation:
+- exact definition identity set
+- exact source ranges and relations
+- exact rejected_as_feature source status
+- exact opaque text
+conditions_of_violation:
+- duplicate definition identity
+- missing or unknown source identity or range
+- conversion of text into a predicate
+- executable or scientific status promotion
+- loss of provenance or metadata
+errors:
+- DuplicateDefinitionId
+- InvalidCoveredIdentifier
+- MissingSourceReference
+- FeatureStatusPromotion
+- ScientificEvaluationProhibited
+- PreservationViolation
+determinism:
+  status: deterministic
+  rule: identical validated fragments and order produce structurally equal indexes
+dependencies:
+  internal_structural: [TLC-FC-04-INVARIANTS-008]
+  documentary:
+  - TLC-INV-DEP-MASTER-001
+  - TLC-INV-DEP-DISCIPLE-001
+  - TLC-INV-DEP-COMMUNITY-001
+  - TLC-INV-DEP-DYNAMICS-001
+  scientific: [maths/04-invariants.md]
+  execution: []
+unresolved_propagated: []
+provisional_assumptions_propagated: [TLC-EA-INVARIANTS-002-001]
+reservations:
+- definition text remains opaque and is never interpreted as a predicate
+- concrete types and scientific truth conditions remain unspecified
+- source catalogue status rejected_as_feature is preserved as metadata while the baseline-active feature is not rejected by finalization
+transformations_applied:
+- normalized immutable documentary index
+- common traceability and preservation envelope
+- explicit prohibition of status promotion
+obligations_of_preservation:
+- preserve all nine object IDs and relations
+- preserve documentary and non-executable status
+- preserve source order when supplied
+- never infer a predicate or evaluator
+algorithm_ref: registry/algorithms/invariants/TLC-FC-04-INVARIANTS-002/algorithm.yaml
+oracle_ref: registry/oracles/invariants/TLC-FC-04-INVARIANTS-002/oracle.yaml
+implementation_aptitude:
+  structural_implementation: ready
+  acceptance_tests: ready
+  scientific_evaluation: external_evaluator_required
+  production_scientific_execution: not_ready
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false

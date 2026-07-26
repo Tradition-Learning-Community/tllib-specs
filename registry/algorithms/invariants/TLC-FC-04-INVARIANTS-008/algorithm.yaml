@@ -1,0 +1,119 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-008
+algorithm_id: TLC-ALG-INVARIANTS-008-FINAL-001
+status: selected_for_invariants_implementation_specification
+optimized_ir_ref: registry/optimized-ir/invariants/TLC-FC-04-INVARIANTS-008/ir.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-008/contract.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-008/ir.prototype.json
+oracle_ref: registry/oracles/invariants/TLC-FC-04-INVARIANTS-008/oracle.yaml
+signature:
+  name: assemble_invariant_state_vocabulary
+  input: StateTermEvidence[]
+  output: InvariantStateVocabulary
+inputs:
+- twelve source-covered state-term evidence records and the source mapping for eleven unresolved identifiers
+outputs:
+- immutable vocabulary keyed by term ID with exact unresolved attachments
+validations:
+- every term ID is source-covered and unique
+- every source relation and source reference is covered and present
+- unresolved ID set equals the feature-owned source set
+- every unresolved ID is attached to its source-mapped affected term
+- no extra unresolved ID is introduced
+preconditions:
+- every state term and unresolved identifier is covered by the preparation mapping
+conditions_of_application:
+- vocabulary assembly is descriptive and structural only
+- no transition, chronology, detector, or equivalence semantics are evaluated
+ordered_steps:
+- step: 1
+  action: initialize an empty ordered term map and unresolved attachment map
+- step: 2
+  action: validate each term identity, uniqueness, source relation, source reference, and source status
+- step: 3
+  action: create an immutable exact term-evidence entry and insert it under the term ID
+- step: 4
+  action: validate that the unresolved identity set is exactly TLC-UT-INVARIANTS-001 through 008 plus 010, 011, and 012
+- step: 5
+  action: validate every unresolved-to-term association against the source preparation mapping
+- step: 6
+  action: attach immutable unresolved references to affected term entries without resolving them
+- step: 7
+  action: assemble and freeze InvariantStateVocabulary with exact status, assumptions, reservations, provenance, and opaque values
+- step: 8
+  action: verify term, relation, unresolved-set, attachment-map, status, and opaque-value conservation
+- step: 9
+  action: return the vocabulary
+branching:
+- condition: term ID is unknown
+  action: raise UnknownStateTermId
+- condition: term ID is duplicate
+  action: raise DuplicateIdentifier
+- condition: unresolved set or attachment map differs from source
+  action: raise UnresolvedMappingLoss
+- condition: source reference is absent
+  action: raise MissingSourceReference
+- condition: state transition, chronology, detection, or equivalence is requested
+  action: raise ScientificEvaluationProhibited
+state_before:
+  terms_and_mapping: caller_owned
+state_after:
+  inputs_mutated: false
+  result: immutable_state_vocabulary
+verification_of_conservation:
+- compare exact term ID set and relation references
+- compare exact eleven-element unresolved ID set
+- compare exact unresolved-to-term attachment map
+- compare sources, status, assumptions, reservations, and opaque values
+errors:
+- UnknownStateTermId
+- DuplicateIdentifier
+- UnresolvedMappingLoss
+- MissingSourceReference
+- ScientificEvaluationProhibited
+- PreservationViolation
+postconditions:
+- vocabulary contains exactly the twelve covered terms
+- all eleven unresolved IDs are preserved and attached correctly
+- no state execution semantics or resolution claim exists
+determinism:
+  random_sources: none
+  result_rule: identical ordered terms and mapping yield structurally equal vocabularies
+effects:
+  input_mutation: none
+  external_io: none
+  scientific_evaluation: none
+edge_cases:
+- missing one unresolved ID fails exact-set validation
+- an unresolved ID attached to the wrong term fails even if the set is complete
+- duplicate term IDs fail atomically
+- opaque terms remain exact and need no parser
+unresolved_conserved:
+- TLC-UT-INVARIANTS-001
+- TLC-UT-INVARIANTS-002
+- TLC-UT-INVARIANTS-003
+- TLC-UT-INVARIANTS-004
+- TLC-UT-INVARIANTS-005
+- TLC-UT-INVARIANTS-006
+- TLC-UT-INVARIANTS-007
+- TLC-UT-INVARIANTS-008
+- TLC-UT-INVARIANTS-010
+- TLC-UT-INVARIANTS-011
+- TLC-UT-INVARIANTS-012
+dependencies:
+  internal_structural: []
+  execution: []
+pseudocode:
+- REQUIRE terms and unresolved_mapping are present
+- term_index := empty ordered map
+- FOR term IN terms IN supplied order
+- REQUIRE term.id is covered, ELSE UnknownStateTermId
+- REQUIRE term.id not already indexed, ELSE DuplicateIdentifier
+- REQUIRE covered relation and source reference are present, ELSE MissingSourceReference
+- term_index[term.id] := immutable exact copy of term
+- END FOR
+- REQUIRE unresolved_mapping IDs equal the exact source-owned eleven-ID set, ELSE UnresolvedMappingLoss
+- REQUIRE every unresolved attachment equals the source preparation mapping, ELSE UnresolvedMappingLoss
+- result := freeze InvariantStateVocabulary(term_index, exact unresolved attachments, exact preservation metadata)
+- REQUIRE exact term, relation, unresolved, attachment, status, source, assumption, reservation, and opaque-value preservation, ELSE PreservationViolation
+- RETURN result

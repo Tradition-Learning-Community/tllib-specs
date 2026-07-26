@@ -1,0 +1,158 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-008
+domain: invariants
+status: selected_for_invariants_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-008/contract.yaml
+source_contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-008-001
+source_traceability_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-008/traceability.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-008/ir.prototype.json
+source_ir_id: TLC-IR-TLC-FC-04-INVARIANTS-008-PROTOTYPE-001
+source_test_plan_ref: ir/TLC-FC-04-INVARIANTS-008/test-plan.yaml
+source_ir_raw_status: prototype_ir_with_reservations
+source_catalogue_status: deferred_for_targeted_extraction
+nature: declarative_structural
+invariant_referenced:
+  concept: invariant_rupture_continuity_crisis_and_collapse_state_vocabulary
+  source_object_ids:
+  - TLC-SO-INVARIANTS-001
+  - TLC-SO-INVARIANTS-041
+  - TLC-SO-INVARIANTS-050
+  - TLC-SO-INVARIANTS-051
+  - TLC-SO-INVARIANTS-052
+  - TLC-SO-INVARIANTS-054
+  - TLC-SO-INVARIANTS-059
+  - TLC-SO-INVARIANTS-061
+  - TLC-SO-INVARIANTS-063
+  - TLC-SO-INVARIANTS-066
+  - TLC-SO-INVARIANTS-067
+  - TLC-SO-INVARIANTS-069
+  relation_coverage_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-008/traceability.yaml
+scope: disciple_community_and_domain_state_terms
+inputs:
+- id: IR-IN-008-SPECIALIZED
+  type: StateTermEvidence[]
+  required: true
+outputs:
+- id: IR-OUT-008-SPECIALIZED
+  type: InvariantStateVocabulary
+  immutable: true
+  observable_effect: returns a vocabulary keyed by state-term IDs with unresolved IDs attached to affected terms
+types:
+  term: StateTermEvidence
+  output_vocabulary: InvariantStateVocabulary
+  unresolved_reference: UnresolvedReference
+  preservation: PreservationEnvelope
+opaque_values:
+- OpaqueSourceStatement
+- OpaqueScientificTruthConditions
+- scientific types and meanings of the twelve unresolved source terms
+preconditions:
+- id: PRE-INVARIANTS-008-SPECIALIZED
+  statement: every state term and unresolved identifier is covered by the preparation mapping
+conditions_of_application:
+- all twelve source-covered term identities and their relations are used only as vocabulary evidence
+- eleven feature-owned unresolved IDs are attached exactly to affected terms
+- no transition graph, chronology, state detector, or scientific equivalence is inferred
+operations:
+- id: INV008-OP-VALIDATE-TERMS
+  name: validate_state_term_evidence
+  effect: validate term identities, uniqueness, source references, relations, and source status
+- id: INV008-OP-VALIDATE-UNRESOLVED
+  name: validate_unresolved_attachment_map
+  effect: validate exact unresolved identity set and affected-term associations
+- id: INV008-OP-ASSEMBLE
+  name: assemble_state_vocabulary
+  effect: create immutable entries keyed by term ID with exact unresolved attachments
+- id: INV008-OP-PRESERVE
+  name: preserve_state_vocabulary_boundary
+  effect: retain provenance, status, assumptions, reservations, and opaque values
+execution_order:
+- INV008-OP-VALIDATE-TERMS
+- INV008-OP-VALIDATE-UNRESOLVED
+- INV008-OP-ASSEMBLE
+- INV008-OP-PRESERVE
+control_flow:
+- unknown term identity raises UnknownStateTermId
+- duplicate term identity raises DuplicateIdentifier
+- missing, added, replaced, or misattached unresolved identity raises UnresolvedMappingLoss
+- transition or scientific state inference raises ScientificEvaluationProhibited
+- otherwise assemble, freeze, verify, and return
+state_before:
+  value: caller-owned term evidence and unresolved mapping
+  mutated: false
+state_after:
+  value: immutable InvariantStateVocabulary
+  input_mutated: false
+effects:
+  external_side_effects: []
+  scientific_evaluation: prohibited
+postconditions:
+- vocabulary keys equal the twelve validated source term IDs
+- each of the eleven unresolved IDs is attached exactly to its source-mapped affected term
+- source relations, status, assumptions, reservations, and opaque values are unchanged
+- no transition, chronology, detector, or equivalence exists
+conditions_of_conservation:
+- exact term identity and relation coverage
+- exact unresolved identity set and attachment map
+- exact source status, provenance, assumptions, reservations, and opaque values
+conditions_of_violation:
+- unknown or duplicate term identity
+- missing, extra, replaced, or misattached unresolved ID
+- inferred state transition, chronology, detector, or equivalence
+- preservation loss
+errors:
+- UnknownStateTermId
+- DuplicateIdentifier
+- UnresolvedMappingLoss
+- MissingSourceReference
+- ScientificEvaluationProhibited
+- PreservationViolation
+determinism:
+  status: deterministic
+  rule: identical ordered term evidence and unresolved mapping produce structurally equal vocabularies
+dependencies:
+  internal_structural: []
+  documentary:
+  - TLC-INV-DEP-DISCIPLE-001
+  - TLC-INV-DEP-COMMUNITY-001
+  - TLC-INV-DEP-DYNAMICS-001
+  scientific: [maths/04-invariants.md]
+  execution: []
+unresolved_propagated:
+- TLC-UT-INVARIANTS-001
+- TLC-UT-INVARIANTS-002
+- TLC-UT-INVARIANTS-003
+- TLC-UT-INVARIANTS-004
+- TLC-UT-INVARIANTS-005
+- TLC-UT-INVARIANTS-006
+- TLC-UT-INVARIANTS-007
+- TLC-UT-INVARIANTS-008
+- TLC-UT-INVARIANTS-010
+- TLC-UT-INVARIANTS-011
+- TLC-UT-INVARIANTS-012
+provisional_assumptions_propagated: [TLC-EA-INVARIANTS-008-001]
+reservations:
+- no transition graph, chronology, state detector, or scientific state equivalence is inferred
+- all eleven unresolved scientific term meanings remain unresolved
+- concrete types, dimensions, units, ordering, cardinality, time, and precision remain unspecified
+transformations_applied:
+- normalized immutable state-term vocabulary
+- extracted exact unresolved attachment table
+- normalized common term and provenance validation
+- explicit root role in the internal feature dependency graph
+obligations_of_preservation:
+- preserve all twelve term identities and source relations
+- preserve exactly eleven unresolved IDs and their attachments
+- never infer transition or equivalence semantics
+algorithm_ref: registry/algorithms/invariants/TLC-FC-04-INVARIANTS-008/algorithm.yaml
+oracle_ref: registry/oracles/invariants/TLC-FC-04-INVARIANTS-008/oracle.yaml
+implementation_aptitude:
+  structural_implementation: ready
+  unresolved_propagation: ready
+  acceptance_tests: ready
+  scientific_evaluation: external_evaluator_required
+  production_scientific_execution: not_ready
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false

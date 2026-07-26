@@ -1,0 +1,135 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-010
+domain: invariants
+status: selected_for_invariants_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-010/contract.yaml
+source_contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-010-001
+source_traceability_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-010/traceability.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-010/ir.prototype.json
+source_ir_id: TLC-IR-TLC-FC-04-INVARIANTS-010-PROTOTYPE-001
+source_test_plan_ref: ir/TLC-FC-04-INVARIANTS-010/test-plan.yaml
+source_ir_raw_status: prototype_ir_with_reservations
+source_catalogue_status: rejected_as_feature
+nature: declarative_structural
+invariant_referenced:
+  concept: rejected_state_interpretation_fragments
+  source_object_ids:
+  - TLC-SO-INVARIANTS-021
+  - TLC-SO-INVARIANTS-026
+  - TLC-SO-INVARIANTS-039
+  source_relation_ids:
+  - TLC-SR-INVARIANTS-020
+  - TLC-SR-INVARIANTS-025
+  - TLC-SR-INVARIANTS-038
+scope: master_and_disciple_documentary_state_annotations
+inputs:
+- id: IR-IN-010-SPECIALIZED
+  type: StateInterpretationFragment[]
+  required: true
+outputs:
+- id: IR-OUT-010-SPECIALIZED
+  type: RejectedStateAnnotationIndex
+  immutable: true
+  observable_effect: returns an index containing exactly the three source IDs, each marked non-operational and rejected
+types:
+  fragment: StateInterpretationFragment
+  output_index: RejectedStateAnnotationIndex
+  target_relation: EvidenceRelationReference
+  preservation: PreservationEnvelope
+opaque_values:
+- OpaqueSourceStatement
+- OpaqueScientificTruthConditions
+preconditions:
+- id: PRE-INVARIANTS-010-SPECIALIZED
+  statement: each fragment ID and its refers_to relation is covered and carries rejected-as-feature status
+conditions_of_application:
+- only the three source-covered fragments are indexed
+- every fragment remains documentary, non-operational, and rejected as source metadata
+- no state, transition, ordering, or equality semantics are inferred
+operations:
+- id: INV010-OP-VALIDATE
+  name: validate_state_interpretation_fragments
+  effect: validate identities, uniqueness, relations, targets, source references, and rejected status
+- id: INV010-OP-INDEX
+  name: construct_rejected_state_annotation_index
+  effect: create immutable entries keyed by source ID and marked non-operational
+- id: INV010-OP-PRESERVE
+  name: preserve_rejected_documentary_boundary
+  effect: retain source status, provenance, assumptions, reservations, and opaque content
+execution_order:
+- INV010-OP-VALIDATE
+- INV010-OP-INDEX
+- INV010-OP-PRESERVE
+control_flow:
+- duplicate fragment identity raises DuplicateStateFragmentId
+- unknown identity, relation, or target raises InvalidCoveredIdentifier
+- absent source reference raises MissingSourceReference
+- operational promotion or inferred state semantics raises OperationalStatePromotion
+- otherwise construct, freeze, verify, and return
+state_before:
+  value: caller-owned state interpretation fragments
+  mutated: false
+state_after:
+  value: immutable RejectedStateAnnotationIndex
+  input_mutated: false
+effects:
+  external_side_effects: []
+  scientific_evaluation: prohibited
+postconditions:
+- output contains exactly the three source IDs when complete source evidence is supplied
+- every entry is non-operational and carries rejected_as_feature source metadata
+- source relations, targets, assumptions, reservations, and opaque content are unchanged
+- no state, transition, ordering, or equality semantics exist
+conditions_of_conservation:
+- exact fragment identity set and source order
+- exact relation and target tuples
+- exact non-operational and rejected source status
+- exact provenance and opaque-value preservation
+conditions_of_violation:
+- duplicate, unknown, or missing source identity
+- relation or target mismatch
+- operational promotion or inferred state semantics
+- preservation loss
+errors:
+- DuplicateStateFragmentId
+- InvalidCoveredIdentifier
+- MissingSourceReference
+- OperationalStatePromotion
+- ScientificEvaluationProhibited
+- PreservationViolation
+determinism:
+  status: deterministic
+  rule: identical ordered fragments and metadata produce structurally equal indexes
+dependencies:
+  internal_structural: [TLC-FC-04-INVARIANTS-008]
+  documentary:
+  - TLC-INV-DEP-MASTER-001
+  - TLC-INV-DEP-DISCIPLE-001
+  - TLC-INV-DEP-DYNAMICS-001
+  scientific: [maths/04-invariants.md]
+  execution: []
+unresolved_propagated: []
+provisional_assumptions_propagated: [TLC-EA-INVARIANTS-010-001]
+reservations:
+- fragments do not define states, transitions, ordering, or state equality
+- source catalogue status rejected_as_feature is preserved as metadata while the baseline-active feature is not rejected by finalization
+- concrete runtime types and scientific truth conditions remain unspecified
+transformations_applied:
+- normalized immutable rejected-state annotation index
+- common identity, relation, target, and status validation
+- common preservation envelope
+obligations_of_preservation:
+- preserve all three object and relation identities
+- preserve non-operational and rejected source status
+- never infer state semantics or promote operation status
+algorithm_ref: registry/algorithms/invariants/TLC-FC-04-INVARIANTS-010/algorithm.yaml
+oracle_ref: registry/oracles/invariants/TLC-FC-04-INVARIANTS-010/oracle.yaml
+implementation_aptitude:
+  structural_implementation: ready
+  acceptance_tests: ready
+  scientific_evaluation: external_evaluator_required
+  production_scientific_execution: not_ready
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false

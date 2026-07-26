@@ -1,0 +1,69 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-010
+oracle_id: TLC-ORACLE-INVARIANTS-010-FINAL-001
+status: selected_for_invariants_implementation_specification
+source_test_plan_ref: ir/TLC-FC-04-INVARIANTS-010/test-plan.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-010/contract.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-010/ir.prototype.json
+optimized_ir_ref: registry/optimized-ir/invariants/TLC-FC-04-INVARIANTS-010/ir.yaml
+algorithm_ref: registry/algorithms/invariants/TLC-FC-04-INVARIANTS-010/algorithm.yaml
+operation_under_test: index_state_interpretation_fragments
+oracle_kind: structural_rejected_annotation_oracle
+exact_scientific_values_required: false
+authoritative_expectations:
+- complete source input yields exactly three indexed source IDs
+- every entry remains documentary, non-operational, and rejected as source metadata
+- no state, transition, ordering, or equality semantics are inferred
+tests:
+- id: INV010-ACCEPT-NOMINAL
+  category: nominal
+  given: the three covered fragments with exact relations, targets, source references, and rejected markers
+  then:
+  - output contains exactly three entries
+  - keys equal the three source IDs
+  - every entry is immutable and non-operational
+- id: INV010-ACCEPT-DUPLICATE
+  category: precondition_error
+  given: duplicate fragment IDs
+  then_error: DuplicateStateFragmentId
+- id: INV010-ACCEPT-UNKNOWN
+  category: precondition_error
+  given: an uncovered fragment ID, relation, or target
+  then_error: InvalidCoveredIdentifier
+- id: INV010-ACCEPT-SOURCE
+  category: precondition_error
+  given: a fragment without source reference
+  then_error: MissingSourceReference
+- id: INV010-ACCEPT-PROMOTION
+  category: status_error
+  given: a fragment marked operational or promoted from rejected_as_feature
+  then_error: OperationalStatePromotion
+- id: INV010-ACCEPT-OPAQUE
+  category: opaque_value_propagation
+  given: uninterpretable source statement or truth conditions
+  then:
+  - values are retained exactly
+  - no state interpretation is executed
+- id: INV010-ACCEPT-NO-STATE-SEMANTICS
+  category: boundary
+  then:
+  - no state object is instantiated beyond the documentary annotation entry
+  - no transition, ordering, or equality relation is created
+- id: INV010-ACCEPT-DETERMINISM
+  category: determinism
+  given: identical ordered fragments and metadata
+  then: repeated indexes are structurally equal
+- id: INV010-ACCEPT-STATUS
+  category: source_status_preservation
+  given: rejected_as_feature source metadata
+  then: metadata is retained while the active baseline feature remains selected by finalization
+- id: INV010-ACCEPT-CONFORMANCE
+  category: traceability
+  then: identities, relations, targets, callable, types, errors, and postconditions agree across linked artifacts
+properties:
+- exact fragment identity and order preservation
+- non-operational status is invariant under indexing
+- no input mutation
+- no unresolved identifier introduced or removed
+numeric_expected_results: []
+acceptance_status: ready_for_test_implementation

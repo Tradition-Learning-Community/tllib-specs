@@ -1,0 +1,153 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-006
+domain: invariants
+status: selected_for_invariants_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-006/contract.yaml
+source_contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-006-001
+source_traceability_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-006/traceability.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-006/ir.prototype.json
+source_ir_id: TLC-IR-TLC-FC-04-INVARIANTS-006-PROTOTYPE-001
+source_test_plan_ref: ir/TLC-FC-04-INVARIANTS-006/test-plan.yaml
+source_ir_raw_status: prototype_ir_with_reservations
+source_catalogue_status: deferred_for_targeted_extraction
+nature: algorithmic_symbolic
+invariant_referenced:
+  concept: collective_ethics_invariant
+  source_object_ids:
+  - TLC-SO-INVARIANTS-013
+  - TLC-SO-INVARIANTS-057
+  source_relation_ids:
+  - TLC-SR-INVARIANTS-012
+  - TLC-SR-INVARIANTS-056
+scope: community
+inputs:
+- id: IR-IN-006-SYMBOLS
+  type: CollectiveEthicsExpressionSymbols
+  required_fields:
+  - value_space_symbol
+  - metric_symbol
+  - scalar_curvature_operator_symbol
+  - dimension_symbol
+  - differential_symbol
+  - time_symbol
+  - gradient_operator_symbol
+outputs:
+- id: IR-OUT-006-SYMBOLIC
+  type: SymbolicCollectiveEthicsInvariant
+  immutable: true
+  evaluated: false
+  observable_effect: produces the source-defined integral AST followed by derivative-equals-zero and gradient-equals-zero constraint ASTs with provenance
+types:
+  symbol: OpaqueSymbolId
+  ast: ImmutableSymbolicAst
+  output: SymbolicCollectiveEthicsInvariant
+  preservation: PreservationEnvelope
+opaque_values:
+- value_space_symbol
+- metric_symbol
+- scalar_curvature_operator_symbol
+- dimension_symbol
+- differential_symbol
+- time_symbol
+- gradient_operator_symbol
+- value space, metric, curvature implementation, dimension, integration semantics, neighborhood, health criterion, and numeric evaluation
+preconditions:
+- id: PRE-INVARIANTS-006-SYMBOLS
+  statement: all seven named symbols are non-empty opaque identifiers and both covered source evidence IDs are attached
+conditions_of_application:
+- symbols are identifiers only and are never dereferenced
+- AST templates are instantiated exactly in source order
+- no symbolic node is simplified, evaluated, reordered, or assigned a runtime domain
+operations:
+- id: INV006-OP-VALIDATE
+  name: validate_collective_ethics_symbols
+  effect: validate seven non-empty opaque IDs and two source evidence identities
+- id: INV006-OP-INTEGRAL
+  name: construct_integral_ast
+  template: integral(value_space_symbol, multiply(apply(scalar_curvature_operator_symbol, metric_symbol), sqrt(det(metric_symbol))), differential(dimension_symbol, differential_symbol))
+- id: INV006-OP-DERIVATIVE-CONSTRAINT
+  name: construct_time_conservation_ast
+  template: equals(derivative(collective_ethics_invariant, time_symbol), zero)
+- id: INV006-OP-GRADIENT-CONSTRAINT
+  name: construct_gradient_conservation_ast
+  template: equals(apply(gradient_operator_symbol, collective_ethics_invariant), zero)
+- id: INV006-OP-FREEZE
+  name: attach_provenance_and_freeze
+  effect: preserve source, status, assumptions, reservations, and opaque IDs; freeze ordered AST sequence
+execution_order:
+- INV006-OP-VALIDATE
+- INV006-OP-INTEGRAL
+- INV006-OP-DERIVATIVE-CONSTRAINT
+- INV006-OP-GRADIENT-CONSTRAINT
+- INV006-OP-FREEZE
+control_flow:
+- missing or empty required symbol raises MissingRequiredSymbol
+- missing source evidence raises MissingCollectiveEthicsEvidence
+- evaluation or simplification request raises ScientificEvaluationProhibited
+- otherwise instantiate exactly three ASTs, freeze, verify, and return
+state_before:
+  value: caller-owned opaque symbol bundle and evidence references
+  mutated: false
+state_after:
+  value: immutable ordered SymbolicCollectiveEthicsInvariant containing three AST roots
+  input_mutated: false
+effects:
+  external_side_effects: []
+  scientific_evaluation: prohibited
+postconditions:
+- output contains exactly the three source templates in declared order
+- every supplied symbol identifier occurs at its source-defined AST position
+- no node is evaluated or simplified
+- source evidence, status, assumptions, reservations, and opaque IDs are unchanged
+conditions_of_conservation:
+- exact AST operator and child shape
+- exact ordered root sequence
+- exact opaque symbol identity
+- exact source provenance and status
+conditions_of_violation:
+- missing symbol or evidence
+- wrong template shape or root order
+- symbol dereference, substitution, simplification, numeric result, or truth result
+- preservation loss
+errors:
+- MissingRequiredSymbol
+- MissingCollectiveEthicsEvidence
+- ScientificEvaluationProhibited
+- PreservationViolation
+determinism:
+  status: deterministic
+  rule: identical seven symbol IDs and evidence metadata produce structurally equal ordered ASTs
+dependencies:
+  internal_structural: [TLC-FC-04-INVARIANTS-008]
+  documentary:
+  - TLC-INV-DEP-COMMUNITY-001
+  - TLC-INV-DEP-DYNAMICS-001
+  scientific: [maths/04-invariants.md]
+  execution: []
+unresolved_propagated: []
+provisional_assumptions_propagated: [TLC-EA-INVARIANTS-006-001]
+reservations:
+- value space, metric, scalar-curvature implementation, dimension, integration semantics, neighborhood, health criterion, and numerical evaluation remain opaque
+- no runtime numeric, geometric, temporal, or differential semantics are supplied
+transformations_applied:
+- normalized immutable symbolic AST node representation
+- extracted shared source-defined AST builder pattern
+- explicit root ordering and non-evaluation policy
+- common provenance envelope
+obligations_of_preservation:
+- preserve all seven opaque symbol IDs
+- preserve exact three source templates and their order
+- preserve evidence IDs, status, assumptions, and reservations
+- never evaluate or simplify
+algorithm_ref: registry/algorithms/invariants/TLC-FC-04-INVARIANTS-006/algorithm.yaml
+oracle_ref: registry/oracles/invariants/TLC-FC-04-INVARIANTS-006/oracle.yaml
+implementation_aptitude:
+  structural_implementation: ready
+  symbolic_ast_construction: ready
+  acceptance_tests: ready
+  scientific_evaluation: external_evaluator_required
+  production_scientific_execution: not_ready
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false

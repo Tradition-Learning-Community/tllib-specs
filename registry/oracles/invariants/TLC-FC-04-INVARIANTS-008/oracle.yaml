@@ -1,0 +1,87 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-008
+oracle_id: TLC-ORACLE-INVARIANTS-008-FINAL-001
+status: selected_for_invariants_implementation_specification
+source_test_plan_ref: ir/TLC-FC-04-INVARIANTS-008/test-plan.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-008/contract.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-008/ir.prototype.json
+optimized_ir_ref: registry/optimized-ir/invariants/TLC-FC-04-INVARIANTS-008/ir.yaml
+algorithm_ref: registry/algorithms/invariants/TLC-FC-04-INVARIANTS-008/algorithm.yaml
+operation_under_test: assemble_invariant_state_vocabulary
+oracle_kind: structural_unresolved_mapping_oracle
+exact_scientific_values_required: false
+authoritative_expectations:
+- vocabulary contains exactly twelve source-covered term identities
+- exact eleven unresolved identifiers are preserved and attached to source-mapped affected terms
+- no transition graph, chronology, detector, equivalence, or scientific state result exists
+unresolved_conserved:
+- TLC-UT-INVARIANTS-001
+- TLC-UT-INVARIANTS-002
+- TLC-UT-INVARIANTS-003
+- TLC-UT-INVARIANTS-004
+- TLC-UT-INVARIANTS-005
+- TLC-UT-INVARIANTS-006
+- TLC-UT-INVARIANTS-007
+- TLC-UT-INVARIANTS-008
+- TLC-UT-INVARIANTS-010
+- TLC-UT-INVARIANTS-011
+- TLC-UT-INVARIANTS-012
+tests:
+- id: INV008-ACCEPT-NOMINAL
+  category: nominal
+  given: all twelve covered term records and exact eleven-ID unresolved mapping
+  then:
+  - output keys equal the twelve source term IDs
+  - every unresolved attachment equals the source mapping
+  - output is immutable
+- id: INV008-ACCEPT-UNKNOWN-TERM
+  category: precondition_error
+  given: an uncovered term ID
+  then_error: UnknownStateTermId
+- id: INV008-ACCEPT-DUPLICATE
+  category: precondition_error
+  given: duplicate term IDs
+  then_error: DuplicateIdentifier
+- id: INV008-ACCEPT-MISSING-UNRESOLVED
+  category: unresolved_propagation
+  given: the mapping omits any one source-owned unresolved ID
+  then_error: UnresolvedMappingLoss
+- id: INV008-ACCEPT-EXTRA-UNRESOLVED
+  category: unresolved_propagation
+  given: the mapping contains an unresolved ID outside the exact source set
+  then_error: UnresolvedMappingLoss
+- id: INV008-ACCEPT-MISATTACHED
+  category: unresolved_propagation
+  given: a source-owned unresolved ID attached to a different term
+  then_error: UnresolvedMappingLoss
+- id: INV008-ACCEPT-OPAQUE
+  category: opaque_value_propagation
+  given: term evidence with unknown scientific type or meaning
+  then:
+  - evidence and unresolved identifiers are retained exactly
+  - no type or meaning is inferred
+- id: INV008-ACCEPT-NO-TRANSITIONS
+  category: boundary
+  then:
+  - no transition edges exist
+  - no chronology or state detector exists
+  - no state equivalence is asserted
+- id: INV008-ACCEPT-DETERMINISM
+  category: determinism
+  given: identical ordered terms and unresolved mapping
+  then: repeated vocabularies are structurally equal
+- id: INV008-ACCEPT-RESERVATIONS
+  category: reservation_propagation
+  given: source status and TLC-EA-INVARIANTS-008-001
+  then: exact values are retained without resolution
+- id: INV008-ACCEPT-CONFORMANCE
+  category: traceability
+  then: term coverage, unresolved set, attachments, callable, types, errors, and postconditions agree across linked artifacts
+properties:
+- unresolved identity set equality
+- unresolved attachment-map equality
+- exact source-term identity preservation
+- no input mutation
+- no scientific state execution semantics
+numeric_expected_results: []
+acceptance_status: ready_for_test_implementation

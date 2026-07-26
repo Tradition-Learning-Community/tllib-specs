@@ -1,0 +1,137 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-005
+domain: invariants
+status: selected_for_invariants_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-005/contract.yaml
+source_contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-005-001
+source_traceability_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-005/traceability.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-005/ir.prototype.json
+source_ir_id: TLC-IR-TLC-FC-04-INVARIANTS-005-PROTOTYPE-001
+source_test_plan_ref: ir/TLC-FC-04-INVARIANTS-005/test-plan.yaml
+source_ir_raw_status: prototype_ir_with_reservations
+source_catalogue_status: deferred_for_scientific_decision
+nature: structural
+invariant_referenced:
+  concept: non_normative_interpretation_annotations
+  source_object_ids:
+  - TLC-SO-INVARIANTS-031
+  - TLC-SO-INVARIANTS-044
+  - TLC-SO-INVARIANTS-049
+  source_relation_ids:
+  - TLC-SR-INVARIANTS-030
+  - TLC-SR-INVARIANTS-043
+  - TLC-SR-INVARIANTS-048
+scope: master_and_disciple_invariant_root_annotations
+inputs:
+- id: IR-IN-005-SPECIALIZED
+  type: InterpretationAnnotation[]
+  required: true
+outputs:
+- id: IR-OUT-005-SPECIALIZED
+  type: AnnotatedInvariantEvidence
+  immutable: true
+  observable_effect: returns root evidence with three ordered non-normative annotations that cannot change invariant truth or status
+types:
+  annotation: InterpretationAnnotation
+  output_evidence: AnnotatedInvariantEvidence
+  annotation_target: InvariantRootReference
+  preservation: PreservationEnvelope
+opaque_values:
+- OpaqueSourceStatement
+- OpaqueScientificTruthConditions
+preconditions:
+- id: PRE-INVARIANTS-005-SPECIALIZED
+  statement: every annotation ID and refers_to relation is covered and targets the invariant root
+conditions_of_application:
+- annotations are the three source-covered records
+- annotations remain ordered and non-normative
+- no annotation may alter scientific truth or catalogue status
+operations:
+- id: INV005-OP-VALIDATE
+  name: validate_interpretation_annotations
+  effect: validate identity, uniqueness, covered relations, root target, and source order
+- id: INV005-OP-ATTACH
+  name: attach_annotations_to_root_evidence
+  effect: construct immutable annotated evidence with exact ordered annotation copies
+- id: INV005-OP-PRESERVE
+  name: preserve_non_normative_boundary
+  effect: retain source status, truth neutrality, provenance, assumptions, reservations, and opaque content
+execution_order:
+- INV005-OP-VALIDATE
+- INV005-OP-ATTACH
+- INV005-OP-PRESERVE
+control_flow:
+- unknown annotation identity raises UnknownAnnotationId
+- target or relation mismatch raises AnnotationTargetMismatch
+- duplicate annotation identity raises DuplicateIdentifier
+- truth or status modification raises StatusPromotionProhibited
+- otherwise attach, freeze, verify, and return
+state_before:
+  value: caller-owned invariant root evidence and annotation sequence
+  mutated: false
+state_after:
+  value: immutable AnnotatedInvariantEvidence with three ordered annotations
+  input_mutated: false
+effects:
+  external_side_effects: []
+  scientific_evaluation: prohibited
+postconditions:
+- exactly the three covered annotation identities are attached in source order
+- every relation targets the invariant root
+- annotations are non-normative and cannot change truth or status
+- source status, assumptions, reservations, references, and opaque values are unchanged
+conditions_of_conservation:
+- annotation identity and order equality
+- relation and target equality
+- invariant root identity equality
+- truth-neutral and status-neutral behavior
+- exact provenance and opaque-value preservation
+conditions_of_violation:
+- unknown or duplicate annotation identity
+- target or relation mismatch
+- annotation reordering when source order is declared
+- truth or status change
+- preservation loss
+errors:
+- UnknownAnnotationId
+- AnnotationTargetMismatch
+- DuplicateIdentifier
+- StatusPromotionProhibited
+- ScientificEvaluationProhibited
+- PreservationViolation
+determinism:
+  status: deterministic
+  rule: identical root evidence and ordered annotations produce structurally equal outputs
+dependencies:
+  internal_structural: [TLC-FC-04-INVARIANTS-008]
+  documentary:
+  - TLC-INV-DEP-MASTER-001
+  - TLC-INV-DEP-DISCIPLE-001
+  - TLC-INV-DEP-DYNAMICS-001
+  scientific: [maths/04-invariants.md]
+  execution: []
+unresolved_propagated: []
+provisional_assumptions_propagated: [TLC-EA-INVARIANTS-005-001]
+reservations:
+- interpretation contents remain opaque and non-normative
+- no truth evaluator or status-changing rule is supplied
+- concrete types and scientific conditions remain unspecified
+transformations_applied:
+- normalized ordered annotation attachment
+- common relation-target validator
+- common immutable preservation envelope
+obligations_of_preservation:
+- preserve three object and relation identities
+- preserve order and invariant-root target
+- never alter invariant truth or status
+algorithm_ref: registry/algorithms/invariants/TLC-FC-04-INVARIANTS-005/algorithm.yaml
+oracle_ref: registry/oracles/invariants/TLC-FC-04-INVARIANTS-005/oracle.yaml
+implementation_aptitude:
+  structural_implementation: ready
+  acceptance_tests: ready
+  scientific_evaluation: external_evaluator_required
+  production_scientific_execution: not_ready
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false

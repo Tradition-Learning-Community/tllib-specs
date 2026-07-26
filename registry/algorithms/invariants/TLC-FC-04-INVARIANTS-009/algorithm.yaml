@@ -1,0 +1,101 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-009
+algorithm_id: TLC-ALG-INVARIANTS-009-FINAL-001
+status: selected_for_invariants_implementation_specification
+optimized_ir_ref: registry/optimized-ir/invariants/TLC-FC-04-INVARIANTS-009/ir.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-009/contract.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-009/ir.prototype.json
+oracle_ref: registry/oracles/invariants/TLC-FC-04-INVARIANTS-009/oracle.yaml
+signature:
+  name: construct_cohesion_interval_constraint
+  input: CohesionIntervalSymbols
+  output: SymbolicCohesionIntervalConstraint
+inputs:
+- three non-empty opaque symbol identifiers, source object and relation evidence, TLC-UT-INVARIANTS-009, source status, assumptions, and reservations
+outputs:
+- immutable ordered sequence of three unevaluated cohesion AST roots
+validations:
+- all three symbol fields are present and non-empty
+- TLC-SO-INVARIANTS-065 and TLC-SR-INVARIANTS-064 evidence is attached
+- TLC-UT-INVARIANTS-009 is attached exactly once and unchanged
+- rejected_as_feature source status is preserved
+preconditions:
+- the three named symbols, source object, source relation, and TLC-UT-INVARIANTS-009 are present
+conditions_of_application:
+- instantiate literal source templates only
+- do not compare symbols, evaluate membership, resolve unresolved, or infer runtime semantics
+ordered_steps:
+- step: 1
+  action: validate the three opaque symbol IDs, source evidence, unresolved reference, status, and provenance
+- step: 2
+  action: construct closed_interval(lower_bound_symbol, upper_bound_symbol)
+- step: 3
+  action: construct membership root member(relational_invariant_symbol, closed_interval_node)
+- step: 4
+  action: construct below root implies(below(relational_invariant_symbol, lower_bound_symbol), annotation(community_fragmentation_into_isolated_subgroups))
+- step: 5
+  action: construct above root implies(above(relational_invariant_symbol, upper_bound_symbol), annotation(community_overcentralized_and_rigid))
+- step: 6
+  action: assemble roots in source order and attach TLC-UT-INVARIANTS-009, evidence, source status, assumptions, reservations, and provenance
+- step: 7
+  action: freeze the symbolic result
+- step: 8
+  action: verify exact templates, order, symbol positions, unresolved conservation, status, provenance, and non-evaluation
+- step: 9
+  action: return the result
+branching:
+- condition: a symbol field is absent or empty
+  action: raise MissingIntervalSymbol
+- condition: TLC-UT-INVARIANTS-009 is absent, changed, or duplicated
+  action: raise MissingCohesionReservation
+- condition: covered source evidence is absent
+  action: raise MissingCohesionEvidence
+- condition: comparison, evaluation, simplification, or unresolved resolution is requested
+  action: raise ScientificEvaluationProhibited
+- condition: AST or preservation check fails
+  action: raise PreservationViolation
+state_before:
+  symbols_evidence_and_unresolved: caller_owned
+state_after:
+  inputs_mutated: false
+  result: immutable_three_root_cohesion_ast
+verification_of_conservation:
+- compare root sequence and literal node shapes
+- compare each symbol at each source-defined position
+- compare exact unresolved ID, source status, evidence, assumptions, reservations, and provenance
+- assert evaluated is false for all nodes
+errors:
+- MissingIntervalSymbol
+- MissingCohesionReservation
+- MissingCohesionEvidence
+- ScientificEvaluationProhibited
+- PreservationViolation
+postconditions:
+- exactly three roots exist in source order
+- TLC-UT-INVARIANTS-009 remains unresolved and attached
+- no membership truth, comparison result, score, transition, or cohesion result exists
+determinism:
+  random_sources: none
+  result_rule: identical symbol IDs and metadata yield structurally equal ASTs
+effects:
+  input_mutation: none
+  external_io: none
+  scientific_evaluation: none
+edge_cases:
+- lower and upper symbol IDs may be textually equal; construction preserves them and does not decide interval validity
+- opaque identifiers need no comparator or runtime target
+- no AST simplification, bound ordering, or annotation replacement occurs
+unresolved_conserved: [TLC-UT-INVARIANTS-009]
+dependencies:
+  internal_structural: [TLC-FC-04-INVARIANTS-008]
+  execution: []
+pseudocode:
+- REQUIRE all three symbol fields are non-empty OpaqueSymbolId, ELSE MissingIntervalSymbol
+- REQUIRE TLC-SO-INVARIANTS-065 and TLC-SR-INVARIANTS-064 evidence is attached, ELSE MissingCohesionEvidence
+- REQUIRE unresolved reference equals TLC-UT-INVARIANTS-009 exactly once, ELSE MissingCohesionReservation
+- membership_root := member(relational_invariant_symbol, closed_interval(lower_bound_symbol, upper_bound_symbol))
+- below_root := implies(below(relational_invariant_symbol, lower_bound_symbol), annotation(community_fragmentation_into_isolated_subgroups))
+- above_root := implies(above(relational_invariant_symbol, upper_bound_symbol), annotation(community_overcentralized_and_rigid))
+- result := freeze SymbolicCohesionIntervalConstraint([membership_root, below_root, above_root], evaluated=false, exact unresolved and preservation metadata)
+- REQUIRE literal templates, order, symbol positions, unresolved, status, evidence, assumptions, reservations, and provenance are preserved, ELSE PreservationViolation
+- RETURN result

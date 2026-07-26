@@ -1,0 +1,126 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-004
+domain: invariants
+status: selected_for_invariants_implementation_specification
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-004/contract.yaml
+source_contract_id: TLC-LEC-TLC-FC-04-INVARIANTS-004-001
+source_traceability_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-004/traceability.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-004/ir.prototype.json
+source_ir_id: TLC-IR-TLC-FC-04-INVARIANTS-004-PROTOTYPE-001
+source_test_plan_ref: ir/TLC-FC-04-INVARIANTS-004/test-plan.yaml
+source_ir_raw_status: prototype_ir_with_reservations
+source_catalogue_status: deferred_for_scientific_decision
+nature: declarative_structural
+invariant_referenced:
+  concept: disciple_invariant_scope
+  source_object_ids: [TLC-SO-INVARIANTS-007]
+  source_relation_ids: [TLC-SR-INVARIANTS-006]
+scope: disciple
+inputs:
+- id: IR-IN-004-SPECIALIZED
+  type: DiscipleInvariantScopeEvidence
+  required: true
+outputs:
+- id: IR-OUT-004-SPECIALIZED
+  type: ScopedInvariantDeclaration
+  immutable: true
+  observable_effect: returns one declaration scoped to the disciple evidence record and marked scientifically deferred
+types:
+  evidence: DiscipleInvariantScopeEvidence
+  output_declaration: ScopedInvariantDeclaration
+  scope: DescriptiveScope
+  root_reference: SourceReference
+  preservation: PreservationEnvelope
+opaque_values:
+- OpaqueSourceStatement
+- OpaqueScientificTruthConditions
+preconditions:
+- id: PRE-INVARIANTS-004-SPECIALIZED
+  statement: the evidence object is TLC-SO-INVARIANTS-007 and its root reference is present
+conditions_of_application:
+- exactly the source disciple-scope evidence is declared
+- membership and scientific validation rule remain external
+- no truth evaluation is requested
+operations:
+- id: INV004-OP-VALIDATE
+  name: validate_disciple_scope_evidence
+  effect: validate source object identity, relation identity, disciple scope, and root reference
+- id: INV004-OP-DECLARE
+  name: construct_scoped_invariant_declaration
+  effect: create one immutable scientifically deferred declaration
+- id: INV004-OP-PRESERVE
+  name: preserve_scope_reservations
+  effect: retain source status, provenance, assumptions, reservations, and opaque values
+execution_order:
+- INV004-OP-VALIDATE
+- INV004-OP-DECLARE
+- INV004-OP-PRESERVE
+control_flow:
+- wrong source object or relation raises WrongScopeObject
+- absent root reference raises MissingRootReference
+- any attempt to invent members or a validation rule raises ScientificEvaluationProhibited
+- otherwise construct, freeze, verify, and return
+state_before:
+  value: caller-owned disciple scope evidence
+  mutated: false
+state_after:
+  value: one immutable ScopedInvariantDeclaration
+  input_mutated: false
+effects:
+  external_side_effects: []
+  scientific_evaluation: prohibited
+postconditions:
+- output references TLC-SO-INVARIANTS-007 and TLC-SR-INVARIANTS-006
+- output scope is disciple and source root reference is unchanged
+- output is scientifically deferred
+- catalogue status, assumptions, reservations, and opaque content are unchanged
+conditions_of_conservation:
+- exact source object and relation identities
+- exact root reference and disciple scope
+- exact deferred status and opaque metadata
+conditions_of_violation:
+- wrong scope object or relation
+- missing root reference
+- invented member set or validation rule
+- status promotion or preservation loss
+errors:
+- WrongScopeObject
+- MissingRootReference
+- StatusPromotionProhibited
+- ScientificEvaluationProhibited
+- PreservationViolation
+determinism:
+  status: deterministic
+  rule: identical valid scope evidence produces a structurally equal declaration
+dependencies:
+  internal_structural: [TLC-FC-04-INVARIANTS-008]
+  documentary:
+  - TLC-INV-DEP-DISCIPLE-001
+  - TLC-INV-DEP-DYNAMICS-001
+  scientific: [maths/04-invariants.md]
+  execution: []
+unresolved_propagated: []
+provisional_assumptions_propagated: [TLC-EA-INVARIANTS-004-001]
+reservations:
+- exact scope members and validation rule remain unspecified
+- scientific semantics remain deferred
+- no concrete runtime type or truth evaluator is supplied
+transformations_applied:
+- normalized single-record declaration shape
+- common preservation envelope
+- explicit descriptive scope and external evaluator boundary
+obligations_of_preservation:
+- preserve TLC-SO-INVARIANTS-007 and TLC-SR-INVARIANTS-006
+- preserve root reference and deferred status
+- never synthesize members, predicates, or validation rules
+algorithm_ref: registry/algorithms/invariants/TLC-FC-04-INVARIANTS-004/algorithm.yaml
+oracle_ref: registry/oracles/invariants/TLC-FC-04-INVARIANTS-004/oracle.yaml
+implementation_aptitude:
+  structural_implementation: ready
+  acceptance_tests: ready
+  scientific_evaluation: external_evaluator_required
+  production_scientific_execution: not_ready
+source_ir_preserved: true
+source_contract_preserved: true
+replaces_source_ir: false
+scientific_source_modified: false

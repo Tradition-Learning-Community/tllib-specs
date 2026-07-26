@@ -1,0 +1,68 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-005
+oracle_id: TLC-ORACLE-INVARIANTS-005-FINAL-001
+status: selected_for_invariants_implementation_specification
+source_test_plan_ref: ir/TLC-FC-04-INVARIANTS-005/test-plan.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-005/contract.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-005/ir.prototype.json
+optimized_ir_ref: registry/optimized-ir/invariants/TLC-FC-04-INVARIANTS-005/ir.yaml
+algorithm_ref: registry/algorithms/invariants/TLC-FC-04-INVARIANTS-005/algorithm.yaml
+operation_under_test: attach_interpretation_annotations
+oracle_kind: structural_annotation_oracle
+exact_scientific_values_required: false
+authoritative_expectations:
+- exactly three source-covered annotations are attached in order
+- every annotation targets the invariant root
+- truth and catalogue status are unchanged
+tests:
+- id: INV005-ACCEPT-NOMINAL
+  category: nominal
+  given: root evidence and the three covered ordered annotations
+  then:
+  - output contains exactly the three source IDs in source order
+  - relation and target tuples are unchanged
+  - output is immutable
+- id: INV005-ACCEPT-UNKNOWN
+  category: precondition_error
+  given: an uncovered annotation ID
+  then_error: UnknownAnnotationId
+- id: INV005-ACCEPT-TARGET
+  category: relation_error
+  given: a covered annotation targeting anything other than the invariant root
+  then_error: AnnotationTargetMismatch
+- id: INV005-ACCEPT-DUPLICATE
+  category: precondition_error
+  given: duplicate annotation IDs
+  then_error: DuplicateIdentifier
+- id: INV005-ACCEPT-OPAQUE
+  category: opaque_value_propagation
+  given: uninterpretable annotation text and truth conditions
+  then: values are retained exactly and not evaluated
+- id: INV005-ACCEPT-TRUTH-NEUTRALITY
+  category: invariant_property
+  given: valid attachment
+  then:
+  - root truth representation is unchanged
+  - root catalogue status is unchanged
+- id: INV005-ACCEPT-PROMOTION
+  category: status_error
+  given: an annotation requests normative or executable status
+  then_error: StatusPromotionProhibited
+- id: INV005-ACCEPT-DETERMINISM
+  category: determinism
+  given: identical root evidence and ordered annotations
+  then: repeated outputs are structurally equal
+- id: INV005-ACCEPT-RESERVATIONS
+  category: reservation_propagation
+  given: TLC-EA-INVARIANTS-005-001 and source reservations
+  then: exact metadata is retained without resolution
+- id: INV005-ACCEPT-CONFORMANCE
+  category: traceability
+  then: IDs, relations, targets, callable, types, errors, and postconditions agree across linked artifacts
+properties:
+- annotation attachment is truth-neutral and status-neutral
+- exact source-order preservation
+- no input mutation
+- no unresolved identifier introduced or removed
+numeric_expected_results: []
+acceptance_status: ready_for_test_implementation

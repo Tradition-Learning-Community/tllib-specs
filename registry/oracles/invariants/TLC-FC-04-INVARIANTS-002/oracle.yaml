@@ -1,0 +1,69 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-002
+oracle_id: TLC-ORACLE-INVARIANTS-002-FINAL-001
+status: selected_for_invariants_implementation_specification
+source_test_plan_ref: ir/TLC-FC-04-INVARIANTS-002/test-plan.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-002/contract.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-002/ir.prototype.json
+optimized_ir_ref: registry/optimized-ir/invariants/TLC-FC-04-INVARIANTS-002/ir.yaml
+algorithm_ref: registry/algorithms/invariants/TLC-FC-04-INVARIANTS-002/algorithm.yaml
+operation_under_test: index_definition_fragments
+oracle_kind: structural_documentary_oracle
+exact_scientific_values_required: false
+authoritative_expectations:
+- index keys equal validated covered definition IDs
+- every entry remains documentary, non-executable, and rejected_as_feature as source metadata
+- opaque definition text is preserved exactly and never interpreted
+tests:
+- id: INV002-ACCEPT-NOMINAL
+  category: nominal
+  given: the nine covered definition fragments with unique IDs, source ranges, relations, and rejected markers
+  then:
+  - output contains exactly nine keys
+  - each key maps to the corresponding source fragment
+  - every entry is documentary and non-executable
+- id: INV002-ACCEPT-DUPLICATE
+  category: precondition_error
+  given: duplicate definition object IDs
+  then_error: DuplicateDefinitionId
+- id: INV002-ACCEPT-UNKNOWN
+  category: precondition_error
+  given: an uncovered definition ID or relation
+  then_error: InvalidCoveredIdentifier
+- id: INV002-ACCEPT-SOURCE-RANGE
+  category: precondition_error
+  given: a fragment without source range
+  then_error: MissingSourceReference
+- id: INV002-ACCEPT-STATUS
+  category: status_preservation
+  given: an attempt to mark a fragment executable or promote rejected_as_feature
+  then_error: FeatureStatusPromotion
+- id: INV002-ACCEPT-OPAQUE
+  category: opaque_value_propagation
+  given: uninterpretable definition text
+  then:
+  - text is preserved exactly
+  - no predicate or truth field is created
+- id: INV002-ACCEPT-ORDER
+  category: structural_order
+  given: valid fragments in source order
+  then: index iteration order retains supplied order without scientific meaning
+- id: INV002-ACCEPT-DETERMINISM
+  category: determinism
+  given: identical ordered fragments and metadata
+  then: repeated results are structurally equal
+- id: INV002-ACCEPT-ASSUMPTION
+  category: reservation_propagation
+  given: TLC-EA-INVARIANTS-002-001 and source reservations
+  then: exact metadata is retained without a resolution claim
+- id: INV002-ACCEPT-CONFORMANCE
+  category: traceability
+  then: callable, types, identities, status, errors, and postconditions agree across all linked artifacts
+properties:
+- exact key-to-source-fragment correspondence
+- documentary status is invariant under indexing
+- no input mutation
+- no unresolved identifier introduced or removed
+- source catalogue status does not reject the active baseline feature from this finalization
+numeric_expected_results: []
+acceptance_status: ready_for_test_implementation
