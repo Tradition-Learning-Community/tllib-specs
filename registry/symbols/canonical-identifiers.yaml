@@ -1,0 +1,59 @@
+schema_version: 1
+registry_id: TLC-CANONICAL-IDENTIFIERS-V1
+status: active_engineering_registry
+identity_principle: stable_identifier_plus_qualified_namespace
+identifier_classes:
+  - class: feature
+    pattern: TLC-FC-*
+    authoritative_registry: registry/global-finalization/feature-status.yaml
+  - class: scientific_object
+    pattern: TLC-SO-*
+    authoritative_registry: registry/scientific-objects/
+  - class: scientific_relation
+    pattern: TLC-SR-*
+    authoritative_registry: registry/scientific-objects/
+  - class: mathematical_contract
+    pattern: TLC-MC-*
+    authoritative_registry: registry/math-contracts/
+  - class: source_ir
+    pattern: TLC-IR-*
+    authoritative_registry: registry/ir/
+  - class: finalized_ir
+    pattern: TLC-OIR-* or TLC-OPT-IR-*
+    authoritative_registry: registry/optimized-ir/
+  - class: algorithm
+    pattern: TLC-ALG-*
+    authoritative_registry: registry/algorithms/
+  - class: oracle
+    pattern: TLC-ORACLE-*
+    authoritative_registry: registry/oracles/
+  - class: public_module
+    pattern: tl.<domain>
+    authoritative_registry: registry/global-finalization/module-interfaces.yaml
+  - class: shared_structural_type
+    pattern: TLC-SHARED-TYPE-*
+    authoritative_registry: registry/global-finalization/shared-types.yaml
+canonical_fundamental_handles:
+  entities:
+    - {handle: tl.master.Master, domain_id: master}
+    - {handle: tl.disciple.Disciple, domain_id: disciple}
+    - {handle: tl.community.Community, domain_id: community}
+  tradition_dimensions:
+    - {handle: tl.message.Message, domain_id: message}
+    - {handle: tl.principle.Principle, domain_id: principle}
+    - {handle: tl.values.Value, domain_id: values}
+    - {handle: tl.virtues.Virtue, domain_id: virtues}
+    - {handle: tl.capacities.Capacity, domain_id: capacities}
+    - {handle: tl.competencies.Competency, domain_id: competencies}
+    - {handle: tl.practice.Practice, domain_id: practice}
+    - {handle: tl.lived_experience.LivedExperience, domain_id: lived-experience}
+public_interface_policy:
+  interfaces_ref: registry/global-finalization/module-interfaces.yaml
+  domain_qualification_required: true
+  local_source_notation_preserved: true
+  aliases_require_explicit_registry_entry: true
+  undocumented_implicit_aliases_forbidden: true
+coverage_policy:
+  exhaustive_theory_term_registry_required: false
+  public_and_cross_domain_identifiers_required: true
+  local_internal_terms_may_remain_source_scoped: true
