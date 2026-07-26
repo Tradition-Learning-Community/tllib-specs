@@ -1,0 +1,89 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-007
+algorithm_id: TLC-ALG-INVARIANTS-007-FINAL-001
+status: selected_for_invariants_implementation_specification
+optimized_ir_ref: registry/optimized-ir/invariants/TLC-FC-04-INVARIANTS-007/ir.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-007/contract.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-007/ir.prototype.json
+oracle_ref: registry/oracles/invariants/TLC-FC-04-INVARIANTS-007/oracle.yaml
+signature:
+  name: construct_disintegration_relation
+  input: RelationEndpointsAndEvidence
+  output: DisintegrationRelationRecord
+inputs:
+- source endpoint, invariant-root target, TLC-SR-INVARIANTS-067 identity, evidence reference, opaque content, status, assumptions, and reservations
+outputs:
+- one immutable refers_to relation record
+validations:
+- relation identity equals TLC-SR-INVARIANTS-067
+- source endpoint equals TLC-SO-INVARIANTS-068
+- target endpoint equals the source-defined invariant root
+- evidence reference is present
+preconditions:
+- source, target, and relation IDs match TLC-SR-INVARIANTS-067
+conditions_of_application:
+- no causal, symmetric, transitive, or temporal semantics are added
+ordered_steps:
+- step: 1
+  action: validate input presence and relation identity
+- step: 2
+  action: validate exact source and target endpoints
+- step: 3
+  action: validate evidence reference
+- step: 4
+  action: construct an immutable relation record by exact-copying source, target, relation ID, evidence, opaque values, status, assumptions, and reservations
+- step: 5
+  action: freeze the record
+- step: 6
+  action: verify endpoint, identity, evidence, status, and opaque-value conservation
+- step: 7
+  action: return the record
+branching:
+- condition: relation ID is unknown
+  action: raise UnknownRelationId
+- condition: source or target endpoint mismatches
+  action: raise EndpointMismatch
+- condition: evidence reference is absent
+  action: raise MissingSourceReference
+- condition: additional relation semantics are requested
+  action: raise ScientificEvaluationProhibited
+state_before:
+  endpoints_and_evidence: caller_owned
+state_after:
+  input_mutated: false
+  result: immutable_relation_record
+verification_of_conservation:
+- compare exact source-target-relation tuple
+- compare evidence reference, status, assumptions, reservations, and opaque values
+errors:
+- EndpointMismatch
+- UnknownRelationId
+- MissingSourceReference
+- ScientificEvaluationProhibited
+- PreservationViolation
+postconditions:
+- exactly one source-backed relation record exists
+- no inferred edge or relation property exists
+determinism:
+  random_sources: none
+  result_rule: identical valid input yields a structurally equal record
+effects:
+  input_mutation: none
+  external_io: none
+  scientific_evaluation: none
+edge_cases:
+- reversed endpoints are invalid and are not normalized
+- repeated construction produces equal independent immutable values
+- opaque evidence remains exact
+unresolved_conserved: []
+dependencies:
+  internal_structural: [TLC-FC-04-INVARIANTS-008]
+  execution: []
+pseudocode:
+- REQUIRE input is present
+- REQUIRE relation_id equals TLC-SR-INVARIANTS-067, ELSE UnknownRelationId
+- REQUIRE source_id equals TLC-SO-INVARIANTS-068 and target_id equals source-defined invariant root, ELSE EndpointMismatch
+- REQUIRE evidence_reference is present, ELSE MissingSourceReference
+- result := freeze DisintegrationRelationRecord(exact source, target, relation, evidence, and preservation metadata)
+- REQUIRE exact endpoint, relation, evidence, status, assumptions, reservations, and opaque-value preservation, ELSE PreservationViolation
+- RETURN result
