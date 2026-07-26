@@ -1,0 +1,36 @@
+schema_version: 1
+finalized_ir_id: TLC-OIR-TLC-FC-00-MASTER-002
+feature_id: TLC-FC-00-MASTER-002
+canonical_name: '00-master: configuration (blocked_locally)'
+domain: master
+status: selected_for_master_implementation_specification
+traceability:
+  contract_ref: registry/math-contracts/TLC-FC-00-MASTER-002/contract.yaml
+  ir_registry_ref: registry/ir/TLC-FC-00-MASTER-002/ir.yaml
+  source_ir_ref: ir/TLC-FC-00-MASTER-002/ir.candidate.json
+  source_test_plan_ref: registry/test-plans/TLC-FC-00-MASTER-002/test-plan.yaml
+representation: {source_kind: declaration, implementation_kind: immutable_descriptor, optimization: normalized_envelope_only}
+transformations: [normalized common envelope, retained declaration, made unresolved propagation explicit]
+preservation_obligations:
+  - preserve TLC-SO-MASTER-039 and TLC-SR-MASTER-036 exactly
+  - preserve TLC-GU-00329 and TLC-UT-MASTER-012 exactly
+  - do not assign values or executable semantics to theoretical constants
+inputs:
+  scientific_object_refs: [TLC-SO-MASTER-039]
+  relation_refs: [TLC-SR-MASTER-036]
+  unresolved_refs: [TLC-GU-00329, TLC-UT-MASTER-012]
+  types: {references: ScientificReferenceBundle}
+outputs: {type: MasterDescriptor, fields: [feature_id, representation, references, unresolved, provenance, status]}
+opaque_values: [theoretical constant values and unresolved scientific meanings]
+preconditions: [feature identity is exact, reference and unresolved lists match the source IR]
+operations: [validate_feature_identity, validate_exact_reference_sets, validate_exact_unresolved_set, construct_immutable_provenance, emit_declaration_descriptor, verify_preservation_obligations]
+execution_order: [validate_feature_identity, validate_exact_reference_sets, validate_exact_unresolved_set, construct_immutable_provenance, emit_declaration_descriptor, verify_preservation_obligations]
+states_and_effects: {state: immutable, scientific_mutation: none, external_effects: none}
+postconditions: [descriptor remains candidate and traceable, unresolved identifiers are present unchanged]
+invariants: [separated scientific objects remain distinct, source ordering is preserved]
+errors: [MASTER_INVALID_FEATURE_ID, MASTER_REFERENCE_SET_MISMATCH, MASTER_UNRESOLVED_SET_MISMATCH, MASTER_PRESERVATION_VIOLATION, MASTER_UNSUPPORTED_EXECUTION_MODE]
+determinism: {wrapper: deterministic, scientific_evaluation: not_applicable}
+dependencies: {internal: [], external: []}
+unresolved: [TLC-GU-00329, TLC-UT-MASTER-012]
+tests: {source_plan: registry/test-plans/TLC-FC-00-MASTER-002/test-plan.yaml, acceptance_oracle: registry/oracles/master/TLC-FC-00-MASTER-002/oracle.yaml}
+implementation_status: {package_ready: true, scientific_canonicalization: false, code_generation_in_this_phase: false}
