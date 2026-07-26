@@ -1,0 +1,69 @@
+schema_version: 1
+feature_id: TLC-FC-04-INVARIANTS-006
+oracle_id: TLC-ORACLE-INVARIANTS-006-FINAL-001
+status: selected_for_invariants_implementation_specification
+source_test_plan_ref: ir/TLC-FC-04-INVARIANTS-006/test-plan.yaml
+source_contract_ref: registry/math-contracts/TLC-FC-04-INVARIANTS-006/contract.yaml
+source_ir_ref: ir/TLC-FC-04-INVARIANTS-006/ir.prototype.json
+optimized_ir_ref: registry/optimized-ir/invariants/TLC-FC-04-INVARIANTS-006/ir.yaml
+algorithm_ref: registry/algorithms/invariants/TLC-FC-04-INVARIANTS-006/algorithm.yaml
+operation_under_test: construct_collective_ethics_invariant_expression
+oracle_kind: symbolic_ast_shape_oracle
+exact_scientific_values_required: false
+authoritative_expectations:
+- exactly three immutable AST roots occur in source order
+- templates and opaque symbol positions are exact
+- every node remains unevaluated and carries source provenance
+tests:
+- id: INV006-ACCEPT-NOMINAL
+  category: nominal
+  given: non-empty opaque identifiers for the seven required fields and covered evidence
+  then: an immutable SymbolicCollectiveEthicsInvariant with exactly three roots is returned
+- id: INV006-ACCEPT-SHAPE
+  category: ast_shape
+  then_roots_in_order:
+  - integral(value_space_symbol, multiply(apply(scalar_curvature_operator_symbol, metric_symbol), sqrt(det(metric_symbol))), differential(dimension_symbol, differential_symbol))
+  - equals(derivative(collective_ethics_invariant, time_symbol), zero)
+  - equals(apply(gradient_operator_symbol, collective_ethics_invariant), zero)
+- id: INV006-ACCEPT-MISSING-SYMBOL
+  category: precondition_error
+  given: any one required symbol field is absent or empty
+  then_error: MissingRequiredSymbol
+- id: INV006-ACCEPT-MISSING-EVIDENCE
+  category: precondition_error
+  given: one of the covered source evidence references is absent
+  then_error: MissingCollectiveEthicsEvidence
+- id: INV006-ACCEPT-OPAQUE
+  category: opaque_value_propagation
+  given: symbol identifiers with no runtime target or implementation
+  then:
+  - construction succeeds
+  - identifiers are preserved exactly
+  - no dereference occurs
+- id: INV006-ACCEPT-NO-EVALUATION
+  category: forbidden_evaluation
+  then:
+  - every node and root reports evaluated false
+  - no numeric, differential, geometric, integration, or truth result exists
+- id: INV006-ACCEPT-NO-SIMPLIFICATION
+  category: structural_stability
+  then: source-defined nodes are not folded, reordered, deduplicated, or simplified
+- id: INV006-ACCEPT-DETERMINISM
+  category: determinism
+  given: identical ordered symbol IDs and evidence on two invocations
+  then: ASTs and provenance are structurally equal
+- id: INV006-ACCEPT-RESERVATIONS
+  category: reservation_propagation
+  given: source status and TLC-EA-INVARIANTS-006-001
+  then: exact values are retained without scientific promotion
+- id: INV006-ACCEPT-CONFORMANCE
+  category: traceability
+  then: field names, templates, output type, errors, postconditions, and readiness agree across linked artifacts
+properties:
+- root count equals three
+- root sequence is exact
+- symbol identity is position preserving
+- construction is deterministic and side-effect free
+- no unresolved identifier is introduced or removed
+numeric_expected_results: []
+acceptance_status: ready_for_test_implementation
