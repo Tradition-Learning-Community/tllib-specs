@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-FC-01-DISCIPLE-001",
+  "tests": [
+    {"test_id": "TLC-FC-01-DISCIPLE-001-AT-001", "applies_to": "DESCRIBE-CONSTRAINT-ADMISSIBILITY", "category": "valid_input", "given": "A valid request and complete source artifacts.", "when": "The descriptor operation is invoked.", "expect": "A validation descriptor with feature identity 001 and an opaque scientific result.", "source_basis": ["registry/oracles/disciple/TLC-FC-01-DISCIPLE-001/oracle.yaml"]},
+    {"test_id": "TLC-FC-01-DISCIPLE-001-AT-002", "applies_to": "DESCRIBE-CONSTRAINT-ADMISSIBILITY", "category": "invalid_input", "given": "A mismatched feature identity.", "when": "Validation runs.", "expect": "DISCIPLE_INVALID_FEATURE_ID and no partial descriptor.", "source_basis": ["registry/oracles/disciple/TLC-FC-01-DISCIPLE-001/oracle.yaml"]},
+    {"test_id": "TLC-FC-01-DISCIPLE-001-AT-003", "applies_to": "DESCRIBE-CONSTRAINT-ADMISSIBILITY", "category": "preservation", "given": "The authoritative object and relation references.", "when": "A descriptor is emitted.", "expect": "Output references equal source references exactly and in order.", "source_basis": ["registry/oracles/disciple/TLC-FC-01-DISCIPLE-001/oracle.yaml"]},
+    {"test_id": "TLC-FC-01-DISCIPLE-001-AT-004", "applies_to": "DESCRIBE-CONSTRAINT-ADMISSIBILITY", "category": "invariant", "given": "Unspecified scientific semantics.", "when": "The descriptor is inspected.", "expect": "No new equation, type, dimension, alias, predicate, or numerical method exists.", "source_basis": ["registry/oracles/disciple/TLC-FC-01-DISCIPLE-001/oracle.yaml"]},
+    {"test_id": "TLC-FC-01-DISCIPLE-001-AT-005", "applies_to": "DESCRIBE-CONSTRAINT-ADMISSIBILITY", "category": "determinism", "given": "Equivalent requests and identical source artifacts.", "when": "The operation is repeated.", "expect": "Byte-equivalent normalized descriptors.", "source_basis": ["registry/oracles/disciple/TLC-FC-01-DISCIPLE-001/oracle.yaml"]},
+    {"test_id": "TLC-FC-01-DISCIPLE-001-AT-006", "applies_to": "DESCRIBE-CONSTRAINT-ADMISSIBILITY", "category": "invariant", "given": "The package dependency metadata.", "when": "Dependencies are inspected.", "expect": "Internal dependency TLC-FC-01-DISCIPLE-009 remains declared in the descriptor metadata.", "source_basis": ["registry/oracles/disciple/TLC-FC-01-DISCIPLE-001/oracle.yaml"]},
+    {"test_id": "TLC-FC-01-DISCIPLE-001-AT-007", "applies_to": "DESCRIBE-CONSTRAINT-ADMISSIBILITY", "category": "error", "given": "Reordered, altered, duplicated, or missing source references.", "when": "Reference validation runs.", "expect": "DISCIPLE_SOURCE_REFERENCE_MISMATCH and no partial descriptor.", "source_basis": ["registry/oracles/disciple/TLC-FC-01-DISCIPLE-001/oracle.yaml"]}
+  ]
+}
