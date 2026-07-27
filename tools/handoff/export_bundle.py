@@ -13,10 +13,16 @@ from pathlib import Path
 from typing import Any, Iterable
 
 ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from tools.handoff.model import (  # noqa: E402
+    EXPECTED_FEATURE_COUNT,
+    EXPORTER_VERSION,
+    MODEL_VERSION,
+)
+
 HANDOFF = ROOT / "handoff"
-MODEL_VERSION = "1.0.0"
-EXPORTER_VERSION = "1.0.0"
-EXPECTED_FEATURE_COUNT = 166
 
 
 class ExportFailure(RuntimeError):
