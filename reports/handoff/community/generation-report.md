@@ -4,7 +4,8 @@
 
 - Repository: `Tradition-Learning-Community/tllib-specs`
 - Source branch: `handoff/integration-v1`
-- Source commit: `21440c05372546b8d3b605f3368680e78a1d3778`
+- Branch-creation commit: `21440c05372546b8d3b605f3368680e78a1d3778`
+- Validation-base commit: `b29ebf1c56c0191452b8055956331aba4d71083a`
 - Work branch: `handoff/domain-02-community`
 - Domain: `community`
 - Expected feature-count guard: 8
@@ -67,11 +68,13 @@ Scientific execution is deferred for all eight active features. Structural imple
 
 ## Ambiguities and shared candidates
 
-Ambiguities are recorded in `ambiguities.json`. Two possible shared patterns are recorded in `shared-contract-candidates.json`, both with status `candidate_only`. No shared contract, global schema, global catalog, validator, workflow, scientific source, intermediate artifact, or other domain package was modified.
+Ambiguities are recorded in `ambiguities.json`. Two possible shared patterns are recorded in `shared-contract-candidates.json`, both with status `candidate_only`. No shared contract, global schema, global catalog, validator, workflow, scientific source, intermediate artifact, or other domain package was modified by this branch.
 
-## Validation boundary
+## Validation
 
-The protected `tools/handoff/validate_handoff.py` is the foundation validator and explicitly requires the handoff feature population to contain only the Master pilot. It therefore cannot validate integration-stage domain packages without an out-of-scope validator evolution. This task did not weaken or modify the validator. Schema-oriented construction, cross-file dependency equality, population equality, identifier uniqueness, traceability completeness, error preservation, and write-scope inspection are recorded in `validation-report.json`; pull-request checks are recorded after the PR is opened.
+While this branch was being compiled, `handoff/integration-v1` received the approved progressive-domain validation infrastructure in commit `b29ebf1c56c0191452b8055956331aba4d71083a`. The Community catalog was aligned exactly with `handoff/schemas/domain-catalog.schema.json`. The pull request therefore receives JSON Schema validation, cross-file checks, authoritative inventory comparison, progressive population validation, shared-dependency union validation, pilot preservation checks, and the validator self-test without any validator or workflow modification in this branch.
+
+Validation evidence and CI results are recorded in `validation-report.json`.
 
 ## Change-scope confirmation
 
