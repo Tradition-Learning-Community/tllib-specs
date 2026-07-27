@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-FC-00-MASTER-005",
+  "tests": [
+    {
+      "test_id": "MASTER-005-A01",
+      "applies_to": "DESCRIBE-MASTER-SEVEN-TUPLE",
+      "category": "valid_input",
+      "given": {"feature_id": "TLC-FC-00-MASTER-005", "scientific_object_refs": ["TLC-SO-MASTER-008"], "relation_refs": ["TLC-SR-MASTER-007", "TLC-SR-MASTER-008", "TLC-SR-MASTER-009", "TLC-SR-MASTER-010", "TLC-SR-MASTER-011"], "unresolved_refs": []},
+      "when": "The structural descriptor operation is requested.",
+      "expect": {"accepted": true},
+      "source_basis": ["registry/oracles/master/TLC-FC-00-MASTER-005/oracle.yaml"]
+    },
+    {
+      "test_id": "MASTER-005-A02",
+      "applies_to": "DESCRIBE-MASTER-SEVEN-TUPLE",
+      "category": "output_contract",
+      "given": {"valid_reference_bundle": true},
+      "when": "The operation succeeds.",
+      "expect": {"immutable": true, "feature_id": "TLC-FC-00-MASTER-005", "representation": "declaration", "required_fields": ["feature_id", "representation", "references", "unresolved", "dependencies", "provenance", "status"]},
+      "source_basis": ["registry/oracles/master/TLC-FC-00-MASTER-005/oracle.yaml", "registry/optimized-ir/master/TLC-FC-00-MASTER-005/ir.yaml"]
+    },
+    {
+      "test_id": "MASTER-005-A03",
+      "applies_to": "DESCRIBE-MASTER-SEVEN-TUPLE",
+      "category": "error",
+      "given": {"relation_refs": ["TLC-SR-MASTER-007", "TLC-SR-MASTER-008", "TLC-SR-MASTER-009", "TLC-SR-MASTER-010"]},
+      "when": "One required relation is omitted.",
+      "expect": {"error_code": "MASTER_REFERENCE_SET_MISMATCH", "partial_result": false},
+      "source_basis": ["registry/oracles/master/TLC-FC-00-MASTER-005/oracle.yaml"]
+    },
+    {
+      "test_id": "MASTER-005-A04",
+      "applies_to": "DESCRIBE-MASTER-SEVEN-TUPLE",
+      "category": "invariant",
+      "given": {"valid_reference_bundle": true},
+      "when": "The descriptor is emitted.",
+      "expect": {"relation_refs_distinct": true, "relation_order": ["TLC-SR-MASTER-007", "TLC-SR-MASTER-008", "TLC-SR-MASTER-009", "TLC-SR-MASTER-010", "TLC-SR-MASTER-011"]},
+      "source_basis": ["registry/oracles/master/TLC-FC-00-MASTER-005/oracle.yaml", "maths/00-master.md"]
+    },
+    {
+      "test_id": "MASTER-005-A05",
+      "applies_to": "DESCRIBE-MASTER-SEVEN-TUPLE",
+      "category": "determinism",
+      "given": {"same_valid_input_repeated": true},
+      "when": "The operation is invoked more than once.",
+      "expect": {"semantic_output_identical": true, "field_presence_identical": true, "relation_order_identical": true},
+      "source_basis": ["registry/oracles/master/TLC-FC-00-MASTER-005/oracle.yaml"]
+    },
+    {
+      "test_id": "MASTER-005-A06",
+      "applies_to": "DESCRIBE-MASTER-SEVEN-TUPLE",
+      "category": "preservation",
+      "given": {"valid_reference_bundle": true},
+      "when": "The descriptor is inspected.",
+      "expect": {"invented_runtime_type": false, "invented_layout": false, "invented_dimension": false, "invented_alias": false, "invented_scientific_value": false},
+      "source_basis": ["registry/oracles/master/TLC-FC-00-MASTER-005/oracle.yaml", "registry/math-contracts/TLC-FC-00-MASTER-005/contract.yaml"]
+    },
+    {
+      "test_id": "MASTER-005-A07",
+      "applies_to": "scientific-evaluation",
+      "category": "unsupported_operation",
+      "given": {"request": "calculate the seven-tuple"},
+      "when": "An executable scientific result is requested.",
+      "expect": {"error_code": "MASTER_UNSUPPORTED_EXECUTION_MODE", "partial_result": false},
+      "source_basis": ["registry/oracles/master/TLC-FC-00-MASTER-005/oracle.yaml"]
+    },
+    {
+      "test_id": "MASTER-005-A08",
+      "applies_to": "package integrity",
+      "category": "preservation",
+      "given": {"upstream_artifact_paths": ["maths/00-master.md", "registry/math-contracts/TLC-FC-00-MASTER-005/contract.yaml", "registry/ir/TLC-FC-00-MASTER-005/ir.yaml", "ir/TLC-FC-00-MASTER-005/ir.candidate.json", "registry/test-plans/TLC-FC-00-MASTER-005/test-plan.yaml", "registry/optimized-ir/master/TLC-FC-00-MASTER-005/ir.yaml", "registry/algorithms/master/TLC-FC-00-MASTER-005/algorithm.yaml", "registry/oracles/master/TLC-FC-00-MASTER-005/oracle.yaml"]},
+      "when": "The handoff is validated.",
+      "expect": {"upstream_artifacts_unmodified_by_handoff": true},
+      "source_basis": ["registry/oracles/master/TLC-FC-00-MASTER-005/oracle.yaml"]
+    },
+    {
+      "test_id": "MASTER-005-A09",
+      "applies_to": "DESCRIBE-MASTER-SEVEN-TUPLE",
+      "category": "invalid_input",
+      "given": {"feature_id": "TLC-FC-00-MASTER-006"},
+      "when": "The feature identity differs.",
+      "expect": {"error_code": "MASTER_INVALID_FEATURE_ID", "partial_result": false},
+      "source_basis": ["registry/optimized-ir/master/TLC-FC-00-MASTER-005/ir.yaml"]
+    },
+    {
+      "test_id": "MASTER-005-A10",
+      "applies_to": "DESCRIBE-MASTER-SEVEN-TUPLE",
+      "category": "preservation",
+      "given": {"accepted_input": true},
+      "when": "Any required identity, distinction, order, opacity, or provenance cannot be preserved.",
+      "expect": {"error_code": "MASTER_PRESERVATION_VIOLATION", "partial_result": false},
+      "source_basis": ["registry/optimized-ir/master/TLC-FC-00-MASTER-005/ir.yaml", "registry/domain-finalization/master/module-specification.yaml"]
+    }
+  ]
+}
