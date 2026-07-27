@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0", "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-05-DYNAMICS-005", "title": "Interaction operators", "domain": "dynamics"},
+  "purpose": "Construct an immutable unevaluated interaction-operator application while preserving operator and ordered argument identities.",
+  "scope": {
+    "required": [
+      {"id": "D005-REQ-001", "statement": "Validate the operator identifier, argument references, and carrier shapes before successful publication.", "basis": ["registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-005/ir.yaml"]},
+      {"id": "D005-REQ-002", "statement": "Preserve operator identity, argument identities, supplied argument order, opaque payloads, provenance, unresolved items, and reservations.", "basis": ["registry/oracles/dynamics/TLC-FC-05-DYNAMICS-005/oracle.yaml"]},
+      {"id": "D005-REQ-003", "statement": "Expose no successful partial result after validation or preservation failure."}
+    ],
+    "forbidden": [
+      {"id": "D005-FOR-001", "statement": "Do not infer operator arity, parameter types, codomain, return type, derivative contribution, or execution behavior."},
+      {"id": "D005-FOR-002", "statement": "Do not evaluate the operator, create an interaction result, or infer an executable transition."},
+      {"id": "D005-FOR-003", "statement": "Do not reorder or mutate the supplied arguments."}
+    ],
+    "deferred": [
+      {"id": "D005-DEF-001", "statement": "Operator signatures and Community symbol reconciliation remain external scientific requirements."},
+      {"id": "D005-DEF-002", "statement": "Executable interaction semantics remain outside this package."}
+    ]
+  },
+  "operations": [{
+    "operation_id": "CONSTRUCT-OPAQUE-INTERACTION-APPLICATION",
+    "purpose": "Return a source-addressable unevaluated operator-application record.",
+    "inputs": [
+      {"name": "operator_id", "semantic_role": "source-listed interaction operator identity", "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0", "collection": {"kind": "scalar", "membership": "constrained", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}, "constraints": [{"id": "D005-IN-001", "statement": "The operator must be source-listed under TLC-SO-DYNAMICS-014."}]},
+      {"name": "arguments", "semantic_role": "ordered opaque Master, Disciple, or Community entity references", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0", "collection": {"kind": "sequence", "membership": "open", "cardinality": {"minimum": 0, "maximum": null}, "ordering": "preserved", "duplicates": "significant", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}}, "constraints": [{"id": "D005-IN-002", "statement": "Every argument reference must be known and its supplied position is significant."}]}
+    ],
+    "outputs": [{"name": "application", "semantic_role": "immutable unevaluated operator application", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "fields": [
+      {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "constant": "TLC-FC-05-DYNAMICS-005"},
+      {"name": "representation", "required": true, "semantic_role": "output representation", "constant": "UnevaluatedOperatorApplication"},
+      {"name": "operator_id", "required": true, "semantic_role": "preserved operator identity", "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"},
+      {"name": "arguments", "required": true, "semantic_role": "preserved ordered opaque arguments", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0"},
+      {"name": "traceability", "required": true, "semantic_role": "source provenance", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"},
+      {"name": "unresolved", "required": true, "semantic_role": "preserved signature and reconciliation uncertainty", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0"},
+      {"name": "status", "required": true, "semantic_role": "unevaluated structural status"}
+    ], "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}, "constraints": [{"id": "D005-OUT-001", "statement": "The application preserves operator and argument identity and order without signature or result semantics."}]}],
+    "preconditions": [
+      {"id": "D005-PRE-001", "statement": "The operator and every argument reference are known source identifiers."},
+      {"id": "D005-PRE-002", "statement": "Arguments are carried as an ordered Sequence of OpaqueEntityRef values."}
+    ],
+    "postconditions": [
+      {"id": "D005-POST-001", "statement": "Operator identity, argument identities, and argument order are preserved exactly."},
+      {"id": "D005-POST-002", "statement": "The output is unevaluated and traceable to TLC-SO-DYNAMICS-014 and TLC-SR-DYNAMICS-013."},
+      {"id": "D005-POST-003", "statement": "Arity, parameter types, codomain, result semantics, derivative contribution, and transition semantics remain absent."}
+    ],
+    "invariants": [
+      {"id": "D005-INV-001", "statement": "Opaque arguments remain unchanged and source-addressable."},
+      {"id": "D005-INV-002", "statement": "Operator identity and ordered argument identity remain stable and distinct."}
+    ],
+    "strategy_contract": {"mode": "partially_constrained", "steps": ["validate operator and argument identifiers and carrier shapes", "preserve arguments in supplied order", "construct an unevaluated operator application", "attach traceability unresolved items and reservations", "verify preservation obligations", "publish success or stable error"], "partial_order": [
+      {"before": "validate operator and argument identifiers and carrier shapes", "after": "publish success or stable error"},
+      {"before": "preserve arguments in supplied order", "after": "publish success or stable error"},
+      {"before": "construct an unevaluated operator application", "after": "publish success or stable error"},
+      {"before": "attach traceability unresolved items and reservations", "after": "publish success or stable error"},
+      {"before": "verify preservation obligations", "after": "publish success or stable error"}
+    ], "prescription_basis": ["Identity, supplied order, unevaluated status, metadata, and atomic publication are observable; internal total sequencing is not prescribed."]},
+    "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+    "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "required", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+    "error_contract": [
+      {"code": "UNKNOWN_SOURCE_IDENTIFIER", "category": "invalid_input", "condition": "The operator or an argument reference is not source-listed or otherwise known.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "TYPE_SHAPE_MISMATCH", "category": "invalid_input", "condition": "The operator identity or argument sequence does not preserve its declared carrier shape.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "UNRESOLVED_SCIENTIFIC_SEMANTICS", "category": "unsupported_operation", "condition": "Signature, arity, type, codomain, result, derivative, execution, or transition semantics are requested.", "recoverability": "non_retryable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+    ],
+    "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+  }],
+  "implementation_modes": [
+    {"mode_id": "opaque-operator-application", "status": "required", "statement": "Expose an ordered unevaluated application and stable errors."},
+    {"mode_id": "operator-execution", "status": "forbidden", "statement": "Do not infer or execute an operator signature or result."},
+    {"mode_id": "alternative-internal-architecture", "status": "allowed", "statement": "Internal architecture remains free when observable obligations are preserved."}
+  ],
+  "global_invariants": [
+    {"id": "D005-GINV-001", "statement": "Absent signatures and cross-domain reconciliation never become inferred defaults."},
+    {"id": "D005-GINV-002", "statement": "Identity, order, opacity, traceability, unresolved preservation, and failure atomicity cannot be weakened."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity"},
+    {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Stable operator and entity references"},
+    {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Ordered argument collection"},
+    {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Preserved signature and reconciliation uncertainty"},
+    {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Opaque entity argument payloads"},
+    {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Stable transport-neutral failures"},
+    {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable source provenance"},
+    {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Immutable structural application envelope"}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["Conformance is structural and does not authorize operator execution."]}
+}

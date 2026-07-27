@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0", "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-05-DYNAMICS-006", "title": "State admissible", "domain": "dynamics"},
+  "purpose": "Construct a complete, partial, or empty opaque state-candidate record without defining a scientific state space.",
+  "scope": {
+    "required": [
+      {"id": "D006-REQ-001", "statement": "Validate every supplied component identifier and opaque value carrier before successful publication.", "basis": ["registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-006/ir.yaml"]},
+      {"id": "D006-REQ-002", "statement": "Preserve every supplied key/value pair, exposed mapping order, per-component provenance, unresolved items, and reservations.", "basis": ["registry/oracles/dynamics/TLC-FC-05-DYNAMICS-006/oracle.yaml"]},
+      {"id": "D006-REQ-003", "statement": "Accept complete, partial, and empty mappings; omitted components remain absent and completeness remains unasserted."},
+      {"id": "D006-REQ-004", "statement": "Expose no successful partial result after validation or preservation failure."}
+    ],
+    "forbidden": [
+      {"id": "D006-FOR-001", "statement": "Do not invent a missing component, default value, completeness claim, explicit state type, or state space."},
+      {"id": "D006-FOR-002", "statement": "Do not infer an initial state, terminal state, transition, trajectory, or scientific evaluation from equation-bearing components."},
+      {"id": "D006-FOR-003", "statement": "Do not mutate supplied keys, values, or external scientific state."}
+    ],
+    "deferred": [
+      {"id": "D006-DEF-001", "statement": "Scientific classification of candidate components and explicit state-space semantics remain preserved unresolved."},
+      {"id": "D006-DEF-002", "statement": "Future state and transition execution requires separate scientific authority."}
+    ]
+  },
+  "operations": [{
+    "operation_id": "CONSTRUCT-OPAQUE-STATE-CANDIDATE-RECORD",
+    "purpose": "Return an immutable keyed candidate record with no state-space or completeness claim.",
+    "inputs": [{"name": "components", "semantic_role": "complete, partial, or empty mapping of covered scientific-object IDs to opaque values", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0", "collection": {"kind": "ordered_map", "membership": "constrained", "members": ["TLC-SO-DYNAMICS-001", "TLC-SO-DYNAMICS-002", "TLC-SO-DYNAMICS-003", "TLC-SO-DYNAMICS-004", "TLC-SO-DYNAMICS-005", "TLC-SO-DYNAMICS-006", "TLC-SO-DYNAMICS-007", "TLC-SO-DYNAMICS-009", "TLC-SO-DYNAMICS-010", "TLC-SO-DYNAMICS-011", "TLC-SO-DYNAMICS-012", "TLC-SO-DYNAMICS-013"], "cardinality": {"minimum": 0, "maximum": 12}, "ordering": "preserved", "duplicates": "forbidden", "key_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}}, "constraints": [
+      {"id": "D006-IN-001", "statement": "Every key must be one of the twelve covered scientific-object identifiers."},
+      {"id": "D006-IN-002", "statement": "Every value must preserve the OpaqueValue carrier and payload."}
+    ]}],
+    "outputs": [{"name": "state_candidate", "semantic_role": "immutable structural state-candidate record", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "fields": [
+      {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "constant": "TLC-FC-05-DYNAMICS-006"},
+      {"name": "representation", "required": true, "semantic_role": "output representation", "constant": "StateCandidateRecord"},
+      {"name": "components", "required": true, "semantic_role": "preserved complete, partial, or empty component mapping", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0"},
+      {"name": "completeness", "required": true, "semantic_role": "absence of completeness assertion", "constant": "unasserted"},
+      {"name": "state_space", "required": true, "semantic_role": "absence of explicit state-space semantics", "constant": "undefined"},
+      {"name": "traceability", "required": true, "semantic_role": "per-component provenance", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"},
+      {"name": "unresolved", "required": true, "semantic_role": "preserved component-classification uncertainty", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0"}
+    ], "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}, "constraints": [{"id": "D006-OUT-001", "statement": "Every supplied component remains present and unchanged; omitted components remain absent."}]}],
+    "preconditions": [
+      {"id": "D006-PRE-001", "statement": "Every component key is in the covered identifier set."},
+      {"id": "D006-PRE-002", "statement": "Every component value preserves the OpaqueValue carrier."}
+    ],
+    "postconditions": [
+      {"id": "D006-POST-001", "statement": "Every supplied key/value pair is retained exactly and exposed order is preserved."},
+      {"id": "D006-POST-002", "statement": "Omitted components remain absent and no default is created."},
+      {"id": "D006-POST-003", "statement": "Completeness remains unasserted and state-space membership remains undefined."},
+      {"id": "D006-POST-004", "statement": "No explicit state, initial state, terminal state, or transition is created."}
+    ],
+    "invariants": [
+      {"id": "D006-INV-001", "statement": "Each component remains opaque, distinct, and addressable by its stable scientific-object identifier."},
+      {"id": "D006-INV-002", "statement": "Partial-candidate status and all eleven unresolved identifiers remain visible."}
+    ],
+    "strategy_contract": {"mode": "partially_constrained", "steps": ["validate component identifiers and opaque value carriers", "preserve supplied key value pairs and exposed order", "construct a candidate record with completeness unasserted and state space undefined", "attach per-component traceability unresolved items and reservations", "verify preservation obligations", "publish success or stable error"], "partial_order": [
+      {"before": "validate component identifiers and opaque value carriers", "after": "publish success or stable error"},
+      {"before": "preserve supplied key value pairs and exposed order", "after": "publish success or stable error"},
+      {"before": "construct a candidate record with completeness unasserted and state space undefined", "after": "publish success or stable error"},
+      {"before": "attach per-component traceability unresolved items and reservations", "after": "publish success or stable error"},
+      {"before": "verify preservation obligations", "after": "publish success or stable error"}
+    ], "prescription_basis": ["Validation, exact mapping preservation, explicit unasserted status, and atomic publication are observable; the internal construction order is not otherwise prescribed."]},
+    "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+    "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "required", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+    "error_contract": [
+      {"code": "UNKNOWN_SOURCE_IDENTIFIER", "category": "invalid_input", "condition": "A component key is outside the twelve covered scientific-object identifiers.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "TYPE_SHAPE_MISMATCH", "category": "invalid_input", "condition": "The component mapping or a component value does not preserve its declared carrier shape.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "UNRESOLVED_SCIENTIFIC_SEMANTICS", "category": "unsupported_operation", "condition": "An explicit state space, completeness claim, default, state classification, initial or terminal state, or transition semantics are requested.", "recoverability": "non_retryable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+    ],
+    "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "informative", "value": "At most twelve distinct covered component keys"}}
+  }],
+  "implementation_modes": [
+    {"mode_id": "state-candidate-packaging", "status": "required", "statement": "Expose complete, partial, and empty candidate records with stable errors."},
+    {"mode_id": "scientific-state-promotion", "status": "forbidden", "statement": "Do not define a state space, completeness, defaults, or transitions."},
+    {"mode_id": "alternative-internal-architecture", "status": "allowed", "statement": "Internal architecture remains free when observable obligations are preserved."}
+  ],
+  "global_invariants": [
+    {"id": "D006-GINV-001", "statement": "A state candidate is not promoted to a scientifically explicit state."},
+    {"id": "D006-GINV-002", "statement": "Keys, opaque values, exposed order, traceability, unresolved preservation, and failure atomicity cannot be weakened."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity"},
+    {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Stable component identifiers"},
+    {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Complete, partial, or empty component mapping"},
+    {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Preserved component and state-space uncertainty"},
+    {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Unevaluated component payloads"},
+    {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Stable transport-neutral failures"},
+    {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Per-component provenance"},
+    {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Immutable candidate record envelope"}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["Conformance is structural and does not establish an explicit scientific state model."]}
+}

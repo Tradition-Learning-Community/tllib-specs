@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0", "package_version": "1.0.0", "applies_to": "TLC-FC-05-DYNAMICS-007",
+  "scientific_sources": [{"path": "maths/05-dynamics.md", "role": "Ambiguous Disciple state-or-evolution expression source", "line_range": {"start": 62, "end": 77}}],
+  "mathematical_contracts": [{"path": "registry/math-contracts/TLC-FC-05-DYNAMICS-007/contract.yaml", "role": "Authoritative limited engineering contract", "artifact_id": "TLC-MC-TLC-FC-05-DYNAMICS-007"}],
+  "source_irs": [{"path": "ir/TLC-FC-05-DYNAMICS-007/ir.prototype.json", "role": "Active prototype IR", "artifact_id": "TLC-IR-TLC-FC-05-DYNAMICS-007"}],
+  "finalized_irs": [{"path": "registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-007/ir.yaml", "role": "Final declarative structural IR", "artifact_id": "TLC-OPT-IR-TLC-FC-05-DYNAMICS-007"}],
+  "algorithm_specifications": [{"path": "registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-007/algorithm.yaml", "role": "Algorithm input compiled into observable and partial-order obligations", "artifact_id": "TLC-ALG-TLC-FC-05-DYNAMICS-007"}],
+  "test_plans": [{"path": "registry/test-plans/TLC-FC-05-DYNAMICS-007/test-plan.yaml", "role": "Source structural test plan", "artifact_id": "TLC-TP-TLC-FC-05-DYNAMICS-007"}],
+  "acceptance_oracles": [{"path": "registry/oracles/dynamics/TLC-FC-05-DYNAMICS-007/oracle.yaml", "role": "Authoritative structural property oracle", "artifact_id": "TLC-ORACLE-TLC-FC-05-DYNAMICS-007"}],
+  "scientific_decisions": [
+    {"path": "registry/domain-finalization/dynamics/decision-required.yaml", "role": "Preserves the unresolved state-versus-evolution boundary", "artifact_id": "DYN-DEC-007"},
+    {"path": "registry/domain-finalization/dynamics/module-specification.yaml", "role": "Domain-level unclassified-node operation and no-transition decisions"},
+    {"path": "registry/domain-finalization/dynamics/patterns.yaml", "role": "State-candidate resemblance and non-factorization decision"}
+  ]
+}
