@@ -67,9 +67,33 @@
   ],
   "allOf": [
     {
-      "if": {"properties": {"examples": {"properties": {"present": {"const": true}}}}},
-      "then": {"properties": {"examples": {"properties": {"file": {"const": "examples.json"}}}},
-      "else": {"properties": {"examples": {"properties": {"file": {"type": "null"}}}}
+      "if": {
+        "properties": {
+          "examples": {
+            "properties": {
+              "present": {"const": true}
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "examples": {
+            "properties": {
+              "file": {"const": "examples.json"}
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "examples": {
+            "properties": {
+              "file": {"type": "null"}
+            }
+          }
+        }
+      }
     }
   ]
 }
