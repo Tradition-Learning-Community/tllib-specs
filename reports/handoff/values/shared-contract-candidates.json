@@ -1,0 +1,33 @@
+{
+  "schema_version":"1.0",
+  "domain":"values",
+  "candidates":[
+    {
+      "candidate_id":"VALUES-HC-CANDIDATE-SYMBOLIC-STRUCTURAL-RESULT",
+      "observed_features":["TLC-FC-09-VALUES-001","TLC-FC-09-VALUES-003","TLC-FC-09-VALUES-004","TLC-FC-09-VALUES-005","TLC-FC-09-VALUES-006","TLC-FC-09-VALUES-007","TLC-FC-09-VALUES-008","TLC-FC-09-VALUES-009","TLC-FC-09-VALUES-010","TLC-FC-09-VALUES-012"],
+      "local_structures":["source-addressable symbolic AST or predicate result","opaque scientific payload","unresolved-item collection","complete traceability"],
+      "possible_sharing_reason":"Multiple features expose a similar structural result envelope after validation and preservation.",
+      "semantic_fusion_risks":["AST node semantics differ across dynamics, membership, invariants, properties, and spaces","a shared contract could erase role cardinality and ordering differences","future scientific providers may require feature-specific payload contracts"],
+      "proposed_decision":"Keep feature-local structures in v1.0 and evaluate sharing only after multiple domains demonstrate the same observable contract.",
+      "status":"candidate_only"
+    },
+    {
+      "candidate_id":"VALUES-HC-CANDIDATE-EXTERNAL-EVALUATOR-PORT",
+      "observed_features":["TLC-FC-09-VALUES-004","TLC-FC-09-VALUES-005","TLC-FC-09-VALUES-006","TLC-FC-09-VALUES-007","TLC-FC-09-VALUES-008","TLC-FC-09-VALUES-009","TLC-FC-09-VALUES-010","TLC-FC-09-VALUES-011","TLC-FC-09-VALUES-012","TLC-FC-09-VALUES-013","TLC-FC-09-VALUES-014","TLC-FC-09-VALUES-018"],
+      "local_structures":["structural operation available","scientific execution unavailable","provider-required unresolved semantics","provider output must preserve source trace"],
+      "possible_sharing_reason":"Several packages need a future integration boundary for authoritative scientific evaluation without embedding that evaluation in the structural library.",
+      "semantic_fusion_risks":["provider inputs and outputs differ fundamentally","error and determinism guarantees may vary by scientific operation","one generic port could imply false interoperability"],
+      "proposed_decision":"Retain feature-local provider requirements; consider a shared lifecycle contract only after concrete providers exist.",
+      "status":"candidate_only"
+    },
+    {
+      "candidate_id":"VALUES-HC-CANDIDATE-SOURCE-ERROR-ALIAS",
+      "observed_features":["TLC-FC-09-VALUES-001","TLC-FC-09-VALUES-003","TLC-FC-09-VALUES-004","TLC-FC-09-VALUES-005","TLC-FC-09-VALUES-006","TLC-FC-09-VALUES-007","TLC-FC-09-VALUES-008","TLC-FC-09-VALUES-009","TLC-FC-09-VALUES-010","TLC-FC-09-VALUES-011","TLC-FC-09-VALUES-012","TLC-FC-09-VALUES-013","TLC-FC-09-VALUES-014","TLC-FC-09-VALUES-018"],
+      "local_structures":["authoritative lowercase source error identifier","schema-compatible uppercase public alias","one-to-one mapping preserved in acceptance"],
+      "possible_sharing_reason":"The same transport-facing nomenclature bridge is needed across all Values packages.",
+      "semantic_fusion_risks":["a global alias policy might hide or normalize scientifically meaningful identifiers","different domains may already use valid public identifiers","automatic conversion can create collisions"],
+      "proposed_decision":"Keep explicit local aliases in v1.0; propose a shared contract only after collision and reversibility rules are specified globally.",
+      "status":"candidate_only"
+    }
+  ]
+}
