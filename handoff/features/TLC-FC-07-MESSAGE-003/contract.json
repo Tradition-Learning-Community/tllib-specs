@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-07-MESSAGE-003", "title": "Existential discourse evidence", "domain": "message"},
+  "purpose": "Assemble the exact two existential-discourse records into a traceable candidate evidence descriptor while preserving scientific acceptance as unresolved.",
+  "scope": {
+    "required": [
+      {"id": "MSG003-REQ-001", "statement": "Accept exactly distinct object identities TLC-SO-MESSAGE-020 and TLC-SO-MESSAGE-049.", "basis": ["registry/math-contracts/TLC-FC-07-MESSAGE-003/contract.yaml"]},
+      {"id": "MSG003-REQ-002", "statement": "Require both records to cite the same authoritative source subsection."},
+      {"id": "MSG003-REQ-003", "statement": "Return a two-sided candidate descriptor with oracle_acceptance_rule exactly unresolved_propagated.", "basis": ["registry/optimized-ir/message/TLC-FC-07-MESSAGE-003/ir.yaml", "registry/oracles/message/TLC-FC-07-MESSAGE-003/oracle.yaml"]},
+      {"id": "MSG003-REQ-004", "statement": "Preserve both opaque payloads, roles, source references, candidate status, and provenance."}
+    ],
+    "forbidden": [
+      {"id": "MSG003-FOR-001", "statement": "Do not produce a scientific acceptance decision, classification, energetic interpretation, or executable oracle."},
+      {"id": "MSG003-FOR-002", "statement": "Do not merge, substitute, or collapse the two evidence identities."},
+      {"id": "MSG003-FOR-003", "statement": "Do not define transport, protocol, execution, timing, or numerical behavior."},
+      {"id": "MSG003-FOR-004", "statement": "Do not expose a successful partial descriptor after failure."}
+    ],
+    "deferred": [
+      {"id": "MSG003-DEF-001", "statement": "Existential classification, energetic semantics, and oracle acceptance criteria remain preserved unresolved."},
+      {"id": "MSG003-DEF-002", "statement": "Runtime types and serialization format remain implementation-defined."}
+    ]
+  },
+  "operations": [
+    {
+      "operation_id": "ASSEMBLE-EXISTENTIAL-DISCOURSE-EVIDENCE",
+      "purpose": "Create the two-sided candidate evidence descriptor from exact same-subsection records.",
+      "inputs": [{
+        "name": "existential_discourse_records",
+        "semantic_role": "exact pair of discourse-format and existential-label evidence",
+        "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0",
+        "fields": [
+          {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "shared_contract_ref": "TLC-HC-FEATURE-ID@1.0.0", "constant": "TLC-FC-07-MESSAGE-003"},
+          {"name": "object_ids", "required": true, "semantic_role": "exact distinct evidence identities", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0", "allowed_values": ["TLC-SO-MESSAGE-020", "TLC-SO-MESSAGE-049"]},
+          {"name": "source_subsection", "required": true, "semantic_role": "shared authoritative source subsection", "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"},
+          {"name": "opaque_payloads", "required": true, "semantic_role": "uninterpreted evidence content", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+          {"name": "candidate_status", "required": true, "semantic_role": "unevaluated candidate status", "constant": "unevaluated_candidate"},
+          {"name": "provenance", "required": true, "semantic_role": "complete traceability", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"}
+        ],
+        "collection": {"kind": "ordered_set", "membership": "exact", "members": ["TLC-SO-MESSAGE-020", "TLC-SO-MESSAGE-049"], "cardinality": {"minimum": 2, "maximum": 2}, "ordering": "preserved", "duplicates": "forbidden", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}},
+        "constraints": [
+          {"id": "MSG003-IN-001", "statement": "Both exact identities occur once and remain distinct."},
+          {"id": "MSG003-IN-002", "statement": "Both records cite the same source subsection."},
+          {"id": "MSG003-IN-003", "statement": "Opaque payloads and source references are unchanged."}
+        ]
+      }],
+      "outputs": [{
+        "name": "candidate_oracle_evidence",
+        "semantic_role": "two-sided existential candidate evidence descriptor",
+        "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0",
+        "fields": [
+          {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "constant": "TLC-FC-07-MESSAGE-003"},
+          {"name": "representation", "required": true, "semantic_role": "structural result kind", "constant": "candidate_oracle_evidence"},
+          {"name": "discourse_format_evidence", "required": true, "semantic_role": "reference to TLC-SO-MESSAGE-020", "constant": "TLC-SO-MESSAGE-020"},
+          {"name": "existential_label_evidence", "required": true, "semantic_role": "reference to TLC-SO-MESSAGE-049", "constant": "TLC-SO-MESSAGE-049"},
+          {"name": "source_subsection", "required": true, "semantic_role": "shared subsection provenance", "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"},
+          {"name": "oracle_acceptance_rule", "required": true, "semantic_role": "preserved unresolved acceptance semantics", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0", "constant": "unresolved_propagated"},
+          {"name": "provenance", "required": true, "semantic_role": "complete traceability", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"},
+          {"name": "status", "required": true, "semantic_role": "unevaluated candidate status", "constant": "unevaluated_candidate"}
+        ],
+        "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0"}},
+        "constraints": [
+          {"id": "MSG003-OUT-001", "statement": "Both evidence identities and their roles remain distinct."},
+          {"id": "MSG003-OUT-002", "statement": "The shared source subsection and provenance are retained."},
+          {"id": "MSG003-OUT-003", "statement": "oracle_acceptance_rule equals unresolved_propagated and no acceptance decision is present."}
+        ]
+      }],
+      "preconditions": [
+        {"id": "MSG003-PRE-001", "statement": "Both required object identities are present exactly once and are distinct."},
+        {"id": "MSG003-PRE-002", "statement": "Both records cite the same authoritative source subsection."}
+      ],
+      "postconditions": [
+        {"id": "MSG003-POST-001", "statement": "The result retains both identities, their distinct roles, opaque payloads, and shared subsection provenance."},
+        {"id": "MSG003-POST-002", "statement": "The acceptance rule remains explicitly unresolved and no scientific decision is produced."}
+      ],
+      "invariants": [
+        {"id": "MSG003-INV-001", "statement": "Pair completeness, identity distinction, content, source context, provenance, and candidate status are conserved."},
+        {"id": "MSG003-INV-002", "statement": "Scientific evaluation and external state mutation never occur."}
+      ],
+      "strategy_contract": {
+        "mode": "partially_constrained",
+        "steps": ["validate exact distinct pair", "validate shared source subsection", "construct two-sided descriptor", "attach unresolved acceptance marker and provenance", "publish success or stable error"],
+        "partial_order": [
+          {"before": "validate exact distinct pair", "after": "publish success or stable error"},
+          {"before": "validate shared source subsection", "after": "publish success or stable error"},
+          {"before": "attach unresolved acceptance marker and provenance", "after": "publish success or stable error"}
+        ],
+        "prescription_basis": ["Exact pair validation, same-context validation, unresolved marking, and failure-before-success are observable; internal assembly order is not prescribed."]
+      },
+      "runtime_contract": {"mutability": "not_constrained", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_constrained", "alignment": "not_constrained", "address_stability": "not_constrained", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+      "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "not_constrained", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+      "error_contract": [
+        {"code": "IncompleteExistentialEvidencePair", "category": "invalid_input", "condition": "A required side is missing, duplicated, replaced, or not distinct.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "MismatchedSourceSubsection", "category": "invalid_input", "condition": "The two records do not cite the same authoritative source subsection.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+      ],
+      "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+    }
+  ],
+  "implementation_modes": [
+    {"mode_id": "structural-evidence-pairing", "status": "required", "statement": "Expose exact two-sided evidence with an unresolved acceptance rule."},
+    {"mode_id": "scientific-acceptance", "status": "forbidden", "statement": "Do not classify or accept the evidence scientifically."},
+    {"mode_id": "transport-or-execution", "status": "forbidden", "statement": "Do not expose protocol, transport, or execution behavior."},
+    {"mode_id": "alternative-internal-architecture", "status": "allowed", "statement": "Internal design is free when observable obligations remain satisfied."}
+  ],
+  "global_invariants": [
+    {"id": "MSG003-GINV-001", "statement": "Unresolved acceptance semantics must remain explicit and must never become a default decision."},
+    {"id": "MSG003-GINV-002", "statement": "No implementation may weaken exact identity, role separation, same-subsection validation, opacity, provenance, or failure atomicity."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity."},
+    {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Lossless object and subsection references."},
+    {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Exact distinct pair semantics."},
+    {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Explicit unresolved acceptance semantics."},
+    {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Non-interpretation of evidence payloads."},
+    {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Transport-neutral stable errors."},
+    {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable provenance."},
+    {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Structural evidence descriptor envelope."}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["The documentary dependency on TLC-FC-07-MESSAGE-006 does not create an execution dependency."]}
+}
