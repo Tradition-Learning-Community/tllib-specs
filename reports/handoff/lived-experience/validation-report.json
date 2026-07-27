@@ -1,0 +1,21 @@
+{
+  "schema_version":"1.0",
+  "domain":"lived-experience",
+  "report_status":"pending_github_actions",
+  "source_branch":"handoff/integration-v1",
+  "source_commit":"297ec9af9f1a47cf2af247440fcde08437b0743a",
+  "work_branch":"handoff/domain-14-lived-experience",
+  "population":{"expected_guard":12,"authoritative_count":12,"produced_count":12,"ordered_feature_ids":["TLC-FC-14-LIVED-EXPERIENCE-001","TLC-FC-14-LIVED-EXPERIENCE-002","TLC-FC-14-LIVED-EXPERIENCE-004","TLC-FC-14-LIVED-EXPERIENCE-005","TLC-FC-14-LIVED-EXPERIENCE-006","TLC-FC-14-LIVED-EXPERIENCE-007","TLC-FC-14-LIVED-EXPERIENCE-008","TLC-FC-14-LIVED-EXPERIENCE-009","TLC-FC-14-LIVED-EXPERIENCE-010","TLC-FC-14-LIVED-EXPERIENCE-011","TLC-FC-14-LIVED-EXPERIENCE-012","TLC-FC-14-LIVED-EXPERIENCE-013"],"duplicate_feature_ids":[],"foreign_domain_packages":[],"status":"verified_by_authoritative_registry_comparison"},
+  "checks":[
+    {"check_id":"PACKAGE-FILE-COMPLETENESS","status":"verified_by_construction","evidence":["Every active feature declares and contains README.md, manifest.json, contract.json, acceptance.json, and traceability.json."]},
+    {"check_id":"TRACEABILITY-CATEGORIES","status":"verified_by_connector_inspection","evidence":["All eight required traceability categories are non-empty lists and use repository-relative paths."]},
+    {"check_id":"SHARED-DEPENDENCY-COHERENCE","status":"verified_by_construction","evidence":["Every manifest and contract references the same eight existing shared contracts at version 1.0.0; the catalog declares the exact union."]},
+    {"check_id":"IDENTIFIER-UNIQUENESS","status":"verified_by_construction","evidence":["Feature, operation, obligation, and acceptance identifiers are feature-scoped and unique."]},
+    {"check_id":"ERROR-COHERENCE","status":"verified_against_finalized_ir_algorithm_and_oracle","evidence":["The six authoritative structural errors are preserved. Feature 005 source-level scientific conditions are not promoted or renamed without an execution contract."]},
+    {"check_id":"SCIENTIFIC-NON-INVENTION","status":"verified_against_oracles","evidence":["No scientific value, type, threshold, solver, chronology, actor model, metric, comparison, interpretation, causal model, or operator implementation was added."]},
+    {"check_id":"IMPLEMENTATION-CODE-ABSENCE","status":"verified_by_change_scope","evidence":["Only Markdown, JSON handoff artifacts, and one YAML count-key metadata alias are changed."]},
+    {"check_id":"AUTHORITATIVE-INVENTORY-NOMENCLATURE","status":"normalized","evidence":["The registry already declares authoritative_feature_count: 12 and exactly twelve entries.","The additive feature_count: 12 alias matches successful Master and Disciple validator nomenclature.","No feature or scientific field is changed."]},
+    {"check_id":"PULL-REQUEST-CI","status":"pending","evidence":[]}
+  ],
+  "ci":{"pull_request":null,"workflow_runs":[],"combined_status":"pending"}
+}
