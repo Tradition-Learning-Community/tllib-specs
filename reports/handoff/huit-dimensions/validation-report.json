@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "domain": "huit-dimensions",
+  "source_commit": "6e01d536e41565c456a3b94b4a1f3921664b55af",
+  "work_branch": "handoff/domain-03-huit-dimensions",
+  "population": {
+    "expected": 11,
+    "produced": 11,
+    "exact_match": true,
+    "ordered_feature_ids": ["TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013"]
+  },
+  "artifact_population": {
+    "mathematical_contracts_present": 11,
+    "source_irs_present": 11,
+    "test_plans_present": 11,
+    "finalized_irs_present": 11,
+    "algorithms_present": 11,
+    "oracles_present": 11,
+    "feature_packages_present": 11,
+    "foreign_domain_packages_added": 0
+  },
+  "scope_check": {
+    "allowed_paths_only": true,
+    "protected_files_modified": false,
+    "scientific_sources_modified": false,
+    "intermediate_artifacts_modified": false,
+    "shared_contracts_modified": false,
+    "schemas_modified": false,
+    "global_catalog_modified": false,
+    "implementation_code_added": false
+  },
+  "pre_ci_checks": {
+    "inventory_population_review": "passed",
+    "duplicate_feature_id_review": "passed",
+    "artifact_presence_review": "passed",
+    "traceability_multiplicity_review": "passed",
+    "scientific_boundary_review": "passed",
+    "strategy_prescription_review": "passed",
+    "json_schema_execution": "pending_github_actions",
+    "inter_file_consistency_execution": "pending_github_actions"
+  },
+  "known_validation_blocker": {
+    "status": "pre_existing_out_of_scope_conflict",
+    "validator": "tools/handoff/validate_handoff.py",
+    "inventory": "registry/domain-finalization/huit-dimensions/feature-status.yaml",
+    "detail": "The validator accepts feature_count or population_count, while the authoritative inventory exposes active_feature_count.",
+    "expected_failure": "authoritative inventory feature count mismatch for domain huit-dimensions",
+    "bypass_attempted": false,
+    "protected_fix_attempted": false
+  },
+  "ci": {"status": "pending", "evidence": []},
+  "merge": {"status": "not_performed", "reason": "CI has not yet completed successfully."}
+}
