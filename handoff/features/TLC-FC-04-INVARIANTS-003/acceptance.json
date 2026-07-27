@@ -1,0 +1,247 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-FC-04-INVARIANTS-003",
+  "tests": [
+    {
+      "test_id": "INV003-ACCEPT-NOMINAL",
+      "applies_to": "BUILD-INVARIANT-DECLARATION-CATALOG",
+      "category": "valid_input",
+      "given": {
+        "feature_id": "TLC-FC-04-INVARIANTS-003",
+        "covered_evidence_ids": [
+          "TLC-SO-INVARIANTS-002",
+          "TLC-SO-INVARIANTS-003",
+          "TLC-SO-INVARIANTS-004",
+          "TLC-SO-INVARIANTS-005",
+          "TLC-SO-INVARIANTS-006",
+          "TLC-SO-INVARIANTS-008",
+          "TLC-SO-INVARIANTS-009",
+          "TLC-SO-INVARIANTS-011",
+          "TLC-SO-INVARIANTS-012",
+          "TLC-SO-INVARIANTS-014",
+          "TLC-SO-INVARIANTS-015",
+          "TLC-SO-INVARIANTS-016",
+          "TLC-SO-INVARIANTS-018",
+          "TLC-SO-INVARIANTS-019",
+          "TLC-SO-INVARIANTS-020",
+          "TLC-SO-INVARIANTS-023",
+          "TLC-SO-INVARIANTS-024",
+          "TLC-SO-INVARIANTS-025",
+          "TLC-SO-INVARIANTS-028",
+          "TLC-SO-INVARIANTS-029",
+          "TLC-SO-INVARIANTS-030",
+          "TLC-SO-INVARIANTS-034",
+          "TLC-SO-INVARIANTS-036",
+          "TLC-SO-INVARIANTS-037",
+          "TLC-SO-INVARIANTS-038",
+          "TLC-SO-INVARIANTS-042",
+          "TLC-SO-INVARIANTS-043",
+          "TLC-SO-INVARIANTS-047",
+          "TLC-SO-INVARIANTS-048",
+          "TLC-SO-INVARIANTS-055",
+          "TLC-SO-INVARIANTS-056",
+          "TLC-SO-INVARIANTS-060",
+          "TLC-SO-INVARIANTS-064",
+          "TLC-SR-INVARIANTS-001",
+          "TLC-SR-INVARIANTS-002",
+          "TLC-SR-INVARIANTS-003",
+          "TLC-SR-INVARIANTS-004",
+          "TLC-SR-INVARIANTS-005",
+          "TLC-SR-INVARIANTS-007",
+          "TLC-SR-INVARIANTS-008",
+          "TLC-SR-INVARIANTS-010",
+          "TLC-SR-INVARIANTS-011",
+          "TLC-SR-INVARIANTS-013",
+          "TLC-SR-INVARIANTS-014",
+          "TLC-SR-INVARIANTS-015",
+          "TLC-SR-INVARIANTS-017",
+          "TLC-SR-INVARIANTS-018",
+          "TLC-SR-INVARIANTS-019",
+          "TLC-SR-INVARIANTS-022",
+          "TLC-SR-INVARIANTS-023",
+          "TLC-SR-INVARIANTS-024",
+          "TLC-SR-INVARIANTS-027",
+          "TLC-SR-INVARIANTS-028",
+          "TLC-SR-INVARIANTS-029",
+          "TLC-SR-INVARIANTS-033",
+          "TLC-SR-INVARIANTS-035",
+          "TLC-SR-INVARIANTS-036",
+          "TLC-SR-INVARIANTS-037",
+          "TLC-SR-INVARIANTS-041",
+          "TLC-SR-INVARIANTS-042",
+          "TLC-SR-INVARIANTS-046",
+          "TLC-SR-INVARIANTS-047",
+          "TLC-SR-INVARIANTS-054",
+          "TLC-SR-INVARIANTS-055",
+          "TLC-SR-INVARIANTS-059",
+          "TLC-SR-INVARIANTS-063"
+        ],
+        "catalogue_status": "deferred_for_scientific_decision",
+        "unresolved_refs": []
+      },
+      "when": "The build_invariant_declaration_catalog oracle scenario is exercised.",
+      "expect": {
+        "accepted": true,
+        "output_type": "InvariantDeclarationCatalog",
+        "immutable": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-003/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV003-ACCEPT-UNKNOWN-DECLARATION",
+      "applies_to": "BUILD-INVARIANT-DECLARATION-CATALOG",
+      "category": "error",
+      "given": {
+        "authoritative_oracle_scenario": "INV003-ACCEPT-UNKNOWN-DECLARATION"
+      },
+      "when": "The build_invariant_declaration_catalog oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-003/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV003-ACCEPT-DANGLING-RELATION",
+      "applies_to": "BUILD-INVARIANT-DECLARATION-CATALOG",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV003-ACCEPT-DANGLING-RELATION"
+      },
+      "when": "The build_invariant_declaration_catalog oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-003/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV003-ACCEPT-SCOPE",
+      "applies_to": "BUILD-INVARIANT-DECLARATION-CATALOG",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV003-ACCEPT-SCOPE"
+      },
+      "when": "The build_invariant_declaration_catalog oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-003/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV003-ACCEPT-OPAQUE",
+      "applies_to": "BUILD-INVARIANT-DECLARATION-CATALOG",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV003-ACCEPT-OPAQUE"
+      },
+      "when": "The build_invariant_declaration_catalog oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-003/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV003-ACCEPT-DETERMINISM",
+      "applies_to": "BUILD-INVARIANT-DECLARATION-CATALOG",
+      "category": "determinism",
+      "given": {
+        "authoritative_oracle_scenario": "INV003-ACCEPT-DETERMINISM"
+      },
+      "when": "The build_invariant_declaration_catalog oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-003/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV003-ACCEPT-RESERVATIONS",
+      "applies_to": "BUILD-INVARIANT-DECLARATION-CATALOG",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV003-ACCEPT-RESERVATIONS"
+      },
+      "when": "The build_invariant_declaration_catalog oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-003/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV003-ACCEPT-NO-INFERRED-RELATIONS",
+      "applies_to": "BUILD-INVARIANT-DECLARATION-CATALOG",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV003-ACCEPT-NO-INFERRED-RELATIONS"
+      },
+      "when": "The build_invariant_declaration_catalog oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-003/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV003-ACCEPT-NO-SCIENCE",
+      "applies_to": "BUILD-INVARIANT-DECLARATION-CATALOG",
+      "category": "unsupported_operation",
+      "given": {
+        "authoritative_oracle_scenario": "INV003-ACCEPT-NO-SCIENCE"
+      },
+      "when": "The build_invariant_declaration_catalog oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-003/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV003-ACCEPT-CONFORMANCE",
+      "applies_to": "BUILD-INVARIANT-DECLARATION-CATALOG",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV003-ACCEPT-CONFORMANCE"
+      },
+      "when": "The build_invariant_declaration_catalog oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-003/oracle.yaml"
+      ]
+    }
+  ]
+}
