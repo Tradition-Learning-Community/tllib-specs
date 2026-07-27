@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tradition-learning-community.github.io/tllib-specs/handoff/schemas/acceptance.schema.json",
+  "title": "Feature Handoff Acceptance v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "package_version", "applies_to", "tests"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "package_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "applies_to": {"type": "string", "pattern": "^TLC-(FC-[0-9]{2}-[A-Z][A-Z0-9-]*-[0-9]{3}|HC-[A-Z0-9-]+)$"},
+    "tests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["test_id", "applies_to", "category", "given", "when", "expect"],
+        "properties": {
+          "test_id": {"type": "string", "pattern": "^[A-Z0-9][A-Z0-9-]*$"},
+          "applies_to": {"type": "string", "minLength": 1},
+          "category": {"enum": ["valid_input", "invalid_input", "output_contract", "invariant", "preservation", "determinism", "error", "resource", "concurrency", "serialization", "unsupported_operation"]},
+          "given": {"type": ["object", "array", "string", "number", "boolean", "null"]},
+          "when": {"type": ["object", "array", "string", "number", "boolean", "null"]},
+          "expect": {"type": ["object", "array", "string", "number", "boolean", "null"]},
+          "source_basis": {"type": "array", "items": {"type": "string", "minLength": 1}}
+        }
+      }
+    }
+  }
+}
