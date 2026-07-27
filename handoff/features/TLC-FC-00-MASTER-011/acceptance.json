@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-FC-00-MASTER-011",
+  "tests": [
+    {
+      "test_id": "MASTER-011-A01",
+      "applies_to": "EVALUATE-MASTER-METRICS",
+      "category": "valid_input",
+      "given": {
+        "feature_id": "TLC-FC-00-MASTER-011",
+        "scientific_object_refs": [
+          "TLC-SO-MASTER-005",
+          "TLC-SO-MASTER-011",
+          "TLC-SO-MASTER-030"
+        ],
+        "relation_refs": [
+          "TLC-SR-MASTER-004",
+          "TLC-SR-MASTER-010",
+          "TLC-SR-MASTER-026",
+          "TLC-SR-MASTER-029"
+        ],
+        "unresolved_refs": [
+          "TLC-GU-00320",
+          "TLC-GU-00324",
+          "TLC-GU-00337",
+          "TLC-RELISS-MASTER-002",
+          "TLC-UT-MASTER-003",
+          "TLC-UT-MASTER-007",
+          "TLC-UT-MASTER-020"
+        ]
+      },
+      "when": "The package operation is requested.",
+      "expect": {
+        "accepted": true
+      },
+      "source_basis": [
+        "registry/oracles/master/TLC-FC-00-MASTER-011/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "MASTER-011-A02",
+      "applies_to": "EVALUATE-MASTER-METRICS",
+      "category": "output_contract",
+      "given": {
+        "authoritative_fixture": true
+      },
+      "when": "The corresponding oracle condition is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_invented_science": true
+      },
+      "source_basis": [
+        "registry/oracles/master/TLC-FC-00-MASTER-011/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "MASTER-011-A03",
+      "applies_to": "EVALUATE-MASTER-METRICS",
+      "category": "error",
+      "given": {
+        "authoritative_fixture": true
+      },
+      "when": "The corresponding oracle condition is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_invented_science": true
+      },
+      "source_basis": [
+        "registry/oracles/master/TLC-FC-00-MASTER-011/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "MASTER-011-A04",
+      "applies_to": "EVALUATE-MASTER-METRICS",
+      "category": "preservation",
+      "given": {
+        "authoritative_fixture": true
+      },
+      "when": "The corresponding oracle condition is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_invented_science": true
+      },
+      "source_basis": [
+        "registry/oracles/master/TLC-FC-00-MASTER-011/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "MASTER-011-A05",
+      "applies_to": "EVALUATE-MASTER-METRICS",
+      "category": "preservation",
+      "given": {
+        "authoritative_fixture": true
+      },
+      "when": "The corresponding oracle condition is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_invented_science": true
+      },
+      "source_basis": [
+        "registry/oracles/master/TLC-FC-00-MASTER-011/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "MASTER-011-A06",
+      "applies_to": "EVALUATE-MASTER-METRICS",
+      "category": "determinism",
+      "given": {
+        "authoritative_fixture": true
+      },
+      "when": "The corresponding oracle condition is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_invented_science": true
+      },
+      "source_basis": [
+        "registry/oracles/master/TLC-FC-00-MASTER-011/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "MASTER-011-A07",
+      "applies_to": "EVALUATE-MASTER-METRICS",
+      "category": "preservation",
+      "given": {
+        "authoritative_fixture": true
+      },
+      "when": "The corresponding oracle condition is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_invented_science": true
+      },
+      "source_basis": [
+        "registry/oracles/master/TLC-FC-00-MASTER-011/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "MASTER-011-A08",
+      "applies_to": "EVALUATE-MASTER-METRICS",
+      "category": "preservation",
+      "given": {
+        "authoritative_fixture": true
+      },
+      "when": "The corresponding oracle condition is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_invented_science": true
+      },
+      "source_basis": [
+        "registry/oracles/master/TLC-FC-00-MASTER-011/oracle.yaml"
+      ]
+    }
+  ]
+}
