@@ -21,39 +21,22 @@ from jsonschema import Draft202012Validator
 from yaml import YAMLError, safe_load
 
 ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from tools.handoff.generate_catalog import CatalogGenerationFailure, build_catalog  # noqa: E402
+from tools.handoff.model import (  # noqa: E402
+    DOMAIN_ORDER,
+    EXPECTED_DOMAIN_COUNT,
+    EXPECTED_FEATURE_COUNT,
+    EXPECTED_SHARED_CONTRACT_COUNT,
+    PILOT_ID,
+    SHARED_CONTRACT_IDS,
+    VALIDATOR_VERSION,
+)
+
 HANDOFF = ROOT / "handoff"
 SCHEMAS = HANDOFF / "schemas"
-MODEL_VERSION = "1.0.0"
-VALIDATOR_VERSION = "1.0.0"
-PILOT_ID = "TLC-FC-00-MASTER-005"
-DOMAIN_ORDER = (
-    "master",
-    "disciple",
-    "community",
-    "huit-dimensions",
-    "invariants",
-    "dynamics",
-    "theorems",
-    "message",
-    "principle",
-    "values",
-    "virtues",
-    "capacities",
-    "competencies",
-    "practice",
-    "lived-experience",
-    "relations",
-)
-EXPECTED_SHARED = {
-    "TLC-HC-FEATURE-ID",
-    "TLC-HC-SCIENTIFIC-REFERENCE",
-    "TLC-HC-REFERENCE-COLLECTION",
-    "TLC-HC-UNRESOLVED-ITEM",
-    "TLC-HC-OPAQUE-VALUE",
-    "TLC-HC-STRUCTURED-ERROR",
-    "TLC-HC-TRACEABILITY",
-    "TLC-HC-DESCRIPTOR-ENVELOPE",
-}
 FEATURE_ID_PATTERN = re.compile(
     r"^TLC-FC-(?P<index>[0-9]{2})-(?P<domain>[A-Z][A-Z0-9-]*)-[0-9]{3}$"
 )
@@ -455,8 +438,11 @@ def discover_domain_catalogs(
                 fail(f"unresolved or incompatible domain dependency {dependency_id}@{version} for {domain}")
         validate_authoritative_inventory(domain, catalog)
         catalogs[domain] = catalog
-    if len(owners) != 166:
-        fail(f"authoritative domain union must contain 166 feature identities, found {len(owners)}")
+    if len(owners) != EXPECTED_FEATURE_COUNT:
+        fail(
+            f"authoritative domain union must contain {EXPECTED_FEATURE_COUNT} feature identities, "
+            f"found {len(owners)}"
+        )
     return catalogs, owners, package_entries
 
 
@@ -470,10 +456,8 @@ def validate_global_catalog(schema: dict[str, Any]) -> dict[str, Any]:
     }:
         fail("global catalog validator identity is not canonical")
     try:
-        from generate_catalog import CatalogGenerationFailure, build_catalog
-
         generated = build_catalog()
-    except (ImportError, CatalogGenerationFailure) as exc:
+    except CatalogGenerationFailure as exc:
         fail(f"cannot reconstruct deterministic global catalog: {exc}")
     if catalog != generated:
         fail("handoff/catalog.json differs from the deterministic projection of finalized handoff artifacts")
@@ -520,8 +504,16 @@ def main() -> int:
         fail("handoff/shared directory is missing")
     shared_dirs = sorted(path for path in shared_root.iterdir() if path.is_dir())
     shared_ids = {path.name for path in shared_dirs}
-    if shared_ids != EXPECTED_SHARED:
-        fail(f"shared contract population mismatch: expected {sorted(EXPECTED_SHARED)}, found {sorted(shared_ids)}")
+    if shared_ids != SHARED_CONTRACT_IDS:
+        fail(
+            f"shared contract population mismatch: expected {sorted(SHARED_CONTRACT_IDS)}, "
+            f"found {sorted(shared_ids)}"
+        )
+    if len(shared_dirs) != EXPECTED_SHARED_CONTRACT_COUNT:
+        fail(
+            f"expected {EXPECTED_SHARED_CONTRACT_COUNT} shared contract directories, "
+            f"found {len(shared_dirs)}"
+        )
     if any(not path.is_dir() for path in shared_root.iterdir()):
         fail("handoff/shared contains non-directory entries")
 
@@ -568,6 +560,8 @@ def main() -> int:
     catalogs, declared_owners, catalog_entries = discover_domain_catalogs(
         schemas["domain_catalog"], shared_versions
     )
+    if len(catalogs) != EXPECTED_DOMAIN_COUNT:
+        fail(f"expected {EXPECTED_DOMAIN_COUNT} domain catalogs, found {len(catalogs)}")
     features_root = HANDOFF / "features"
     if not features_root.is_dir():
         fail("handoff/features directory is missing")
@@ -576,8 +570,8 @@ def main() -> int:
     feature_dirs = sorted(path for path in features_root.iterdir() if path.is_dir())
     actual_feature_ids = {path.name for path in feature_dirs}
     validate_population(actual_feature_ids, declared_owners)
-    if len(feature_dirs) != 166:
-        fail(f"expected exactly 166 feature package directories, found {len(feature_dirs)}")
+    if len(feature_dirs) != EXPECTED_FEATURE_COUNT:
+        fail(f"expected exactly {EXPECTED_FEATURE_COUNT} feature package directories, found {len(feature_dirs)}")
 
     domain_dependency_unions: dict[str, set[tuple[str, str]]] = {domain: set() for domain in catalogs}
     package_statuses: Counter[str] = Counter()
@@ -667,21 +661,24 @@ def main() -> int:
 
     global_catalog = validate_global_catalog(schemas["global_catalog"])
     expected_summary = {
-        "domain_count": 16,
-        "feature_count": 166,
-        "shared_contract_count": 8,
+        "domain_count": EXPECTED_DOMAIN_COUNT,
+        "feature_count": EXPECTED_FEATURE_COUNT,
+        "shared_contract_count": EXPECTED_SHARED_CONTRACT_COUNT,
         "package_statuses": dict(sorted(package_statuses.items())),
         "scientific_statuses": dict(sorted(scientific_statuses.items())),
         "execution_statuses": dict(sorted(execution_statuses.items())),
         "examples_present": examples_present,
-        "examples_absent": 166 - examples_present,
+        "examples_absent": EXPECTED_FEATURE_COUNT - examples_present,
         "promoted_shared_contract_candidates": 0,
     }
     if global_catalog["summary"] != expected_summary:
         fail("global catalog status or examples summary differs from validated package manifests")
 
     print("Feature Handoff Package v1.0 finalized validation passed.")
-    print("Validated 8 shared contracts, 166 feature packages, and 16 complete domain catalogs.")
+    print(
+        f"Validated {EXPECTED_SHARED_CONTRACT_COUNT} shared contracts, "
+        f"{EXPECTED_FEATURE_COUNT} feature packages, and {EXPECTED_DOMAIN_COUNT} complete domain catalogs."
+    )
     print(
         json.dumps(
             {
@@ -689,7 +686,7 @@ def main() -> int:
                 "scientific_statuses": dict(sorted(scientific_statuses.items())),
                 "execution_statuses": dict(sorted(execution_statuses.items())),
                 "examples_present": examples_present,
-                "examples_absent": 166 - examples_present,
+                "examples_absent": EXPECTED_FEATURE_COUNT - examples_present,
             },
             sort_keys=True,
         )
