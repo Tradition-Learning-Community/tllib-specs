@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-FC-15-RELATIONS-003",
+  "tests": [
+    {
+      "test_id": "TLC-FC-15-RELATIONS-003-AT-001",
+      "applies_to": "BUILD-RELATIONS-003-RECORD",
+      "category": "valid_input",
+      "given": "Exact identity, exact ordered participants, preserved opaque values, scope, context, and all unresolved items.",
+      "when": "The structural record operation is invoked.",
+      "expect": "A deterministic guarded record is returned with 1 participants and 5 unresolved items.",
+      "source_basis": [
+        "registry/oracles/relations/TLC-FC-15-RELATIONS-003/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "TLC-FC-15-RELATIONS-003-AT-002",
+      "applies_to": "BUILD-RELATIONS-003-RECORD",
+      "category": "invalid_input",
+      "given": "A mismatched feature identity.",
+      "when": "Validation runs.",
+      "expect": "FeatureIdentityMismatch and no partial record.",
+      "source_basis": [
+        "registry/oracles/relations/TLC-FC-15-RELATIONS-003/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "TLC-FC-15-RELATIONS-003-AT-003",
+      "applies_to": "BUILD-RELATIONS-003-RECORD",
+      "category": "preservation",
+      "given": "A participant is missing, extra, duplicated, or reordered.",
+      "when": "Participant validation runs.",
+      "expect": "The corresponding authoritative participant error and no partial record.",
+      "source_basis": [
+        "registry/oracles/relations/TLC-FC-15-RELATIONS-003/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "TLC-FC-15-RELATIONS-003-AT-004",
+      "applies_to": "BUILD-RELATIONS-003-RECORD",
+      "category": "preservation",
+      "given": "Opaque values, scope, context, or source references are altered.",
+      "when": "Preservation validation runs.",
+      "expect": "The corresponding preservation error and no partial record.",
+      "source_basis": [
+        "registry/oracles/relations/TLC-FC-15-RELATIONS-003/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "TLC-FC-15-RELATIONS-003-AT-005",
+      "applies_to": "BUILD-RELATIONS-003-RECORD",
+      "category": "unsupported_operation",
+      "given": "A scientific evaluation, composition, inversion, projection, membership, graph, numeric, temporal, or causal operation is requested.",
+      "when": "The non-execution guard runs.",
+      "expect": "ExternalRelationEvaluatorRequired and no scientific output.",
+      "source_basis": [
+        "registry/oracles/relations/TLC-FC-15-RELATIONS-003/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "TLC-FC-15-RELATIONS-003-AT-006",
+      "applies_to": "BUILD-RELATIONS-003-RECORD",
+      "category": "invariant",
+      "given": "An endpoint, direction, runtime arity, relation property, type, dimension, or causal meaning is inferred.",
+      "when": "The record is validated.",
+      "expect": "ScientificPropertyInvented and no partial record.",
+      "source_basis": [
+        "registry/oracles/relations/TLC-FC-15-RELATIONS-003/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "TLC-FC-15-RELATIONS-003-AT-007",
+      "applies_to": "BUILD-RELATIONS-003-RECORD",
+      "category": "determinism",
+      "given": "Byte-equivalent valid structural inputs are supplied repeatedly.",
+      "when": "Construction is repeated.",
+      "expect": "Structurally identical outputs with identical participant and unresolved ordering.",
+      "source_basis": [
+        "registry/oracles/relations/TLC-FC-15-RELATIONS-003/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "TLC-FC-15-RELATIONS-003-AT-008",
+      "applies_to": "BUILD-RELATIONS-003-RECORD",
+      "category": "preservation",
+      "given": "One of the 5 unresolved items is removed, altered, or defaulted.",
+      "when": "Unresolved propagation is validated.",
+      "expect": "UnresolvedPropagationLoss and no partial record.",
+      "source_basis": [
+        "registry/oracles/relations/TLC-FC-15-RELATIONS-003/oracle.yaml"
+      ]
+    }
+  ]
+}
