@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+from functools import lru_cache
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -45,15 +46,14 @@ def fail(message: str) -> None:
     raise ValidationFailure(message)
 
 
+@lru_cache(maxsize=None)
 def load_json(path: Path) -> Any:
     try:
         return json.loads(path.read_text(encoding="utf-8"))
     except FileNotFoundError as exc:
-        fail(f"missing required file: {path.relative_to(ROOT)}")
-        raise exc
+        raise ValidationFailure(f"missing required file: {path.relative_to(ROOT)}") from exc
     except json.JSONDecodeError as exc:
-        fail(f"invalid JSON in {path.relative_to(ROOT)}: {exc}")
-        raise exc
+        raise ValidationFailure(f"invalid JSON in {path.relative_to(ROOT)}: {exc}") from exc
 
 
 def validate_schema(instance: Any, schema: Any, path: Path) -> None:
@@ -76,16 +76,11 @@ def walk_strings(value: Any) -> Iterable[str]:
     if isinstance(value, str):
         yield value
     elif isinstance(value, dict):
-        for key, item in value.items():
-            yield str(key)
+        for item in value.values():
             yield from walk_strings(item)
     elif isinstance(value, list):
         for item in value:
             yield from walk_strings(item)
-
-
-def major(version: str) -> str:
-    return version.split(".", 1)[0]
 
 
 def package_files(package_dir: Path, manifest: dict[str, Any]) -> None:
@@ -106,6 +101,8 @@ def package_files(package_dir: Path, manifest: dict[str, Any]) -> None:
 
 def validate_trace_paths(trace: dict[str, Any], path: Path, require_nonempty: bool) -> None:
     for category in REQUIRED_TRACE_CATEGORIES:
+        if category not in trace:
+            fail(f"missing traceability category {category} in {path.relative_to(ROOT)}")
         refs = trace[category]
         if require_nonempty and not refs:
             fail(f"{category} must be non-empty in {path.relative_to(ROOT)}")
@@ -119,17 +116,18 @@ def validate_trace_paths(trace: dict[str, Any], path: Path, require_nonempty: bo
 
 def validate_no_normative_language_code(package_dir: Path) -> None:
     patterns = (
-        re.compile(r"```\s*(?:c\+\+|cpp|rust|ruby|python)\b", re.IGNORECASE),
-        re.compile(r"#include\s*[<\"]"),
-        re.compile(r"\bfn\s+main\s*\("),
-        re.compile(r"\bdef\s+[A-Za-z_]\w*\s*\("),
+        re.compile(r"```[ \t]*(?:c\+\+|cpp|rust|ruby|python)\b", re.IGNORECASE),
+        re.compile(r"(?m)^\s*#include\s*[<\"]"),
+        re.compile(r"(?m)^\s*(?:pub\s+)?fn\s+[A-Za-z_]\w*\s*\("),
+        re.compile(r"(?m)^\s*def\s+[A-Za-z_]\w*[!?=]?\s*(?:\(|$)"),
+        re.compile(r"\bstd::[A-Za-z_]\w*"),
     )
     for name in ("contract.json", "acceptance.json", "examples.json"):
         path = package_dir / name
         if not path.exists():
             continue
-        text = path.read_text(encoding="utf-8")
-        if any(pattern.search(text) for pattern in patterns):
+        document = load_json(path)
+        if any(pattern.search(text) for text in walk_strings(document) for pattern in patterns):
             fail(f"normative programming-language code found in {path.relative_to(ROOT)}")
 
 
@@ -250,7 +248,7 @@ def main() -> int:
             dep_id = dependency["shared_contract_id"]
             if dep_id not in shared_versions:
                 fail(f"unresolved shared dependency {dep_id} in {package_dir.relative_to(ROOT)}")
-            if dependency["version"] != shared_versions[dep_id] or major(dependency["version"]) != major(shared_versions[dep_id]):
+            if dependency["version"] != shared_versions[dep_id]:
                 fail(f"incompatible shared dependency {dep_id} in {package_dir.relative_to(ROOT)}")
 
     feature_dirs = sorted(path for path in (HANDOFF / "features").iterdir() if path.is_dir())
