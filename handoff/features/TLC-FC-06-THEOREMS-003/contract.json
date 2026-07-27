@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0", "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-06-THEOREMS-003", "title": "Explicit theorem equation catalogue", "domain": "theorems"},
+  "purpose": "Build an exact source-addressable catalogue of four explicit theorem equation records without parsing, evaluating, or normalizing their expressions.",
+  "scope": {
+    "required": [
+      {"id": "TH003-REQ-001", "statement": "Accept exactly one entry for each covered object TLC-SO-THEOREMS-016, 017, 026, and 029."},
+      {"id": "TH003-REQ-002", "statement": "Require four distinct roles: stability bound, emergence probability, trajectory convergence, and wave speed."},
+      {"id": "TH003-REQ-003", "statement": "Preserve every opaque expression and source reference unchanged."}
+    ],
+    "forbidden": [
+      {"id": "TH003-FOR-001", "statement": "Do not parse, normalize, simplify, solve, compare, or merge scientific expressions."},
+      {"id": "TH003-FOR-002", "statement": "Do not infer mathematical equivalence or theorem truth."},
+      {"id": "TH003-FOR-003", "statement": "Do not expose a successful catalogue with an incomplete or duplicate role population."}
+    ],
+    "deferred": [
+      {"id": "TH003-DEF-001", "statement": "Scientific validation of the four equations remains outside this package."},
+      {"id": "TH003-DEF-002", "statement": "Internal catalogue ordering and low-level runtime representation remain implementation-defined."}
+    ]
+  },
+  "operations": [{
+    "operation_id": "CATALOGUE-EXPLICIT-THEOREM-EQUATIONS",
+    "purpose": "Validate and catalogue four opaque source equation entries by object identity and role.",
+    "inputs": [{"name": "equation_entries", "semantic_role": "complete sequence of source-addressable opaque equation records", "fields": [
+      {"name": "scientific_object_id", "required": true, "semantic_role": "covered object identity", "allowed_values": ["TLC-SO-THEOREMS-016", "TLC-SO-THEOREMS-017", "TLC-SO-THEOREMS-026", "TLC-SO-THEOREMS-029"]},
+      {"name": "equation_role", "required": true, "semantic_role": "unique source role", "allowed_values": ["stability-bound", "emergence-probability", "trajectory-convergence", "wave-speed"]},
+      {"name": "source_reference", "required": true, "semantic_role": "resolvable scientific source", "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"},
+      {"name": "expression", "required": true, "semantic_role": "opaque expression payload", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}
+    ], "collection": {"kind": "sequence", "membership": "exact", "cardinality": {"minimum": 4, "maximum": 4}, "ordering": "not_constrained", "duplicates": "forbidden", "key_contract": null, "value_contract": {"fields": ["scientific_object_id", "equation_role", "source_reference", "expression"]}}}],
+    "outputs": [{"name": "equation_catalogue", "semantic_role": "immutable four-entry object-and-role-addressable catalogue", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "collection": {"kind": "map", "membership": "exact", "members": ["TLC-SO-THEOREMS-016", "TLC-SO-THEOREMS-017", "TLC-SO-THEOREMS-026", "TLC-SO-THEOREMS-029"], "cardinality": {"minimum": 4, "maximum": 4}, "ordering": "implementation_defined", "duplicates": "not_applicable", "key_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}, "value_contract": {"fields": ["equation_role", "source_reference", "expression"]}}}],
+    "preconditions": [
+      {"id": "TH003-PRE-001", "statement": "Each covered object occurs exactly once with a source reference and opaque expression."},
+      {"id": "TH003-PRE-002", "statement": "Every required role is present exactly once."}
+    ],
+    "postconditions": [
+      {"id": "TH003-POST-001", "statement": "The catalogue exposes four distinct roles and exact covered object identities."},
+      {"id": "TH003-POST-002", "statement": "Every expression and source reference is unchanged."}
+    ],
+    "invariants": [
+      {"id": "TH003-INV-001", "statement": "Expression bytes never determine identity or equivalence."},
+      {"id": "TH003-INV-002", "statement": "Input sequence order does not create a scientific semantic order."}
+    ],
+    "strategy_contract": {"mode": "partially_constrained", "steps": ["validate exact object population", "validate role presence and uniqueness", "validate source references", "preserve expressions", "construct catalogue", "publish success or stable error"], "partial_order": [
+      {"before": "validate exact object population", "after": "publish success or stable error"},
+      {"before": "validate role presence and uniqueness", "after": "publish success or stable error"},
+      {"before": "validate source references", "after": "publish success or stable error"},
+      {"before": "preserve expressions", "after": "publish success or stable error"},
+      {"before": "construct catalogue", "after": "publish success or stable error"}
+    ], "prescription_basis": ["Exact population, role uniqueness, source presence, and expression preservation are normative; internal ordering is open."]},
+    "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+    "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "implementation_defined", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+    "error_contract": [
+      {"code": "MISSING_EQUATION_ROLE", "category": "invalid_input", "condition": "An equation entry has no declared role.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "DUPLICATE_EQUATION_ROLE", "category": "uniqueness", "condition": "A declared equation role occurs more than once.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "MISSING_SOURCE_REFERENCE", "category": "traceability", "condition": "An equation entry lacks its required source reference.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+    ],
+    "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+  }],
+  "implementation_modes": [
+    {"mode_id": "structural-catalogue", "status": "required", "statement": "Expose exact four-entry catalogue construction and addressability."},
+    {"mode_id": "algebraic-processing", "status": "forbidden", "statement": "Do not parse, normalize, simplify, solve, or compare expressions."},
+    {"mode_id": "alternative-catalogue-storage", "status": "allowed", "statement": "Internal storage and ordering are free when semantic conformance is preserved."}
+  ],
+  "global_invariants": [
+    {"id": "TH003-GINV-001", "statement": "Four object identities, four distinct roles, four sources, and four opaque expressions remain lossless."},
+    {"id": "TH003-GINV-002", "statement": "No successful result makes a scientific validity or truth claim."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity."}, {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Scientific source and object references."}, {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Exact object and role populations."}, {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Explicit scientific boundaries."}, {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Expression preservation."}, {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Stable errors."}, {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable provenance."}, {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Immutable catalogue envelope."}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["Catalogue conformance does not validate any equation mathematically."]}
+}

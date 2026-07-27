@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0", "package_version": "1.0.0", "applies_to": "TLC-FC-06-THEOREMS-002",
+  "tests": [
+    {"test_id": "THEOREMS-002-A01", "applies_to": "REGISTER-THEOREM-DYNAMICS-EQUATIONS", "category": "valid_input", "given": "Complete mappings for TLC-SO-THEOREMS-027, TLC-SO-THEOREMS-028, and TLC-SO-THEOREMS-030.", "when": "The registry is constructed.", "expect": "Exactly three entries preserving every equation-role pair.", "source_basis": ["registry/oracles/theorems/TLC-FC-06-THEOREMS-002/oracle.yaml"]},
+    {"test_id": "THEOREMS-002-A02", "applies_to": "REGISTER-THEOREM-DYNAMICS-EQUATIONS", "category": "error", "given": "A duplicate covered object identifier.", "when": "Validation runs.", "expect": {"error": "DUPLICATE_SCIENTIFIC_OBJECT", "partial_result": false}},
+    {"test_id": "THEOREMS-002-A03", "applies_to": "REGISTER-THEOREM-DYNAMICS-EQUATIONS", "category": "error", "given": "A covered object lacks an equation.", "when": "Validation runs.", "expect": {"error": "MISSING_DYNAMICS_EQUATION", "partial_result": false}},
+    {"test_id": "THEOREMS-002-A04", "applies_to": "REGISTER-THEOREM-DYNAMICS-EQUATIONS", "category": "error", "given": "A role is absent or not a prepared DynamicsRole.", "when": "Validation runs.", "expect": {"error": "UNKNOWN_DYNAMICS_ROLE", "partial_result": false}},
+    {"test_id": "THEOREMS-002-A05", "applies_to": "REGISTER-THEOREM-DYNAMICS-EQUATIONS", "category": "preservation", "given": "Three distinct opaque equations and their roles.", "when": "The result is inspected.", "expect": "Every payload is byte-for-byte unchanged and paired with the same role."},
+    {"test_id": "THEOREMS-002-A06", "applies_to": "REGISTER-THEOREM-DYNAMICS-EQUATIONS", "category": "determinism", "given": "Identical mappings.", "when": "Construction is repeated.", "expect": "Semantically identical keyed registries regardless of implementation-specific key iteration order."},
+    {"test_id": "THEOREMS-002-A07", "applies_to": "REGISTER-THEOREM-DYNAMICS-EQUATIONS", "category": "unsupported_operation", "given": "A request to evaluate derivatives, trajectories, waves, or receptivity.", "when": "The package boundary is exercised.", "expect": "No dynamics value or theorem claim is produced."}
+  ]
+}

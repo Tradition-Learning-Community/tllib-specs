@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0", "package_version": "1.0.0", "applies_to": "TLC-FC-06-THEOREMS-003",
+  "tests": [
+    {"test_id": "THEOREMS-003-A01", "applies_to": "CATALOGUE-EXPLICIT-THEOREM-EQUATIONS", "category": "valid_input", "given": "Four complete entries for the exact covered objects and four distinct required roles.", "when": "The catalogue is constructed.", "expect": "Four source-addressable entries with unchanged expressions.", "source_basis": ["registry/oracles/theorems/TLC-FC-06-THEOREMS-003/oracle.yaml"]},
+    {"test_id": "THEOREMS-003-A02", "applies_to": "CATALOGUE-EXPLICIT-THEOREM-EQUATIONS", "category": "error", "given": "An entry has no equation role.", "when": "Validation runs.", "expect": {"error": "MISSING_EQUATION_ROLE", "partial_result": false}},
+    {"test_id": "THEOREMS-003-A03", "applies_to": "CATALOGUE-EXPLICIT-THEOREM-EQUATIONS", "category": "error", "given": "Two entries use the same role.", "when": "Validation runs.", "expect": {"error": "DUPLICATE_EQUATION_ROLE", "partial_result": false}},
+    {"test_id": "THEOREMS-003-A04", "applies_to": "CATALOGUE-EXPLICIT-THEOREM-EQUATIONS", "category": "error", "given": "An entry lacks a source reference.", "when": "Validation runs.", "expect": {"error": "MISSING_SOURCE_REFERENCE", "partial_result": false}},
+    {"test_id": "THEOREMS-003-A05", "applies_to": "CATALOGUE-EXPLICIT-THEOREM-EQUATIONS", "category": "preservation", "given": "Differently written or byte-identical opaque expressions.", "when": "The result is inspected.", "expect": "Expressions remain unchanged and distinct by object identity and role; none are normalized or merged."},
+    {"test_id": "THEOREMS-003-A06", "applies_to": "CATALOGUE-EXPLICIT-THEOREM-EQUATIONS", "category": "determinism", "given": "Identical complete entries.", "when": "Construction and lookup are repeated.", "expect": "Semantically identical catalogue and lookup results."},
+    {"test_id": "THEOREMS-003-A07", "applies_to": "CATALOGUE-EXPLICIT-THEOREM-EQUATIONS", "category": "unsupported_operation", "given": "A request to simplify, solve, compare, or validate an expression.", "when": "The package boundary is exercised.", "expect": "No algebraic or scientific result is produced."}
+  ]
+}

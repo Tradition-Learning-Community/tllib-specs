@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0", "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-06-THEOREMS-006", "title": "Theorem declaration index", "domain": "theorems"},
+  "purpose": "Construct and query an exact six-declaration theorem index while preserving source statements, quantifier metadata, and five partial plus one absent proof status without theorem evaluation.",
+  "scope": {
+    "required": [
+      {"id": "TH006-REQ-001", "statement": "Index exactly TLC-SO-THEOREMS-002, 003, 004, 008, 009, and 010, each once with its registered source."},
+      {"id": "TH006-REQ-002", "statement": "Preserve the exact proof-status map: five partial declarations and TLC-SO-THEOREMS-009 absent."},
+      {"id": "TH006-REQ-003", "statement": "Support exact identifier lookup returning unchanged declaration metadata and no truth value."},
+      {"id": "TH006-REQ-004", "statement": "Preserve explicit one-quantifier status for RESULT-THEOREMS-002 and RESULT-THEOREMS-003 and unspecified status for the remaining indexed results."}
+    ],
+    "forbidden": [
+      {"id": "TH006-FOR-001", "statement": "Do not prove, disprove, verify proof correctness, promote proof status, or synthesize missing declaration content."},
+      {"id": "TH006-FOR-002", "statement": "Do not return true, false, proved, or disproved from construction or lookup."},
+      {"id": "TH006-FOR-003", "statement": "Do not fall back from an unknown or incorrectly sourced identifier to a similar declaration."}
+    ],
+    "deferred": [
+      {"id": "TH006-DEF-001", "statement": "Completion of five partial proofs and provision of the absent proof remain external."},
+      {"id": "TH006-DEF-002", "statement": "External Master, Disciple, Community, Huit, and Dynamics dependencies remain reference-only for this structural package."}
+    ]
+  },
+  "operations": [
+    {
+      "operation_id": "INDEX-THEOREM-DECLARATIONS",
+      "purpose": "Validate and construct the exact six-entry declaration index.",
+      "inputs": [
+        {"name": "declarations", "semantic_role": "exact covered opaque theorem declaration population", "fields": [
+          {"name": "scientific_object_id", "required": true, "semantic_role": "exact theorem identity", "allowed_values": ["TLC-SO-THEOREMS-002", "TLC-SO-THEOREMS-003", "TLC-SO-THEOREMS-004", "TLC-SO-THEOREMS-008", "TLC-SO-THEOREMS-009", "TLC-SO-THEOREMS-010"]},
+          {"name": "source_reference", "required": true, "semantic_role": "registered theorem source", "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"},
+          {"name": "declaration_payload", "required": true, "semantic_role": "opaque declaration including hypotheses and conclusion", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}
+        ], "collection": {"kind": "sequence", "membership": "exact", "cardinality": {"minimum": 6, "maximum": 6}, "ordering": "not_constrained", "duplicates": "forbidden", "key_contract": null, "value_contract": {"fields": ["scientific_object_id", "source_reference", "declaration_payload"]}}},
+        {"name": "proof_statuses", "semantic_role": "exact per-object proof status mapping", "collection": {"kind": "map", "membership": "exact", "members": ["TLC-SO-THEOREMS-002:partial", "TLC-SO-THEOREMS-003:partial", "TLC-SO-THEOREMS-004:partial", "TLC-SO-THEOREMS-008:partial", "TLC-SO-THEOREMS-009:absent", "TLC-SO-THEOREMS-010:partial"], "cardinality": {"minimum": 6, "maximum": 6}, "ordering": "implementation_defined", "duplicates": "not_applicable", "key_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}, "value_contract": {"allowed_values": ["partial", "absent"]}}}
+      ],
+      "outputs": [{"name": "theorem_index", "semantic_role": "immutable exact declaration index", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "collection": {"kind": "map", "membership": "exact", "members": ["TLC-SO-THEOREMS-002", "TLC-SO-THEOREMS-003", "TLC-SO-THEOREMS-004", "TLC-SO-THEOREMS-008", "TLC-SO-THEOREMS-009", "TLC-SO-THEOREMS-010"], "cardinality": {"minimum": 6, "maximum": 6}, "ordering": "implementation_defined", "duplicates": "not_applicable", "key_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}, "value_contract": {"fields": ["declaration_payload", "source_reference", "proof_status", "quantifier_status"]}}}],
+      "preconditions": [
+        {"id": "TH006-PRE-001", "statement": "Every covered declaration occurs exactly once and uses its registered source."},
+        {"id": "TH006-PRE-002", "statement": "Every covered object has the exact required proof status."}
+      ],
+      "postconditions": [
+        {"id": "TH006-POST-001", "statement": "The index has exactly six entries and all declaration metadata is unchanged."},
+        {"id": "TH006-POST-002", "statement": "Proof and quantifier statuses are preserved without promotion or completion."}
+      ],
+      "invariants": [
+        {"id": "TH006-INV-001", "statement": "A declaration with absent proof remains indexable and unevaluated."},
+        {"id": "TH006-INV-002", "statement": "No index record contains a theorem truth value."}
+      ],
+      "strategy_contract": {"mode": "partially_constrained", "steps": ["validate exact population and sources", "validate proof statuses", "preserve declaration metadata", "construct index", "publish success or stable error"], "partial_order": [
+        {"before": "validate exact population and sources", "after": "publish success or stable error"}, {"before": "validate proof statuses", "after": "publish success or stable error"}, {"before": "preserve declaration metadata", "after": "publish success or stable error"}, {"before": "construct index", "after": "publish success or stable error"}
+      ], "prescription_basis": ["Complete validation and exact preservation before success are normative; internal index construction order is open."]},
+      "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+      "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "implementation_defined", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+      "error_contract": [
+        {"code": "DUPLICATE_THEOREM_ID", "category": "uniqueness", "condition": "A covered theorem identifier occurs more than once.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "MISSING_PROOF_STATUS", "category": "invalid_input", "condition": "A covered declaration has no proof status.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "UNKNOWN_THEOREM_ID", "category": "invalid_input", "condition": "A declaration identifier is outside the covered set or its source does not match its registered theorem source.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+      ],
+      "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+    },
+    {
+      "operation_id": "LOOKUP-THEOREM-DECLARATION",
+      "purpose": "Return unchanged declaration metadata for an exact covered identifier.",
+      "inputs": [
+        {"name": "theorem_index", "semantic_role": "conforming six-entry theorem index", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "collection": {"kind": "map", "membership": "exact", "cardinality": {"minimum": 6, "maximum": 6}, "ordering": "implementation_defined", "duplicates": "not_applicable", "key_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}, "value_contract": {"role": "opaque declaration metadata"}}},
+        {"name": "scientific_object_id", "semantic_role": "exact lookup key", "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0", "collection": {"kind": "scalar", "membership": "exact", "members": ["TLC-SO-THEOREMS-002", "TLC-SO-THEOREMS-003", "TLC-SO-THEOREMS-004", "TLC-SO-THEOREMS-008", "TLC-SO-THEOREMS-009", "TLC-SO-THEOREMS-010"], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}}
+      ],
+      "outputs": [{"name": "declaration_metadata", "semantic_role": "unchanged opaque declaration, source, quantifier, and proof metadata", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "fields": [
+        {"name": "declaration_payload", "required": true, "semantic_role": "unchanged declaration including hypotheses and conclusion", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+        {"name": "source_reference", "required": true, "semantic_role": "registered source", "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"},
+        {"name": "proof_status", "required": true, "semantic_role": "partial or absent status"},
+        {"name": "quantifier_status", "required": true, "semantic_role": "explicit-one or unspecified source status"}
+      ], "collection": {"kind": "scalar", "membership": "constrained", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0"}}}],
+      "preconditions": [{"id": "TH006-LOOKUP-PRE-001", "statement": "The lookup identifier belongs to the exact covered set and the index is conforming."}],
+      "postconditions": [{"id": "TH006-LOOKUP-POST-001", "statement": "Lookup returns the exact unchanged metadata for the requested identifier and no truth value."}],
+      "invariants": [{"id": "TH006-LOOKUP-INV-001", "statement": "Lookup never promotes, completes, or interprets declaration metadata."}],
+      "strategy_contract": {"mode": "open", "steps": ["resolve exact identifier", "return unchanged metadata or stable error"], "partial_order": [{"before": "resolve exact identifier", "after": "return unchanged metadata or stable error"}], "prescription_basis": ["Only exact-key resolution and unchanged return semantics are observable."]},
+      "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+      "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "not_applicable", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+      "error_contract": [{"code": "UNKNOWN_THEOREM_ID", "category": "lookup", "condition": "The requested identifier is not in the exact covered index population.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}],
+      "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+    }
+  ],
+  "implementation_modes": [
+    {"mode_id": "structural-index-and-lookup", "status": "required", "statement": "Expose exact index construction and exact identifier lookup."},
+    {"mode_id": "proof-or-truth-evaluation", "status": "forbidden", "statement": "Do not verify, complete, prove, disprove, or return truth values."},
+    {"mode_id": "alternative-index-storage", "status": "allowed", "statement": "Internal index design and ordering are free when semantic conformance is preserved."}
+  ],
+  "global_invariants": [
+    {"id": "TH006-GINV-001", "statement": "The exact six identities, declaration metadata, sources, quantifier statuses, and proof statuses remain lossless."},
+    {"id": "TH006-GINV-002", "statement": "Five partial and one absent proof status can never be promoted by this package."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity."}, {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Exact theorem and source references."}, {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Exact six-object population."}, {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "External proof obligations."}, {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Declaration preservation."}, {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Stable construction and lookup errors."}, {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable provenance."}, {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Immutable index and lookup result envelopes."}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["Index and lookup conformance do not prove any declaration."]}
+}

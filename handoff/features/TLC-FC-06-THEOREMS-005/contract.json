@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0", "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-06-THEOREMS-005", "title": "CNS operator claim registry", "domain": "theorems"},
+  "purpose": "Register the transformation-signature and per-dimension removal-effect CNS claims as two distinct opaque families without evaluating any CNS proposition.",
+  "scope": {
+    "required": [
+      {"id": "TH005-REQ-001", "statement": "Require one transformation claim sourced to maths/06-theorems.md:54-55."},
+      {"id": "TH005-REQ-002", "statement": "Require every removal-effect claim to be sourced to maths/06-theorems.md:66-67."},
+      {"id": "TH005-REQ-003", "statement": "Keep the transformation and removal-effect families separately addressable and preserve blocked_local status."}
+    ],
+    "forbidden": [
+      {"id": "TH005-FOR-001", "statement": "Do not execute removal effects or evaluate completeness, necessity, sufficiency, or theorem truth."},
+      {"id": "TH005-FOR-002", "statement": "Do not merge, alias, or conflate claim families even when opaque payloads are identical."},
+      {"id": "TH005-FOR-003", "statement": "Do not promote the associated partial proof or blocked-local scientific status."}
+    ],
+    "deferred": [
+      {"id": "TH005-DEF-001", "statement": "Scientific definitions for removal effects and completion of PROOF-THEOREMS-003 remain external."},
+      {"id": "TH005-DEF-002", "statement": "The cardinality and concrete DimensionId representation of removal claims are not further constrained by this package."}
+    ]
+  },
+  "operations": [{
+    "operation_id": "REGISTER-CNS-OPERATOR-CLAIMS",
+    "purpose": "Validate provenance and construct an immutable two-family CNS claim set.",
+    "inputs": [
+      {"name": "transformation_claim", "semantic_role": "opaque source transformation-signature claim", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "fields": [{"name": "source_reference", "required": true, "semantic_role": "transformation source", "constant": "maths/06-theorems.md:54-55"}], "collection": {"kind": "scalar", "membership": "constrained", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}},
+      {"name": "dimension_removal_claims", "semantic_role": "dimension-keyed opaque removal-effect claims", "collection": {"kind": "map", "membership": "constrained", "cardinality": {"minimum": 1, "maximum": null}, "ordering": "implementation_defined", "duplicates": "not_applicable", "key_contract": {"role": "DimensionId"}, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "required_source": "maths/06-theorems.md:66-67"}}}
+    ],
+    "outputs": [{"name": "cns_operator_claims", "semantic_role": "immutable separated CNS claim families", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "fields": [
+      {"name": "transformation_claim", "required": true, "semantic_role": "separately addressable transformation family", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+      {"name": "dimension_removal_claims", "required": true, "semantic_role": "separately addressable removal-effect family", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0"},
+      {"name": "scientific_status", "required": true, "semantic_role": "preserved blocked-local status", "constant": "blocked_local"}
+    ], "collection": {"kind": "scalar", "membership": "exact", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0"}}}],
+    "preconditions": [
+      {"id": "TH005-PRE-001", "statement": "The transformation claim is present with its required source."},
+      {"id": "TH005-PRE-002", "statement": "Every removal claim has its required source and belongs only to the removal family."}
+    ],
+    "postconditions": [
+      {"id": "TH005-POST-001", "statement": "The two claim families remain separately addressable and all payloads are unchanged."},
+      {"id": "TH005-POST-002", "statement": "The result retains blocked_local status and makes no CNS truth assertion."}
+    ],
+    "invariants": [
+      {"id": "TH005-INV-001", "statement": "Claim family identity is independent of opaque payload equality."},
+      {"id": "TH005-INV-002", "statement": "The partial, not-formalized proof status is never promoted."}
+    ],
+    "strategy_contract": {"mode": "partially_constrained", "steps": ["validate transformation provenance", "validate removal provenance", "validate family separation", "preserve opaque claims", "construct claim set", "publish success or stable error"], "partial_order": [
+      {"before": "validate transformation provenance", "after": "publish success or stable error"}, {"before": "validate removal provenance", "after": "publish success or stable error"}, {"before": "validate family separation", "after": "publish success or stable error"}, {"before": "preserve opaque claims", "after": "publish success or stable error"}, {"before": "construct claim set", "after": "publish success or stable error"}
+    ], "prescription_basis": ["Source validation, family separation, preservation, and blocked-local status are normative; internal ordering and storage are open."]},
+    "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+    "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "implementation_defined", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+    "error_contract": [
+      {"code": "MISSING_TRANSFORMATION_CLAIM", "category": "invalid_input", "condition": "The transformation claim is absent or lacks its required source.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "MISSING_REMOVAL_CLAIM_SOURCE", "category": "traceability", "condition": "A removal-effect claim lacks the required source reference.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "CLAIM_FAMILY_COLLISION", "category": "structural_integrity", "condition": "A claim is assigned to both families or stored in the wrong family.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+    ],
+    "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+  }],
+  "implementation_modes": [
+    {"mode_id": "structural-claim-registry", "status": "required", "statement": "Expose provenance validation and separated claim-family construction."},
+    {"mode_id": "cns-evaluation", "status": "forbidden", "statement": "Do not execute removal effects or establish completeness, necessity, or sufficiency."},
+    {"mode_id": "alternative-family-storage", "status": "allowed", "statement": "Internal storage is free if family identity and all observable obligations remain conforming."}
+  ],
+  "global_invariants": [
+    {"id": "TH005-GINV-001", "statement": "Transformation and removal-effect claim families remain distinct in every successful result."},
+    {"id": "TH005-GINV-002", "statement": "Blocked-local and partial-proof status cannot be promoted by structural construction."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity."}, {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Exact claim provenance."}, {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Claim-family collections."}, {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Blocked scientific boundaries."}, {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Opaque claim preservation."}, {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Stable errors."}, {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable provenance."}, {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Immutable claim-set envelope."}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["Conformance registers claims and does not prove the CNS theorem."]}
+}

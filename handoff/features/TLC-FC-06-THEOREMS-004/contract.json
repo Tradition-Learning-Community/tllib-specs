@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0", "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-06-THEOREMS-004", "title": "Transmission ergodicity hypothesis", "domain": "theorems"},
+  "purpose": "Construct a traceable, unevaluated transmission-ergodicity hypothesis record while preserving that the hypothesis is not verified by software.",
+  "scope": {
+    "required": [
+      {"id": "TH004-REQ-001", "statement": "Require one present opaque transmission operator and one present opaque spectral-gap condition."},
+      {"id": "TH004-REQ-002", "statement": "Require both components to cite maths/06-theorems.md:20 and preserve that provenance."},
+      {"id": "TH004-REQ-003", "statement": "Return the record with verification status hypothesis_not_verified."}
+    ],
+    "forbidden": [
+      {"id": "TH004-FOR-001", "statement": "Do not compute a spectral gap, test ergodicity, execute the operator, or infer community stability."},
+      {"id": "TH004-FOR-002", "statement": "Do not label the result verified, proved, true, or scientifically established."},
+      {"id": "TH004-FOR-003", "statement": "Do not interpret syntactically similar opaque conditions as scientifically equivalent."}
+    ],
+    "deferred": [
+      {"id": "TH004-DEF-001", "statement": "Verification of uniform ergodicity and the associated theorem proof remain external."},
+      {"id": "TH004-DEF-002", "statement": "Low-level representation and error transport remain implementation-defined."}
+    ]
+  },
+  "operations": [{
+    "operation_id": "CONSTRUCT-TRANSMISSION-ERGODICITY-HYPOTHESIS",
+    "purpose": "Validate and bind the two exact opaque source components into an unverified hypothesis descriptor.",
+    "inputs": [
+      {"name": "transmission_operator", "semantic_role": "opaque operator symbol carrying source provenance", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "fields": [{"name": "source_reference", "required": true, "semantic_role": "required line-20 source", "constant": "maths/06-theorems.md:20"}], "collection": {"kind": "scalar", "membership": "constrained", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}},
+      {"name": "ergodicity_condition", "semantic_role": "opaque spectral-gap condition carrying source provenance", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "fields": [{"name": "source_reference", "required": true, "semantic_role": "required line-20 source", "constant": "maths/06-theorems.md:20"}], "collection": {"kind": "scalar", "membership": "constrained", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}}
+    ],
+    "outputs": [{"name": "operator_hypothesis", "semantic_role": "immutable unverified transmission-ergodicity hypothesis", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "fields": [
+      {"name": "transmission_operator", "required": true, "semantic_role": "preserved opaque operator", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+      {"name": "ergodicity_condition", "required": true, "semantic_role": "preserved opaque condition", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+      {"name": "source_reference", "required": true, "semantic_role": "common source provenance", "constant": "maths/06-theorems.md:20"},
+      {"name": "verification_status", "required": true, "semantic_role": "unverified hypothesis status", "constant": "hypothesis_not_verified"}
+    ], "collection": {"kind": "scalar", "membership": "exact", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0"}}}],
+    "preconditions": [
+      {"id": "TH004-PRE-001", "statement": "Both required opaque components are present."},
+      {"id": "TH004-PRE-002", "statement": "Both components carry the exact required source reference."}
+    ],
+    "postconditions": [
+      {"id": "TH004-POST-001", "statement": "Both opaque components and their common provenance are unchanged."},
+      {"id": "TH004-POST-002", "statement": "The result is explicitly an unverified hypothesis and contains no truth value."}
+    ],
+    "invariants": [
+      {"id": "TH004-INV-001", "statement": "No numerical threshold or operator behavior is introduced."},
+      {"id": "TH004-INV-002", "statement": "Successful structural construction never implies scientific verification."}
+    ],
+    "strategy_contract": {"mode": "partially_constrained", "steps": ["validate component presence", "validate common source reference", "preserve opaque components", "construct unverified hypothesis", "publish success or stable error"], "partial_order": [
+      {"before": "validate component presence", "after": "publish success or stable error"}, {"before": "validate common source reference", "after": "publish success or stable error"}, {"before": "preserve opaque components", "after": "publish success or stable error"}, {"before": "construct unverified hypothesis", "after": "publish success or stable error"}
+    ], "prescription_basis": ["Presence, common provenance, preservation, and unverified status are observable; no unique internal sequence is prescribed."]},
+    "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+    "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "not_applicable", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+    "error_contract": [
+      {"code": "MISSING_OPERATOR_SYMBOL", "category": "invalid_input", "condition": "The transmission operator is absent.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "MISSING_ERGODICITY_CONDITION", "category": "invalid_input", "condition": "The spectral-gap condition is absent.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "SOURCE_REFERENCE_MISMATCH", "category": "traceability", "condition": "A component does not cite the required source or the component references differ.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+    ],
+    "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+  }],
+  "implementation_modes": [
+    {"mode_id": "structural-hypothesis", "status": "required", "statement": "Expose source validation and unverified hypothesis construction."},
+    {"mode_id": "scientific-verification", "status": "forbidden", "statement": "Do not test ergodicity, compute a spectral gap, execute the operator, or verify stability."},
+    {"mode_id": "alternative-internal-architecture", "status": "allowed", "statement": "Internal design is free when observable conformance is preserved."}
+  ],
+  "global_invariants": [
+    {"id": "TH004-GINV-001", "statement": "The hypothesis label cannot be promoted by structural success."},
+    {"id": "TH004-GINV-002", "statement": "The two opaque components and exact line-20 provenance remain lossless."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity."}, {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Exact source provenance."}, {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Reference preservation."}, {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Explicit verification boundary."}, {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Opaque component preservation."}, {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Stable errors."}, {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable provenance."}, {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Immutable hypothesis envelope."}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["Conformance constructs an unverified hypothesis and does not establish uniform ergodicity."]}
+}
