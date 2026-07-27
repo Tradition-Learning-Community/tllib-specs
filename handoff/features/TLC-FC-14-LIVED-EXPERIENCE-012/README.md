@@ -1,0 +1,3 @@
+# Operator signature bundle descriptor
+
+This package preserves `TLC-SO-LIVED-EXPERIENCE-038` as one source object containing exactly five operator signatures in source order. Implement exact identity, object-set, uniqueness, provenance, signature-count and signature-order validation; immutable deterministic descriptors; structural comparison; and lossless serialization. Do not implement encoding, consolidation, recall, attention, or experiential transmission, and do not infer domains, codomains, temporal models, actor/event/state schemas, or output values. Execution requests return `ScientificEvaluationRequested`.

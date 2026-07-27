@@ -1,0 +1,3 @@
+# Legitimacy-source function descriptor
+
+This package preserves `TLC-SO-LIVED-EXPERIENCE-046`, its function reference, symbols, monotonicity statement, provenance, and unresolved reservations as opaque content. Implement exact identity/object/provenance validation, immutable deterministic descriptors, structural comparison, and lossless serialization. Do not construct an actor schema, evaluate legitimacy or experiential richness, prove monotonicity, compare experiences, or invent events, states, contexts, interpretations, or causes. Scientific requests return `ScientificEvaluationRequested`; runtime architecture is otherwise free.
