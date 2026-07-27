@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tradition-learning-community.github.io/tllib-specs/handoff/schemas/shared-contract.schema.json",
+  "title": "Shared Handoff Contract v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "package_version", "shared_contract", "purpose", "scope", "data_contract", "global_invariants", "conformance"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "package_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "shared_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["shared_contract_id", "title"],
+      "properties": {
+        "shared_contract_id": {"type": "string", "pattern": "^TLC-HC-[A-Z0-9-]+$"},
+        "title": {"type": "string", "minLength": 1}
+      }
+    },
+    "purpose": {"type": "string", "minLength": 1},
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "forbidden", "deferred"],
+      "properties": {
+        "required": {"type": "array", "items": {"$ref": "#/$defs/obligation"}},
+        "forbidden": {"type": "array", "items": {"$ref": "#/$defs/obligation"}},
+        "deferred": {"type": "array", "items": {"$ref": "#/$defs/obligation"}}
+      }
+    },
+    "data_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["shape", "fields", "collection", "runtime"],
+      "properties": {
+        "shape": {"enum": ["opaque_scalar", "record", "collection", "envelope"]},
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "required", "semantic_role"],
+            "properties": {
+              "name": {"type": "string", "minLength": 1},
+              "required": {"type": "boolean"},
+              "semantic_role": {"type": "string", "minLength": 1},
+              "value_kind": {"enum": ["string", "boolean", "integer", "number", "object", "array", "opaque", "repository_path", "identifier", "enum"]},
+              "allowed_values": {"type": "array"},
+              "shared_contract_ref": {"type": "string", "pattern": "^TLC-HC-[A-Z0-9-]+@[0-9]+\\.[0-9]+\\.[0-9]+$"}
+            }
+          }
+        },
+        "collection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["supported_kinds", "membership", "cardinality", "ordering", "duplicates", "key_contract", "value_contract"],
+          "properties": {
+            "supported_kinds": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {"enum": ["scalar", "optional", "sequence", "set", "ordered_set", "multiset", "map", "ordered_map"]}
+            },
+            "membership": {"enum": ["exact", "constrained", "open", "not_applicable"]},
+            "cardinality": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["minimum", "maximum"],
+              "properties": {"minimum": {"type": ["integer", "null"], "minimum": 0}, "maximum": {"type": ["integer", "null"], "minimum": 0}}
+            },
+            "ordering": {"enum": ["required", "preserved", "implementation_defined", "not_constrained", "not_applicable"]},
+            "duplicates": {"enum": ["forbidden", "allowed", "significant", "implementation_defined", "not_applicable"]},
+            "key_contract": {"type": ["object", "null"]},
+            "value_contract": {"type": ["object", "null"]}
+          }
+        },
+        "runtime": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mutability", "layout", "ownership", "lifetime", "allocation", "thread_safety"],
+          "properties": {
+            "mutability": {"enum": ["immutable", "mutable", "not_constrained", "implementation_defined", "not_applicable"]},
+            "layout": {"enum": ["not_constrained", "implementation_defined", "not_applicable"]},
+            "ownership": {"enum": ["owned", "borrowed", "shared", "not_constrained", "implementation_defined", "not_applicable"]},
+            "lifetime": {"enum": ["operation_only", "result_lifetime", "caller_managed", "not_constrained", "implementation_defined", "not_applicable"]},
+            "allocation": {"enum": ["forbidden", "allowed", "required", "not_constrained", "implementation_defined", "not_applicable"]},
+            "thread_safety": {"enum": ["required", "not_required", "not_constrained", "implementation_defined", "not_applicable"]}
+          }
+        }
+      }
+    },
+    "global_invariants": {"type": "array", "items": {"$ref": "#/$defs/obligation"}},
+    "conformance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["acceptance_required", "lossless_preservation_required"],
+      "properties": {
+        "acceptance_required": {"const": true},
+        "lossless_preservation_required": {"type": "boolean"},
+        "notes": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    }
+  },
+  "$defs": {
+    "obligation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "statement"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "statement": {"type": "string", "minLength": 1},
+        "basis": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    }
+  }
+}
