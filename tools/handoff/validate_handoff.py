@@ -244,16 +244,22 @@ def validate_authoritative_inventory(domain: str, catalog: dict[str, Any]) -> No
     inventory = load_yaml(ROOT / inventory_value)
     if not isinstance(inventory, dict):
         fail(f"authoritative inventory is not an object for domain {domain}")
-    if inventory.get("domain") != domain:
+
+    declared_domains = [inventory[key] for key in ("domain", "domain_id") if key in inventory]
+    if not declared_domains or any(value != domain for value in declared_domains):
         fail(f"authoritative inventory domain mismatch for {domain}")
+
     authoritative_features = inventory.get("features")
     if not isinstance(authoritative_features, list):
         fail(f"authoritative inventory has no feature list for domain {domain}")
     authoritative_ids = [item.get("feature_id") for item in authoritative_features if isinstance(item, dict)]
     if len(authoritative_ids) != len(authoritative_features) or any(not isinstance(item, str) for item in authoritative_ids):
         fail(f"authoritative inventory contains an invalid feature entry for domain {domain}")
-    if inventory.get("feature_count") != len(authoritative_ids):
+
+    declared_counts = [inventory[key] for key in ("feature_count", "population_count") if key in inventory]
+    if not declared_counts or any(value != len(authoritative_ids) for value in declared_counts):
         fail(f"authoritative inventory feature count mismatch for domain {domain}")
+
     if catalog["ordered_feature_ids"] != authoritative_ids:
         fail(f"domain catalog population or order differs from authoritative inventory for {domain}")
 
@@ -361,7 +367,7 @@ def main() -> int:
     for name, schema in schemas.items():
         try:
             Draft202012Validator.check_schema(schema)
-        except Exception as exc:  # jsonschema exposes several schema exception types
+        except Exception as exc:
             fail(f"invalid {name} schema: {exc}")
 
     for path in sorted(HANDOFF.rglob("*.json")):
