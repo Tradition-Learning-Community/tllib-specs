@@ -4,42 +4,56 @@
 
 **Language-neutral scientific and engineering specifications for the TLC model.**
 
-[Feature handoff](handoff/) · [Global catalog](handoff/catalog.json) · [Validation](#validation) · [Export](#export-a-standalone-bundle) · [Scientific boundary](#scientific-boundary)
+[Feature handoff](handoff/) · [Global catalog](handoff/catalog.json) · [Contributor guide](CONTRIBUTING.md) · [Repository guide](docs/REPOSITORY-GUIDE.md) · [Validation](#validation) · [Security](SECURITY.md)
 
 </div>
 
-## Finalized scope
+## Production status
 
-`tllib-specs` contains specifications, not a runtime library. Its finalized Feature Handoff Package v1.0 output covers:
+`tllib-specs` is the authoritative specification repository for the TLC model. It contains specifications, validation, traceability, and language-neutral handoff packages—not a runtime library.
 
-| Artifact | Finalized population |
+| Published artifact | Finalized population |
 |---|---:|
 | Domain catalogs | **16** |
-| Feature packages | **166** |
+| Feature Handoff Packages | **166** |
 | Shared structural contracts | **8** |
 | Standalone exports validated by CI | **166** |
 
-The model is independent of C++, Rust, Ruby, Python, or any other implementation language. No production implementation, binding, solver, kernel, package, or release archive belongs in this repository.
+Feature Handoff Package v1.0 is finalized. The published model is independent of C++, Rust, Ruby, Python, or any other implementation language. Production runtime code, bindings, solvers, kernels, binary packages, and release archives belong in downstream implementation repositories.
 
-## Where programmers start
+## Choose your path
 
-[`handoff/`](handoff/) is the final engineering output of this repository. A downstream programmer normally starts from a resolved standalone bundle containing:
+### Scientist or domain expert
 
-```text
-feature/
-shared/
-bundle-lock.json
-```
+Start with the authoritative text under [`maths/`](maths/), then identify the affected feature IDs and scientific review records. Clarify meaning, evidence, unresolved questions, and scientific authority without introducing software defaults.
 
-The feature package states observable behavior, inputs, outputs, invariants, errors, forbidden behavior, acceptance tests, traceability, and implementation freedoms. `shared/` contains the exact versioned structural dependencies needed by that feature. `bundle-lock.json` fixes paths, versions, and SHA-256 fingerprints without a volatile timestamp.
+### Mathematician
 
-Ordinary implementation should not require the programmer to interpret the mathematical sources or intermediate registry pipeline. Those upstream files remain available for audit, contradiction handling, and scientific review.
+Start with [`registry/math-contracts/`](registry/math-contracts/) and the referenced scientific source. Work on definitions, assumptions, domains, invariants, proof obligations, and formal consistency. Missing mathematical semantics remain explicit.
+
+### Algorithm designer
+
+Start with [`registry/algorithms/`](registry/algorithms/), the finalized IR, and the corresponding oracle. Distinguish observable behavior, required partial order, and internal strategy. An upstream step list is not automatically a mandatory total runtime sequence.
+
+### Specification engineer
+
+Work across `registry/`, `handoff/`, schemas, catalogs, reports, and validators. Preserve identity, provenance, unresolved semantics, deterministic outputs, and language neutrality. Shared representation does not establish scientific equivalence.
+
+### Runtime implementer
+
+Start from a resolved standalone bundle exported from [`handoff/`](handoff/). Ordinary implementation should not require interpretation of the mathematical sources or intermediate pipeline. Report handoff ambiguities with the feature ID and bundle fingerprint.
+
+### Reviewer or auditor
+
+Review scientific integrity, structural correctness, implementation neutrality, and verifiability as separate dimensions. Use the committed reports and deterministic fingerprints as evidence.
+
+Detailed role boundaries and workflows are in [`CONTRIBUTING.md`](CONTRIBUTING.md) and the [`Repository operating guide`](docs/REPOSITORY-GUIDE.md).
 
 ## Repository architecture
 
 ```text
 maths/                         authoritative scientific source texts
-registry/                      intermediate specification pipeline
+registry/                      compiler-like intermediate specification pipeline
   math-contracts/              mathematical contracts
   ir/                          source intermediate representations
   test-plans/                  source test plans
@@ -56,26 +70,61 @@ handoff/                       final language-neutral programmer interface
   catalog.json                 deterministic global catalog
 reports/handoff/               domain and global audit evidence
 tools/handoff/                 official validation, catalog, and export tools
+docs/                          contributor operations and decision records
 ```
 
-`registry/` is not the normal downstream API. It is the compiler-like intermediate pipeline that preserves scientific authority and explains how each final package was derived. `handoff/` is the published result.
+The repository functions as a controlled transformation system:
 
-## What a feature package means
+```text
+scientific authority
+    → mathematical contracts
+    → source IR
+    → finalized engineering IR
+    → algorithm specifications
+    → acceptance oracles
+    → Feature Handoff Packages
+    → standalone implementation bundles
+```
 
-Every feature directory contains exactly:
+`registry/` is the auditable intermediate pipeline. `handoff/` is the published programmer-facing result.
+
+## Where downstream programmers start
+
+A resolved standalone bundle contains exactly:
+
+```text
+feature/
+shared/
+bundle-lock.json
+```
+
+The feature package states observable behavior, valid inputs, required outputs, invariants, errors, forbidden behavior, acceptance tests, traceability, and implementation freedoms. `shared/` contains the exact versioned structural dependencies needed by the feature. `bundle-lock.json` fixes versions, paths, and SHA-256 fingerprints without volatile timestamps.
+
+Create or inspect one bundle:
+
+```bash
+python tools/handoff/export_bundle.py TLC-FC-00-MASTER-005 --check
+python tools/handoff/export_bundle.py TLC-FC-00-MASTER-005 ./bundle
+```
+
+Exports do not copy scientific source texts, registry artifacts, intermediate IRs, or generated archives.
+
+## Feature package contract
+
+Every feature directory contains:
 
 - `README.md` — human implementer guide;
 - `manifest.json` — identity, version, statuses, files, and shared dependencies;
 - `contract.json` — normative observable engineering contract;
 - `acceptance.json` — mandatory conformance tests;
 - `traceability.json` — audit links to upstream authority;
-- optional `examples.json` only when a source-backed fixture is honestly justified.
+- optional `examples.json` only when a source-backed fixture is justified.
 
-The authority order within a package is documented in [`handoff/README.md`](handoff/README.md). Examples and README prose cannot create obligations absent from the normative JSON contracts.
+The authority order is documented in [`handoff/README.md`](handoff/README.md). README prose and examples cannot create obligations absent from the normative structured contracts.
 
 ## Language and low-level freedom
 
-The handoff abstracts low-level realization. Unless a package makes a constraint observable, an implementation is free to choose:
+Unless a feature contract makes a property observable, an implementation remains free to choose:
 
 - programming language and naming;
 - storage, allocation, ownership, aliasing, and layout;
@@ -84,11 +133,11 @@ The handoff abstracts low-level realization. Unless a package makes a constraint
 - concurrency, scheduling, and error transport;
 - internal architecture and algorithm decomposition.
 
-An upstream algorithm file does not automatically impose a total runtime sequence. Final contracts publish only the ordering relationships supported by observable authority.
+The handoff can express low-level obligations when required, but it does not select a language-specific mechanism without observable justification.
 
 ## Scientific boundary
 
-Structural finalization does not authorize scientific invention. A downstream implementation must not invent missing:
+Structural finalization does not authorize scientific invention. A contributor or downstream implementation must not invent missing:
 
 - equations, solvers, convergence rules, domains, or types;
 - proof completion or truth values;
@@ -97,21 +146,21 @@ Structural finalization does not authorize scientific invention. A downstream im
 - relation endpoints, direction, arity, composition, or membership;
 - defaults for unresolved parameters or decisions.
 
-Opaque values remain opaque. Unresolved items remain explicit. Provider-required features remain structurally implementable without fabricating provider behavior. The repository's 147 scientific review questions remain scientifically unresolved.
+Opaque values remain opaque. Unresolved items remain explicit. Provider-required features remain structurally implementable without fabricating provider behavior. The repository's **147 scientific review questions remain scientifically unresolved**.
 
 ## Global catalog
 
-[`handoff/catalog.json`](handoff/catalog.json) is generated deterministically from the sixteen domain catalogs, 166 manifests, and eight shared packages. It records:
+[`handoff/catalog.json`](handoff/catalog.json) is a deterministic projection of the sixteen domain catalogs, 166 feature manifests, and eight shared packages. It records:
 
 - model and tool versions;
-- authoritative domain order and counts;
-- all feature IDs, paths, package versions, and multidimensional statuses;
-- `examples.json` presence;
+- authoritative domain order and populations;
+- feature IDs, paths, package versions, and multidimensional statuses;
+- optional example presence;
 - exact shared dependencies;
 - deterministic package and descriptor SHA-256 fingerprints;
 - explicit deprecation and substitution fields.
 
-The catalog contains no timestamp or other volatile normative field. CI regenerates its projection in memory and rejects any mismatch.
+The catalog contains no timestamp or other volatile normative field. CI reconstructs it and rejects any mismatch.
 
 ## Validation
 
@@ -121,51 +170,44 @@ The sole official handoff validation CLI is:
 python tools/handoff/validate_handoff.py
 ```
 
-Logical self-tests are available through:
+Complete handoff validation:
 
 ```bash
+python tools/handoff/generate_catalog.py --check
 python tools/handoff/validate_handoff.py --self-test
-```
-
-The validator checks the exact 16-domain and 166-feature population, authoritative inventory order, package schemas and files, feature ownership, shared dependencies, cross-file identities, traceability, errors, strategies, test uniqueness, global catalog equality, and absence of normative implementation-language code.
-
-Historical inventory metadata aliases are accepted only in strict read mode. Every alias present must agree with the actual ordered population; compatibility never ignores divergence or changes a feature ID.
-
-The permanent GitHub Actions workflow additionally validates all 166 deterministic standalone exports.
-
-## Export a standalone bundle
-
-Resolve and inspect one feature without retaining output:
-
-```bash
-python tools/handoff/export_bundle.py TLC-FC-00-MASTER-005 --check
-```
-
-Create a bundle in a new directory:
-
-```bash
-python tools/handoff/export_bundle.py TLC-FC-00-MASTER-005 ./bundle
-```
-
-Validate every catalog feature and generate each one twice for determinism:
-
-```bash
 python tools/handoff/export_bundle.py --all --check --verify-determinism
 ```
 
-Exports copy only finalized `handoff/features/` and `handoff/shared/` files. They never copy scientific source texts, registry artifacts, or intermediate IRs. Generated archives are not committed.
+The validator checks exact populations and order, schemas, required files, feature ownership, shared dependencies, cross-file identities, traceability, errors, strategies, test uniqueness, global catalog equality, and absence of normative implementation-language code.
+
+The permanent workflow also generates each of the 166 standalone bundles twice and compares their locks and fingerprints for determinism.
+
+## Change workflow
+
+Use the repository issue forms and pull request template rather than unstructured changes.
+
+1. Choose the correct scientific, specification, handoff, validation, or documentation path.
+2. Identify affected domains, feature IDs, and authority.
+3. Preserve unresolved science explicitly.
+4. Update all affected layers or state why they are unaffected.
+5. Run the relevant validation.
+6. Open a focused pull request with compatibility and reviewer guidance.
+7. Merge only after required checks and reviews succeed.
+
+Cross-domain or difficult-to-reverse decisions should use a record based on [`docs/decisions/0000-template.md`](docs/decisions/0000-template.md).
 
 ## Contradictions and unresolved items
 
-When a package appears internally contradictory:
+When two authoritative artifacts appear contradictory:
 
-1. stop the affected implementation path;
+1. stop the affected finalization or implementation path;
 2. identify the exact feature ID, operation, files, and conflicting obligations;
-3. preserve the current scientific and execution statuses;
-4. report the contradiction with a minimal reproducer or acceptance-test conflict;
-5. do not resolve it by choosing a convenient scientific meaning.
+3. preserve current scientific and execution statuses;
+4. report a minimal reproducer or conflicting acceptance case;
+5. request scientific or specification adjudication;
+6. do not choose the most convenient meaning.
 
-An `unresolved` item is a preserved boundary, not a request for an implementation default. It may be carried, serialized, displayed, or routed exactly as the package permits, but it cannot be silently answered.
+An unresolved item is a preserved boundary, not an invitation to create an implementation default.
 
 ## Domains
 
@@ -189,10 +231,18 @@ An `unresolved` item is a preserved boundary, not a request for an implementatio
 | 15 | Relations | 5 |
 |  | **Total** | **166** |
 
+## Governance and support
+
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) — role-based contribution and review standard;
+- [`docs/REPOSITORY-GUIDE.md`](docs/REPOSITORY-GUIDE.md) — operating model, decision ownership, change levels, and definitions of ready and done;
+- [`SUPPORT.md`](SUPPORT.md) — correct pathway for scientific, specification, handoff, and tooling questions;
+- [`SECURITY.md`](SECURITY.md) — sensitive integrity and validator disclosures;
+- [`docs/decisions/`](docs/decisions/) — durable records for cross-domain or difficult-to-reverse choices.
+
 ## Audit evidence
 
-Global handoff evidence is under [`reports/handoff/global/`](reports/handoff/global/), including population validation, cross-domain consistency, shared-contract decisions, unresolved ambiguities, validator consolidation, export validation, representative simulations, protected-artifact changes, and the finalization report.
+Global evidence is under [`reports/handoff/global/`](reports/handoff/global/), including population validation, cross-domain consistency, shared-contract decisions, unresolved ambiguities, validator consolidation, export validation, representative simulations, protected-artifact changes, and the finalization report.
 
-## Contribution boundary
+## Repository boundary
 
-Changes are acceptable only when they preserve scientific identity, traceability, unresolved semantics, exact populations, and language neutrality. Implementation code belongs in a separate downstream repository.
+Changes are acceptable only when they preserve scientific identity, traceability, unresolved semantics, exact populations, deterministic validation, and language neutrality. Runtime implementation belongs in a separate downstream repository.
