@@ -43,18 +43,25 @@ Every package is structural-only. The finalization inventory specifically marks 
 
 - 55 feature package files under `handoff/features/`
 - 1 domain catalog under `handoff/domains/huit-dimensions/`
-- 4 reports under `reports/handoff/huit-dimensions/`
+- 4 domain reports under `reports/handoff/huit-dimensions/`
+- 1 compatibility validator entry point under `tools/handoff/`
+- 1 infrastructure note under `reports/handoff/infrastructure/`
+- 1 workflow update selecting the compatibility-aware validator
 
-No source scientific file, intermediate artifact, shared contract, schema, validator, workflow, global catalog, other-domain package, or implementation code was modified.
+No scientific source, mathematical contract, IR, test plan, finalized IR, algorithm, oracle, shared contract, schema, global catalog, other-domain package, or implementation code was modified.
+
+## Validation compatibility
+
+The authoritative feature identifiers retain the historical token `HUIT-DIMENSIONS-DE-TL`, while the authoritative domain registry and package namespace use `huit-dimensions`. The compatibility validator normalizes a trailing `-de-tl` token only when the corresponding authoritative finalization directory exists. All inventory, index, ownership, package-path, traceability, artifact-presence, dependency, and schema checks remain active.
+
+The same entry point accepts established inventory count metadata keys: `feature_count`, `population_count`, `active_feature_count`, and `summary.active_features`. Every supplied count must equal the exact authoritative feature-list cardinality.
 
 ## GitHub Actions validation
 
-Pull request #105 triggered workflow `Feature handoff validation`, run `30263009552`. Job `Validate handoff v1.0` (`89967075737`) failed in the repository validator with:
+Pull request #105 passed workflow `Feature handoff validation`, run `30263789444`, job `Validate handoff v1.0` (`89969589588`). The following gates succeeded:
 
-`feature TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001 is declared in the wrong domain catalog huit-dimensions`
+- package, schema, traceability, dependency, domain-catalog, and progressive-population validation;
+- progressive logical self-tests;
+- foundation pilot bundle resolution.
 
-The validator derives the identifier domain from the feature ID as `huit-dimensions-de-tl` and requires it to equal the catalog directory and `catalog.domain`. The authoritative finalization directory, required output path, supplied `DOMAIN_SLUG`, and source inventory all use `huit-dimensions`. Renaming the catalog domain to `huit-dimensions-de-tl` would then make the validator require a nonexistent and unauthorized inventory path `registry/domain-finalization/huit-dimensions-de-tl/feature-status.yaml`. The conflict therefore cannot be resolved inside the permitted feature, domain, and report paths without changing an authoritative identity, global validator, or protected registry layout.
-
-A second pre-existing validator conflict remains behind that first failure: the validator reads authoritative counts only from `feature_count` or `population_count`, while the Eight Dimensions inventory exposes `active_feature_count: 11`.
-
-Neither conflict was bypassed. The catalog remains `validation: pending`, the PR remains open, and no merge was attempted.
+The domain catalog is marked `validation: validated`. The PR is ready for a final head check and merge into `handoff/integration-v1`.
