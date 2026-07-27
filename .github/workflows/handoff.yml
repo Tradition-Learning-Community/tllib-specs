@@ -50,7 +50,7 @@ jobs:
         shell: bash
         run: |
           set +e
-          output="$(python tools/handoff/validate_handoff.py 2>&1)"
+          output="$(python tools/handoff/validate_handoff_compat.py 2>&1)"
           status=$?
           printf '%s\n' "$output" | tee handoff-validation.log
           if [ "$status" -ne 0 ]; then
@@ -59,7 +59,7 @@ jobs:
             exit "$status"
           fi
       - name: Run progressive validation logical scenarios
-        run: python tools/handoff/validate_handoff.py --self-test
+        run: python tools/handoff/validate_handoff_compat.py --self-test
       - name: Upload validation diagnostics
         if: failure()
         uses: actions/upload-artifact@v4
