@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-FC-04-INVARIANTS-007",
+  "tests": [
+    {
+      "test_id": "INV007-ACCEPT-NOMINAL",
+      "applies_to": "CONSTRUCT-DISINTEGRATION-RELATION",
+      "category": "valid_input",
+      "given": {
+        "feature_id": "TLC-FC-04-INVARIANTS-007",
+        "covered_evidence_ids": [
+          "TLC-SO-INVARIANTS-068",
+          "TLC-SR-INVARIANTS-067"
+        ],
+        "catalogue_status": "retained_with_reservations",
+        "unresolved_refs": []
+      },
+      "when": "The construct_disintegration_relation oracle scenario is exercised.",
+      "expect": {
+        "accepted": true,
+        "output_type": "DisintegrationRelationRecord",
+        "immutable": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-007/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV007-ACCEPT-RELATION-ID",
+      "applies_to": "CONSTRUCT-DISINTEGRATION-RELATION",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV007-ACCEPT-RELATION-ID"
+      },
+      "when": "The construct_disintegration_relation oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-007/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV007-ACCEPT-ENDPOINT",
+      "applies_to": "CONSTRUCT-DISINTEGRATION-RELATION",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV007-ACCEPT-ENDPOINT"
+      },
+      "when": "The construct_disintegration_relation oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-007/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV007-ACCEPT-EVIDENCE",
+      "applies_to": "CONSTRUCT-DISINTEGRATION-RELATION",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV007-ACCEPT-EVIDENCE"
+      },
+      "when": "The construct_disintegration_relation oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-007/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV007-ACCEPT-OPAQUE",
+      "applies_to": "CONSTRUCT-DISINTEGRATION-RELATION",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV007-ACCEPT-OPAQUE"
+      },
+      "when": "The construct_disintegration_relation oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-007/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV007-ACCEPT-NO-INFERENCE",
+      "applies_to": "CONSTRUCT-DISINTEGRATION-RELATION",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV007-ACCEPT-NO-INFERENCE"
+      },
+      "when": "The construct_disintegration_relation oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-007/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV007-ACCEPT-DETERMINISM",
+      "applies_to": "CONSTRUCT-DISINTEGRATION-RELATION",
+      "category": "determinism",
+      "given": {
+        "authoritative_oracle_scenario": "INV007-ACCEPT-DETERMINISM"
+      },
+      "when": "The construct_disintegration_relation oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-007/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV007-ACCEPT-RESERVATIONS",
+      "applies_to": "CONSTRUCT-DISINTEGRATION-RELATION",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV007-ACCEPT-RESERVATIONS"
+      },
+      "when": "The construct_disintegration_relation oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-007/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV007-ACCEPT-CONFORMANCE",
+      "applies_to": "CONSTRUCT-DISINTEGRATION-RELATION",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV007-ACCEPT-CONFORMANCE"
+      },
+      "when": "The construct_disintegration_relation oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-007/oracle.yaml"
+      ]
+    }
+  ]
+}
