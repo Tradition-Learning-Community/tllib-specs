@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "shared_contract": {"shared_contract_id": "TLC-HC-TRACEABILITY", "title": "Traceability"},
+  "purpose": "Maintain resolvable provenance from a handoff package to every relevant upstream artifact category.",
+  "scope": {
+    "required": [
+      {"id": "TRC-REQ-001", "statement": "Scientific sources, mathematical contracts, source IRs, finalized IRs, algorithm specifications, test plans, acceptance oracles, and scientific decisions are represented as lists."},
+      {"id": "TRC-REQ-002", "statement": "Every populated reference uses a repository-relative path and preserves its role and optional fingerprint."}
+    ],
+    "forbidden": [
+      {"id": "TRC-FOR-001", "statement": "Absolute paths, parent-directory traversal, and empty required references are forbidden."},
+      {"id": "TRC-FOR-002", "statement": "Traceability metadata must not create or resolve a scientific obligation."}
+    ],
+    "deferred": [{"id": "TRC-DEF-001", "statement": "Remote provenance stores and external identifier schemes are outside v1.0."}]
+  },
+  "data_contract": {
+    "shape": "record",
+    "fields": [
+      {"name": "scientific_sources", "required": true, "semantic_role": "authoritative scientific source references", "value_kind": "array"},
+      {"name": "mathematical_contracts", "required": true, "semantic_role": "mathematical contract references", "value_kind": "array"},
+      {"name": "source_irs", "required": true, "semantic_role": "source IR references", "value_kind": "array"},
+      {"name": "finalized_irs", "required": true, "semantic_role": "finalized IR references", "value_kind": "array"},
+      {"name": "algorithm_specifications", "required": true, "semantic_role": "algorithm specification references", "value_kind": "array"},
+      {"name": "test_plans", "required": true, "semantic_role": "source test plan references", "value_kind": "array"},
+      {"name": "acceptance_oracles", "required": true, "semantic_role": "acceptance oracle references", "value_kind": "array"},
+      {"name": "scientific_decisions", "required": true, "semantic_role": "decision and governance references", "value_kind": "array"}
+    ],
+    "collection": {"supported_kinds": ["sequence"], "membership": "open", "cardinality": {"minimum": 0, "maximum": null}, "ordering": "preserved", "duplicates": "forbidden", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}},
+    "runtime": {"mutability": "immutable", "layout": "not_constrained", "ownership": "implementation_defined", "lifetime": "implementation_defined", "allocation": "implementation_defined", "thread_safety": "implementation_defined"}
+  },
+  "global_invariants": [{"id": "TRC-INV-001", "statement": "Every populated traceability path resolves inside the repository revision being validated."}],
+  "conformance": {"acceptance_required": true, "lossless_preservation_required": true, "notes": ["A consuming feature may require selected categories to be non-empty."]}
+}
