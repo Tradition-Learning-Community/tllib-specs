@@ -1,5 +1,6 @@
 {
-  "schema_version": "1.0", "package_version": "1.0.0",
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
   "feature": {"feature_id": "TLC-FC-06-THEOREMS-008", "title": "Eight-dimension sufficiency role bundle", "domain": "theorems"},
   "purpose": "Construct the exact source-ordered eight-dimension role bundle while preserving opaque role payloads and unresolved cross-domain mappings without asserting sufficiency.",
   "scope": {
@@ -22,7 +23,7 @@
     "operation_id": "ASSEMBLE-EIGHT-DIMENSION-SUFFICIENCY-ROLES",
     "purpose": "Validate exact ordinals and unresolved mappings and construct the exact source-ordered opaque role sequence.",
     "inputs": [
-      {"name": "dimension_roles", "semantic_role": "source ordinal to opaque dimension-role mapping", "collection": {"kind": "map", "membership": "exact", "members": ["1", "2", "3", "4", "5", "6", "7", "8"], "cardinality": {"minimum": 8, "maximum": 8}, "ordering": "not_constrained", "duplicates": "not_applicable", "key_contract": {"allowed_values": [1, 2, 3, 4, 5, 6, 7, 8]}, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}}},
+      {"name": "dimension_roles", "semantic_role": "source ordinal to opaque dimension-role mapping", "collection": {"kind": "map", "membership": "exact", "members": [1, 2, 3, 4, 5, 6, 7, 8], "cardinality": {"minimum": 8, "maximum": 8}, "ordering": "not_constrained", "duplicates": "not_applicable", "key_contract": {"allowed_values": [1, 2, 3, 4, 5, 6, 7, 8]}, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}}},
       {"name": "cross_domain_mappings", "semantic_role": "opaque role to exact unresolved mapping identifier", "collection": {"kind": "map", "membership": "exact", "members": ["TLC-UT-THEOREMS-001", "TLC-UT-THEOREMS-005", "TLC-UT-THEOREMS-007", "TLC-UT-THEOREMS-008", "TLC-UT-THEOREMS-009", "TLC-UT-THEOREMS-010", "TLC-UT-THEOREMS-011", "TLC-UT-THEOREMS-012"], "cardinality": {"minimum": 8, "maximum": 8}, "ordering": "not_constrained", "duplicates": "forbidden", "key_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}, "value_contract": {"shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0"}}}
     ],
     "outputs": [{"name": "sufficiency_role_bundle", "semantic_role": "immutable exact source-ordered role bundle", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "fields": [
@@ -30,7 +31,7 @@
       {"name": "label", "required": true, "semantic_role": "exact source label", "allowed_values": ["Message", "Principles", "Values", "Virtues", "Capacities", "Competencies", "Practice", "Lived Experience"]},
       {"name": "role", "required": true, "semantic_role": "unchanged opaque role payload", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
       {"name": "unresolved_id", "required": true, "semantic_role": "preserved supplied cross-domain mapping", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0"}
-    ], "collection": {"kind": "sequence", "membership": "exact", "members": ["1:Message", "2:Principles", "3:Values", "4:Virtues", "5:Capacities", "6:Competencies", "7:Practice", "8:Lived Experience"], "cardinality": {"minimum": 8, "maximum": 8}, "ordering": "source_order", "duplicates": "forbidden", "key_contract": null, "value_contract": {"fields": ["source_ordinal", "label", "role", "unresolved_id"]}}}],
+    ], "collection": {"kind": "sequence", "membership": "exact", "members": ["1:Message", "2:Principles", "3:Values", "4:Virtues", "5:Capacities", "6:Competencies", "7:Practice", "8:Lived Experience"], "cardinality": {"minimum": 8, "maximum": 8}, "ordering": "required", "duplicates": "forbidden", "key_contract": null, "value_contract": {"fields": ["source_ordinal", "label", "role", "unresolved_id"]}}}],
     "preconditions": [
       {"id": "TH008-PRE-001", "statement": "Exactly the source ordinals one through eight are present and unique."},
       {"id": "TH008-PRE-002", "statement": "Every role has exactly one supplied unresolved mapping and the unresolved population is exact."}
@@ -44,7 +45,10 @@
       {"id": "TH008-INV-002", "statement": "The exact eight unresolved identifiers remain attached once each."}
     ],
     "strategy_contract": {"mode": "partially_constrained", "steps": ["validate exact ordinals", "validate unresolved population and attachment", "preserve opaque roles", "construct records by ascending source ordinal", "publish exact ordered bundle or stable error"], "partial_order": [
-      {"before": "validate exact ordinals", "after": "publish exact ordered bundle or stable error"}, {"before": "validate unresolved population and attachment", "after": "publish exact ordered bundle or stable error"}, {"before": "preserve opaque roles", "after": "publish exact ordered bundle or stable error"}, {"before": "construct records by ascending source ordinal", "after": "publish exact ordered bundle or stable error"}
+      {"before": "validate exact ordinals", "after": "publish exact ordered bundle or stable error"},
+      {"before": "validate unresolved population and attachment", "after": "publish exact ordered bundle or stable error"},
+      {"before": "preserve opaque roles", "after": "publish exact ordered bundle or stable error"},
+      {"before": "construct records by ascending source ordinal", "after": "publish exact ordered bundle or stable error"}
     ], "prescription_basis": ["Output construction by source ordinal is observable and normative; validation internals and storage remain open."]},
     "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
     "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "required", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
@@ -65,7 +69,14 @@
     {"id": "TH008-GINV-002", "statement": "Every supplied opaque role and exact unresolved identifier survives without definition, merging, or loss."}
   ],
   "dependencies": [
-    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity."}, {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Exact role and source identities."}, {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Exact ordered population."}, {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Exact cross-domain unresolved mappings."}, {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Opaque role preservation."}, {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Stable errors."}, {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable provenance."}, {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Immutable ordered bundle envelope."}
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity."},
+    {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Exact role and source identities."},
+    {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Exact ordered population."},
+    {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Exact cross-domain unresolved mappings."},
+    {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Opaque role preservation."},
+    {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Stable errors."},
+    {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable provenance."},
+    {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Immutable ordered bundle envelope."}
   ],
   "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["Exact source ordering is normative; scientific sufficiency is not asserted."]}
 }
