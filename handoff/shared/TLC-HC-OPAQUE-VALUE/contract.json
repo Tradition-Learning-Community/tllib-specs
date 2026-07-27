@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "shared_contract": {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "title": "Opaque Value"},
+  "purpose": "Transport an uninterpreted scientific payload with exact semantic identity and provenance.",
+  "scope": {
+    "required": [
+      {"id": "OPA-REQ-001", "statement": "The semantic type identifier, payload, and source reference are preserved losslessly."},
+      {"id": "OPA-REQ-002", "statement": "Consumers treat payload bytes or structured content as uninterpreted."}
+    ],
+    "forbidden": [
+      {"id": "OPA-FOR-001", "statement": "Coercion, evaluation, normalization, unit conversion, alias inference, and value synthesis are forbidden."},
+      {"id": "OPA-FOR-002", "statement": "A shared storage representation must not erase semantic type identity."}
+    ],
+    "deferred": [{"id": "OPA-DEF-001", "statement": "Payload encoding, storage, ownership, and provider implementation are implementation-defined unless a consuming package constrains them."}]
+  },
+  "data_contract": {
+    "shape": "record",
+    "fields": [
+      {"name": "semantic_type_id", "required": true, "semantic_role": "preserved semantic identity", "value_kind": "identifier"},
+      {"name": "payload", "required": true, "semantic_role": "uninterpreted value carrier", "value_kind": "opaque"},
+      {"name": "source_reference", "required": true, "semantic_role": "payload provenance", "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"},
+      {"name": "encoding", "required": false, "semantic_role": "transport encoding label", "value_kind": "string"}
+    ],
+    "collection": {"supported_kinds": ["scalar", "optional", "sequence", "set", "ordered_set", "multiset", "map", "ordered_map"], "membership": "open", "cardinality": {"minimum": 0, "maximum": null}, "ordering": "not_constrained", "duplicates": "implementation_defined", "key_contract": {}, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}},
+    "runtime": {"mutability": "not_constrained", "layout": "not_constrained", "ownership": "implementation_defined", "lifetime": "implementation_defined", "allocation": "implementation_defined", "thread_safety": "implementation_defined"}
+  },
+  "global_invariants": [{"id": "OPA-INV-001", "statement": "A round trip preserves payload, semantic type identity, and provenance exactly."}],
+  "conformance": {"acceptance_required": true, "lossless_preservation_required": true, "notes": []}
+}

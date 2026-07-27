@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-HC-FEATURE-ID",
+  "tests": [
+    {"test_id": "HC-FID-001", "applies_to": "identifier validation", "category": "valid_input", "given": {"value": "TLC-FC-00-MASTER-005"}, "when": "The identifier is validated.", "expect": {"accepted": true, "preserved_value": "TLC-FC-00-MASTER-005"}},
+    {"test_id": "HC-FID-002", "applies_to": "exact identity", "category": "invalid_input", "given": {"value": "tlc-fc-00-master-005"}, "when": "The identifier is validated.", "expect": {"accepted": false}},
+    {"test_id": "HC-FID-003", "applies_to": "round trip", "category": "preservation", "given": {"value": "TLC-FC-00-MASTER-005"}, "when": "The identifier crosses a conforming transport boundary and returns.", "expect": {"exactly_equal": true}}
+  ]
+}

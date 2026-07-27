@@ -1,0 +1,171 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "feature": {
+    "feature_id": "TLC-FC-00-MASTER-005",
+    "title": "Master seven-tuple definition",
+    "domain": "master"
+  },
+  "purpose": "Validate the exact scientific references for the Master's seven-tuple declaration and emit an immutable, traceable declaration descriptor without executing or completing its scientific semantics.",
+  "scope": {
+    "required": [
+      {"id": "M005-REQ-001", "statement": "Accept only the exact feature identity TLC-FC-00-MASTER-005.", "basis": ["registry/optimized-ir/master/TLC-FC-00-MASTER-005/ir.yaml"]},
+      {"id": "M005-REQ-002", "statement": "Accept exactly scientific object reference TLC-SO-MASTER-008 and no additional object reference.", "basis": ["registry/math-contracts/TLC-FC-00-MASTER-005/contract.yaml", "registry/oracles/master/TLC-FC-00-MASTER-005/oracle.yaml"]},
+      {"id": "M005-REQ-003", "statement": "Accept exactly relation references TLC-SR-MASTER-007, TLC-SR-MASTER-008, TLC-SR-MASTER-009, TLC-SR-MASTER-010, and TLC-SR-MASTER-011 in that source order.", "basis": ["registry/math-contracts/TLC-FC-00-MASTER-005/contract.yaml", "maths/00-master.md", "registry/oracles/master/TLC-FC-00-MASTER-005/oracle.yaml"]},
+      {"id": "M005-REQ-004", "statement": "Emit an immutable descriptor whose observable fields are feature_id, representation, references, unresolved, dependencies, provenance, and status.", "basis": ["registry/optimized-ir/master/TLC-FC-00-MASTER-005/ir.yaml", "registry/domain-finalization/master/module-specification.yaml"]},
+      {"id": "M005-REQ-005", "statement": "Preserve every accepted reference as distinct and fully traceable.", "basis": ["registry/math-contracts/TLC-FC-00-MASTER-005/contract.yaml", "registry/oracles/master/TLC-FC-00-MASTER-005/oracle.yaml"]}
+    ],
+    "forbidden": [
+      {"id": "M005-FOR-001", "statement": "Scientific evaluation, calculation, simulation, or completion of the seven-tuple is forbidden."},
+      {"id": "M005-FOR-002", "statement": "Do not invent component runtime types, dimensions, storage, layout, aliases, values, equations, tolerances, or numerical methods."},
+      {"id": "M005-FOR-003", "statement": "Do not merge the seven components or their five relation references because they share a carrier representation."},
+      {"id": "M005-FOR-004", "statement": "Do not expose a successful partial descriptor after any validation or preservation failure."}
+    ],
+    "deferred": [
+      {"id": "M005-DEF-001", "statement": "Executable scientific behavior for the seven-tuple remains undefined and outside this package."},
+      {"id": "M005-DEF-002", "statement": "Concrete component representations and all low-level storage decisions remain implementation-defined."}
+    ]
+  },
+  "operations": [
+    {
+      "operation_id": "DESCRIBE-MASTER-SEVEN-TUPLE",
+      "purpose": "Produce the structural declaration descriptor for the exact source reference bundle.",
+      "inputs": [
+        {
+          "name": "reference_bundle",
+          "semantic_role": "exact feature, object, relation, unresolved, and provenance references",
+          "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0",
+          "fields": [
+            {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "shared_contract_ref": "TLC-HC-FEATURE-ID@1.0.0", "constant": "TLC-FC-00-MASTER-005"},
+            {"name": "scientific_object_refs", "required": true, "semantic_role": "exact object reference set", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0", "allowed_values": ["TLC-SO-MASTER-008"]},
+            {"name": "relation_refs", "required": true, "semantic_role": "exact ordered relation reference set", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0", "allowed_values": ["TLC-SR-MASTER-007", "TLC-SR-MASTER-008", "TLC-SR-MASTER-009", "TLC-SR-MASTER-010", "TLC-SR-MASTER-011"]},
+            {"name": "unresolved_refs", "required": true, "semantic_role": "exact unresolved collection", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0", "allowed_values": []},
+            {"name": "source_provenance", "required": true, "semantic_role": "source provenance", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"}
+          ],
+          "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}},
+          "constraints": [
+            {"id": "M005-IN-001", "statement": "scientific_object_refs is a set with exactly one member: TLC-SO-MASTER-008."},
+            {"id": "M005-IN-002", "statement": "relation_refs is an ordered_set with exactly the five declared relation identities in source order."},
+            {"id": "M005-IN-003", "statement": "unresolved_refs is an empty set for this package version."}
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "descriptor",
+          "semantic_role": "immutable Master seven-tuple declaration descriptor",
+          "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0",
+          "fields": [
+            {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "constant": "TLC-FC-00-MASTER-005"},
+            {"name": "representation", "required": true, "semantic_role": "declaration representation", "constant": "declaration"},
+            {"name": "references", "required": true, "semantic_role": "exact accepted reference bundle", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0"},
+            {"name": "unresolved", "required": true, "semantic_role": "preserved unresolved items", "allowed_values": []},
+            {"name": "dependencies", "required": true, "semantic_role": "runtime scientific dependencies", "allowed_values": []},
+            {"name": "provenance", "required": true, "semantic_role": "complete upstream traceability", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"},
+            {"name": "status", "required": true, "semantic_role": "candidate scientific and structural-only execution status"}
+          ],
+          "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0"}},
+          "constraints": [
+            {"id": "M005-OUT-001", "statement": "The descriptor is observable as immutable."},
+            {"id": "M005-OUT-002", "statement": "The five relation references remain distinct and in source order."}
+          ]
+        }
+      ],
+      "preconditions": [
+        {"id": "M005-PRE-001", "statement": "feature_id equals TLC-FC-00-MASTER-005 exactly."},
+        {"id": "M005-PRE-002", "statement": "The object and relation reference collections equal the required collections exactly."},
+        {"id": "M005-PRE-003", "statement": "The unresolved collection is empty."}
+      ],
+      "postconditions": [
+        {"id": "M005-POST-001", "statement": "A successful result is an immutable declaration descriptor with all required fields present."},
+        {"id": "M005-POST-002", "statement": "The descriptor remains candidate, structural-only, and traceable to every cited artifact."},
+        {"id": "M005-POST-003", "statement": "No scientific component representation or value has been added."}
+      ],
+      "invariants": [
+        {"id": "M005-INV-001", "statement": "The seven-tuple components remain distinct."},
+        {"id": "M005-INV-002", "statement": "The five relation identities remain distinct and ordered."},
+        {"id": "M005-INV-003", "statement": "Scientific state and external domain state are never mutated."}
+      ],
+      "strategy_contract": {
+        "mode": "partially_constrained",
+        "steps": ["validate feature identity", "validate exact reference collections", "construct provenance", "construct declaration descriptor", "verify preservation obligations", "publish success or stable error"],
+        "partial_order": [
+          {"before": "validate feature identity", "after": "publish success or stable error"},
+          {"before": "validate exact reference collections", "after": "publish success or stable error"},
+          {"before": "verify preservation obligations", "after": "publish success or stable error"},
+          {"before": "construct declaration descriptor", "after": "publish success or stable error"}
+        ],
+        "prescription_basis": ["Only validation-before-success and preservation-before-success are observable. The upstream total step list is not adopted as a unique algorithm."]
+      },
+      "runtime_contract": {
+        "mutability": "immutable",
+        "result_ownership": "implementation_defined",
+        "input_retention": "not_required",
+        "input_change_visibility": "not_visible",
+        "lifetime": "implementation_defined",
+        "aliasing": "not_constrained",
+        "layout": "not_constrained",
+        "contiguity": "not_required",
+        "alignment": "not_required",
+        "address_stability": "not_required",
+        "copy_semantics": "not_constrained",
+        "move_semantics": "not_constrained",
+        "allocation": "implementation_defined",
+        "zero_copy": "not_required",
+        "thread_safety": "implementation_defined",
+        "reentrancy": "implementation_defined",
+        "failure_atomicity": "no_observable_partial_result"
+      },
+      "determinism": {
+        "semantic_output": "required",
+        "field_presence": "required",
+        "collection_order": "required",
+        "canonical_serialization": "not_specified",
+        "binary_layout": "not_constrained",
+        "memory_address": "not_constrained",
+        "allocation_pattern": "not_constrained",
+        "concurrent_scheduling": "implementation_defined",
+        "floating_point": "not_applicable",
+        "randomness": "not_applicable"
+      },
+      "error_contract": [
+        {"code": "MASTER_INVALID_FEATURE_ID", "category": "invalid_input", "condition": "The requested feature identity is not exactly TLC-FC-00-MASTER-005.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "MASTER_REFERENCE_SET_MISMATCH", "category": "invalid_input", "condition": "The supplied object or relation collection differs in identity, membership, cardinality, or required order.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "MASTER_PRESERVATION_VIOLATION", "category": "preservation", "condition": "A required identity, distinction, order, opacity, or provenance obligation cannot be preserved.", "recoverability": "non_retryable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "MASTER_UNSUPPORTED_EXECUTION_MODE", "category": "unsupported_operation", "condition": "Scientific calculation, concrete layout, or another invented execution mode is requested.", "recoverability": "non_retryable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+      ],
+      "resource_contract": {
+        "time_complexity": {"status": "not_specified", "value": null},
+        "auxiliary_memory": {"status": "not_specified", "value": null},
+        "allocations": {"status": "implementation_defined", "value": null},
+        "maximum_input_size": {"status": "not_constrained", "value": null}
+      }
+    }
+  ],
+  "implementation_modes": [
+    {"mode_id": "structural-descriptor", "status": "required", "statement": "Expose the structural declaration behavior and stable errors defined by this package."},
+    {"mode_id": "scientific-evaluation", "status": "forbidden", "statement": "Do not calculate, simulate, complete, or interpret the seven-tuple."},
+    {"mode_id": "concrete-component-layout", "status": "forbidden", "statement": "Do not claim this package prescribes component runtime types, dimensions, layout, or storage."},
+    {"mode_id": "alternative-internal-architecture", "status": "allowed", "statement": "Any internal design is allowed when all observable obligations and acceptance tests remain satisfied."}
+  ],
+  "global_invariants": [
+    {"id": "M005-GINV-001", "statement": "No implementation behavior may weaken exact identity, reference, order, opacity, immutability, or provenance requirements."},
+    {"id": "M005-GINV-002", "statement": "Absence of scientific definition remains absence; it never becomes a default."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity."},
+    {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Lossless source references."},
+    {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Exact set and ordered-set semantics."},
+    {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Explicit unresolved preservation vocabulary."},
+    {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Non-interpretation of component details."},
+    {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Transport-neutral stable errors."},
+    {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable provenance."},
+    {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Immutable descriptor result shape."}
+  ],
+  "conformance": {
+    "acceptance_required": true,
+    "all_required_tests_must_pass": true,
+    "forbidden_behavior_is_nonconforming": true,
+    "notes": ["Conformance is behavioral and does not require a particular public function name or internal algorithm."]
+  }
+}

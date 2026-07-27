@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-HC-UNRESOLVED-ITEM",
+  "tests": [
+    {"test_id": "HC-UNR-001", "applies_to": "unresolved propagation", "category": "preservation", "given": {"status": "preserved_unresolved"}, "when": "The item is copied into a descriptor.", "expect": {"status": "preserved_unresolved"}},
+    {"test_id": "HC-UNR-002", "applies_to": "non-invention", "category": "invalid_input", "given": {"status": "resolved_by_default"}, "when": "The item is validated.", "expect": {"accepted": false}},
+    {"test_id": "HC-UNR-003", "applies_to": "provenance", "category": "invariant", "given": {"source_reference": {"source_path": "registry/scientific-review/engineering-disposition.yaml"}}, "when": "The item is propagated.", "expect": {"source_reference_preserved": true}}
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "shared_contract": {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "title": "Reference Collection"},
+  "purpose": "Express observable reference collection semantics without selecting a programming-language container.",
+  "scope": {
+    "required": [
+      {"id": "RCOL-REQ-001", "statement": "The collection kind is one of the eight closed kinds."},
+      {"id": "RCOL-REQ-002", "statement": "Membership, minimum and maximum cardinality, ordering, duplicates, key contract, and value contract are explicit."}
+    ],
+    "forbidden": [
+      {"id": "RCOL-FOR-001", "statement": "A sequence must not be substituted for a set, multiset, or ordered set when observable semantics differ."},
+      {"id": "RCOL-FOR-002", "statement": "An implementation container must not create ordering or duplicate guarantees absent from the package."}
+    ],
+    "deferred": [{"id": "RCOL-DEF-001", "statement": "Container type, layout, hashing, comparison, and allocation strategy are implementation-defined."}]
+  },
+  "data_contract": {
+    "shape": "collection",
+    "fields": [],
+    "collection": {
+      "supported_kinds": ["scalar", "optional", "sequence", "set", "ordered_set", "multiset", "map", "ordered_map"],
+      "membership": "open",
+      "cardinality": {"minimum": 0, "maximum": null},
+      "ordering": "not_constrained",
+      "duplicates": "implementation_defined",
+      "key_contract": {},
+      "value_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}
+    },
+    "runtime": {"mutability": "not_constrained", "layout": "not_constrained", "ownership": "implementation_defined", "lifetime": "implementation_defined", "allocation": "implementation_defined", "thread_safety": "implementation_defined"}
+  },
+  "global_invariants": [{"id": "RCOL-INV-001", "statement": "A conforming representation preserves every collection semantic declared by the consuming package."}],
+  "conformance": {"acceptance_required": true, "lossless_preservation_required": true, "notes": ["This shared contract defines the vocabulary; consuming packages select concrete semantics."]}
+}

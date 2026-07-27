@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-HC-OPAQUE-VALUE",
+  "tests": [
+    {"test_id": "HC-OPA-001", "applies_to": "lossless transport", "category": "preservation", "given": {"semantic_type_id": "TLC-SO-MASTER-008", "payload": {"opaque": true}}, "when": "The value is round-tripped.", "expect": {"payload_exactly_equal": true, "semantic_type_id_exactly_equal": true}},
+    {"test_id": "HC-OPA-002", "applies_to": "non-interpretation", "category": "invariant", "given": {"payload": {"unknown_field": "preserve"}}, "when": "The wrapper processes the carrier.", "expect": {"unknown_field_preserved": true, "scientific_evaluation_performed": false}},
+    {"test_id": "HC-OPA-003", "applies_to": "semantic identity", "category": "invalid_input", "given": {"payload": {}, "source_reference": {"source_path": "maths/00-master.md"}}, "when": "The value lacks semantic_type_id.", "expect": {"accepted": false}}
+  ]
+}

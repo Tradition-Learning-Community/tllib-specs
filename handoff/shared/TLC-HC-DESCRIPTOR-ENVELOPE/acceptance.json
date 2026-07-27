@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-HC-DESCRIPTOR-ENVELOPE",
+  "tests": [
+    {"test_id": "HC-ENV-001", "applies_to": "required fields", "category": "output_contract", "given": {"feature_id": "TLC-FC-00-MASTER-005", "representation": "declaration", "references": {}, "unresolved": [], "dependencies": [], "provenance": {}, "status": {}}, "when": "The envelope is validated.", "expect": {"accepted": true}},
+    {"test_id": "HC-ENV-002", "applies_to": "immutability", "category": "invariant", "given": {"emitted": true}, "when": "A caller attempts to alter an observable field through the public result contract.", "expect": {"observable_mutation_supported": false}},
+    {"test_id": "HC-ENV-003", "applies_to": "representation neutrality", "category": "preservation", "given": {"two_distinct_scientific_references": true}, "when": "Both use the same internal carrier.", "expect": {"semantic_identity_merged": false}}
+  ]
+}

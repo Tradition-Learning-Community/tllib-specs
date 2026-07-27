@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "shared_contract": {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "title": "Structured Error"},
+  "purpose": "Expose stable error semantics independently of the mechanism used to transport an error.",
+  "scope": {
+    "required": [
+      {"id": "ERR-REQ-001", "statement": "The stable code, category, condition, recoverability, public result policy, failure atomicity, and context are observable."},
+      {"id": "ERR-REQ-002", "statement": "Error emission is deterministic for the same detected condition."}
+    ],
+    "forbidden": [
+      {"id": "ERR-FOR-001", "statement": "A conforming implementation must not return a partial scientific result when the consuming contract requires no partial result."},
+      {"id": "ERR-FOR-002", "statement": "The transport mechanism must not alter the stable error code."}
+    ],
+    "deferred": [{"id": "ERR-DEF-001", "statement": "Exception, return-value, callback, protocol, and logging mechanisms are implementation-defined."}]
+  },
+  "data_contract": {
+    "shape": "record",
+    "fields": [
+      {"name": "code", "required": true, "semantic_role": "stable public error identity", "value_kind": "identifier"},
+      {"name": "category", "required": true, "semantic_role": "error classification", "value_kind": "string"},
+      {"name": "condition", "required": true, "semantic_role": "observable triggering condition", "value_kind": "string"},
+      {"name": "feature_id", "required": false, "semantic_role": "feature scope", "shared_contract_ref": "TLC-HC-FEATURE-ID@1.0.0"},
+      {"name": "recoverability", "required": true, "semantic_role": "caller recovery classification", "value_kind": "enum", "allowed_values": ["recoverable", "retryable", "non_retryable", "implementation_defined", "not_applicable"]},
+      {"name": "public_result", "required": true, "semantic_role": "result visibility on failure", "value_kind": "enum", "allowed_values": ["error_only", "no_partial_result", "partial_result_allowed", "implementation_defined"]},
+      {"name": "failure_atomicity", "required": true, "semantic_role": "observable state guarantee", "value_kind": "enum", "allowed_values": ["no_observable_partial_result", "basic", "not_constrained", "implementation_defined", "not_applicable"]},
+      {"name": "context", "required": true, "semantic_role": "non-scientific diagnostic fields", "value_kind": "object"},
+      {"name": "transport", "required": true, "semantic_role": "delivery mechanism policy", "value_kind": "enum", "allowed_values": ["implementation_defined"]}
+    ],
+    "collection": {"supported_kinds": ["scalar", "optional", "sequence"], "membership": "open", "cardinality": {"minimum": 0, "maximum": null}, "ordering": "not_constrained", "duplicates": "allowed", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-STRUCTURED-ERROR@1.0.0"}},
+    "runtime": {"mutability": "immutable", "layout": "not_constrained", "ownership": "implementation_defined", "lifetime": "implementation_defined", "allocation": "implementation_defined", "thread_safety": "implementation_defined"}
+  },
+  "global_invariants": [{"id": "ERR-INV-001", "statement": "The same scoped error code denotes the same public condition throughout a package version."}],
+  "conformance": {"acceptance_required": true, "lossless_preservation_required": true, "notes": []}
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-HC-TRACEABILITY",
+  "tests": [
+    {"test_id": "HC-TRC-001", "applies_to": "list structure", "category": "valid_input", "given": {"scientific_sources": [], "mathematical_contracts": [], "source_irs": [], "finalized_irs": [], "algorithm_specifications": [], "test_plans": [], "acceptance_oracles": [], "scientific_decisions": []}, "when": "The traceability record is structurally validated.", "expect": {"accepted": true}},
+    {"test_id": "HC-TRC-002", "applies_to": "path safety", "category": "invalid_input", "given": {"path": "/absolute/source.yaml"}, "when": "A populated reference is validated.", "expect": {"accepted": false}},
+    {"test_id": "HC-TRC-003", "applies_to": "resolution", "category": "preservation", "given": {"path": "registry/math-contracts/TLC-FC-00-MASTER-005/contract.yaml"}, "when": "Repository integrity is checked.", "expect": {"resolves_inside_repository": true}}
+  ]
+}

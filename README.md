@@ -12,7 +12,7 @@
 [![Domains](https://img.shields.io/badge/domains-16-7c3aed)](registry/global-finalization/domain-status.yaml)
 [![License](https://img.shields.io/badge/license-Apache--2.0-64748b)](LICENSE)
 
-[Overview](#overview) · [Architecture](#specification-architecture) · [Governance](#engineering-governance) · [Domains](#domains) · [Repository map](#repository-map) · [Feature chain](#working-with-a-feature) · [Validation](#validation) · [Contributing](#contributing)
+[Overview](#overview) · [Handoff](#feature-handoff-package) · [Architecture](#specification-architecture) · [Governance](#engineering-governance) · [Domains](#domains) · [Repository map](#repository-map) · [Feature chain](#working-with-a-feature) · [Validation](#validation) · [Contributing](#contributing)
 
 </div>
 
@@ -38,6 +38,14 @@ The current integrated specification covers:
 | Acceptance oracles | **166** |
 
 The global package is marked [`integrated_structural_specification_finalized`](registry/global-finalization/manifest.yaml). This means the **structural engineering specification is finalized and ready for downstream handoff**. It does not mean that runtime implementation exists here, or that every preserved equation, proof, metric, transition, or evaluator is scientifically executable.
+
+## Feature Handoff Package
+
+[`handoff/`](handoff/) is the language-independent final output intended for downstream programmers. It compiles observable behavior, acceptance tests, shared structural contracts, traceability, and explicit implementation freedoms into autonomous Markdown and JSON packages.
+
+The foundation currently includes the pilot package [`TLC-FC-00-MASTER-005`](handoff/features/TLC-FC-00-MASTER-005/) and eight shared contracts. It does **not** claim that all 166 final feature packages have been generated.
+
+For normal implementation work, a programmer should be able to use the resolved handoff package without reading the intermediate mathematical contracts, IRs, algorithm specifications, test plans, or scientific source text.
 
 ## Why this repository exists
 
