@@ -1,0 +1,3 @@
+# Long-term consolidation equation descriptor
+
+This package preserves source object `TLC-SO-LIVED-EXPERIENCE-064`, its differential equation, symbols, provenance, unresolved items, and reservations as opaque structural content. Implement exact identity and object-set validation, deterministic immutable descriptor construction, comparison, and lossless serialization. Do not choose a solver, timestep, duration, trajectory, stochastic realization, state schema, chronology, interpretation, or scientific result. Scientific requests must return `ScientificEvaluationRequested` with no partial result. Runtime architecture remains implementation-defined; conformance is defined by the oracle-derived acceptance tests.

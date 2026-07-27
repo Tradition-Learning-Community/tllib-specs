@@ -1,0 +1,3 @@
+# Emergent collective memory equation descriptor
+
+This feature preserves equation object `TLC-SO-LIVED-EXPERIENCE-065`, its exact expression, symbols `N`, individual experiences, `sigma`, and `Synergie`, provenance, unresolved decisions, and historical comparison-only status. Implement only deterministic structural construction, validation, comparison, and lossless serialization. Do not assign types, define `N`, evaluate a mean, division, sum, sigma, or Synergie, or promote the historical pilot. Scientific execution requires external decisions `LE-DEC-005-TYPES` and `LE-DEC-005-N`. Source-level conditions `division_by_zero` and `undefined_synergy_application` remain non-executable and are not promoted to public structural errors. Runtime design is otherwise free.
