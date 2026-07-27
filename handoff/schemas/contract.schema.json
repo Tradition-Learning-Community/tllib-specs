@@ -179,7 +179,7 @@
       "additionalProperties": false,
       "required": ["code", "category", "condition", "recoverability", "public_result", "failure_atomicity", "transport"],
       "properties": {
-        "code": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]+$"},
+        "code": {"type": "string", "pattern": "^(?:[A-Z][A-Z0-9_]+|[A-Z][A-Za-z0-9]+)$"},
         "category": {"type": "string", "minLength": 1},
         "condition": {"type": "string", "minLength": 1},
         "recoverability": {"enum": ["recoverable", "retryable", "non_retryable", "implementation_defined", "not_applicable"]},
