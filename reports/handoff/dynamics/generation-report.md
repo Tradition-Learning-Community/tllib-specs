@@ -47,10 +47,22 @@ All seven packages are executable only as structural construction, validation, s
 
 Every traceability category required by the package model is populated with repository-relative paths. Source multiplicity is preserved where present, including the eight scientific source regions for feature 002 and the multiple contract and IR artifacts for feature 001. Package and source contents remain Git-addressable, so their repository blob hashes are calculable without adding non-schema fields to the domain catalog.
 
+## Inventory metadata normalization
+
+The initial CI failure matched the inventory-shape issue previously resolved for Community. Master and Disciple expose a root `feature_count`, while Dynamics exposed the equivalent count only as `authoritative_population_count` and through its seven-entry feature list.
+
+The branch therefore adds exactly one metadata line to `registry/domain-finalization/dynamics/feature-status.yaml`:
+
+```yaml
+feature_count: 7
+```
+
+The existing `authoritative_population_count: 7`, the feature list, all statuses, source references, unresolved items, reservations, implementation scopes, and scientific semantics remain unchanged.
+
 ## Scope protection
 
-No scientific source, mathematical contract, source IR, finalized IR, algorithm, oracle, test plan, schema, shared contract, validator, workflow, global handoff catalog, or other domain package was modified. No implementation code was added.
+No scientific source, mathematical contract, source IR, finalized IR, algorithm, oracle, test plan, schema, shared contract, validator, workflow, global handoff catalog, or other domain package was modified. No implementation code was added. The only upstream artifact change is the one-line non-scientific count metadata normalization described above.
 
-## Validation preflight
+## Validation
 
-Schema and inter-file preflight corrections were applied for acceptance-category and resource-status enum values. A protected-source incompatibility remains for CI evaluation: `tools/handoff/validate_handoff.py` reads only `feature_count` or `population_count` from domain inventories, while the authoritative Dynamics inventory declares `authoritative_population_count`. This report records the mismatch; it is not corrected because both the validator and inventory are outside the permitted write scope.
+Feature handoff validation run `30263395776` passed completely on commit `6307ea01ec0dc9697fdad6faed597d29601c2751`, including JSON Schema validation, progressive population checks, authoritative inventory order, inter-file coherence, shared-contract resolution, traceability-path resolution, acceptance-ID uniqueness, strategy and error coherence, logical self-tests, and pilot bundle resolution.
