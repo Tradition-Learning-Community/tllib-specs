@@ -52,7 +52,7 @@ def validate_authoritative_inventory(domain: str, catalog: dict[str, Any]) -> No
 
     declared_counts = [
         inventory[key]
-        for key in ("feature_count", "population_count", "active_feature_count", "expected_count")
+        for key in ("feature_count", "population_count", "active_feature_count", "expected_count", "authoritative_feature_count")
         if key in inventory
     ]
     summary = inventory.get("summary")
