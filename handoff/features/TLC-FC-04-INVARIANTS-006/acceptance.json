@@ -1,0 +1,185 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-FC-04-INVARIANTS-006",
+  "tests": [
+    {
+      "test_id": "INV006-ACCEPT-NOMINAL",
+      "applies_to": "CONSTRUCT-COLLECTIVE-ETHICS-INVARIANT-EXPRESSION",
+      "category": "valid_input",
+      "given": {
+        "feature_id": "TLC-FC-04-INVARIANTS-006",
+        "covered_evidence_ids": [
+          "TLC-SO-INVARIANTS-013",
+          "TLC-SO-INVARIANTS-057",
+          "TLC-SR-INVARIANTS-012",
+          "TLC-SR-INVARIANTS-056"
+        ],
+        "catalogue_status": "deferred_for_targeted_extraction",
+        "unresolved_refs": []
+      },
+      "when": "The construct_collective_ethics_invariant_expression oracle scenario is exercised.",
+      "expect": {
+        "accepted": true,
+        "output_type": "SymbolicCollectiveEthicsInvariant",
+        "immutable": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-006/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV006-ACCEPT-SHAPE",
+      "applies_to": "CONSTRUCT-COLLECTIVE-ETHICS-INVARIANT-EXPRESSION",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV006-ACCEPT-SHAPE"
+      },
+      "when": "The construct_collective_ethics_invariant_expression oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-006/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV006-ACCEPT-MISSING-SYMBOL",
+      "applies_to": "CONSTRUCT-COLLECTIVE-ETHICS-INVARIANT-EXPRESSION",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV006-ACCEPT-MISSING-SYMBOL"
+      },
+      "when": "The construct_collective_ethics_invariant_expression oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-006/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV006-ACCEPT-MISSING-EVIDENCE",
+      "applies_to": "CONSTRUCT-COLLECTIVE-ETHICS-INVARIANT-EXPRESSION",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV006-ACCEPT-MISSING-EVIDENCE"
+      },
+      "when": "The construct_collective_ethics_invariant_expression oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-006/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV006-ACCEPT-OPAQUE",
+      "applies_to": "CONSTRUCT-COLLECTIVE-ETHICS-INVARIANT-EXPRESSION",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV006-ACCEPT-OPAQUE"
+      },
+      "when": "The construct_collective_ethics_invariant_expression oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-006/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV006-ACCEPT-NO-EVALUATION",
+      "applies_to": "CONSTRUCT-COLLECTIVE-ETHICS-INVARIANT-EXPRESSION",
+      "category": "unsupported_operation",
+      "given": {
+        "authoritative_oracle_scenario": "INV006-ACCEPT-NO-EVALUATION"
+      },
+      "when": "The construct_collective_ethics_invariant_expression oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-006/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV006-ACCEPT-NO-SIMPLIFICATION",
+      "applies_to": "CONSTRUCT-COLLECTIVE-ETHICS-INVARIANT-EXPRESSION",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV006-ACCEPT-NO-SIMPLIFICATION"
+      },
+      "when": "The construct_collective_ethics_invariant_expression oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-006/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV006-ACCEPT-DETERMINISM",
+      "applies_to": "CONSTRUCT-COLLECTIVE-ETHICS-INVARIANT-EXPRESSION",
+      "category": "determinism",
+      "given": {
+        "authoritative_oracle_scenario": "INV006-ACCEPT-DETERMINISM"
+      },
+      "when": "The construct_collective_ethics_invariant_expression oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-006/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV006-ACCEPT-RESERVATIONS",
+      "applies_to": "CONSTRUCT-COLLECTIVE-ETHICS-INVARIANT-EXPRESSION",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV006-ACCEPT-RESERVATIONS"
+      },
+      "when": "The construct_collective_ethics_invariant_expression oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-006/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV006-ACCEPT-CONFORMANCE",
+      "applies_to": "CONSTRUCT-COLLECTIVE-ETHICS-INVARIANT-EXPRESSION",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV006-ACCEPT-CONFORMANCE"
+      },
+      "when": "The construct_collective_ethics_invariant_expression oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-006/oracle.yaml"
+      ]
+    }
+  ]
+}
