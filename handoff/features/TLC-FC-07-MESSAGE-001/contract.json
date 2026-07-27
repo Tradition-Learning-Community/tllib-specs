@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-07-MESSAGE-001", "title": "Message quadruplet AST", "domain": "message"},
+  "purpose": "Validate the exact definition evidence and construct an immutable, source-ordered four-slot symbolic AST without interpreting scientific content or defining runtime slot semantics.",
+  "scope": {
+    "required": [
+      {"id": "MSG001-REQ-001", "statement": "Accept exactly scientific object identities TLC-SO-MESSAGE-002, TLC-SO-MESSAGE-003, and TLC-SO-MESSAGE-025 as distinct evidence.", "basis": ["registry/math-contracts/TLC-FC-07-MESSAGE-001/contract.yaml"]},
+      {"id": "MSG001-REQ-002", "statement": "Preserve the formal Message expression as an opaque four-slot expression in source order.", "basis": ["maths/07-message.md", "registry/optimized-ir/message/TLC-FC-07-MESSAGE-001/ir.yaml"]},
+      {"id": "MSG001-REQ-003", "statement": "Return one traceable AST root with exactly four source-named symbolic slots and all three evidence references.", "basis": ["registry/oracles/message/TLC-FC-07-MESSAGE-001/oracle.yaml"]},
+      {"id": "MSG001-REQ-004", "statement": "Preserve candidate status, provenance, opaque payloads, and reservation TLC-DUP-MESSAGE-001."}
+    ],
+    "forbidden": [
+      {"id": "MSG001-FOR-001", "statement": "Do not evaluate, execute, normalize, translate, or scientifically complete any slot content."},
+      {"id": "MSG001-FOR-002", "statement": "Do not invent slot runtime types, encoding, transport, sender or receiver interfaces, layout, timing, or numerical behavior."},
+      {"id": "MSG001-FOR-003", "statement": "Do not merge the three evidence identities or reorder the four symbolic slots."},
+      {"id": "MSG001-FOR-004", "statement": "Do not expose a successful partial AST after validation or preservation failure."}
+    ],
+    "deferred": [
+      {"id": "MSG001-DEF-001", "statement": "Concrete runtime representations for the four slots remain implementation-defined and scientifically unresolved."},
+      {"id": "MSG001-DEF-002", "statement": "Encoding, transport, execution semantics, and the scientific resolution of TLC-DUP-MESSAGE-001 remain outside this package."}
+    ]
+  },
+  "operations": [
+    {
+      "operation_id": "CONSTRUCT-MESSAGE-QUADRUPLET-AST",
+      "purpose": "Construct the structural AST for the exact source-declared Message quadruplet.",
+      "inputs": [
+        {
+          "name": "definition_evidence",
+          "semantic_role": "exact candidate evidence and opaque formal expression",
+          "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0",
+          "fields": [
+            {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "shared_contract_ref": "TLC-HC-FEATURE-ID@1.0.0", "constant": "TLC-FC-07-MESSAGE-001"},
+            {"name": "object_ids", "required": true, "semantic_role": "exact definition evidence identities", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0", "allowed_values": ["TLC-SO-MESSAGE-002", "TLC-SO-MESSAGE-003", "TLC-SO-MESSAGE-025"]},
+            {"name": "contextual_relation_ids", "required": true, "semantic_role": "preserved contextual relation references", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0", "allowed_values": ["TLC-SR-MESSAGE-001", "TLC-SR-MESSAGE-002", "TLC-SR-MESSAGE-024"]},
+            {"name": "formal_expression", "required": true, "semantic_role": "opaque source expression with four named slots", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+            {"name": "source_references", "required": true, "semantic_role": "source ranges for evidence and expression", "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"},
+            {"name": "candidate_status", "required": true, "semantic_role": "unevaluated candidate status", "constant": "unevaluated_candidate"},
+            {"name": "reservation", "required": true, "semantic_role": "preserved scientific reservation", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0", "constant": "TLC-DUP-MESSAGE-001"},
+            {"name": "provenance", "required": true, "semantic_role": "complete traceability", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"}
+          ],
+          "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}},
+          "constraints": [
+            {"id": "MSG001-IN-001", "statement": "object_ids contains exactly the three required identities, each once."},
+            {"id": "MSG001-IN-002", "statement": "formal_expression preserves the source-named slots contenu, symbolique, structure_procedurale, and contexte in that order."},
+            {"id": "MSG001-IN-003", "statement": "Opaque payload and source references are supplied unchanged."}
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "message_quadruplet_ast",
+          "semantic_role": "immutable source-ordered Message quadruplet AST",
+          "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0",
+          "fields": [
+            {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "constant": "TLC-FC-07-MESSAGE-001"},
+            {"name": "representation", "required": true, "semantic_role": "structural result kind", "constant": "symbolic_ast"},
+            {"name": "root", "required": true, "semantic_role": "single Message tuple root"},
+            {"name": "slots", "required": true, "semantic_role": "four source-ordered symbolic slots", "allowed_values": ["contenu", "symbolique", "structure_procedurale", "contexte"]},
+            {"name": "references", "required": true, "semantic_role": "preserved evidence and contextual references", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0"},
+            {"name": "unresolved", "required": true, "semantic_role": "preserved reservations", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0", "allowed_values": ["TLC-DUP-MESSAGE-001"]},
+            {"name": "provenance", "required": true, "semantic_role": "complete source traceability", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"},
+            {"name": "status", "required": true, "semantic_role": "unevaluated structural status", "constant": "unevaluated_candidate"}
+          ],
+          "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0"}},
+          "constraints": [
+            {"id": "MSG001-OUT-001", "statement": "The result is observable as immutable."},
+            {"id": "MSG001-OUT-002", "statement": "Exactly one root and exactly four source-ordered slots are present."},
+            {"id": "MSG001-OUT-003", "statement": "All three object identities, contextual references, opaque content, provenance, candidate status, and reservation are preserved."}
+          ]
+        }
+      ],
+      "preconditions": [
+        {"id": "MSG001-PRE-001", "statement": "The three required evidence identities and their source references are present exactly once."},
+        {"id": "MSG001-PRE-002", "statement": "The formal expression is present unchanged and exposes exactly four source-named slots."}
+      ],
+      "postconditions": [
+        {"id": "MSG001-POST-001", "statement": "A successful result has one Message tuple root and exactly four source-ordered symbolic slots."},
+        {"id": "MSG001-POST-002", "statement": "The three evidence identities remain distinct, source-addressable, and unevaluated."},
+        {"id": "MSG001-POST-003", "statement": "No scientific value, runtime type, protocol, or execution behavior has been added."}
+      ],
+      "invariants": [
+        {"id": "MSG001-INV-001", "statement": "Object identity, slot identity, slot order, opaque content, provenance, candidate status, and reservation are conserved."},
+        {"id": "MSG001-INV-002", "statement": "The operation does not mutate scientific evidence or external domain state."}
+      ],
+      "strategy_contract": {
+        "mode": "partially_constrained",
+        "steps": ["validate exact evidence identities", "validate four source-named slots", "construct structural AST", "preserve references and provenance", "publish success or stable error"],
+        "partial_order": [
+          {"before": "validate exact evidence identities", "after": "publish success or stable error"},
+          {"before": "validate four source-named slots", "after": "publish success or stable error"},
+          {"before": "preserve references and provenance", "after": "publish success or stable error"},
+          {"before": "construct structural AST", "after": "publish success or stable error"}
+        ],
+        "prescription_basis": ["Only validation, preservation, exact structure, and failure-before-success are observable; the upstream total step list is not a unique implementation algorithm."]
+      },
+      "runtime_contract": {
+        "mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_constrained", "alignment": "not_constrained", "address_stability": "not_constrained", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"
+      },
+      "determinism": {
+        "semantic_output": "required", "field_presence": "required", "collection_order": "required", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"
+      },
+      "error_contract": [
+        {"code": "MissingDefinitionEvidence", "category": "invalid_input", "condition": "A required evidence identity or source reference is missing.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "MalformedFourSlotExpression", "category": "invalid_input", "condition": "The preserved formal expression does not expose exactly the four source-named slots in source order.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+      ],
+      "resource_contract": {
+        "time_complexity": {"status": "not_specified", "value": null},
+        "auxiliary_memory": {"status": "not_specified", "value": null},
+        "allocations": {"status": "implementation_defined", "value": null},
+        "maximum_input_size": {"status": "not_constrained", "value": null}
+      }
+    }
+  ],
+  "implementation_modes": [
+    {"mode_id": "structural-ast", "status": "required", "statement": "Expose the exact structural AST behavior and stable errors defined by this package."},
+    {"mode_id": "scientific-evaluation", "status": "forbidden", "statement": "Do not calculate, interpret, execute, or complete the four Message components."},
+    {"mode_id": "transport-protocol", "status": "forbidden", "statement": "Do not add encoding, sender, receiver, channel, delivery, or transport semantics."},
+    {"mode_id": "alternative-internal-architecture", "status": "allowed", "statement": "Any internal architecture is allowed when every observable obligation and acceptance test remains satisfied."}
+  ],
+  "global_invariants": [
+    {"id": "MSG001-GINV-001", "statement": "Absence of runtime and scientific semantics remains absence; it never becomes a default."},
+    {"id": "MSG001-GINV-002", "statement": "No implementation behavior may weaken exact identity, four-slot order, opacity, immutability, provenance, candidate status, or reservation preservation."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity."},
+    {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Lossless source references."},
+    {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Exact object, relation, and ordered-slot collections."},
+    {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Explicit reservation preservation."},
+    {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Non-interpretation of the formal expression and slot content."},
+    {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Transport-neutral stable errors."},
+    {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable provenance."},
+    {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Structural result envelope."}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["The dependency on TLC-FC-07-MESSAGE-006 is documentary and structural; this operation does not require executing that feature."]}
+}

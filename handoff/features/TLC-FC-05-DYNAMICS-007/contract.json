@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0", "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-05-DYNAMICS-007", "title": "State blocked locally", "domain": "dynamics"},
+  "purpose": "Preserve an ambiguous source expression in an explicitly unclassified state-or-evolution node without assigning scientific classification authority to an optional hint.",
+  "scope": {
+    "required": [
+      {"id": "D007-REQ-001", "statement": "Validate the source identifier, expression carrier, and optional hint carrier before successful publication.", "basis": ["registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-007/ir.yaml"]},
+      {"id": "D007-REQ-002", "statement": "Preserve the expression, optional hint, unresolved classification, provenance, unresolved items, and reservations exactly.", "basis": ["registry/oracles/dynamics/TLC-FC-05-DYNAMICS-007/oracle.yaml"]},
+      {"id": "D007-REQ-003", "statement": "Accept an absent hint and treat every present valid hint as non-authoritative metadata only."},
+      {"id": "D007-REQ-004", "statement": "Expose no successful partial result after validation or preservation failure."}
+    ],
+    "forbidden": [
+      {"id": "D007-FOR-001", "statement": "Do not classify the expression as a state or an evolution and do not let a hint determine classification."},
+      {"id": "D007-FOR-002", "statement": "Do not infer derivative, transition, initial-state, terminal-state, or stochastic execution semantics."},
+      {"id": "D007-FOR-003", "statement": "Do not mutate the expression, optional hint, or external scientific state."}
+    ],
+    "deferred": [
+      {"id": "D007-DEF-001", "statement": "TLC-UT-DYNAMICS-007 and the state-versus-evolution boundary remain preserved unresolved."},
+      {"id": "D007-DEF-002", "statement": "Any future authoritative classification requires targeted scientific review."}
+    ]
+  },
+  "operations": [{
+    "operation_id": "PRESERVE-STATE-OR-EVOLUTION-EXPRESSION",
+    "purpose": "Return an immutable explicitly unclassified node while preserving an optional non-authoritative hint.",
+    "inputs": [
+      {"name": "source_expression", "semantic_role": "opaque ambiguous expression for TLC-SO-DYNAMICS-008", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}, "constraints": [{"id": "D007-IN-001", "statement": "The expression must be present and carried as OpaqueExpression."}]},
+      {"name": "classification_hint", "semantic_role": "optional non-authoritative opaque metadata", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "collection": {"kind": "optional", "membership": "open", "cardinality": {"minimum": 0, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}}, "constraints": [{"id": "D007-IN-002", "statement": "When present, the hint must be carried as OpaqueTag and has no scientific classification authority."}]}
+    ],
+    "outputs": [{"name": "candidate", "semantic_role": "immutable unclassified state-or-evolution node", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "fields": [
+      {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "constant": "TLC-FC-05-DYNAMICS-007"},
+      {"name": "representation", "required": true, "semantic_role": "output representation", "constant": "UnclassifiedStateEvolutionNode"},
+      {"name": "expression", "required": true, "semantic_role": "unchanged opaque source expression", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+      {"name": "hint", "required": false, "semantic_role": "unchanged optional non-authoritative metadata", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+      {"name": "classification", "required": true, "semantic_role": "preserved unresolved classification", "constant": "unresolved"},
+      {"name": "traceability", "required": true, "semantic_role": "source provenance", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"},
+      {"name": "unresolved", "required": true, "semantic_role": "preserved state-versus-evolution uncertainty", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0"}
+    ], "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}, "constraints": [{"id": "D007-OUT-001", "statement": "The output remains explicitly unclassified regardless of hint presence or value."}]}],
+    "preconditions": [
+      {"id": "D007-PRE-001", "statement": "TLC-SO-DYNAMICS-008 and TLC-SR-DYNAMICS-007 are known source identifiers."},
+      {"id": "D007-PRE-002", "statement": "The expression is an OpaqueExpression and any present hint is an OpaqueTag."}
+    ],
+    "postconditions": [
+      {"id": "D007-POST-001", "statement": "The expression and optional hint payloads remain unchanged and source-addressable."},
+      {"id": "D007-POST-002", "statement": "The output classification remains unresolved and an optional hint remains metadata only."},
+      {"id": "D007-POST-003", "statement": "No state classification, evolution classification, derivative, transition, initial state, terminal state, or stochastic execution semantics are produced."}
+    ],
+    "invariants": [
+      {"id": "D007-INV-001", "statement": "TLC-SO-DYNAMICS-008 and TLC-SR-DYNAMICS-007 remain source-addressable."},
+      {"id": "D007-INV-002", "statement": "The state-versus-evolution ambiguity remains explicit and no hint gains scientific authority."}
+    ],
+    "strategy_contract": {"mode": "partially_constrained", "steps": ["validate source identifier expression and optional hint carriers", "preserve expression and optional hint", "construct an explicitly unclassified node", "attach traceability unresolved items and reservations", "verify preservation obligations", "publish success or stable error"], "partial_order": [
+      {"before": "validate source identifier expression and optional hint carriers", "after": "publish success or stable error"},
+      {"before": "preserve expression and optional hint", "after": "publish success or stable error"},
+      {"before": "construct an explicitly unclassified node", "after": "publish success or stable error"},
+      {"before": "attach traceability unresolved items and reservations", "after": "publish success or stable error"},
+      {"before": "verify preservation obligations", "after": "publish success or stable error"}
+    ], "prescription_basis": ["Validation, exact preservation, explicit unclassified status, and atomic publication are observable; internal sequencing remains open."]},
+    "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+    "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "not_applicable", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+    "error_contract": [
+      {"code": "UNKNOWN_SOURCE_IDENTIFIER", "category": "invalid_input", "condition": "The expression object or relation identifier is unknown.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "TYPE_SHAPE_MISMATCH", "category": "invalid_input", "condition": "The expression is absent or not an OpaqueExpression, or a present hint is not an OpaqueTag.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "UNRESOLVED_SCIENTIFIC_SEMANTICS", "category": "unsupported_operation", "condition": "State or evolution classification, transition, derivative, initial or terminal state, or stochastic execution semantics are requested.", "recoverability": "non_retryable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+    ],
+    "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+  }],
+  "implementation_modes": [
+    {"mode_id": "unclassified-expression-preservation", "status": "required", "statement": "Expose an explicitly unclassified node and stable errors."},
+    {"mode_id": "state-or-evolution-classification", "status": "forbidden", "statement": "Do not classify, transition, or execute the expression."},
+    {"mode_id": "alternative-internal-architecture", "status": "allowed", "statement": "Internal architecture remains free when observable obligations are preserved."}
+  ],
+  "global_invariants": [
+    {"id": "D007-GINV-001", "statement": "An optional hint never becomes scientific classification authority."},
+    {"id": "D007-GINV-002", "statement": "Unclassified status, opacity, traceability, unresolved preservation, and failure atomicity cannot be weakened."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity"},
+    {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Stable expression and relation identifiers"},
+    {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Source-addressable optional metadata"},
+    {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Preserved state-versus-evolution uncertainty"},
+    {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Unchanged expression and hint payloads"},
+    {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Stable transport-neutral failures"},
+    {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable source provenance"},
+    {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Immutable unclassified result envelope"}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["Conformance is structural and preserves the scientific classification boundary as unresolved."]}
+}

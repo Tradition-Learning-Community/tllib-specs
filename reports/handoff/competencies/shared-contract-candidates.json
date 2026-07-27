@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "domain": "competencies",
+  "candidates": [
+    {
+      "candidate_id": "COMP-SHC-001-STRUCTURAL-DESCRIPTOR-PROFILE",
+      "observed_features": ["TLC-FC-12-COMPETENCIES-001", "TLC-FC-12-COMPETENCIES-002", "TLC-FC-12-COMPETENCIES-004", "TLC-FC-12-COMPETENCIES-005", "TLC-FC-12-COMPETENCIES-006", "TLC-FC-12-COMPETENCIES-007", "TLC-FC-12-COMPETENCIES-008", "TLC-FC-12-COMPETENCIES-009", "TLC-FC-12-COMPETENCIES-010", "TLC-FC-12-COMPETENCIES-011", "TLC-FC-12-COMPETENCIES-012", "TLC-FC-12-COMPETENCIES-013", "TLC-FC-12-COMPETENCIES-016"],
+      "local_structures": [
+        "exact feature identity validation",
+        "exact ObjectId population and uniqueness validation",
+        "source-order-preserving immutable descriptor output",
+        "opaque scientific payload preservation",
+        "complete per-object provenance",
+        "structural_descriptor_only request mode",
+        "stable authoritative errors and no observable partial result",
+        "explicit unresolved scientific items"
+      ],
+      "possible_sharing_reason": "The same structural compilation profile appears across every active Competencies feature and may recur in other scientifically unresolved domains.",
+      "semantic_merge_risks": [
+        "canonical categories and boundary labels differ",
+        "object populations and ordering obligations differ",
+        "features 004 and 006 carry external dependency metadata",
+        "feature 008 has a special same-name identity rule",
+        "metric, Function, Operator, and Relation source types require distinct non-execution guarantees",
+        "feature 016 requires an empty relation set and unresolved endpoints",
+        "no cross-domain evidence was established during this domain-local task"
+      ],
+      "proposed_decision": "Keep the profile local. Reconsider a shared contract only after independent cross-domain evidence demonstrates identical observable semantics without erasing feature-specific constraints.",
+      "status": "candidate_only"
+    }
+  ]
+}

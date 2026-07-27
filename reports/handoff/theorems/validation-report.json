@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "domain": "theorems",
+  "source_commit": "022e6076ceeeb87b31065f2a9a28e95f1811d077",
+  "validated_head_commit": "2b7016ba8b846069dc356cbfbae62d221351aa61",
+  "status": "validated",
+  "population": {
+    "expected_guardrail": 9,
+    "authoritative": 9,
+    "produced": 9,
+    "ordered_feature_ids_match": true,
+    "duplicates": [],
+    "missing_packages": [],
+    "foreign_packages": []
+  },
+  "artifact_presence": {
+    "mathematical_contracts": 9,
+    "source_irs": 9,
+    "test_plans": 9,
+    "finalized_irs": 9,
+    "algorithm_specifications": 9,
+    "acceptance_oracles": 9,
+    "domain_finalization_manifest_consistent": true
+  },
+  "package_checks": {
+    "json_schema_validation": true,
+    "inter_file_coherence": true,
+    "required_files_declared": true,
+    "feature_ids_unique": true,
+    "acceptance_ids_unique": true,
+    "authoritative_error_codes_preserved": true,
+    "shared_dependencies_resolved": true,
+    "domain_dependency_union_exact": true,
+    "traceability_paths_resolved": true,
+    "traceability_categories_nonempty": true,
+    "progressive_population_valid": true,
+    "authoritative_order_valid": true,
+    "strategy_contracts_valid": true,
+    "examples_omitted_honestly": true,
+    "implementation_code_added": false,
+    "scientific_sources_modified": false,
+    "scientific_artifacts_modified": false
+  },
+  "local_schema_review": {
+    "performed_after_initial_ci_failure": true,
+    "corrections_commit": "d8cd4a57a5d06fc457d55ce125d194c3f0704ee6",
+    "corrections": [
+      "TLC-FC-06-THEOREMS-007 collection kind record replaced by scalar",
+      "TLC-FC-06-THEOREMS-008 collection ordering source_order replaced by required",
+      "TLC-FC-06-THEOREMS-008 acceptance category ordering replaced by output_contract"
+    ]
+  },
+  "inventory_metadata_normalization": {
+    "commit": "2b7016ba8b846069dc356cbfbae62d221351aa61",
+    "path": "registry/domain-finalization/theorems/feature-status.yaml",
+    "added_metadata": "feature_count: 9",
+    "existing_evidence": [
+      "authoritative_population_count: 9",
+      "exactly nine ordered feature entries",
+      "summary.selected_features: 9"
+    ],
+    "scientific_change": false,
+    "population_change": false,
+    "status_change": false,
+    "unresolved_item_change": false
+  },
+  "ci": {
+    "workflow": "Feature handoff validation",
+    "runs": [
+      {"run_number": 40, "run_id": 30263175853, "head_sha": "6c7b805abab4bfdbd33a8b025917214d3612e817", "conclusion": "failure", "diagnostic": "authoritative inventory feature count mismatch for domain theorems"},
+      {"run_number": 46, "run_id": 30263411760, "head_sha": "d8cd4a57a5d06fc457d55ce125d194c3f0704ee6", "conclusion": "failure", "diagnostic": "authoritative inventory feature count mismatch for domain theorems"},
+      {"run_number": 52, "run_id": 30263598313, "head_sha": "c778da92a5c2997758f5e165cf7a6c379758296d", "conclusion": "failure", "diagnostic": "authoritative inventory feature count mismatch for domain theorems"},
+      {"run_number": 83, "run_id": 30279640983, "head_sha": "2b7016ba8b846069dc356cbfbae62d221351aa61", "conclusion": "success", "diagnostic": null}
+    ],
+    "successful_steps": [
+      "Validate packages, schemas, and progressive populations",
+      "Run progressive validation logical scenarios",
+      "Resolve pilot bundle without writing artifacts"
+    ]
+  },
+  "finalization": {
+    "catalog_validation_status": "validated",
+    "pull_request": "https://github.com/Tradition-Learning-Community/tllib-specs/pull/106",
+    "pull_request_state": "open",
+    "merged_commit": null,
+    "merge_gate": "A final green workflow run is required on the documentation-finalized head before squash merge."
+  }
+}

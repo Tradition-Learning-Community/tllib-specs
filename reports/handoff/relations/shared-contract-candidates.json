@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "domain": "relations",
+  "candidates": [
+    {
+      "candidate_id": "RELATIONS-STRUCTURAL-NON-EXECUTION-GUARD",
+      "observed_features": [
+        "TLC-FC-15-RELATIONS-002",
+        "TLC-FC-15-RELATIONS-003",
+        "TLC-FC-15-RELATIONS-004",
+        "TLC-FC-15-RELATIONS-007",
+        "TLC-FC-15-RELATIONS-008"
+      ],
+      "local_structures": [
+        "exact ordered participant validation",
+        "opaque value preservation",
+        "unresolved propagation",
+        "external evaluator rejection"
+      ],
+      "possible_sharing_reason": "The five packages repeat a Relations-specific structural guard pattern.",
+      "semantic_merge_risks": "Features differ in participant populations, opaque payload shapes, unresolved counts, identity-fusion rules, and endpoint restrictions.",
+      "proposed_decision": "Keep local until multiple completed domains demonstrate equivalent semantics.",
+      "status": "candidate_only"
+    }
+  ]
+}

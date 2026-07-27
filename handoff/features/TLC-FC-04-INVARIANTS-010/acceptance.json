@@ -1,0 +1,187 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-FC-04-INVARIANTS-010",
+  "tests": [
+    {
+      "test_id": "INV010-ACCEPT-NOMINAL",
+      "applies_to": "INDEX-STATE-INTERPRETATION-FRAGMENTS",
+      "category": "valid_input",
+      "given": {
+        "feature_id": "TLC-FC-04-INVARIANTS-010",
+        "covered_evidence_ids": [
+          "TLC-SO-INVARIANTS-021",
+          "TLC-SO-INVARIANTS-026",
+          "TLC-SO-INVARIANTS-039",
+          "TLC-SR-INVARIANTS-020",
+          "TLC-SR-INVARIANTS-025",
+          "TLC-SR-INVARIANTS-038"
+        ],
+        "catalogue_status": "rejected_as_feature",
+        "unresolved_refs": []
+      },
+      "when": "The index_state_interpretation_fragments oracle scenario is exercised.",
+      "expect": {
+        "accepted": true,
+        "output_type": "RejectedStateAnnotationIndex",
+        "immutable": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-010/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV010-ACCEPT-DUPLICATE",
+      "applies_to": "INDEX-STATE-INTERPRETATION-FRAGMENTS",
+      "category": "error",
+      "given": {
+        "authoritative_oracle_scenario": "INV010-ACCEPT-DUPLICATE"
+      },
+      "when": "The index_state_interpretation_fragments oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-010/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV010-ACCEPT-UNKNOWN",
+      "applies_to": "INDEX-STATE-INTERPRETATION-FRAGMENTS",
+      "category": "error",
+      "given": {
+        "authoritative_oracle_scenario": "INV010-ACCEPT-UNKNOWN"
+      },
+      "when": "The index_state_interpretation_fragments oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-010/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV010-ACCEPT-SOURCE",
+      "applies_to": "INDEX-STATE-INTERPRETATION-FRAGMENTS",
+      "category": "error",
+      "given": {
+        "authoritative_oracle_scenario": "INV010-ACCEPT-SOURCE"
+      },
+      "when": "The index_state_interpretation_fragments oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-010/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV010-ACCEPT-PROMOTION",
+      "applies_to": "INDEX-STATE-INTERPRETATION-FRAGMENTS",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV010-ACCEPT-PROMOTION"
+      },
+      "when": "The index_state_interpretation_fragments oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-010/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV010-ACCEPT-OPAQUE",
+      "applies_to": "INDEX-STATE-INTERPRETATION-FRAGMENTS",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV010-ACCEPT-OPAQUE"
+      },
+      "when": "The index_state_interpretation_fragments oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-010/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV010-ACCEPT-NO-STATE-SEMANTICS",
+      "applies_to": "INDEX-STATE-INTERPRETATION-FRAGMENTS",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV010-ACCEPT-NO-STATE-SEMANTICS"
+      },
+      "when": "The index_state_interpretation_fragments oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-010/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV010-ACCEPT-DETERMINISM",
+      "applies_to": "INDEX-STATE-INTERPRETATION-FRAGMENTS",
+      "category": "determinism",
+      "given": {
+        "authoritative_oracle_scenario": "INV010-ACCEPT-DETERMINISM"
+      },
+      "when": "The index_state_interpretation_fragments oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-010/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV010-ACCEPT-STATUS",
+      "applies_to": "INDEX-STATE-INTERPRETATION-FRAGMENTS",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV010-ACCEPT-STATUS"
+      },
+      "when": "The index_state_interpretation_fragments oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-010/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV010-ACCEPT-CONFORMANCE",
+      "applies_to": "INDEX-STATE-INTERPRETATION-FRAGMENTS",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV010-ACCEPT-CONFORMANCE"
+      },
+      "when": "The index_state_interpretation_fragments oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-010/oracle.yaml"
+      ]
+    }
+  ]
+}

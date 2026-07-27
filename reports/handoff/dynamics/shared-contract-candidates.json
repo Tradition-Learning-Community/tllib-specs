@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "domain": "dynamics",
+  "candidates": [
+    {
+      "candidate_id": "DYN-HC-OPAQUE-STRUCTURAL-CONSTRUCTION",
+      "observed_features": ["TLC-FC-05-DYNAMICS-001", "TLC-FC-05-DYNAMICS-002", "TLC-FC-05-DYNAMICS-003", "TLC-FC-05-DYNAMICS-004", "TLC-FC-05-DYNAMICS-005", "TLC-FC-05-DYNAMICS-006", "TLC-FC-05-DYNAMICS-007"],
+      "local_structures": ["identifier and carrier validation", "opaque payload preservation", "immutable structural output", "traceability attachment", "unresolved and reservation propagation", "no observable partial result"],
+      "possible_sharing_reason": "The same observable construction boundary appears in all seven Dynamics packages.",
+      "semantic_merge_risks": ["Different feature outputs preserve different identities, ordering rules, blocked statuses, and scientific reservations.", "A generic constructor could erase feature-specific negative semantics."],
+      "proposed_decision": "Keep local in v1.0 and evaluate only after equivalent evidence exists in additional domains.",
+      "status": "candidate_only"
+    },
+    {
+      "candidate_id": "DYN-HC-UNEVALUATED-EXPRESSION",
+      "observed_features": ["TLC-FC-05-DYNAMICS-001", "TLC-FC-05-DYNAMICS-002", "TLC-FC-05-DYNAMICS-003", "TLC-FC-05-DYNAMICS-004", "TLC-FC-05-DYNAMICS-005", "TLC-FC-05-DYNAMICS-007"],
+      "local_structures": ["explicit unevaluated status", "opaque expression payload", "forbidden scientific execution", "stable source traceability", "preserved unresolved semantics"],
+      "possible_sharing_reason": "Six features expose structurally similar unevaluated expression or application records.",
+      "semantic_merge_risks": ["Predicate sets, equation bundles, stochastic equations, integral expressions, operator applications, and unclassified nodes have materially different fields and forbidden operations.", "Merging them could incorrectly imply a common executable expression algebra."],
+      "proposed_decision": "Do not factor in this domain task; retain only as a cross-domain review candidate.",
+      "status": "candidate_only"
+    },
+    {
+      "candidate_id": "DYN-HC-STATE-CANDIDATE-BOUNDARY",
+      "observed_features": ["TLC-FC-05-DYNAMICS-006", "TLC-FC-05-DYNAMICS-007"],
+      "local_structures": ["candidate rather than explicit state", "absence of state-space claim", "no transition inference", "scientific classification remains unresolved"],
+      "possible_sharing_reason": "Both packages preserve a boundary before scientific state promotion.",
+      "semantic_merge_risks": ["Feature 006 is a keyed component record, while feature 007 is an ambiguous expression node.", "A shared structure could collapse the explicit distinction between candidate composition and state-versus-evolution ambiguity."],
+      "proposed_decision": "Keep separate; the domain finalization artifacts explicitly reject automatic factorization of this resemblance.",
+      "status": "candidate_only"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "domain": "message",
+  "candidates": [
+    {
+      "candidate_id": "TLC-HCC-MESSAGE-EVIDENCE-ENVELOPE",
+      "observed_features": ["TLC-FC-07-MESSAGE-001", "TLC-FC-07-MESSAGE-002", "TLC-FC-07-MESSAGE-003", "TLC-FC-07-MESSAGE-004", "TLC-FC-07-MESSAGE-005", "TLC-FC-07-MESSAGE-006"],
+      "local_structures": ["exact feature identity", "scientific object and relation references", "opaque candidate payload", "candidate status", "provenance", "unresolved metadata"],
+      "possible_sharing_reason": "All Message features consume source-addressable candidate evidence and preserve it into a structural result.",
+      "semantic_merge_risks": ["The required identities and roles differ per feature.", "Some features have reservations, others external-provider status or no routed unresolved identifiers.", "Pair, catalogue, cycle, AST, claim, and profile structures have different observable contracts."],
+      "proposed_decision": "Keep local until at least one additional domain demonstrates equivalent evidence-envelope semantics beyond the already reused global shared contracts.",
+      "status": "candidate_only"
+    },
+    {
+      "candidate_id": "TLC-HCC-EXACT-IDENTIFIER-POPULATION",
+      "observed_features": ["TLC-FC-07-MESSAGE-001", "TLC-FC-07-MESSAGE-003", "TLC-FC-07-MESSAGE-004", "TLC-FC-07-MESSAGE-005", "TLC-FC-07-MESSAGE-006"],
+      "local_structures": ["exact authoritative identifier set", "duplicate rejection", "missing-identity rejection", "identity preservation", "no partial result"],
+      "possible_sharing_reason": "Multiple structural features require exact source-defined populations before successful construction.",
+      "semantic_merge_risks": ["Error codes and cardinalities are feature-specific.", "MESSAGE-003 requires same-subsection validation.", "MESSAGE-005 requires two same-label occurrences to remain distinct.", "MESSAGE-006 also validates relation endpoints and forbidden fields."],
+      "proposed_decision": "Retain feature-local population contracts; consider a future generic validation profile only if it can parameterize errors, relations, contextual constraints, and preservation obligations without semantic loss.",
+      "status": "candidate_only"
+    },
+    {
+      "candidate_id": "TLC-HCC-SOURCE-ORDERED-STRUCTURAL-DESCRIPTOR",
+      "observed_features": ["TLC-FC-07-MESSAGE-004", "TLC-FC-07-MESSAGE-005"],
+      "local_structures": ["recorded source position", "input permutation invariance", "source-context partitioning", "ordered output references", "structural equality"],
+      "possible_sharing_reason": "Both features derive deterministic structural outputs from authoritative recorded source order rather than incidental input order.",
+      "semantic_merge_risks": ["MESSAGE-004 preserves order independently inside each source context and explicitly infers no order between contexts.", "MESSAGE-005 exposes one six-stage source order plus four partitions and prohibits transition semantics.", "A shared abstraction could falsely equate catalogue order with cycle-stage order."],
+      "proposed_decision": "Do not merge. Revisit only with explicit order-scope parameters and cross-domain evidence that distinguishes context-local order from ordered stage references.",
+      "status": "candidate_only"
+    }
+  ]
+}

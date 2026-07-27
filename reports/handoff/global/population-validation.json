@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "model_version": "1.0.0",
+  "status": "validated",
+  "source_branch": "handoff/integration-v1",
+  "source_commit": "1fe3a2dbaa8686d1d6fad806acefb96d28644e2b",
+  "finalization_branch": "handoff/global-finalization-v1",
+  "expected": {
+    "domain_catalogs": 16,
+    "feature_packages": 166,
+    "shared_contracts": 8
+  },
+  "observed": {
+    "domain_catalogs": 16,
+    "feature_packages": 166,
+    "shared_contracts": 8,
+    "orphan_packages": 0,
+    "missing_packages": 0,
+    "duplicate_feature_ids": 0,
+    "wrong_domain_placements": 0,
+    "synthetic_features_added": 0
+  },
+  "authoritative_domain_order": [
+    {"domain_index": 0, "domain": "master", "feature_count": 16},
+    {"domain_index": 1, "domain": "disciple", "feature_count": 10},
+    {"domain_index": 2, "domain": "community", "feature_count": 8},
+    {"domain_index": 3, "domain": "huit-dimensions", "feature_count": 11},
+    {"domain_index": 4, "domain": "invariants", "feature_count": 10},
+    {"domain_index": 5, "domain": "dynamics", "feature_count": 7},
+    {"domain_index": 6, "domain": "theorems", "feature_count": 9},
+    {"domain_index": 7, "domain": "message", "feature_count": 6},
+    {"domain_index": 8, "domain": "principle", "feature_count": 10},
+    {"domain_index": 9, "domain": "values", "feature_count": 14},
+    {"domain_index": 10, "domain": "virtues", "feature_count": 10},
+    {"domain_index": 11, "domain": "capacities", "feature_count": 15},
+    {"domain_index": 12, "domain": "competencies", "feature_count": 13},
+    {"domain_index": 13, "domain": "practice", "feature_count": 10},
+    {"domain_index": 14, "domain": "lived-experience", "feature_count": 12},
+    {"domain_index": 15, "domain": "relations", "feature_count": 5}
+  ],
+  "population_comparison": {
+    "method": "exact ordered union of the 16 authoritative domain inventories compared with the 16 domain catalogs, the global catalog, and the directories under handoff/features",
+    "directory_count_only_is_sufficient": false,
+    "principle_non_contiguous_population_preserved": true,
+    "principle_009_present": false,
+    "community_non_contiguous_population_preserved": true,
+    "historical_huit_dimensions_feature_ids_preserved": true
+  },
+  "required_package_files": [
+    "README.md",
+    "manifest.json",
+    "contract.json",
+    "acceptance.json",
+    "traceability.json"
+  ],
+  "examples": {
+    "present": 1,
+    "absent": 165,
+    "declaration_consistent_with_files": true
+  },
+  "validation_entrypoint": "tools/handoff/validate_handoff.py",
+  "catalog_projection": "handoff/catalog.json",
+  "ci_evidence": {
+    "pull_request": 122,
+    "workflow": "Feature handoff validation",
+    "run_id": 30289744310,
+    "run_number": 137,
+    "validated_head": "8bd87d6cf457dfe535ef072e92318b6967a01ff8",
+    "conclusion": "success",
+    "scope": "final handoff artifacts and tooling before report-only evidence closure"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0", "package_version": "1.0.0", "applies_to": "TLC-FC-06-THEOREMS-004",
+  "tests": [
+    {"test_id": "THEOREMS-004-A01", "applies_to": "CONSTRUCT-TRANSMISSION-ERGODICITY-HYPOTHESIS", "category": "valid_input", "given": "A present opaque operator and condition, both citing maths/06-theorems.md:20.", "when": "The descriptor is constructed.", "expect": "Both components are preserved and the result is labelled hypothesis_not_verified.", "source_basis": ["registry/oracles/theorems/TLC-FC-06-THEOREMS-004/oracle.yaml"]},
+    {"test_id": "THEOREMS-004-A02", "applies_to": "CONSTRUCT-TRANSMISSION-ERGODICITY-HYPOTHESIS", "category": "error", "given": "The operator is absent.", "when": "Validation runs.", "expect": {"error": "MISSING_OPERATOR_SYMBOL", "partial_result": false}},
+    {"test_id": "THEOREMS-004-A03", "applies_to": "CONSTRUCT-TRANSMISSION-ERGODICITY-HYPOTHESIS", "category": "error", "given": "The condition is absent.", "when": "Validation runs.", "expect": {"error": "MISSING_ERGODICITY_CONDITION", "partial_result": false}},
+    {"test_id": "THEOREMS-004-A04", "applies_to": "CONSTRUCT-TRANSMISSION-ERGODICITY-HYPOTHESIS", "category": "error", "given": "One component cites a different source.", "when": "Validation runs.", "expect": {"error": "SOURCE_REFERENCE_MISMATCH", "partial_result": false}},
+    {"test_id": "THEOREMS-004-A05", "applies_to": "CONSTRUCT-TRANSMISSION-ERGODICITY-HYPOTHESIS", "category": "preservation", "given": "Arbitrary opaque operator and condition payloads.", "when": "The result is inspected.", "expect": "Both payloads and the source reference are unchanged, and the status is never verified or proved."},
+    {"test_id": "THEOREMS-004-A06", "applies_to": "CONSTRUCT-TRANSMISSION-ERGODICITY-HYPOTHESIS", "category": "determinism", "given": "Identical components.", "when": "Construction is repeated.", "expect": "Semantically identical hypothesis records."},
+    {"test_id": "THEOREMS-004-A07", "applies_to": "CONSTRUCT-TRANSMISSION-ERGODICITY-HYPOTHESIS", "category": "unsupported_operation", "given": "A request to compute a spectral gap, test ergodicity, execute the operator, or infer stability.", "when": "The package boundary is exercised.", "expect": "No scientific computation or truth claim is produced."}
+  ]
+}

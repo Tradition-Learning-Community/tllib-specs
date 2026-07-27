@@ -1,0 +1,3 @@
+# Essential properties composite descriptor
+
+This feature preserves `TLC-SO-LIVED-EXPERIENCE-003` as one composite invariant object. Implement exact identity, uniqueness, provenance, deterministic immutable construction, comparison, and lossless serialization. Do not split synthesis, holistic integration, legitimacy, living memory, or incorporation into new features or executable operations; do not create metrics, psychological interpretation, causal claims, events, states, or transitions. Component evaluation requests return `ScientificEvaluationRequested`. The composite boundary and all unresolved reservations are mandatory.

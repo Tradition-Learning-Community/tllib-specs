@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0", "package_version": "1.0.0", "applies_to": "TLC-FC-06-THEOREMS-005",
+  "tests": [
+    {"test_id": "THEOREMS-005-A01", "applies_to": "REGISTER-CNS-OPERATOR-CLAIMS", "category": "valid_input", "given": "One sourced transformation claim and sourced per-dimension removal claims.", "when": "The claim set is constructed.", "expect": "Two separately addressable opaque claim families with blocked_local status.", "source_basis": ["registry/oracles/theorems/TLC-FC-06-THEOREMS-005/oracle.yaml"]},
+    {"test_id": "THEOREMS-005-A02", "applies_to": "REGISTER-CNS-OPERATOR-CLAIMS", "category": "error", "given": "The transformation claim is absent or lacks its required source.", "when": "Validation runs.", "expect": {"error": "MISSING_TRANSFORMATION_CLAIM", "partial_result": false}},
+    {"test_id": "THEOREMS-005-A03", "applies_to": "REGISTER-CNS-OPERATOR-CLAIMS", "category": "error", "given": "A removal claim lacks its required source.", "when": "Validation runs.", "expect": {"error": "MISSING_REMOVAL_CLAIM_SOURCE", "partial_result": false}},
+    {"test_id": "THEOREMS-005-A04", "applies_to": "REGISTER-CNS-OPERATOR-CLAIMS", "category": "error", "given": "A claim is assigned to both families or the wrong family.", "when": "Validation runs.", "expect": {"error": "CLAIM_FAMILY_COLLISION", "partial_result": false}},
+    {"test_id": "THEOREMS-005-A05", "applies_to": "REGISTER-CNS-OPERATOR-CLAIMS", "category": "preservation", "given": "Opaque claims, including identical bytes across different families.", "when": "The result is inspected.", "expect": "All payloads remain unchanged and the families remain distinct."},
+    {"test_id": "THEOREMS-005-A06", "applies_to": "REGISTER-CNS-OPERATOR-CLAIMS", "category": "determinism", "given": "Identical sourced claims.", "when": "Construction is repeated.", "expect": "Semantically identical claim sets."},
+    {"test_id": "THEOREMS-005-A07", "applies_to": "REGISTER-CNS-OPERATOR-CLAIMS", "category": "unsupported_operation", "given": "A request to execute a removal effect or assert completeness, necessity, or sufficiency.", "when": "The package boundary is exercised.", "expect": "No CNS truth value or proof claim is produced."},
+    {"test_id": "THEOREMS-005-A08", "applies_to": "TLC-FC-06-THEOREMS-005", "category": "preservation", "given": "The package proof metadata.", "when": "It is inspected.", "expect": "PROOF-THEOREMS-003 remains partial and not formalized, and scientific status remains blocked_local."}
+  ]
+}

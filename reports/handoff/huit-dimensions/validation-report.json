@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "domain": "huit-dimensions",
+  "source_commit": "6e01d536e41565c456a3b94b4a1f3921664b55af",
+  "work_branch": "handoff/domain-03-huit-dimensions",
+  "pull_request": {"number": 105, "base": "handoff/integration-v1", "head": "handoff/domain-03-huit-dimensions"},
+  "population": {
+    "expected": 11,
+    "produced": 11,
+    "exact_match": true,
+    "ordered_feature_ids": ["TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013"]
+  },
+  "artifact_population": {
+    "mathematical_contracts_present": 11,
+    "source_irs_present": 11,
+    "test_plans_present": 11,
+    "finalized_irs_present": 11,
+    "algorithms_present": 11,
+    "oracles_present": 11,
+    "feature_packages_present": 11,
+    "foreign_domain_packages_added": 0
+  },
+  "scope_check": {
+    "domain_package_paths_complete": true,
+    "authorized_validator_compatibility_added": true,
+    "workflow_entrypoint_updated": true,
+    "scientific_sources_modified": false,
+    "scientific_semantics_modified": false,
+    "intermediate_artifacts_modified": false,
+    "shared_contracts_modified": false,
+    "schemas_modified": false,
+    "global_catalog_modified": false,
+    "implementation_code_added": false
+  },
+  "validation_checks": {
+    "inventory_population_review": "passed",
+    "duplicate_feature_id_review": "passed",
+    "artifact_presence_review": "passed",
+    "traceability_multiplicity_review": "passed",
+    "scientific_boundary_review": "passed",
+    "strategy_prescription_review": "passed",
+    "json_schema_execution": "passed",
+    "inter_file_consistency_execution": "passed",
+    "progressive_population_execution": "passed",
+    "progressive_logical_self_tests": "passed",
+    "pilot_bundle_resolution": "passed"
+  },
+  "compatibility_resolution": {
+    "entrypoint": "tools/handoff/validate_handoff_compat.py",
+    "base_validator_preserved": "tools/handoff/validate_handoff.py",
+    "domain_identifier_rule": "A trailing -de-tl token is normalized only when the corresponding authoritative domain-finalization directory exists.",
+    "count_key_rule": "feature_count, population_count, active_feature_count, and summary.active_features are accepted only when every declared count equals the authoritative feature-list cardinality.",
+    "scientific_effect": "none"
+  },
+  "ci": {
+    "status": "passed",
+    "workflow_name": "Feature handoff validation",
+    "workflow_run_id": 30263789444,
+    "workflow_conclusion": "success",
+    "job_name": "Validate handoff v1.0",
+    "job_id": 89969589588,
+    "validated_steps": [
+      "Validate packages, schemas, and progressive populations",
+      "Run progressive validation logical scenarios",
+      "Resolve pilot bundle without writing artifacts"
+    ]
+  },
+  "resolved_model_conflicts": [
+    {
+      "id": "HD-VALIDATION-DOMAIN-IDENTITY",
+      "resolution": "Generic authoritative-directory-backed normalization maps identifier token huit-dimensions-de-tl to catalog domain huit-dimensions without changing feature IDs or scientific registries."
+    },
+    {
+      "id": "HD-VALIDATION-INVENTORY-COUNT-KEY",
+      "resolution": "The compatibility validator accepts established count metadata aliases and verifies all supplied values against the exact inventory length."
+    }
+  ],
+  "merge": {"status": "ready_after_final_head_check", "reason": "The complete validation workflow passed; reports and PR metadata are being finalized before merge."}
+}

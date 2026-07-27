@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tradition-learning-community.github.io/tllib-specs/handoff/schemas/global-catalog.schema.json",
+  "title": "Finalized Feature Handoff Global Catalog v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "model_version",
+    "catalog_status",
+    "complete_166_feature_catalog_finalized",
+    "validator",
+    "exporter",
+    "generation",
+    "shared_contracts",
+    "domains",
+    "features",
+    "summary"
+  ],
+  "$defs": {
+    "semver": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "safe_path": {"type": "string", "minLength": 1, "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"},
+    "dependency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["shared_contract_id", "version"],
+      "properties": {
+        "shared_contract_id": {"type": "string", "pattern": "^TLC-HC-[A-Z0-9-]+$"},
+        "version": {"$ref": "#/$defs/semver"}
+      }
+    },
+    "statuses": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["package", "scientific", "execution"],
+      "properties": {
+        "package": {"enum": ["draft", "pilot", "validated", "finalized", "deprecated", "superseded"]},
+        "scientific": {"enum": ["defined", "partially_defined", "preserved_unresolved", "external_provider_required", "not_applicable"]},
+        "execution": {"enum": ["structural_only", "executable", "conditionally_executable", "unsupported"]}
+      }
+    },
+    "tool": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entrypoint", "version"],
+      "properties": {
+        "entrypoint": {"$ref": "#/$defs/safe_path"},
+        "version": {"$ref": "#/$defs/semver"}
+      }
+    },
+    "count_map": {
+      "type": "object",
+      "additionalProperties": {"type": "integer", "minimum": 0}
+    }
+  },
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "model_version": {"const": "1.0.0"},
+    "catalog_status": {"const": "finalized"},
+    "complete_166_feature_catalog_finalized": {"const": true},
+    "validator": {"$ref": "#/$defs/tool"},
+    "exporter": {"$ref": "#/$defs/tool"},
+    "generation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entrypoint", "version", "deterministic", "volatile_fields_present"],
+      "properties": {
+        "entrypoint": {"const": "tools/handoff/generate_catalog.py"},
+        "version": {"$ref": "#/$defs/semver"},
+        "deterministic": {"const": true},
+        "volatile_fields_present": {"const": false}
+      }
+    },
+    "shared_contracts": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["shared_contract_id", "version", "path", "status", "dependencies", "package_sha256"],
+        "properties": {
+          "shared_contract_id": {"type": "string", "pattern": "^TLC-HC-[A-Z0-9-]+$"},
+          "version": {"$ref": "#/$defs/semver"},
+          "path": {"$ref": "#/$defs/safe_path"},
+          "status": {"enum": ["validated", "finalized"]},
+          "dependencies": {"type": "array", "items": {"$ref": "#/$defs/dependency"}, "uniqueItems": true},
+          "package_sha256": {"$ref": "#/$defs/sha256"}
+        }
+      }
+    },
+    "domains": {
+      "type": "array",
+      "minItems": 16,
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["domain", "domain_index", "catalog_path", "feature_count", "catalog_sha256"],
+        "properties": {
+          "domain": {"type": "string", "minLength": 1},
+          "domain_index": {"type": "integer", "minimum": 0, "maximum": 15},
+          "catalog_path": {"$ref": "#/$defs/safe_path"},
+          "feature_count": {"type": "integer", "minimum": 1},
+          "catalog_sha256": {"$ref": "#/$defs/sha256"}
+        }
+      }
+    },
+    "features": {
+      "type": "array",
+      "minItems": 166,
+      "maxItems": 166,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "feature_id",
+          "domain",
+          "path",
+          "package_version",
+          "statuses",
+          "examples_present",
+          "shared_dependencies",
+          "package_sha256",
+          "manifest_path",
+          "descriptor_sha256",
+          "deprecation",
+          "substitution"
+        ],
+        "properties": {
+          "feature_id": {"type": "string", "pattern": "^TLC-FC-[0-9]{2}-[A-Z][A-Z0-9-]*-[0-9]{3}$"},
+          "domain": {"type": "string", "minLength": 1},
+          "path": {"$ref": "#/$defs/safe_path"},
+          "package_version": {"$ref": "#/$defs/semver"},
+          "statuses": {"$ref": "#/$defs/statuses"},
+          "examples_present": {"type": "boolean"},
+          "shared_dependencies": {"type": "array", "items": {"$ref": "#/$defs/dependency"}, "uniqueItems": true},
+          "package_sha256": {"$ref": "#/$defs/sha256"},
+          "manifest_path": {"$ref": "#/$defs/safe_path"},
+          "descriptor_sha256": {"$ref": "#/$defs/sha256"},
+          "deprecation": {"type": ["object", "null"]},
+          "substitution": {"type": ["object", "null"]}
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "domain_count",
+        "feature_count",
+        "shared_contract_count",
+        "package_statuses",
+        "scientific_statuses",
+        "execution_statuses",
+        "examples_present",
+        "examples_absent",
+        "promoted_shared_contract_candidates"
+      ],
+      "properties": {
+        "domain_count": {"const": 16},
+        "feature_count": {"const": 166},
+        "shared_contract_count": {"const": 8},
+        "package_statuses": {"$ref": "#/$defs/count_map"},
+        "scientific_statuses": {"$ref": "#/$defs/count_map"},
+        "execution_statuses": {"$ref": "#/$defs/count_map"},
+        "examples_present": {"type": "integer", "minimum": 0, "maximum": 166},
+        "examples_absent": {"type": "integer", "minimum": 0, "maximum": 166},
+        "promoted_shared_contract_candidates": {"const": 0}
+      }
+    }
+  }
+}

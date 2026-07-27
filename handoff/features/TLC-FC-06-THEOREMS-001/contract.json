@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-06-THEOREMS-001", "title": "Experiential conservation claim", "domain": "theorems"},
+  "purpose": "Validate and assemble the exact source components of the experiential conservation statement into an unevaluated, immutable descriptor without proving or evaluating the statement.",
+  "scope": {
+    "required": [
+      {"id": "TH001-REQ-001", "statement": "Accept exactly one present opaque axiom reference and preserve its identity.", "basis": ["registry/math-contracts/TLC-FC-06-THEOREMS-001/contract.yaml"]},
+      {"id": "TH001-REQ-002", "statement": "Preserve the opaque experience symbol byte-for-byte.", "basis": ["registry/optimized-ir/theorems/TLC-FC-06-THEOREMS-001/ir.yaml"]},
+      {"id": "TH001-REQ-003", "statement": "Accept exactly the bounded-energy, controlled-variation, and stationary-law clause identifiers, each once.", "basis": ["registry/algorithms/theorems/TLC-FC-06-THEOREMS-001/algorithm.yaml", "registry/oracles/theorems/TLC-FC-06-THEOREMS-001/oracle.yaml"]},
+      {"id": "TH001-REQ-004", "statement": "Preserve the associated partial, not-formalized proof status and PROOF-THEOREMS-006 as specification metadata."}
+    ],
+    "forbidden": [
+      {"id": "TH001-FOR-001", "statement": "Do not evaluate energy boundedness, variation control, stationary convergence, an invariant measure, or theorem truth."},
+      {"id": "TH001-FOR-002", "statement": "Do not add scientific units, dimensions, tolerances, probability laws, numeric methods, or inferred clause semantics."},
+      {"id": "TH001-FOR-003", "statement": "Do not expose a successful partial descriptor after any validation failure."}
+    ],
+    "deferred": [
+      {"id": "TH001-DEF-001", "statement": "Completion and verification of the scientific proof remain external to this package."},
+      {"id": "TH001-DEF-002", "statement": "Concrete storage, serialization, ownership, allocation, and concurrency choices remain implementation-defined."}
+    ]
+  },
+  "operations": [
+    {
+      "operation_id": "ASSEMBLE-EXPERIENTIAL-CONSERVATION-CLAIM",
+      "purpose": "Produce the exact unevaluated conservation-claim descriptor from validated opaque inputs.",
+      "inputs": [
+        {"name": "axiom_reference", "semantic_role": "external source axiom identity", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "collection": {"kind": "scalar", "membership": "constrained", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}},
+        {"name": "experience_symbol", "semantic_role": "opaque experience identity and payload", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "collection": {"kind": "scalar", "membership": "constrained", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}},
+        {"name": "claim_clauses", "semantic_role": "exact conservation clause identifier set", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0", "collection": {"kind": "set", "membership": "exact", "members": ["bounded-energy", "controlled-variation", "stationary-law"], "cardinality": {"minimum": 3, "maximum": 3}, "ordering": "not_constrained", "duplicates": "forbidden", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}}}
+      ],
+      "outputs": [
+        {"name": "conservation_claim", "semantic_role": "immutable unevaluated conservation claim", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "fields": [
+          {"name": "axiom_reference", "required": true, "semantic_role": "preserved axiom identity", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+          {"name": "experience_symbol", "required": true, "semantic_role": "byte-for-byte preserved experience symbol", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+          {"name": "claim_clauses", "required": true, "semantic_role": "exact three unevaluated clause identifiers", "allowed_values": ["bounded-energy", "controlled-variation", "stationary-law"]},
+          {"name": "scientific_status", "required": true, "semantic_role": "non-proving result status", "constant": "unevaluated"}
+        ], "collection": {"kind": "scalar", "membership": "exact", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0"}}}
+      ],
+      "preconditions": [
+        {"id": "TH001-PRE-001", "statement": "The axiom reference is present."},
+        {"id": "TH001-PRE-002", "statement": "The clause set equals the exact required three-clause population."}
+      ],
+      "postconditions": [
+        {"id": "TH001-POST-001", "statement": "The result contains exactly the supplied axiom reference, experience symbol, and three required clause identifiers."},
+        {"id": "TH001-POST-002", "statement": "No scientific component has been evaluated or normalized."}
+      ],
+      "invariants": [
+        {"id": "TH001-INV-001", "statement": "Opaque input identities and payloads remain unchanged."},
+        {"id": "TH001-INV-002", "statement": "The result never implies that the conservation statement is proved."}
+      ],
+      "strategy_contract": {"mode": "partially_constrained", "steps": ["validate required identity", "validate exact clause population", "preserve opaque inputs", "construct descriptor", "publish success or stable error"], "partial_order": [
+        {"before": "validate required identity", "after": "publish success or stable error"},
+        {"before": "validate exact clause population", "after": "publish success or stable error"},
+        {"before": "preserve opaque inputs", "after": "publish success or stable error"},
+        {"before": "construct descriptor", "after": "publish success or stable error"}
+      ], "prescription_basis": ["Validation and exact preservation must precede observable success; no unique internal total algorithm is prescribed."]},
+      "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+      "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "not_required", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+      "error_contract": [
+        {"code": "MISSING_AXIOM_REFERENCE", "category": "invalid_input", "condition": "The required axiom reference is absent.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "INCOMPLETE_CONSERVATION_CLAUSES", "category": "invalid_input", "condition": "The clause collection differs from the exact required population by membership, cardinality, or duplication.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+      ],
+      "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+    }
+  ],
+  "implementation_modes": [
+    {"mode_id": "structural-descriptor", "status": "required", "statement": "Expose the structural validation and construction behavior defined by this package."},
+    {"mode_id": "scientific-evaluation", "status": "forbidden", "statement": "Do not calculate or prove any conservation property."},
+    {"mode_id": "alternative-internal-architecture", "status": "allowed", "statement": "Any internal design is allowed when all observable obligations remain satisfied."}
+  ],
+  "global_invariants": [
+    {"id": "TH001-GINV-001", "statement": "Absence of a scientific definition or proof never becomes a default value or truth claim."},
+    {"id": "TH001-GINV-002", "statement": "Every successful result is complete, immutable, deterministic, and traceable."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity."},
+    {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Lossless scientific references."},
+    {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Exact reference collection semantics."},
+    {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Explicit unresolved scientific boundaries."},
+    {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Opaque input and payload preservation."},
+    {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Transport-neutral stable errors."},
+    {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable provenance."},
+    {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Immutable descriptor result shape."}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["Structural conformance does not establish theorem truth."]}
+}

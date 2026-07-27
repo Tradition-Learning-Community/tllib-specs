@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "domain": "theorems",
+  "candidates": [
+    {
+      "candidate_id": "THEOREMS-CANDIDATE-PROOF-STATUS-WITHOUT-EXECUTION",
+      "observed_features": ["TLC-FC-06-THEOREMS-001", "TLC-FC-06-THEOREMS-004", "TLC-FC-06-THEOREMS-005", "TLC-FC-06-THEOREMS-006", "TLC-FC-06-THEOREMS-007", "TLC-FC-06-THEOREMS-008", "TLC-FC-06-THEOREMS-009"],
+      "local_structures": ["partial or absent proof status", "optional proof reference", "not-formalized marker", "truth-value prohibition", "external proof obligation"],
+      "possible_sharing_reason": "Several theorem packages preserve proof metadata while explicitly prohibiting proof execution or status promotion.",
+      "semantic_merge_risks": ["hypothesis status is not identical to declaration proof status", "absent proof differs from partial proof", "runtime output does not always carry proof fields", "cross-domain proof models may use different status vocabularies"],
+      "proposed_decision": "Evaluate across additional domains before any shared contract is created; continue composing existing opaque, unresolved, traceability, and descriptor contracts locally.",
+      "status": "candidate_only"
+    },
+    {
+      "candidate_id": "THEOREMS-CANDIDATE-SOURCE-ORDINAL-DIMENSION-ROLE",
+      "observed_features": ["TLC-FC-06-THEOREMS-008", "TLC-FC-06-THEOREMS-009"],
+      "local_structures": ["SourceOrdinal", "exact dimension label", "opaque role payload", "source reference", "unresolved classification identifier"],
+      "possible_sharing_reason": "Both packages preserve source-positioned dimension-role records with unresolved cross-domain semantics.",
+      "semantic_merge_risks": ["feature 008 requires an eight-entry ordered sequence", "feature 009 requires one fixed Principles record", "other dimensions may have different unresolved identifiers", "sharing could incorrectly imply common scientific classification semantics"],
+      "proposed_decision": "Keep structures local until at least one additional domain demonstrates equivalent observable semantics and exact constants can be parameterized without semantic loss.",
+      "status": "candidate_only"
+    }
+  ]
+}

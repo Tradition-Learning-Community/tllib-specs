@@ -1,0 +1,87 @@
+{
+  "schema_version":"1.0","package_version":"1.0.0",
+  "feature":{"feature_id":"TLC-FC-13-PRACTICE-001","title":"Constraint candidate representation","domain":"practice"},
+  "purpose":"Construct and preserve a source-addressable declarative constraint candidate without scientific execution or evaluation.",
+  "scope":{
+    "required":[
+      {"id":"P001-REQ-001","statement":"Accept exactly the required opaque candidate input and canonical provenance for TLC-FC-13-PRACTICE-001."},
+      {"id":"P001-REQ-002","statement":"Preserve TLC-SO-PRACTICE-045, INPUT-PRACTICE-001-1, OUTPUT-PRACTICE-001-1, documentary order, opaque payloads, reservations, and traceability."},
+      {"id":"P001-REQ-003","statement":"Provide deterministic structural construction, validation, canonical serialization, deserialization, comparison, and trace inspection."}
+    ],
+    "forbidden":[
+      {"id":"P001-FOR-001","statement":"Do not infer or execute a constraint predicate, numerical method, type, dimension, unit, threshold, temporal rule, progression, or effect."},
+      {"id":"P001-FOR-002","statement":"Do not modify opaque values or publish a partial successful result after failure."}
+    ],
+    "deferred":[
+      {"id":"P001-DEF-001","statement":"Scientific execution and evaluation require external providers; the candidate output semantics remain unresolved."}
+    ]
+  },
+  "operations":[{
+    "operation_id":"COMPILE-PRACTICE-CONSTRAINT-CANDIDATE",
+    "purpose":"Validate and return the immutable declarative representation for the cited Practice constraint candidate.",
+    "inputs":[{
+      "name":"opaque_inputs","semantic_role":"source-keyed opaque candidate scientific inputs","shared_contract_ref":"TLC-HC-REFERENCE-COLLECTION@1.0.0",
+      "collection":{"kind":"ordered_map","membership":"exact","members":["INPUT-PRACTICE-001-1"],"cardinality":{"minimum":1,"maximum":1},"ordering":"preserved","duplicates":"forbidden","key_contract":{"shared_contract_ref":"TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"},"value_contract":{"shared_contract_ref":"TLC-HC-OPAQUE-VALUE@1.0.0"}},
+      "constraints":[{"id":"P001-IN-001","statement":"The required input is present under candidate status and remains opaque."}]
+    }],
+    "outputs":[
+      {"name":"representation","semantic_role":"immutable declarative constraint-candidate envelope","shared_contract_ref":"TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0","fields":[
+        {"name":"feature_id","required":true,"semantic_role":"exact feature identity","constant":"TLC-FC-13-PRACTICE-001"},
+        {"name":"feature_kind","required":true,"semantic_role":"source-derived classification","constant":"constraint_candidate"},
+        {"name":"covered_objects","required":true,"semantic_role":"ordered scientific object references","shared_contract_ref":"TLC-HC-REFERENCE-COLLECTION@1.0.0"},
+        {"name":"opaque_inputs","required":true,"semantic_role":"unchanged input payloads","shared_contract_ref":"TLC-HC-REFERENCE-COLLECTION@1.0.0"},
+        {"name":"output_references","required":true,"semantic_role":"unresolved output identities","shared_contract_ref":"TLC-HC-REFERENCE-COLLECTION@1.0.0"},
+        {"name":"traceability","required":true,"semantic_role":"complete source trace","shared_contract_ref":"TLC-HC-TRACEABILITY@1.0.0"},
+        {"name":"reservations","required":true,"semantic_role":"preserved non-invention reservations","shared_contract_ref":"TLC-HC-UNRESOLVED-ITEM@1.0.0"}
+      ],"collection":{"kind":"scalar","membership":"exact","cardinality":{"minimum":1,"maximum":1},"ordering":"not_applicable","duplicates":"not_applicable","key_contract":null,"value_contract":null}},
+      {"name":"error","semantic_role":"stable structured failure","shared_contract_ref":"TLC-HC-STRUCTURED-ERROR@1.0.0","collection":{"kind":"optional","membership":"constrained","cardinality":{"minimum":0,"maximum":1},"ordering":"not_applicable","duplicates":"not_applicable","key_contract":null,"value_contract":null}}
+    ],
+    "preconditions":[
+      {"id":"P001-PRE-001","statement":"The feature identity, required input identifier, covered object, contract, source IR, and scientific source references are canonical."},
+      {"id":"P001-PRE-002","statement":"The opaque input is supplied under candidate status."}
+    ],
+    "postconditions":[
+      {"id":"P001-POST-001","statement":"The returned representation preserves TLC-SO-PRACTICE-045 and all source references exactly."},
+      {"id":"P001-POST-002","statement":"Opaque values remain unchanged and no scientific result is asserted."}
+    ],
+    "invariants":[
+      {"id":"P001-INV-001","statement":"The constraint remains a candidate source fragment rather than an executable predicate."},
+      {"id":"P001-INV-002","statement":"No absent scientific type, unit, threshold, method, temporal semantic, progression, or effect is introduced."}
+    ],
+    "strategy_contract":{"mode":"partially_constrained","steps":["validate identity inputs and provenance","preserve opaque payloads and documentary order","construct the declarative representation","attach traceability and reservations","publish success or stable error"],"partial_order":[{"before":"validate identity inputs and provenance","after":"publish success or stable error"},{"before":"preserve opaque payloads and documentary order","after":"publish success or stable error"},{"before":"attach traceability and reservations","after":"publish success or stable error"}],"prescription_basis":["Validation, preservation, complete metadata, deterministic structure, and atomic publication are observable; internal sequencing is open."]},
+    "runtime_contract":{"mutability":"immutable","result_ownership":"implementation_defined","input_retention":"not_required","input_change_visibility":"not_visible","lifetime":"implementation_defined","aliasing":"not_constrained","layout":"not_constrained","contiguity":"not_required","alignment":"not_required","address_stability":"not_required","copy_semantics":"not_constrained","move_semantics":"not_constrained","allocation":"implementation_defined","zero_copy":"not_required","thread_safety":"implementation_defined","reentrancy":"implementation_defined","failure_atomicity":"no_observable_partial_result"},
+    "determinism":{"semantic_output":"required","field_presence":"required","collection_order":"required","canonical_serialization":"required","binary_layout":"not_constrained","memory_address":"not_constrained","allocation_pattern":"not_constrained","concurrent_scheduling":"implementation_defined","floating_point":"not_applicable","randomness":"not_applicable"},
+    "error_contract":[
+      {"code":"INVALID_FEATURE_IDENTITY","category":"invalid_input","condition":"Source error id invalid_feature_identity: the feature identity differs from TLC-FC-13-PRACTICE-001.","recoverability":"recoverable","public_result":"no_partial_result","failure_atomicity":"no_observable_partial_result","transport":"implementation_defined"},
+      {"code":"MISSING_REQUIRED_INPUT","category":"invalid_input","condition":"Source error id missing_required_input: INPUT-PRACTICE-001-1 is absent.","recoverability":"recoverable","public_result":"no_partial_result","failure_atomicity":"no_observable_partial_result","transport":"implementation_defined"},
+      {"code":"INVALID_INPUT_TYPE","category":"invalid_input","condition":"Source error id invalid_input_type: the required value is not carried opaquely.","recoverability":"recoverable","public_result":"no_partial_result","failure_atomicity":"no_observable_partial_result","transport":"implementation_defined"},
+      {"code":"MISSING_SOURCE_REFERENCE","category":"invalid_input","condition":"Source error id missing_source_reference: TLC-SO-PRACTICE-045 lacks its canonical reference.","recoverability":"recoverable","public_result":"no_partial_result","failure_atomicity":"no_observable_partial_result","transport":"implementation_defined"},
+      {"code":"PROVENANCE_MISMATCH","category":"invalid_input","condition":"Source error id provenance_mismatch: a contract, IR, source, object, input, or output reference differs from the canonical set.","recoverability":"recoverable","public_result":"no_partial_result","failure_atomicity":"no_observable_partial_result","transport":"implementation_defined"},
+      {"code":"STRUCTURAL_ERROR","category":"invalid_structure","condition":"Source error id structural_error: the declarative representation violates this contract.","recoverability":"recoverable","public_result":"no_partial_result","failure_atomicity":"no_observable_partial_result","transport":"implementation_defined"},
+      {"code":"EXTERNAL_EXECUTOR_REQUIRED","category":"unsupported_operation","condition":"Source error id external_executor_required: scientific execution is requested without an external executor.","recoverability":"retryable","public_result":"no_partial_result","failure_atomicity":"no_observable_partial_result","transport":"implementation_defined"},
+      {"code":"EXTERNAL_EVALUATOR_REQUIRED","category":"unsupported_operation","condition":"Source error id external_evaluator_required: scientific evaluation is requested without an external evaluator.","recoverability":"retryable","public_result":"no_partial_result","failure_atomicity":"no_observable_partial_result","transport":"implementation_defined"},
+      {"code":"IMPLEMENTATION_OUT_OF_SCOPE","category":"unsupported_operation","condition":"Source error id implementation_out_of_scope: the request asks for an undeclared procedure or scientific effect.","recoverability":"non_retryable","public_result":"no_partial_result","failure_atomicity":"no_observable_partial_result","transport":"implementation_defined"}
+    ],
+    "resource_contract":{"time_complexity":{"status":"not_specified","value":null},"auxiliary_memory":{"status":"not_specified","value":null},"allocations":{"status":"implementation_defined","value":null},"maximum_input_size":{"status":"not_constrained","value":null}}
+  }],
+  "implementation_modes":[
+    {"mode_id":"structural-candidate-package","status":"required","statement":"Expose the deterministic declarative representation and stable errors."},
+    {"mode_id":"built-in-scientific-execution","status":"forbidden","statement":"Do not supply a default constraint predicate, executor, evaluator, or scientific result."},
+    {"mode_id":"alternative-internal-architecture","status":"allowed","statement":"Internal architecture remains free when all observable obligations are preserved."}
+  ],
+  "global_invariants":[
+    {"id":"P001-GINV-001","statement":"Scientific opacity, candidate status, exact identity, and complete traceability cannot be weakened."},
+    {"id":"P001-GINV-002","statement":"Structural validity never authorizes scientific truth or execution."}
+  ],
+  "dependencies":[
+    {"shared_contract_id":"TLC-HC-FEATURE-ID","version":"1.0.0","purpose":"Exact feature identity"},
+    {"shared_contract_id":"TLC-HC-SCIENTIFIC-REFERENCE","version":"1.0.0","purpose":"Stable source object and input identities"},
+    {"shared_contract_id":"TLC-HC-REFERENCE-COLLECTION","version":"1.0.0","purpose":"Ordered source-addressable collections"},
+    {"shared_contract_id":"TLC-HC-UNRESOLVED-ITEM","version":"1.0.0","purpose":"Preserved reservations and unresolved science"},
+    {"shared_contract_id":"TLC-HC-OPAQUE-VALUE","version":"1.0.0","purpose":"Uninterpreted candidate payloads"},
+    {"shared_contract_id":"TLC-HC-STRUCTURED-ERROR","version":"1.0.0","purpose":"Transport-neutral stable failures"},
+    {"shared_contract_id":"TLC-HC-TRACEABILITY","version":"1.0.0","purpose":"Complete artifact provenance"},
+    {"shared_contract_id":"TLC-HC-DESCRIPTOR-ENVELOPE","version":"1.0.0","purpose":"Immutable structural result envelope"}
+  ],
+  "conformance":{"acceptance_required":true,"all_required_tests_must_pass":true,"forbidden_behavior_is_nonconforming":true,"notes":["Conformance is structural and does not authorize scientific execution or evaluation."]}
+}

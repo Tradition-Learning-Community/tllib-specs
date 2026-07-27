@@ -2,21 +2,21 @@ name: Feature handoff validation
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, handoff/integration-v1]
     paths:
       - 'handoff/**'
       - 'tools/handoff/**'
       - 'reports/handoff/**'
       - 'README.md'
-      - '.github/workflows/handoff.yml'
+      - '.github/workflows/*handoff*'
   push:
-    branches: [main]
+    branches: [main, handoff/integration-v1]
     paths:
       - 'handoff/**'
       - 'tools/handoff/**'
       - 'reports/handoff/**'
       - 'README.md'
-      - '.github/workflows/handoff.yml'
+      - '.github/workflows/*handoff*'
   workflow_dispatch:
 
 permissions:
@@ -24,8 +24,9 @@ permissions:
 
 jobs:
   validate:
-    name: Validate handoff v1.0
+    name: Validate finalized handoff v1.0
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with:
@@ -33,9 +34,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install validator dependency
-        run: python -m pip install --disable-pip-version-check --quiet jsonschema
-      - name: Validate packages and schemas
+      - name: Install validator dependencies
+        run: python -m pip install --disable-pip-version-check --quiet jsonschema pyyaml
+      - name: Verify deterministic global catalog
+        run: python tools/handoff/generate_catalog.py --check
+      - name: Validate 16 domains and 166 feature packages
         id: validate
         shell: bash
         run: |
@@ -48,12 +51,21 @@ jobs:
             printf 'diagnostic=%s\n' "$diagnostic" >> "$GITHUB_OUTPUT"
             exit "$status"
           fi
+      - name: Run finalized validation logical scenarios
+        run: python tools/handoff/validate_handoff.py --self-test
+      - name: Validate all standalone exports and determinism
+        run: python tools/handoff/export_bundle.py --all --check --verify-determinism
+      - name: Reject committed bundle archives
+        shell: bash
+        run: |
+          if find handoff -type f \( -name '*.zip' -o -name '*.tar' -o -name '*.tar.gz' -o -name '*.tgz' \) -print -quit | grep -q .; then
+            echo 'Committed bundle archive found under handoff/.' >&2
+            exit 1
+          fi
       - name: Upload validation diagnostics
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: handoff-validation-${{ steps.validate.outputs.diagnostic }}
+          name: handoff-validation-${{ steps.validate.outputs.diagnostic || 'non-validator-failure' }}
           path: handoff-validation.log
-          if-no-files-found: error
-      - name: Resolve pilot bundle without writing artifacts
-        run: python tools/handoff/export_bundle.py TLC-FC-00-MASTER-005 --check
+          if-no-files-found: ignore

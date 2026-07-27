@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-FC-06-THEOREMS-008",
+  "tests": [
+    {"test_id": "THEOREMS-008-A01", "applies_to": "ASSEMBLE-EIGHT-DIMENSION-SUFFICIENCY-ROLES", "category": "valid_input", "given": "Exact ordinals one through eight, eight opaque roles, exact source labels, and all required unresolved mappings.", "when": "The bundle is constructed.", "expect": "An eight-entry sequence in exact source order preserving every role and supplied unresolved association.", "source_basis": ["registry/oracles/theorems/TLC-FC-06-THEOREMS-008/oracle.yaml"]},
+    {"test_id": "THEOREMS-008-A02", "applies_to": "ASSEMBLE-EIGHT-DIMENSION-SUFFICIENCY-ROLES", "category": "error", "given": "Any required ordinal has no role.", "when": "Validation runs.", "expect": {"error": "MISSING_DIMENSION_ROLE", "partial_result": false}},
+    {"test_id": "THEOREMS-008-A03", "applies_to": "ASSEMBLE-EIGHT-DIMENSION-SUFFICIENCY-ROLES", "category": "error", "given": "A source ordinal occurs more than once.", "when": "Validation runs.", "expect": {"error": "DUPLICATE_SOURCE_ORDINAL", "partial_result": false}},
+    {"test_id": "THEOREMS-008-A04", "applies_to": "ASSEMBLE-EIGHT-DIMENSION-SUFFICIENCY-ROLES", "category": "error", "given": "A role lacks its unresolved mapping or a required mapping would be dropped.", "when": "Validation runs.", "expect": {"error": "DROPPED_CROSS_DOMAIN_UNRESOLVED", "partial_result": false}},
+    {"test_id": "THEOREMS-008-A05", "applies_to": "ASSEMBLE-EIGHT-DIMENSION-SUFFICIENCY-ROLES", "category": "output_contract", "given": "Input mappings iterate in an order different from source ordinals.", "when": "The output is constructed.", "expect": ["1:Message", "2:Principles", "3:Values", "4:Virtues", "5:Capacities", "6:Competencies", "7:Practice", "8:Lived Experience"]},
+    {"test_id": "THEOREMS-008-A06", "applies_to": "ASSEMBLE-EIGHT-DIMENSION-SUFFICIENCY-ROLES", "category": "preservation", "given": "Opaque roles, including equal payload bytes at different ordinals.", "when": "The result is inspected.", "expect": "All role payloads remain unchanged and distinct by ordinal and label; unresolved IDs 001, 005, and 007 through 012 occur exactly once."},
+    {"test_id": "THEOREMS-008-A07", "applies_to": "ASSEMBLE-EIGHT-DIMENSION-SUFFICIENCY-ROLES", "category": "determinism", "given": "Identical mappings.", "when": "Construction is repeated.", "expect": "Identical source-ordered semantic bundles."},
+    {"test_id": "THEOREMS-008-A08", "applies_to": "ASSEMBLE-EIGHT-DIMENSION-SUFFICIENCY-ROLES", "category": "unsupported_operation", "given": "A request to define unresolved classifications, assert sufficiency, or verify PROOF-THEOREMS-003.", "when": "The package boundary is exercised.", "expect": "No scientific definition, sufficiency truth value, or proof claim is produced."}
+  ]
+}

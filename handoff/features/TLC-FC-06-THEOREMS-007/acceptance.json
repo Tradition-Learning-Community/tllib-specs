@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0", "package_version": "1.0.0", "applies_to": "TLC-FC-06-THEOREMS-007",
+  "tests": [
+    {"test_id": "THEOREMS-007-A01", "applies_to": "CONSTRUCT-COMMUNITY-STABILITY-STATE", "category": "valid_input", "given": "Present sequence and limit identities plus the exact covered object, relation, and unresolved populations with valid relation targets.", "when": "The descriptor is constructed.", "expect": "An immutable descriptor preserving four object IDs, three relation IDs, and unresolved IDs 002 through 004.", "source_basis": ["registry/oracles/theorems/TLC-FC-06-THEOREMS-007/oracle.yaml"]},
+    {"test_id": "THEOREMS-007-A02", "applies_to": "CONSTRUCT-COMMUNITY-STABILITY-STATE", "category": "error", "given": "The sequence identity is absent.", "when": "Validation runs.", "expect": {"error": "MISSING_COMMUNITY_SEQUENCE", "partial_result": false}},
+    {"test_id": "THEOREMS-007-A03", "applies_to": "CONSTRUCT-COMMUNITY-STABILITY-STATE", "category": "error", "given": "The limit identity is absent.", "when": "Validation runs.", "expect": {"error": "MISSING_LIMIT_STATE", "partial_result": false}},
+    {"test_id": "THEOREMS-007-A04", "applies_to": "CONSTRUCT-COMMUNITY-STABILITY-STATE", "category": "error", "given": "A covered relation targets an uncovered component.", "when": "Validation runs.", "expect": {"error": "DANGLING_STABILITY_RELATION", "partial_result": false}},
+    {"test_id": "THEOREMS-007-A05", "applies_to": "CONSTRUCT-COMMUNITY-STABILITY-STATE", "category": "preservation", "given": "Arbitrary opaque sequence, limit, and context payloads.", "when": "The successful result is inspected.", "expect": "All payloads, exact identities, and relation targets are unchanged; unresolved IDs 002, 003, and 004 occur exactly once."},
+    {"test_id": "THEOREMS-007-A06", "applies_to": "CONSTRUCT-COMMUNITY-STABILITY-STATE", "category": "determinism", "given": "Identical context inputs with any implementation-specific relation iteration order.", "when": "Construction is repeated.", "expect": "Semantically identical descriptors."},
+    {"test_id": "THEOREMS-007-A07", "applies_to": "CONSTRUCT-COMMUNITY-STABILITY-STATE", "category": "unsupported_operation", "given": "A request to evaluate convergence, stability, or spectral conditions.", "when": "The package boundary is exercised.", "expect": "No convergence, stability, or theorem truth assertion is produced."},
+    {"test_id": "THEOREMS-007-A08", "applies_to": "TLC-FC-06-THEOREMS-007", "category": "preservation", "given": "The package proof and unresolved metadata.", "when": "It is inspected.", "expect": "PROOF-THEOREMS-001 remains partial and not formalized, and all three unresolved terms remain preserved_unresolved."}
+  ]
+}

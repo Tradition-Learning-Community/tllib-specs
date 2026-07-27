@@ -1,0 +1,3 @@
+# Temporal synthesis invariant descriptor
+
+Preserve invariant object `TLC-SO-LIVED-EXPERIENCE-044`, the `Sigma` declaration, provenance, unresolved items, and reservations. Implement exact structural validation, immutable deterministic descriptors, comparison, and lossless serialization. Do not extract an experiential core, implement `Sigma`, infer an event sequence or temporal order, or create states, transitions, observations, interpretations, or effects. Synthesis requests must return `ScientificEvaluationRequested`. An external temporal model is required for any future scientific execution.

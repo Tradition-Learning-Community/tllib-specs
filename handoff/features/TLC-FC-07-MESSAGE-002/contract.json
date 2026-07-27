@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-07-MESSAGE-002", "title": "Message preexistence claim", "domain": "message"},
+  "purpose": "Register the source-declared preexistence statement as an unevaluated, traceable claim and expose that scientific verification is unavailable without an oracle.",
+  "scope": {
+    "required": [
+      {"id": "MSG002-REQ-001", "statement": "Accept exactly evidence identity TLC-SO-MESSAGE-013 with its unchanged source range.", "basis": ["registry/math-contracts/TLC-FC-07-MESSAGE-002/contract.yaml"]},
+      {"id": "MSG002-REQ-002", "statement": "Preserve the opaque preexistence statement, candidate status, and provenance."},
+      {"id": "MSG002-REQ-003", "statement": "Return a claim with verification_status exactly unavailable_without_oracle and with no truth value or executable oracle.", "basis": ["registry/oracles/message/TLC-FC-07-MESSAGE-002/oracle.yaml"]}
+    ],
+    "forbidden": [
+      {"id": "MSG002-FOR-001", "statement": "Do not evaluate the claim, produce a truth value, or construct a scientific oracle."},
+      {"id": "MSG002-FOR-002", "statement": "Do not invent ontology, time model, existence predicate, protocol, encoding, transport, or execution semantics."},
+      {"id": "MSG002-FOR-003", "statement": "Do not expose a successful partial claim after failure."}
+    ],
+    "deferred": [
+      {"id": "MSG002-DEF-001", "statement": "Ontology, time model, existence predicate, and scientific oracle require an external scientific provider."},
+      {"id": "MSG002-DEF-002", "statement": "Concrete runtime and serialization representations remain implementation-defined."}
+    ]
+  },
+  "operations": [
+    {
+      "operation_id": "REGISTER-MESSAGE-PREEXISTENCE-CLAIM",
+      "purpose": "Create the structural claim record without scientific evaluation.",
+      "inputs": [{
+        "name": "preexistence_evidence",
+        "semantic_role": "opaque source evidence for the preexistence statement",
+        "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0",
+        "fields": [
+          {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "shared_contract_ref": "TLC-HC-FEATURE-ID@1.0.0", "constant": "TLC-FC-07-MESSAGE-002"},
+          {"name": "object_id", "required": true, "semantic_role": "preexistence evidence identity", "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0", "constant": "TLC-SO-MESSAGE-013"},
+          {"name": "source_reference", "required": true, "semantic_role": "unchanged source range", "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"},
+          {"name": "opaque_statement", "required": true, "semantic_role": "uninterpreted claim content", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+          {"name": "candidate_status", "required": true, "semantic_role": "unevaluated candidate status", "constant": "unevaluated_candidate"},
+          {"name": "evaluation_requested", "required": false, "semantic_role": "request that must be absent or false", "allowed_values": [false]},
+          {"name": "provenance", "required": true, "semantic_role": "complete traceability", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"}
+        ],
+        "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}},
+        "constraints": [
+          {"id": "MSG002-IN-001", "statement": "object_id is exactly TLC-SO-MESSAGE-013 and its source range is unchanged."},
+          {"id": "MSG002-IN-002", "statement": "No oracle evaluation or truth-value request is present."}
+        ]
+      }],
+      "outputs": [{
+        "name": "preexistence_claim",
+        "semantic_role": "unevaluated preexistence claim",
+        "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0",
+        "fields": [
+          {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "constant": "TLC-FC-07-MESSAGE-002"},
+          {"name": "representation", "required": true, "semantic_role": "structural result kind", "constant": "unevaluated_claim"},
+          {"name": "evidence", "required": true, "semantic_role": "unchanged preexistence evidence", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+          {"name": "verification_status", "required": true, "semantic_role": "scientific verification availability", "constant": "unavailable_without_oracle"},
+          {"name": "truth_value", "required": false, "semantic_role": "must remain absent", "allowed_values": []},
+          {"name": "executable_oracle", "required": false, "semantic_role": "must remain absent", "allowed_values": []},
+          {"name": "provenance", "required": true, "semantic_role": "complete source traceability", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"},
+          {"name": "status", "required": true, "semantic_role": "unevaluated candidate status", "constant": "unevaluated_candidate"}
+        ],
+        "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0"}},
+        "constraints": [
+          {"id": "MSG002-OUT-001", "statement": "verification_status equals unavailable_without_oracle."},
+          {"id": "MSG002-OUT-002", "statement": "No truth value and no executable oracle are present."},
+          {"id": "MSG002-OUT-003", "statement": "Identity, source range, opaque statement, candidate status, and provenance are preserved."}
+        ]
+      }],
+      "preconditions": [
+        {"id": "MSG002-PRE-001", "statement": "TLC-SO-MESSAGE-013 and its source range are supplied unchanged."},
+        {"id": "MSG002-PRE-002", "statement": "Scientific oracle evaluation is not requested."}
+      ],
+      "postconditions": [
+        {"id": "MSG002-POST-001", "statement": "The claim preserves the preexistence statement and its provenance."},
+        {"id": "MSG002-POST-002", "statement": "The claim explicitly reports unavailable_without_oracle and contains no truth value or executable oracle."}
+      ],
+      "invariants": [
+        {"id": "MSG002-INV-001", "statement": "Evidence identity, content, source range, candidate status, and provenance remain unchanged."},
+        {"id": "MSG002-INV-002", "statement": "Scientific evaluation and external state mutation never occur."}
+      ],
+      "strategy_contract": {
+        "mode": "partially_constrained",
+        "steps": ["validate evidence identity and source range", "construct claim record", "set unavailable verification status", "preserve opaque evidence and provenance", "publish success or stable error"],
+        "partial_order": [
+          {"before": "validate evidence identity and source range", "after": "publish success or stable error"},
+          {"before": "set unavailable verification status", "after": "publish success or stable error"},
+          {"before": "preserve opaque evidence and provenance", "after": "publish success or stable error"}
+        ],
+        "prescription_basis": ["The unavailable status, preservation, and validation-before-success are observable; internal construction order is otherwise open."]
+      },
+      "runtime_contract": {
+        "mutability": "not_constrained", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_constrained", "alignment": "not_constrained", "address_stability": "not_constrained", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"
+      },
+      "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "not_applicable", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+      "error_contract": [
+        {"code": "MissingPreexistenceEvidence", "category": "invalid_input", "condition": "The required evidence identity or its source range is absent or changed.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "OracleEvaluationRequested", "category": "unsupported_operation", "condition": "Scientific evaluation, a truth value, or an executable oracle is requested.", "recoverability": "non_retryable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+      ],
+      "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+    }
+  ],
+  "implementation_modes": [
+    {"mode_id": "structural-claim-registration", "status": "required", "statement": "Expose the unevaluated claim and unavailable-oracle status."},
+    {"mode_id": "scientific-oracle-evaluation", "status": "forbidden", "statement": "Do not evaluate truth or construct an oracle."},
+    {"mode_id": "transport-or-execution", "status": "forbidden", "statement": "Do not expose protocol, transport, or execution behavior."},
+    {"mode_id": "alternative-internal-architecture", "status": "allowed", "statement": "Internal design is free when observable obligations remain satisfied."}
+  ],
+  "global_invariants": [
+    {"id": "MSG002-GINV-001", "statement": "Unavailable scientific verification must remain explicit and must never be replaced by a default truth value."},
+    {"id": "MSG002-GINV-002", "statement": "No implementation may weaken identity, content, provenance, candidate status, or no-partial-result requirements."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity."},
+    {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Lossless evidence and source references."},
+    {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Exact reference collection semantics."},
+    {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Explicit unresolved scientific semantics."},
+    {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Non-interpretation of the statement."},
+    {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Transport-neutral stable errors."},
+    {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable provenance."},
+    {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Structural claim envelope."}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["The documentary dependency on TLC-FC-07-MESSAGE-006 does not create an execution dependency."]}
+}
