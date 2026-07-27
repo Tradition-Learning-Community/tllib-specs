@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-HC-STRUCTURED-ERROR",
+  "tests": [
+    {"test_id": "HC-ERR-001", "applies_to": "stable code", "category": "determinism", "given": {"condition": "reference set mismatch"}, "when": "The same condition is detected repeatedly.", "expect": {"same_code_each_time": true}},
+    {"test_id": "HC-ERR-002", "applies_to": "transport neutrality", "category": "invariant", "given": {"code": "MASTER_REFERENCE_SET_MISMATCH", "transport": "implementation_defined"}, "when": "Any supported delivery mechanism is used.", "expect": {"code_preserved": true}},
+    {"test_id": "HC-ERR-003", "applies_to": "failure atomicity", "category": "error", "given": {"public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result"}, "when": "The operation fails.", "expect": {"partial_result_visible": false}}
+  ]
+}
