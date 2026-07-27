@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "shared_contract": {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "title": "Unresolved Item"},
+  "purpose": "Preserve an unresolved item and its provenance without inventing a resolution.",
+  "scope": {
+    "required": [
+      {"id": "UNR-REQ-001", "statement": "The unresolved identifier, classification, source reference, blocking scope, and status are preserved."},
+      {"id": "UNR-REQ-002", "statement": "Propagation is monotone until an authoritative replacement explicitly resolves the item."}
+    ],
+    "forbidden": [
+      {"id": "UNR-FOR-001", "statement": "A missing definition must not become a default value or executable behavior."},
+      {"id": "UNR-FOR-002", "statement": "The handoff must not mark a scientific decision resolved."}
+    ],
+    "deferred": [{"id": "UNR-DEF-001", "statement": "Scientific adjudication remains outside this structural contract."}]
+  },
+  "data_contract": {
+    "shape": "record",
+    "fields": [
+      {"name": "unresolved_id", "required": true, "semantic_role": "stable unresolved item identity", "value_kind": "identifier"},
+      {"name": "classification", "required": true, "semantic_role": "preserved upstream classification", "value_kind": "string"},
+      {"name": "source_reference", "required": true, "semantic_role": "authoritative provenance", "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"},
+      {"name": "blocking_scope", "required": true, "semantic_role": "scope affected by missing semantics", "value_kind": "string"},
+      {"name": "status", "required": true, "semantic_role": "unresolved state", "value_kind": "enum", "allowed_values": ["preserved_unresolved", "external_provider_required"]}
+    ],
+    "collection": {"supported_kinds": ["scalar", "sequence", "set", "ordered_set"], "membership": "open", "cardinality": {"minimum": 0, "maximum": null}, "ordering": "not_constrained", "duplicates": "forbidden", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0"}},
+    "runtime": {"mutability": "immutable", "layout": "not_constrained", "ownership": "implementation_defined", "lifetime": "implementation_defined", "allocation": "implementation_defined", "thread_safety": "implementation_defined"}
+  },
+  "global_invariants": [{"id": "UNR-INV-001", "statement": "Transport and composition preserve unresolved status unless an authoritative package revision changes it."}],
+  "conformance": {"acceptance_required": true, "lossless_preservation_required": true, "notes": []}
+}
