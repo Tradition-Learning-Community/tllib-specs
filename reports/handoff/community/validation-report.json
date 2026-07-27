@@ -17,7 +17,7 @@
     "status": "validated_against_authoritative_inventory"
   },
   "checks": [
-    {"check_id": "JSON-SCHEMA-SHAPE", "status": "passed_by_ci", "evidence": ["tools/handoff/validate_handoff.py", "Workflow runs 30261742570, 30261881690, 30261954208, and 30262000177"]},
+    {"check_id": "JSON-SCHEMA-SHAPE", "status": "passed_by_ci", "evidence": ["tools/handoff/validate_handoff.py", "Workflow runs 30261742570, 30261881690, 30261954208, 30262000177, and 30262059413"]},
     {"check_id": "INTER-FILE-COHERENCE", "status": "passed_by_ci", "evidence": ["Feature identities, package versions, operation identifiers, file declarations, and shared dependencies are coherent across each package."]},
     {"check_id": "SHARED-DEPENDENCY-RESOLUTION", "status": "passed_by_ci", "evidence": ["All eight packages resolve the existing shared contracts at version 1.0.0, and the catalog declares their exact union."]},
     {"check_id": "IDENTIFIER-UNIQUENESS", "status": "passed_by_ci", "evidence": ["Feature IDs and acceptance test IDs are unique."]},
@@ -26,7 +26,7 @@
     {"check_id": "SCIENTIFIC-NON-INVENTION", "status": "verified", "evidence": ["No equation, metric, invariant, relation, operator semantic, dimension, threshold, numerical method, or scientific value was introduced."]},
     {"check_id": "IMPLEMENTATION-CODE-ABSENCE", "status": "verified", "evidence": ["No implementation code was added."]},
     {"check_id": "AUTHORITATIVE-INVENTORY-COMPATIBILITY", "status": "resolved_and_passed_by_ci", "evidence": ["Master convention: registry/domain-finalization/master/feature-status.yaml exposes root feature_count.", "Community already exposed the value as summary.active_features = 8 and through an eight-entry feature list.", "Commit 7b586e2680943e1e2a429a9b9103a2d628d3baef added only root feature_count: 8 to the Community inventory.", "No feature entry or scientific field changed."]},
-    {"check_id": "PULL-REQUEST-CI", "status": "passed", "evidence": ["PR #99", "Final workflow run 30262000177", "Final head commit 71474a9971e461557a6e561e91951a7894302b85", "Progressive validation: success", "Logical self-tests: success", "Pilot bundle resolution: success"]}
+    {"check_id": "PULL-REQUEST-CI", "status": "passed", "evidence": ["PR #99", "Final workflow run 30262059413", "Final head commit 6a50ed3adde934198df748c4abaec6c50aa5e65f", "Progressive validation: success", "Logical self-tests: success", "Pilot bundle resolution: success"]}
   ],
   "normalization": {
     "path": "registry/domain-finalization/community/feature-status.yaml",
@@ -42,7 +42,8 @@
       {"run_id": 30261742570, "workflow": "Feature handoff validation", "status": "completed", "conclusion": "success", "head_commit": "7b586e2680943e1e2a429a9b9103a2d628d3baef"},
       {"run_id": 30261881690, "workflow": "Feature handoff validation", "status": "completed", "conclusion": "success", "head_commit": "404db1f680d546dc928108b51b396855c69e7e93"},
       {"run_id": 30261954208, "workflow": "Feature handoff validation", "status": "completed", "conclusion": "success", "head_commit": "75901f4469e06b5c8dde7dd4e892f9caf6d427cc"},
-      {"run_id": 30262000177, "workflow": "Feature handoff validation", "status": "completed", "conclusion": "success", "head_commit": "71474a9971e461557a6e561e91951a7894302b85"}
+      {"run_id": 30262000177, "workflow": "Feature handoff validation", "status": "completed", "conclusion": "success", "head_commit": "71474a9971e461557a6e561e91951a7894302b85"},
+      {"run_id": 30262059413, "workflow": "Feature handoff validation", "status": "completed", "conclusion": "success", "head_commit": "6a50ed3adde934198df748c4abaec6c50aa5e65f"}
     ],
     "combined_status": "success"
   }
