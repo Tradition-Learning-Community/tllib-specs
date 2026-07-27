@@ -1,10 +1,11 @@
 {
   "schema_version": "1.0",
   "domain": "community",
-  "report_status": "ready_for_pull_request_validation",
+  "report_status": "blocked_by_shared_validation_infrastructure",
   "source_branch": "handoff/integration-v1",
   "branch_creation_commit": "21440c05372546b8d3b605f3368680e78a1d3778",
-  "validation_base_commit": "b29ebf1c56c0191452b8055956331aba4d71083a",
+  "progressive_validation_infrastructure_commit": "b29ebf1c56c0191452b8055956331aba4d71083a",
+  "pull_request_base_commit": "6e01d536e41565c456a3b94b4a1f3921664b55af",
   "work_branch": "handoff/domain-02-community",
   "population": {
     "expected_guard": 8,
@@ -16,7 +17,7 @@
     "status": "verified_by_authoritative_registry_comparison"
   },
   "checks": [
-    {"check_id": "JSON-SCHEMA-SHAPE", "status": "ready_for_machine_validation", "evidence": ["handoff/schemas/manifest.schema.json", "handoff/schemas/contract.schema.json", "handoff/schemas/acceptance.schema.json", "handoff/schemas/traceability.schema.json", "handoff/schemas/domain-catalog.schema.json"]},
+    {"check_id": "JSON-SCHEMA-SHAPE", "status": "not_reached_by_ci", "evidence": ["CI stopped during authoritative inventory validation before feature package schema validation."]},
     {"check_id": "INTER-FILE-COHERENCE", "status": "verified_by_connector_inspection", "evidence": ["Feature IDs, package versions, operation IDs, file declarations, and shared dependency versions are equal across each package."]},
     {"check_id": "SHARED-DEPENDENCY-RESOLUTION", "status": "verified_by_connector_inspection", "evidence": ["All eight packages reference only the eight existing shared contracts at version 1.0.0; manifest and contract dependency lists are equal; the domain catalog declares the exact union."]},
     {"check_id": "IDENTIFIER-UNIQUENESS", "status": "verified_by_construction", "evidence": ["Feature IDs, operation IDs, obligation IDs, and oracle-derived acceptance test IDs are feature-scoped and unique."]},
@@ -24,9 +25,18 @@
     {"check_id": "TRACEABILITY-MULTIPLICITY", "status": "verified_by_construction", "evidence": ["Every traceability category is a list; feature 001 records all three source IR roles including the non-canonical supplemental IR."]},
     {"check_id": "SCIENTIFIC-NON-INVENTION", "status": "verified_against_oracle_non_invention_cases", "evidence": ["No equations, metrics, invariants, relations, operator semantics, dimensions, scientific types, thresholds, integrators, noise models, or numerical methods were added."]},
     {"check_id": "IMPLEMENTATION-CODE-ABSENCE", "status": "verified_by_change_scope", "evidence": ["Only Markdown and JSON handoff artifacts were added; no source-code path is modified."]},
-    {"check_id": "PROTECTED-SOURCE-ABSENCE", "status": "verified_by_final_diff", "evidence": ["The branch comparison contains exactly 45 files, all under allowed Community feature, domain, or report paths."]},
-    {"check_id": "PROGRESSIVE-VALIDATOR", "status": "available_on_validation_base", "evidence": ["tools/handoff/validate_handoff.py at b29ebf1c56c0191452b8055956331aba4d71083a", "handoff/schemas/domain-catalog.schema.json", ".github/workflows/handoff.yml targets handoff/integration-v1"]},
-    {"check_id": "PULL-REQUEST-CI", "status": "pending", "evidence": []}
+    {"check_id": "PROTECTED-SOURCE-ABSENCE", "status": "verified_by_final_diff", "evidence": ["The pull request contains only allowed Community feature, domain, and report paths."]},
+    {"check_id": "AUTHORITATIVE-INVENTORY-COMPATIBILITY", "status": "blocked", "evidence": ["tools/handoff/validate_handoff.py requires inventory.feature_count.", "registry/domain-finalization/community/feature-status.yaml exposes summary.active_features = 8 and a features list of length 8, but no top-level feature_count.", "Both files are protected from modification by this mission."]},
+    {"check_id": "PULL-REQUEST-CI", "status": "failed_before_package_validation", "evidence": ["PR #99", "Workflow run 30260916638", "Job 89960319758", "Diagnostic: authoritative inventory feature count mismatch for domain community"]}
   ],
-  "ci": {"pull_request": null, "head_commit": null, "workflow_runs": [], "combined_status": "pending"}
+  "ci": {
+    "pull_request": 99,
+    "head_commit_at_first_run": "a17e09ce0157a6ad60706f67d65887f1e0fb62a4",
+    "workflow_runs": [
+      {"run_id": 30260916638, "workflow": "Feature handoff validation", "status": "completed", "conclusion": "failure", "job_id": 89960319758}
+    ],
+    "combined_status": "failure",
+    "blocking_diagnostic": "authoritative inventory feature count mismatch for domain community",
+    "permitted_local_fix_available": false
+  }
 }
