@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0", "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-05-DYNAMICS-003", "title": "Dynamics blocked locally", "domain": "dynamics"},
+  "purpose": "Preserve a locally blocked stochastic expression as an immutable source-addressable unevaluated record.",
+  "scope": {
+    "required": [
+      {"id": "D003-REQ-001", "statement": "Validate source identifiers, referenced symbols, and declared carrier shapes before successful publication.", "basis": ["registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-003/ir.yaml"]},
+      {"id": "D003-REQ-002", "statement": "Preserve the expression payload, locally blocked classification, provenance, unresolved items, and reservations exactly.", "basis": ["registry/oracles/dynamics/TLC-FC-05-DYNAMICS-003/oracle.yaml"]},
+      {"id": "D003-REQ-003", "statement": "Expose no successful partial result after validation or preservation failure."}
+    ],
+    "forbidden": [
+      {"id": "D003-FOR-001", "statement": "Do not sample, solve, execute, or classify the expression as scientifically executable."},
+      {"id": "D003-FOR-002", "statement": "Do not infer a distribution, filtration, covariance, process type, stochastic integration convention, solver, or seed."},
+      {"id": "D003-FOR-003", "statement": "Do not mutate the expression, symbol table, or external scientific state."}
+    ],
+    "deferred": [
+      {"id": "D003-DEF-001", "statement": "The local catalogue block and stochastic semantics remain preserved unresolved."},
+      {"id": "D003-DEF-002", "statement": "Any future scientific evaluator requires separate scientific authority."}
+    ]
+  },
+  "operations": [{
+    "operation_id": "PRESERVE-STOCHASTIC-EXPRESSION",
+    "purpose": "Return an explicitly unevaluated and locally blocked stochastic-equation record.",
+    "inputs": [
+      {"name": "source_expression", "semantic_role": "opaque locally blocked stochastic expression", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}, "constraints": [{"id": "D003-IN-001", "statement": "The payload must be present and carried as OpaqueStochasticExpression."}]},
+      {"name": "symbols", "semantic_role": "available source-addressable symbol bindings", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0", "collection": {"kind": "map", "membership": "constrained", "cardinality": {"minimum": 0, "maximum": null}, "ordering": "implementation_defined", "duplicates": "forbidden", "key_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}}, "constraints": [{"id": "D003-IN-002", "statement": "Every referenced symbol must be known when a binding is required."}]}
+    ],
+    "outputs": [{"name": "expression", "semantic_role": "immutable unevaluated stochastic-equation record", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "fields": [
+      {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "constant": "TLC-FC-05-DYNAMICS-003"},
+      {"name": "representation", "required": true, "semantic_role": "output representation", "constant": "UnevaluatedStochasticEquation"},
+      {"name": "payload", "required": true, "semantic_role": "unchanged opaque source expression", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+      {"name": "local_status", "required": true, "semantic_role": "preserved local block", "constant": "blocked_locally"},
+      {"name": "traceability", "required": true, "semantic_role": "source provenance", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"},
+      {"name": "unresolved", "required": true, "semantic_role": "preserved stochastic uncertainty", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0"}
+    ], "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}, "constraints": [{"id": "D003-OUT-001", "statement": "The output remains explicitly unevaluated and locally blocked."}]}],
+    "preconditions": [
+      {"id": "D003-PRE-001", "statement": "TLC-SO-DYNAMICS-020, TLC-SR-DYNAMICS-019, and all referenced symbols are known."},
+      {"id": "D003-PRE-002", "statement": "The expression and symbol table preserve their declared carrier shapes."}
+    ],
+    "postconditions": [
+      {"id": "D003-POST-001", "statement": "The expression payload round-trips unchanged."},
+      {"id": "D003-POST-002", "statement": "The output is explicitly unevaluated and locally blocked with complete source traceability."},
+      {"id": "D003-POST-003", "statement": "No probability law, sample, seed, stochastic calculus convention, solver, or transition exists."}
+    ],
+    "invariants": [
+      {"id": "D003-INV-001", "statement": "TLC-SO-DYNAMICS-020 and TLC-SR-DYNAMICS-019 remain source-addressable."},
+      {"id": "D003-INV-002", "statement": "Opaque payload, local block, and unresolved semantics remain unchanged."}
+    ],
+    "strategy_contract": {"mode": "partially_constrained", "steps": ["validate identifiers symbols and carrier shapes", "preserve the opaque expression", "mark output unevaluated and locally blocked", "attach traceability unresolved items and reservations", "verify preservation obligations", "publish success or stable error"], "partial_order": [
+      {"before": "validate identifiers symbols and carrier shapes", "after": "publish success or stable error"},
+      {"before": "preserve the opaque expression", "after": "publish success or stable error"},
+      {"before": "mark output unevaluated and locally blocked", "after": "publish success or stable error"},
+      {"before": "attach traceability unresolved items and reservations", "after": "publish success or stable error"},
+      {"before": "verify preservation obligations", "after": "publish success or stable error"}
+    ], "prescription_basis": ["Validation, preservation, explicit blocked status, and atomic publication are observable; internal total ordering is not prescribed."]},
+    "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+    "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "not_applicable", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+    "error_contract": [
+      {"code": "UNKNOWN_SOURCE_IDENTIFIER", "category": "invalid_input", "condition": "The source expression, relation, or a referenced symbol is unknown.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "TYPE_SHAPE_MISMATCH", "category": "invalid_input", "condition": "The source expression is absent or not an OpaqueStochasticExpression, or the symbol table has an invalid carrier shape.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "UNRESOLVED_SCIENTIFIC_SEMANTICS", "category": "unsupported_operation", "condition": "Sampling, probability-law inference, stochastic integration selection, solving, seeding, or executable transition semantics are requested.", "recoverability": "non_retryable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+    ],
+    "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+  }],
+  "implementation_modes": [
+    {"mode_id": "blocked-structural-preservation", "status": "required", "statement": "Expose the unchanged expression with explicit unevaluated and locally blocked status."},
+    {"mode_id": "stochastic-execution", "status": "forbidden", "statement": "Do not add probability, sampling, stochastic calculus, solver, or transition semantics."},
+    {"mode_id": "alternative-internal-architecture", "status": "allowed", "statement": "Internal architecture remains free when observable obligations are preserved."}
+  ],
+  "global_invariants": [
+    {"id": "D003-GINV-001", "statement": "The local scientific block remains visible and is never silently resolved."},
+    {"id": "D003-GINV-002", "statement": "Opacity, traceability, unresolved preservation, immutability, and failure atomicity cannot be weakened."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity"},
+    {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Stable source and symbol identifiers"},
+    {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Source-addressable symbol bindings"},
+    {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Preserved local block and stochastic uncertainty"},
+    {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Unchanged stochastic expression payload"},
+    {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Stable transport-neutral failures"},
+    {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable source provenance"},
+    {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Immutable structural result envelope"}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["Conformance is structural and does not authorize scientific execution."]}
+}
