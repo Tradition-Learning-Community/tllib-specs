@@ -1,5 +1,7 @@
 # Experiential conservation claim
 
+Feature ID: `TLC-FC-06-THEOREMS-001`
+
 ## What is this feature?
 
 This feature constructs an unevaluated, source-traceable descriptor for the experiential-information conservation claim. It records an external axiom reference, an opaque experience symbol, and exactly three clause identifiers: bounded energy, controlled variation, and stationary law.

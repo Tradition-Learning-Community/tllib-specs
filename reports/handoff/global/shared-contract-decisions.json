@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "model_version": "1.0.0",
+  "status": "finalized",
+  "existing_shared_contract_count": 8,
+  "declared_candidate_count": 42,
+  "domains_with_candidate_reports": 15,
+  "domains_without_candidate_report": ["disciple"],
+  "promoted": [],
+  "summary": {
+    "promoted": 0,
+    "merged_into_existing_shared_contract": 18,
+    "retained_candidate": 16,
+    "rejected_as_semantically_distinct": 8
+  },
+  "policy": "Promotion requires repeated independent-domain evidence, identical observable obligations, explicit parameterization of local differences, no implied scientific equivalence, net engineering benefit, and shared tests that introduce no semantics.",
+  "decisions": [
+    {"domain":"master","candidate_id":"TLC-MASTER-PATTERN-TRACEABLE-ENVELOPE","decision":"merged_into_existing_shared_contract","basis":["TLC-HC-DESCRIPTOR-ENVELOPE","TLC-HC-TRACEABILITY"],"reason":"The reusable envelope and provenance obligations already exist; descriptor, predicate and symbolic semantics remain feature-local."},
+    {"domain":"master","candidate_id":"TLC-MASTER-PATTERN-DECLARATIVE-EMISSION","decision":"merged_into_existing_shared_contract","basis":["TLC-HC-REFERENCE-COLLECTION","TLC-HC-DESCRIPTOR-ENVELOPE"],"reason":"Exact references and immutable publication are already composable without a declaration-specific global contract."},
+    {"domain":"master","candidate_id":"TLC-MASTER-PATTERN-OPAQUE-OPERATION-ADAPTER","decision":"merged_into_existing_shared_contract","basis":["TLC-HC-OPAQUE-VALUE","TLC-HC-STRUCTURED-ERROR"],"reason":"Opaque payload transport and stable rejection are covered; provider gates differ by feature."},
+    {"domain":"master","candidate_id":"TLC-MASTER-PATTERN-PREDICATE-DESCRIPTOR","decision":"retained_candidate","basis":[],"reason":"Observed in one Master feature and not independently replicated with identical predicate status semantics."},
+    {"domain":"master","candidate_id":"TLC-MASTER-PATTERN-SYMBOLIC-TYPE-DESCRIPTOR","decision":"retained_candidate","basis":[],"reason":"Potentially reusable symbolic type shape, but optional symbols and unresolved populations are not yet uniform across domains."},
+    {"domain":"master","candidate_id":"TLC-MASTER-PATTERN-UNRESOLVED-PROPAGATION","decision":"merged_into_existing_shared_contract","basis":["TLC-HC-UNRESOLVED-ITEM","TLC-HC-REFERENCE-COLLECTION"],"reason":"Mechanical exact propagation is already covered; scientific meanings remain distinct."},
+    {"domain":"master","candidate_id":"TLC-MASTER-PATTERN-EXTERNAL-SYMBOL-GATE","decision":"retained_candidate","basis":[],"reason":"Required and optional provider modes are materially different and need lifecycle evidence before sharing."},
+
+    {"domain":"community","candidate_id":"COMMUNITY-HC-CANDIDATE-STRUCTURAL-SPECIFICATION-GATE","decision":"merged_into_existing_shared_contract","basis":["TLC-HC-FEATURE-ID","TLC-HC-OPAQUE-VALUE","TLC-HC-TRACEABILITY","TLC-HC-DESCRIPTOR-ENVELOPE"],"reason":"The common structural gate is a composition of existing contracts; blocker, dependency and cardinality rules remain local."},
+    {"domain":"community","candidate_id":"COMMUNITY-HC-CANDIDATE-SCIENTIFIC-EXECUTION-REJECTION","decision":"rejected_as_semantically_distinct","basis":[],"reason":"Unsupported and scientifically blocked execution use different authoritative errors and cannot be merged safely."},
+
+    {"domain":"huit-dimensions","candidate_id":"HD-CAND-ROLE-BINDING-ENVELOPE","decision":"merged_into_existing_shared_contract","basis":["TLC-HC-REFERENCE-COLLECTION","TLC-HC-OPAQUE-VALUE","TLC-HC-TRACEABILITY","TLC-HC-DESCRIPTOR-ENVELOPE"],"reason":"Role binding is expressible by existing contracts while cardinality and context stay feature-local."},
+    {"domain":"huit-dimensions","candidate_id":"HD-CAND-RESERVATION-PROPAGATION-CHECK","decision":"merged_into_existing_shared_contract","basis":["TLC-HC-UNRESOLVED-ITEM","TLC-HC-REFERENCE-COLLECTION"],"reason":"Exact reservation propagation is already represented without implying equivalence among unresolved items."},
+    {"domain":"huit-dimensions","candidate_id":"HD-CAND-SOURCE-ERROR-ALIAS-MAPPING","decision":"retained_candidate","basis":[],"reason":"This is a global schema and reversible-identity policy issue, not a domain contract; explicit mappings remain local."},
+
+    {"domain":"invariants","candidate_id":"TLC-INVARIANTS-PATTERN-PRESERVATION-ENVELOPE","decision":"merged_into_existing_shared_contract","basis":["TLC-HC-DESCRIPTOR-ENVELOPE","TLC-HC-TRACEABILITY","TLC-HC-UNRESOLVED-ITEM"],"reason":"Existing contracts cover the mechanical envelope; evidence coverage and statuses differ."},
+    {"domain":"invariants","candidate_id":"TLC-INVARIANTS-PATTERN-SYMBOLIC-AST","decision":"retained_candidate","basis":[],"reason":"Templates, symbols, errors and unresolved mappings are feature-owned; a future AST contract requires independent-domain equivalence."},
+    {"domain":"invariants","candidate_id":"TLC-INVARIANTS-PATTERN-DOCUMENTARY-INDEX","decision":"retained_candidate","basis":[],"reason":"A documentary non-promotion index is promising but currently supported by only two local observations."},
+
+    {"domain":"dynamics","candidate_id":"DYN-HC-OPAQUE-STRUCTURAL-CONSTRUCTION","decision":"merged_into_existing_shared_contract","basis":["TLC-HC-OPAQUE-VALUE","TLC-HC-DESCRIPTOR-ENVELOPE","TLC-HC-TRACEABILITY"],"reason":"The shared construction boundary is already composable; feature-specific identities and negative semantics remain explicit."},
+    {"domain":"dynamics","candidate_id":"DYN-HC-UNEVALUATED-EXPRESSION","decision":"retained_candidate","basis":[],"reason":"A future unevaluated-expression profile may be useful, but no common executable algebra or field set is authorized."},
+    {"domain":"dynamics","candidate_id":"DYN-HC-STATE-CANDIDATE-BOUNDARY","decision":"rejected_as_semantically_distinct","basis":[],"reason":"Candidate composition and state-versus-evolution ambiguity are explicitly different scientific boundaries."},
+
+    {"domain":"theorems","candidate_id":"THEOREMS-CANDIDATE-PROOF-STATUS-WITHOUT-EXECUTION","decision":"retained_candidate","basis":[],"reason":"Absent proof, partial proof and hypothesis status are not yet a single cross-domain vocabulary."},
+    {"domain":"theorems","candidate_id":"THEOREMS-CANDIDATE-SOURCE-ORDINAL-DIMENSION-ROLE","decision":"rejected_as_semantically_distinct","basis":[],"reason":"An eight-entry ordered sequence and a single fixed Principles role have different cardinality and scientific classification obligations."},
+
+    {"domain":"message","candidate_id":"TLC-HCC-MESSAGE-EVIDENCE-ENVELOPE","decision":"merged_into_existing_shared_contract","basis":["TLC-HC-SCIENTIFIC-REFERENCE","TLC-HC-OPAQUE-VALUE","TLC-HC-TRACEABILITY","TLC-HC-DESCRIPTOR-ENVELOPE"],"reason":"All mechanical envelope obligations are already available; local pair, catalogue, cycle, AST, claim and profile semantics remain separate."},
+    {"domain":"message","candidate_id":"TLC-HCC-EXACT-IDENTIFIER-POPULATION","decision":"retained_candidate","basis":[],"reason":"A generic exact-population validation profile may be useful only if errors, contextual constraints and relation checks remain parameterized."},
+    {"domain":"message","candidate_id":"TLC-HCC-SOURCE-ORDERED-STRUCTURAL-DESCRIPTOR","decision":"rejected_as_semantically_distinct","basis":[],"reason":"Context-local catalogue order and cycle-stage order are observably different and cannot share one normative contract."},
+
+    {"domain":"principle","candidate_id":"PRINCIPLE-CANDIDATE-SYMBOLIC-ENVELOPE","decision":"retained_candidate","basis":[],"reason":"Tuple, equation, catalogue, constraint, invariant, operator and relation shapes differ in cardinality and ordering."},
+    {"domain":"principle","candidate_id":"PRINCIPLE-CANDIDATE-SOURCE-ORDERED-CATALOG","decision":"retained_candidate","basis":[],"reason":"Fixed source-ordered collections recur, but counts, keys, documentary roles and errors are not identical."},
+    {"domain":"principle","candidate_id":"PRINCIPLE-CANDIDATE-STRUCTURED-SOURCE-ERROR-MAPPING","decision":"rejected_as_semantically_distinct","basis":[],"reason":"A combined contract would risk erasing feature-specific source conditions; reversible mappings remain explicit."},
+    {"domain":"principle","candidate_id":"PRINCIPLE-CANDIDATE-OPAQUE-UNRESOLVED-PROPAGATION","decision":"merged_into_existing_shared_contract","basis":["TLC-HC-OPAQUE-VALUE","TLC-HC-UNRESOLVED-ITEM"],"reason":"Existing contracts already cover non-interpretation and propagation; empty, exact and provider-required cases remain distinct."},
+
+    {"domain":"values","candidate_id":"VALUES-HC-CANDIDATE-SYMBOLIC-STRUCTURAL-RESULT","decision":"rejected_as_semantically_distinct","basis":[],"reason":"AST node meanings and role cardinalities differ across dynamics, membership, invariant, property and space records."},
+    {"domain":"values","candidate_id":"VALUES-HC-CANDIDATE-EXTERNAL-EVALUATOR-PORT","decision":"retained_candidate","basis":[],"reason":"A provider lifecycle may be shareable only after concrete providers establish compatible input, output, error and determinism contracts."},
+    {"domain":"values","candidate_id":"VALUES-HC-CANDIDATE-SOURCE-ERROR-ALIAS","decision":"rejected_as_semantically_distinct","basis":[],"reason":"Automatic aliasing could collide or hide scientifically meaningful source identifiers; mappings stay explicit and reversible."},
+
+    {"domain":"virtues","candidate_id":"VIRTUES-CANDIDATE-SOURCE-BOUND-OPERATION-ENVELOPE","decision":"merged_into_existing_shared_contract","basis":["TLC-HC-FEATURE-ID","TLC-HC-OPAQUE-VALUE","TLC-HC-TRACEABILITY","TLC-HC-DESCRIPTOR-ENVELOPE"],"reason":"Existing envelope contracts cover the common structure while operation meaning and forbidden scope remain local."},
+    {"domain":"virtues","candidate_id":"VIRTUES-CANDIDATE-UNSUPPORTED-COMPLETION-GUARD","decision":"retained_candidate","basis":[],"reason":"A composable base guard may be useful, but feature-specific integration, diagnosis and endpoint prohibitions must remain independently testable."},
+    {"domain":"virtues","candidate_id":"VIRTUES-CANDIDATE-UNRESOLVED-PROPAGATION","decision":"merged_into_existing_shared_contract","basis":["TLC-HC-UNRESOLVED-ITEM"],"reason":"Only the mechanical propagation shape is shared; scientific ambiguity remains feature-specific."},
+    {"domain":"virtues","candidate_id":"VIRTUES-CANDIDATE-OPAQUE-RELATION-PRESERVATION","decision":"retained_candidate","basis":[],"reason":"Diagnostic observation and contextual virtue relations have different scopes; cross-domain review is still required."},
+
+    {"domain":"capacities","candidate_id":"CAPACITIES-OBJECT-MAP-ENVELOPE","decision":"merged_into_existing_shared_contract","basis":["TLC-HC-REFERENCE-COLLECTION","TLC-HC-OPAQUE-VALUE","TLC-HC-TRACEABILITY","TLC-HC-DESCRIPTOR-ENVELOPE"],"reason":"Existing contracts cover exact maps and provenance without equating the scientific artifact kinds."},
+    {"domain":"capacities","candidate_id":"CAPACITIES-ORDERED-SYMBOLIC-ENVELOPE","decision":"merged_into_existing_shared_contract","basis":["TLC-HC-REFERENCE-COLLECTION","TLC-HC-OPAQUE-VALUE","TLC-HC-UNRESOLVED-ITEM","TLC-HC-DESCRIPTOR-ENVELOPE"],"reason":"Ordered symbolic packaging and blockers are expressible by current contracts; AST and metric obligations remain local."},
+
+    {"domain":"competencies","candidate_id":"COMP-SHC-001-STRUCTURAL-DESCRIPTOR-PROFILE","decision":"merged_into_existing_shared_contract","basis":["TLC-HC-FEATURE-ID","TLC-HC-REFERENCE-COLLECTION","TLC-HC-OPAQUE-VALUE","TLC-HC-TRACEABILITY","TLC-HC-DESCRIPTOR-ENVELOPE"],"reason":"The profile is a composition of existing contracts; category, object-order, dependency and empty-relation rules remain feature-specific."},
+
+    {"domain":"practice","candidate_id":"PRACTICE-HC-OPAQUE-STRUCTURAL-CANDIDATE","decision":"merged_into_existing_shared_contract","basis":["TLC-HC-OPAQUE-VALUE","TLC-HC-TRACEABILITY","TLC-HC-DESCRIPTOR-ENVELOPE"],"reason":"The shared opaque boundary is already covered; aggregate and provisional-separation semantics remain local."},
+    {"domain":"practice","candidate_id":"PRACTICE-HC-EXACT-SCIENTIFIC-DECISION-PROPAGATION","decision":"retained_candidate","basis":[],"reason":"A future decision-blocker profile may be useful, but decision identities, cardinalities and additional boundaries differ materially."},
+
+    {"domain":"lived-experience","candidate_id":"LIVED-EXPERIENCE-HC-CANDIDATE-OPAQUE-DESCRIPTOR-GATE","decision":"merged_into_existing_shared_contract","basis":["TLC-HC-REFERENCE-COLLECTION","TLC-HC-OPAQUE-VALUE","TLC-HC-UNRESOLVED-ITEM","TLC-HC-TRACEABILITY","TLC-HC-DESCRIPTOR-ENVELOPE"],"reason":"The isomorphic validation graph is already composable; exact counts, order and historical boundaries remain local."},
+    {"domain":"lived-experience","candidate_id":"LIVED-EXPERIENCE-HC-CANDIDATE-UNAUTHORIZED-SCIENCE-REJECTION","decision":"retained_candidate","basis":[],"reason":"Unsupported execution and specifically blocked scientific decisions are not yet a common cross-domain error contract."},
+
+    {"domain":"relations","candidate_id":"RELATIONS-STRUCTURAL-NON-EXECUTION-GUARD","decision":"rejected_as_semantically_distinct","basis":[],"reason":"Participant populations, identity-fusion rules, endpoint restrictions and unresolved counts differ across Relations features and other domains."}
+  ]
+}
