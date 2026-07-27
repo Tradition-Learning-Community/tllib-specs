@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "domain": "relations",
+  "status": "passed",
+  "population": {
+    "expected": 5,
+    "produced": 5,
+    "foreign_packages": 0
+  },
+  "checks": {
+    "json_schema": "passed",
+    "inter_file_consistency": "passed",
+    "shared_dependency_resolution": "passed",
+    "identifier_uniqueness": "passed",
+    "error_consistency": "passed",
+    "authoritative_inventory": "passed",
+    "scientific_non_invention": "passed",
+    "implementation_code_absence": "passed",
+    "protected_paths": "passed"
+  },
+  "validator": "tools/handoff/validate_handoff.py",
+  "source_commit": "7ed8d26d2e014e65ea06eec9c2337d9f4a7ef905",
+  "notes": [
+    "Authoritative inventory and all five non-contiguous feature IDs validated without renaming.",
+    "The compatibility alias fix was merged separately before this successful domain validation."
+  ],
+  "workflow": {
+    "name": "Feature handoff validation",
+    "run_id": 30281379797,
+    "run_number": 95,
+    "conclusion": "success",
+    "validated_head": "e00c5a5d0d621c26614f56a3e8487fdd5d5a1706"
+  }
+}

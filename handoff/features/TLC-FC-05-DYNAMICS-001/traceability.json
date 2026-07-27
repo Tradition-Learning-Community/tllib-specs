@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-FC-05-DYNAMICS-001",
+  "scientific_sources": [
+    {"path": "maths/05-dynamics.md", "role": "Primary scientific source for Community viability constraints", "section": "4.3 Contraintes de viabilité", "line_range": {"start": 147, "end": 155}}
+  ],
+  "mathematical_contracts": [
+    {"path": "registry/math-contracts/TLC-FC-05-DYNAMICS-001/contract.yaml", "role": "Authoritative limited engineering contract", "artifact_id": "TLC-MC-TLC-FC-05-DYNAMICS-001"},
+    {"path": "registry/math-contracts/TLC-FC-05-DYNAMICS-001/normalized-equations.tex", "role": "Normalized source equations"},
+    {"path": "registry/math-contracts/TLC-FC-05-DYNAMICS-001/symbol-table.yaml", "role": "Source symbol inventory"},
+    {"path": "registry/math-contracts/TLC-FC-05-DYNAMICS-001/issues.yaml", "role": "Contract issues and unresolved items"},
+    {"path": "registry/math-contracts/TLC-FC-05-DYNAMICS-001/implementation-decisions-required.yaml", "role": "Recorded implementation decisions required"}
+  ],
+  "source_irs": [
+    {"path": "ir/TLC-FC-05-DYNAMICS-001/ir.prototype.json", "role": "Active prototype IR", "artifact_id": "TLC-IR-TLC-FC-05-DYNAMICS-001"},
+    {"path": "ir/TLC-FC-05-DYNAMICS-001/ir.yaml", "role": "Structured source IR"},
+    {"path": "ir/TLC-FC-05-DYNAMICS-001/nodes.yaml", "role": "Source IR node inventory"},
+    {"path": "ir/TLC-FC-05-DYNAMICS-001/types.yaml", "role": "Source IR type inventory"},
+    {"path": "ir/TLC-FC-05-DYNAMICS-001/constraints.yaml", "role": "Source IR constraints"},
+    {"path": "ir/TLC-FC-05-DYNAMICS-001/issues.yaml", "role": "Source IR issues"},
+    {"path": "ir/TLC-FC-05-DYNAMICS-001/traceability.yaml", "role": "Source IR provenance"}
+  ],
+  "finalized_irs": [
+    {"path": "registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-001/ir.yaml", "role": "Final declarative structural IR", "artifact_id": "TLC-OPT-IR-TLC-FC-05-DYNAMICS-001"}
+  ],
+  "algorithm_specifications": [
+    {"path": "registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-001/algorithm.yaml", "role": "Algorithm input compiled into observable and partial-order obligations", "artifact_id": "TLC-ALG-TLC-FC-05-DYNAMICS-001"}
+  ],
+  "test_plans": [
+    {"path": "registry/test-plans/TLC-FC-05-DYNAMICS-001/test-plan.yaml", "role": "Source structural test plan", "artifact_id": "TLC-TP-TLC-FC-05-DYNAMICS-001"}
+  ],
+  "acceptance_oracles": [
+    {"path": "registry/oracles/dynamics/TLC-FC-05-DYNAMICS-001/oracle.yaml", "role": "Authoritative structural property oracle", "artifact_id": "TLC-ORACLE-TLC-FC-05-DYNAMICS-001"}
+  ],
+  "scientific_decisions": [
+    {"path": "registry/domain-finalization/dynamics/decision-required.yaml", "role": "Preserves unresolved viability evaluation semantics", "artifact_id": "DYN-DEC-001"},
+    {"path": "registry/domain-finalization/dynamics/module-specification.yaml", "role": "Domain-level operation, error, determinism, and out-of-scope decisions"},
+    {"path": "registry/domain-finalization/dynamics/patterns.yaml", "role": "Common structural pattern and non-factorization decisions"}
+  ]
+}

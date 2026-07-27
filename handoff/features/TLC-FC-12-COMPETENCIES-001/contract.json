@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-12-COMPETENCIES-001", "title": "Blocked constraint descriptor", "domain": "competencies"},
+  "purpose": "Validate and preserve the exact blocked-local constraint source population as an immutable opaque descriptor without evaluating any scientific statement.",
+  "scope": {
+    "required": [
+      {"id": "C001-REQ-001", "statement": "Accept only feature identity TLC-FC-12-COMPETENCIES-001.", "basis": ["registry/optimized-ir/competencies/TLC-FC-12-COMPETENCIES-001/ir.yaml"]},
+      {"id": "C001-REQ-002", "statement": "Accept exactly TLC-SO-COMPETENCIES-044 and TLC-SO-COMPETENCIES-099 once each and emit them in that order.", "basis": ["registry/math-contracts/TLC-FC-12-COMPETENCIES-001/contract.yaml", "registry/oracles/competencies/TLC-FC-12-COMPETENCIES-001/oracle.yaml"]},
+      {"id": "C001-REQ-003", "statement": "Preserve opaque payload identities, source provenance, category constraint_evaluation, boundary blocked_locally, reservations, and unresolved status."},
+      {"id": "C001-REQ-004", "statement": "Publish a successful descriptor only after all structural validations succeed."}
+    ],
+    "forbidden": [
+      {"id": "C001-FOR-001", "statement": "Do not evaluate constraint truth, mastery, thresholds, dynamics, scores, ranks, probabilities, or temporal behavior."},
+      {"id": "C001-FOR-002", "statement": "Do not infer scientific types, dimensions, units, relations, aliases, parameters, or missing semantics."},
+      {"id": "C001-FOR-003", "statement": "Do not resolve or relabel the blocked-local scientific boundary."}
+    ],
+    "deferred": [
+      {"id": "C001-DEF-001", "statement": "Executable scientific semantics remain preserved unresolved."},
+      {"id": "C001-DEF-002", "statement": "Concrete runtime representation and internal validation architecture remain implementation-defined."}
+    ]
+  },
+  "operations": [
+    {
+      "operation_id": "BUILD-COMPETENCIES-DESCRIPTOR-001",
+      "purpose": "Validate exact structural inputs and emit the blocked constraint descriptor.",
+      "inputs": [
+        {"name": "feature_id", "semantic_role": "exact requested feature identity", "shared_contract_ref": "TLC-HC-FEATURE-ID@1.0.0", "collection": {"kind": "scalar", "membership": "exact", "members": ["TLC-FC-12-COMPETENCIES-001"], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}},
+        {"name": "object_payloads", "semantic_role": "exact opaque scientific object population", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0", "collection": {"kind": "map", "membership": "exact", "members": ["TLC-SO-COMPETENCIES-044", "TLC-SO-COMPETENCIES-099"], "cardinality": {"minimum": 2, "maximum": 2}, "ordering": "not_constrained", "duplicates": "forbidden", "key_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}}},
+        {"name": "provenance", "semantic_role": "one source reference for every required object", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0", "collection": {"kind": "map", "membership": "exact", "members": ["TLC-SO-COMPETENCIES-044", "TLC-SO-COMPETENCIES-099"], "cardinality": {"minimum": 2, "maximum": 2}, "ordering": "not_constrained", "duplicates": "forbidden", "key_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}, "value_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}}},
+        {"name": "request_mode", "semantic_role": "authorized structural operation mode", "collection": {"kind": "scalar", "membership": "exact", "members": ["structural_descriptor_only"], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}}
+      ],
+      "outputs": [
+        {"name": "descriptor", "semantic_role": "immutable blocked constraint descriptor", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "fields": [
+          {"name": "feature_id", "required": true, "semantic_role": "preserved feature identity", "constant": "TLC-FC-12-COMPETENCIES-001"},
+          {"name": "category", "required": true, "semantic_role": "preserved source category", "constant": "constraint_evaluation"},
+          {"name": "boundary_label", "required": true, "semantic_role": "preserved source boundary", "constant": "blocked_locally"},
+          {"name": "ordered_object_ids", "required": true, "semantic_role": "exact source object order", "allowed_values": ["TLC-SO-COMPETENCIES-044", "TLC-SO-COMPETENCIES-099"]},
+          {"name": "opaque_payloads", "required": true, "semantic_role": "uninterpreted source payloads", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+          {"name": "provenance", "required": true, "semantic_role": "complete per-object provenance", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"},
+          {"name": "structural_status", "required": true, "semantic_role": "coverage and provenance validation status only", "constant": "structurally_valid"},
+          {"name": "unresolved_items", "required": true, "semantic_role": "preserved reservations and scientific blockers", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0"}
+        ], "collection": {"kind": "scalar", "membership": "exact", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}},
+        {"name": "error", "semantic_role": "stable transport-neutral failure", "shared_contract_ref": "TLC-HC-STRUCTURED-ERROR@1.0.0", "collection": {"kind": "optional", "membership": "constrained", "cardinality": {"minimum": 0, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}}
+      ],
+      "preconditions": [
+        {"id": "C001-PRE-001", "statement": "The request mode is structural_descriptor_only."},
+        {"id": "C001-PRE-002", "statement": "Feature identity, exact object membership, uniqueness, and provenance completeness are valid."}
+      ],
+      "postconditions": [
+        {"id": "C001-POST-001", "statement": "The descriptor preserves exact feature, object, category, boundary, payload, provenance, reservation, and unresolved identities."},
+        {"id": "C001-POST-002", "statement": "No evaluated scientific value, inferred relation, score, threshold, rank, probability, or temporal result is present."}
+      ],
+      "invariants": [
+        {"id": "C001-INV-001", "statement": "Structural validity never asserts scientific validity."},
+        {"id": "C001-INV-002", "statement": "No successful partial descriptor is observable on failure."}
+      ],
+      "strategy_contract": {
+        "mode": "partially_constrained",
+        "steps": ["validate request mode", "validate exact feature identity", "validate exact object population and provenance", "construct immutable descriptor", "publish descriptor"],
+        "partial_order": [
+          {"before": "validate request mode", "after": "construct immutable descriptor"},
+          {"before": "validate exact feature identity", "after": "construct immutable descriptor"},
+          {"before": "validate exact object population and provenance", "after": "construct immutable descriptor"},
+          {"before": "construct immutable descriptor", "after": "publish descriptor"}
+        ],
+        "prescription_basis": ["registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-001/algorithm.yaml"]
+      },
+      "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+      "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "required", "canonical_serialization": "not_constrained", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+      "error_contract": [
+        {"code": "UnknownFeatureId", "category": "invalid_input", "condition": "The supplied feature identity is not TLC-FC-12-COMPETENCIES-001.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "MissingCoveredObject", "category": "invalid_input", "condition": "A required covered object is absent.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "DuplicateCoveredObject", "category": "invalid_input", "condition": "A required object identity occurs more than once.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "UnexpectedCoveredObject", "category": "invalid_input", "condition": "An object outside the authoritative object population is supplied.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "MissingSourceReference", "category": "provenance", "condition": "A required object lacks source provenance.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "ScientificEvaluationRequested", "category": "unsupported_operation", "condition": "The request asks for scientific evaluation, scoring, thresholding, simulation, comparison, or another non-structural result.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "BlockedScientificDecision", "category": "scientific_unresolved", "condition": "The request attempts to resolve or relabel the blocked scientific boundary.", "recoverability": "non_retryable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+      ],
+      "resource_contract": {"time_complexity": {"status": "informative", "value": "O(n) over supplied object and provenance entries"}, "auxiliary_memory": {"status": "informative", "value": "O(n) for the immutable descriptor"}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+    }
+  ],
+  "implementation_modes": [
+    {"mode_id": "structural-descriptor", "status": "required", "statement": "Expose exact structural validation and immutable descriptor construction."},
+    {"mode_id": "scientific-evaluation", "status": "forbidden", "statement": "Do not evaluate or resolve the scientific content."},
+    {"mode_id": "alternative-internal-architecture", "status": "allowed", "statement": "Internal architecture is free when all observable obligations remain satisfied."}
+  ],
+  "global_invariants": [
+    {"id": "C001-GINV-001", "statement": "Opaque source content remains opaque throughout the operation."},
+    {"id": "C001-GINV-002", "statement": "The blocked-local boundary and unresolved status remain explicit."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity."},
+    {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Lossless scientific object and source identities."},
+    {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Exact object populations and required output order."},
+    {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Explicit scientific reservations and blockers."},
+    {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Non-interpretation of source payloads."},
+    {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Stable transport-neutral failures."},
+    {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Complete upstream provenance."},
+    {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Observable descriptor result shape."}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["Scientific execution is outside package version 1.0.0.", "The authoritative object order is mandatory in successful output."]}
+}

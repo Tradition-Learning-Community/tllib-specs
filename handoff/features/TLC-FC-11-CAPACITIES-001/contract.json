@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-11-CAPACITIES-001", "title": "Capacity constraint record", "domain": "capacities"},
+  "purpose": "Construct an immutable, provenance-preserving descriptor for the exact cited capacity-constraint objects without evaluating their scientific meaning.",
+  "scope": {
+    "required": [
+      {"id": "CAP001-REQ-001", "statement": "Accept only feature identity TLC-FC-11-CAPACITIES-001.", "basis": ["registry/optimized-ir/capacities/TLC-FC-11-CAPACITIES-001/ir.yaml"]},
+      {"id": "CAP001-REQ-002", "statement": "Accept exactly TLC-SO-CAPACITIES-013 and TLC-SO-CAPACITIES-064, each once, and preserve contract order.", "basis": ["registry/math-contracts/TLC-FC-11-CAPACITIES-001/contract.yaml"]},
+      {"id": "CAP001-REQ-003", "statement": "Preserve opaque payload identity and complete provenance for every covered object."},
+      {"id": "CAP001-REQ-004", "statement": "Return an immutable CapacityPrototypeDescriptor only after all validations succeed."}
+    ],
+    "forbidden": [
+      {"id": "CAP001-FOR-001", "statement": "Do not evaluate, score, rank, compare scientifically, or numerically interpret any capacity content."},
+      {"id": "CAP001-FOR-002", "statement": "Do not invent thresholds, levels, probabilities, temporal progress, causal claims, or scientific values."},
+      {"id": "CAP001-FOR-003", "statement": "Do not publish a partial descriptor after failure."}
+    ],
+    "deferred": [
+      {"id": "CAP001-DEF-001", "statement": "Scientific capacity semantics and all numerical interpretation remain unresolved."},
+      {"id": "CAP001-DEF-002", "statement": "Concrete storage, ownership, layout, allocation, and serialization remain implementation-defined."}
+    ]
+  },
+  "operations": [{
+    "operation_id": "BUILD-CAPACITY-CONSTRAINT-RECORD-AND-VERIFY-REQUIRED-SYMBOLS",
+    "purpose": "Validate the exact structural request and emit the capacity constraint descriptor.",
+    "inputs": [
+      {"name": "feature_id", "semantic_role": "exact requested feature identity", "shared_contract_ref": "TLC-HC-FEATURE-ID@1.0.0", "collection": {"kind": "scalar", "membership": "exact", "members": ["TLC-FC-11-CAPACITIES-001"], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}},
+      {"name": "object_payloads", "semantic_role": "exact opaque payload map", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0", "collection": {"kind": "map", "membership": "exact", "members": ["TLC-SO-CAPACITIES-013", "TLC-SO-CAPACITIES-064"], "cardinality": {"minimum": 2, "maximum": 2}, "ordering": "implementation_defined", "duplicates": "forbidden", "key_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}}},
+      {"name": "provenance", "semantic_role": "complete source reference map", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0", "collection": {"kind": "map", "membership": "exact", "members": ["TLC-SO-CAPACITIES-013", "TLC-SO-CAPACITIES-064"], "cardinality": {"minimum": 2, "maximum": 2}, "ordering": "implementation_defined", "duplicates": "forbidden", "key_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}, "value_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}}}
+    ],
+    "outputs": [
+      {"name": "artifact", "semantic_role": "immutable capacity constraint descriptor", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "fields": [
+        {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "constant": "TLC-FC-11-CAPACITIES-001"},
+        {"name": "artifact_kind", "required": true, "semantic_role": "descriptor kind", "constant": "CapacityPrototypeDescriptor"},
+        {"name": "object_ids", "required": true, "semantic_role": "exact ordered covered objects", "allowed_values": ["TLC-SO-CAPACITIES-013", "TLC-SO-CAPACITIES-064"]},
+        {"name": "symbols", "required": true, "semantic_role": "source-backed unevaluated symbols"},
+        {"name": "provenance", "required": true, "semantic_role": "complete source provenance", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"},
+        {"name": "unresolved", "required": true, "semantic_role": "preserved unresolved items", "allowed_values": []},
+        {"name": "reservations", "required": true, "semantic_role": "scientific non-evaluation reservations"},
+        {"name": "structurally_valid", "required": true, "semantic_role": "all structural validations succeeded", "constant": true}
+      ], "collection": {"kind": "scalar", "membership": "exact", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}},
+      {"name": "error", "semantic_role": "stable transport-neutral failure", "shared_contract_ref": "TLC-HC-STRUCTURED-ERROR@1.0.0", "collection": {"kind": "optional", "membership": "constrained", "cardinality": {"minimum": 0, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}}
+    ],
+    "preconditions": [
+      {"id": "CAP001-PRE-001", "statement": "The feature id is exact."},
+      {"id": "CAP001-PRE-002", "statement": "The object-key set is exact and duplicate-free."},
+      {"id": "CAP001-PRE-003", "statement": "A complete source reference exists for every object."},
+      {"id": "CAP001-PRE-004", "statement": "No scientific evaluation is requested."}
+    ],
+    "postconditions": [
+      {"id": "CAP001-POST-001", "statement": "The artifact contains the exact objects in contract order with unchanged opaque payloads and provenance."},
+      {"id": "CAP001-POST-002", "statement": "The unresolved collection is empty and the non-evaluation reservation remains explicit."},
+      {"id": "CAP001-POST-003", "statement": "No scientific result, metric, score, threshold, rank, probability, or temporal inference is produced."}
+    ],
+    "invariants": [
+      {"id": "CAP001-INV-001", "statement": "Covered object identities remain distinct and exact."},
+      {"id": "CAP001-INV-002", "statement": "Opaque payloads are never inspected or rewritten."},
+      {"id": "CAP001-INV-003", "statement": "No external scientific state is mutated and no partial result is observable on failure."}
+    ],
+    "strategy_contract": {"mode": "partially_constrained", "steps": ["validate feature identity", "validate exact object coverage", "validate provenance", "preserve opaque payloads", "construct immutable artifact", "attach non-evaluation guard", "publish success or stable error"], "partial_order": [{"before": "validate feature identity", "after": "publish success or stable error"}, {"before": "validate exact object coverage", "after": "publish success or stable error"}, {"before": "validate provenance", "after": "publish success or stable error"}, {"before": "construct immutable artifact", "after": "publish success or stable error"}, {"before": "attach non-evaluation guard", "after": "publish success or stable error"}], "prescription_basis": ["Only validation-before-success, preservation-before-success, and the non-evaluation guard are observable; the upstream total step list is not adopted as a unique algorithm.", "registry/algorithms/capacities/TLC-FC-11-CAPACITIES-001/algorithm.yaml"]},
+    "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+    "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "required", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+    "error_contract": [
+      {"code": "UnknownFeatureId", "category": "invalid_input", "condition": "The requested feature identity is not TLC-FC-11-CAPACITIES-001.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "MissingCoveredObject", "category": "invalid_input", "condition": "A required covered object is absent.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "DuplicateCoveredObject", "category": "invalid_input", "condition": "A covered object identity occurs more than once.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "MissingSourceReference", "category": "source", "condition": "A required object lacks complete provenance.", "recoverability": "retryable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "ScientificEvaluationRequested", "category": "unsupported_operation", "condition": "Scientific evaluation or numerical interpretation is requested.", "recoverability": "non_retryable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "BlockedScientificDecision", "category": "scientific_unresolved", "condition": "A caller requests resolution of an opaque or blocked scientific decision.", "recoverability": "non_retryable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+    ],
+    "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+  }],
+  "implementation_modes": [
+    {"mode_id": "structural-descriptor", "status": "required", "statement": "Expose the exact immutable structural descriptor and stable errors."},
+    {"mode_id": "scientific-evaluation", "status": "forbidden", "statement": "Do not evaluate, score, rank, simulate, or numerically interpret capacity content."},
+    {"mode_id": "alternative-internal-architecture", "status": "allowed", "statement": "Any internal architecture is allowed when all observable obligations remain satisfied."}
+  ],
+  "global_invariants": [
+    {"id": "CAP001-GINV-001", "statement": "No implementation behavior may weaken exact identity, object membership, source order, opacity, provenance, or non-evaluation requirements."},
+    {"id": "CAP001-GINV-002", "statement": "Absence of scientific execution remains explicit and never becomes a default result."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity."},
+    {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Lossless scientific object and source references."},
+    {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Exact object membership and order semantics."},
+    {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Explicit unresolved preservation vocabulary."},
+    {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Non-interpretation of scientific payloads."},
+    {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Stable transport-neutral failures."},
+    {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable upstream provenance."},
+    {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Immutable observable artifact envelope."}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["Conformance is behavioral and does not prescribe a language, API spelling, storage type, or total internal algorithm."]}
+}

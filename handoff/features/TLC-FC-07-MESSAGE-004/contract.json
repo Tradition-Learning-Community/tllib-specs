@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-07-MESSAGE-004", "title": "Message forms and process states catalogue", "domain": "message"},
+  "purpose": "Validate and index the exact 45 source-declared Message state and form records into an immutable provenance catalogue without inferring scientific hierarchy, transitions, or validity.",
+  "scope": {
+    "required": [
+      {"id": "MSG004-REQ-001", "statement": "Accept exactly the 45 authoritative object identifiers listed by this contract, each once with its source reference.", "basis": ["registry/math-contracts/TLC-FC-07-MESSAGE-004/contract.yaml"]},
+      {"id": "MSG004-REQ-002", "statement": "Group records by recorded source section and subsection and preserve recorded source order within each context."},
+      {"id": "MSG004-REQ-003", "statement": "Return complete lookup indexes by object identifier and source context with every record retrievable."},
+      {"id": "MSG004-REQ-004", "statement": "Preserve all identities, opaque payloads, source references, candidate status, provenance, and all 42 unresolved identifiers."}
+    ],
+    "forbidden": [
+      {"id": "MSG004-FOR-001", "statement": "Do not infer hierarchy, classification, medium semantics, transitions, application validity, truth, or scientific order between contexts."},
+      {"id": "MSG004-FOR-002", "statement": "Do not merge records, accept unknown identifiers, tolerate duplicates, omit required records, or promote candidate status."},
+      {"id": "MSG004-FOR-003", "statement": "Do not define protocol, transport, execution, timing, or numerical behavior."},
+      {"id": "MSG004-FOR-004", "statement": "Do not expose a successful partial catalogue after any validation or preservation failure."}
+    ],
+    "deferred": [
+      {"id": "MSG004-DEF-001", "statement": "Scientific classification, hierarchy, medium semantics, temporal transitions, and application validity remain preserved unresolved."},
+      {"id": "MSG004-DEF-002", "statement": "Index structures, grouping and ordering algorithms, ownership, storage, concurrency, and serialization remain implementation-defined."}
+    ]
+  },
+  "operations": [
+    {
+      "operation_id": "INDEX-MESSAGE-FORMS-AND-PROCESS-STATES",
+      "purpose": "Build the complete identifier and source-context catalogue for the authoritative 45-record population.",
+      "inputs": [{
+        "name": "message_state_records",
+        "semantic_role": "exact Message state and form record population",
+        "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0",
+        "fields": [
+          {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "shared_contract_ref": "TLC-HC-FEATURE-ID@1.0.0", "constant": "TLC-FC-07-MESSAGE-004"},
+          {"name": "object_id", "required": true, "semantic_role": "authoritative record identity", "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"},
+          {"name": "source_reference", "required": true, "semantic_role": "authoritative section or subsection range", "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"},
+          {"name": "recorded_source_order", "required": true, "semantic_role": "order within the recorded source context"},
+          {"name": "opaque_payload", "required": true, "semantic_role": "uninterpreted source content", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+          {"name": "candidate_status", "required": true, "semantic_role": "unevaluated candidate status", "constant": "unevaluated_candidate"},
+          {"name": "unresolved", "required": true, "semantic_role": "complete preserved unresolved collection", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0"},
+          {"name": "provenance", "required": true, "semantic_role": "complete traceability", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"}
+        ],
+        "collection": {
+          "kind": "sequence",
+          "membership": "exact",
+          "members": ["TLC-SO-MESSAGE-006", "TLC-SO-MESSAGE-007", "TLC-SO-MESSAGE-008", "TLC-SO-MESSAGE-009", "TLC-SO-MESSAGE-010", "TLC-SO-MESSAGE-011", "TLC-SO-MESSAGE-012", "TLC-SO-MESSAGE-014", "TLC-SO-MESSAGE-015", "TLC-SO-MESSAGE-016", "TLC-SO-MESSAGE-017", "TLC-SO-MESSAGE-018", "TLC-SO-MESSAGE-019", "TLC-SO-MESSAGE-021", "TLC-SO-MESSAGE-022", "TLC-SO-MESSAGE-023", "TLC-SO-MESSAGE-024", "TLC-SO-MESSAGE-035", "TLC-SO-MESSAGE-036", "TLC-SO-MESSAGE-037", "TLC-SO-MESSAGE-038", "TLC-SO-MESSAGE-039", "TLC-SO-MESSAGE-040", "TLC-SO-MESSAGE-041", "TLC-SO-MESSAGE-043", "TLC-SO-MESSAGE-045", "TLC-SO-MESSAGE-046", "TLC-SO-MESSAGE-047", "TLC-SO-MESSAGE-048", "TLC-SO-MESSAGE-050", "TLC-SO-MESSAGE-051", "TLC-SO-MESSAGE-052", "TLC-SO-MESSAGE-053", "TLC-SO-MESSAGE-054", "TLC-SO-MESSAGE-055", "TLC-SO-MESSAGE-056", "TLC-SO-MESSAGE-057", "TLC-SO-MESSAGE-058", "TLC-SO-MESSAGE-060", "TLC-SO-MESSAGE-061", "TLC-SO-MESSAGE-062", "TLC-SO-MESSAGE-063", "TLC-SO-MESSAGE-064", "TLC-SO-MESSAGE-065", "TLC-SO-MESSAGE-066"],
+          "cardinality": {"minimum": 45, "maximum": 45},
+          "ordering": "implementation_defined",
+          "duplicates": "forbidden",
+          "key_contract": null,
+          "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}
+        },
+        "constraints": [
+          {"id": "MSG004-IN-001", "statement": "Every authoritative identifier occurs exactly once and no unknown identifier occurs."},
+          {"id": "MSG004-IN-002", "statement": "Each record carries its authoritative source context and recorded source position."},
+          {"id": "MSG004-IN-003", "statement": "Incidental input sequence order is not scientific order; recorded source positions govern context ordering."}
+        ]
+      }],
+      "outputs": [{
+        "name": "message_state_catalogue",
+        "semantic_role": "immutable complete Message forms and states catalogue",
+        "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0",
+        "fields": [
+          {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "constant": "TLC-FC-07-MESSAGE-004"},
+          {"name": "representation", "required": true, "semantic_role": "structural result kind", "constant": "forms_and_states_catalogue"},
+          {"name": "records", "required": true, "semantic_role": "complete 45-record population", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0"},
+          {"name": "identifier_index", "required": true, "semantic_role": "complete exact lookup by object identity"},
+          {"name": "context_index", "required": true, "semantic_role": "complete lookup by source section and subsection"},
+          {"name": "unresolved", "required": true, "semantic_role": "complete unresolved collection", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0", "allowed_values": ["TLC-UT-MESSAGE-003", "TLC-UT-MESSAGE-004", "TLC-UT-MESSAGE-005", "TLC-UT-MESSAGE-006", "TLC-UT-MESSAGE-007", "TLC-UT-MESSAGE-008", "TLC-UT-MESSAGE-009", "TLC-UT-MESSAGE-010", "TLC-UT-MESSAGE-011", "TLC-UT-MESSAGE-012", "TLC-UT-MESSAGE-013", "TLC-UT-MESSAGE-014", "TLC-UT-MESSAGE-015", "TLC-UT-MESSAGE-016", "TLC-UT-MESSAGE-017", "TLC-UT-MESSAGE-026", "TLC-UT-MESSAGE-027", "TLC-UT-MESSAGE-028", "TLC-UT-MESSAGE-029", "TLC-UT-MESSAGE-030", "TLC-UT-MESSAGE-031", "TLC-UT-MESSAGE-033", "TLC-UT-MESSAGE-035", "TLC-UT-MESSAGE-036", "TLC-UT-MESSAGE-037", "TLC-UT-MESSAGE-038", "TLC-UT-MESSAGE-039", "TLC-UT-MESSAGE-040", "TLC-UT-MESSAGE-041", "TLC-UT-MESSAGE-042", "TLC-UT-MESSAGE-043", "TLC-UT-MESSAGE-044", "TLC-UT-MESSAGE-045", "TLC-UT-MESSAGE-046", "TLC-UT-MESSAGE-047", "TLC-UT-MESSAGE-049", "TLC-UT-MESSAGE-050", "TLC-UT-MESSAGE-051", "TLC-UT-MESSAGE-052", "TLC-UT-MESSAGE-053", "TLC-UT-MESSAGE-054", "TLC-UT-MESSAGE-055"]},
+          {"name": "provenance", "required": true, "semantic_role": "complete source traceability", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"},
+          {"name": "status", "required": true, "semantic_role": "unevaluated candidate status", "constant": "unevaluated_candidate"}
+        ],
+        "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0"}},
+        "constraints": [
+          {"id": "MSG004-OUT-001", "statement": "Exactly 45 distinct records are present and each is retrievable through the identifier index."},
+          {"id": "MSG004-OUT-002", "statement": "Every record is retrievable through its exact source context and records inside each context follow recorded source order."},
+          {"id": "MSG004-OUT-003", "statement": "No hierarchy, transition, classification, or status promotion is introduced."},
+          {"id": "MSG004-OUT-004", "statement": "All 42 unresolved identifiers, opaque values, source references, and provenance are preserved."}
+        ]
+      }],
+      "preconditions": [
+        {"id": "MSG004-PRE-001", "statement": "The input population equals the authoritative 45-identifier set exactly."},
+        {"id": "MSG004-PRE-002", "statement": "Each identifier occurs once and every record has its authoritative source reference and recorded source position."}
+      ],
+      "postconditions": [
+        {"id": "MSG004-POST-001", "statement": "All 45 records are retrievable by exact identifier and source context."},
+        {"id": "MSG004-POST-002", "statement": "No record is merged, reordered within its source context, omitted, or promoted from candidate status."},
+        {"id": "MSG004-POST-003", "statement": "The 42 unresolved identifiers and all provenance remain observable."}
+      ],
+      "invariants": [
+        {"id": "MSG004-INV-001", "statement": "Identity, content, source context, recorded order within context, provenance, candidate status, and unresolved state are conserved."},
+        {"id": "MSG004-INV-002", "statement": "No scientific hierarchy, transition, validity decision, execution, or external state mutation occurs."}
+      ],
+      "strategy_contract": {
+        "mode": "partially_constrained",
+        "steps": ["validate exact population", "organize records by source context", "restore recorded order within context", "build complete identifier and context indexes", "attach unresolved and provenance", "publish success or stable error"],
+        "partial_order": [
+          {"before": "validate exact population", "after": "publish success or stable error"},
+          {"before": "restore recorded order within context", "after": "publish success or stable error"},
+          {"before": "build complete identifier and context indexes", "after": "publish success or stable error"},
+          {"before": "attach unresolved and provenance", "after": "publish success or stable error"}
+        ],
+        "prescription_basis": ["Exact population, complete indexes, recorded context order, preservation, and failure-before-success are observable. Grouping, sorting, and indexing techniques are not prescribed."]
+      },
+      "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_constrained", "alignment": "not_constrained", "address_stability": "not_constrained", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+      "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "required", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+      "error_contract": [
+        {"code": "MissingMessageStateRecord", "category": "invalid_input", "condition": "One or more authoritative identifiers or required source references are absent.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "DuplicateMessageStateIdentifier", "category": "invalid_input", "condition": "An authoritative object identifier occurs more than once.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "UnknownMessageStateIdentifier", "category": "invalid_input", "condition": "An object identifier outside the exact authoritative set is supplied.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+      ],
+      "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "required", "value": 45}}
+    }
+  ],
+  "implementation_modes": [
+    {"mode_id": "structural-catalogue", "status": "required", "statement": "Expose complete 45-record coverage and both exact indexes."},
+    {"mode_id": "scientific-hierarchy-or-transition", "status": "forbidden", "statement": "Do not infer classification, hierarchy, validity, or transition semantics."},
+    {"mode_id": "transport-or-execution", "status": "forbidden", "statement": "Do not expose protocol, transport, or execution behavior."},
+    {"mode_id": "alternative-index-architecture", "status": "allowed", "statement": "Any grouping and index architecture is allowed when all observable obligations remain satisfied."}
+  ],
+  "global_invariants": [
+    {"id": "MSG004-GINV-001", "statement": "The exact 45-object population and 42 unresolved identifiers remain complete and distinct."},
+    {"id": "MSG004-GINV-002", "statement": "Recorded source order is normative only within source contexts; no order or hierarchy between contexts is inferred."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity."},
+    {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Lossless object and source-context references."},
+    {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Exact population and ordered context collections."},
+    {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Complete unresolved propagation."},
+    {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Non-interpretation of record payloads."},
+    {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Transport-neutral stable errors."},
+    {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable provenance."},
+    {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Structural catalogue envelope."}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["The documentary dependency on TLC-FC-07-MESSAGE-006 does not create an execution dependency."]}
+}

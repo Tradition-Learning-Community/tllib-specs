@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-07-MESSAGE-005", "title": "Message existential cycle descriptor", "domain": "message"},
+  "purpose": "Validate and assemble the exact 18 source-declared Message cycle records into four source-context partitions and six source-ordered stage references without executing transitions.",
+  "scope": {
+    "required": [
+      {"id": "MSG005-REQ-001", "statement": "Accept exactly the 18 authoritative object identities and 18 contextual relation identities listed by this contract.", "basis": ["registry/math-contracts/TLC-FC-07-MESSAGE-005/contract.yaml"]},
+      {"id": "MSG005-REQ-002", "statement": "Preserve TLC-SO-MESSAGE-059 and TLC-SO-MESSAGE-071 as distinct Transmission occurrences."},
+      {"id": "MSG005-REQ-003", "statement": "Expose four source-context partitions and six cycle-stage references in recorded source order without transition execution."},
+      {"id": "MSG005-REQ-004", "statement": "Preserve all identities, relations, opaque payloads, candidate status, provenance, 17 unresolved identifiers, and reservation TLC-DUP-MESSAGE-002."}
+    ],
+    "forbidden": [
+      {"id": "MSG005-FOR-001", "statement": "Do not execute, simulate, or infer transitions, timing, causal effects, or transformation criteria."},
+      {"id": "MSG005-FOR-002", "statement": "Do not invent sender, receiver, channel, audience, encoding, delivery, or transport semantics."},
+      {"id": "MSG005-FOR-003", "statement": "Do not merge the two Transmission occurrences or any other identity or relation."},
+      {"id": "MSG005-FOR-004", "statement": "Do not expose a successful partial descriptor after validation or preservation failure."}
+    ],
+    "deferred": [
+      {"id": "MSG005-DEF-001", "statement": "Transition rules, timing, causal effects, transformation criteria, sender/receiver roles, encoding, and transport remain preserved unresolved or externally provided."},
+      {"id": "MSG005-DEF-002", "statement": "Partition structures, ordering mechanism, ownership, storage, concurrency, and serialization remain implementation-defined."}
+    ]
+  },
+  "operations": [
+    {
+      "operation_id": "ASSEMBLE-MESSAGE-EXISTENTIAL-CYCLE-DESCRIPTOR",
+      "purpose": "Build the complete non-executable Message-cycle descriptor.",
+      "inputs": [{
+        "name": "cycle_declaration_records",
+        "semantic_role": "exact Message cycle declaration population",
+        "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0",
+        "fields": [
+          {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "shared_contract_ref": "TLC-HC-FEATURE-ID@1.0.0", "constant": "TLC-FC-07-MESSAGE-005"},
+          {"name": "object_id", "required": true, "semantic_role": "authoritative cycle record identity", "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"},
+          {"name": "contextual_relation_ids", "required": true, "semantic_role": "exact preserved contextual relations", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0", "allowed_values": ["TLC-SR-MESSAGE-004", "TLC-SR-MESSAGE-025", "TLC-SR-MESSAGE-026", "TLC-SR-MESSAGE-027", "TLC-SR-MESSAGE-028", "TLC-SR-MESSAGE-030", "TLC-SR-MESSAGE-031", "TLC-SR-MESSAGE-032", "TLC-SR-MESSAGE-033", "TLC-SR-MESSAGE-041", "TLC-SR-MESSAGE-043", "TLC-SR-MESSAGE-058", "TLC-SR-MESSAGE-066", "TLC-SR-MESSAGE-067", "TLC-SR-MESSAGE-068", "TLC-SR-MESSAGE-069", "TLC-SR-MESSAGE-070", "TLC-SR-MESSAGE-071"]},
+          {"name": "source_context", "required": true, "semantic_role": "one of four source-declared partitions", "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"},
+          {"name": "recorded_source_order", "required": true, "semantic_role": "authoritative source position for stage references"},
+          {"name": "opaque_payload", "required": true, "semantic_role": "uninterpreted declaration content", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+          {"name": "candidate_status", "required": true, "semantic_role": "unevaluated candidate status", "constant": "unevaluated_candidate"},
+          {"name": "unresolved", "required": true, "semantic_role": "complete preserved unresolved collection", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0"},
+          {"name": "provenance", "required": true, "semantic_role": "complete traceability", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"}
+        ],
+        "collection": {
+          "kind": "sequence",
+          "membership": "exact",
+          "members": ["TLC-SO-MESSAGE-005", "TLC-SO-MESSAGE-026", "TLC-SO-MESSAGE-027", "TLC-SO-MESSAGE-028", "TLC-SO-MESSAGE-029", "TLC-SO-MESSAGE-031", "TLC-SO-MESSAGE-032", "TLC-SO-MESSAGE-033", "TLC-SO-MESSAGE-034", "TLC-SO-MESSAGE-042", "TLC-SO-MESSAGE-044", "TLC-SO-MESSAGE-059", "TLC-SO-MESSAGE-067", "TLC-SO-MESSAGE-068", "TLC-SO-MESSAGE-069", "TLC-SO-MESSAGE-070", "TLC-SO-MESSAGE-071", "TLC-SO-MESSAGE-072"],
+          "cardinality": {"minimum": 18, "maximum": 18},
+          "ordering": "implementation_defined",
+          "duplicates": "forbidden",
+          "key_contract": null,
+          "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}
+        },
+        "constraints": [
+          {"id": "MSG005-IN-001", "statement": "Every authoritative object identity occurs exactly once and all required contextual relations are preserved."},
+          {"id": "MSG005-IN-002", "statement": "TLC-SO-MESSAGE-059 and TLC-SO-MESSAGE-071 are distinct records even though both represent Transmission occurrences."},
+          {"id": "MSG005-IN-003", "statement": "Every record carries its authoritative source context and recorded source position."}
+        ]
+      }],
+      "outputs": [{
+        "name": "message_cycle_descriptor",
+        "semantic_role": "non-executable partitioned Message cycle descriptor",
+        "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0",
+        "fields": [
+          {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "constant": "TLC-FC-07-MESSAGE-005"},
+          {"name": "representation", "required": true, "semantic_role": "structural result kind", "constant": "existential_cycle_descriptor"},
+          {"name": "records", "required": true, "semantic_role": "complete 18-record population", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0"},
+          {"name": "partitions", "required": true, "semantic_role": "four source-context partitions"},
+          {"name": "cycle_stage_references", "required": true, "semantic_role": "six source-ordered stage references", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0"},
+          {"name": "relations", "required": true, "semantic_role": "all exact contextual relations", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0"},
+          {"name": "unresolved", "required": true, "semantic_role": "preserved unresolved and reservation collection", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0", "allowed_values": ["TLC-UT-MESSAGE-002", "TLC-UT-MESSAGE-018", "TLC-UT-MESSAGE-019", "TLC-UT-MESSAGE-020", "TLC-UT-MESSAGE-022", "TLC-UT-MESSAGE-023", "TLC-UT-MESSAGE-024", "TLC-UT-MESSAGE-025", "TLC-UT-MESSAGE-032", "TLC-UT-MESSAGE-034", "TLC-UT-MESSAGE-048", "TLC-UT-MESSAGE-056", "TLC-UT-MESSAGE-057", "TLC-UT-MESSAGE-058", "TLC-UT-MESSAGE-059", "TLC-UT-MESSAGE-060", "TLC-UT-MESSAGE-061", "TLC-DUP-MESSAGE-002"]},
+          {"name": "provenance", "required": true, "semantic_role": "complete source traceability", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"},
+          {"name": "status", "required": true, "semantic_role": "unevaluated candidate status", "constant": "unevaluated_candidate"}
+        ],
+        "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0"}},
+        "constraints": [
+          {"id": "MSG005-OUT-001", "statement": "Exactly 18 distinct identities and all 18 contextual relations are preserved."},
+          {"id": "MSG005-OUT-002", "statement": "Exactly four source-context partitions and six stage references in recorded source order are present."},
+          {"id": "MSG005-OUT-003", "statement": "TLC-SO-MESSAGE-059 and TLC-SO-MESSAGE-071 remain separate and source-addressable."},
+          {"id": "MSG005-OUT-004", "statement": "No transition, timing, causal, sender/receiver, encoding, or transport operation exists."}
+        ]
+      }],
+      "preconditions": [
+        {"id": "MSG005-PRE-001", "statement": "The input population equals the authoritative 18-identifier set exactly and contains all required contextual relations."},
+        {"id": "MSG005-PRE-002", "statement": "Each object identity occurs once and the two Transmission occurrences remain distinct."}
+      ],
+      "postconditions": [
+        {"id": "MSG005-POST-001", "statement": "All 18 identities and contextual relations are preserved in four source-context partitions."},
+        {"id": "MSG005-POST-002", "statement": "Six source-ordered stage references are exposed without transition semantics."},
+        {"id": "MSG005-POST-003", "statement": "All unresolved items, reservation, candidate status, opaque content, and provenance remain observable."}
+      ],
+      "invariants": [
+        {"id": "MSG005-INV-001", "statement": "Identity, relation identity, source partitions, stage order, content, provenance, candidate status, and unresolved state are conserved."},
+        {"id": "MSG005-INV-002", "statement": "No transition, transport, scientific evaluation, or external state mutation occurs."}
+      ],
+      "strategy_contract": {
+        "mode": "partially_constrained",
+        "steps": ["validate exact population and relations", "preserve separate Transmission identities", "organize four source-context partitions", "assemble six recorded-order stage references", "attach unresolved and provenance", "publish success or stable error"],
+        "partial_order": [
+          {"before": "validate exact population and relations", "after": "publish success or stable error"},
+          {"before": "preserve separate Transmission identities", "after": "publish success or stable error"},
+          {"before": "assemble six recorded-order stage references", "after": "publish success or stable error"},
+          {"before": "attach unresolved and provenance", "after": "publish success or stable error"}
+        ],
+        "prescription_basis": ["Exact population, relation and identity preservation, four partitions, six-stage order, and failure-before-success are observable. Internal partitioning and ordering techniques are not prescribed."]
+      },
+      "runtime_contract": {"mutability": "not_constrained", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_constrained", "alignment": "not_constrained", "address_stability": "not_constrained", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+      "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "required", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+      "error_contract": [
+        {"code": "IncompleteCycleEvidence", "category": "invalid_input", "condition": "One or more authoritative identities, relations, source references, or recorded positions are absent.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "DuplicateCycleIdentifier", "category": "invalid_input", "condition": "An authoritative object identity occurs more than once.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "TransmissionOccurrencesMerged", "category": "preservation", "condition": "TLC-SO-MESSAGE-059 and TLC-SO-MESSAGE-071 are collapsed into one record or identity.", "recoverability": "non_retryable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+      ],
+      "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "required", "value": 18}}
+    }
+  ],
+  "implementation_modes": [
+    {"mode_id": "structural-cycle-descriptor", "status": "required", "statement": "Expose the exact 18-record, four-partition, six-stage structural descriptor."},
+    {"mode_id": "transition-execution", "status": "forbidden", "statement": "Do not execute or infer transitions, timing, causality, or transformation criteria."},
+    {"mode_id": "transport-protocol", "status": "forbidden", "statement": "Do not add sender, receiver, channel, encoding, delivery, or transport behavior."},
+    {"mode_id": "alternative-internal-architecture", "status": "allowed", "statement": "Internal partition and ordering architecture is free when all observable obligations remain satisfied."}
+  ],
+  "global_invariants": [
+    {"id": "MSG005-GINV-001", "statement": "The exact 18 identities, 18 contextual relations, 17 unresolved identifiers, and TLC-DUP-MESSAGE-002 remain complete and distinct."},
+    {"id": "MSG005-GINV-002", "statement": "The two Transmission occurrences remain distinct and the six-stage source order never implies executable transition semantics."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity."},
+    {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Lossless object, relation, and source-context references."},
+    {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Exact populations, partitions, relations, and ordered stage references."},
+    {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Complete unresolved and reservation propagation."},
+    {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Non-interpretation of declaration payloads."},
+    {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Transport-neutral stable errors."},
+    {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable provenance."},
+    {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Structural cycle descriptor envelope."}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["The documentary dependency on TLC-FC-07-MESSAGE-006 does not create an execution dependency."]}
+}

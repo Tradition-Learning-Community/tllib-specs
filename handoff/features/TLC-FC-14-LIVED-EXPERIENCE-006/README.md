@@ -1,0 +1,3 @@
+# Validity-domain equation descriptor
+
+This feature preserves `TLC-SO-LIVED-EXPERIENCE-054` and its validity-domain expression as opaque source content. Implement exact feature/object validation, provenance preservation, immutable deterministic descriptors, structural comparison, and lossless serialization. Do not select types, units, `rho_min`, `t_min`, context semantics, or disciple-state membership, and do not evaluate thresholds or membership. Scientific requests return `ScientificEvaluationRequested`; unresolved decisions remain preserved. Runtime architecture is implementation-defined.

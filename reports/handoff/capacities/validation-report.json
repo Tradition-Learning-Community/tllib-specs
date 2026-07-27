@@ -1,0 +1,45 @@
+{
+  "schema_version":"1.0",
+  "domain":"capacities",
+  "status":"passed",
+  "source_commit":"c792e2f042580ae589e25fe466e7bd0cc79f40ca",
+  "validated_head_commit":"104ddc8fdc2b01d343e08851a469bb7a4a853bf0",
+  "checks":{
+    "authoritative_population_count":15,
+    "produced_package_count":15,
+    "duplicate_feature_ids":0,
+    "foreign_domain_packages":0,
+    "required_package_files_per_feature":5,
+    "examples_files":0,
+    "scientific_sources_modified":false,
+    "mathematical_contracts_modified":false,
+    "source_irs_modified":false,
+    "finalized_irs_modified":false,
+    "algorithms_modified":false,
+    "oracles_modified":false,
+    "test_plans_modified":false,
+    "shared_contracts_modified":false,
+    "schemas_modified":false,
+    "workflows_modified":false,
+    "implementation_code_added":false,
+    "json_schema_validation":"passed",
+    "inter_file_consistency":"passed",
+    "shared_contract_resolution":"passed",
+    "authoritative_population_validation":"passed",
+    "progressive_population_scenarios":"passed",
+    "pilot_bundle_resolution":"passed",
+    "repository_wide_handoff_validation":"passed"
+  },
+  "nomenclature_correction":{
+    "path":"registry/domain-finalization/capacities/feature-status.yaml",
+    "change":"Added feature_count: 15 alongside expected_active_count: 15.",
+    "classification":"non_scientific_metadata_alias",
+    "reason":"GitHub Actions run 30266370774 failed with authoritative inventory feature count mismatch for domain capacities.",
+    "semantic_effect":"none; feature population, ordering, statuses, decision classes, and scientific content are unchanged."
+  },
+  "workflow_runs":[
+    {"run_id":30266370774,"run_number":73,"commit":"0306214c988e7e68b47c068f860e88e7ef207df0","conclusion":"failure","diagnostic":"authoritative inventory feature count mismatch for domain capacities"},
+    {"run_id":30266542399,"run_number":74,"commit":"104ddc8fdc2b01d343e08851a469bb7a4a853bf0","conclusion":"success","validated_steps":["packages, schemas, and progressive populations","progressive validation logical scenarios","pilot bundle resolution"]}
+  ],
+  "final_report_rerun":"required_and_expected_after_this_report_commit"
+}

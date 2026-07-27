@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0", "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-05-DYNAMICS-004", "title": "Feedback equations", "domain": "dynamics"},
+  "purpose": "Construct the source-defined feedback integral and kernel representation without evaluating the integral or asserting convergence.",
+  "scope": {
+    "required": [
+      {"id": "D004-REQ-001", "statement": "Validate source and parameter identifiers and signal, kernel, and parameter-map carrier shapes before successful publication.", "basis": ["registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-004/ir.yaml"]},
+      {"id": "D004-REQ-002", "statement": "Preserve the signal, kernel, parameters, distinct source identities, integration-history notation, provenance, unresolved items, and reservations.", "basis": ["registry/oracles/dynamics/TLC-FC-05-DYNAMICS-004/oracle.yaml"]},
+      {"id": "D004-REQ-003", "statement": "Expose no successful partial result after validation or preservation failure."}
+    ],
+    "forbidden": [
+      {"id": "D004-FOR-001", "statement": "Do not evaluate the integral or kernel and do not produce a numerical feedback value."},
+      {"id": "D004-FOR-002", "statement": "Do not infer integration domains, kernel domains, parameter types, convergence, solver behavior, or transitions."},
+      {"id": "D004-FOR-003", "statement": "Do not mutate any supplied payload or external scientific state."}
+    ],
+    "deferred": [
+      {"id": "D004-DEF-001", "statement": "Integration domains, convergence conditions, and kernel parameter types remain preserved unresolved."},
+      {"id": "D004-DEF-002", "statement": "Scientific integration requires future scientific authority."}
+    ]
+  },
+  "operations": [{
+    "operation_id": "CONSTRUCT-SYMBOLIC-FEEDBACK-EXPRESSION",
+    "purpose": "Return an immutable source-addressable unevaluated integral-expression record.",
+    "inputs": [
+      {"name": "external_input", "semantic_role": "opaque external signal", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}},
+      {"name": "kernel", "semantic_role": "opaque source-defined feedback kernel", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}},
+      {"name": "parameters", "semantic_role": "source-addressable opaque parameter mapping", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0", "collection": {"kind": "map", "membership": "constrained", "cardinality": {"minimum": 0, "maximum": null}, "ordering": "implementation_defined", "duplicates": "forbidden", "key_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}}, "constraints": [{"id": "D004-IN-001", "statement": "Every parameter source identifier must be known."}]}
+    ],
+    "outputs": [{"name": "feedback", "semantic_role": "immutable unevaluated integral expression", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "fields": [
+      {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "constant": "TLC-FC-05-DYNAMICS-004"},
+      {"name": "representation", "required": true, "semantic_role": "output representation", "constant": "UnevaluatedIntegralExpression"},
+      {"name": "external_input", "required": true, "semantic_role": "unchanged signal payload", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+      {"name": "kernel", "required": true, "semantic_role": "unchanged kernel payload", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+      {"name": "parameters", "required": true, "semantic_role": "unchanged parameter mapping", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0"},
+      {"name": "traceability", "required": true, "semantic_role": "distinct feedback and kernel provenance", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"},
+      {"name": "unresolved", "required": true, "semantic_role": "preserved domain and type uncertainty", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0"}
+    ], "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}, "constraints": [{"id": "D004-OUT-001", "statement": "The expression is unevaluated and contains no convergence or domain assertion."}]}],
+    "preconditions": [
+      {"id": "D004-PRE-001", "statement": "Every source and parameter identifier is known in the covered Dynamics inventory."},
+      {"id": "D004-PRE-002", "statement": "Signal, kernel, and parameter map preserve their declared carrier shapes."}
+    ],
+    "postconditions": [
+      {"id": "D004-POST-001", "statement": "Signal, kernel, parameters, and both scientific source identities remain distinct, unchanged, and traceable."},
+      {"id": "D004-POST-002", "statement": "The integral and kernel remain unevaluated."},
+      {"id": "D004-POST-003", "statement": "No integral value, domain assertion, parameter-type inference, convergence claim, or transition is emitted."}
+    ],
+    "invariants": [
+      {"id": "D004-INV-001", "statement": "TLC-SO-DYNAMICS-023 and TLC-SO-DYNAMICS-024 remain distinct and source-addressable."},
+      {"id": "D004-INV-002", "statement": "Opaque signal, kernel, and parameter payloads remain unchanged."}
+    ],
+    "strategy_contract": {"mode": "partially_constrained", "steps": ["validate source and parameter identifiers and carrier shapes", "preserve signal kernel and parameters", "construct an unevaluated integral expression", "attach distinct traceability unresolved items and reservations", "verify preservation obligations", "publish success or stable error"], "partial_order": [
+      {"before": "validate source and parameter identifiers and carrier shapes", "after": "publish success or stable error"},
+      {"before": "preserve signal kernel and parameters", "after": "publish success or stable error"},
+      {"before": "construct an unevaluated integral expression", "after": "publish success or stable error"},
+      {"before": "attach distinct traceability unresolved items and reservations", "after": "publish success or stable error"},
+      {"before": "verify preservation obligations", "after": "publish success or stable error"}
+    ], "prescription_basis": ["Validation, distinct payload preservation, unevaluated status, and atomic publication are observable; internal sequencing remains open."]},
+    "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+    "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "implementation_defined", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+    "error_contract": [
+      {"code": "UNKNOWN_SOURCE_IDENTIFIER", "category": "invalid_input", "condition": "A feedback, kernel, relation, or parameter source identifier is unknown.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "TYPE_SHAPE_MISMATCH", "category": "invalid_input", "condition": "The signal, kernel, or parameter-map carrier has an invalid declared shape.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "UNRESOLVED_SCIENTIFIC_SEMANTICS", "category": "unsupported_operation", "condition": "Integral evaluation, domain inference, parameter typing, convergence, solver, or transition semantics are requested.", "recoverability": "non_retryable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+    ],
+    "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+  }],
+  "implementation_modes": [
+    {"mode_id": "symbolic-feedback-packaging", "status": "required", "statement": "Expose an unevaluated integral-expression record and stable errors."},
+    {"mode_id": "integral-evaluation", "status": "forbidden", "statement": "Do not compute the integral, infer domains or types, or claim convergence."},
+    {"mode_id": "alternative-internal-architecture", "status": "allowed", "statement": "Internal architecture remains free when observable obligations are preserved."}
+  ],
+  "global_invariants": [
+    {"id": "D004-GINV-001", "statement": "Missing domains, types, and convergence evidence remain missing and never become defaults."},
+    {"id": "D004-GINV-002", "statement": "Distinct identity, opacity, traceability, unresolved preservation, and failure atomicity cannot be weakened."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity"},
+    {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Stable feedback, kernel, relation, and parameter identifiers"},
+    {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Source-addressable parameter mapping"},
+    {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Preserved domain, convergence, and type uncertainty"},
+    {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Unevaluated signal, kernel, and parameter payloads"},
+    {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Stable transport-neutral failures"},
+    {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Distinct source provenance"},
+    {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Immutable structural result envelope"}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["Conformance is structural and does not authorize numerical integration."]}
+}

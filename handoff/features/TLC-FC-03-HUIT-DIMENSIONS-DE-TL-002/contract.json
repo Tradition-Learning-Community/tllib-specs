@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0", "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002", "title": "Message convergence constraint", "domain": "huit-dimensions"},
+  "purpose": "Build an unevaluated convergence constraint record with exact phase labels and opaque Gamma and limit tokens.",
+  "scope": {
+    "required": [
+      {"id": "HD002-REQ-001", "statement": "Preserve convergence_declaration for TLC-SO-HUIT-DIMENSIONS-DE-TL-011, the three phase labels, source equation identity, nine unresolved identifiers, and TLC-EA-HUIT-002-001.", "basis": ["registry/math-contracts/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002/contract.yaml", "registry/oracles/huit-dimensions/TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002/oracle.yaml"]},
+      {"id": "HD002-REQ-002", "statement": "Return an immutable deterministic MessageConvergenceConstraint with complete provenance."}
+    ],
+    "forbidden": [
+      {"id": "HD002-FOR-001", "statement": "Do not execute convergence, limits, Gamma, phase transitions, or resolve feature identity."},
+      {"id": "HD002-FOR-002", "statement": "Do not omit, duplicate, rename, reorder semantically, coerce, or mutate source-backed content."}
+    ],
+    "deferred": [
+      {"id": "HD002-DEF-001", "statement": "Scientific execution and feature boundary identity are preserved unresolved."},
+      {"id": "HD002-DEF-002", "statement": "Runtime representation and all low-level storage choices remain implementation-defined."}
+    ]
+  },
+  "operations": [{
+    "operation_id": "BUILD-MESSAGE-CONVERGENCE-CONSTRAINT",
+    "purpose": "Validate and preserve the convergence declaration, phase labels, operators, trace, reservations, and assumption.",
+    "inputs": [{
+      "name": "request", "semantic_role": "source-backed convergence declaration and structural labels", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0",
+      "fields": [
+        {"name": "convergence_declaration", "required": true, "semantic_role": "OpaqueConvergenceDeclaration for TLC-SO-HUIT-DIMENSIONS-DE-TL-011", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+        {"name": "phase_labels", "required": true, "semantic_role": "exact named phase set", "allowed_values": ["germination", "crystallisation", "stabilisation"]},
+        {"name": "operator_tokens", "required": true, "semantic_role": "opaque Gamma and limit tokens", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+        {"name": "source_provenance", "required": true, "semantic_role": "complete source trace", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"},
+        {"name": "unresolved_refs", "required": true, "semantic_role": "exact unresolved set", "allowed_values": ["TLC-UNRES-HUIT-002-TYPE", "TLC-UNRES-HUIT-002-SIGNATURE", "TLC-UNRES-HUIT-002-UNITS", "TLC-UNRES-HUIT-002-ORDER", "TLC-UNRES-HUIT-002-AGGREGATION", "TLC-UNRES-HUIT-002-NUMERICS", "TLC-UNRES-HUIT-002-ORACLE", "TLC-UNRES-HUIT-002-BOUNDARY", "TLC-UNRES-HUIT-002-IDENTITY"]},
+        {"name": "assumption_refs", "required": true, "semantic_role": "provisional engineering assumption", "allowed_values": ["TLC-EA-HUIT-002-001"]}
+      ],
+      "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}},
+      "constraints": [{"id": "HD002-IN-001", "statement": "All three phase labels occur exactly once; input transport order is non-semantic."}]
+    }],
+    "outputs": [{
+      "name": "result", "semantic_role": "immutable MessageConvergenceConstraint", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0",
+      "fields": [
+        {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "constant": "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002"},
+        {"name": "result_type", "required": true, "semantic_role": "structural result type", "constant": "MessageConvergenceConstraint"},
+        {"name": "phase_labels", "required": true, "semantic_role": "preserved named phases", "allowed_values": ["germination", "crystallisation", "stabilisation"]},
+        {"name": "declaration_and_operators", "required": true, "semantic_role": "preserved opaque content", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+        {"name": "unresolved_refs", "required": true, "semantic_role": "preserved unresolved identifiers", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0"},
+        {"name": "convergence_evaluation", "required": true, "semantic_role": "evaluation status", "constant": "unresolved"},
+        {"name": "feature_boundary_identity", "required": true, "semantic_role": "boundary and identity status", "constant": "unresolved"},
+        {"name": "provenance", "required": true, "semantic_role": "complete traceability", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"}
+      ],
+      "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0"}},
+      "constraints": [{"id": "HD002-OUT-001", "statement": "The declaration, equation identity, labels, opaque tokens, unresolved set, assumption, and trace are preserved exactly."}]
+    }],
+    "preconditions": [
+      {"id": "HD002-PRE-001", "statement": "The declaration, exact source equation identity, all phase labels, trace, reservations, and assumption are present."},
+      {"id": "HD002-PRE-002", "statement": "No convergence execution or inferred semantics are requested."}
+    ],
+    "postconditions": [
+      {"id": "HD002-POST-001", "statement": "The result contains the three named phase labels and unchanged declaration and operator tokens."},
+      {"id": "HD002-POST-002", "statement": "Convergence evaluation, feature boundary, and identity remain unresolved."}
+    ],
+    "invariants": [
+      {"id": "HD002-INV-001", "statement": "Source object identity, equation trace, opaque bytes, and limited engineering status remain unchanged."},
+      {"id": "HD002-INV-002", "statement": "No scientific state or external domain state is mutated."}
+    ],
+    "strategy_contract": {"mode": "partially_constrained", "steps": ["validate declaration labels and traceability", "construct opaque constraint record", "verify identity and unresolved propagation", "publish success or stable error"], "partial_order": [{"before": "validate declaration labels and traceability", "after": "publish success or stable error"}, {"before": "construct opaque constraint record", "after": "publish success or stable error"}, {"before": "verify identity and unresolved propagation", "after": "publish success or stable error"}], "prescription_basis": ["Observable validation and preservation constrain publication; no unique internal convergence-record algorithm is prescribed."]},
+    "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+    "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "not_required", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+    "error_contract": [
+      {"code": "FAIL_HUIT_002_MISSING_TRACE", "category": "missing_traceability_or_role", "condition": "Schema-compatible public alias for authoritative source error FAIL-HUIT-002-MISSING-TRACE: required declaration, identifier, trace, reservation, or assumption data is missing.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "FAIL_HUIT_002_OPERATION", "category": "source_equation_or_phase_loss", "condition": "Schema-compatible public alias for authoritative source error FAIL-HUIT-002-OPERATION: source equation identity or a recorded phase label is missing, duplicated, or lost.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "FAIL_HUIT_002_SCIENTIFIC_INVENTION", "category": "scientific_evaluation_forbidden", "condition": "Schema-compatible public alias for authoritative source error FAIL-HUIT-002-SCIENTIFIC-INVENTION: convergence execution or unstated scientific semantics are requested.", "recoverability": "non_retryable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+    ],
+    "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+  }],
+  "implementation_modes": [
+    {"mode_id": "structural-constraint-record", "status": "required", "statement": "Expose the preserved declaration, labels, unresolved operators, statuses, and stable errors."},
+    {"mode_id": "convergence-execution", "status": "forbidden", "statement": "Do not execute a limit or decide convergence or feature identity."},
+    {"mode_id": "alternative-internal-architecture", "status": "allowed", "statement": "Internal architecture is free when observable obligations remain satisfied."}
+  ],
+  "global_invariants": [
+    {"id": "HD002-GINV-001", "statement": "Phase labels, equation identity, opacity, unresolved status, immutability, and provenance cannot be weakened."},
+    {"id": "HD002-GINV-002", "statement": "Unresolved science never becomes a default, inferred value, or successful convergence claim."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity"}, {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Lossless scientific references"},
+    {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Exact labels and reference collections"}, {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Preserved unresolved identifiers"},
+    {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Uninterpreted declarations and operator tokens"}, {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Transport-neutral structured errors"},
+    {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable provenance"}, {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Immutable structural result envelope"}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["Conformance is structural and does not authorize convergence or prescribe a language, serialization, or total internal algorithm."]}
+}

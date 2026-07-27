@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-FC-06-THEOREMS-001",
+  "tests": [
+    {"test_id": "THEOREMS-001-A01", "applies_to": "ASSEMBLE-EXPERIENTIAL-CONSERVATION-CLAIM", "category": "valid_input", "given": "A present axiom reference, an arbitrary opaque experience token, and exactly the three required clause identifiers.", "when": "The structural operation is invoked.", "expect": "An UnevaluatedConservationClaim containing exactly the supplied components, with no evaluated scientific value.", "source_basis": ["registry/oracles/theorems/TLC-FC-06-THEOREMS-001/oracle.yaml"]},
+    {"test_id": "THEOREMS-001-A02", "applies_to": "ASSEMBLE-EXPERIENTIAL-CONSERVATION-CLAIM", "category": "error", "given": "The axiom reference is absent.", "when": "The operation is invoked.", "expect": {"error": "MISSING_AXIOM_REFERENCE", "partial_result": false}},
+    {"test_id": "THEOREMS-001-A03", "applies_to": "ASSEMBLE-EXPERIENTIAL-CONSERVATION-CLAIM", "category": "error", "given": "The clause collection has fewer, more, duplicated, or different identifiers.", "when": "The operation is invoked.", "expect": {"error": "INCOMPLETE_CONSERVATION_CLAUSES", "partial_result": false}},
+    {"test_id": "THEOREMS-001-A04", "applies_to": "ASSEMBLE-EXPERIENTIAL-CONSERVATION-CLAIM", "category": "preservation", "given": "The experience payload is replaced by a different opaque token while all other inputs are unchanged.", "when": "Both inputs are processed.", "expect": "Only the preserved experience payload differs between successful outputs."},
+    {"test_id": "THEOREMS-001-A05", "applies_to": "ASSEMBLE-EXPERIENTIAL-CONSERVATION-CLAIM", "category": "determinism", "given": "Identical structural inputs.", "when": "The operation is invoked twice.", "expect": "Semantically identical descriptors."},
+    {"test_id": "THEOREMS-001-A06", "applies_to": "ASSEMBLE-EXPERIENTIAL-CONSERVATION-CLAIM", "category": "unsupported_operation", "given": "A request to evaluate boundedness, variation, convergence, or theorem truth.", "when": "The package boundary is exercised.", "expect": "The requested scientific evaluation is not provided and no truth claim is emitted."},
+    {"test_id": "THEOREMS-001-A07", "applies_to": "TLC-FC-06-THEOREMS-001", "category": "preservation", "given": "The finalized package metadata.", "when": "Proof metadata is inspected.", "expect": "The proof remains partial, not formalized, and referenced as PROOF-THEOREMS-006; no runtime proof result exists."}
+  ]
+}
