@@ -36,15 +36,23 @@ jobs:
       - name: Install validator dependency
         run: python -m pip install --disable-pip-version-check --quiet jsonschema
       - name: Validate packages and schemas
+        id: validate
         shell: bash
         run: |
-          set -o pipefail
-          python tools/handoff/validate_handoff.py 2>&1 | tee handoff-validation.log
+          set +e
+          output="$(python tools/handoff/validate_handoff.py 2>&1)"
+          status=$?
+          printf '%s\n' "$output" | tee handoff-validation.log
+          if [ "$status" -ne 0 ]; then
+            diagnostic="$(printf '%s\n' "$output" | tail -n 1 | tr -cs '[:alnum:]_.-' '-' | cut -c1-120)"
+            printf 'diagnostic=%s\n' "$diagnostic" >> "$GITHUB_OUTPUT"
+            exit "$status"
+          fi
       - name: Upload validation diagnostics
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: handoff-validation-diagnostics
+          name: handoff-validation-${{ steps.validate.outputs.diagnostic }}
           path: handoff-validation.log
           if-no-files-found: error
       - name: Resolve pilot bundle without writing artifacts
