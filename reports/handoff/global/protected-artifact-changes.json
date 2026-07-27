@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "model_version": "1.0.0",
+  "status": "finalized",
+  "scientific_source_changes_during_handoff": [],
+  "scientific_decisions_resolved_during_handoff": [],
+  "registry_never_modified_claim": false,
+  "historical_editorial_registry_normalizations": [
+    {"domain":"community","path":"registry/domain-finalization/community/feature-status.yaml","field":"feature_count","value":8,"classification":"redundant exact population metadata","scientific_effect":"none"},
+    {"domain":"dynamics","path":"registry/domain-finalization/dynamics/feature-status.yaml","field":"feature_count","value":7,"classification":"redundant exact population metadata","scientific_effect":"none"},
+    {"domain":"theorems","path":"registry/domain-finalization/theorems/feature-status.yaml","field":"feature_count","value":9,"classification":"redundant exact population metadata","scientific_effect":"none"},
+    {"domain":"capacities","path":"registry/domain-finalization/capacities/feature-status.yaml","field":"feature_count","value":15,"classification":"redundant exact population metadata","scientific_effect":"none"},
+    {"domain":"lived-experience","path":"registry/domain-finalization/lived-experience/feature-status.yaml","field":"feature_count","value":12,"classification":"redundant exact population metadata","scientific_effect":"none"}
+  ],
+  "historical_validator_compatibility_changes": [
+    {"pull_request":100,"change":"Accepted domain/domain_id and feature_count/population_count aliases with exact agreement."},
+    {"pull_request":112,"change":"Accepted expected_count as an exact population alias."},
+    {"pull_request":113,"change":"Accepted authoritative_feature_count in the core validator."},
+    {"pull_request":115,"change":"Aligned the former compatibility validator with authoritative_feature_count."},
+    {"pull_request":119,"change":"Accepted all established count aliases, ordered mapping populations, and exact sibling-manifest fallback evidence."}
+  ],
+  "message_finalization": {
+    "registry_modified": false,
+    "resolution": "generic strict compatibility reader",
+    "pull_request": 108
+  },
+  "principle_finalization": {
+    "registry_modified": false,
+    "resolution": "generic strict ordered-mapping reader",
+    "pull_request": 107
+  },
+  "global_finalization_changes": {
+    "registry_modified": false,
+    "domain_catalog_editorial_normalizations": [
+      {"domain":"disciple","field":"statuses.validation","from":"pending","to":"validated"},
+      {"domain":"community","field":"statuses.validation","from":"pending","to":"validated"}
+    ],
+    "infrastructure": [
+      "single official handoff validator",
+      "deterministic global catalog generator and schema",
+      "166-feature deterministic bundle export validation",
+      "global reports and final documentation"
+    ],
+    "handoff_packages_modified_for_science": false,
+    "implementation_code_added": false
+  }
+}
