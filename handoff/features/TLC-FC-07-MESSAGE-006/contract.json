@@ -2,82 +2,91 @@
   "schema_version": "1.0",
   "package_version": "1.0.0",
   "feature": {"feature_id": "TLC-FC-07-MESSAGE-006", "title": "Message entity profile", "domain": "message"},
-  "purpose": "Validate and declare the root Message entity profile with three distinct evidence roles and two exact relations while explicitly excluding protocol, transport, and execution semantics.",
+  "purpose": "Declare the root Message entity as a traceable, non-executable profile with three distinct evidence roles and two exact relations.",
   "scope": {
     "required": [
-      {"id": "MSG006-REQ-001", "statement": "Accept exactly objects TLC-SO-MESSAGE-001, TLC-SO-MESSAGE-004, and TLC-SO-MESSAGE-030 as distinct evidence identities.", "basis": ["registry/math-contracts/TLC-FC-07-MESSAGE-006/contract.yaml"]},
-      {"id": "MSG006-REQ-002", "statement": "Accept exactly relations TLC-SR-MESSAGE-003 and TLC-SR-MESSAGE-029 with their authoritative endpoints."},
-      {"id": "MSG006-REQ-003", "statement": "Return distinct entity, essential_properties, and transmissibility roles with both relation identities preserved."},
-      {"id": "MSG006-REQ-004", "statement": "Preserve opaque evidence, source references, candidate status, provenance, unresolved identifiers TLC-UT-MESSAGE-001 and TLC-UT-MESSAGE-021, and reservation TLC-DUP-MESSAGE-001."}
+      {"id": "MSG006-REQ-001", "statement": "Accept exactly objects TLC-SO-MESSAGE-001, TLC-SO-MESSAGE-004, and TLC-SO-MESSAGE-030 and relations TLC-SR-MESSAGE-003 and TLC-SR-MESSAGE-029.", "basis": ["registry/math-contracts/TLC-FC-07-MESSAGE-006/contract.yaml"]},
+      {"id": "MSG006-REQ-002", "statement": "Validate authoritative relation endpoints and preserve entity, essential_properties, and transmissibility as distinct roles."},
+      {"id": "MSG006-REQ-003", "statement": "Preserve opaque evidence, source references, candidate status, provenance, TLC-UT-MESSAGE-001, TLC-UT-MESSAGE-021, and TLC-DUP-MESSAGE-001."}
     ],
     "forbidden": [
       {"id": "MSG006-FOR-001", "statement": "Do not accept or expose encoding, transport, execution, sender, recipient, channel, delivery, or protocol fields."},
       {"id": "MSG006-FOR-002", "statement": "Do not infer property classifications, transmission mechanics, audience, medium, truth, or scientific capability."},
-      {"id": "MSG006-FOR-003", "statement": "Do not merge roles, objects, relations, or relation endpoints."},
-      {"id": "MSG006-FOR-004", "statement": "Do not expose a successful partial profile after any validation or preservation failure."}
+      {"id": "MSG006-FOR-003", "statement": "Do not merge roles, objects, relations, or relation endpoints, and do not expose a partial successful profile."}
     ],
     "deferred": [
-      {"id": "MSG006-DEF-001", "statement": "Property classifications, transmission mechanics, audience, medium, encoding, transport, and execution remain preserved unresolved or external."},
-      {"id": "MSG006-DEF-002", "statement": "Concrete representation, ownership, storage, concurrency, and serialization remain implementation-defined."}
+      {"id": "MSG006-DEF-001", "statement": "Property classifications, transmission mechanics, audience, medium, encoding, transport, and execution remain unresolved or external."},
+      {"id": "MSG006-DEF-002", "statement": "Concrete representation, ownership, storage, allocation, concurrency, and serialization remain implementation-defined."}
     ]
   },
   "operations": [
     {
       "operation_id": "DECLARE-MESSAGE-ENTITY-PROFILE",
-      "purpose": "Construct the non-executable root Message profile from exact object and relation evidence.",
-      "inputs": [{
-        "name": "message_declaration_evidence",
-        "semantic_role": "exact root entity, property, and transmissibility evidence with relations",
-        "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0",
-        "fields": [
-          {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "shared_contract_ref": "TLC-HC-FEATURE-ID@1.0.0", "constant": "TLC-FC-07-MESSAGE-006"},
-          {"name": "object_ids", "required": true, "semantic_role": "exact distinct object identities", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0", "allowed_values": ["TLC-SO-MESSAGE-001", "TLC-SO-MESSAGE-004", "TLC-SO-MESSAGE-030"]},
-          {"name": "relation_ids", "required": true, "semantic_role": "exact relation identities", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0", "allowed_values": ["TLC-SR-MESSAGE-003", "TLC-SR-MESSAGE-029"]},
-          {"name": "relation_endpoints", "required": true, "semantic_role": "authoritative endpoints for both relations", "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"},
-          {"name": "source_references", "required": true, "semantic_role": "unchanged scientific source ranges", "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"},
-          {"name": "opaque_payloads", "required": true, "semantic_role": "uninterpreted evidence content", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
-          {"name": "candidate_status", "required": true, "semantic_role": "unevaluated candidate status", "constant": "unevaluated_candidate"},
-          {"name": "unresolved", "required": true, "semantic_role": "preserved unresolved and reservation collection", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0", "allowed_values": ["TLC-UT-MESSAGE-001", "TLC-UT-MESSAGE-021", "TLC-DUP-MESSAGE-001"]},
-          {"name": "provenance", "required": true, "semantic_role": "complete traceability", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"}
-        ],
-        "collection": {"kind": "record", "membership": "exact", "members": ["TLC-SO-MESSAGE-001", "TLC-SO-MESSAGE-004", "TLC-SO-MESSAGE-030", "TLC-SR-MESSAGE-003", "TLC-SR-MESSAGE-029"], "cardinality": {"minimum": 5, "maximum": 5}, "ordering": "not_constrained", "duplicates": "forbidden", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}},
-        "constraints": [
-          {"id": "MSG006-IN-001", "statement": "The exact three object and two relation identities occur once and remain distinct."},
-          {"id": "MSG006-IN-002", "statement": "Both relations retain their authoritative evidence endpoints."},
-          {"id": "MSG006-IN-003", "statement": "No protocol, encoding, transport, execution, sender, recipient, channel, or delivery field is present."}
-        ]
-      }],
-      "outputs": [{
-        "name": "message_entity_profile",
-        "semantic_role": "non-executable root Message declaration profile",
-        "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0",
-        "fields": [
-          {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "constant": "TLC-FC-07-MESSAGE-006"},
-          {"name": "representation", "required": true, "semantic_role": "structural result kind", "constant": "message_entity_profile"},
-          {"name": "entity", "required": true, "semantic_role": "root Message entity reference", "constant": "TLC-SO-MESSAGE-001"},
-          {"name": "essential_properties", "required": true, "semantic_role": "essential-properties evidence reference", "constant": "TLC-SO-MESSAGE-004"},
-          {"name": "transmissibility", "required": true, "semantic_role": "transmissibility evidence reference", "constant": "TLC-SO-MESSAGE-030"},
-          {"name": "relations", "required": true, "semantic_role": "both exact relation identities and endpoints", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0", "allowed_values": ["TLC-SR-MESSAGE-003", "TLC-SR-MESSAGE-029"]},
-          {"name": "unresolved", "required": true, "semantic_role": "preserved unresolved and reservation collection", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0", "allowed_values": ["TLC-UT-MESSAGE-001", "TLC-UT-MESSAGE-021", "TLC-DUP-MESSAGE-001"]},
-          {"name": "provenance", "required": true, "semantic_role": "complete source traceability", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"},
-          {"name": "status", "required": true, "semantic_role": "unevaluated candidate status", "constant": "unevaluated_candidate"}
-        ],
-        "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0"}},
-        "constraints": [
-          {"id": "MSG006-OUT-001", "statement": "entity, essential_properties, and transmissibility are distinct required references."},
-          {"id": "MSG006-OUT-002", "statement": "Both relation identities and authoritative endpoints are preserved."},
-          {"id": "MSG006-OUT-003", "statement": "No protocol, encoding, transport, execution, sender, recipient, channel, or delivery field exists."},
-          {"id": "MSG006-OUT-004", "statement": "Opaque content, candidate status, provenance, unresolved identifiers, and reservation remain unchanged."}
-        ]
-      }],
+      "purpose": "Construct the root structural profile from exact object and relation evidence.",
+      "inputs": [
+        {
+          "name": "message_declaration_evidence",
+          "semantic_role": "exact root entity, property, transmissibility, and relation evidence",
+          "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0",
+          "fields": [
+            {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "shared_contract_ref": "TLC-HC-FEATURE-ID@1.0.0", "constant": "TLC-FC-07-MESSAGE-006"},
+            {"name": "object_ids", "required": true, "semantic_role": "exact distinct object identities", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0", "allowed_values": ["TLC-SO-MESSAGE-001", "TLC-SO-MESSAGE-004", "TLC-SO-MESSAGE-030"]},
+            {"name": "relation_ids", "required": true, "semantic_role": "exact relation identities", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0", "allowed_values": ["TLC-SR-MESSAGE-003", "TLC-SR-MESSAGE-029"]},
+            {"name": "relation_endpoints", "required": true, "semantic_role": "authoritative relation endpoints", "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"},
+            {"name": "source_references", "required": true, "semantic_role": "unchanged source ranges", "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"},
+            {"name": "opaque_payloads", "required": true, "semantic_role": "uninterpreted evidence", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+            {"name": "candidate_status", "required": true, "semantic_role": "unevaluated status", "constant": "unevaluated_candidate"},
+            {"name": "unresolved", "required": true, "semantic_role": "preserved unresolved and reservation collection", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0", "allowed_values": ["TLC-UT-MESSAGE-001", "TLC-UT-MESSAGE-021", "TLC-DUP-MESSAGE-001"]},
+            {"name": "provenance", "required": true, "semantic_role": "complete traceability", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"}
+          ],
+          "collection": {
+            "kind": "set",
+            "membership": "exact",
+            "members": ["TLC-SO-MESSAGE-001", "TLC-SO-MESSAGE-004", "TLC-SO-MESSAGE-030", "TLC-SR-MESSAGE-003", "TLC-SR-MESSAGE-029"],
+            "cardinality": {"minimum": 5, "maximum": 5},
+            "ordering": "not_constrained",
+            "duplicates": "forbidden",
+            "key_contract": null,
+            "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}
+          },
+          "constraints": [
+            {"id": "MSG006-IN-001", "statement": "The exact three objects and two relations occur once and remain distinct."},
+            {"id": "MSG006-IN-002", "statement": "Both relations retain their authoritative endpoints."},
+            {"id": "MSG006-IN-003", "statement": "No forbidden protocol or execution field is present."}
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "message_entity_profile",
+          "semantic_role": "non-executable root Message declaration profile",
+          "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0",
+          "fields": [
+            {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "constant": "TLC-FC-07-MESSAGE-006"},
+            {"name": "representation", "required": true, "semantic_role": "structural result kind", "constant": "message_entity_profile"},
+            {"name": "entity", "required": true, "semantic_role": "root Message entity reference", "constant": "TLC-SO-MESSAGE-001"},
+            {"name": "essential_properties", "required": true, "semantic_role": "essential-properties evidence reference", "constant": "TLC-SO-MESSAGE-004"},
+            {"name": "transmissibility", "required": true, "semantic_role": "transmissibility evidence reference", "constant": "TLC-SO-MESSAGE-030"},
+            {"name": "relations", "required": true, "semantic_role": "both exact relation identities and endpoints", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0", "allowed_values": ["TLC-SR-MESSAGE-003", "TLC-SR-MESSAGE-029"]},
+            {"name": "unresolved", "required": true, "semantic_role": "preserved unresolved and reservation collection", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0", "allowed_values": ["TLC-UT-MESSAGE-001", "TLC-UT-MESSAGE-021", "TLC-DUP-MESSAGE-001"]},
+            {"name": "provenance", "required": true, "semantic_role": "complete source traceability", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"},
+            {"name": "status", "required": true, "semantic_role": "unevaluated candidate status", "constant": "unevaluated_candidate"}
+          ],
+          "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0"}},
+          "constraints": [
+            {"id": "MSG006-OUT-001", "statement": "The three required roles and two relations remain distinct and source-addressable."},
+            {"id": "MSG006-OUT-002", "statement": "No protocol, encoding, transport, execution, sender, recipient, channel, or delivery field exists."},
+            {"id": "MSG006-OUT-003", "statement": "Opaque content, candidate status, provenance, unresolved identifiers, and reservation remain unchanged."}
+          ]
+        }
+      ],
       "preconditions": [
         {"id": "MSG006-PRE-001", "statement": "The exact three objects and two relations are supplied unchanged and without duplicates."},
-        {"id": "MSG006-PRE-002", "statement": "Both relations have authoritative endpoints and no forbidden protocol field is present."}
+        {"id": "MSG006-PRE-002", "statement": "Relations have authoritative endpoints and no forbidden field is present."}
       ],
       "postconditions": [
-        {"id": "MSG006-POST-001", "statement": "The profile exposes three distinct evidence roles and preserves both relation identities and endpoints."},
-        {"id": "MSG006-POST-002", "statement": "No encoding, transport, execution, sender, recipient, channel, delivery, or protocol interface is present."},
-        {"id": "MSG006-POST-003", "statement": "All unresolved, reservation, provenance, opaque content, and candidate status remain observable."}
+        {"id": "MSG006-POST-001", "statement": "The profile exposes three distinct evidence roles and both exact relations."},
+        {"id": "MSG006-POST-002", "statement": "No protocol or execution interface is present and all unresolved metadata remains observable."}
       ],
       "invariants": [
         {"id": "MSG006-INV-001", "statement": "Object identity, relation identity, endpoints, role separation, opaque content, provenance, candidate status, and unresolved state are conserved."},
@@ -85,20 +94,20 @@
       ],
       "strategy_contract": {
         "mode": "partially_constrained",
-        "steps": ["validate exact objects", "validate exact relations and endpoints", "reject forbidden protocol fields", "construct three-role profile", "attach unresolved and provenance", "publish success or stable error"],
+        "steps": ["validate exact objects", "validate exact relations and endpoints", "reject forbidden fields", "construct three-role profile", "attach unresolved and provenance", "publish success or stable error"],
         "partial_order": [
           {"before": "validate exact objects", "after": "publish success or stable error"},
           {"before": "validate exact relations and endpoints", "after": "publish success or stable error"},
-          {"before": "reject forbidden protocol fields", "after": "publish success or stable error"},
+          {"before": "reject forbidden fields", "after": "publish success or stable error"},
           {"before": "attach unresolved and provenance", "after": "publish success or stable error"}
         ],
-        "prescription_basis": ["Exact identities, endpoints, prohibited-field rejection, role separation, preservation, and failure-before-success are observable. Internal construction order is otherwise open."]
+        "prescription_basis": ["Exact identities, endpoints, forbidden-field rejection, role separation, preservation, and failure-before-success are observable; internal construction order is otherwise open."]
       },
       "runtime_contract": {"mutability": "not_constrained", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_constrained", "alignment": "not_constrained", "address_stability": "not_constrained", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
       "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "not_constrained", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
       "error_contract": [
         {"code": "IncompleteMessageDeclaration", "category": "invalid_input", "condition": "A required object, relation, or source reference is missing, duplicated, or replaced.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
-        {"code": "RelationEndpointMismatch", "category": "invalid_input", "condition": "A required relation does not retain its authoritative evidence endpoints.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "RelationEndpointMismatch", "category": "invalid_input", "condition": "A required relation does not retain its authoritative endpoints.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
         {"code": "ForbiddenProtocolField", "category": "unsupported_operation", "condition": "Protocol, encoding, transport, execution, sender, recipient, channel, or delivery data is supplied or produced.", "recoverability": "non_retryable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
       ],
       "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "required", "value": 5}}
@@ -106,9 +115,9 @@
   ],
   "implementation_modes": [
     {"mode_id": "structural-root-profile", "status": "required", "statement": "Expose the exact three-role, two-relation non-executable profile."},
-    {"mode_id": "protocol-or-transport", "status": "forbidden", "statement": "Do not expose encoding, transport, delivery, sender, recipient, or channel behavior."},
-    {"mode_id": "scientific-classification-or-execution", "status": "forbidden", "statement": "Do not infer property classifications, transmission mechanics, audience, medium, truth, or execution capability."},
-    {"mode_id": "alternative-internal-architecture", "status": "allowed", "statement": "Internal representation and relation-validation architecture are free when all observable obligations remain satisfied."}
+    {"mode_id": "protocol-or-transport", "status": "forbidden", "statement": "Do not expose protocol, transport, delivery, sender, recipient, or channel behavior."},
+    {"mode_id": "scientific-classification-or-execution", "status": "forbidden", "statement": "Do not infer classifications, transmission mechanics, audience, medium, truth, or execution capability."},
+    {"mode_id": "alternative-internal-architecture", "status": "allowed", "statement": "Internal representation and validation architecture are free when observable obligations remain satisfied."}
   ],
   "global_invariants": [
     {"id": "MSG006-GINV-001", "statement": "The exact three objects, two relations, two unresolved identifiers, and TLC-DUP-MESSAGE-001 remain complete and distinct."},
