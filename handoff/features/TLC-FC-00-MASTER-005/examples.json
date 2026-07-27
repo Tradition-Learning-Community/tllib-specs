@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-FC-00-MASTER-005",
+  "examples": [
+    {
+      "example_id": "MASTER-005-EX-001",
+      "kind": "normative_fixture",
+      "description": "Exact valid reference fixture supplied by the acceptance oracle.",
+      "input": {
+        "feature_id": "TLC-FC-00-MASTER-005",
+        "scientific_object_refs": ["TLC-SO-MASTER-008"],
+        "relation_refs": ["TLC-SR-MASTER-007", "TLC-SR-MASTER-008", "TLC-SR-MASTER-009", "TLC-SR-MASTER-010", "TLC-SR-MASTER-011"],
+        "unresolved_refs": []
+      },
+      "expected": {
+        "success": true,
+        "feature_id": "TLC-FC-00-MASTER-005",
+        "representation": "declaration",
+        "immutable": true,
+        "references_preserved": true,
+        "scientific_evaluation_performed": false
+      },
+      "source_basis": ["registry/oracles/master/TLC-FC-00-MASTER-005/oracle.yaml"]
+    }
+  ]
+}
