@@ -16,30 +16,21 @@ from pathlib import Path
 from typing import Any, Iterable
 
 ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from tools.handoff.model import (  # noqa: E402
+    CATALOG_GENERATOR_VERSION,
+    DOMAIN_ORDER,
+    EXPECTED_DOMAIN_COUNT,
+    EXPECTED_FEATURE_COUNT,
+    EXPORTER_VERSION,
+    MODEL_VERSION,
+    VALIDATOR_VERSION,
+)
+
 HANDOFF = ROOT / "handoff"
 CATALOG_PATH = HANDOFF / "catalog.json"
-MODEL_VERSION = "1.0.0"
-GENERATOR_VERSION = "1.0.0"
-VALIDATOR_VERSION = "1.0.0"
-EXPORTER_VERSION = "1.0.0"
-DOMAIN_ORDER = (
-    "master",
-    "disciple",
-    "community",
-    "huit-dimensions",
-    "invariants",
-    "dynamics",
-    "theorems",
-    "message",
-    "principle",
-    "values",
-    "virtues",
-    "capacities",
-    "competencies",
-    "practice",
-    "lived-experience",
-    "relations",
-)
 
 
 class CatalogGenerationFailure(RuntimeError):
@@ -208,8 +199,11 @@ def build_catalog() -> dict[str, Any]:
                 }
             )
 
-    if len(domains) != 16 or len(features) != 166:
-        raise CatalogGenerationFailure(f"expected 16 domains and 166 features, found {len(domains)} and {len(features)}")
+    if len(domains) != EXPECTED_DOMAIN_COUNT or len(features) != EXPECTED_FEATURE_COUNT:
+        raise CatalogGenerationFailure(
+            f"expected {EXPECTED_DOMAIN_COUNT} domains and {EXPECTED_FEATURE_COUNT} features, "
+            f"found {len(domains)} and {len(features)}"
+        )
 
     shared_contracts = shared_catalog_entries()
     return {
@@ -227,7 +221,7 @@ def build_catalog() -> dict[str, Any]:
         },
         "generation": {
             "entrypoint": "tools/handoff/generate_catalog.py",
-            "version": GENERATOR_VERSION,
+            "version": CATALOG_GENERATOR_VERSION,
             "deterministic": True,
             "volatile_fields_present": False,
         },
@@ -262,7 +256,10 @@ def main() -> int:
     rendered = rendered_catalog()
     if arguments.write:
         CATALOG_PATH.write_text(rendered, encoding="utf-8")
-        print("Wrote finalized deterministic handoff catalog (16 domains, 166 features).")
+        print(
+            f"Wrote finalized deterministic handoff catalog "
+            f"({EXPECTED_DOMAIN_COUNT} domains, {EXPECTED_FEATURE_COUNT} features)."
+        )
         return 0
 
     try:
