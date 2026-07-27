@@ -1,0 +1,3 @@
+# Lived-experience evaluation category descriptor
+
+This feature preserves metric-category object `TLC-SO-LIVED-EXPERIENCE-017`, its title, provenance, opaque content, and unresolved reconciliation. Implement exact structural validation, immutable deterministic descriptors, comparison, and lossless serialization. No formula, symbol, unit, score, threshold, ranking, comparison, actor, event, state, interpretation, or cause may be invented. Metric evaluation requests return `ScientificEvaluationRequested`. Structural implementation is complete; scientific execution is not authorized.
