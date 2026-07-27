@@ -1,0 +1,3 @@
+# Quantitative measures descriptor
+
+This package preserves `TLC-SO-LIVED-EXPERIENCE-018` and its three quantitative-measure expressions in source order: experiential richness, integration depth, and transmission efficiency. Implement exact identity, object-set and provenance validation, immutable deterministic construction, structural comparison, and lossless serialization. Do not evaluate norms, ratios, denominators, scores, thresholds, rankings, precision, or tolerances, and do not invent a zero-denominator policy. Metric execution requests return `ScientificEvaluationRequested` without a partial result. Runtime choices remain implementation-defined.
