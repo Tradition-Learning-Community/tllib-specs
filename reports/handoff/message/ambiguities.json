@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "domain": "message",
+  "source_commit": "022e6076ceeeb87b31065f2a9a28e95f1811d077",
+  "ambiguities": [
+    {
+      "ambiguity_id": "MSG-AMB-001",
+      "classification": "cross_feature_inconsistency",
+      "affected_features": ["TLC-FC-07-MESSAGE-001", "TLC-FC-07-MESSAGE-002", "TLC-FC-07-MESSAGE-003", "TLC-FC-07-MESSAGE-004", "TLC-FC-07-MESSAGE-005", "TLC-FC-07-MESSAGE-006"],
+      "statement": "The authoritative inventory contains six ordered feature entries and the domain-finalization manifest declares expected_feature_count=6, but feature-status.yaml contains neither feature_count nor population_count although tools/handoff/validate_handoff.py currently requires one of those fields.",
+      "evidence": ["registry/domain-finalization/message/feature-status.yaml", "registry/domain-finalization/message/manifest.yaml", "tools/handoff/validate_handoff.py"],
+      "preservation": "The six-entry authoritative population is used without fabricating metadata. No protected source or validator is modified.",
+      "status": "potential_validation_blocker"
+    },
+    {
+      "ambiguity_id": "MSG-AMB-002",
+      "classification": "runtime_semantics_unspecified",
+      "affected_features": ["TLC-FC-07-MESSAGE-001", "TLC-FC-07-MESSAGE-002", "TLC-FC-07-MESSAGE-003", "TLC-FC-07-MESSAGE-004", "TLC-FC-07-MESSAGE-005", "TLC-FC-07-MESSAGE-006"],
+      "statement": "Language, concrete value types, ownership, allocation, layout, concurrency, and serialization format are not scientifically or globally prescribed.",
+      "evidence": ["registry/domain-finalization/message/decision-required.yaml", "registry/domain-finalization/message/module-specification.yaml"],
+      "preservation": "Only observable structural behavior is constrained; unspecified runtime properties remain implementation-defined or not constrained.",
+      "status": "preserved_non_blocking"
+    },
+    {
+      "ambiguity_id": "MSG-AMB-003",
+      "classification": "scientific_unresolved",
+      "affected_features": ["TLC-FC-07-MESSAGE-002"],
+      "statement": "No ontology, time model, existence predicate, or scientific oracle is available for the preexistence claim.",
+      "evidence": ["registry/optimized-ir/message/TLC-FC-07-MESSAGE-002/ir.yaml", "registry/oracles/message/TLC-FC-07-MESSAGE-002/oracle.yaml"],
+      "preservation": "The output exposes verification_status=unavailable_without_oracle and never produces a truth value.",
+      "status": "external_provider_required"
+    },
+    {
+      "ambiguity_id": "MSG-AMB-004",
+      "classification": "scientific_unresolved",
+      "affected_features": ["TLC-FC-07-MESSAGE-003"],
+      "statement": "Existential classification, energetic semantics, and scientific acceptance criteria are undefined.",
+      "evidence": ["registry/math-contracts/TLC-FC-07-MESSAGE-003/contract.yaml", "registry/oracles/message/TLC-FC-07-MESSAGE-003/oracle.yaml"],
+      "preservation": "The descriptor exposes oracle_acceptance_rule=unresolved_propagated and contains no acceptance decision.",
+      "status": "preserved_unresolved"
+    },
+    {
+      "ambiguity_id": "MSG-AMB-005",
+      "classification": "scientific_unresolved",
+      "affected_features": ["TLC-FC-07-MESSAGE-004", "TLC-FC-07-MESSAGE-005", "TLC-FC-07-MESSAGE-006"],
+      "statement": "Scientific hierarchy, state-transition semantics, application validity, transmission mechanics, audience, medium, encoding, transport, and execution are not supplied.",
+      "evidence": ["registry/domain-finalization/message/decision-required.yaml", "registry/domain-finalization/message/module-specification.yaml"],
+      "preservation": "The packages remain structural only and propagate every routed unresolved identifier and reservation.",
+      "status": "preserved_unresolved"
+    },
+    {
+      "ambiguity_id": "MSG-AMB-006",
+      "classification": "ordering_uncertain",
+      "affected_features": ["TLC-FC-07-MESSAGE-001", "TLC-FC-07-MESSAGE-002", "TLC-FC-07-MESSAGE-003", "TLC-FC-07-MESSAGE-004", "TLC-FC-07-MESSAGE-005", "TLC-FC-07-MESSAGE-006"],
+      "statement": "Algorithm artefacts provide total step lists, but the finalization evidence only makes selected validation, preservation, source-order, and failure-before-success relationships observable.",
+      "evidence": ["registry/domain-finalization/message/module-specification.yaml", "registry/algorithms/message/TLC-FC-07-MESSAGE-001/algorithm.yaml", "registry/algorithms/message/TLC-FC-07-MESSAGE-004/algorithm.yaml", "registry/algorithms/message/TLC-FC-07-MESSAGE-005/algorithm.yaml"],
+      "preservation": "All operations use partially_constrained strategies. No total implementation sequence is imposed merely because an upstream file lists steps.",
+      "status": "resolved_by_partial_order"
+    },
+    {
+      "ambiguity_id": "MSG-AMB-007",
+      "classification": "apparent_shared_pattern",
+      "affected_features": ["TLC-FC-07-MESSAGE-001", "TLC-FC-07-MESSAGE-002", "TLC-FC-07-MESSAGE-003", "TLC-FC-07-MESSAGE-004", "TLC-FC-07-MESSAGE-005", "TLC-FC-07-MESSAGE-006"],
+      "statement": "Several local structures repeat evidence-envelope, exact-population, and source-order patterns, but domain finalization explicitly declines factorization without scientific equivalence.",
+      "evidence": ["registry/domain-finalization/message/patterns.yaml"],
+      "preservation": "No shared contract is created or modified. Candidate-only observations are recorded separately.",
+      "status": "candidate_only"
+    },
+    {
+      "ambiguity_id": "MSG-AMB-008",
+      "classification": "non_blocking_editorial",
+      "affected_features": ["TLC-FC-07-MESSAGE-001", "TLC-FC-07-MESSAGE-002", "TLC-FC-07-MESSAGE-003", "TLC-FC-07-MESSAGE-004", "TLC-FC-07-MESSAGE-005", "TLC-FC-07-MESSAGE-006"],
+      "statement": "The fixed domain-catalog schema has no per-package hash property although the task requests calculable hashes.",
+      "evidence": ["handoff/schemas/domain-catalog.schema.json"],
+      "preservation": "The catalog stores exact paths, versions, order, and source commit. Package hashes remain calculable from Git blobs and trees without changing a global schema.",
+      "status": "preserved_non_blocking"
+    }
+  ]
+}
