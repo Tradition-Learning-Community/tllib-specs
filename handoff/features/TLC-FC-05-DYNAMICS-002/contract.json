@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-05-DYNAMICS-002", "title": "Dynamics admissible", "domain": "dynamics"},
+  "purpose": "Assemble supplied deterministic and stochastic equation sources into an ordered traceable bundle without scientific execution.",
+  "scope": {
+    "required": [
+      {"id": "D002-REQ-001", "statement": "Validate equation source identifiers, referenced symbols, and declared carrier shapes before successful publication.", "basis": ["registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-002/ir.yaml"]},
+      {"id": "D002-REQ-002", "statement": "Preserve exact equation membership, supplied order, opaque payload, source classification, provenance, unresolved items, and reservations.", "basis": ["registry/oracles/dynamics/TLC-FC-05-DYNAMICS-002/oracle.yaml"]},
+      {"id": "D002-REQ-003", "statement": "Accept an empty valid equation sequence and expose no partial bundle after failure."}
+    ],
+    "forbidden": [
+      {"id": "D002-FOR-001", "statement": "Do not solve equations, discretize time, sample stochastic notation, synthesize initial conditions, select a solver or distribution, or create a trajectory."},
+      {"id": "D002-FOR-002", "statement": "Do not reorder equations or reinterpret derivative notation as an executable transition."},
+      {"id": "D002-FOR-003", "statement": "Do not mutate input equations, symbols, or external scientific state."}
+    ],
+    "deferred": [
+      {"id": "D002-DEF-001", "statement": "Equation types, state spaces, initial conditions, stochastic details, solver choice, and discretization remain unresolved."},
+      {"id": "D002-DEF-002", "statement": "Scientific execution requires an external transition engine not defined by this package."}
+    ]
+  },
+  "operations": [{
+    "operation_id": "BUILD-UNEVALUATED-DYNAMICS-BUNDLE",
+    "purpose": "Return an ordered immutable bundle of opaque equation records with complete traceability.",
+    "inputs": [
+      {"name": "equation_sources", "semantic_role": "ordered opaque equation source records", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0", "collection": {"kind": "sequence", "membership": "open", "cardinality": {"minimum": 0, "maximum": null}, "ordering": "preserved", "duplicates": "significant", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}}, "constraints": [{"id": "D002-IN-001", "statement": "Every equation identifier is known and every opaque payload and source classification is retained."}]},
+      {"name": "symbols", "semantic_role": "source-addressable bindings for every symbol referenced by supplied equations", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0", "collection": {"kind": "map", "membership": "constrained", "cardinality": {"minimum": 0, "maximum": null}, "ordering": "implementation_defined", "duplicates": "forbidden", "key_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}}, "constraints": [{"id": "D002-IN-002", "statement": "Every symbol referenced by an equation must be present in the symbol table."}]}
+    ],
+    "outputs": [{"name": "bundle", "semantic_role": "ordered immutable unevaluated Dynamics bundle", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "fields": [
+      {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "constant": "TLC-FC-05-DYNAMICS-002"},
+      {"name": "representation", "required": true, "semantic_role": "output representation", "constant": "DynamicsBundle[OpaqueEquation]"},
+      {"name": "equations", "required": true, "semantic_role": "ordered preserved equation records", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0"},
+      {"name": "traceability", "required": true, "semantic_role": "per-equation provenance", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"},
+      {"name": "unresolved", "required": true, "semantic_role": "preserved unresolved science", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0"},
+      {"name": "status", "required": true, "semantic_role": "structural-only unevaluated status"}
+    ], "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}, "constraints": [{"id": "D002-OUT-001", "statement": "Bundle membership and order equal the supplied sequence exactly."}]}],
+    "preconditions": [
+      {"id": "D002-PRE-001", "statement": "Every equation and symbol identifier is known."},
+      {"id": "D002-PRE-002", "statement": "Equation sequence and symbol-table carriers preserve their declared shapes."}
+    ],
+    "postconditions": [
+      {"id": "D002-POST-001", "statement": "Output membership and ordering reproduce the input sequence exactly."},
+      {"id": "D002-POST-002", "statement": "Each equation retains opaque payload, source identity, source relation, and source classification."},
+      {"id": "D002-POST-003", "statement": "No trajectory, solver, time step, initial condition, distribution, sample, or executable transition is produced."}
+    ],
+    "invariants": [
+      {"id": "D002-INV-001", "statement": "Covered equation objects and relations remain distinct and source-addressable."},
+      {"id": "D002-INV-002", "statement": "Stochastic notation remains metadata only and opaque payloads remain unchanged."}
+    ],
+    "strategy_contract": {"mode": "partially_constrained", "steps": ["validate equation identifiers symbols and carrier shapes", "preserve equations in supplied order", "attach per-equation traceability unresolved items and reservations", "verify preservation obligations", "publish success or stable error"], "partial_order": [
+      {"before": "validate equation identifiers symbols and carrier shapes", "after": "publish success or stable error"},
+      {"before": "preserve equations in supplied order", "after": "publish success or stable error"},
+      {"before": "attach per-equation traceability unresolved items and reservations", "after": "publish success or stable error"},
+      {"before": "verify preservation obligations", "after": "publish success or stable error"}
+    ], "prescription_basis": ["Only validation, preservation of supplied order, complete metadata, and atomic publication are normatively observable."]},
+    "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+    "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "required", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+    "error_contract": [
+      {"code": "UNKNOWN_SOURCE_IDENTIFIER", "category": "invalid_input", "condition": "An equation source identifier or referenced symbol is absent from the authoritative inventory or supplied symbol table.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "TYPE_SHAPE_MISMATCH", "category": "invalid_input", "condition": "The equation sequence, an equation record, or the symbol table does not preserve its declared carrier shape.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "UNRESOLVED_SCIENTIFIC_SEMANTICS", "category": "unsupported_operation", "condition": "Execution, solving, initialization, discretization, sampling, distribution selection, or transition semantics are requested.", "recoverability": "non_retryable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+    ],
+    "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+  }],
+  "implementation_modes": [
+    {"mode_id": "ordered-structural-bundle", "status": "required", "statement": "Expose an ordered unevaluated bundle and stable errors."},
+    {"mode_id": "scientific-transition-engine", "status": "forbidden", "statement": "Do not solve or execute the supplied equations."},
+    {"mode_id": "alternative-internal-architecture", "status": "allowed", "statement": "Internal architecture remains free when observable obligations are preserved."}
+  ],
+  "global_invariants": [
+    {"id": "D002-GINV-001", "statement": "Missing scientific execution semantics never become defaults."},
+    {"id": "D002-GINV-002", "statement": "Identity, order, opacity, traceability, unresolved preservation, and failure atomicity cannot be weakened."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity"},
+    {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Stable equation and symbol references"},
+    {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Ordered equation and symbol collections"},
+    {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Preserved unresolved execution semantics"},
+    {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Unevaluated equation and symbol payloads"},
+    {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Stable transport-neutral failures"},
+    {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Per-equation provenance"},
+    {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Immutable structural bundle envelope"}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["Conformance is behavioral and does not prescribe a programming language, storage model, public spelling, or internal total order."]}
+}
