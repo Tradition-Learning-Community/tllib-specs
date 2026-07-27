@@ -1,0 +1,60 @@
+{
+  "schema_version":"1.0",
+  "domain":"values",
+  "items":[
+    {
+      "ambiguity_id":"VALUES-AMB-001",
+      "classification":"non_blocking_editorial",
+      "affected_features":["TLC-FC-09-VALUES-001","TLC-FC-09-VALUES-003","TLC-FC-09-VALUES-004","TLC-FC-09-VALUES-005","TLC-FC-09-VALUES-006","TLC-FC-09-VALUES-007","TLC-FC-09-VALUES-008","TLC-FC-09-VALUES-009","TLC-FC-09-VALUES-010","TLC-FC-09-VALUES-011","TLC-FC-09-VALUES-012","TLC-FC-09-VALUES-013","TLC-FC-09-VALUES-014","TLC-FC-09-VALUES-018"],
+      "description":"Finalized optimized IR metadata names registry/ir/<FEATURE-ID>/test-plan.yaml, while the existing authoritative plans are stored at registry/test-plans/<FEATURE-ID>/test-plan.yaml.",
+      "preservation":"Every package traces the existing registry/test-plans path and does not edit either artifact.",
+      "blocking":false,
+      "resolution":"Use the resolvable authoritative test-plan path in handoff traceability; preserve the stale metadata path as an editorial ambiguity."
+    },
+    {
+      "ambiguity_id":"VALUES-AMB-002",
+      "classification":"error_semantics_unspecified",
+      "affected_features":["TLC-FC-09-VALUES-001","TLC-FC-09-VALUES-003","TLC-FC-09-VALUES-004","TLC-FC-09-VALUES-005","TLC-FC-09-VALUES-006","TLC-FC-09-VALUES-007","TLC-FC-09-VALUES-008","TLC-FC-09-VALUES-009","TLC-FC-09-VALUES-010","TLC-FC-09-VALUES-011","TLC-FC-09-VALUES-012","TLC-FC-09-VALUES-013","TLC-FC-09-VALUES-014","TLC-FC-09-VALUES-018"],
+      "description":"Authoritative source error identifiers use lowercase snake_case, but the immutable global handoff contract schema requires uppercase or CamelCase public error codes.",
+      "preservation":"The exact source identifier is retained in each error condition and acceptance expectation; a deterministic one-to-one uppercase public alias satisfies the schema.",
+      "blocking":false,
+      "resolution":"Treat the uppercase value as a transport-facing alias only; never discard or semantically rename the source identifier."
+    },
+    {
+      "ambiguity_id":"VALUES-AMB-003",
+      "classification":"artifact_multiplicity",
+      "affected_features":["TLC-FC-09-VALUES-018"],
+      "description":"VALUES-018 has one active registry IR, an active-IR selector, and two historical candidate IRs with functional and semantic variants.",
+      "preservation":"All variants are listed in traceability in authority order. The active selector explicitly marks both candidates historical_comparison_only.",
+      "blocking":false,
+      "resolution":"Compile behavior from the active mathematical contract and active registry IR; retain historical candidates for comparison only."
+    },
+    {
+      "ambiguity_id":"VALUES-AMB-004",
+      "classification":"source_conflict",
+      "affected_features":["TLC-FC-09-VALUES-018"],
+      "description":"The active contract and registry IR specify square-shape and closed-interval matrix validation, while wording in the optimized IR and oracle refers to explicit relation registration and endpoint-reference behavior.",
+      "preservation":"The package implements only obligations common to or explicitly authoritative in the active contract and active registry IR, and records the divergent wording without importing historical evaluation semantics.",
+      "blocking":false,
+      "resolution":"Active contract and active registry IR take precedence; optimized and oracle artifacts remain acceptance inputs subject to that authority."
+    },
+    {
+      "ambiguity_id":"VALUES-AMB-005",
+      "classification":"scientific_unresolved",
+      "affected_features":["TLC-FC-09-VALUES-001","TLC-FC-09-VALUES-003","TLC-FC-09-VALUES-004","TLC-FC-09-VALUES-005","TLC-FC-09-VALUES-006","TLC-FC-09-VALUES-007","TLC-FC-09-VALUES-008","TLC-FC-09-VALUES-009","TLC-FC-09-VALUES-010","TLC-FC-09-VALUES-011","TLC-FC-09-VALUES-012","TLC-FC-09-VALUES-013","TLC-FC-09-VALUES-014","TLC-FC-09-VALUES-018"],
+      "description":"Canonical types, domains, units, scales, operator signatures, formulas, solvers, comparison, aggregation, memory, integration, edge, endpoint, category, and evaluation semantics remain scientifically unresolved in the source artifacts.",
+      "preservation":"Each package carries the exact feature-local unresolved identifiers and forbids scientific completion by the implementer.",
+      "blocking":false,
+      "resolution":"Structural implementation is allowed; scientific execution requires future authoritative providers."
+    },
+    {
+      "ambiguity_id":"VALUES-AMB-006",
+      "classification":"non_blocking_editorial",
+      "affected_features":["TLC-FC-09-VALUES-001","TLC-FC-09-VALUES-003","TLC-FC-09-VALUES-004","TLC-FC-09-VALUES-005","TLC-FC-09-VALUES-006","TLC-FC-09-VALUES-007","TLC-FC-09-VALUES-008","TLC-FC-09-VALUES-009","TLC-FC-09-VALUES-010","TLC-FC-09-VALUES-011","TLC-FC-09-VALUES-012","TLC-FC-09-VALUES-013","TLC-FC-09-VALUES-014","TLC-FC-09-VALUES-018"],
+      "description":"The authoritative Values inventory uses the count key expected_count, while the integration compatibility validator recognizes other established count aliases but not this one.",
+      "preservation":"The domain catalog uses the exact authoritative inventory and count 14; the inventory is not rewritten on the domain branch.",
+      "blocking":true,
+      "resolution":"Add expected_count as a generic compatibility alias in validator infrastructure on a separate integration-targeted change, following prior compatibility handling, without modifying Values science or the domain package branch."
+    }
+  ]
+}
