@@ -1,0 +1,29 @@
+{
+  "schema_version":"1.0",
+  "domain":"capacities",
+  "status":"pending_ci",
+  "source_commit":"c792e2f042580ae589e25fe466e7bd0cc79f40ca",
+  "checks":{
+    "authoritative_population_count":15,
+    "produced_package_count":15,
+    "duplicate_feature_ids":0,
+    "foreign_domain_packages":0,
+    "required_package_files_per_feature":5,
+    "examples_files":0,
+    "scientific_sources_modified":false,
+    "intermediate_artifacts_modified":false,
+    "shared_contracts_modified":false,
+    "schemas_modified":false,
+    "implementation_code_added":false,
+    "json_schema_validation":"pending_ci",
+    "inter_file_consistency":"pending_ci",
+    "shared_contract_resolution":"pending_ci",
+    "repository_wide_handoff_validation":"pending_ci"
+  },
+  "known_pre_ci_risk":{
+    "classification":"non_blocking_editorial",
+    "description":"The inventory declares expected_active_count whereas the compatibility validator currently accepts other established count aliases.",
+    "planned_handling":"Confirm through GitHub Actions; if reproduced, add only a semantically identical non-scientific count alias and record the exact correction."
+  },
+  "workflow_runs":[]
+}

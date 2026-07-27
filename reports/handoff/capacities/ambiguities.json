@@ -1,0 +1,54 @@
+{
+  "schema_version":"1.0",
+  "domain":"capacities",
+  "ambiguities":[
+    {
+      "ambiguity_id":"CAP-AMB-001",
+      "classification":"scientific_unresolved",
+      "affected_features":["TLC-FC-11-CAPACITIES-002","TLC-FC-11-CAPACITIES-003","TLC-FC-11-CAPACITIES-006","TLC-FC-11-CAPACITIES-007","TLC-FC-11-CAPACITIES-009","TLC-FC-11-CAPACITIES-011","TLC-FC-11-CAPACITIES-012","TLC-FC-11-CAPACITIES-014","TLC-FC-11-CAPACITIES-015"],
+      "description":"The finalization artifacts require the exact blocker scientific decision required and do not authorize executable scientific semantics.",
+      "preservation":"Packages are structural_only, retain the blocker in unresolved output, and reject scientific evaluation.",
+      "blocking":false
+    },
+    {
+      "ambiguity_id":"CAP-AMB-002",
+      "classification":"runtime_semantics_unspecified",
+      "affected_features":["TLC-FC-11-CAPACITIES-001","TLC-FC-11-CAPACITIES-002","TLC-FC-11-CAPACITIES-003","TLC-FC-11-CAPACITIES-005","TLC-FC-11-CAPACITIES-006","TLC-FC-11-CAPACITIES-007","TLC-FC-11-CAPACITIES-008","TLC-FC-11-CAPACITIES-009","TLC-FC-11-CAPACITIES-010","TLC-FC-11-CAPACITIES-011","TLC-FC-11-CAPACITIES-012","TLC-FC-11-CAPACITIES-013","TLC-FC-11-CAPACITIES-014","TLC-FC-11-CAPACITIES-015","TLC-FC-11-CAPACITIES-018"],
+      "description":"Ownership mechanism, allocation, layout, aliasing, serialization, concurrency, and copy/move details are not scientifically or contractually fixed.",
+      "preservation":"The final runtime contracts constrain immutability, input-change invisibility, and no observable partial result only; remaining details are implementation-defined or unconstrained.",
+      "blocking":false
+    },
+    {
+      "ambiguity_id":"CAP-AMB-003",
+      "classification":"ordering_uncertain",
+      "affected_features":["TLC-FC-11-CAPACITIES-001","TLC-FC-11-CAPACITIES-002","TLC-FC-11-CAPACITIES-003","TLC-FC-11-CAPACITIES-005","TLC-FC-11-CAPACITIES-006","TLC-FC-11-CAPACITIES-007","TLC-FC-11-CAPACITIES-008","TLC-FC-11-CAPACITIES-009","TLC-FC-11-CAPACITIES-010","TLC-FC-11-CAPACITIES-011","TLC-FC-11-CAPACITIES-012","TLC-FC-11-CAPACITIES-013","TLC-FC-11-CAPACITIES-014","TLC-FC-11-CAPACITIES-015","TLC-FC-11-CAPACITIES-018"],
+      "description":"Algorithm files present total step lists, but the sources do not establish every internal ordering edge as observable behavior.",
+      "preservation":"Final strategy contracts are partially_constrained and retain only validation, preservation, blocker, construction, and publication dependencies justified by observable behavior.",
+      "blocking":false
+    },
+    {
+      "ambiguity_id":"CAP-AMB-004",
+      "classification":"error_semantics_unspecified",
+      "affected_features":["TLC-FC-11-CAPACITIES-001","TLC-FC-11-CAPACITIES-002","TLC-FC-11-CAPACITIES-003","TLC-FC-11-CAPACITIES-005","TLC-FC-11-CAPACITIES-006","TLC-FC-11-CAPACITIES-007","TLC-FC-11-CAPACITIES-008","TLC-FC-11-CAPACITIES-009","TLC-FC-11-CAPACITIES-010","TLC-FC-11-CAPACITIES-011","TLC-FC-11-CAPACITIES-012","TLC-FC-11-CAPACITIES-013","TLC-FC-11-CAPACITIES-014","TLC-FC-11-CAPACITIES-015","TLC-FC-11-CAPACITIES-018"],
+      "description":"Error transport and language-level mechanism are not specified.",
+      "preservation":"Authoritative error identifiers and failure conditions are normative; transport remains implementation_defined and failures expose no partial result.",
+      "blocking":false
+    },
+    {
+      "ambiguity_id":"CAP-AMB-005",
+      "classification":"apparent_shared_pattern",
+      "affected_features":["TLC-FC-11-CAPACITIES-001","TLC-FC-11-CAPACITIES-002","TLC-FC-11-CAPACITIES-003","TLC-FC-11-CAPACITIES-005","TLC-FC-11-CAPACITIES-006","TLC-FC-11-CAPACITIES-007","TLC-FC-11-CAPACITIES-008","TLC-FC-11-CAPACITIES-009","TLC-FC-11-CAPACITIES-010","TLC-FC-11-CAPACITIES-011","TLC-FC-11-CAPACITIES-012","TLC-FC-11-CAPACITIES-013","TLC-FC-11-CAPACITIES-014","TLC-FC-11-CAPACITIES-015","TLC-FC-11-CAPACITIES-018"],
+      "description":"Object-map and ordered-symbolic envelopes recur across features, but resemblance does not prove scientific equivalence.",
+      "preservation":"Two candidate-only structures are recorded without changing handoff/shared or merging feature semantics.",
+      "blocking":false
+    },
+    {
+      "ambiguity_id":"CAP-AMB-006",
+      "classification":"non_blocking_editorial",
+      "affected_features":[],
+      "description":"The authoritative inventory count uses expected_active_count, while the current compatibility validator recognizes feature_count, population_count, active_feature_count, or summary.active_features.",
+      "preservation":"The discrepancy is not scientific. CI will establish whether a minimal count-key compatibility normalization is required; no count or feature population will be changed.",
+      "blocking":false
+    }
+  ]
+}
