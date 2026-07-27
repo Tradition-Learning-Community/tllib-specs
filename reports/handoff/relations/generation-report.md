@@ -22,4 +22,4 @@ The union of package dependencies is exactly the eight existing handoff shared c
 
 ## Validation
 
-Population and scope reviews are complete. Machine validation is pending the Feature handoff validation workflow and will be updated before merge.
+Population and scope reviews are complete. GitHub Actions `Feature handoff validation` run 95 passed on the complete five-package population; a final validation pass is required after recording this evidence.
