@@ -1,0 +1,243 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tradition-learning-community.github.io/tllib-specs/handoff/schemas/contract.schema.json",
+  "title": "Feature Handoff Contract v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "package_version", "feature", "purpose", "scope", "operations", "implementation_modes", "global_invariants", "dependencies", "conformance"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "package_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "feature": {"$ref": "#/$defs/feature"},
+    "purpose": {"type": "string", "minLength": 1},
+    "scope": {"$ref": "#/$defs/scope"},
+    "operations": {"type": "array", "items": {"$ref": "#/$defs/operation"}},
+    "implementation_modes": {"type": "array", "items": {"$ref": "#/$defs/implementationMode"}},
+    "global_invariants": {"type": "array", "items": {"$ref": "#/$defs/obligation"}},
+    "dependencies": {"type": "array", "items": {"$ref": "#/$defs/dependency"}},
+    "conformance": {"$ref": "#/$defs/conformance"}
+  },
+  "$defs": {
+    "feature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["feature_id", "title", "domain"],
+      "properties": {
+        "feature_id": {"type": "string", "pattern": "^TLC-FC-[0-9]{2}-[A-Z][A-Z0-9-]*-[0-9]{3}$"},
+        "title": {"type": "string", "minLength": 1},
+        "domain": {"type": "string", "minLength": 1}
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "forbidden", "deferred"],
+      "properties": {
+        "required": {"type": "array", "items": {"$ref": "#/$defs/obligation"}},
+        "forbidden": {"type": "array", "items": {"$ref": "#/$defs/obligation"}},
+        "deferred": {"type": "array", "items": {"$ref": "#/$defs/obligation"}}
+      }
+    },
+    "obligation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "statement"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "statement": {"type": "string", "minLength": 1},
+        "basis": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "operation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operation_id", "purpose", "inputs", "outputs", "preconditions", "postconditions", "invariants", "strategy_contract", "runtime_contract", "determinism", "error_contract", "resource_contract"],
+      "properties": {
+        "operation_id": {"type": "string", "pattern": "^[A-Z0-9][A-Z0-9-]*$"},
+        "purpose": {"type": "string", "minLength": 1},
+        "inputs": {"type": "array", "items": {"$ref": "#/$defs/valueContract"}},
+        "outputs": {"type": "array", "items": {"$ref": "#/$defs/valueContract"}},
+        "preconditions": {"type": "array", "items": {"$ref": "#/$defs/obligation"}},
+        "postconditions": {"type": "array", "items": {"$ref": "#/$defs/obligation"}},
+        "invariants": {"type": "array", "items": {"$ref": "#/$defs/obligation"}},
+        "strategy_contract": {"$ref": "#/$defs/strategyContract"},
+        "runtime_contract": {"$ref": "#/$defs/runtimeContract"},
+        "determinism": {"$ref": "#/$defs/determinism"},
+        "error_contract": {"type": "array", "items": {"$ref": "#/$defs/errorContract"}},
+        "resource_contract": {"$ref": "#/$defs/resourceContract"}
+      }
+    },
+    "valueContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "semantic_role", "collection"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "semantic_role": {"type": "string", "minLength": 1},
+        "shared_contract_ref": {"type": "string", "pattern": "^TLC-HC-[A-Z0-9-]+@[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "fields": {"type": "array", "items": {"$ref": "#/$defs/fieldContract"}},
+        "collection": {"$ref": "#/$defs/collectionContract"},
+        "constraints": {"type": "array", "items": {"$ref": "#/$defs/obligation"}}
+      }
+    },
+    "fieldContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "required", "semantic_role"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "required": {"type": "boolean"},
+        "semantic_role": {"type": "string", "minLength": 1},
+        "shared_contract_ref": {"type": "string", "pattern": "^TLC-HC-[A-Z0-9-]+@[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "constant": {},
+        "allowed_values": {"type": "array"}
+      }
+    },
+    "collectionContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "membership", "cardinality", "ordering", "duplicates", "key_contract", "value_contract"],
+      "properties": {
+        "kind": {"enum": ["scalar", "optional", "sequence", "set", "ordered_set", "multiset", "map", "ordered_map"]},
+        "membership": {"enum": ["exact", "constrained", "open", "not_applicable"]},
+        "members": {"type": "array"},
+        "cardinality": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["minimum", "maximum"],
+          "properties": {"minimum": {"type": ["integer", "null"], "minimum": 0}, "maximum": {"type": ["integer", "null"], "minimum": 0}}
+        },
+        "ordering": {"enum": ["required", "preserved", "implementation_defined", "not_constrained", "not_applicable"]},
+        "duplicates": {"enum": ["forbidden", "allowed", "significant", "implementation_defined", "not_applicable"]},
+        "key_contract": {"type": ["object", "null"]},
+        "value_contract": {"type": ["object", "null"]}
+      }
+    },
+    "strategyContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "steps", "partial_order", "prescription_basis"],
+      "properties": {
+        "mode": {"enum": ["open", "partially_constrained", "prescribed"]},
+        "steps": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "partial_order": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["before", "after"],
+            "properties": {"before": {"type": "string", "minLength": 1}, "after": {"type": "string", "minLength": 1}}
+          }
+        },
+        "prescription_basis": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "runtimeContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mutability", "result_ownership", "input_retention", "input_change_visibility", "lifetime", "aliasing", "layout", "contiguity", "alignment", "address_stability", "copy_semantics", "move_semantics", "allocation", "zero_copy", "thread_safety", "reentrancy", "failure_atomicity"],
+      "properties": {
+        "mutability": {"enum": ["immutable", "mutable", "not_constrained", "implementation_defined", "not_applicable"]},
+        "result_ownership": {"enum": ["owned_result", "borrowed_result", "shared_result", "not_constrained", "implementation_defined", "not_applicable"]},
+        "input_retention": {"enum": ["forbidden", "allowed", "required", "not_constrained", "implementation_defined", "not_applicable"]},
+        "input_change_visibility": {"enum": ["visible", "not_visible", "not_constrained", "implementation_defined", "not_applicable"]},
+        "lifetime": {"enum": ["operation_only", "result_lifetime", "caller_managed", "not_constrained", "implementation_defined", "not_applicable"]},
+        "aliasing": {"enum": ["forbidden", "allowed", "not_constrained", "implementation_defined", "not_applicable"]},
+        "layout": {"enum": ["prescribed", "not_constrained", "implementation_defined", "not_applicable"]},
+        "contiguity": {"enum": ["required", "not_required", "not_constrained", "implementation_defined", "not_applicable"]},
+        "alignment": {"enum": ["required", "not_required", "not_constrained", "implementation_defined", "not_applicable"]},
+        "address_stability": {"enum": ["required", "not_required", "not_constrained", "implementation_defined", "not_applicable"]},
+        "copy_semantics": {"enum": ["required", "allowed", "forbidden", "not_constrained", "implementation_defined", "not_applicable"]},
+        "move_semantics": {"enum": ["required", "allowed", "forbidden", "not_constrained", "implementation_defined", "not_applicable"]},
+        "allocation": {"enum": ["forbidden", "allowed", "required", "not_constrained", "implementation_defined", "not_applicable"]},
+        "zero_copy": {"enum": ["required", "not_required", "not_constrained", "implementation_defined", "not_applicable"]},
+        "thread_safety": {"enum": ["required", "not_required", "not_constrained", "implementation_defined", "not_applicable"]},
+        "reentrancy": {"enum": ["required", "not_required", "not_constrained", "implementation_defined", "not_applicable"]},
+        "failure_atomicity": {"enum": ["no_observable_partial_result", "basic", "not_constrained", "implementation_defined", "not_applicable"]}
+      }
+    },
+    "determinism": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["semantic_output", "field_presence", "collection_order", "canonical_serialization", "binary_layout", "memory_address", "allocation_pattern", "concurrent_scheduling", "floating_point", "randomness"],
+      "properties": {
+        "semantic_output": {"$ref": "#/$defs/determinismValue"},
+        "field_presence": {"$ref": "#/$defs/determinismValue"},
+        "collection_order": {"$ref": "#/$defs/determinismValue"},
+        "canonical_serialization": {"$ref": "#/$defs/determinismValue"},
+        "binary_layout": {"$ref": "#/$defs/determinismValue"},
+        "memory_address": {"$ref": "#/$defs/determinismValue"},
+        "allocation_pattern": {"$ref": "#/$defs/determinismValue"},
+        "concurrent_scheduling": {"$ref": "#/$defs/determinismValue"},
+        "floating_point": {"$ref": "#/$defs/determinismValue"},
+        "randomness": {"$ref": "#/$defs/determinismValue"}
+      }
+    },
+    "determinismValue": {"enum": ["required", "forbidden", "not_required", "not_constrained", "not_specified", "implementation_defined", "not_applicable"]},
+    "errorContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "category", "condition", "recoverability", "public_result", "failure_atomicity", "transport"],
+      "properties": {
+        "code": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]+$"},
+        "category": {"type": "string", "minLength": 1},
+        "condition": {"type": "string", "minLength": 1},
+        "recoverability": {"enum": ["recoverable", "retryable", "non_retryable", "implementation_defined", "not_applicable"]},
+        "public_result": {"enum": ["error_only", "no_partial_result", "partial_result_allowed", "implementation_defined"]},
+        "failure_atomicity": {"enum": ["no_observable_partial_result", "basic", "not_constrained", "implementation_defined", "not_applicable"]},
+        "transport": {"const": "implementation_defined"}
+      }
+    },
+    "resourceContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["time_complexity", "auxiliary_memory", "allocations", "maximum_input_size"],
+      "properties": {
+        "time_complexity": {"$ref": "#/$defs/resourceConstraint"},
+        "auxiliary_memory": {"$ref": "#/$defs/resourceConstraint"},
+        "allocations": {"$ref": "#/$defs/resourceConstraint"},
+        "maximum_input_size": {"$ref": "#/$defs/resourceConstraint"}
+      }
+    },
+    "resourceConstraint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "value"],
+      "properties": {
+        "status": {"enum": ["required", "informative", "not_constrained", "not_specified", "implementation_defined"]},
+        "value": {"type": ["string", "number", "integer", "null"]}
+      }
+    },
+    "implementationMode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode_id", "status", "statement"],
+      "properties": {
+        "mode_id": {"type": "string", "minLength": 1},
+        "status": {"enum": ["required", "preferred", "allowed", "experimental", "forbidden"]},
+        "statement": {"type": "string", "minLength": 1}
+      }
+    },
+    "dependency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["shared_contract_id", "version", "purpose"],
+      "properties": {
+        "shared_contract_id": {"type": "string", "pattern": "^TLC-HC-[A-Z0-9-]+$"},
+        "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "purpose": {"type": "string", "minLength": 1}
+      }
+    },
+    "conformance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["acceptance_required", "all_required_tests_must_pass", "forbidden_behavior_is_nonconforming"],
+      "properties": {
+        "acceptance_required": {"const": true},
+        "all_required_tests_must_pass": {"const": true},
+        "forbidden_behavior_is_nonconforming": {"const": true},
+        "notes": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    }
+  }
+}
