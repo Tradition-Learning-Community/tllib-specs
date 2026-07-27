@@ -39,6 +39,8 @@ No timestamp or other volatile generation field is permitted. CI reconstructs th
 
 `tools/handoff/validate_handoff.py` is the sole normative validation CLI. The former compatibility CLI was removed only after its strict historical-reading controls were integrated.
 
+`tools/handoff/model.py` centralizes immutable model identity, population, domain-order, shared-contract, and tool-version constants. It performs no validation and is not a second authority. The validator, catalog generator, and exporter import it through the explicit `tools.handoff` module path derived from each script's own repository location.
+
 The canonical validator accepts established inventory aliases in read mode, checks every alias present, preserves ordered list and mapping populations, and rejects missing, conflicting, non-integer, inaccurate, or reordered evidence. It also validates schemas, exact package files, domain ownership, dependency unions, traceability, test and error identity, strategy order, global catalog equality, and absence of normative implementation-language code.
 
 The workflow invokes this one CLI, its A–K logical self-tests, deterministic catalog checking, and complete export validation.
@@ -65,7 +67,7 @@ The permanent workflow selects all 166 catalog features and generates each bundl
 
 ## Quality and simulations
 
-The validator rejects packages with undeclared or missing files, empty acceptance plans, incomplete traceability categories, unresolved paths, duplicate tests or errors, invalid strategy edges, incorrect dependency sets, insufficiently specific README files, or normative C++, Rust, Ruby, or Python code.
+The validator rejects packages with undeclared or missing files, empty acceptance plans, incomplete traceability categories, unresolved paths, duplicate tests or errors, invalid strategy edges, incorrect dependency sets, substantively empty README files, or normative C++, Rust, Ruby, or Python code. Feature identity is validated in structured artifacts rather than through redundant prose wording.
 
 Eight standalone simulations cover the foundation descriptor, symbolic Dynamics structure, external provider boundary, normative source order, non-executable scientific errors, no-examples packaging, multiple historical IRs, and unresolved Relations endpoints. Every simulation is implementable from the exported bundle while preserving opaque or unresolved science.
 
@@ -83,4 +85,6 @@ This global branch changes handoff artifacts, handoff infrastructure, workflow v
 
 ## Final CI evidence
 
-The report is complete at the artifact level. The global PR workflow run, conclusion, and merged commit will be recorded after the finalization PR is opened and all required checks succeed.
+GitHub Actions run `30289744310` (run 137) succeeded on handoff/tooling head `8bd87d6cf457dfe535ef072e92318b6967a01ff8` for PR #122. It passed deterministic catalog reconstruction, the sole official validator across 16 domains and 166 packages, logical self-tests A–K, byte-for-byte deterministic double generation of all 166 standalone bundles, and rejection of committed archives.
+
+The commits after that validated head close reports and review documentation only; the permanent workflow revalidates those report-only changes before merge. The global merge commit into `handoff/integration-v1` is recorded by GitHub after squash merge.
