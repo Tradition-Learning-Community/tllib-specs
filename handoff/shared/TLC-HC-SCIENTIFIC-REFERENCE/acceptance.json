@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-HC-SCIENTIFIC-REFERENCE",
+  "tests": [
+    {"test_id": "HC-SREF-001", "applies_to": "reference validation", "category": "valid_input", "given": {"source_path": "maths/00-master.md", "section": "3. Structure interne du Maître (7-uplet)", "line_range": {"start": 41, "end": 47}}, "when": "The reference is validated.", "expect": {"accepted": true}},
+    {"test_id": "HC-SREF-002", "applies_to": "path safety", "category": "invalid_input", "given": {"source_path": "../outside.md"}, "when": "The reference is validated.", "expect": {"accepted": false}},
+    {"test_id": "HC-SREF-003", "applies_to": "provenance preservation", "category": "preservation", "given": {"source_path": "maths/00-master.md", "object_id": "TLC-SO-MASTER-008"}, "when": "The reference is round-tripped.", "expect": {"all_supplied_fields_exactly_equal": true}}
+  ]
+}
