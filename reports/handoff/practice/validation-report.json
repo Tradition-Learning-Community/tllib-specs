@@ -2,7 +2,7 @@
   "schema_version":"1.0",
   "domain":"practice",
   "source_commit":"db86260e332cf5ba7e1adf7b58d60196d70bbf5d",
-  "status":"pending_ci",
+  "status":"validated",
   "checks":[
     {"check_id":"population-guard","status":"passed","detail":"Expected guard, authoritative population_count, discovered feature list, produced package count, and catalog count all equal ten."},
     {"check_id":"feature-identity-uniqueness","status":"passed","detail":"The ten ordered Practice feature identifiers are unique and no foreign package is declared."},
@@ -16,9 +16,9 @@
     {"check_id":"acceptance-identifiers","status":"passed","detail":"Acceptance test identifiers are globally unique across the Practice population and use schema-valid categories."},
     {"check_id":"scientific-non-invention","status":"passed","detail":"No unresolved scientific question was answered; scientific execution or evaluation remains external-provider-required or deferred to exact scientific decisions."},
     {"check_id":"implementation-code","status":"passed","detail":"No implementation code was added."},
-    {"check_id":"scope","status":"passed","detail":"The initial diff contains only ten Practice feature-package directories, the Practice domain catalog, and Practice reports."},
-    {"check_id":"validator-inventory-key","status":"pending_ci","detail":"The authoritative inventory currently exposes population_count: 10. CI will determine whether the repository validator accepts this supported key or requires the compatibility alias feature_count."},
-    {"check_id":"github-actions","status":"pending","detail":"Awaiting required Feature Handoff Package Validation workflow."},
-    {"check_id":"merge","status":"pending","detail":"Squash merge is permitted only after the final synchronized PR head passes required CI."}
+    {"check_id":"scope","status":"passed","detail":"The diff contains only ten Practice feature-package directories, the Practice domain catalog, and Practice reports."},
+    {"check_id":"validator-inventory-key","status":"passed","detail":"The repository validator accepts the authoritative population_count: 10 key directly; no compatibility alias or domain-finalization change is required."},
+    {"check_id":"github-actions","status":"passed","detail":"Feature handoff validation run 30283139415 completed successfully on commit 593ab0d92fb6f458cf203add1b6007d7a56c4d0c, including schema validation, progressive population scenarios, and pilot resolution."},
+    {"check_id":"merge","status":"pending_final_head_ci","detail":"Squash merge is permitted after the final report-only head passes the same required workflow."}
   ]
 }
