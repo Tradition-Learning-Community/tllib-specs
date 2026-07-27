@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0", "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-06-THEOREMS-009", "title": "Principles role descriptor", "domain": "theorems"},
+  "purpose": "Construct the exact isolated Principles role descriptor while preserving rational coherence and the Principles classification as unresolved opaque source semantics.",
+  "scope": {
+    "required": [
+      {"id": "TH009-REQ-001", "statement": "Require the exact role label Principles and source ordinal 2."},
+      {"id": "TH009-REQ-002", "statement": "Require the role to cite maths/06-theorems.md:82 and carry TLC-UT-THEOREMS-006."},
+      {"id": "TH009-REQ-003", "statement": "Preserve the exact label, ordinal, source, opaque payload, rational-coherence label, and unresolved identifier."}
+    ],
+    "forbidden": [
+      {"id": "TH009-FOR-001", "statement": "Do not normalize a similar label to Principles or a different ordinal to 2."},
+      {"id": "TH009-FOR-002", "statement": "Do not define or evaluate rational coherence or resolve the Principles classification."},
+      {"id": "TH009-FOR-003", "statement": "Do not infer sufficiency, verify PROOF-THEOREMS-003, or prove the CNS theorem."}
+    ],
+    "deferred": [
+      {"id": "TH009-DEF-001", "statement": "Scientific definition of rational coherence and resolution of TLC-UT-THEOREMS-006 remain external."},
+      {"id": "TH009-DEF-002", "statement": "Low-level representation and error transport remain implementation-defined."}
+    ]
+  },
+  "operations": [{
+    "operation_id": "CONSTRUCT-PRINCIPLES-ROLE-DESCRIPTOR",
+    "purpose": "Validate exact source constants and construct the opaque unresolved-aware Principles descriptor.",
+    "inputs": [
+      {"name": "principles_role", "semantic_role": "opaque Principles role and source metadata", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "fields": [
+        {"name": "label", "required": true, "semantic_role": "exact dimension label", "constant": "Principles"},
+        {"name": "source_reference", "required": true, "semantic_role": "exact source position", "constant": "maths/06-theorems.md:82"},
+        {"name": "rational_coherence_label", "required": true, "semantic_role": "opaque source label", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+        {"name": "unresolved_id", "required": true, "semantic_role": "exact unresolved classification", "constant": "TLC-UT-THEOREMS-006", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0"}
+      ], "collection": {"kind": "scalar", "membership": "exact", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}},
+      {"name": "source_ordinal", "semantic_role": "exact source ordinal", "fields": [{"name": "value", "required": true, "semantic_role": "fixed ordinal", "constant": 2}], "collection": {"kind": "scalar", "membership": "exact", "members": ["2"], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}}
+    ],
+    "outputs": [{"name": "principles_descriptor", "semantic_role": "immutable exact unresolved-aware Principles descriptor", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "fields": [
+      {"name": "label", "required": true, "semantic_role": "exact preserved label", "constant": "Principles"},
+      {"name": "source_ordinal", "required": true, "semantic_role": "exact preserved ordinal", "constant": 2},
+      {"name": "source_reference", "required": true, "semantic_role": "exact preserved source", "constant": "maths/06-theorems.md:82"},
+      {"name": "role", "required": true, "semantic_role": "unchanged opaque role payload", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+      {"name": "rational_coherence_label", "required": true, "semantic_role": "unchanged uninterpreted source label", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+      {"name": "unresolved_id", "required": true, "semantic_role": "exact preserved unresolved identifier", "constant": "TLC-UT-THEOREMS-006", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0"}
+    ], "collection": {"kind": "scalar", "membership": "exact", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0"}}}],
+    "preconditions": [
+      {"id": "TH009-PRE-001", "statement": "The label is exactly Principles and the ordinal is exactly 2."},
+      {"id": "TH009-PRE-002", "statement": "The role cites the exact source position and carries TLC-UT-THEOREMS-006."}
+    ],
+    "postconditions": [
+      {"id": "TH009-POST-001", "statement": "The descriptor preserves exact label, ordinal, source, opaque payload, rational-coherence label, and unresolved identifier."},
+      {"id": "TH009-POST-002", "statement": "No rational-coherence definition, classification resolution, sufficiency assertion, or proof result exists."}
+    ],
+    "invariants": [
+      {"id": "TH009-INV-001", "statement": "Exact label and ordinal are not inferred or normalized."},
+      {"id": "TH009-INV-002", "statement": "TLC-UT-THEOREMS-006 remains unresolved and occurs exactly once."}
+    ],
+    "strategy_contract": {"mode": "partially_constrained", "steps": ["validate exact label", "validate exact ordinal and source", "validate unresolved attachment", "preserve opaque role semantics", "construct descriptor", "publish success or stable error"], "partial_order": [
+      {"before": "validate exact label", "after": "publish success or stable error"}, {"before": "validate exact ordinal and source", "after": "publish success or stable error"}, {"before": "validate unresolved attachment", "after": "publish success or stable error"}, {"before": "preserve opaque role semantics", "after": "publish success or stable error"}, {"before": "construct descriptor", "after": "publish success or stable error"}
+    ], "prescription_basis": ["Exact constants, preservation, and unresolved status are observable; internal validation sequence and storage are open."]},
+    "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+    "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "not_applicable", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+    "error_contract": [
+      {"code": "WRONG_DIMENSION_LABEL", "category": "invalid_input", "condition": "The role label is not exactly Principles.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "WRONG_SOURCE_ORDINAL", "category": "invalid_input", "condition": "The source ordinal is not 2 or the source reference is not maths/06-theorems.md:82.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "MISSING_PRINCIPLES_UNRESOLVED", "category": "unresolved_integrity", "condition": "TLC-UT-THEOREMS-006 is absent.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+    ],
+    "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+  }],
+  "implementation_modes": [
+    {"mode_id": "structural-principles-descriptor", "status": "required", "statement": "Expose exact constant validation and unresolved-aware descriptor construction."},
+    {"mode_id": "coherence-or-sufficiency-evaluation", "status": "forbidden", "statement": "Do not define rational coherence, resolve classification, assert sufficiency, or verify a proof."},
+    {"mode_id": "alternative-internal-architecture", "status": "allowed", "statement": "Internal design is free when exact constants and all observable obligations remain conforming."}
+  ],
+  "global_invariants": [
+    {"id": "TH009-GINV-001", "statement": "Principles, ordinal 2, line-82 provenance, opaque role semantics, and TLC-UT-THEOREMS-006 remain exact and lossless."},
+    {"id": "TH009-GINV-002", "statement": "Structural success never resolves rational coherence or establishes the CNS theorem."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity."}, {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Exact source and object identities."}, {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Exact source constants."}, {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Exact TLC-UT-THEOREMS-006 preservation."}, {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Opaque role and rational-coherence preservation."}, {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Stable errors."}, {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable provenance."}, {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Immutable descriptor envelope."}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["Structural conformance preserves unresolved Principles semantics and does not prove sufficiency."]}
+}

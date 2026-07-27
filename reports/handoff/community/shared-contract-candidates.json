@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "domain": "community",
+  "candidates": [
+    {
+      "candidate_id": "COMMUNITY-HC-CANDIDATE-STRUCTURAL-SPECIFICATION-GATE",
+      "observed_features": ["TLC-FC-02-COMMUNITY-001", "TLC-FC-02-COMMUNITY-003", "TLC-FC-02-COMMUNITY-004", "TLC-FC-02-COMMUNITY-005", "TLC-FC-02-COMMUNITY-006", "TLC-FC-02-COMMUNITY-007", "TLC-FC-02-COMMUNITY-008", "TLC-FC-02-COMMUNITY-009"],
+      "local_structures": ["exact feature identity", "supported structural operations", "source provenance validation", "exact source-object preservation", "exact unresolved preservation", "opaque-value transport", "deterministic structural result", "no observable partial result"],
+      "possible_sharing_reason": "The same structural gate shape is repeated across all active Community packages and may recur in other scientifically unresolved domains.",
+      "semantic_merge_risks": ["Feature 001 has supplemental non-canonical evidence.", "Feature 006 requires visible blocker semantics and a different execution error.", "Feature 008 requires dependency classification.", "Source-object cardinality and opaque boundaries differ by feature."],
+      "proposed_decision": "Keep the structures local until cross-domain evidence proves a shared contract can preserve feature-specific blocker, dependency, multiplicity, and error semantics without weakening them.",
+      "status": "candidate_only"
+    },
+    {
+      "candidate_id": "COMMUNITY-HC-CANDIDATE-SCIENTIFIC-EXECUTION-REJECTION",
+      "observed_features": ["TLC-FC-02-COMMUNITY-001", "TLC-FC-02-COMMUNITY-003", "TLC-FC-02-COMMUNITY-004", "TLC-FC-02-COMMUNITY-005", "TLC-FC-02-COMMUNITY-007", "TLC-FC-02-COMMUNITY-008", "TLC-FC-02-COMMUNITY-009"],
+      "local_structures": ["request_scientific_execution operation", "COMMUNITY_ERR_UNSUPPORTED_EXECUTION_REQUEST", "no partial result", "preserved unresolved collection"],
+      "possible_sharing_reason": "Seven active Community features expose the same observable rejection pattern while scientific semantics remain unresolved.",
+      "semantic_merge_risks": ["Feature 006 intentionally uses COMMUNITY_ERR_UNRESOLVED_SCIENTIFIC_SEMANTICS with COMMUNITY-DECISION-001.", "Other domains may distinguish unsupported execution from blocked execution differently.", "A shared abstraction could erase authoritative error codes."],
+      "proposed_decision": "Retain feature-local contracts and revisit only after error-taxonomy compatibility is demonstrated across multiple domains.",
+      "status": "candidate_only"
+    }
+  ]
+}

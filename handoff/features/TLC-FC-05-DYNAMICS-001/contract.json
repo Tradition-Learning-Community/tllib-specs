@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-05-DYNAMICS-001", "title": "Constraint admissible", "domain": "dynamics"},
+  "purpose": "Construct the four source-defined Community viability predicates as distinct, traceable, unevaluated records without deciding their truth.",
+  "scope": {
+    "required": [
+      {"id": "D001-REQ-001", "statement": "Accept an opaque Community state and source-addressable opaque bounds for the four source-defined viability predicates.", "basis": ["registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-001/ir.yaml"]},
+      {"id": "D001-REQ-002", "statement": "Produce exactly four distinct unevaluated predicate records while preserving source order, inclusive comparator notation, opaque payloads, provenance, unresolved items, and reservations.", "basis": ["registry/oracles/dynamics/TLC-FC-05-DYNAMICS-001/oracle.yaml"]},
+      {"id": "D001-REQ-003", "statement": "Expose no successful partial result after any validation or preservation failure."}
+    ],
+    "forbidden": [
+      {"id": "D001-FOR-001", "statement": "Do not numerically compare bounds, decide predicate truth, or produce an aggregate viability Boolean."},
+      {"id": "D001-FOR-002", "statement": "Do not infer collapse, pathology, transition, initial-state, terminal-state, solver, discretization, unit, tolerance, or scientific default semantics."},
+      {"id": "D001-FOR-003", "statement": "Do not mutate the supplied state, bounds, or external scientific state."}
+    ],
+    "deferred": [
+      {"id": "D001-DEF-001", "statement": "Time semantics, the graph operator, norm semantics, memory notation, and final scientific output semantics remain preserved unresolved."},
+      {"id": "D001-DEF-002", "statement": "Concrete runtime representation and scientific evaluation remain outside this package."}
+    ]
+  },
+  "operations": [
+    {
+      "operation_id": "EVALUATE-VIABILITY-PREDICATES-SYMBOLICALLY",
+      "purpose": "Validate and package the four viability constraints without scientific evaluation.",
+      "inputs": [
+        {
+          "name": "community_state",
+          "semantic_role": "opaque Community state referenced by every predicate",
+          "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0",
+          "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null},
+          "constraints": [{"id": "D001-IN-001", "statement": "The carrier must preserve OpaqueCommunityState identity and payload without evaluation."}]
+        },
+        {
+          "name": "bounds",
+          "semantic_role": "source-addressable opaque bounds for the four viability predicates",
+          "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0",
+          "collection": {"kind": "ordered_map", "membership": "exact", "members": [], "cardinality": {"minimum": 4, "maximum": 4}, "ordering": "preserved", "duplicates": "forbidden", "key_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}},
+          "constraints": [{"id": "D001-IN-002", "statement": "Every predicate and bound source identifier must be known and all four predicates must remain distinct."}]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "semantic_role": "immutable unevaluated predicate set",
+          "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0",
+          "fields": [
+            {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "constant": "TLC-FC-05-DYNAMICS-001"},
+            {"name": "representation", "required": true, "semantic_role": "output representation", "constant": "UnevaluatedPredicateSet"},
+            {"name": "predicates", "required": true, "semantic_role": "four distinct unevaluated predicate records"},
+            {"name": "traceability", "required": true, "semantic_role": "source-object and source-relation provenance", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"},
+            {"name": "unresolved", "required": true, "semantic_role": "preserved unresolved scientific identifiers", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0"},
+            {"name": "status", "required": true, "semantic_role": "structural-only and unevaluated status"}
+          ],
+          "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null},
+          "constraints": [{"id": "D001-OUT-001", "statement": "The output contains exactly four source-defined records and no truth value or aggregate viability result."}]
+        }
+      ],
+      "preconditions": [
+        {"id": "D001-PRE-001", "statement": "Every predicate, bound, object, and relation identifier exists in the Dynamics inventory."},
+        {"id": "D001-PRE-002", "statement": "The state and bounds preserve their declared opaque carrier shapes."}
+      ],
+      "postconditions": [
+        {"id": "D001-POST-001", "statement": "Exactly four distinct predicate records are present in source order with inclusive comparator notation preserved."},
+        {"id": "D001-POST-002", "statement": "All opaque payloads, unresolved items, reservations, and source links are unchanged."},
+        {"id": "D001-POST-003", "statement": "No predicate truth or aggregate viability result exists."}
+      ],
+      "invariants": [
+        {"id": "D001-INV-001", "statement": "TLC-SO-DYNAMICS-015 and TLC-SR-DYNAMICS-014 remain source-addressable."},
+        {"id": "D001-INV-002", "statement": "Opaque payloads are never evaluated or mutated."}
+      ],
+      "strategy_contract": {
+        "mode": "partially_constrained",
+        "steps": ["validate identifiers and carrier shapes", "construct four distinct unevaluated records", "attach traceability unresolved items and reservations", "verify preservation obligations", "publish success or stable error"],
+        "partial_order": [
+          {"before": "validate identifiers and carrier shapes", "after": "publish success or stable error"},
+          {"before": "construct four distinct unevaluated records", "after": "publish success or stable error"},
+          {"before": "attach traceability unresolved items and reservations", "after": "publish success or stable error"},
+          {"before": "verify preservation obligations", "after": "publish success or stable error"}
+        ],
+        "prescription_basis": ["Validation, preservation, and atomic publication are observable; the upstream total step list does not prescribe a unique internal algorithm."]
+      },
+      "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+      "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "required", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+      "error_contract": [
+        {"code": "UNKNOWN_SOURCE_IDENTIFIER", "category": "invalid_input", "condition": "A predicate, bound, object, or relation identifier is not known to the authoritative Dynamics inventory.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "TYPE_SHAPE_MISMATCH", "category": "invalid_input", "condition": "The Community state or viability-bounds carrier does not preserve its declared shape.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "UNRESOLVED_SCIENTIFIC_SEMANTICS", "category": "unsupported_operation", "condition": "Scientific truth evaluation, aggregate viability, collapse, or transition semantics are requested although the required science is unresolved.", "recoverability": "non_retryable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+      ],
+      "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+    }
+  ],
+  "implementation_modes": [
+    {"mode_id": "structural-predicate-packaging", "status": "required", "statement": "Expose four distinct unevaluated predicate records and stable errors."},
+    {"mode_id": "scientific-evaluation", "status": "forbidden", "statement": "Do not decide viability truth or infer transition semantics."},
+    {"mode_id": "alternative-internal-architecture", "status": "allowed", "statement": "Any internal architecture is allowed when observable obligations are preserved."}
+  ],
+  "global_invariants": [
+    {"id": "D001-GINV-001", "statement": "Absence of scientific definition remains absence and never becomes a default."},
+    {"id": "D001-GINV-002", "statement": "No implementation may weaken identity, order, opacity, traceability, unresolved preservation, or failure atomicity."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity"},
+    {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Stable scientific identifiers"},
+    {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Ordered source-addressable bounds"},
+    {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Preserved unresolved semantics"},
+    {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Unevaluated state and bound payloads"},
+    {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Stable transport-neutral failures"},
+    {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable source provenance"},
+    {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Immutable structural result envelope"}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["Conformance is behavioral and does not prescribe a language, public function spelling, serialization, or internal algorithm."]}
+}

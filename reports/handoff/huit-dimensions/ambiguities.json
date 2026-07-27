@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "domain": "huit-dimensions",
+  "ambiguities": [
+    {
+      "ambiguity_id": "HD-AMB-001",
+      "classification": "historical_identifier_compatibility",
+      "status": "resolved_for_validation",
+      "affected_features": ["TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013"],
+      "observation": "Feature identifiers encode HUIT-DIMENSIONS-DE-TL, while the authoritative registry and package domain use huit-dimensions.",
+      "resolution": "The compatibility validator removes a trailing -de-tl token only when registry/domain-finalization/<normalized-domain>/ exists, then retains all authoritative inventory, index, package-path, ownership, and artifact checks.",
+      "scientific_effect": "none"
+    },
+    {
+      "ambiguity_id": "HD-AMB-002",
+      "classification": "metadata_shape_compatibility",
+      "status": "resolved_for_validation",
+      "affected_features": ["all_domain_features"],
+      "observation": "Authoritative inventories use several established count keys, including active_feature_count for Eight Dimensions.",
+      "resolution": "The compatibility validator accepts feature_count, population_count, active_feature_count, and summary.active_features only when every supplied value equals the authoritative feature-list cardinality.",
+      "scientific_effect": "none"
+    },
+    {
+      "ambiguity_id": "HD-AMB-003",
+      "classification": "source_conflict",
+      "status": "preserved_non_blocking_package",
+      "affected_features": ["all_domain_features"],
+      "observation": "Authoritative error identifiers contain hyphens, but the global contract schema rejects hyphens in error_contract.code.",
+      "preservation": "Each required code field uses a one-to-one underscore alias; the exact source identifier remains visible in the condition and acceptance oracle mapping.",
+      "required_resolution": "A future global schema decision may define an explicit authoritative-source-error field or broaden the code pattern."
+    },
+    {
+      "ambiguity_id": "HD-AMB-004",
+      "classification": "artifact_multiplicity",
+      "status": "non_blocking",
+      "affected_features": ["all_domain_features"],
+      "observation": "Prototype IRs and test plans are under ir/<FEATURE-ID>/, while finalized IRs, algorithms, and oracles are in domain registries.",
+      "preservation": "All applicable artifacts are listed independently in traceability.json and no canonicalization of their paths was invented."
+    },
+    {
+      "ambiguity_id": "HD-AMB-005",
+      "classification": "ordering_uncertain",
+      "status": "preserved_non_blocking",
+      "affected_features": ["all_domain_features"],
+      "observation": "Intermediate algorithms present validation, construction, and verification steps but do not prove a unique total order for internal implementation.",
+      "preservation": "strategy_contract is partially_constrained; only conditions required before successful publication are normative."
+    },
+    {
+      "ambiguity_id": "HD-AMB-006",
+      "classification": "runtime_semantics_unspecified",
+      "status": "preserved_non_blocking",
+      "affected_features": ["all_domain_features"],
+      "observation": "The scientific and finalized artifacts do not prescribe ownership machinery, allocation, layout, alignment, address stability, serialization, or concurrency implementation.",
+      "preservation": "Only immutability, lack of visible input mutation, and failure atomicity are prescribed; remaining low-level fields are implementation_defined, not_constrained, or not_required."
+    },
+    {
+      "ambiguity_id": "HD-AMB-007",
+      "classification": "scientific_unresolved",
+      "status": "preserved_unresolved",
+      "affected_features": ["TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013"],
+      "observation": "Feature boundaries, identity, convergence, verification, equivalence, metric semantics, measure semantics, activation, completeness, and necessity are not scientifically executable.",
+      "preservation": "Packages expose structural records with explicit unresolved statuses and reject scientific execution requests."
+    },
+    {
+      "ambiguity_id": "HD-AMB-008",
+      "classification": "apparent_shared_pattern",
+      "status": "candidate_only",
+      "affected_features": ["all_domain_features"],
+      "observation": "Role binding, opaque preservation, reservation propagation, and source-error aliasing recur across the domain.",
+      "preservation": "No shared contract was created or modified; candidates are recorded separately for cross-domain review."
+    }
+  ]
+}

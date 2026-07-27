@@ -1,0 +1,3 @@
+# Holistic interpretation and encoding descriptor
+
+This package preserves two source objects in exact inventory order: `TLC-SO-LIVED-EXPERIENCE-043` followed by `TLC-SO-LIVED-EXPERIENCE-051`. Implement exact identity, membership, order, uniqueness and provenance validation; immutable deterministic descriptors; structural comparison; and lossless serialization. Inventory order is documentary and must never be treated as chronology. Do not execute holistic interpretation or encoding, produce meaning, encode events, or invent actor, event, state, transition, or meaning-space schemas. Execution requests return `ScientificEvaluationRequested`.

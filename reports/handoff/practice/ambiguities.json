@@ -1,0 +1,72 @@
+{
+  "schema_version":"1.0",
+  "domain":"practice",
+  "source_commit":"db86260e332cf5ba7e1adf7b58d60196d70bbf5d",
+  "ambiguities":[
+    {
+      "ambiguity_id":"PRACTICE-AMB-001",
+      "classification":"scientific_unresolved",
+      "affected_features":["TLC-FC-13-PRACTICE-001","TLC-FC-13-PRACTICE-003","TLC-FC-13-PRACTICE-005","TLC-FC-13-PRACTICE-007","TLC-FC-13-PRACTICE-009"],
+      "summary":"Admissible candidates have sufficient structure for representation but no authoritative executor, evaluator, numerical method, exact output semantics, or runtime scientific types.",
+      "package_treatment":"external_provider_required for science; structural_only execution remains valid",
+      "blocking":false
+    },
+    {
+      "ambiguity_id":"PRACTICE-AMB-002",
+      "classification":"scientific_unresolved",
+      "affected_features":["TLC-FC-13-PRACTICE-004","TLC-FC-13-PRACTICE-006","TLC-FC-13-PRACTICE-008","TLC-FC-13-PRACTICE-010"],
+      "summary":"Blocked dynamics, equations, metrics, and operators require exact feature-specific scientific decision sets before evaluation.",
+      "package_treatment":"preserved_unresolved with exact scientific_decision_required errors; structural representation remains valid",
+      "blocking":false
+    },
+    {
+      "ambiguity_id":"PRACTICE-AMB-003",
+      "classification":"scientific_unresolved",
+      "affected_features":["TLC-FC-13-PRACTICE-012"],
+      "summary":"The measurability relation lacks authoritative endpoint identity and indicator semantics and remains provisionally separated under TLC-HR-0100.",
+      "package_treatment":"preserved_unresolved; endpoint inference and feature merging are forbidden",
+      "blocking":false
+    },
+    {
+      "ambiguity_id":"PRACTICE-AMB-004",
+      "classification":"ordering_uncertain",
+      "affected_features":["TLC-FC-13-PRACTICE-001","TLC-FC-13-PRACTICE-003","TLC-FC-13-PRACTICE-004","TLC-FC-13-PRACTICE-005","TLC-FC-13-PRACTICE-006","TLC-FC-13-PRACTICE-007","TLC-FC-13-PRACTICE-008","TLC-FC-13-PRACTICE-009","TLC-FC-13-PRACTICE-010","TLC-FC-13-PRACTICE-012"],
+      "summary":"Intermediate algorithms show pseudocode order, but authority establishes no total executable sequence beyond validation, preservation, complete metadata, deterministic structure, and atomic publication.",
+      "package_treatment":"partially_constrained strategy contracts with explicit partial orders",
+      "blocking":false
+    },
+    {
+      "ambiguity_id":"PRACTICE-AMB-005",
+      "classification":"runtime_semantics_unspecified",
+      "affected_features":["TLC-FC-13-PRACTICE-001","TLC-FC-13-PRACTICE-003","TLC-FC-13-PRACTICE-004","TLC-FC-13-PRACTICE-005","TLC-FC-13-PRACTICE-006","TLC-FC-13-PRACTICE-007","TLC-FC-13-PRACTICE-008","TLC-FC-13-PRACTICE-009","TLC-FC-13-PRACTICE-010","TLC-FC-13-PRACTICE-012"],
+      "summary":"Ownership, allocation, layout, aliasing, alignment, address stability, exception transport, and concurrency mechanisms are not authoritative.",
+      "package_treatment":"implementation_defined, not_constrained, or not_required; only immutability, invisible input changes, and atomic failure are prescribed",
+      "blocking":false
+    },
+    {
+      "ambiguity_id":"PRACTICE-AMB-006",
+      "classification":"error_semantics_unspecified",
+      "affected_features":["TLC-FC-13-PRACTICE-001","TLC-FC-13-PRACTICE-003","TLC-FC-13-PRACTICE-004","TLC-FC-13-PRACTICE-005","TLC-FC-13-PRACTICE-006","TLC-FC-13-PRACTICE-007","TLC-FC-13-PRACTICE-008","TLC-FC-13-PRACTICE-009","TLC-FC-13-PRACTICE-010","TLC-FC-13-PRACTICE-012"],
+      "summary":"Authoritative errors use lower-case source identifiers while the unchanged handoff schema requires uppercase public identifiers.",
+      "package_treatment":"one-to-one schema-compatible uppercase projection with the original source_error_id preserved in every condition and acceptance expectation",
+      "blocking":false
+    },
+    {
+      "ambiguity_id":"PRACTICE-AMB-007",
+      "classification":"apparent_shared_pattern",
+      "affected_features":["TLC-FC-13-PRACTICE-001","TLC-FC-13-PRACTICE-003","TLC-FC-13-PRACTICE-004","TLC-FC-13-PRACTICE-005","TLC-FC-13-PRACTICE-006","TLC-FC-13-PRACTICE-007","TLC-FC-13-PRACTICE-008","TLC-FC-13-PRACTICE-009","TLC-FC-13-PRACTICE-010","TLC-FC-13-PRACTICE-012"],
+      "summary":"All packages use an opaque structural candidate envelope, and five blocked packages use exact scientific-decision propagation, but local similarity does not establish a new shared semantic contract.",
+      "package_treatment":"candidate_only records in shared-contract-candidates.json; no change to handoff/shared",
+      "blocking":false
+    },
+    {
+      "ambiguity_id":"PRACTICE-AMB-008",
+      "classification":"non_blocking_editorial",
+      "affected_features":["TLC-FC-13-PRACTICE-001","TLC-FC-13-PRACTICE-003","TLC-FC-13-PRACTICE-004","TLC-FC-13-PRACTICE-005","TLC-FC-13-PRACTICE-006","TLC-FC-13-PRACTICE-007","TLC-FC-13-PRACTICE-008","TLC-FC-13-PRACTICE-009","TLC-FC-13-PRACTICE-010","TLC-FC-13-PRACTICE-012"],
+      "summary":"The authoritative Practice inventory exposes population_count: 10 rather than the alternative feature_count key used by some finalized domains.",
+      "package_treatment":"Resolved without repository change: required CI accepts population_count directly, so the authoritative inventory and all scientific artifacts remain untouched.",
+      "blocking":false,
+      "status":"resolved_no_change"
+    }
+  ]
+}

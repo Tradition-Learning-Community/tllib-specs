@@ -1,0 +1,542 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "feature": {
+    "feature_id": "TLC-FC-15-RELATIONS-007",
+    "title": "Opaque named-relation bundle structural record",
+    "domain": "relations"
+  },
+  "purpose": "Build and validate a deterministic structural record for the relation (admissible) while preserving scientific material as opaque and refusing relation evaluation.",
+  "scope": {
+    "required": [
+      {
+        "id": "R007-REQ-001",
+        "statement": "Accept only feature identity TLC-FC-15-RELATIONS-007.",
+        "basis": [
+          "registry/optimized-ir/relations/TLC-FC-15-RELATIONS-007/ir.yaml"
+        ]
+      },
+      {
+        "id": "R007-REQ-002",
+        "statement": "Preserve exactly these participant identities in order: TLC-SO-RELATIONS-002, TLC-SO-RELATIONS-009, TLC-SO-RELATIONS-015, TLC-SO-RELATIONS-021, TLC-SO-RELATIONS-027.",
+        "basis": [
+          "registry/math-contracts/TLC-FC-15-RELATIONS-007/contract.yaml",
+          "registry/oracles/relations/TLC-FC-15-RELATIONS-007/oracle.yaml"
+        ]
+      },
+      {
+        "id": "R007-REQ-003",
+        "statement": "Preserve scope relations_007_five_named_relation_objects, context master_message_virtue_value_capacity_competence_relation_names, opaque source values, and exactly 12 unresolved items."
+      },
+      {
+        "id": "R007-REQ-004",
+        "statement": "Reject every request for scientific evaluation with ExternalRelationEvaluatorRequired."
+      }
+    ],
+    "forbidden": [
+      {
+        "id": "R007-FOR-001",
+        "statement": "Do not create or evaluate a scientific relation, equation, invariant, operator, graph, membership, composition, inversion, projection, deduction, or causal result."
+      },
+      {
+        "id": "R007-FOR-002",
+        "statement": "Do not infer source, target, direction, runtime arity, properties, types, dimensions, thresholds, or numerical methods."
+      },
+      {
+        "id": "R007-FOR-003",
+        "statement": "Do not mutate opaque source values, reorder participants, or replace unresolved items with defaults."
+      }
+    ],
+    "deferred": [
+      {
+        "id": "R007-DEF-001",
+        "statement": "Scientific relation semantics remain unresolved; external scientific decision evidence is TLC-GCYCLE-DOMAIN-001."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation_id": "BUILD-RELATIONS-007-RECORD",
+      "purpose": "Validate the exact structural inputs and emit a non-executable record guarded against scientific evaluation.",
+      "inputs": [
+        {
+          "name": "feature_id",
+          "semantic_role": "exact requested feature identity",
+          "shared_contract_ref": "TLC-HC-FEATURE-ID@1.0.0",
+          "collection": {
+            "kind": "scalar",
+            "membership": "exact",
+            "members": [
+              "TLC-FC-15-RELATIONS-007"
+            ],
+            "cardinality": {
+              "minimum": 1,
+              "maximum": 1
+            },
+            "ordering": "not_applicable",
+            "duplicates": "not_applicable",
+            "key_contract": null,
+            "value_contract": null
+          },
+          "constraints": [
+            {
+              "id": "R007-IN-001",
+              "statement": "Identity equals TLC-FC-15-RELATIONS-007."
+            }
+          ]
+        },
+        {
+          "name": "participants",
+          "semantic_role": "opaque scientific participants in authoritative order",
+          "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0",
+          "collection": {
+            "kind": "sequence",
+            "membership": "exact",
+            "members": [
+              "TLC-SO-RELATIONS-002",
+              "TLC-SO-RELATIONS-009",
+              "TLC-SO-RELATIONS-015",
+              "TLC-SO-RELATIONS-021",
+              "TLC-SO-RELATIONS-027"
+            ],
+            "cardinality": {
+              "minimum": 5,
+              "maximum": 5
+            },
+            "ordering": "preserved",
+            "duplicates": "forbidden",
+            "key_contract": null,
+            "value_contract": {
+              "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"
+            }
+          }
+        },
+        {
+          "name": "opaque_source_values",
+          "semantic_role": "uninterpreted source equations, tuples, functions, or names",
+          "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0",
+          "collection": {
+            "kind": "sequence",
+            "membership": "constrained",
+            "cardinality": {
+              "minimum": 1,
+              "maximum": null
+            },
+            "ordering": "preserved",
+            "duplicates": "significant",
+            "key_contract": null,
+            "value_contract": null
+          }
+        },
+        {
+          "name": "unresolved_items",
+          "semantic_role": "exact 12-item unresolved set in authoritative order",
+          "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0",
+          "collection": {
+            "kind": "sequence",
+            "membership": "exact",
+            "cardinality": {
+              "minimum": 12,
+              "maximum": 12
+            },
+            "ordering": "preserved",
+            "duplicates": "forbidden",
+            "key_contract": null,
+            "value_contract": null
+          }
+        },
+        {
+          "name": "traceability",
+          "semantic_role": "complete upstream provenance",
+          "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0",
+          "collection": {
+            "kind": "scalar",
+            "membership": "exact",
+            "cardinality": {
+              "minimum": 1,
+              "maximum": 1
+            },
+            "ordering": "not_applicable",
+            "duplicates": "not_applicable",
+            "key_contract": null,
+            "value_contract": null
+          }
+        },
+        {
+          "name": "evaluation_request",
+          "semantic_role": "optional request that must be rejected when present",
+          "collection": {
+            "kind": "optional",
+            "membership": "open",
+            "cardinality": {
+              "minimum": 0,
+              "maximum": 1
+            },
+            "ordering": "not_applicable",
+            "duplicates": "not_applicable",
+            "key_contract": null,
+            "value_contract": null
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "record",
+          "semantic_role": "validated non-executable Relations structural record",
+          "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0",
+          "fields": [
+            {
+              "name": "scope_id",
+              "required": true,
+              "semantic_role": "authoritative scope",
+              "constant": "relations_007_five_named_relation_objects"
+            },
+            {
+              "name": "context_id",
+              "required": true,
+              "semantic_role": "authoritative context",
+              "constant": "master_message_virtue_value_capacity_competence_relation_names"
+            },
+            {
+              "name": "opaque_payload",
+              "required": true,
+              "semantic_role": "uninterpreted preserved scientific material",
+              "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"
+            },
+            {
+              "name": "non_execution_guard",
+              "required": true,
+              "semantic_role": "scientific evaluation prohibition",
+              "constant": "enabled"
+            }
+          ],
+          "collection": {
+            "kind": "scalar",
+            "membership": "exact",
+            "cardinality": {
+              "minimum": 1,
+              "maximum": 1
+            },
+            "ordering": "not_applicable",
+            "duplicates": "not_applicable",
+            "key_contract": null,
+            "value_contract": null
+          }
+        },
+        {
+          "name": "error",
+          "semantic_role": "stable transport-neutral failure",
+          "shared_contract_ref": "TLC-HC-STRUCTURED-ERROR@1.0.0",
+          "collection": {
+            "kind": "optional",
+            "membership": "constrained",
+            "cardinality": {
+              "minimum": 0,
+              "maximum": 1
+            },
+            "ordering": "not_applicable",
+            "duplicates": "not_applicable",
+            "key_contract": null,
+            "value_contract": null
+          }
+        }
+      ],
+      "preconditions": [
+        {
+          "id": "R007-PRE-001",
+          "statement": "Feature identity, participant references, scope, context, opaque values, and unresolved metadata are available."
+        },
+        {
+          "id": "R007-PRE-002",
+          "statement": "The caller requests structural construction or validation only."
+        }
+      ],
+      "postconditions": [
+        {
+          "id": "R007-POST-001",
+          "statement": "Successful output preserves identity, participants, order, scope, context, opaque values, and unresolved metadata exactly."
+        },
+        {
+          "id": "R007-POST-002",
+          "statement": "Successful output contains no scientific result and has the non-execution guard enabled."
+        }
+      ],
+      "invariants": [
+        {
+          "id": "R007-INV-001",
+          "statement": "No source, target, direction, arity, relation property, or causality is added."
+        },
+        {
+          "id": "R007-INV-002",
+          "statement": "No observable partial record is published on failure."
+        }
+      ],
+      "strategy_contract": {
+        "mode": "partially_constrained",
+        "steps": [
+          "validate exact structural identity and preservation constraints",
+          "reject unsupported scientific evaluation",
+          "emit the guarded structural record"
+        ],
+        "partial_order": [
+          {
+            "before": "validate exact structural identity and preservation constraints",
+            "after": "emit the guarded structural record"
+          },
+          {
+            "before": "reject unsupported scientific evaluation",
+            "after": "emit the guarded structural record"
+          }
+        ],
+        "prescription_basis": [
+          "registry/algorithms/relations/TLC-FC-15-RELATIONS-007/algorithm.yaml"
+        ]
+      },
+      "runtime_contract": {
+        "mutability": "immutable",
+        "result_ownership": "implementation_defined",
+        "input_retention": "not_required",
+        "input_change_visibility": "not_visible",
+        "lifetime": "implementation_defined",
+        "aliasing": "not_constrained",
+        "layout": "not_constrained",
+        "contiguity": "not_required",
+        "alignment": "not_required",
+        "address_stability": "not_required",
+        "copy_semantics": "not_constrained",
+        "move_semantics": "not_constrained",
+        "allocation": "implementation_defined",
+        "zero_copy": "not_required",
+        "thread_safety": "implementation_defined",
+        "reentrancy": "implementation_defined",
+        "failure_atomicity": "no_observable_partial_result"
+      },
+      "determinism": {
+        "semantic_output": "required",
+        "field_presence": "required",
+        "collection_order": "required",
+        "canonical_serialization": "not_required",
+        "binary_layout": "not_constrained",
+        "memory_address": "not_constrained",
+        "allocation_pattern": "not_constrained",
+        "concurrent_scheduling": "implementation_defined",
+        "floating_point": "not_applicable",
+        "randomness": "not_applicable"
+      },
+      "error_contract": [
+        {
+          "code": "FeatureIdentityMismatch",
+          "category": "identity",
+          "condition": "The feature identity is not the exact package identity.",
+          "recoverability": "recoverable",
+          "public_result": "no_partial_result",
+          "failure_atomicity": "no_observable_partial_result",
+          "transport": "implementation_defined"
+        },
+        {
+          "code": "MissingCoveredObject",
+          "category": "participants",
+          "condition": "A required participant is missing.",
+          "recoverability": "recoverable",
+          "public_result": "no_partial_result",
+          "failure_atomicity": "no_observable_partial_result",
+          "transport": "implementation_defined"
+        },
+        {
+          "code": "UnexpectedCoveredObject",
+          "category": "participants",
+          "condition": "An undeclared participant is present.",
+          "recoverability": "recoverable",
+          "public_result": "no_partial_result",
+          "failure_atomicity": "no_observable_partial_result",
+          "transport": "implementation_defined"
+        },
+        {
+          "code": "DuplicateCoveredObject",
+          "category": "participants",
+          "condition": "A participant identity is duplicated.",
+          "recoverability": "recoverable",
+          "public_result": "no_partial_result",
+          "failure_atomicity": "no_observable_partial_result",
+          "transport": "implementation_defined"
+        },
+        {
+          "code": "ObjectOrderMismatch",
+          "category": "participants",
+          "condition": "The participant order differs from the authoritative order.",
+          "recoverability": "recoverable",
+          "public_result": "no_partial_result",
+          "failure_atomicity": "no_observable_partial_result",
+          "transport": "implementation_defined"
+        },
+        {
+          "code": "MissingSourceReference",
+          "category": "source",
+          "condition": "A required participant source reference is unavailable.",
+          "recoverability": "retryable",
+          "public_result": "no_partial_result",
+          "failure_atomicity": "no_observable_partial_result",
+          "transport": "implementation_defined"
+        },
+        {
+          "code": "ScopeMismatch",
+          "category": "scope",
+          "condition": "The scope identifier differs from the authoritative scope.",
+          "recoverability": "recoverable",
+          "public_result": "no_partial_result",
+          "failure_atomicity": "no_observable_partial_result",
+          "transport": "implementation_defined"
+        },
+        {
+          "code": "ContextMismatch",
+          "category": "context",
+          "condition": "The context identifier differs from the authoritative context.",
+          "recoverability": "recoverable",
+          "public_result": "no_partial_result",
+          "failure_atomicity": "no_observable_partial_result",
+          "transport": "implementation_defined"
+        },
+        {
+          "code": "OpaqueValueMutation",
+          "category": "preservation",
+          "condition": "Opaque source material differs in value or order.",
+          "recoverability": "recoverable",
+          "public_result": "no_partial_result",
+          "failure_atomicity": "no_observable_partial_result",
+          "transport": "implementation_defined"
+        },
+        {
+          "code": "UnresolvedPropagationLoss",
+          "category": "preservation",
+          "condition": "One or more unresolved items are absent or altered.",
+          "recoverability": "recoverable",
+          "public_result": "no_partial_result",
+          "failure_atomicity": "no_observable_partial_result",
+          "transport": "implementation_defined"
+        },
+        {
+          "code": "EndpointInferenceProhibited",
+          "category": "scientific",
+          "condition": "Source or target identity is inferred from names or ordering.",
+          "recoverability": "recoverable",
+          "public_result": "no_partial_result",
+          "failure_atomicity": "no_observable_partial_result",
+          "transport": "implementation_defined"
+        },
+        {
+          "code": "ScientificPropertyInvented",
+          "category": "scientific",
+          "condition": "A relation property, arity, direction, endpoint, or causal meaning is asserted without authority.",
+          "recoverability": "recoverable",
+          "public_result": "no_partial_result",
+          "failure_atomicity": "no_observable_partial_result",
+          "transport": "implementation_defined"
+        },
+        {
+          "code": "ExternalRelationEvaluatorRequired",
+          "category": "unsupported",
+          "condition": "Scientific evaluation is requested from this structural-only package.",
+          "recoverability": "recoverable",
+          "public_result": "no_partial_result",
+          "failure_atomicity": "no_observable_partial_result",
+          "transport": "implementation_defined"
+        }
+      ],
+      "resource_contract": {
+        "time_complexity": {
+          "status": "informative",
+          "value": "O(n) over participants, opaque values, and unresolved items"
+        },
+        "auxiliary_memory": {
+          "status": "informative",
+          "value": "O(n) for the preserved structural record"
+        },
+        "allocations": {
+          "status": "implementation_defined",
+          "value": null
+        },
+        "maximum_input_size": {
+          "status": "not_constrained",
+          "value": null
+        }
+      }
+    }
+  ],
+  "implementation_modes": [
+    {
+      "mode_id": "structural-record",
+      "status": "required",
+      "statement": "Expose exact validation, preservation, inspection, and guarded record construction."
+    },
+    {
+      "mode_id": "scientific-evaluation",
+      "status": "forbidden",
+      "statement": "Do not produce scientific relation semantics or results."
+    },
+    {
+      "mode_id": "alternative-internal-architecture",
+      "status": "allowed",
+      "statement": "Internal architecture is free when all observable obligations remain satisfied."
+    }
+  ],
+  "global_invariants": [
+    {
+      "id": "R007-GINV-001",
+      "statement": "Unresolved scientific semantics remain explicit and never become implementation defaults."
+    },
+    {
+      "id": "R007-GINV-002",
+      "statement": "The scientific source and all registry artifacts remain read-only provenance."
+    }
+  ],
+  "dependencies": [
+    {
+      "shared_contract_id": "TLC-HC-FEATURE-ID",
+      "version": "1.0.0",
+      "purpose": "Exact feature identity."
+    },
+    {
+      "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+      "version": "1.0.0",
+      "purpose": "Lossless participant references."
+    },
+    {
+      "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+      "version": "1.0.0",
+      "purpose": "Exact ordered participant collection."
+    },
+    {
+      "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+      "version": "1.0.0",
+      "purpose": "Explicit unresolved reservations."
+    },
+    {
+      "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+      "version": "1.0.0",
+      "purpose": "Uninterpreted scientific payloads."
+    },
+    {
+      "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+      "version": "1.0.0",
+      "purpose": "Stable transport-neutral failures."
+    },
+    {
+      "shared_contract_id": "TLC-HC-TRACEABILITY",
+      "version": "1.0.0",
+      "purpose": "Resolvable upstream provenance."
+    },
+    {
+      "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+      "version": "1.0.0",
+      "purpose": "Observable structural record shape."
+    }
+  ],
+  "conformance": {
+    "acceptance_required": true,
+    "all_required_tests_must_pass": true,
+    "forbidden_behavior_is_nonconforming": true,
+    "notes": [
+      "Conformance covers structural behavior only; semantic evaluation requires an external provider."
+    ]
+  }
+}

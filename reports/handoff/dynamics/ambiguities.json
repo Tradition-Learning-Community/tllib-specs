@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "domain": "dynamics",
+  "source_commit": "6e01d536e41565c456a3b94b4a1f3921664b55af",
+  "ambiguities": [
+    {
+      "ambiguity_id": "DYN-AMB-001",
+      "classification": "scientific_unresolved",
+      "affected_features": ["TLC-FC-05-DYNAMICS-001"],
+      "summary": "Time semantics, graph operator semantics, norm semantics, memory notation, viability truth, and final output semantics are not scientifically complete.",
+      "package_treatment": "preserved_unresolved",
+      "blocking": false
+    },
+    {
+      "ambiguity_id": "DYN-AMB-002",
+      "classification": "scientific_unresolved",
+      "affected_features": ["TLC-FC-05-DYNAMICS-002", "TLC-FC-05-DYNAMICS-003"],
+      "summary": "Equation types, state spaces, initial conditions, stochastic laws, integration conventions, solvers, and discretization are incomplete.",
+      "package_treatment": "external_provider_required for execution; structural packaging remains valid",
+      "blocking": false
+    },
+    {
+      "ambiguity_id": "DYN-AMB-003",
+      "classification": "scientific_unresolved",
+      "affected_features": ["TLC-FC-05-DYNAMICS-004"],
+      "summary": "Kernel parameter types, integration domains, and convergence conditions are absent.",
+      "package_treatment": "preserved_unresolved",
+      "blocking": false
+    },
+    {
+      "ambiguity_id": "DYN-AMB-004",
+      "classification": "scientific_unresolved",
+      "affected_features": ["TLC-FC-05-DYNAMICS-005"],
+      "summary": "Interaction-operator signatures and Community symbol reconciliation are absent.",
+      "package_treatment": "external_provider_required for execution; structural construction remains valid",
+      "blocking": false
+    },
+    {
+      "ambiguity_id": "DYN-AMB-005",
+      "classification": "scientific_unresolved",
+      "affected_features": ["TLC-FC-05-DYNAMICS-006", "TLC-FC-05-DYNAMICS-007"],
+      "summary": "Candidate components do not establish an explicit state space, and TLC-SO-DYNAMICS-008 remains unresolved between state and evolution semantics.",
+      "package_treatment": "preserved_unresolved",
+      "blocking": false
+    },
+    {
+      "ambiguity_id": "DYN-AMB-006",
+      "classification": "ordering_uncertain",
+      "affected_features": ["TLC-FC-05-DYNAMICS-001", "TLC-FC-05-DYNAMICS-002", "TLC-FC-05-DYNAMICS-003", "TLC-FC-05-DYNAMICS-004", "TLC-FC-05-DYNAMICS-005", "TLC-FC-05-DYNAMICS-006", "TLC-FC-05-DYNAMICS-007"],
+      "summary": "Intermediate algorithm files present total ordered step lists, but the evidence requires only validation before successful publication, observable order preservation where applicable, complete metadata, and atomic failure.",
+      "package_treatment": "partially_constrained strategy contracts with explicit partial orders",
+      "blocking": false
+    },
+    {
+      "ambiguity_id": "DYN-AMB-007",
+      "classification": "runtime_semantics_unspecified",
+      "affected_features": ["TLC-FC-05-DYNAMICS-001", "TLC-FC-05-DYNAMICS-002", "TLC-FC-05-DYNAMICS-003", "TLC-FC-05-DYNAMICS-004", "TLC-FC-05-DYNAMICS-005", "TLC-FC-05-DYNAMICS-006", "TLC-FC-05-DYNAMICS-007"],
+      "summary": "Ownership, allocation, layout, aliasing, alignment, address stability, exception transport, and concurrency mechanisms are not authoritatively specified.",
+      "package_treatment": "implementation_defined or not_constrained",
+      "blocking": false
+    },
+    {
+      "ambiguity_id": "DYN-AMB-008",
+      "classification": "error_semantics_unspecified",
+      "affected_features": ["TLC-FC-05-DYNAMICS-001", "TLC-FC-05-DYNAMICS-002", "TLC-FC-05-DYNAMICS-003", "TLC-FC-05-DYNAMICS-004", "TLC-FC-05-DYNAMICS-005", "TLC-FC-05-DYNAMICS-006", "TLC-FC-05-DYNAMICS-007"],
+      "summary": "The source error meanings are lower-case identifiers while the unchanged handoff schema requires uppercase public error identifiers.",
+      "package_treatment": "exact semantic projection to uppercase schema-compatible identifiers, recorded as a local engineering representation decision",
+      "blocking": false
+    },
+    {
+      "ambiguity_id": "DYN-AMB-009",
+      "classification": "apparent_shared_pattern",
+      "affected_features": ["TLC-FC-05-DYNAMICS-001", "TLC-FC-05-DYNAMICS-002", "TLC-FC-05-DYNAMICS-003", "TLC-FC-05-DYNAMICS-004", "TLC-FC-05-DYNAMICS-005", "TLC-FC-05-DYNAMICS-006", "TLC-FC-05-DYNAMICS-007"],
+      "summary": "All features share opaque validation, construction, traceability, unresolved propagation, and failure atomicity patterns, but no new shared contract may be introduced from this local observation.",
+      "package_treatment": "candidate_only records in shared-contract-candidates.json",
+      "blocking": false
+    },
+    {
+      "ambiguity_id": "DYN-AMB-010",
+      "classification": "non_blocking_editorial",
+      "affected_features": ["TLC-FC-05-DYNAMICS-001", "TLC-FC-05-DYNAMICS-002", "TLC-FC-05-DYNAMICS-003", "TLC-FC-05-DYNAMICS-004", "TLC-FC-05-DYNAMICS-005", "TLC-FC-05-DYNAMICS-006", "TLC-FC-05-DYNAMICS-007"],
+      "summary": "The Dynamics inventory originally exposed its authoritative count only as authoritative_population_count, while the shared validator reads feature_count or population_count.",
+      "package_treatment": "resolved by adding the equivalent root metadata line feature_count: 7 while preserving the existing authoritative count, feature list, statuses, references, reservations, and scientific semantics",
+      "blocking": false,
+      "status": "resolved"
+    }
+  ]
+}

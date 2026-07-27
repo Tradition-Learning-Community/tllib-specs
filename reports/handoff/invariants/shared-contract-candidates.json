@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "domain": "invariants",
+  "candidates": [
+    {
+      "candidate_id": "TLC-INVARIANTS-PATTERN-PRESERVATION-ENVELOPE",
+      "observed_features": [
+        "TLC-FC-04-INVARIANTS-001",
+        "TLC-FC-04-INVARIANTS-002",
+        "TLC-FC-04-INVARIANTS-003",
+        "TLC-FC-04-INVARIANTS-004",
+        "TLC-FC-04-INVARIANTS-005",
+        "TLC-FC-04-INVARIANTS-006",
+        "TLC-FC-04-INVARIANTS-007",
+        "TLC-FC-04-INVARIANTS-008",
+        "TLC-FC-04-INVARIANTS-009",
+        "TLC-FC-04-INVARIANTS-010"
+      ],
+      "local_structures": [
+        "exact source identity, status, unresolved, assumption, reservation, opacity, and provenance envelope"
+      ],
+      "reason_possible_sharing": "All ten features emit immutable source-preserving representations.",
+      "risks_of_semantic_merging": "Feature-specific evidence coverage, statuses, and result representations differ.",
+      "proposed_decision": "Keep local until cross-domain evidence supports a shared contract.",
+      "status": "candidate_only"
+    },
+    {
+      "candidate_id": "TLC-INVARIANTS-PATTERN-SYMBOLIC-AST",
+      "observed_features": [
+        "TLC-FC-04-INVARIANTS-006",
+        "TLC-FC-04-INVARIANTS-009"
+      ],
+      "local_structures": [
+        "immutable source-template symbolic AST with opaque symbol identifiers"
+      ],
+      "reason_possible_sharing": "Both features construct rather than evaluate source-defined symbolic expressions.",
+      "risks_of_semantic_merging": "Templates, symbols, errors, and unresolved mappings are feature-owned and must never be rewritten together.",
+      "proposed_decision": "Share implementation concepts only; retain separate normative contracts.",
+      "status": "candidate_only"
+    },
+    {
+      "candidate_id": "TLC-INVARIANTS-PATTERN-DOCUMENTARY-INDEX",
+      "observed_features": [
+        "TLC-FC-04-INVARIANTS-002",
+        "TLC-FC-04-INVARIANTS-010"
+      ],
+      "local_structures": [
+        "immutable index of non-operational source fragments with rejected metadata preserved"
+      ],
+      "reason_possible_sharing": "Both operations index documentary evidence without promotion.",
+      "risks_of_semantic_merging": "Definition fragments and state annotations have distinct coverage and promotion errors.",
+      "proposed_decision": "Candidate only pending another domain-level observation.",
+      "status": "candidate_only"
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-02-COMMUNITY-001", "title": "Community admissibility constraint", "domain": "community"},
+  "purpose": "Describe and validate the authoritative structural specification for the Community admissibility constraint while preserving its historical semantic variant, opaque scientific values, source identity, and unresolved reservations without scientific execution.",
+  "scope": {
+    "required": [
+      {"id": "C001-REQ-001", "statement": "Accept only feature identity TLC-FC-02-COMMUNITY-001 and the supported operations describe_feature_specification, validate_feature_specification, and request_scientific_execution."},
+      {"id": "C001-REQ-002", "statement": "Preserve source object TLC-SO-COMMUNITY-008 exactly and preserve all required source artifact references, including the supplemental semantic IR as non-canonical evidence."},
+      {"id": "C001-REQ-003", "statement": "Preserve the authoritative ordered set of 29 Community unresolved identifiers exactly, without addition, omission, duplication, or resolution."},
+      {"id": "C001-REQ-004", "statement": "Transport measure, coherence, actor-domain, and result handles as opaque values without interpretation."},
+      {"id": "C001-REQ-005", "statement": "Return deterministic structural metadata for describe and validate operations, and a stable structured rejection for scientific execution."}
+    ],
+    "forbidden": [
+      {"id": "C001-FOR-001", "statement": "Do not evaluate, compare, infer, or assign scientific semantics to opaque values."},
+      {"id": "C001-FOR-002", "statement": "Do not promote the supplemental semantic IR to canonical status or replace the source IR."},
+      {"id": "C001-FOR-003", "statement": "Do not invent a measure, measurable space, coherence function, comparator, actor domain, result type, equation, dimension, or numerical method."},
+      {"id": "C001-FOR-004", "statement": "Do not expose a successful partial result after validation or preservation failure."}
+    ],
+    "deferred": [
+      {"id": "C001-DEF-001", "statement": "Scientific evaluation remains unavailable until the preserved scientific reservations are resolved by authoritative upstream work."},
+      {"id": "C001-DEF-002", "statement": "Storage, ownership, allocation, layout, concurrency, and error transport mechanisms remain implementation-defined unless they affect observable behavior."}
+    ]
+  },
+  "operations": [
+    {
+      "operation_id": "PROCESS-COMMUNITY-001-SPECIFICATION",
+      "purpose": "Validate or describe the final structural specification, or reject a request for unavailable scientific execution.",
+      "inputs": [{
+        "name": "request",
+        "semantic_role": "Community specification request with optional opaque scientific handles",
+        "fields": [
+          {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "shared_contract_ref": "TLC-HC-FEATURE-ID@1.0.0", "constant": "TLC-FC-02-COMMUNITY-001"},
+          {"name": "operation", "required": true, "semantic_role": "requested observable operation", "allowed_values": ["describe_feature_specification", "validate_feature_specification", "request_scientific_execution"]},
+          {"name": "opaque_values", "required": false, "semantic_role": "uninterpreted scientific handles", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+          {"name": "supplied_source_references", "required": false, "semantic_role": "references to validate against authoritative provenance", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0"}
+        ],
+        "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null},
+        "constraints": [{"id": "C001-IN-001", "statement": "Opaque values may be absent or empty, but any supplied value must remain observationally unchanged."}]
+      }],
+      "outputs": [{
+        "name": "result",
+        "semantic_role": "immutable structural specification result",
+        "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0",
+        "fields": [
+          {"name": "feature_id", "required": true, "semantic_role": "exact feature identity", "constant": "TLC-FC-02-COMMUNITY-001"},
+          {"name": "status", "required": true, "semantic_role": "structural completion and preserved-unresolved scientific status"},
+          {"name": "source_artifacts", "required": true, "semantic_role": "complete authoritative provenance", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"},
+          {"name": "source_objects", "required": true, "semantic_role": "exact ordered source-object collection", "allowed_values": ["TLC-SO-COMMUNITY-008"]},
+          {"name": "dependencies", "required": true, "semantic_role": "feature dependencies", "allowed_values": []},
+          {"name": "unresolved", "required": true, "semantic_role": "exact authoritative 29-item unresolved collection", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0"},
+          {"name": "opaque_values", "required": true, "semantic_role": "unchanged opaque input handles", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+          {"name": "traceability", "required": true, "semantic_role": "resolvable source traceability", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"},
+          {"name": "deterministic_serialization", "required": true, "semantic_role": "normalized serialization guarantee", "constant": true}
+        ],
+        "collection": {"kind": "scalar", "membership": "exact", "members": [], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null},
+        "constraints": [
+          {"id": "C001-OUT-001", "statement": "The source-object collection is exactly [TLC-SO-COMMUNITY-008]."},
+          {"id": "C001-OUT-002", "statement": "The supplemental semantic IR remains visibly supplemental and non-canonical."},
+          {"id": "C001-OUT-003", "statement": "The unresolved collection equals TLC-UT-COMMUNITY-001 through TLC-UT-COMMUNITY-029 in authoritative lexical order."}
+        ]
+      }],
+      "preconditions": [
+        {"id": "C001-PRE-001", "statement": "The feature identity and requested operation are supported."},
+        {"id": "C001-PRE-002", "statement": "Every required contract, source IR, supplemental IR, test plan, finalized IR, algorithm, oracle, and scientific source reference is present and mutually consistent."},
+        {"id": "C001-PRE-003", "statement": "No supplied scientific payload requires interpretation."}
+      ],
+      "postconditions": [
+        {"id": "C001-POST-001", "statement": "A successful describe or validate operation returns all required fields with exact source identity, exact unresolved preservation, and unchanged opaque handles."},
+        {"id": "C001-POST-002", "statement": "A scientific execution request returns COMMUNITY_ERR_UNSUPPORTED_EXECUTION_REQUEST and no partial result."},
+        {"id": "C001-POST-003", "statement": "No source artifact or scientific state is mutated."}
+      ],
+      "invariants": [
+        {"id": "C001-INV-001", "statement": "Source object identity and order are invariant."},
+        {"id": "C001-INV-002", "statement": "The exact 29-item unresolved set is invariant."},
+        {"id": "C001-INV-003", "statement": "Opaque scientific values remain uninterpreted and unchanged."},
+        {"id": "C001-INV-004", "statement": "The historical semantic variant remains supplemental evidence only."}
+      ],
+      "strategy_contract": {
+        "mode": "partially_constrained",
+        "steps": ["validate identity and operation", "validate provenance", "validate source-object preservation", "validate unresolved preservation", "validate opaque-value boundary", "preserve supplemental evidence status", "produce success or stable error"],
+        "partial_order": [
+          {"before": "validate identity and operation", "after": "produce success or stable error"},
+          {"before": "validate provenance", "after": "produce success or stable error"},
+          {"before": "validate source-object preservation", "after": "produce success or stable error"},
+          {"before": "validate unresolved preservation", "after": "produce success or stable error"},
+          {"before": "validate opaque-value boundary", "after": "produce success or stable error"},
+          {"before": "preserve supplemental evidence status", "after": "produce success or stable error"}
+        ],
+        "prescription_basis": ["Only validation and preservation before observable success or rejection are normative; the upstream total step order is an indicative strategy."]
+      },
+      "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+      "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "required", "canonical_serialization": "required", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+      "error_contract": [
+        {"code": "COMMUNITY_ERR_FEATURE_ID_MISMATCH", "category": "invalid_input", "condition": "The request or any referenced artifact does not identify TLC-FC-02-COMMUNITY-001 exactly.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "COMMUNITY_ERR_SOURCE_ARTIFACT_MISSING", "category": "source_traceability", "condition": "A required source, contract, IR, test plan, finalized IR, algorithm, oracle, or supplemental IR reference is absent.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "COMMUNITY_ERR_TRACEABILITY_INCOMPLETE", "category": "source_traceability", "condition": "Required provenance is absent or inconsistent.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "COMMUNITY_ERR_UNRESOLVED_NOT_PRESERVED", "category": "preservation", "condition": "The authoritative unresolved collection is changed, omitted, duplicated, reordered, or marked resolved.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "COMMUNITY_ERR_OPAQUE_VALUE_INTERPRETATION", "category": "preservation", "condition": "An opaque scientific value is evaluated, compared, typed, or otherwise interpreted.", "recoverability": "non_retryable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "COMMUNITY_ERR_UNRESOLVED_SCIENTIFIC_SEMANTICS", "category": "scientific_unresolved", "condition": "An operation requires scientific semantics that remain unresolved.", "recoverability": "non_retryable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+        {"code": "COMMUNITY_ERR_UNSUPPORTED_EXECUTION_REQUEST", "category": "unsupported_operation", "condition": "Scientific execution is requested from this structural-only package.", "recoverability": "non_retryable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+      ],
+      "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+    }
+  ],
+  "implementation_modes": [
+    {"mode_id": "structural-specification", "status": "required", "statement": "Implement deterministic describe and validation behavior with exact preservation and stable errors."},
+    {"mode_id": "scientific-execution", "status": "forbidden", "statement": "Do not execute or complete unresolved scientific semantics."},
+    {"mode_id": "alternative-internal-strategy", "status": "allowed", "statement": "Internal architecture and validation decomposition are free when every observable obligation is preserved."}
+  ],
+  "global_invariants": [
+    {"id": "C001-GINV-001", "statement": "Absence of scientific definition never becomes a default value or inferred behavior."},
+    {"id": "C001-GINV-002", "statement": "Source, unresolved, and opaque identities remain lossless and traceable."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity."},
+    {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Lossless scientific references."},
+    {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Exact collection membership and order."},
+    {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Explicit unresolved preservation."},
+    {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Opaque payload transport."},
+    {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Stable transport-neutral errors."},
+    {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable provenance."},
+    {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Immutable structural result envelope."}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["Scientific correctness is not asserted; structural preservation and rejection behavior are normative."]}
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "domain": "competencies",
+  "items": [
+    {
+      "ambiguity_id": "COMP-AMB-001",
+      "classification": "scientific_unresolved",
+      "affected_features": ["TLC-FC-12-COMPETENCIES-001", "TLC-FC-12-COMPETENCIES-002", "TLC-FC-12-COMPETENCIES-004", "TLC-FC-12-COMPETENCIES-005", "TLC-FC-12-COMPETENCIES-006", "TLC-FC-12-COMPETENCIES-007", "TLC-FC-12-COMPETENCIES-008", "TLC-FC-12-COMPETENCIES-009", "TLC-FC-12-COMPETENCIES-010", "TLC-FC-12-COMPETENCIES-011", "TLC-FC-12-COMPETENCIES-012", "TLC-FC-12-COMPETENCIES-013", "TLC-FC-12-COMPETENCIES-016"],
+      "summary": "Validated executable scientific contracts are absent. Types, dimensions, units, thresholds, evaluator rules, temporal semantics, and numerical behavior remain unresolved.",
+      "preservation": "preserved_unresolved; packages expose structural descriptors only",
+      "blocking": false
+    },
+    {
+      "ambiguity_id": "COMP-AMB-002",
+      "classification": "cross_feature_inconsistency",
+      "affected_features": ["TLC-FC-12-COMPETENCIES-004", "TLC-FC-12-COMPETENCIES-006"],
+      "summary": "Capacities is cited as an external unreconciled scientific dependency, but no runtime integration contract is authorized.",
+      "preservation": "external_provider_required as scientific-documentary metadata; runtime_required=false",
+      "blocking": false
+    },
+    {
+      "ambiguity_id": "COMP-AMB-003",
+      "classification": "artifact_multiplicity",
+      "affected_features": ["TLC-FC-12-COMPETENCIES-008"],
+      "summary": "Four scientific objects have the same canonical name but distinct ObjectIds and source statements.",
+      "preservation": "ObjectId is authoritative; all four records remain separate and ordered; name-based merging is forbidden",
+      "blocking": false
+    },
+    {
+      "ambiguity_id": "COMP-AMB-004",
+      "classification": "scientific_unresolved",
+      "affected_features": ["TLC-FC-12-COMPETENCIES-016"],
+      "summary": "The declarative relation object has no authoritative endpoint identities and the covered relation population is empty.",
+      "preservation": "covered_relations remains empty; relation_endpoints remains unresolved; endpoint inference is forbidden",
+      "blocking": false
+    },
+    {
+      "ambiguity_id": "COMP-AMB-005",
+      "classification": "runtime_semantics_unspecified",
+      "affected_features": ["TLC-FC-12-COMPETENCIES-001", "TLC-FC-12-COMPETENCIES-002", "TLC-FC-12-COMPETENCIES-004", "TLC-FC-12-COMPETENCIES-005", "TLC-FC-12-COMPETENCIES-006", "TLC-FC-12-COMPETENCIES-007", "TLC-FC-12-COMPETENCIES-008", "TLC-FC-12-COMPETENCIES-009", "TLC-FC-12-COMPETENCIES-010", "TLC-FC-12-COMPETENCIES-011", "TLC-FC-12-COMPETENCIES-012", "TLC-FC-12-COMPETENCIES-013", "TLC-FC-12-COMPETENCIES-016"],
+      "summary": "Ownership, allocation, serialization, layout, address stability, concurrency, and internal validation architecture are not scientifically constrained.",
+      "preservation": "implementation_defined or not_constrained; only immutable observable output and no-partial-result failure are normative",
+      "blocking": false
+    },
+    {
+      "ambiguity_id": "COMP-AMB-006",
+      "classification": "non_blocking_editorial",
+      "affected_features": ["TLC-FC-12-COMPETENCIES-001", "TLC-FC-12-COMPETENCIES-002", "TLC-FC-12-COMPETENCIES-004", "TLC-FC-12-COMPETENCIES-005", "TLC-FC-12-COMPETENCIES-006", "TLC-FC-12-COMPETENCIES-007", "TLC-FC-12-COMPETENCIES-008", "TLC-FC-12-COMPETENCIES-009", "TLC-FC-12-COMPETENCIES-010", "TLC-FC-12-COMPETENCIES-011", "TLC-FC-12-COMPETENCIES-012", "TLC-FC-12-COMPETENCIES-013", "TLC-FC-12-COMPETENCIES-016"],
+      "summary": "The authoritative finalization inventory uses domain_id and population_count, while the handoff domain-catalog schema uses domain and expected_feature_count.",
+      "preservation": "Source aliases remain unchanged; normalized names are used only in the new handoff catalog, consistent with the existing validator",
+      "blocking": false
+    }
+  ]
+}

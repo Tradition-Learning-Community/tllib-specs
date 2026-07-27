@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0", "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-06-THEOREMS-002", "title": "Theorem dynamics equation registry", "domain": "theorems"},
+  "purpose": "Construct an exact three-entry registry of opaque theorem dynamics equations and their prepared source roles without executing any dynamics.",
+  "scope": {
+    "required": [
+      {"id": "TH002-REQ-001", "statement": "Use exactly TLC-SO-THEOREMS-027, TLC-SO-THEOREMS-028, and TLC-SO-THEOREMS-030 as registry keys."},
+      {"id": "TH002-REQ-002", "statement": "Require one opaque equation and one prepared role for every covered key."},
+      {"id": "TH002-REQ-003", "statement": "Preserve each equation payload and role association unchanged and distinct."}
+    ],
+    "forbidden": [
+      {"id": "TH002-FOR-001", "statement": "Do not evaluate derivatives, trajectories, identity waves, receptivity, convergence, or theorem truth."},
+      {"id": "TH002-FOR-002", "statement": "Do not merge records because opaque equation bytes or roles appear similar."},
+      {"id": "TH002-FOR-003", "statement": "Do not include identifiers outside the covered population in a successful registry."}
+    ],
+    "deferred": [
+      {"id": "TH002-DEF-001", "statement": "DEP-THEOREMS-DYNAMICS-001 remains a reference-only scientific dependency."},
+      {"id": "TH002-DEF-002", "statement": "The authoritative artifacts do not assign a distinct stable error code to an otherwise complete input containing an uncovered identifier; rejection transport remains implementation-defined and must not produce success."}
+    ]
+  },
+  "operations": [{
+    "operation_id": "REGISTER-THEOREM-DYNAMICS-EQUATIONS",
+    "purpose": "Validate exact object coverage and construct the opaque equation-role registry.",
+    "inputs": [
+      {"name": "equation_records", "semantic_role": "covered object to opaque equation mapping", "collection": {"kind": "map", "membership": "exact", "members": ["TLC-SO-THEOREMS-027", "TLC-SO-THEOREMS-028", "TLC-SO-THEOREMS-030"], "cardinality": {"minimum": 3, "maximum": 3}, "ordering": "implementation_defined", "duplicates": "not_applicable", "key_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}}},
+      {"name": "declared_roles", "semantic_role": "covered object to prepared DynamicsRole mapping", "collection": {"kind": "map", "membership": "exact", "members": ["TLC-SO-THEOREMS-027", "TLC-SO-THEOREMS-028", "TLC-SO-THEOREMS-030"], "cardinality": {"minimum": 3, "maximum": 3}, "ordering": "implementation_defined", "duplicates": "not_applicable", "key_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}, "value_contract": {"allowed_values": ["trajectory", "identity-wave", "receptivity"]}}}
+    ],
+    "outputs": [{"name": "dynamics_registry", "semantic_role": "immutable exact equation-role registry", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "collection": {"kind": "map", "membership": "exact", "members": ["TLC-SO-THEOREMS-027", "TLC-SO-THEOREMS-028", "TLC-SO-THEOREMS-030"], "cardinality": {"minimum": 3, "maximum": 3}, "ordering": "implementation_defined", "duplicates": "not_applicable", "key_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}, "value_contract": {"fields": ["equation", "role"]}}}],
+    "preconditions": [
+      {"id": "TH002-PRE-001", "statement": "Every covered object occurs exactly once in both input mappings."},
+      {"id": "TH002-PRE-002", "statement": "Every covered object has a prepared DynamicsRole."}
+    ],
+    "postconditions": [
+      {"id": "TH002-POST-001", "statement": "The registry contains exactly three entries keyed by the exact covered object set."},
+      {"id": "TH002-POST-002", "statement": "Every equation-role pair is unchanged and no dynamics value has been evaluated."}
+    ],
+    "invariants": [
+      {"id": "TH002-INV-001", "statement": "Object identity determines record distinction even when opaque payloads are identical."},
+      {"id": "TH002-INV-002", "statement": "The registry never implies theorem truth."}
+    ],
+    "strategy_contract": {"mode": "partially_constrained", "steps": ["validate exact population and uniqueness", "validate equations and roles", "preserve opaque pairs", "construct keyed registry", "publish success or stable error"], "partial_order": [
+      {"before": "validate exact population and uniqueness", "after": "publish success or stable error"},
+      {"before": "validate equations and roles", "after": "publish success or stable error"},
+      {"before": "preserve opaque pairs", "after": "publish success or stable error"},
+      {"before": "construct keyed registry", "after": "publish success or stable error"}
+    ], "prescription_basis": ["Only complete validation and preservation before success are normative; internal validation order and storage are open."]},
+    "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+    "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "implementation_defined", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+    "error_contract": [
+      {"code": "DUPLICATE_SCIENTIFIC_OBJECT", "category": "uniqueness", "condition": "A covered scientific object identifier occurs more than once.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "MISSING_DYNAMICS_EQUATION", "category": "invalid_input", "condition": "A covered object has no opaque equation.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "UNKNOWN_DYNAMICS_ROLE", "category": "invalid_input", "condition": "A covered object lacks a prepared role or supplies an unsupported role.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+    ],
+    "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+  }],
+  "implementation_modes": [
+    {"mode_id": "structural-registry", "status": "required", "statement": "Expose exact population validation, pairing, and lookup-ready registry construction."},
+    {"mode_id": "dynamics-execution", "status": "forbidden", "statement": "Do not execute or evaluate equations or their declared roles."},
+    {"mode_id": "alternative-keyed-storage", "status": "allowed", "statement": "Any keyed internal representation is allowed if semantic results remain conforming."}
+  ],
+  "global_invariants": [
+    {"id": "TH002-GINV-001", "statement": "Exactly three covered identities and their pairings survive every successful construction."},
+    {"id": "TH002-GINV-002", "statement": "No external dependency is executed by this package."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity."}, {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Scientific object identity."}, {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Exact covered population."}, {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Explicit scientific boundaries."}, {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Opaque equation preservation."}, {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Stable errors."}, {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable provenance."}, {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Immutable registry envelope."}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["Structural registration does not establish a dynamics theorem."]}
+}
