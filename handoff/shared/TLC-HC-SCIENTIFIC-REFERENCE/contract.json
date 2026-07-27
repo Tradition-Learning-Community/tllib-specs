@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "shared_contract": {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "title": "Scientific Reference"},
+  "purpose": "Preserve provenance to a repository artifact without inferring the artifact's scientific semantics.",
+  "scope": {
+    "required": [
+      {"id": "SREF-REQ-001", "statement": "source_path is repository-relative and preserved exactly."},
+      {"id": "SREF-REQ-002", "statement": "Any supplied object, section, subsection, line range, or source commit is preserved exactly."}
+    ],
+    "forbidden": [
+      {"id": "SREF-FOR-001", "statement": "Path traversal, absolute paths, and silent provenance rewriting are forbidden."},
+      {"id": "SREF-FOR-002", "statement": "A reference must not be interpreted as a scientific definition or alias declaration."}
+    ],
+    "deferred": [{"id": "SREF-DEF-001", "statement": "Repository access and transport mechanisms are implementation-defined."}]
+  },
+  "data_contract": {
+    "shape": "record",
+    "fields": [
+      {"name": "source_path", "required": true, "semantic_role": "repository-relative provenance path", "value_kind": "repository_path"},
+      {"name": "object_id", "required": false, "semantic_role": "opaque referenced object identity", "value_kind": "identifier"},
+      {"name": "section", "required": false, "semantic_role": "source section label", "value_kind": "string"},
+      {"name": "subsection", "required": false, "semantic_role": "source subsection label", "value_kind": "string"},
+      {"name": "line_range", "required": false, "semantic_role": "inclusive source line range", "value_kind": "object"},
+      {"name": "source_commit", "required": false, "semantic_role": "source revision fingerprint", "value_kind": "string"}
+    ],
+    "collection": {"supported_kinds": ["scalar"], "membership": "exact", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null},
+    "runtime": {"mutability": "immutable", "layout": "not_constrained", "ownership": "implementation_defined", "lifetime": "implementation_defined", "allocation": "implementation_defined", "thread_safety": "implementation_defined"}
+  },
+  "global_invariants": [{"id": "SREF-INV-001", "statement": "A conforming round trip does not change provenance fields."}],
+  "conformance": {"acceptance_required": true, "lossless_preservation_required": true, "notes": []}
+}
