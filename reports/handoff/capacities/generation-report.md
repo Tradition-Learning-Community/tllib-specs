@@ -5,7 +5,7 @@
 - Domain: `capacities`
 - Domain index: `11`
 - Source branch: `handoff/integration-v1`
-- Source commit: `c792e2f042580ae589e25fe466e7bd0cc79f40ca`
+- Source commit at branch creation: `c792e2f042580ae589e25fe466e7bd0cc79f40ca`
 - Expected guard count: 15
 - Authoritative active population: 15
 - Packages produced: 15
@@ -51,12 +51,16 @@ Only existing shared contracts are referenced. No shared contract or global sche
 
 ## Hashes and integrity
 
-All package files are repository-relative Git blobs and therefore receive calculable Git blob SHA-1 identifiers in the committed tree. The catalog schema does not expose a per-file hash property, so hashes are not duplicated into schema-incompatible fields.
+All package files are repository-relative Git blobs and therefore have calculable Git blob SHA-1 identifiers in the committed tree. The catalog schema has no per-file hash property, so hashes were not duplicated into schema-incompatible fields.
+
+## CI nomenclature correction
+
+The first GitHub Actions run failed only because the authoritative inventory declared `expected_active_count: 15`, while the compatibility validator accepts `feature_count`, `population_count`, `active_feature_count`, or `summary.active_features`. The same established approach used by prior successful domains was applied: `feature_count: 15` was added as a semantically identical, non-scientific metadata alias. No feature, status, source object, decision class, count value, or scientific statement changed.
 
 ## Protected content
 
-No scientific source, mathematical contract, IR, finalized IR, algorithm, oracle, test plan, shared contract, schema, workflow, implementation code, or other domain package was changed during package compilation. Any later CI compatibility correction will be documented separately and limited to non-scientific metadata if required.
+No scientific source, mathematical contract, source IR, finalized IR, algorithm, oracle, test plan, shared contract, schema, workflow, implementation code, or other domain package was changed. The sole non-package change was the documented count-key alias in `registry/domain-finalization/capacities/feature-status.yaml`, required by the repository validator and confirmed by CI.
 
-## Validation state
+## Validation
 
-Schema and repository-wide validation are pending GitHub Actions on the pull request. Final workflow evidence and any narrowly scoped correction will be recorded in `validation-report.json`.
+GitHub Actions run `30266542399` completed successfully on commit `104ddc8fdc2b01d343e08851a469bb7a4a853bf0`. Package schemas, inter-file consistency, shared-contract resolution, authoritative population, progressive population scenarios, and pilot bundle resolution all passed. A final rerun validates these completed reports.
