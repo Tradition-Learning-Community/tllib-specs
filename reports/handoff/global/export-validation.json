@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "model_version": "1.0.0",
+  "status": "implementation_complete_pending_final_pr_ci",
+  "exporter": {"path": "tools/handoff/export_bundle.py", "version": "1.0.0"},
+  "selected_population": {"source": "handoff/catalog.json", "feature_count": 166, "duplicate_feature_ids": 0},
+  "bundle_root": ["feature", "shared", "bundle-lock.json"],
+  "bundle_lock": {
+    "deterministic": true,
+    "volatile_fields_present": false,
+    "fields": [
+      "schema_version",
+      "model_version",
+      "feature_id",
+      "package_version",
+      "generation tool and version",
+      "resolved shared contract identities, versions, source paths and bundle paths",
+      "ordered file source paths, bundle paths and SHA-256",
+      "per-shared-package SHA-256",
+      "aggregate bundle SHA-256"
+    ]
+  },
+  "resolution_rules": {
+    "transitive_shared_dependencies": true,
+    "exact_version_required": true,
+    "conflicting_versions_rejected": true,
+    "duplicate_bundle_paths_rejected": true,
+    "undeclared_package_files_rejected": true,
+    "missing_declared_files_rejected": true,
+    "source_roots_allowed": ["handoff/features", "handoff/shared"],
+    "scientific_sources_copied": false,
+    "registry_artifacts_copied": false,
+    "intermediate_ir_copied": false,
+    "archives_committed": false
+  },
+  "workflow_command": "python tools/handoff/export_bundle.py --all --check --verify-determinism",
+  "determinism_method": "Each of the 166 selected bundles is generated twice in independent GitHub Actions temporary directories; the two lock objects and every exported relative-path SHA-256 map must be identical.",
+  "expected_validated_exports": 166,
+  "ci_evidence": null
+}
