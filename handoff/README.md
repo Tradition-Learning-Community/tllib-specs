@@ -18,7 +18,7 @@ bundle-lock.json
 - `shared/` contains the exact transitive shared contracts required by that feature.
 - `bundle-lock.json` records model and package versions, resolved contracts, ordered paths, and SHA-256 fingerprints without a timestamp.
 
-The bundle contains no scientific source file, registry artefact, intermediate IR, or implementation code.
+The bundle contains no scientific source file, registry artifact, intermediate IR, or implementation code.
 
 ## Authority order
 
@@ -32,7 +32,7 @@ When package files appear to differ, apply this order from highest to lowest aut
 6. `examples.json`
 7. `traceability.json`
 
-A README, example, traceability role, historical candidate, or upstream comparison artefact cannot create an obligation absent from the normative contracts.
+A README, example, traceability role, historical candidate, or upstream comparison artifact cannot create an obligation absent from the normative contracts.
 
 ## Package model
 
