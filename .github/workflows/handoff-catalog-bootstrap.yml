@@ -2,22 +2,23 @@
 name: Bootstrap finalized handoff catalog
 
 on:
-  push:
+  pull_request:
     branches:
-      - handoff/global-finalization-v1
+      - handoff/integration-v1
     paths:
       - tools/handoff/generate_catalog.py
       - handoff/domains/**
       - handoff/features/**
       - handoff/shared/**
       - .github/workflows/handoff-catalog-bootstrap.yml
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
   generate:
-    if: github.actor != 'github-actions[bot]'
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'handoff/global-finalization-v1'
     runs-on: ubuntu-latest
     steps:
       - name: Check out finalization branch
@@ -40,5 +41,5 @@ jobs:
             echo 'Catalog already current.'
             exit 0
           fi
-          git commit -m 'feat(handoff): generate finalized 166-feature catalog'
+          git commit -m 'feat(handoff): regenerate finalized 166-feature catalog'
           git push origin HEAD:handoff/global-finalization-v1
