@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "model_version": "1.0.0",
-  "status": "complete_pending_final_pr_ci",
+  "status": "validated",
   "source_branch": "handoff/integration-v1",
   "source_commit": "1fe3a2dbaa8686d1d6fad806acefb96d28644e2b",
   "finalization_branch": "handoff/global-finalization-v1",
@@ -59,5 +59,14 @@
     "declaration_consistent_with_files": true
   },
   "validation_entrypoint": "tools/handoff/validate_handoff.py",
-  "catalog_projection": "handoff/catalog.json"
+  "catalog_projection": "handoff/catalog.json",
+  "ci_evidence": {
+    "pull_request": 122,
+    "workflow": "Feature handoff validation",
+    "run_id": 30289744310,
+    "run_number": 137,
+    "validated_head": "8bd87d6cf457dfe535ef072e92318b6967a01ff8",
+    "conclusion": "success",
+    "scope": "final handoff artifacts and tooling before report-only evidence closure"
+  }
 }
