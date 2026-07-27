@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0",
+  "domain": "master",
+  "candidates": [
+    {
+      "candidate_id": "TLC-MASTER-PATTERN-TRACEABLE-ENVELOPE",
+      "observed_features": [
+        "TLC-FC-00-MASTER-001",
+        "TLC-FC-00-MASTER-002",
+        "TLC-FC-00-MASTER-003",
+        "TLC-FC-00-MASTER-004",
+        "TLC-FC-00-MASTER-005",
+        "TLC-FC-00-MASTER-006",
+        "TLC-FC-00-MASTER-007",
+        "TLC-FC-00-MASTER-008",
+        "TLC-FC-00-MASTER-009",
+        "TLC-FC-00-MASTER-010",
+        "TLC-FC-00-MASTER-011",
+        "TLC-FC-00-MASTER-012",
+        "TLC-FC-00-MASTER-013",
+        "TLC-FC-00-MASTER-014",
+        "TLC-FC-00-MASTER-015",
+        "TLC-FC-00-MASTER-016"
+      ],
+      "local_structures": [
+        "feature-local contract operation and dependency declarations"
+      ],
+      "reason_possible_sharing": "Common immutable result envelope and provenance fields.",
+      "risks_of_semantic_merging": "Risk of merging descriptor, predicate, symbolic, and opaque-result semantics.",
+      "proposed_decision": "Evaluate during a separately authorized shared-contract design phase; retain feature-local semantics now.",
+      "status": "candidate_only"
+    },
+    {
+      "candidate_id": "TLC-MASTER-PATTERN-DECLARATIVE-EMISSION",
+      "observed_features": [
+        "TLC-FC-00-MASTER-001",
+        "TLC-FC-00-MASTER-002",
+        "TLC-FC-00-MASTER-005",
+        "TLC-FC-00-MASTER-006"
+      ],
+      "local_structures": [
+        "feature-local contract operation and dependency declarations"
+      ],
+      "reason_possible_sharing": "Repeated exact-reference structural descriptor emission.",
+      "risks_of_semantic_merging": "Different unresolved sets and semantic representations must remain distinct.",
+      "proposed_decision": "Evaluate during a separately authorized shared-contract design phase; retain feature-local semantics now.",
+      "status": "candidate_only"
+    },
+    {
+      "candidate_id": "TLC-MASTER-PATTERN-OPAQUE-OPERATION-ADAPTER",
+      "observed_features": [
+        "TLC-FC-00-MASTER-003",
+        "TLC-FC-00-MASTER-004",
+        "TLC-FC-00-MASTER-007",
+        "TLC-FC-00-MASTER-008",
+        "TLC-FC-00-MASTER-009",
+        "TLC-FC-00-MASTER-010",
+        "TLC-FC-00-MASTER-011",
+        "TLC-FC-00-MASTER-012",
+        "TLC-FC-00-MASTER-014"
+      ],
+      "local_structures": [
+        "feature-local contract operation and dependency declarations"
+      ],
+      "reason_possible_sharing": "Repeated provider boundary with unchanged opaque payload.",
+      "risks_of_semantic_merging": "Dependency gates and unresolved behavior vary by feature.",
+      "proposed_decision": "Evaluate during a separately authorized shared-contract design phase; retain feature-local semantics now.",
+      "status": "candidate_only"
+    },
+    {
+      "candidate_id": "TLC-MASTER-PATTERN-PREDICATE-DESCRIPTOR",
+      "observed_features": [
+        "TLC-FC-00-MASTER-013"
+      ],
+      "local_structures": [
+        "feature-local contract operation and dependency declarations"
+      ],
+      "reason_possible_sharing": "Predicate truth remains unresolved absent a scientific provider.",
+      "risks_of_semantic_merging": "Observed in one feature only; premature sharing would over-generalize.",
+      "proposed_decision": "Evaluate during a separately authorized shared-contract design phase; retain feature-local semantics now.",
+      "status": "candidate_only"
+    },
+    {
+      "candidate_id": "TLC-MASTER-PATTERN-SYMBOLIC-TYPE-DESCRIPTOR",
+      "observed_features": [
+        "TLC-FC-00-MASTER-015",
+        "TLC-FC-00-MASTER-016"
+      ],
+      "local_structures": [
+        "feature-local contract operation and dependency declarations"
+      ],
+      "reason_possible_sharing": "Symbolic state references are structurally emitted without runtime type invention.",
+      "risks_of_semantic_merging": "Optional external symbols and unresolved populations differ.",
+      "proposed_decision": "Evaluate during a separately authorized shared-contract design phase; retain feature-local semantics now.",
+      "status": "candidate_only"
+    },
+    {
+      "candidate_id": "TLC-MASTER-PATTERN-UNRESOLVED-PROPAGATION",
+      "observed_features": [
+        "TLC-FC-00-MASTER-002",
+        "TLC-FC-00-MASTER-004",
+        "TLC-FC-00-MASTER-006",
+        "TLC-FC-00-MASTER-008",
+        "TLC-FC-00-MASTER-009",
+        "TLC-FC-00-MASTER-010",
+        "TLC-FC-00-MASTER-011",
+        "TLC-FC-00-MASTER-012",
+        "TLC-FC-00-MASTER-013",
+        "TLC-FC-00-MASTER-014",
+        "TLC-FC-00-MASTER-016"
+      ],
+      "local_structures": [
+        "feature-local contract operation and dependency declarations"
+      ],
+      "reason_possible_sharing": "Exact ordered unresolved collections recur.",
+      "risks_of_semantic_merging": "Unresolved identifiers have feature-specific scientific meaning.",
+      "proposed_decision": "Evaluate during a separately authorized shared-contract design phase; retain feature-local semantics now.",
+      "status": "candidate_only"
+    },
+    {
+      "candidate_id": "TLC-MASTER-PATTERN-EXTERNAL-SYMBOL-GATE",
+      "observed_features": [
+        "TLC-FC-00-MASTER-003",
+        "TLC-FC-00-MASTER-004",
+        "TLC-FC-00-MASTER-012",
+        "TLC-FC-00-MASTER-014",
+        "TLC-FC-00-MASTER-015",
+        "TLC-FC-00-MASTER-016"
+      ],
+      "local_structures": [
+        "feature-local contract operation and dependency declarations"
+      ],
+      "reason_possible_sharing": "Read-only external symbols gate evaluation or remain optional references.",
+      "risks_of_semantic_merging": "Required and optional dependency modes must not be conflated.",
+      "proposed_decision": "Evaluate during a separately authorized shared-contract design phase; retain feature-local semantics now.",
+      "status": "candidate_only"
+    }
+  ]
+}

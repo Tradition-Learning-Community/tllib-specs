@@ -1,0 +1,438 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "feature": {
+    "feature_id": "TLC-FC-00-MASTER-015",
+    "title": "Master value and symbolic state",
+    "domain": "master"
+  },
+  "purpose": "Validate the exact Master value and symbolic state references and emit a structural descriptor without scientific completion.",
+  "scope": {
+    "required": [
+      {
+        "id": "M015-REQ-001",
+        "statement": "Accept only feature identity TLC-FC-00-MASTER-015.",
+        "basis": [
+          "registry/optimized-ir/master/TLC-FC-00-MASTER-015/ir.yaml"
+        ]
+      },
+      {
+        "id": "M015-REQ-002",
+        "statement": "Preserve object references [TLC-SO-MASTER-010, TLC-SO-MASTER-016], relation references [TLC-SR-MASTER-009, TLC-SR-MASTER-015, TLC-SR-MASTER-018, TLC-SR-MASTER-020, TLC-SR-MASTER-027], and unresolved identifiers [] exactly.",
+        "basis": [
+          "registry/math-contracts/TLC-FC-00-MASTER-015/contract.yaml",
+          "registry/oracles/master/TLC-FC-00-MASTER-015/oracle.yaml"
+        ]
+      },
+      {
+        "id": "M015-REQ-003",
+        "statement": "Emit an immutable result with complete provenance and explicit scientific/execution status.",
+        "basis": [
+          "registry/optimized-ir/master/TLC-FC-00-MASTER-015/ir.yaml",
+          "registry/domain-finalization/master/module-specification.yaml"
+        ]
+      }
+    ],
+    "forbidden": [
+      {
+        "id": "M015-FOR-001",
+        "statement": "Do not invent equations, values, endpoints, types, dimensions, aliases, tolerances, calibration, numerical methods, or scientific defaults."
+      },
+      {
+        "id": "M015-FOR-002",
+        "statement": "Do not mutate scientific state or any external domain."
+      },
+      {
+        "id": "M015-FOR-003",
+        "statement": "Do not expose a successful partial result after validation, dependency, provider, or preservation failure."
+      }
+    ],
+    "deferred": [
+      {
+        "id": "M015-DEF-001",
+        "statement": "Scientific canonicalization remains outside this package."
+      },
+      {
+        "id": "M015-DEF-002",
+        "statement": "Concrete runtime representation and all low-level storage decisions remain implementation-defined."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation_id": "DESCRIBE-MASTER-VALUE-AND-SYMBOLIC-STATE",
+      "purpose": "Emit the authoritative structural descriptor without inventing executable scientific semantics.",
+      "inputs": [
+        {
+          "name": "request",
+          "semantic_role": "exact reference bundle and optional opaque provider inputs",
+          "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0",
+          "fields": [
+            {
+              "name": "feature_id",
+              "required": true,
+              "semantic_role": "exact feature identity",
+              "shared_contract_ref": "TLC-HC-FEATURE-ID@1.0.0",
+              "constant": "TLC-FC-00-MASTER-015"
+            },
+            {
+              "name": "scientific_object_refs",
+              "required": true,
+              "semantic_role": "exact ordered scientific object references",
+              "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0",
+              "allowed_values": [
+                "TLC-SO-MASTER-010",
+                "TLC-SO-MASTER-016"
+              ]
+            },
+            {
+              "name": "relation_refs",
+              "required": true,
+              "semantic_role": "exact ordered scientific relation references",
+              "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0",
+              "allowed_values": [
+                "TLC-SR-MASTER-009",
+                "TLC-SR-MASTER-015",
+                "TLC-SR-MASTER-018",
+                "TLC-SR-MASTER-020",
+                "TLC-SR-MASTER-027"
+              ]
+            },
+            {
+              "name": "unresolved_refs",
+              "required": true,
+              "semantic_role": "exact ordered unresolved identifiers",
+              "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0",
+              "allowed_values": []
+            },
+            {
+              "name": "source_provenance",
+              "required": true,
+              "semantic_role": "complete source provenance",
+              "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"
+            }
+          ],
+          "collection": {
+            "kind": "scalar",
+            "membership": "exact",
+            "members": [],
+            "cardinality": {
+              "minimum": 1,
+              "maximum": 1
+            },
+            "ordering": "not_applicable",
+            "duplicates": "not_applicable",
+            "key_contract": null,
+            "value_contract": {
+              "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"
+            }
+          },
+          "constraints": [
+            {
+              "id": "M015-IN-001",
+              "statement": "Object references equal [TLC-SO-MASTER-010, TLC-SO-MASTER-016] exactly and in order."
+            },
+            {
+              "id": "M015-IN-002",
+              "statement": "Relation references equal [TLC-SR-MASTER-009, TLC-SR-MASTER-015, TLC-SR-MASTER-018, TLC-SR-MASTER-020, TLC-SR-MASTER-027] exactly and in order."
+            },
+            {
+              "id": "M015-IN-003",
+              "statement": "Unresolved identifiers equal [] exactly and in order."
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "semantic_role": "immutable structural descriptor",
+          "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0",
+          "fields": [
+            {
+              "name": "feature_id",
+              "required": true,
+              "semantic_role": "exact feature identity",
+              "constant": "TLC-FC-00-MASTER-015"
+            },
+            {
+              "name": "representation",
+              "required": true,
+              "semantic_role": "result representation",
+              "constant": "symbolic_type_descriptor"
+            },
+            {
+              "name": "references",
+              "required": true,
+              "semantic_role": "preserved exact references",
+              "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0"
+            },
+            {
+              "name": "unresolved",
+              "required": true,
+              "semantic_role": "preserved unresolved identifiers",
+              "allowed_values": []
+            },
+            {
+              "name": "dependencies",
+              "required": true,
+              "semantic_role": "declared external dependencies",
+              "allowed_values": [
+                "community"
+              ]
+            },
+            {
+              "name": "provenance",
+              "required": true,
+              "semantic_role": "complete upstream traceability",
+              "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"
+            },
+            {
+              "name": "status",
+              "required": true,
+              "semantic_role": "scientific and execution status"
+            }
+          ],
+          "collection": {
+            "kind": "scalar",
+            "membership": "exact",
+            "members": [],
+            "cardinality": {
+              "minimum": 1,
+              "maximum": 1
+            },
+            "ordering": "not_applicable",
+            "duplicates": "not_applicable",
+            "key_contract": null,
+            "value_contract": {
+              "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"
+            }
+          },
+          "constraints": [
+            {
+              "id": "M015-OUT-001",
+              "statement": "Every accepted identity, order, unresolved item, opacity boundary, and provenance link is preserved."
+            }
+          ]
+        }
+      ],
+      "preconditions": [
+        {
+          "id": "M015-PRE-001",
+          "statement": "Feature identity and all reference and unresolved collections match the authoritative fixture exactly."
+        }
+      ],
+      "postconditions": [
+        {
+          "id": "M015-POST-001",
+          "statement": "The result is an immutable, traceable structural descriptor."
+        }
+      ],
+      "invariants": [
+        {
+          "id": "M015-INV-001",
+          "statement": "Scientific objects, relations, and unresolved identifiers remain distinct and ordered."
+        },
+        {
+          "id": "M015-INV-002",
+          "statement": "Scientific state and external domain state are never mutated."
+        }
+      ],
+      "strategy_contract": {
+        "mode": "partially_constrained",
+        "steps": [
+          "validate exact identity and collections",
+          "construct provenance",
+          "construct structural descriptor",
+          "verify preservation obligations",
+          "publish success or stable error"
+        ],
+        "partial_order": [
+          {
+            "before": "validate exact identity and collections",
+            "after": "publish success or stable error"
+          },
+          {
+            "before": "construct provenance",
+            "after": "publish success or stable error"
+          },
+          {
+            "before": "construct structural descriptor",
+            "after": "publish success or stable error"
+          },
+          {
+            "before": "verify preservation obligations",
+            "after": "publish success or stable error"
+          }
+        ],
+        "prescription_basis": [
+          "Only validation and preservation before publication are observable; the upstream total step list does not prescribe a unique internal algorithm."
+        ]
+      },
+      "runtime_contract": {
+        "mutability": "immutable",
+        "result_ownership": "implementation_defined",
+        "input_retention": "not_required",
+        "input_change_visibility": "not_visible",
+        "lifetime": "implementation_defined",
+        "aliasing": "not_constrained",
+        "layout": "not_constrained",
+        "contiguity": "not_required",
+        "alignment": "not_required",
+        "address_stability": "not_required",
+        "copy_semantics": "not_constrained",
+        "move_semantics": "not_constrained",
+        "allocation": "implementation_defined",
+        "zero_copy": "not_required",
+        "thread_safety": "implementation_defined",
+        "reentrancy": "implementation_defined",
+        "failure_atomicity": "no_observable_partial_result"
+      },
+      "determinism": {
+        "semantic_output": "required",
+        "field_presence": "required",
+        "collection_order": "required",
+        "canonical_serialization": "not_specified",
+        "binary_layout": "not_constrained",
+        "memory_address": "not_constrained",
+        "allocation_pattern": "not_constrained",
+        "concurrent_scheduling": "implementation_defined",
+        "floating_point": "not_applicable",
+        "randomness": "not_applicable"
+      },
+      "error_contract": [
+        {
+          "code": "MASTER_INVALID_FEATURE_ID",
+          "category": "invalid_input",
+          "condition": "The feature identity is not the exact package identity.",
+          "recoverability": "recoverable",
+          "public_result": "no_partial_result",
+          "failure_atomicity": "no_observable_partial_result",
+          "transport": "implementation_defined"
+        },
+        {
+          "code": "MASTER_REFERENCE_SET_MISMATCH",
+          "category": "invalid_input",
+          "condition": "Object or relation references differ in identity, membership, cardinality, or required order.",
+          "recoverability": "recoverable",
+          "public_result": "no_partial_result",
+          "failure_atomicity": "no_observable_partial_result",
+          "transport": "implementation_defined"
+        },
+        {
+          "code": "MASTER_PRESERVATION_VIOLATION",
+          "category": "preservation",
+          "condition": "A required identity, order, opacity, unresolved item, payload, or provenance cannot be preserved.",
+          "recoverability": "non_retryable",
+          "public_result": "no_partial_result",
+          "failure_atomicity": "no_observable_partial_result",
+          "transport": "implementation_defined"
+        },
+        {
+          "code": "MASTER_UNSUPPORTED_EXECUTION_MODE",
+          "category": "unsupported_operation",
+          "condition": "An invented or unsupported scientific execution mode was requested.",
+          "recoverability": "non_retryable",
+          "public_result": "no_partial_result",
+          "failure_atomicity": "no_observable_partial_result",
+          "transport": "implementation_defined"
+        }
+      ],
+      "resource_contract": {
+        "time_complexity": {
+          "status": "not_specified",
+          "value": null
+        },
+        "auxiliary_memory": {
+          "status": "not_specified",
+          "value": null
+        },
+        "allocations": {
+          "status": "implementation_defined",
+          "value": null
+        },
+        "maximum_input_size": {
+          "status": "not_constrained",
+          "value": null
+        }
+      }
+    }
+  ],
+  "implementation_modes": [
+    {
+      "mode_id": "structural-descriptor",
+      "status": "required",
+      "statement": "Expose the structural descriptor and stable errors."
+    },
+    {
+      "mode_id": "invented-scientific-completion",
+      "status": "forbidden",
+      "statement": "Do not complete missing science or infer absent operational semantics."
+    },
+    {
+      "mode_id": "alternative-internal-architecture",
+      "status": "allowed",
+      "statement": "Any internal architecture is allowed when observable obligations remain satisfied."
+    }
+  ],
+  "global_invariants": [
+    {
+      "id": "M015-GINV-001",
+      "statement": "No behavior may weaken exact identity, order, opacity, unresolved preservation, immutability, or provenance requirements."
+    },
+    {
+      "id": "M015-GINV-002",
+      "statement": "Absence of scientific definition remains absence and never becomes a default."
+    }
+  ],
+  "dependencies": [
+    {
+      "shared_contract_id": "TLC-HC-FEATURE-ID",
+      "version": "1.0.0",
+      "purpose": "Exact feature identity"
+    },
+    {
+      "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+      "version": "1.0.0",
+      "purpose": "Lossless scientific references"
+    },
+    {
+      "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+      "version": "1.0.0",
+      "purpose": "Exact ordered reference collections"
+    },
+    {
+      "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+      "version": "1.0.0",
+      "purpose": "Preserved unresolved identifiers"
+    },
+    {
+      "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+      "version": "1.0.0",
+      "purpose": "Uninterpreted scientific and provider payloads"
+    },
+    {
+      "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+      "version": "1.0.0",
+      "purpose": "Stable transport-neutral errors"
+    },
+    {
+      "shared_contract_id": "TLC-HC-TRACEABILITY",
+      "version": "1.0.0",
+      "purpose": "Resolvable provenance"
+    },
+    {
+      "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+      "version": "1.0.0",
+      "purpose": "Immutable result envelope"
+    }
+  ],
+  "conformance": {
+    "acceptance_required": true,
+    "all_required_tests_must_pass": true,
+    "forbidden_behavior_is_nonconforming": true,
+    "notes": [
+      "Conformance is behavioral and does not prescribe a programming language, public function spelling, serialization, or internal algorithm."
+    ]
+  }
+}
