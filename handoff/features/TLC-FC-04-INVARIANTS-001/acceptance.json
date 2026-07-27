@@ -1,0 +1,189 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-FC-04-INVARIANTS-001",
+  "tests": [
+    {
+      "test_id": "INV001-ACCEPT-NOMINAL",
+      "applies_to": "BUILD-ADMISSIBILITY-CONSTRAINT-SET",
+      "category": "valid_input",
+      "given": {
+        "feature_id": "TLC-FC-04-INVARIANTS-001",
+        "covered_evidence_ids": [
+          "TLC-SO-INVARIANTS-010",
+          "TLC-SO-INVARIANTS-032",
+          "TLC-SO-INVARIANTS-033",
+          "TLC-SO-INVARIANTS-046",
+          "TLC-SR-INVARIANTS-009",
+          "TLC-SR-INVARIANTS-031",
+          "TLC-SR-INVARIANTS-032",
+          "TLC-SR-INVARIANTS-045"
+        ],
+        "catalogue_status": "retained_with_reservations",
+        "unresolved_refs": []
+      },
+      "when": "The build_admissibility_constraint_set oracle scenario is exercised.",
+      "expect": {
+        "accepted": true,
+        "output_type": "ConstraintSet",
+        "immutable": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-001/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV001-ACCEPT-PRECONDITION-DUPLICATE",
+      "applies_to": "BUILD-ADMISSIBILITY-CONSTRAINT-SET",
+      "category": "error",
+      "given": {
+        "authoritative_oracle_scenario": "INV001-ACCEPT-PRECONDITION-DUPLICATE"
+      },
+      "when": "The build_admissibility_constraint_set oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-001/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV001-ACCEPT-PRECONDITION-UNKNOWN",
+      "applies_to": "BUILD-ADMISSIBILITY-CONSTRAINT-SET",
+      "category": "error",
+      "given": {
+        "authoritative_oracle_scenario": "INV001-ACCEPT-PRECONDITION-UNKNOWN"
+      },
+      "when": "The build_admissibility_constraint_set oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-001/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV001-ACCEPT-SOURCE-REFERENCE",
+      "applies_to": "BUILD-ADMISSIBILITY-CONSTRAINT-SET",
+      "category": "error",
+      "given": {
+        "authoritative_oracle_scenario": "INV001-ACCEPT-SOURCE-REFERENCE"
+      },
+      "when": "The build_admissibility_constraint_set oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-001/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV001-ACCEPT-OPAQUE",
+      "applies_to": "BUILD-ADMISSIBILITY-CONSTRAINT-SET",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV001-ACCEPT-OPAQUE"
+      },
+      "when": "The build_admissibility_constraint_set oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-001/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV001-ACCEPT-ORDER",
+      "applies_to": "BUILD-ADMISSIBILITY-CONSTRAINT-SET",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV001-ACCEPT-ORDER"
+      },
+      "when": "The build_admissibility_constraint_set oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-001/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV001-ACCEPT-DETERMINISM",
+      "applies_to": "BUILD-ADMISSIBILITY-CONSTRAINT-SET",
+      "category": "determinism",
+      "given": {
+        "authoritative_oracle_scenario": "INV001-ACCEPT-DETERMINISM"
+      },
+      "when": "The build_admissibility_constraint_set oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-001/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV001-ACCEPT-RESERVATIONS",
+      "applies_to": "BUILD-ADMISSIBILITY-CONSTRAINT-SET",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV001-ACCEPT-RESERVATIONS"
+      },
+      "when": "The build_admissibility_constraint_set oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-001/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV001-ACCEPT-NO-SCIENCE",
+      "applies_to": "BUILD-ADMISSIBILITY-CONSTRAINT-SET",
+      "category": "unsupported_operation",
+      "given": {
+        "authoritative_oracle_scenario": "INV001-ACCEPT-NO-SCIENCE"
+      },
+      "when": "The build_admissibility_constraint_set oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-001/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV001-ACCEPT-CONFORMANCE",
+      "applies_to": "BUILD-ADMISSIBILITY-CONSTRAINT-SET",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV001-ACCEPT-CONFORMANCE"
+      },
+      "when": "The build_admissibility_constraint_set oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-001/oracle.yaml"
+      ]
+    }
+  ]
+}

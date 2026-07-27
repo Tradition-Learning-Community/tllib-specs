@@ -1,0 +1,202 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-FC-04-INVARIANTS-009",
+  "tests": [
+    {
+      "test_id": "INV009-ACCEPT-NOMINAL",
+      "applies_to": "CONSTRUCT-COHESION-INTERVAL-CONSTRAINT",
+      "category": "valid_input",
+      "given": {
+        "feature_id": "TLC-FC-04-INVARIANTS-009",
+        "covered_evidence_ids": [
+          "TLC-SO-INVARIANTS-065",
+          "TLC-SR-INVARIANTS-064"
+        ],
+        "catalogue_status": "rejected_as_feature",
+        "unresolved_refs": [
+          "TLC-UT-INVARIANTS-009"
+        ]
+      },
+      "when": "The construct_cohesion_interval_constraint oracle scenario is exercised.",
+      "expect": {
+        "accepted": true,
+        "output_type": "SymbolicCohesionIntervalConstraint",
+        "immutable": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-009/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV009-ACCEPT-SHAPE",
+      "applies_to": "CONSTRUCT-COHESION-INTERVAL-CONSTRAINT",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV009-ACCEPT-SHAPE"
+      },
+      "when": "The construct_cohesion_interval_constraint oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-009/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV009-ACCEPT-MISSING-SYMBOL",
+      "applies_to": "CONSTRUCT-COHESION-INTERVAL-CONSTRAINT",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV009-ACCEPT-MISSING-SYMBOL"
+      },
+      "when": "The construct_cohesion_interval_constraint oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-009/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV009-ACCEPT-MISSING-EVIDENCE",
+      "applies_to": "CONSTRUCT-COHESION-INTERVAL-CONSTRAINT",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV009-ACCEPT-MISSING-EVIDENCE"
+      },
+      "when": "The construct_cohesion_interval_constraint oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-009/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV009-ACCEPT-MISSING-UNRESOLVED",
+      "applies_to": "CONSTRUCT-COHESION-INTERVAL-CONSTRAINT",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV009-ACCEPT-MISSING-UNRESOLVED"
+      },
+      "when": "The construct_cohesion_interval_constraint oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-009/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV009-ACCEPT-OPAQUE",
+      "applies_to": "CONSTRUCT-COHESION-INTERVAL-CONSTRAINT",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV009-ACCEPT-OPAQUE"
+      },
+      "when": "The construct_cohesion_interval_constraint oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-009/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV009-ACCEPT-EQUAL-BOUND-IDS",
+      "applies_to": "CONSTRUCT-COHESION-INTERVAL-CONSTRAINT",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV009-ACCEPT-EQUAL-BOUND-IDS"
+      },
+      "when": "The construct_cohesion_interval_constraint oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-009/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV009-ACCEPT-NO-EVALUATION",
+      "applies_to": "CONSTRUCT-COHESION-INTERVAL-CONSTRAINT",
+      "category": "unsupported_operation",
+      "given": {
+        "authoritative_oracle_scenario": "INV009-ACCEPT-NO-EVALUATION"
+      },
+      "when": "The construct_cohesion_interval_constraint oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-009/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV009-ACCEPT-DETERMINISM",
+      "applies_to": "CONSTRUCT-COHESION-INTERVAL-CONSTRAINT",
+      "category": "determinism",
+      "given": {
+        "authoritative_oracle_scenario": "INV009-ACCEPT-DETERMINISM"
+      },
+      "when": "The construct_cohesion_interval_constraint oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-009/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV009-ACCEPT-STATUS",
+      "applies_to": "CONSTRUCT-COHESION-INTERVAL-CONSTRAINT",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV009-ACCEPT-STATUS"
+      },
+      "when": "The construct_cohesion_interval_constraint oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-009/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV009-ACCEPT-CONFORMANCE",
+      "applies_to": "CONSTRUCT-COHESION-INTERVAL-CONSTRAINT",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV009-ACCEPT-CONFORMANCE"
+      },
+      "when": "The construct_cohesion_interval_constraint oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-009/oracle.yaml"
+      ]
+    }
+  ]
+}

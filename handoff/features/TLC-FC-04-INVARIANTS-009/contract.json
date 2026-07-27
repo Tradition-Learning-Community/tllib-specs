@@ -1,0 +1,451 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "feature": {
+    "feature_id": "TLC-FC-04-INVARIANTS-009",
+    "title": "Cohesion interval symbolic constraint",
+    "domain": "invariants"
+  },
+  "purpose": "Validate source-backed cohesion interval symbolic constraint evidence and produces interval membership, below-bound fragmentation annotation, and above-bound centralization-and-rigidity annotation ASTs with TLC-UT-INVARIANTS-009 preserved Scientific truth evaluation is not performed.",
+  "scope": {
+    "required": [
+      {
+        "id": "INV009-REQ-001",
+        "statement": "Accept only feature identity TLC-FC-04-INVARIANTS-009 and covered evidence identifiers [TLC-SO-INVARIANTS-065, TLC-SR-INVARIANTS-064].",
+        "basis": [
+          "registry/math-contracts/TLC-FC-04-INVARIANTS-009/contract.yaml",
+          "registry/optimized-ir/invariants/TLC-FC-04-INVARIANTS-009/ir.yaml"
+        ]
+      },
+      {
+        "id": "INV009-REQ-002",
+        "statement": "Preserve catalogue status rejected_as_feature, source order, provenance, opaque values, unresolved identifiers [TLC-UT-INVARIANTS-009], and assumptions [TLC-EA-INVARIANTS-009-001] exactly.",
+        "basis": [
+          "registry/math-contracts/TLC-FC-04-INVARIANTS-009/contract.yaml",
+          "registry/oracles/invariants/TLC-FC-04-INVARIANTS-009/oracle.yaml"
+        ]
+      },
+      {
+        "id": "INV009-REQ-003",
+        "statement": "Emit an immutable SymbolicCohesionIntervalConstraint with a complete preservation envelope.",
+        "basis": [
+          "registry/optimized-ir/invariants/TLC-FC-04-INVARIANTS-009/ir.yaml",
+          "registry/domain-finalization/invariants/module-specification.yaml"
+        ]
+      }
+    ],
+    "forbidden": [
+      {
+        "id": "INV009-FOR-001",
+        "statement": "Do not evaluate scientific truth or infer a comparator, threshold value, runtime domain, transition graph, chronology, causality, symmetry, transitivity, units, dimensions, precision, or numerical method."
+      },
+      {
+        "id": "INV009-FOR-002",
+        "statement": "Do not promote documentary, deferred, provisionally separated, or rejected source metadata to executable scientific status."
+      },
+      {
+        "id": "INV009-FOR-003",
+        "statement": "Do not mutate inputs, scientific state, external domain state, or publish a partial successful result."
+      }
+    ],
+    "deferred": [
+      {
+        "id": "INV009-DEF-001",
+        "statement": "Scientific evaluation requires a future externally sourced evaluator; this package defines no evaluator interface or truth criterion."
+      },
+      {
+        "id": "INV009-DEF-002",
+        "statement": "The meanings of TLC-UT-INVARIANTS-009 remain preserved unresolved."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation_id": "CONSTRUCT-COHESION-INTERVAL-CONSTRAINT",
+      "purpose": "Construct the immutable SymbolicCohesionIntervalConstraint from validated source evidence without scientific evaluation.",
+      "inputs": [
+        {
+          "name": "evidence",
+          "semantic_role": "CohesionIntervalSymbols",
+          "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0",
+          "fields": [
+            {
+              "name": "feature_id",
+              "required": true,
+              "semantic_role": "exact feature identity",
+              "shared_contract_ref": "TLC-HC-FEATURE-ID@1.0.0",
+              "constant": "TLC-FC-04-INVARIANTS-009"
+            },
+            {
+              "name": "evidence_ids",
+              "required": true,
+              "semantic_role": "exact covered object and relation identities",
+              "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0",
+              "allowed_values": [
+                "TLC-SO-INVARIANTS-065",
+                "TLC-SR-INVARIANTS-064"
+              ]
+            },
+            {
+              "name": "source_references",
+              "required": true,
+              "semantic_role": "source provenance for every evidence item",
+              "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"
+            },
+            {
+              "name": "opaque_values",
+              "required": true,
+              "semantic_role": "uninterpreted source statements and scientific truth conditions",
+              "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"
+            },
+            {
+              "name": "catalogue_status",
+              "required": true,
+              "semantic_role": "exact historical catalogue status",
+              "constant": "rejected_as_feature"
+            },
+            {
+              "name": "unresolved_refs",
+              "required": true,
+              "semantic_role": "exact unresolved identifiers attached to affected evidence",
+              "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0",
+              "allowed_values": [
+                "TLC-UT-INVARIANTS-009"
+              ]
+            },
+            {
+              "name": "assumption_refs",
+              "required": true,
+              "semantic_role": "exact provisional engineering assumption identifiers",
+              "allowed_values": [
+                "TLC-EA-INVARIANTS-009-001"
+              ]
+            }
+          ],
+          "collection": {
+            "kind": "ordered_set",
+            "membership": "exact",
+            "members": [
+              "TLC-SO-INVARIANTS-065",
+              "TLC-SR-INVARIANTS-064"
+            ],
+            "cardinality": {
+              "minimum": 2,
+              "maximum": 2
+            },
+            "ordering": "required",
+            "duplicates": "forbidden",
+            "key_contract": null,
+            "value_contract": {
+              "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"
+            }
+          },
+          "constraints": [
+            {
+              "id": "INV009-IN-001",
+              "statement": "Every supplied identity is feature-covered, unique where required, and accompanied by source provenance."
+            },
+            {
+              "id": "INV009-IN-002",
+              "statement": "Source-declared order is preserved; otherwise validated input order is retained only as engineering order."
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "semantic_role": "immutable SymbolicCohesionIntervalConstraint",
+          "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0",
+          "fields": [
+            {
+              "name": "feature_id",
+              "required": true,
+              "semantic_role": "exact feature identity",
+              "constant": "TLC-FC-04-INVARIANTS-009"
+            },
+            {
+              "name": "representation",
+              "required": true,
+              "semantic_role": "feature-specific structural representation",
+              "constant": "SymbolicCohesionIntervalConstraint"
+            },
+            {
+              "name": "entries",
+              "required": true,
+              "semantic_role": "immutable evidence entries with exact identities and order",
+              "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0"
+            },
+            {
+              "name": "unresolved",
+              "required": true,
+              "semantic_role": "unresolved identifiers attached to affected entries",
+              "allowed_values": [
+                "TLC-UT-INVARIANTS-009"
+              ]
+            },
+            {
+              "name": "provenance",
+              "required": true,
+              "semantic_role": "complete preservation envelope",
+              "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"
+            },
+            {
+              "name": "status",
+              "required": true,
+              "semantic_role": "preserved catalogue and scientific status",
+              "constant": "rejected_as_feature"
+            }
+          ],
+          "collection": {
+            "kind": "scalar",
+            "membership": "exact",
+            "members": [],
+            "cardinality": {
+              "minimum": 1,
+              "maximum": 1
+            },
+            "ordering": "not_applicable",
+            "duplicates": "not_applicable",
+            "key_contract": null,
+            "value_contract": {
+              "shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"
+            }
+          },
+          "constraints": [
+            {
+              "id": "INV009-OUT-001",
+              "statement": "produces interval membership, below-bound fragmentation annotation, and above-bound centralization-and-rigidity annotation ASTs with TLC-UT-INVARIANTS-009 preserved"
+            }
+          ]
+        }
+      ],
+      "preconditions": [
+        {
+          "id": "INV009-PRE-001",
+          "statement": "Every required identity, relationship, source reference, opaque symbol, unresolved mapping, and status value is present and source-consistent."
+        }
+      ],
+      "postconditions": [
+        {
+          "id": "INV009-POST-001",
+          "statement": "produces interval membership, below-bound fragmentation annotation, and above-bound centralization-and-rigidity annotation ASTs with TLC-UT-INVARIANTS-009 preserved No scientific truth claim is added."
+        }
+      ],
+      "invariants": [
+        {
+          "id": "INV009-INV-001",
+          "statement": "Covered identities, source order, references, opaque values, catalogue status, assumptions, reservations, and unresolved mappings are unchanged."
+        },
+        {
+          "id": "INV009-INV-002",
+          "statement": "Inputs and all external or scientific state remain unmodified."
+        }
+      ],
+      "strategy_contract": {
+        "mode": "partially_constrained",
+        "steps": [
+          "validate covered identities and required provenance",
+          "validate status, unresolved, assumption, and opaque preservation metadata",
+          "construct the feature-specific immutable representation",
+          "verify identity, order, provenance, status, unresolved, assumption, reservation, and opaque-value conservation",
+          "publish success or stable error"
+        ],
+        "partial_order": [
+          {
+            "before": "validate covered identities and required provenance",
+            "after": "publish success or stable error"
+          },
+          {
+            "before": "validate status, unresolved, assumption, and opaque preservation metadata",
+            "after": "publish success or stable error"
+          },
+          {
+            "before": "construct the feature-specific immutable representation",
+            "after": "publish success or stable error"
+          },
+          {
+            "before": "verify identity, order, provenance, status, unresolved, assumption, reservation, and opaque-value conservation",
+            "after": "publish success or stable error"
+          }
+        ],
+        "prescription_basis": [
+          "Validation and conservation must precede publication. The upstream total traversal sequence is not a unique architectural prescription."
+        ]
+      },
+      "runtime_contract": {
+        "mutability": "immutable",
+        "result_ownership": "owned_result",
+        "input_retention": "not_required",
+        "input_change_visibility": "not_visible",
+        "lifetime": "result_lifetime",
+        "aliasing": "not_constrained",
+        "layout": "not_constrained",
+        "contiguity": "not_required",
+        "alignment": "not_required",
+        "address_stability": "not_required",
+        "copy_semantics": "not_constrained",
+        "move_semantics": "not_constrained",
+        "allocation": "implementation_defined",
+        "zero_copy": "not_required",
+        "thread_safety": "implementation_defined",
+        "reentrancy": "required",
+        "failure_atomicity": "no_observable_partial_result"
+      },
+      "determinism": {
+        "semantic_output": "required",
+        "field_presence": "required",
+        "collection_order": "required",
+        "canonical_serialization": "not_specified",
+        "binary_layout": "not_constrained",
+        "memory_address": "not_constrained",
+        "allocation_pattern": "not_constrained",
+        "concurrent_scheduling": "not_applicable",
+        "floating_point": "not_applicable",
+        "randomness": "forbidden"
+      },
+      "error_contract": [
+        {
+          "code": "MissingIntervalSymbol",
+          "category": "invalid_input",
+          "condition": "The authoritative MissingIntervalSymbol condition occurs.",
+          "recoverability": "recoverable",
+          "public_result": "no_partial_result",
+          "failure_atomicity": "no_observable_partial_result",
+          "transport": "implementation_defined"
+        },
+        {
+          "code": "MissingCohesionReservation",
+          "category": "invalid_input",
+          "condition": "The authoritative MissingCohesionReservation condition occurs.",
+          "recoverability": "recoverable",
+          "public_result": "no_partial_result",
+          "failure_atomicity": "no_observable_partial_result",
+          "transport": "implementation_defined"
+        },
+        {
+          "code": "MissingCohesionEvidence",
+          "category": "invalid_input",
+          "condition": "The authoritative MissingCohesionEvidence condition occurs.",
+          "recoverability": "recoverable",
+          "public_result": "no_partial_result",
+          "failure_atomicity": "no_observable_partial_result",
+          "transport": "implementation_defined"
+        },
+        {
+          "code": "ScientificEvaluationProhibited",
+          "category": "unsupported_operation",
+          "condition": "Truth, numeric, temporal, ordering, state, transition, or other scientific evaluation is requested without a sourced evaluator.",
+          "recoverability": "recoverable",
+          "public_result": "no_partial_result",
+          "failure_atomicity": "no_observable_partial_result",
+          "transport": "implementation_defined"
+        },
+        {
+          "code": "PreservationViolation",
+          "category": "preservation",
+          "condition": "A source identity, order, opaque value, status, assumption, reservation, unresolved mapping, or provenance link changes or is lost.",
+          "recoverability": "non_retryable",
+          "public_result": "no_partial_result",
+          "failure_atomicity": "no_observable_partial_result",
+          "transport": "implementation_defined"
+        }
+      ],
+      "resource_contract": {
+        "time_complexity": {
+          "status": "not_specified",
+          "value": null
+        },
+        "auxiliary_memory": {
+          "status": "not_specified",
+          "value": null
+        },
+        "allocations": {
+          "status": "implementation_defined",
+          "value": null
+        },
+        "maximum_input_size": {
+          "status": "not_constrained",
+          "value": null
+        }
+      }
+    }
+  ],
+  "implementation_modes": [
+    {
+      "mode_id": "structural-construction",
+      "status": "required",
+      "statement": "Expose construct_cohesion_interval_constraint as a deterministic structural operation producing SymbolicCohesionIntervalConstraint."
+    },
+    {
+      "mode_id": "scientific-evaluation",
+      "status": "forbidden",
+      "statement": "Do not decide truth, compute numerical values, detect states, or infer transitions."
+    },
+    {
+      "mode_id": "alternative-internal-architecture",
+      "status": "allowed",
+      "statement": "Internal representation and validation decomposition remain free when observable preservation behavior is identical."
+    }
+  ],
+  "global_invariants": [
+    {
+      "id": "INV009-GINV-001",
+      "statement": "No implementation behavior may weaken source identity, order, opacity, status, unresolved, assumption, reservation, immutability, or provenance obligations."
+    },
+    {
+      "id": "INV009-GINV-002",
+      "statement": "Historical rejection or deferral metadata is documentary and must remain visible without suppressing this finalized structural operation."
+    }
+  ],
+  "dependencies": [
+    {
+      "shared_contract_id": "TLC-HC-FEATURE-ID",
+      "version": "1.0.0",
+      "purpose": "Exact feature identity"
+    },
+    {
+      "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+      "version": "1.0.0",
+      "purpose": "Lossless scientific and evidence references"
+    },
+    {
+      "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+      "version": "1.0.0",
+      "purpose": "Exact ordered identifier collections"
+    },
+    {
+      "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+      "version": "1.0.0",
+      "purpose": "Preserved unresolved identifiers"
+    },
+    {
+      "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+      "version": "1.0.0",
+      "purpose": "Uninterpreted source statements and scientific truth conditions"
+    },
+    {
+      "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+      "version": "1.0.0",
+      "purpose": "Stable transport-neutral structural errors"
+    },
+    {
+      "shared_contract_id": "TLC-HC-TRACEABILITY",
+      "version": "1.0.0",
+      "purpose": "Resolvable provenance"
+    },
+    {
+      "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+      "version": "1.0.0",
+      "purpose": "Immutable preservation result envelope"
+    }
+  ],
+  "conformance": {
+    "acceptance_required": true,
+    "all_required_tests_must_pass": true,
+    "forbidden_behavior_is_nonconforming": true,
+    "notes": [
+      "Conformance is structural and behavioral. It does not prescribe a programming language, serialization, storage model, or complete internal step order."
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-FC-04-INVARIANTS-004",
+  "tests": [
+    {
+      "test_id": "INV004-ACCEPT-NOMINAL",
+      "applies_to": "DECLARE-DISCIPLE-INVARIANT-SCOPE",
+      "category": "valid_input",
+      "given": {
+        "feature_id": "TLC-FC-04-INVARIANTS-004",
+        "covered_evidence_ids": [
+          "TLC-SO-INVARIANTS-007",
+          "TLC-SR-INVARIANTS-006"
+        ],
+        "catalogue_status": "deferred_for_scientific_decision",
+        "unresolved_refs": []
+      },
+      "when": "The declare_disciple_invariant_scope oracle scenario is exercised.",
+      "expect": {
+        "accepted": true,
+        "output_type": "ScopedInvariantDeclaration",
+        "immutable": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-004/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV004-ACCEPT-WRONG-OBJECT",
+      "applies_to": "DECLARE-DISCIPLE-INVARIANT-SCOPE",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV004-ACCEPT-WRONG-OBJECT"
+      },
+      "when": "The declare_disciple_invariant_scope oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-004/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV004-ACCEPT-MISSING-ROOT",
+      "applies_to": "DECLARE-DISCIPLE-INVARIANT-SCOPE",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV004-ACCEPT-MISSING-ROOT"
+      },
+      "when": "The declare_disciple_invariant_scope oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-004/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV004-ACCEPT-OPAQUE",
+      "applies_to": "DECLARE-DISCIPLE-INVARIANT-SCOPE",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV004-ACCEPT-OPAQUE"
+      },
+      "when": "The declare_disciple_invariant_scope oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-004/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV004-ACCEPT-NO-MEMBERS",
+      "applies_to": "DECLARE-DISCIPLE-INVARIANT-SCOPE",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV004-ACCEPT-NO-MEMBERS"
+      },
+      "when": "The declare_disciple_invariant_scope oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-004/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV004-ACCEPT-PROMOTION",
+      "applies_to": "DECLARE-DISCIPLE-INVARIANT-SCOPE",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV004-ACCEPT-PROMOTION"
+      },
+      "when": "The declare_disciple_invariant_scope oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-004/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV004-ACCEPT-DETERMINISM",
+      "applies_to": "DECLARE-DISCIPLE-INVARIANT-SCOPE",
+      "category": "determinism",
+      "given": {
+        "authoritative_oracle_scenario": "INV004-ACCEPT-DETERMINISM"
+      },
+      "when": "The declare_disciple_invariant_scope oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-004/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV004-ACCEPT-RESERVATIONS",
+      "applies_to": "DECLARE-DISCIPLE-INVARIANT-SCOPE",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV004-ACCEPT-RESERVATIONS"
+      },
+      "when": "The declare_disciple_invariant_scope oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-004/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV004-ACCEPT-CONFORMANCE",
+      "applies_to": "DECLARE-DISCIPLE-INVARIANT-SCOPE",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV004-ACCEPT-CONFORMANCE"
+      },
+      "when": "The declare_disciple_invariant_scope oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-004/oracle.yaml"
+      ]
+    }
+  ]
+}

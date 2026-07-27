@@ -1,0 +1,187 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-FC-04-INVARIANTS-005",
+  "tests": [
+    {
+      "test_id": "INV005-ACCEPT-NOMINAL",
+      "applies_to": "ATTACH-INTERPRETATION-ANNOTATIONS",
+      "category": "valid_input",
+      "given": {
+        "feature_id": "TLC-FC-04-INVARIANTS-005",
+        "covered_evidence_ids": [
+          "TLC-SO-INVARIANTS-031",
+          "TLC-SO-INVARIANTS-044",
+          "TLC-SO-INVARIANTS-049",
+          "TLC-SR-INVARIANTS-030",
+          "TLC-SR-INVARIANTS-043",
+          "TLC-SR-INVARIANTS-048"
+        ],
+        "catalogue_status": "deferred_for_scientific_decision",
+        "unresolved_refs": []
+      },
+      "when": "The attach_interpretation_annotations oracle scenario is exercised.",
+      "expect": {
+        "accepted": true,
+        "output_type": "AnnotatedInvariantEvidence",
+        "immutable": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-005/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV005-ACCEPT-UNKNOWN",
+      "applies_to": "ATTACH-INTERPRETATION-ANNOTATIONS",
+      "category": "error",
+      "given": {
+        "authoritative_oracle_scenario": "INV005-ACCEPT-UNKNOWN"
+      },
+      "when": "The attach_interpretation_annotations oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-005/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV005-ACCEPT-TARGET",
+      "applies_to": "ATTACH-INTERPRETATION-ANNOTATIONS",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV005-ACCEPT-TARGET"
+      },
+      "when": "The attach_interpretation_annotations oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-005/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV005-ACCEPT-DUPLICATE",
+      "applies_to": "ATTACH-INTERPRETATION-ANNOTATIONS",
+      "category": "error",
+      "given": {
+        "authoritative_oracle_scenario": "INV005-ACCEPT-DUPLICATE"
+      },
+      "when": "The attach_interpretation_annotations oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-005/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV005-ACCEPT-OPAQUE",
+      "applies_to": "ATTACH-INTERPRETATION-ANNOTATIONS",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV005-ACCEPT-OPAQUE"
+      },
+      "when": "The attach_interpretation_annotations oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-005/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV005-ACCEPT-TRUTH-NEUTRALITY",
+      "applies_to": "ATTACH-INTERPRETATION-ANNOTATIONS",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV005-ACCEPT-TRUTH-NEUTRALITY"
+      },
+      "when": "The attach_interpretation_annotations oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-005/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV005-ACCEPT-PROMOTION",
+      "applies_to": "ATTACH-INTERPRETATION-ANNOTATIONS",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV005-ACCEPT-PROMOTION"
+      },
+      "when": "The attach_interpretation_annotations oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-005/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV005-ACCEPT-DETERMINISM",
+      "applies_to": "ATTACH-INTERPRETATION-ANNOTATIONS",
+      "category": "determinism",
+      "given": {
+        "authoritative_oracle_scenario": "INV005-ACCEPT-DETERMINISM"
+      },
+      "when": "The attach_interpretation_annotations oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-005/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV005-ACCEPT-RESERVATIONS",
+      "applies_to": "ATTACH-INTERPRETATION-ANNOTATIONS",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV005-ACCEPT-RESERVATIONS"
+      },
+      "when": "The attach_interpretation_annotations oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-005/oracle.yaml"
+      ]
+    },
+    {
+      "test_id": "INV005-ACCEPT-CONFORMANCE",
+      "applies_to": "ATTACH-INTERPRETATION-ANNOTATIONS",
+      "category": "preservation",
+      "given": {
+        "authoritative_oracle_scenario": "INV005-ACCEPT-CONFORMANCE"
+      },
+      "when": "The attach_interpretation_annotations oracle scenario is exercised.",
+      "expect": {
+        "oracle_condition_preserved": true,
+        "no_partial_result_on_error": true,
+        "no_scientific_evaluation": true
+      },
+      "source_basis": [
+        "registry/oracles/invariants/TLC-FC-04-INVARIANTS-005/oracle.yaml"
+      ]
+    }
+  ]
+}
