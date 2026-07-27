@@ -77,11 +77,12 @@
     },
     {
       "ambiguity_id": "DYN-AMB-010",
-      "classification": "cross_feature_inconsistency",
+      "classification": "non_blocking_editorial",
       "affected_features": ["TLC-FC-05-DYNAMICS-001", "TLC-FC-05-DYNAMICS-002", "TLC-FC-05-DYNAMICS-003", "TLC-FC-05-DYNAMICS-004", "TLC-FC-05-DYNAMICS-005", "TLC-FC-05-DYNAMICS-006", "TLC-FC-05-DYNAMICS-007"],
-      "summary": "The authoritative Dynamics inventory declares authoritative_population_count, while the unchanged validator reads only feature_count or population_count.",
-      "package_treatment": "documented without modification because the inventory and validator are protected and outside task scope",
-      "blocking": true
+      "summary": "The Dynamics inventory originally exposed its authoritative count only as authoritative_population_count, while the shared validator reads feature_count or population_count.",
+      "package_treatment": "resolved by adding the equivalent root metadata line feature_count: 7 while preserving the existing authoritative count, feature list, statuses, references, reservations, and scientific semantics",
+      "blocking": false,
+      "status": "resolved"
     }
   ]
 }
