@@ -2,21 +2,31 @@ name: Feature handoff validation
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, handoff/integration-v1]
     paths:
-      - 'handoff/**'
+      - 'handoff/domains/**'
+      - 'handoff/schemas/**'
+      - 'handoff/features/**'
+      - 'handoff/shared/**'
+      - 'handoff/catalog.json'
+      - 'handoff/README.md'
       - 'tools/handoff/**'
-      - 'reports/handoff/**'
+      - 'reports/handoff/infrastructure/**'
       - 'README.md'
-      - '.github/workflows/handoff.yml'
+      - '.github/workflows/*handoff*'
   push:
-    branches: [main]
+    branches: [main, handoff/integration-v1]
     paths:
-      - 'handoff/**'
+      - 'handoff/domains/**'
+      - 'handoff/schemas/**'
+      - 'handoff/features/**'
+      - 'handoff/shared/**'
+      - 'handoff/catalog.json'
+      - 'handoff/README.md'
       - 'tools/handoff/**'
-      - 'reports/handoff/**'
+      - 'reports/handoff/infrastructure/**'
       - 'README.md'
-      - '.github/workflows/handoff.yml'
+      - '.github/workflows/*handoff*'
   workflow_dispatch:
 
 permissions:
@@ -33,9 +43,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install validator dependency
-        run: python -m pip install --disable-pip-version-check --quiet jsonschema
-      - name: Validate packages and schemas
+      - name: Install validator dependencies
+        run: python -m pip install --disable-pip-version-check --quiet jsonschema pyyaml
+      - name: Validate packages, schemas, and progressive populations
         id: validate
         shell: bash
         run: |
@@ -48,6 +58,8 @@ jobs:
             printf 'diagnostic=%s\n' "$diagnostic" >> "$GITHUB_OUTPUT"
             exit "$status"
           fi
+      - name: Run progressive validation logical scenarios
+        run: python tools/handoff/validate_handoff.py --self-test
       - name: Upload validation diagnostics
         if: failure()
         uses: actions/upload-artifact@v4
