@@ -59,6 +59,17 @@
       "description": "Scientific execution for feature 006 uses COMMUNITY_ERR_UNRESOLVED_SCIENTIFIC_SEMANTICS with a visible blocker, while the other active features use COMMUNITY_ERR_UNSUPPORTED_EXECUTION_REQUEST. This difference is authoritative and intentionally preserved.",
       "preservation": "feature_specific_error_semantics",
       "package_generation_blocked": false
+    },
+    {
+      "ambiguity_id": "COMMUNITY-AMB-008",
+      "classification": "source_conflict",
+      "affected_features": ["TLC-FC-02-COMMUNITY-001", "TLC-FC-02-COMMUNITY-003", "TLC-FC-02-COMMUNITY-004", "TLC-FC-02-COMMUNITY-005", "TLC-FC-02-COMMUNITY-006", "TLC-FC-02-COMMUNITY-007", "TLC-FC-02-COMMUNITY-008", "TLC-FC-02-COMMUNITY-009"],
+      "description": "The authoritative inventory registry/domain-finalization/community/feature-status.yaml declares summary.active_features as 8 and contains exactly eight feature entries, but it has no root feature_count field. The protected progressive validator requires inventory.feature_count to equal the feature-list length, causing CI to fail with authoritative inventory feature count mismatch for domain community.",
+      "preservation": "reported_without_protected_source_or_validator_change",
+      "blocking_scope": "integration_validation",
+      "package_generation_blocked": false,
+      "integration_blocked": true,
+      "required_external_resolution": "Align the protected validator with the existing inventory shape or add the missing root feature_count through a separately authorized source-governance change."
     }
   ]
 }
