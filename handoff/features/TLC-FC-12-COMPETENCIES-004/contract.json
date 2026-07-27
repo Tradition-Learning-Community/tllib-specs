@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-12-COMPETENCIES-004", "title": "Admissible evolution dynamics descriptor", "domain": "competencies"},
+  "purpose": "Preserve five admissible evolution-dynamics records and their unreconciled Capacities dependency as an immutable structural descriptor without scientific execution.",
+  "scope": {
+    "required": [
+      {"id": "C004-REQ-001", "statement": "Accept only feature identity TLC-FC-12-COMPETENCIES-004."},
+      {"id": "C004-REQ-002", "statement": "Accept exactly objects 066, 096, 097, 098, and 114 once each and emit them in source order.", "basis": ["registry/math-contracts/TLC-FC-12-COMPETENCIES-004/contract.yaml", "registry/oracles/competencies/TLC-FC-12-COMPETENCIES-004/oracle.yaml"]},
+      {"id": "C004-REQ-003", "statement": "Preserve category evolution_dynamics, boundary admissible, opaque payloads, provenance, reservations, and unresolved status."},
+      {"id": "C004-REQ-004", "statement": "Preserve Capacities as external_unreconciled scientific-documentary metadata with runtime_required false."},
+      {"id": "C004-REQ-005", "statement": "Publish a descriptor only after all structural validations succeed."}
+    ],
+    "forbidden": [
+      {"id": "C004-FOR-001", "statement": "Do not integrate equations, sample stochastic terms, simulate trajectories, or calculate acquisition, development, adaptation, stability, or any numeric result."},
+      {"id": "C004-FOR-002", "statement": "Do not infer parameters, initial conditions, dimensions, units, state spaces, or missing scientific semantics."},
+      {"id": "C004-FOR-003", "statement": "Do not convert the Capacities documentary dependency into a runtime dependency or resolve it locally."}
+    ],
+    "deferred": [
+      {"id": "C004-DEF-001", "statement": "Executable dynamics semantics and numerical behavior remain unresolved."},
+      {"id": "C004-DEF-002", "statement": "The external Capacities scientific dependency remains unreconciled."},
+      {"id": "C004-DEF-003", "statement": "Runtime representation and internal architecture remain implementation-defined."}
+    ]
+  },
+  "operations": [{
+    "operation_id": "BUILD-COMPETENCIES-DESCRIPTOR-004",
+    "purpose": "Validate and emit the exact opaque dynamics descriptor with documentary dependency metadata.",
+    "inputs": [
+      {"name": "feature_id", "semantic_role": "exact requested feature identity", "shared_contract_ref": "TLC-HC-FEATURE-ID@1.0.0", "collection": {"kind": "scalar", "membership": "exact", "members": ["TLC-FC-12-COMPETENCIES-004"], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}},
+      {"name": "object_payloads", "semantic_role": "exact opaque dynamics population", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0", "collection": {"kind": "map", "membership": "exact", "members": ["TLC-SO-COMPETENCIES-066", "TLC-SO-COMPETENCIES-096", "TLC-SO-COMPETENCIES-097", "TLC-SO-COMPETENCIES-098", "TLC-SO-COMPETENCIES-114"], "cardinality": {"minimum": 5, "maximum": 5}, "ordering": "not_constrained", "duplicates": "forbidden", "key_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"}}},
+      {"name": "provenance", "semantic_role": "complete per-object source provenance", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0", "collection": {"kind": "map", "membership": "exact", "members": ["TLC-SO-COMPETENCIES-066", "TLC-SO-COMPETENCIES-096", "TLC-SO-COMPETENCIES-097", "TLC-SO-COMPETENCIES-098", "TLC-SO-COMPETENCIES-114"], "cardinality": {"minimum": 5, "maximum": 5}, "ordering": "not_constrained", "duplicates": "forbidden", "key_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}, "value_contract": {"shared_contract_ref": "TLC-HC-SCIENTIFIC-REFERENCE@1.0.0"}}},
+      {"name": "request_mode", "semantic_role": "authorized operation mode", "collection": {"kind": "scalar", "membership": "exact", "members": ["structural_descriptor_only"], "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}}
+    ],
+    "outputs": [
+      {"name": "descriptor", "semantic_role": "immutable admissible dynamics descriptor", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "fields": [
+        {"name": "feature_id", "required": true, "semantic_role": "preserved feature identity", "constant": "TLC-FC-12-COMPETENCIES-004"},
+        {"name": "category", "required": true, "semantic_role": "preserved category", "constant": "evolution_dynamics"},
+        {"name": "boundary_label", "required": true, "semantic_role": "preserved boundary", "constant": "admissible"},
+        {"name": "ordered_object_ids", "required": true, "semantic_role": "exact source order", "allowed_values": ["TLC-SO-COMPETENCIES-066", "TLC-SO-COMPETENCIES-096", "TLC-SO-COMPETENCIES-097", "TLC-SO-COMPETENCIES-098", "TLC-SO-COMPETENCIES-114"]},
+        {"name": "opaque_payloads", "required": true, "semantic_role": "uninterpreted equations and symbols", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+        {"name": "provenance", "required": true, "semantic_role": "complete provenance", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"},
+        {"name": "dependency_status", "required": true, "semantic_role": "documentary external dependency only", "constant": "capacities:scientific_documentary:external_unreconciled:runtime_required_false"},
+        {"name": "structural_status", "required": true, "semantic_role": "coverage and provenance status only", "constant": "structurally_valid"},
+        {"name": "unresolved_items", "required": true, "semantic_role": "preserved scientific blockers", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0"}
+      ], "collection": {"kind": "scalar", "membership": "exact", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}},
+      {"name": "error", "semantic_role": "stable transport-neutral failure", "shared_contract_ref": "TLC-HC-STRUCTURED-ERROR@1.0.0", "collection": {"kind": "optional", "membership": "constrained", "cardinality": {"minimum": 0, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}}
+    ],
+    "preconditions": [{"id": "C004-PRE-001", "statement": "The request mode is structural_descriptor_only."}, {"id": "C004-PRE-002", "statement": "Feature identity, exact object membership, uniqueness, and provenance completeness are valid."}],
+    "postconditions": [{"id": "C004-POST-001", "statement": "All five objects and dependency metadata are preserved exactly."}, {"id": "C004-POST-002", "statement": "No trajectory, sample, acquisition value, development result, adaptation result, score, threshold, or probability is present."}],
+    "invariants": [{"id": "C004-INV-001", "statement": "Opaque equations are never parsed or executed."}, {"id": "C004-INV-002", "statement": "The Capacities dependency remains documentary and non-runtime."}, {"id": "C004-INV-003", "statement": "No successful partial result is observable on failure."}],
+    "strategy_contract": {"mode": "partially_constrained", "steps": ["validate request mode", "validate exact feature identity", "validate exact object population and provenance", "construct immutable descriptor", "publish descriptor"], "partial_order": [{"before": "validate request mode", "after": "construct immutable descriptor"}, {"before": "validate exact feature identity", "after": "construct immutable descriptor"}, {"before": "validate exact object population and provenance", "after": "construct immutable descriptor"}, {"before": "construct immutable descriptor", "after": "publish descriptor"}], "prescription_basis": ["registry/algorithms/competencies/TLC-FC-12-COMPETENCIES-004/algorithm.yaml"]},
+    "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+    "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "required", "canonical_serialization": "not_constrained", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+    "error_contract": [
+      {"code": "UnknownFeatureId", "category": "invalid_input", "condition": "The feature identity is not TLC-FC-12-COMPETENCIES-004.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "MissingCoveredObject", "category": "invalid_input", "condition": "A required dynamics object is absent.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "DuplicateCoveredObject", "category": "invalid_input", "condition": "A required object occurs more than once.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "UnexpectedCoveredObject", "category": "invalid_input", "condition": "An unlisted object is supplied.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "MissingSourceReference", "category": "provenance", "condition": "A required object lacks provenance.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "ScientificEvaluationRequested", "category": "unsupported_operation", "condition": "The request asks for dynamics integration, sampling, acquisition, development, adaptation, scoring, or another scientific result.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "BlockedScientificDecision", "category": "scientific_unresolved", "condition": "The request asks to resolve or execute the external Capacities dependency.", "recoverability": "non_retryable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+    ],
+    "resource_contract": {"time_complexity": {"status": "informative", "value": "O(n) over supplied entries"}, "auxiliary_memory": {"status": "informative", "value": "O(n) for the descriptor"}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+  }],
+  "implementation_modes": [{"mode_id": "structural-descriptor", "status": "required", "statement": "Expose exact validation and descriptor construction."}, {"mode_id": "scientific-dynamics", "status": "forbidden", "statement": "Do not execute or simulate source equations."}, {"mode_id": "alternative-internal-architecture", "status": "allowed", "statement": "Internal architecture is free when observable obligations are preserved."}],
+  "global_invariants": [{"id": "C004-GINV-001", "statement": "Structural validity never asserts scientific validity."}, {"id": "C004-GINV-002", "statement": "No runtime Capacities dependency is invented."}],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity."},
+    {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Lossless object identities."},
+    {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Exact object population and order."},
+    {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Scientific blockers and dependency status."},
+    {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Opaque equation preservation."},
+    {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Stable failures."},
+    {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Complete provenance."},
+    {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Descriptor result shape."}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["Scientific dynamics and Capacities execution are outside package version 1.0.0."]}
+}
