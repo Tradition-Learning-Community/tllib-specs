@@ -1,27 +1,34 @@
 {
   "schema_version": "1.0",
   "domain": "relations",
-  "status": "pending_ci",
+  "status": "passed",
   "population": {
     "expected": 5,
     "produced": 5,
     "foreign_packages": 0
   },
   "checks": {
-    "json_schema": "pending_ci",
-    "inter_file_consistency": "pending_ci",
-    "shared_dependency_resolution": "pending_ci",
-    "identifier_uniqueness": "pending_ci",
-    "error_consistency": "pending_ci",
-    "authoritative_inventory": "pending_ci",
-    "scientific_non_invention": "reviewed",
-    "implementation_code_absence": "reviewed",
-    "protected_paths": "reviewed"
+    "json_schema": "passed",
+    "inter_file_consistency": "passed",
+    "shared_dependency_resolution": "passed",
+    "identifier_uniqueness": "passed",
+    "error_consistency": "passed",
+    "authoritative_inventory": "passed",
+    "scientific_non_invention": "passed",
+    "implementation_code_absence": "passed",
+    "protected_paths": "passed"
   },
   "validator": "tools/handoff/validate_handoff.py",
-  "source_commit": "f3f4881cf6de85e6b09b4be65dde34f253bd1b04",
+  "source_commit": "7ed8d26d2e014e65ea06eec9c2337d9f4a7ef905",
   "notes": [
-    "The authoritative inventory count key is authoritative_feature_count and is supported by merged progressive-validation infrastructure.",
-    "Final pass status will be recorded after GitHub Actions succeeds."
-  ]
+    "Authoritative inventory and all five non-contiguous feature IDs validated without renaming.",
+    "The compatibility alias fix was merged separately before this successful domain validation."
+  ],
+  "workflow": {
+    "name": "Feature handoff validation",
+    "run_id": 30281379797,
+    "run_number": 95,
+    "conclusion": "success",
+    "validated_head": "e00c5a5d0d621c26614f56a3e8487fdd5d5a1706"
+  }
 }
