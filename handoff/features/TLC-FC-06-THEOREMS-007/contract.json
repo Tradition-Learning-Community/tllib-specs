@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0", "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-06-THEOREMS-007", "title": "Community stability state descriptor", "domain": "theorems"},
+  "purpose": "Construct an exact source-traceable community-stability context descriptor while preserving unresolved community, convergence, and stability semantics and making no theorem assertion.",
+  "scope": {
+    "required": [
+      {"id": "TH007-REQ-001", "statement": "Require present opaque community-sequence and limit-community identities."},
+      {"id": "TH007-REQ-002", "statement": "Preserve exactly four covered object IDs and three covered relation IDs, with every relation targeting a covered component."},
+      {"id": "TH007-REQ-003", "statement": "Attach exactly TLC-UT-THEOREMS-002, TLC-UT-THEOREMS-003, and TLC-UT-THEOREMS-004 once each."}
+    ],
+    "forbidden": [
+      {"id": "TH007-FOR-001", "statement": "Do not evaluate Gromov-Hausdorff convergence, community stability, spectral conditions, or theorem truth."},
+      {"id": "TH007-FOR-002", "statement": "Do not define, classify, merge, drop, or replace any unresolved term."},
+      {"id": "TH007-FOR-003", "statement": "Do not infer relation targets or accept dangling relations."}
+    ],
+    "deferred": [
+      {"id": "TH007-DEF-001", "statement": "Typed scientific definitions for the three unresolved terms and completion of PROOF-THEOREMS-001 remain external."},
+      {"id": "TH007-DEF-002", "statement": "Relation storage order and low-level runtime representation remain implementation-defined."}
+    ]
+  },
+  "operations": [{
+    "operation_id": "CONSTRUCT-COMMUNITY-STABILITY-STATE",
+    "purpose": "Validate identities and relation integrity, preserve opaque context, and construct the exact unresolved-aware descriptor.",
+    "inputs": [
+      {"name": "community_sequence", "semantic_role": "opaque sequence identity and payload", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "collection": {"kind": "scalar", "membership": "constrained", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}},
+      {"name": "limit_community", "semantic_role": "opaque limit-state identity and payload", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "collection": {"kind": "scalar", "membership": "constrained", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}},
+      {"name": "stability_context", "semantic_role": "exact covered object, relation, and unresolved context", "fields": [
+        {"name": "object_ids", "required": true, "semantic_role": "exact covered state objects", "allowed_values": ["TLC-SO-THEOREMS-001", "TLC-SO-THEOREMS-012", "TLC-SO-THEOREMS-013", "TLC-SO-THEOREMS-015"]},
+        {"name": "relation_ids", "required": true, "semantic_role": "exact covered state relations", "allowed_values": ["TLC-SR-THEOREMS-011", "TLC-SR-THEOREMS-012", "TLC-SR-THEOREMS-014"]},
+        {"name": "unresolved_ids", "required": true, "semantic_role": "exact unresolved scientific terms", "allowed_values": ["TLC-UT-THEOREMS-002", "TLC-UT-THEOREMS-003", "TLC-UT-THEOREMS-004"]}
+      ], "collection": {"kind": "record", "membership": "exact", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": {"fields": ["object_ids", "relation_ids", "relation_targets", "unresolved_ids"]}}}
+    ],
+    "outputs": [{"name": "community_stability_state", "semantic_role": "immutable exact unresolved-aware context descriptor", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "fields": [
+      {"name": "community_sequence", "required": true, "semantic_role": "preserved opaque sequence", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+      {"name": "limit_community", "required": true, "semantic_role": "preserved opaque limit state", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
+      {"name": "object_ids", "required": true, "semantic_role": "exact four-object population"},
+      {"name": "relation_ids", "required": true, "semantic_role": "exact three-relation population"},
+      {"name": "unresolved_ids", "required": true, "semantic_role": "exact three unresolved identifiers", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0"},
+      {"name": "scientific_assertion", "required": true, "semantic_role": "absence of computed theorem conclusion", "constant": "none"}
+    ], "collection": {"kind": "scalar", "membership": "exact", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0"}}}],
+    "preconditions": [
+      {"id": "TH007-PRE-001", "statement": "The sequence and limit identities are present."},
+      {"id": "TH007-PRE-002", "statement": "Every covered relation target belongs to the exact covered object set."},
+      {"id": "TH007-PRE-003", "statement": "The exact required unresolved identifiers are attached."}
+    ],
+    "postconditions": [
+      {"id": "TH007-POST-001", "statement": "The descriptor preserves exactly four object IDs, three relation IDs, and three unresolved IDs."},
+      {"id": "TH007-POST-002", "statement": "All opaque context payloads are unchanged and neither convergence nor stability is asserted."}
+    ],
+    "invariants": [
+      {"id": "TH007-INV-001", "statement": "Unresolved identifiers remain distinct source identities and occur exactly once."},
+      {"id": "TH007-INV-002", "statement": "Relation ordering may vary internally, but relation identity and targets cannot change."}
+    ],
+    "strategy_contract": {"mode": "partially_constrained", "steps": ["validate sequence and limit presence", "validate exact populations", "validate relation targets", "preserve opaque context and unresolved IDs", "construct descriptor", "publish success or stable error"], "partial_order": [
+      {"before": "validate sequence and limit presence", "after": "publish success or stable error"}, {"before": "validate exact populations", "after": "publish success or stable error"}, {"before": "validate relation targets", "after": "publish success or stable error"}, {"before": "preserve opaque context and unresolved IDs", "after": "publish success or stable error"}, {"before": "construct descriptor", "after": "publish success or stable error"}
+    ], "prescription_basis": ["Exact population, target integrity, unresolved preservation, and no-assertion behavior are normative; relation storage order is open."]},
+    "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+    "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "implementation_defined", "canonical_serialization": "not_specified", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "not_applicable", "randomness": "not_applicable"},
+    "error_contract": [
+      {"code": "MISSING_COMMUNITY_SEQUENCE", "category": "invalid_input", "condition": "The community-sequence identity is absent.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "MISSING_LIMIT_STATE", "category": "invalid_input", "condition": "The limit-community identity is absent.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
+      {"code": "DANGLING_STABILITY_RELATION", "category": "relation_integrity", "condition": "A covered relation references a component outside the exact covered object set.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
+    ],
+    "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+  }],
+  "implementation_modes": [
+    {"mode_id": "structural-unresolved-descriptor", "status": "required", "statement": "Expose exact context validation and unresolved-aware descriptor construction."},
+    {"mode_id": "stability-or-convergence-evaluation", "status": "forbidden", "statement": "Do not evaluate convergence, stability, spectra, or theorem truth."},
+    {"mode_id": "alternative-relation-storage", "status": "allowed", "statement": "Relation order and internal storage are free when identity, targets, and conformance remain exact."}
+  ],
+  "global_invariants": [
+    {"id": "TH007-GINV-001", "statement": "Four objects, three relations, and three unresolved terms remain exact and lossless."},
+    {"id": "TH007-GINV-002", "statement": "Structural success never asserts convergence or stability and never completes the partial proof."}
+  ],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity."}, {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Exact object and relation identities."}, {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Exact object and relation populations."}, {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Exact unresolved-term preservation."}, {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Opaque context preservation."}, {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Stable errors."}, {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Resolvable provenance."}, {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Immutable descriptor envelope."}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["Structural conformance preserves unresolved terms and does not prove community stability."]}
+}

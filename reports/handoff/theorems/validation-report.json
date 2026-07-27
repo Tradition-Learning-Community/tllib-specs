@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "domain": "theorems",
+  "source_commit": "022e6076ceeeb87b31065f2a9a28e95f1811d077",
+  "status": "pending_ci",
+  "population": {
+    "expected_guardrail": 9,
+    "authoritative": 9,
+    "produced": 9,
+    "ordered_feature_ids_match": true,
+    "duplicates": [],
+    "missing_packages": [],
+    "foreign_packages": []
+  },
+  "artifact_presence": {
+    "mathematical_contracts": 9,
+    "source_irs": 9,
+    "test_plans": 9,
+    "finalized_irs": 9,
+    "algorithm_specifications": 9,
+    "acceptance_oracles": 9,
+    "domain_finalization_manifest_consistent": true
+  },
+  "package_checks_compiled": {
+    "required_files_declared": true,
+    "feature_ids_unique": true,
+    "acceptance_ids_unique_by_construction": true,
+    "authoritative_error_codes_preserved": true,
+    "shared_dependencies_resolve_to_existing_contract_ids": true,
+    "traceability_categories_nonempty": true,
+    "examples_omitted_honestly": true,
+    "implementation_code_added": false,
+    "scientific_sources_modified": false,
+    "protected_paths_modified": false
+  },
+  "ci": {
+    "workflow_status": "not_run_yet",
+    "required_validator": "tools/handoff/validate_handoff.py",
+    "known_repository_level_blocker": {
+      "id": "THEOREMS-VALIDATOR-INVENTORY-COUNT-KEY",
+      "validator_behavior": "validate_authoritative_inventory accepts count keys feature_count or population_count",
+      "authoritative_inventory_behavior": "registry/domain-finalization/theorems/feature-status.yaml supplies authoritative_population_count",
+      "expected_effect": "The progressive validator may reject the otherwise reconciled catalogue before package-level validation completes.",
+      "task_action": "Neither protected artifact was modified or bypassed; CI result will be recorded and the PR will remain unmerged if this blocker is confirmed."
+    }
+  },
+  "finalization": {
+    "catalog_validation_status": "pending",
+    "pull_request": null,
+    "merged_commit": null
+  }
+}

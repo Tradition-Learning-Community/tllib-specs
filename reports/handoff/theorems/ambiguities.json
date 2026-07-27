@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "domain": "theorems",
+  "ambiguities": [
+    {
+      "ambiguity_id": "THEOREMS-AMB-001",
+      "classification": "cross_feature_inconsistency",
+      "affected_features": ["TLC-FC-06-THEOREMS-001", "TLC-FC-06-THEOREMS-002", "TLC-FC-06-THEOREMS-003", "TLC-FC-06-THEOREMS-004", "TLC-FC-06-THEOREMS-005", "TLC-FC-06-THEOREMS-006", "TLC-FC-06-THEOREMS-007", "TLC-FC-06-THEOREMS-008", "TLC-FC-06-THEOREMS-009"],
+      "statement": "tools/handoff/validate_handoff.py recognizes authoritative inventory count keys feature_count or population_count, while registry/domain-finalization/theorems/feature-status.yaml uses authoritative_population_count.",
+      "preservation": "The authoritative inventory and validator are both protected and were not modified or bypassed. The domain catalogue declares the reconciled exact population of nine and leaves validation pending.",
+      "blocking": "ci_validation",
+      "resolution_owner": "shared handoff infrastructure maintainers"
+    },
+    {
+      "ambiguity_id": "THEOREMS-AMB-002",
+      "classification": "source_conflict",
+      "affected_features": ["TLC-FC-06-THEOREMS-001", "TLC-FC-06-THEOREMS-002", "TLC-FC-06-THEOREMS-003", "TLC-FC-06-THEOREMS-004", "TLC-FC-06-THEOREMS-005", "TLC-FC-06-THEOREMS-006", "TLC-FC-06-THEOREMS-007", "TLC-FC-06-THEOREMS-008", "TLC-FC-06-THEOREMS-009"],
+      "statement": "Finalized artifacts preserve historical line-range anchors that do not always coincide exactly with the current rendered line positions in maths/06-theorems.md, although the cited semantic sections and statements remain identifiable.",
+      "preservation": "Traceability preserves the authoritative ranges from the feature artifacts rather than silently rewriting provenance.",
+      "blocking": false,
+      "resolution_owner": "scientific provenance maintainers"
+    },
+    {
+      "ambiguity_id": "THEOREMS-AMB-003",
+      "classification": "ordering_uncertain",
+      "affected_features": ["TLC-FC-06-THEOREMS-001", "TLC-FC-06-THEOREMS-002", "TLC-FC-06-THEOREMS-003", "TLC-FC-06-THEOREMS-004", "TLC-FC-06-THEOREMS-005", "TLC-FC-06-THEOREMS-006", "TLC-FC-06-THEOREMS-007", "TLC-FC-06-THEOREMS-009"],
+      "statement": "Algorithm artifacts list total ordered steps and test plans refer to the first violated precondition, but the scientific contracts do not establish the full internal order as observable behavior.",
+      "preservation": "Packages require all validation and preservation obligations before success and preserve stable condition-to-error mappings without prescribing a total internal algorithm. Feature 008 alone preserves source order as an output postcondition.",
+      "blocking": false,
+      "resolution_owner": "implementer within contract freedom"
+    },
+    {
+      "ambiguity_id": "THEOREMS-AMB-004",
+      "classification": "error_semantics_unspecified",
+      "affected_features": ["TLC-FC-06-THEOREMS-002", "TLC-FC-06-THEOREMS-003"],
+      "statement": "Exact covered populations are required, but the artifacts do not assign a distinct stable error code to every otherwise complete input containing an uncovered object or omitting a covered object while satisfying other local fields.",
+      "preservation": "Successful output is forbidden for a population mismatch. No new code was invented; transport-level rejection for an unmapped edge condition remains implementation-defined until an authoritative code is assigned.",
+      "blocking": false,
+      "resolution_owner": "future contract reconciliation"
+    },
+    {
+      "ambiguity_id": "THEOREMS-AMB-005",
+      "classification": "runtime_semantics_unspecified",
+      "affected_features": ["TLC-FC-06-THEOREMS-005"],
+      "statement": "The authoritative artifacts require per-dimension removal claims but do not finalize the DimensionId universe, cardinality, or ordering beyond source provenance and claim-family separation.",
+      "preservation": "The mapping is constrained to be nonempty, sourced, opaque, and separate from the transformation family; concrete dimension representation and order remain implementation-defined.",
+      "blocking": false,
+      "resolution_owner": "external Huit-domain provider"
+    },
+    {
+      "ambiguity_id": "THEOREMS-AMB-006",
+      "classification": "scientific_unresolved",
+      "affected_features": ["TLC-FC-06-THEOREMS-007", "TLC-FC-06-THEOREMS-008", "TLC-FC-06-THEOREMS-009"],
+      "statement": "Community stability semantics, cross-domain dimension classifications, and rational coherence are unresolved and have no executable scientific definitions in the domain artifacts.",
+      "preservation": "All exact unresolved identifiers remain attached as preserved_unresolved. Structural operations remain executable; scientific evaluation remains unsupported.",
+      "blocking": false,
+      "resolution_owner": "external scientific providers"
+    },
+    {
+      "ambiguity_id": "THEOREMS-AMB-007",
+      "classification": "non_blocking_editorial",
+      "affected_features": [],
+      "statement": "The v1.0 domain-catalog schema requests no hash field and forbids additional properties, while the task requests calculable hashes.",
+      "preservation": "No out-of-schema field was added. Repository-relative package paths and Git objects allow hashes to be calculated externally.",
+      "blocking": false,
+      "resolution_owner": "future handoff schema evolution"
+    }
+  ]
+}
