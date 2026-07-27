@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "domain": "community",
+  "ambiguities": [
+    {
+      "ambiguity_id": "COMMUNITY-AMB-001",
+      "classification": "scientific_unresolved",
+      "affected_features": ["TLC-FC-02-COMMUNITY-001", "TLC-FC-02-COMMUNITY-003", "TLC-FC-02-COMMUNITY-004", "TLC-FC-02-COMMUNITY-005", "TLC-FC-02-COMMUNITY-006", "TLC-FC-02-COMMUNITY-007", "TLC-FC-02-COMMUNITY-008", "TLC-FC-02-COMMUNITY-009"],
+      "description": "The authoritative Community unresolved collection contains 29 reservations and no active feature is scientifically execution-ready.",
+      "preservation": "preserved_unresolved",
+      "blocking_scope": "scientific_execution_only",
+      "package_generation_blocked": false
+    },
+    {
+      "ambiguity_id": "COMMUNITY-AMB-002",
+      "classification": "scientific_unresolved",
+      "affected_features": ["TLC-FC-02-COMMUNITY-006"],
+      "description": "COMMUNITY-DECISION-001 requires an external authoritative invariant definition before scientific evaluation.",
+      "preservation": "external_provider_required",
+      "blocking_scope": "scientific_execution_only",
+      "package_generation_blocked": false
+    },
+    {
+      "ambiguity_id": "COMMUNITY-AMB-003",
+      "classification": "artifact_multiplicity",
+      "affected_features": ["TLC-FC-02-COMMUNITY-001"],
+      "description": "The feature has a registered IR, a candidate IR, and a supplemental semantic candidate IR. The supplemental artifact is historical evidence and is not promoted to canonical status.",
+      "preservation": "all_artifacts_traced_with_roles",
+      "package_generation_blocked": false
+    },
+    {
+      "ambiguity_id": "COMMUNITY-AMB-004",
+      "classification": "ordering_uncertain",
+      "affected_features": ["TLC-FC-02-COMMUNITY-001", "TLC-FC-02-COMMUNITY-003", "TLC-FC-02-COMMUNITY-004", "TLC-FC-02-COMMUNITY-005", "TLC-FC-02-COMMUNITY-006", "TLC-FC-02-COMMUNITY-007", "TLC-FC-02-COMMUNITY-008", "TLC-FC-02-COMMUNITY-009"],
+      "description": "Algorithm artifacts list total step sequences, but only validation and preservation before observable success or rejection are source-backed requirements.",
+      "preservation": "strategy_contract_partially_constrained",
+      "package_generation_blocked": false
+    },
+    {
+      "ambiguity_id": "COMMUNITY-AMB-005",
+      "classification": "runtime_semantics_unspecified",
+      "affected_features": ["TLC-FC-02-COMMUNITY-001", "TLC-FC-02-COMMUNITY-003", "TLC-FC-02-COMMUNITY-004", "TLC-FC-02-COMMUNITY-005", "TLC-FC-02-COMMUNITY-006", "TLC-FC-02-COMMUNITY-007", "TLC-FC-02-COMMUNITY-008", "TLC-FC-02-COMMUNITY-009"],
+      "description": "Ownership, layout, allocation, concurrency, lifetime, aliasing, copying, moving, and error transport are not scientifically prescribed.",
+      "preservation": "implementation_defined_or_not_constrained",
+      "package_generation_blocked": false
+    },
+    {
+      "ambiguity_id": "COMMUNITY-AMB-006",
+      "classification": "apparent_shared_pattern",
+      "affected_features": ["TLC-FC-02-COMMUNITY-001", "TLC-FC-02-COMMUNITY-003", "TLC-FC-02-COMMUNITY-004", "TLC-FC-02-COMMUNITY-005", "TLC-FC-02-COMMUNITY-006", "TLC-FC-02-COMMUNITY-007", "TLC-FC-02-COMMUNITY-008", "TLC-FC-02-COMMUNITY-009"],
+      "description": "All packages expose a similar structural specification gate, but feature-specific opaque boundaries, blocker behavior, source multiplicity, and dependency classification make immediate shared-contract promotion unsafe.",
+      "preservation": "candidate_only",
+      "package_generation_blocked": false
+    },
+    {
+      "ambiguity_id": "COMMUNITY-AMB-007",
+      "classification": "cross_feature_inconsistency",
+      "affected_features": ["TLC-FC-02-COMMUNITY-006"],
+      "description": "Scientific execution for feature 006 uses COMMUNITY_ERR_UNRESOLVED_SCIENTIFIC_SEMANTICS with a visible blocker, while the other active features use COMMUNITY_ERR_UNSUPPORTED_EXECUTION_REQUEST. This difference is authoritative and intentionally preserved.",
+      "preservation": "feature_specific_error_semantics",
+      "package_generation_blocked": false
+    },
+    {
+      "ambiguity_id": "COMMUNITY-AMB-008",
+      "classification": "source_conflict",
+      "affected_features": ["TLC-FC-02-COMMUNITY-001", "TLC-FC-02-COMMUNITY-003", "TLC-FC-02-COMMUNITY-004", "TLC-FC-02-COMMUNITY-005", "TLC-FC-02-COMMUNITY-006", "TLC-FC-02-COMMUNITY-007", "TLC-FC-02-COMMUNITY-008", "TLC-FC-02-COMMUNITY-009"],
+      "description": "The protected v1.0 foundation validator explicitly requires the feature population to contain only the Master pilot, so it cannot validate domain packages without a separate integration-stage validator update outside this task's write scope.",
+      "preservation": "reported_without_validator_modification",
+      "package_generation_blocked": false
+    }
+  ]
+}
