@@ -22,4 +22,4 @@ Language, naming, storage, ownership, allocation, serialization format, concurre
 
 ## Errors and conformance
 
-Expose `UNKNOWN_SOURCE_IDENTIFIER`, `TYPE_SHAPE_MISMATCH`, and `UNRESOLVED_SCIENTIFIC_SEMANTICS` as defined in `contract.json`. Conformance requires every test in `acceptance.json`. TLC-UT-DYNAMICS-007 and the state-versus-evolution boundary remain preserved unresolved.
+Expose `UNKNOWN_SOURCE_IDENTIFIER`, `TYPE_SHAPE_MISMATCH`, and `UNRESOLVED_SCIENTIFIC_SEMANTICS` as defined in `contract.json`. Conformance requires every test in `acceptance.json`. TLC-UT-DYNAMICS-007 and the state-versus-evolution boundary remain preserved and unresolved.
