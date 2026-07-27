@@ -22,4 +22,4 @@ Language, naming, storage, ownership, allocation, serialization format, concurre
 
 ## Errors and conformance
 
-Expose `UNKNOWN_SOURCE_IDENTIFIER`, `TYPE_SHAPE_MISMATCH`, and `UNRESOLVED_SCIENTIFIC_SEMANTICS` as defined in `contract.json`. Conformance requires every test in `acceptance.json`. The local catalogue block and stochastic semantics remain preserved unresolved.
+Expose `UNKNOWN_SOURCE_IDENTIFIER`, `TYPE_SHAPE_MISMATCH`, and `UNRESOLVED_SCIENTIFIC_SEMANTICS` as defined in `contract.json`. Conformance requires every test in `acceptance.json`. The local catalog block and stochastic semantics remain preserved and unresolved.
