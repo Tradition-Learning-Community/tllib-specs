@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "domain": "community",
+  "report_status": "pre_pull_request_complete_with_validator_limitation",
+  "source_branch": "handoff/integration-v1",
+  "source_commit": "21440c05372546b8d3b605f3368680e78a1d3778",
+  "work_branch": "handoff/domain-02-community",
+  "population": {
+    "expected_guard": 8,
+    "authoritative_count": 8,
+    "produced_count": 8,
+    "ordered_feature_ids": ["TLC-FC-02-COMMUNITY-001", "TLC-FC-02-COMMUNITY-003", "TLC-FC-02-COMMUNITY-004", "TLC-FC-02-COMMUNITY-005", "TLC-FC-02-COMMUNITY-006", "TLC-FC-02-COMMUNITY-007", "TLC-FC-02-COMMUNITY-008", "TLC-FC-02-COMMUNITY-009"],
+    "duplicate_feature_ids": [],
+    "foreign_domain_packages": [],
+    "status": "verified_by_authoritative_registry_comparison"
+  },
+  "checks": [
+    {"check_id": "JSON-SCHEMA-SHAPE", "status": "verified_by_schema_guided_construction", "evidence": ["handoff/schemas/manifest.schema.json", "handoff/schemas/contract.schema.json", "handoff/schemas/acceptance.schema.json", "handoff/schemas/traceability.schema.json"], "limitation": "No compatible integration-stage machine validator exists on the protected source branch."},
+    {"check_id": "INTER-FILE-COHERENCE", "status": "verified_by_connector_inspection", "evidence": ["Feature IDs, package versions, operation IDs, file declarations, and shared dependency versions were kept equal across each package."]},
+    {"check_id": "SHARED-DEPENDENCY-RESOLUTION", "status": "verified_by_connector_inspection", "evidence": ["All eight packages reference only the eight existing shared contracts at version 1.0.0; manifest and contract dependency lists are equal."]},
+    {"check_id": "IDENTIFIER-UNIQUENESS", "status": "verified_by_construction", "evidence": ["Feature IDs, operation IDs, obligation IDs, and oracle-derived acceptance test IDs are feature-scoped and unique."]},
+    {"check_id": "ERROR-COHERENCE", "status": "verified_against_finalized_ir_algorithm_and_oracle", "evidence": ["Authoritative COMMUNITY_ERR_* codes are preserved; feature 006 and feature 008 retain their feature-specific error behavior."]},
+    {"check_id": "TRACEABILITY-MULTIPLICITY", "status": "verified_by_construction", "evidence": ["Every traceability category is a list; feature 001 records all three source IR roles including the non-canonical supplemental IR."]},
+    {"check_id": "SCIENTIFIC-NON-INVENTION", "status": "verified_against_oracle_non_invention_cases", "evidence": ["No equations, metrics, invariants, relations, operator semantics, dimensions, scientific types, thresholds, integrators, noise models, or numerical methods were added."]},
+    {"check_id": "IMPLEMENTATION-CODE-ABSENCE", "status": "verified_by_change_scope", "evidence": ["Only Markdown and JSON handoff artifacts were added; no source-code path is modified."]},
+    {"check_id": "PROTECTED-SOURCE-ABSENCE", "status": "pending_final_diff_confirmation", "evidence": ["The final branch comparison must contain only allowed Community handoff and report paths."]},
+    {"check_id": "PULL-REQUEST-CI", "status": "pending", "evidence": []}
+  ],
+  "validator_limitation": {
+    "path": "tools/handoff/validate_handoff.py",
+    "protected": true,
+    "finding": "The foundation validator requires the handoff feature population to equal only TLC-FC-00-MASTER-005 and therefore rejects any legitimate domain package population.",
+    "workflow_finding": "The foundation handoff workflow is configured for pull requests targeting main, while this task must target handoff/integration-v1.",
+    "action_taken": "No validator or workflow was modified or bypassed. The limitation is reported for integration-stage tooling work."
+  },
+  "ci": {"pull_request": null, "head_commit": null, "checks": [], "combined_status": "pending"}
+}
