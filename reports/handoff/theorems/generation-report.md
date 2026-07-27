@@ -4,8 +4,9 @@
 
 - Repository: `Tradition-Learning-Community/tllib-specs`
 - Source branch: `handoff/integration-v1`
-- Source commit: `022e6076ceeeb87b31065f2a9a28e95f1811d077`
+- Source commit used to create the work branch: `022e6076ceeeb87b31065f2a9a28e95f1811d077`
 - Work branch: `handoff/domain-06-theorems`
+- Pull request: `https://github.com/Tradition-Learning-Community/tllib-specs/pull/106`
 - Domain: `theorems` (index 06)
 - Authoritative active population: 9
 - Produced packages: 9
@@ -55,8 +56,12 @@ No scientific source, mathematical contract, source IR, finalized IR, algorithm,
 
 ## Hash note
 
-The v1.0 domain-catalog schema has no hash member and forbids additional properties. Package paths and repository objects allow hashes to be calculated externally, but no non-schema hash field was invented.
+The v1.0 domain-catalog schema has no hash member and forbids additional properties. Package paths and repository Git objects allow hashes to be calculated externally, but no non-schema hash field was invented.
 
-## Validation status
+## Validation history
 
-Compilation-time reconciliation is complete. GitHub CI validation is pending. A known repository-level incompatibility is recorded in `validation-report.json`: the validator recognizes inventory keys `feature_count` or `population_count`, while the protected authoritative Theorems inventory uses `authoritative_population_count`. This task does not modify or bypass either protected artifact.
+Pull request CI run 40 failed before package-schema evaluation with `authoritative inventory feature count mismatch for domain theorems`. A static schema review then found and corrected three local issues on the same branch: feature 007 used unsupported collection kind `record`; feature 008 used unsupported collection ordering value `source_order`; and feature 008 used unsupported acceptance category `ordering`.
+
+Pull request CI run 46, on corrected head `d8cd4a57a5d06fc457d55ce125d194c3f0704ee6`, failed at the same protected inventory count guard. The validator recognizes `feature_count` or `population_count`, while the protected authoritative Theorems inventory exposes `authoritative_population_count: 9`. The validator stops before package-level validation. This task cannot modify or bypass either protected artifact.
+
+The domain catalogue therefore remains `validation: pending`; PR #106 remains open and unmerged. Completion requires a separate authorized infrastructure correction followed by successful CI and squash merge.
