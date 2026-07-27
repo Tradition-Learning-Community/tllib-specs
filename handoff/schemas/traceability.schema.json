@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tradition-learning-community.github.io/tllib-specs/handoff/schemas/traceability.schema.json",
+  "title": "Feature Handoff Traceability v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "package_version", "applies_to", "scientific_sources", "mathematical_contracts", "source_irs", "finalized_irs", "algorithm_specifications", "test_plans", "acceptance_oracles", "scientific_decisions"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "package_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "applies_to": {"type": "string", "pattern": "^TLC-(FC-[0-9]{2}-[A-Z][A-Z0-9-]*-[0-9]{3}|HC-[A-Z0-9-]+)$"},
+    "scientific_sources": {"$ref": "#/$defs/references"},
+    "mathematical_contracts": {"$ref": "#/$defs/references"},
+    "source_irs": {"$ref": "#/$defs/references"},
+    "finalized_irs": {"$ref": "#/$defs/references"},
+    "algorithm_specifications": {"$ref": "#/$defs/references"},
+    "test_plans": {"$ref": "#/$defs/references"},
+    "acceptance_oracles": {"$ref": "#/$defs/references"},
+    "scientific_decisions": {"$ref": "#/$defs/references"}
+  },
+  "$defs": {
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "role"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "role": {"type": "string", "minLength": 1},
+          "title": {"type": "string", "minLength": 1},
+          "section": {"type": ["string", "null"]},
+          "subsection": {"type": ["string", "null"]},
+          "line_range": {
+            "type": ["object", "null"],
+            "additionalProperties": false,
+            "required": ["start", "end"],
+            "properties": {"start": {"type": "integer", "minimum": 1}, "end": {"type": "integer", "minimum": 1}}
+          },
+          "artifact_id": {"type": ["string", "null"]},
+          "fingerprint": {
+            "type": ["object", "null"],
+            "additionalProperties": false,
+            "required": ["algorithm", "value"],
+            "properties": {"algorithm": {"enum": ["git_blob_sha1", "sha256"]}, "value": {"type": "string", "minLength": 1}}
+          },
+          "notes": {"type": "string"}
+        }
+      }
+    }
+  }
+}
