@@ -24,8 +24,12 @@ All 14 features are structurally implementable and conditionally executable. Fea
 2. `VALUES-014` preserves the only clearly normative inter-stage ordering in this domain: memory/storage precedes integration.
 3. `VALUES-018` follows the active mathematical contract, active registry IR, and active-IR selector. Its two historical candidate IRs remain traceable comparison material and do not govern behavior.
 4. Optimized IR files refer to test plans under `registry/ir/<FEATURE-ID>/test-plan.yaml`; the existing authoritative plans are under `registry/test-plans/<FEATURE-ID>/test-plan.yaml`. Packages trace the existing files and preserve this editorial inconsistency in the ambiguity report.
-5. The Values inventory declares `expected_count: 14`. The integration compatibility validator currently recognizes other count aliases but not `expected_count`; this nomenclature compatibility is recorded separately and must be corrected generically rather than by changing the scientific inventory.
+5. The Values inventory declares `expected_count: 14`. Generic compatibility support for this established non-scientific count alias was added and validated separately in PR #112, without changing the Values inventory, schemas, or scientific artifacts.
+
+## Validation
+
+GitHub Actions run #80 (`30266911487`) passed package schemas, cross-file consistency, progressive population checks, logical self-tests, and pilot resolution before the catalog was marked validated.
 
 ## Scope confirmation
 
-Only Values feature packages, the Values domain catalog, and Values handoff reports were created. No source under `maths/`, no registry artifact, no schema, no shared contract, no global catalog, no validator, no workflow, and no package from another domain was modified on the domain branch.
+Only Values feature packages, the Values domain catalog, and Values handoff reports were created on the domain branch. No source under `maths/`, no registry artifact, no schema, no shared contract, no global catalog, no validator, no workflow, and no package from another domain was modified. No implementation code was added.

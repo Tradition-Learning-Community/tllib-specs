@@ -6,7 +6,7 @@
   "produced_feature_count":14,
   "package_file_count":70,
   "examples_file_count":0,
-  "status":"ci_rerun_after_compatibility_fix",
+  "status":"validated",
   "checks":[
     {"check":"authoritative_inventory_population","status":"passed","evidence":"14 unique active feature_ids in registry/domain-finalization/values/feature-status.yaml, exact order preserved in catalog"},
     {"check":"artifact_population","status":"passed","evidence":"14 mathematical contracts, active registry IRs, test plans, finalized IRs, algorithms, and oracles resolved"},
@@ -15,11 +15,14 @@
     {"check":"scientific_non_invention","status":"passed","evidence":"all scientific evaluation and unresolved semantics remain prohibited, opaque, or external-provider-required"},
     {"check":"implementation_code_absence","status":"passed","evidence":"packages contain contracts and tests only, with no normative language-specific code"},
     {"check":"protected_path_scope","status":"passed","evidence":"domain branch changes are limited to Values feature packages, Values catalog, and Values reports"},
-    {"check":"json_schema_and_cross_file_validation","status":"pending_ci","evidence":"full validation rerun requested after compatibility correction"},
-    {"check":"inventory_count_nomenclature","status":"resolved_in_integration","evidence":"PR #112 added expected_count as an exact-count compatibility alias and was squash-merged as 875625c52f2b58e3b7558364819d246c5f9cf149"}
+    {"check":"json_schema_and_cross_file_validation","status":"passed","evidence":"GitHub Actions run #80 validated packages, schemas, dependencies, identifiers, errors, strategy contracts, trace paths, and domain population"},
+    {"check":"progressive_population_scenarios","status":"passed","evidence":"GitHub Actions run #80 passed logical progressive-validation self-tests"},
+    {"check":"foundation_pilot_resolution","status":"passed","evidence":"GitHub Actions run #80 resolved and validated the foundation pilot without writing artifacts"},
+    {"check":"inventory_count_nomenclature","status":"resolved","evidence":"PR #112 added expected_count as an exact-count compatibility alias and was squash-merged as 875625c52f2b58e3b7558364819d246c5f9cf149"}
   ],
   "ci":[
-    {"run_id":30266687951,"run_number":75,"conclusion":"failure","diagnostic":"authoritative inventory feature count mismatch for domain values","scope":"pre-package inventory compatibility"}
+    {"run_id":30266687951,"run_number":75,"conclusion":"failure","diagnostic":"authoritative inventory feature count mismatch for domain values","scope":"pre-package inventory compatibility"},
+    {"run_id":30266911487,"run_number":80,"conclusion":"success","diagnostic":null,"scope":"complete Values package and progressive validation"}
   ],
-  "notes":["The catalog remains validation=pending until the complete Values validation succeeds.","No validator bypass or protected scientific edit is included in the domain branch."]
+  "notes":["The catalog is marked validation=validated after complete GitHub Actions success.","No validator bypass or protected scientific edit is included in the domain branch."]
 }

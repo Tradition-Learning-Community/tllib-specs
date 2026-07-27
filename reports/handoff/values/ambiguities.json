@@ -51,10 +51,10 @@
       "ambiguity_id":"VALUES-AMB-006",
       "classification":"non_blocking_editorial",
       "affected_features":["TLC-FC-09-VALUES-001","TLC-FC-09-VALUES-003","TLC-FC-09-VALUES-004","TLC-FC-09-VALUES-005","TLC-FC-09-VALUES-006","TLC-FC-09-VALUES-007","TLC-FC-09-VALUES-008","TLC-FC-09-VALUES-009","TLC-FC-09-VALUES-010","TLC-FC-09-VALUES-011","TLC-FC-09-VALUES-012","TLC-FC-09-VALUES-013","TLC-FC-09-VALUES-014","TLC-FC-09-VALUES-018"],
-      "description":"The authoritative Values inventory uses the count key expected_count, while the integration compatibility validator recognizes other established count aliases but not this one.",
-      "preservation":"The domain catalog uses the exact authoritative inventory and count 14; the inventory is not rewritten on the domain branch.",
-      "blocking":true,
-      "resolution":"Add expected_count as a generic compatibility alias in validator infrastructure on a separate integration-targeted change, following prior compatibility handling, without modifying Values science or the domain package branch."
+      "description":"The authoritative Values inventory uses the count key expected_count, while the integration compatibility validator originally recognized other established count aliases but not this one.",
+      "preservation":"The inventory remained unchanged and the domain catalog continued to use the exact authoritative inventory and count 14.",
+      "blocking":false,
+      "resolution":"Resolved generically by PR #112, squash commit 875625c52f2b58e3b7558364819d246c5f9cf149, which added expected_count as an exact-count compatibility alias without changing Values science."
     }
   ]
 }
