@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-HC-REFERENCE-COLLECTION",
+  "tests": [
+    {"test_id": "HC-RCOL-001", "applies_to": "closed collection kinds", "category": "valid_input", "given": {"kind": "ordered_set"}, "when": "The kind is validated.", "expect": {"accepted": true}},
+    {"test_id": "HC-RCOL-002", "applies_to": "closed collection kinds", "category": "invalid_input", "given": {"kind": "vector"}, "when": "The kind is validated.", "expect": {"accepted": false}},
+    {"test_id": "HC-RCOL-003", "applies_to": "observable ordering", "category": "preservation", "given": {"kind": "ordered_set", "members": ["TLC-SR-MASTER-007", "TLC-SR-MASTER-008"]}, "when": "The collection is represented and returned.", "expect": {"order_preserved": true, "duplicates_absent": true}}
+  ]
+}
