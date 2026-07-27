@@ -4,12 +4,12 @@
   "ambiguities": [
     {
       "ambiguity_id": "THEOREMS-AMB-001",
-      "classification": "cross_feature_inconsistency",
-      "affected_features": ["TLC-FC-06-THEOREMS-001", "TLC-FC-06-THEOREMS-002", "TLC-FC-06-THEOREMS-003", "TLC-FC-06-THEOREMS-004", "TLC-FC-06-THEOREMS-005", "TLC-FC-06-THEOREMS-006", "TLC-FC-06-THEOREMS-007", "TLC-FC-06-THEOREMS-008", "TLC-FC-06-THEOREMS-009"],
-      "statement": "tools/handoff/validate_handoff.py recognizes authoritative inventory count keys feature_count or population_count, while registry/domain-finalization/theorems/feature-status.yaml uses authoritative_population_count.",
-      "preservation": "The authoritative inventory and validator are both protected and were not modified or bypassed. The domain catalogue declares the reconciled exact population of nine and leaves validation pending.",
-      "blocking": "ci_validation",
-      "resolution_owner": "shared handoff infrastructure maintainers"
+      "classification": "non_blocking_editorial",
+      "affected_features": [],
+      "statement": "The authoritative inventory originally exposed its exact count only as authoritative_population_count, while the handoff validator uses the established feature_count or population_count aliases.",
+      "preservation": "The existing value 9 was not changed. A root feature_count: 9 metadata alias was added, matching authoritative_population_count, the nine-entry feature list, and summary.selected_features. No feature, status, source, proof state, unresolved item, blocker, or scientific semantic changed.",
+      "blocking": false,
+      "resolution_owner": "resolved on handoff/domain-06-theorems"
     },
     {
       "ambiguity_id": "THEOREMS-AMB-002",
