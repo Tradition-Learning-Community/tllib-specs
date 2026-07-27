@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "domain": "competencies",
-  "status": "pending_ci",
+  "status": "passed",
   "validator": "tools/handoff/validate_handoff.py",
   "population": {
     "expected": 13,
@@ -12,23 +12,29 @@
     "foreign_packages": []
   },
   "checks": [
-    {"check_id": "COMP-VAL-001", "name": "JSON Schema validation", "status": "prepared", "evidence": "All package files target the repository handoff schemas."},
-    {"check_id": "COMP-VAL-002", "name": "Cross-file identity consistency", "status": "prepared", "evidence": "Manifest, contract, acceptance, traceability, directory, and catalog identities are aligned for 13 packages."},
-    {"check_id": "COMP-VAL-003", "name": "Shared contract resolution", "status": "prepared", "evidence": "Only eight existing handoff shared contracts are referenced at version 1.0.0."},
-    {"check_id": "COMP-VAL-004", "name": "Authoritative error consistency", "status": "prepared", "evidence": "All packages preserve the upstream PascalCase error codes without renaming."},
-    {"check_id": "COMP-VAL-005", "name": "Population exactness", "status": "prepared", "evidence": "The domain catalog matches the 13-feature authoritative finalization inventory exactly and in order."},
-    {"check_id": "COMP-VAL-006", "name": "Scientific non-invention", "status": "prepared", "evidence": "Scientific execution is rejected; unresolved semantics, external dependencies, same-name identities, and relation endpoints remain explicit."},
-    {"check_id": "COMP-VAL-007", "name": "No implementation code", "status": "prepared", "evidence": "Only handoff JSON and Markdown artifacts were added."},
-    {"check_id": "COMP-VAL-008", "name": "Protected-source integrity", "status": "prepared", "evidence": "No source, intermediate artifact, schema, shared contract, validator, workflow, or global catalog was modified."},
-    {"check_id": "COMP-VAL-009", "name": "Write-scope integrity", "status": "prepared", "evidence": "Changes are limited to Competencies feature packages, domain catalog, and domain reports."}
+    {"check_id": "COMP-VAL-001", "name": "JSON Schema validation", "status": "passed", "evidence": "GitHub Actions validated package, domain-catalog, and shared-contract schemas."},
+    {"check_id": "COMP-VAL-002", "name": "Cross-file identity consistency", "status": "passed", "evidence": "Manifest, contract, acceptance, traceability, directory, and catalog identities are aligned for 13 packages."},
+    {"check_id": "COMP-VAL-003", "name": "Shared contract resolution", "status": "passed", "evidence": "All eight existing handoff shared contract dependencies resolved at version 1.0.0."},
+    {"check_id": "COMP-VAL-004", "name": "Authoritative error consistency", "status": "passed", "evidence": "All packages preserve the upstream PascalCase error codes without renaming."},
+    {"check_id": "COMP-VAL-005", "name": "Population exactness", "status": "passed", "evidence": "Progressive population validation accepted the exact ordered 13-feature Competencies inventory."},
+    {"check_id": "COMP-VAL-006", "name": "Scientific non-invention", "status": "passed", "evidence": "Scientific execution is rejected; unresolved semantics, external dependencies, same-name identities, and relation endpoints remain explicit."},
+    {"check_id": "COMP-VAL-007", "name": "No implementation code", "status": "passed", "evidence": "Only handoff JSON and Markdown artifacts were added."},
+    {"check_id": "COMP-VAL-008", "name": "Protected-source integrity", "status": "passed", "evidence": "No source, intermediate artifact, schema, shared contract, validator, workflow, or global catalog was modified."},
+    {"check_id": "COMP-VAL-009", "name": "Write-scope integrity", "status": "passed", "evidence": "The PR changes only Competencies feature packages, domain catalog, and domain reports."},
+    {"check_id": "COMP-VAL-010", "name": "Progressive validation logical scenarios", "status": "passed", "evidence": "All progressive validation logical scenarios passed in GitHub Actions."},
+    {"check_id": "COMP-VAL-011", "name": "Pilot bundle resolution", "status": "passed", "evidence": "The workflow resolved the pilot bundle without writing artifacts."}
   ],
   "scope": {
     "allowed_roots": ["handoff/features/TLC-FC-12-COMPETENCIES-*", "handoff/domains/competencies", "reports/handoff/competencies"],
     "out_of_scope_changes": []
   },
   "ci": {
-    "status": "pending",
-    "run_url": null,
-    "head_sha": "99a00a930a7f47374fa52a59d22d7fa972a797cf"
+    "status": "success",
+    "workflow": "Feature handoff validation",
+    "run_number": 109,
+    "run_url": "https://github.com/Tradition-Learning-Community/tllib-specs/actions/runs/30283847435",
+    "validated_head_sha": "7c1b1deaca2b96eaf523756c214b105d29d694d0",
+    "job": "Validate handoff v1.0",
+    "successful_steps": ["Validate packages, schemas, and progressive populations", "Run progressive validation logical scenarios", "Resolve pilot bundle without writing artifacts"]
   }
 }
