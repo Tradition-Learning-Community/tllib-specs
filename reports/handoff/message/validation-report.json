@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "domain": "message",
+  "source_branch": "handoff/integration-v1",
+  "source_commit": "022e6076ceeeb87b31065f2a9a28e95f1811d077",
+  "work_branch": "handoff/domain-07-message",
+  "status": "pending_github_actions",
+  "population": {
+    "expected_guard": 6,
+    "authoritative_feature_entries": 6,
+    "produced_packages": 6,
+    "ordered_feature_ids": [
+      "TLC-FC-07-MESSAGE-001",
+      "TLC-FC-07-MESSAGE-002",
+      "TLC-FC-07-MESSAGE-003",
+      "TLC-FC-07-MESSAGE-004",
+      "TLC-FC-07-MESSAGE-005",
+      "TLC-FC-07-MESSAGE-006"
+    ],
+    "duplicates": [],
+    "missing_packages": [],
+    "foreign_packages": []
+  },
+  "artifact_coverage": {
+    "mathematical_contracts": "complete_for_all_six",
+    "source_irs": "complete_for_all_six",
+    "finalized_irs": "complete_for_all_six",
+    "algorithm_specifications": "complete_for_all_six",
+    "test_plans": "complete_for_all_six",
+    "acceptance_oracles": "complete_for_all_six",
+    "domain_finalization": "complete",
+    "scientific_sources": "traceable_with_multiplicity"
+  },
+  "conceptual_checks": [
+    {"check": "package_file_population", "status": "passed", "details": "Every package declares and contains README.md, manifest.json, contract.json, acceptance.json, and traceability.json; examples are consistently absent."},
+    {"check": "feature_identity_and_order", "status": "passed", "details": "Feature identifiers are unique and catalog order matches the authoritative inventory."},
+    {"check": "shared_dependency_equality", "status": "passed", "details": "Every manifest dependency set equals its contract dependency set; domain catalog dependencies equal their union."},
+    {"check": "authoritative_errors", "status": "passed", "details": "All public error codes are preserved from finalized artefacts; no local code was invented."},
+    {"check": "strategy_compilation", "status": "passed", "details": "No algorithm step list was copied as a mandatory total order. All operations use justified partial constraints."},
+    {"check": "unresolved_science", "status": "passed", "details": "All routed unresolved identifiers, reservations, unavailable-oracle status, and acceptance-rule markers remain explicit."},
+    {"check": "implementation_code_absence", "status": "passed", "details": "No C++, Python, pseudocode implementation, or language-specific normative code was added."},
+    {"check": "protected_write_scope", "status": "passed", "details": "Writes are limited to Message feature packages, Message domain catalog, and Message handoff reports."}
+  ],
+  "github_actions": {
+    "workflow_runs": [],
+    "checks": [],
+    "result": "not_started"
+  },
+  "known_infrastructure_issue": {
+    "status": "potential_blocker",
+    "classification": "cross_feature_inconsistency",
+    "statement": "registry/domain-finalization/message/feature-status.yaml has six ordered entries but lacks feature_count or population_count, while tools/handoff/validate_handoff.py requires one of those fields.",
+    "allowed_scope_response": "The discrepancy is documented. No protected inventory or validator file is modified by this domain task."
+  },
+  "final_gate": {
+    "json_schema": "pending",
+    "cross_file_consistency": "pending",
+    "shared_contract_resolution": "pending",
+    "global_test_id_uniqueness": "pending",
+    "authoritative_population_validation": "pending",
+    "protected_path_diff": "pending",
+    "ci": "pending"
+  }
+}
