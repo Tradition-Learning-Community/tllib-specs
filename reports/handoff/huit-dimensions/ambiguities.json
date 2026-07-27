@@ -4,24 +4,34 @@
   "ambiguities": [
     {
       "ambiguity_id": "HD-AMB-001",
-      "classification": "source_conflict",
+      "classification": "cross_feature_inconsistency",
       "status": "blocking_validation",
       "affected_features": ["TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013"],
+      "observation": "Feature identifiers encode the domain component HUIT-DIMENSIONS-DE-TL, while DOMAIN_SLUG, the authoritative finalization directory, inventory domain, required catalog path, and report path use huit-dimensions. The validator requires the identifier-derived domain and catalog domain to be identical.",
+      "ci_evidence": {"workflow_run_id": 30263009552, "job_id": 89967075737, "failure": "feature TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001 is declared in the wrong domain catalog huit-dimensions"},
+      "preservation": "The authoritative feature IDs, supplied domain slug, finalization paths, and global validator were not changed. No duplicate or alternate domain catalog was fabricated.",
+      "required_resolution": "An authorized global identity-mapping decision must define an alias between huit-dimensions and huit-dimensions-de-tl, or change one authoritative identity and all dependent protected artifacts consistently."
+    },
+    {
+      "ambiguity_id": "HD-AMB-002",
+      "classification": "source_conflict",
+      "status": "blocking_validation_after_HD_AMB_001",
+      "affected_features": ["all_domain_features"],
       "observation": "registry/domain-finalization/huit-dimensions/feature-status.yaml declares active_feature_count, while tools/handoff/validate_handoff.py accepts only feature_count or population_count.",
       "preservation": "No protected source or validator was changed and no validation bypass was introduced.",
       "required_resolution": "An authorized global-model change must align the validator and authoritative inventory count key."
     },
     {
-      "ambiguity_id": "HD-AMB-002",
+      "ambiguity_id": "HD-AMB-003",
       "classification": "source_conflict",
       "status": "preserved_non_blocking_package",
-      "affected_features": ["TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013"],
+      "affected_features": ["all_domain_features"],
       "observation": "Authoritative error identifiers contain hyphens, but the global contract schema rejects hyphens in error_contract.code.",
       "preservation": "Each required code field uses a one-to-one underscore alias; the exact source identifier remains visible in the condition and acceptance oracle mapping.",
       "required_resolution": "A future global schema decision may define an explicit authoritative-source-error field or broaden the code pattern."
     },
     {
-      "ambiguity_id": "HD-AMB-003",
+      "ambiguity_id": "HD-AMB-004",
       "classification": "artifact_multiplicity",
       "status": "non_blocking",
       "affected_features": ["all_domain_features"],
@@ -29,7 +39,7 @@
       "preservation": "All applicable artifacts are listed independently in traceability.json and no canonicalization of their paths was invented."
     },
     {
-      "ambiguity_id": "HD-AMB-004",
+      "ambiguity_id": "HD-AMB-005",
       "classification": "ordering_uncertain",
       "status": "preserved_non_blocking",
       "affected_features": ["all_domain_features"],
@@ -37,7 +47,7 @@
       "preservation": "strategy_contract is partially_constrained; only conditions required before successful publication are normative."
     },
     {
-      "ambiguity_id": "HD-AMB-005",
+      "ambiguity_id": "HD-AMB-006",
       "classification": "runtime_semantics_unspecified",
       "status": "preserved_non_blocking",
       "affected_features": ["all_domain_features"],
@@ -45,7 +55,7 @@
       "preservation": "Only immutability, lack of visible input mutation, and failure atomicity are prescribed; remaining low-level fields are implementation_defined, not_constrained, or not_required."
     },
     {
-      "ambiguity_id": "HD-AMB-006",
+      "ambiguity_id": "HD-AMB-007",
       "classification": "scientific_unresolved",
       "status": "preserved_unresolved",
       "affected_features": ["TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013"],
@@ -53,7 +63,7 @@
       "preservation": "Packages expose structural records with explicit unresolved statuses and reject scientific execution requests."
     },
     {
-      "ambiguity_id": "HD-AMB-007",
+      "ambiguity_id": "HD-AMB-008",
       "classification": "apparent_shared_pattern",
       "status": "candidate_only",
       "affected_features": ["all_domain_features"],

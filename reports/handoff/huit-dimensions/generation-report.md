@@ -4,7 +4,7 @@
 
 - Repository: `Tradition-Learning-Community/tllib-specs`
 - Source branch: `handoff/integration-v1`
-- Source commit: `6e01d536e41565c456a3b94b4a1f3921664b55af`
+- Source commit used to create the work branch: `6e01d536e41565c456a3b94b4a1f3921664b55af`
 - Work branch: `handoff/domain-03-huit-dimensions`
 - Domain: `huit-dimensions` (index 03)
 - Package model: Feature Handoff Package v1.0
@@ -47,8 +47,14 @@ Every package is structural-only. The finalization inventory specifically marks 
 
 No source scientific file, intermediate artifact, shared contract, schema, validator, workflow, global catalog, other-domain package, or implementation code was modified.
 
-## Validation constraint
+## GitHub Actions validation
 
-The repository validator reads authoritative feature counts only from `feature_count` or `population_count`. The Eight Dimensions finalization inventory exposes `active_feature_count: 11`. This pre-existing key mismatch causes `tools/handoff/validate_handoff.py` to reject the domain before package-level validation with `authoritative inventory feature count mismatch for domain huit-dimensions`.
+Pull request #105 triggered workflow `Feature handoff validation`, run `30263009552`. Job `Validate handoff v1.0` (`89967075737`) failed in the repository validator with:
 
-The validator and authoritative inventory are both outside the allowed write scope. The mismatch is therefore preserved and reported rather than bypassed. The domain catalog remains `validation: pending` until the global model owner aligns the validator with the authoritative inventory key or updates the inventory through an authorized scientific process.
+`feature TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001 is declared in the wrong domain catalog huit-dimensions`
+
+The validator derives the identifier domain from the feature ID as `huit-dimensions-de-tl` and requires it to equal the catalog directory and `catalog.domain`. The authoritative finalization directory, required output path, supplied `DOMAIN_SLUG`, and source inventory all use `huit-dimensions`. Renaming the catalog domain to `huit-dimensions-de-tl` would then make the validator require a nonexistent and unauthorized inventory path `registry/domain-finalization/huit-dimensions-de-tl/feature-status.yaml`. The conflict therefore cannot be resolved inside the permitted feature, domain, and report paths without changing an authoritative identity, global validator, or protected registry layout.
+
+A second pre-existing validator conflict remains behind that first failure: the validator reads authoritative counts only from `feature_count` or `population_count`, while the Eight Dimensions inventory exposes `active_feature_count: 11`.
+
+Neither conflict was bypassed. The catalog remains `validation: pending`, the PR remains open, and no merge was attempted.

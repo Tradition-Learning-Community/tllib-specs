@@ -3,6 +3,7 @@
   "domain": "huit-dimensions",
   "source_commit": "6e01d536e41565c456a3b94b4a1f3921664b55af",
   "work_branch": "handoff/domain-03-huit-dimensions",
+  "pull_request": {"number": 105, "base": "handoff/integration-v1", "head": "handoff/domain-03-huit-dimensions"},
   "population": {
     "expected": 11,
     "produced": 11,
@@ -36,18 +37,33 @@
     "traceability_multiplicity_review": "passed",
     "scientific_boundary_review": "passed",
     "strategy_prescription_review": "passed",
-    "json_schema_execution": "pending_github_actions",
-    "inter_file_consistency_execution": "pending_github_actions"
+    "json_schema_execution": "not_reached_for_domain_packages",
+    "inter_file_consistency_execution": "not_reached_for_domain_packages"
   },
-  "known_validation_blocker": {
-    "status": "pre_existing_out_of_scope_conflict",
-    "validator": "tools/handoff/validate_handoff.py",
-    "inventory": "registry/domain-finalization/huit-dimensions/feature-status.yaml",
-    "detail": "The validator accepts feature_count or population_count, while the authoritative inventory exposes active_feature_count.",
-    "expected_failure": "authoritative inventory feature count mismatch for domain huit-dimensions",
-    "bypass_attempted": false,
-    "protected_fix_attempted": false
+  "ci": {
+    "status": "failed",
+    "workflow_name": "Feature handoff validation",
+    "workflow_run_id": 30263009552,
+    "workflow_conclusion": "failure",
+    "job_name": "Validate handoff v1.0",
+    "job_id": 89967075737,
+    "failed_step": "Validate packages, schemas, and progressive populations",
+    "failure": "feature TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001 is declared in the wrong domain catalog huit-dimensions",
+    "diagnostic_artifact_id": 8651653973
   },
-  "ci": {"status": "pending", "evidence": []},
-  "merge": {"status": "not_performed", "reason": "CI has not yet completed successfully."}
+  "blocking_model_conflicts": [
+    {
+      "id": "HD-VALIDATION-DOMAIN-IDENTITY",
+      "detail": "Feature IDs derive identifier domain huit-dimensions-de-tl, while the supplied and authoritative domain slug and catalog path are huit-dimensions. The validator requires exact equality and derives the finalization path from the catalog domain.",
+      "in_scope_fix_available": false,
+      "bypass_attempted": false
+    },
+    {
+      "id": "HD-VALIDATION-INVENTORY-COUNT-KEY",
+      "detail": "The validator accepts feature_count or population_count, while the authoritative inventory exposes active_feature_count.",
+      "in_scope_fix_available": false,
+      "bypass_attempted": false
+    }
+  ],
+  "merge": {"status": "not_performed", "reason": "Required CI is failing on protected global identity-model conflicts outside the permitted write scope."}
 }
