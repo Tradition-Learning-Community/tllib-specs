@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "domain": "message",
+  "source_branch": "handoff/integration-v1",
+  "integration_base_commit": "03cf7a4d8196deaa951d85b9c9e76936fbafacd1",
+  "work_branch": "handoff/domain-07-message",
+  "validated_head": "56784245ad35cd1819580a2d201a4601711ae83a",
+  "status": "validated",
+  "population": {
+    "expected_guard": 6,
+    "authoritative_feature_entries": 6,
+    "produced_packages": 6,
+    "ordered_feature_ids": [
+      "TLC-FC-07-MESSAGE-001",
+      "TLC-FC-07-MESSAGE-002",
+      "TLC-FC-07-MESSAGE-003",
+      "TLC-FC-07-MESSAGE-004",
+      "TLC-FC-07-MESSAGE-005",
+      "TLC-FC-07-MESSAGE-006"
+    ],
+    "duplicates": [],
+    "missing_packages": [],
+    "foreign_packages": []
+  },
+  "artifact_coverage": {
+    "required_files_per_package": 5,
+    "package_files": 30,
+    "examples_json_count": 0,
+    "mathematical_contracts": "complete_for_all_six",
+    "source_irs": "complete_for_all_six",
+    "finalized_irs": "complete_for_all_six",
+    "algorithm_specifications": "complete_for_all_six",
+    "test_plans": "complete_for_all_six",
+    "acceptance_oracles": "complete_for_all_six",
+    "scientific_sources": "traceable_with_multiplicity"
+  },
+  "checks": [
+    {"check": "authoritative_population_and_order", "status": "passed", "details": "The six-entry feature-status population and sibling manifest count evidence agree exactly with the domain catalog."},
+    {"check": "package_schema_and_files", "status": "passed", "details": "Every package validates and contains exactly the five mandatory files; examples.json is absent and declared absent."},
+    {"check": "shared_dependency_equality", "status": "passed", "details": "Manifest and contract dependencies agree, resolve to the eight existing shared contracts, and equal the domain dependency union."},
+    {"check": "traceability_and_identifiers", "status": "passed", "details": "All required traceability categories resolve; feature, operation, test, and error identities are coherent and unique."},
+    {"check": "strategy_compilation", "status": "passed", "details": "Observable ordering obligations are preserved as partial constraints; no intermediate total sequence is promoted without authority."},
+    {"check": "unresolved_science", "status": "passed", "details": "Unavailable-oracle, unresolved-propagated, hierarchy, transition, transmission, transport, and interpretation semantics remain explicit and unevaluated."},
+    {"check": "implementation_code_absence", "status": "passed", "details": "No language implementation or normative programming-language code was added."},
+    {"check": "write_scope", "status": "passed", "details": "Message-specific changes remain confined to the Message catalog, six package directories, and Message reports."}
+  ],
+  "metadata_compatibility": {
+    "former_blocker": "feature-status.yaml has no root count alias",
+    "resolution": "generic_compatibility_reader",
+    "infrastructure_pr": 119,
+    "registry_modified": false,
+    "population_comparison_weakened": false
+  },
+  "github_actions": {
+    "workflow": "Feature handoff validation",
+    "run_id": 30285781848,
+    "run_number": 116,
+    "head_sha": "56784245ad35cd1819580a2d201a4601711ae83a",
+    "conclusion": "success",
+    "successful_steps": [
+      "Validate packages, schemas, and progressive populations",
+      "Run progressive validation logical scenarios",
+      "Resolve pilot bundle without writing artifacts"
+    ]
+  },
+  "final_gate": {
+    "json_schema": "passed",
+    "cross_file_consistency": "passed",
+    "shared_contract_resolution": "passed",
+    "global_test_id_uniqueness": "passed",
+    "authoritative_population_validation": "passed",
+    "protected_path_diff": "passed",
+    "ci": "passed",
+    "merge_readiness": "ready_after_report_only_revalidation"
+  }
+}
