@@ -6,6 +6,7 @@
 - Source branch: `handoff/integration-v1`
 - Source commit: `297ec9af9f1a47cf2af247440fcde08437b0743a`
 - Work branch: `handoff/domain-14-lived-experience`
+- Pull request: `#116`
 - Domain index: `14`
 - Expected guard: 12
 - Authoritative population: 12
@@ -54,7 +55,7 @@ Two recurring patterns are recorded as `candidate_only` in `shared-contract-cand
 
 ## Validation
 
-Population, traceability paths, package declarations, shared dependency sets, identifiers, errors, and non-invention constraints were inspected during compilation. GitHub Actions validation is pending and will be recorded in `validation-report.json`.
+Pull request `#116` ran the permanent `Feature handoff validation` workflow. Run `30282316390` completed successfully on head `b6f2a542869bb7024fcfdcbe5099a571ebc2da97`. JSON Schema validation, progressive authoritative population checks, inter-file coherence, traceability resolution, shared-contract resolution, identifier and error checks, logical self-tests, and pilot-bundle resolution all passed. The final reporting commit is subject to the same workflow before merge.
 
 ## Change-scope confirmation
 
