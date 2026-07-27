@@ -1,12 +1,19 @@
 {
   "schema_version": "1.0",
   "model_version": "1.0.0",
-  "status": "consolidated_pending_final_pr_ci",
+  "status": "consolidated_and_validated",
   "canonical_cli": {
     "path": "tools/handoff/validate_handoff.py",
     "version": "1.0.0",
     "workflow_invocation_count": 1
   },
+  "shared_constants_module": {
+    "path": "tools/handoff/model.py",
+    "role": "immutable model identity, population, domain-order, shared-contract, and tool-version constants only",
+    "is_validation_cli": false,
+    "is_validation_authority": false
+  },
+  "explicit_import_policy": "Each directly executable handoff tool derives the repository root from __file__, adds that root to sys.path only when absent, and imports through the explicit tools.handoff module path.",
   "removed_redundant_cli": "tools/handoff/validate_handoff_compat.py",
   "compatibility_location": "integrated_into_canonical_cli",
   "accepted_read_aliases": {
@@ -54,5 +61,20 @@
     "global catalog deterministic equality",
     "absence of normative implementation-language code"
   ],
-  "self_tests": "A-K cover completeness, missing/orphan packages, collisions, altered pilot, list and mapping inventories, agreeing and conflicting aliases, missing evidence, and reversible historical slug normalization."
+  "self_tests": "A-K cover completeness, missing/orphan packages, collisions, altered pilot, list and mapping inventories, agreeing and conflicting aliases, missing evidence, and reversible historical slug normalization.",
+  "ci_evidence": {
+    "pull_request": 122,
+    "workflow": "Feature handoff validation",
+    "run_id": 30289744310,
+    "run_number": 137,
+    "validated_head": "8bd87d6cf457dfe535ef072e92318b6967a01ff8",
+    "conclusion": "success",
+    "successful_steps": [
+      "Verify deterministic global catalog",
+      "Validate 16 domains and 166 feature packages",
+      "Run finalized validation logical scenarios",
+      "Validate all standalone exports and determinism",
+      "Reject committed bundle archives"
+    ]
+  }
 }
