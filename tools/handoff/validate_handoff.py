@@ -442,7 +442,12 @@ def main() -> int:
             fail(f"package version mismatch in {package_dir.relative_to(ROOT)}")
 
         owner = declared_owners.get(feature_id)
-        expected_domain = owner if owner is not None else "master"
+        if owner is None:
+            if feature_id != PILOT_ID:
+                fail(f"feature {feature_id} has no domain catalog owner")
+            _, expected_domain = feature_identity(PILOT_ID)
+        else:
+            expected_domain = owner
         if manifest["domain"] != expected_domain or contract["feature"]["domain"] != expected_domain:
             fail(f"feature {feature_id} package domain does not match {expected_domain}")
         if owner is not None:
