@@ -1,0 +1,20 @@
+{
+  "schema_version":"1.0","domain":"virtues","generated_on":"2026-07-27","status":"pending_ci",
+  "population":{"expected":10,"produced":10,"duplicates":0,"foreign_packages":0,"ordered_feature_ids":["TLC-FC-10-VIRTUES-001","TLC-FC-10-VIRTUES-002","TLC-FC-10-VIRTUES-005","TLC-FC-10-VIRTUES-006","TLC-FC-10-VIRTUES-007","TLC-FC-10-VIRTUES-008","TLC-FC-10-VIRTUES-009","TLC-FC-10-VIRTUES-010","TLC-FC-10-VIRTUES-011","TLC-FC-10-VIRTUES-014"]},
+  "preflight_checks":[
+    {"check":"authoritative inventory population and order","status":"pass"},
+    {"check":"contract, source IR, test plan, finalized IR, algorithm, and oracle presence for every feature","status":"pass"},
+    {"check":"manifest, contract, acceptance, traceability, and README presence","status":"pass"},
+    {"check":"shared dependency union consistency","status":"pass"},
+    {"check":"unique feature and acceptance identifiers","status":"pass"},
+    {"check":"source error preservation and public alias uniqueness","status":"pass"},
+    {"check":"traceability categories non-empty and repository-relative","status":"pass"},
+    {"check":"no examples declaration mismatch","status":"pass"},
+    {"check":"no implementation-language code in normative JSON","status":"pass"},
+    {"check":"no scientific completion or protected-source modification","status":"pass"},
+    {"check":"write scope limited to Virtues feature, domain, and report paths","status":"pass"}
+  ],
+  "validators":[{"path":"tools/handoff/validate_handoff.py","role":"normative validator"},{"path":"tools/handoff/validate_handoff_compat.py","role":"integration compatibility entrypoint currently used by CI"}],
+  "github_actions":{"status":"pending","workflow_runs":[]},
+  "notes":["The initial report records preflight results. It will be updated with the final GitHub Actions evidence before merge."]
+}
