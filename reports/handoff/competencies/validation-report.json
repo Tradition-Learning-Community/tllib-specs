@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "domain": "competencies",
+  "status": "pending_ci",
+  "validator": "tools/handoff/validate_handoff.py",
+  "population": {
+    "expected": 13,
+    "produced": 13,
+    "ordered_feature_ids": ["TLC-FC-12-COMPETENCIES-001", "TLC-FC-12-COMPETENCIES-002", "TLC-FC-12-COMPETENCIES-004", "TLC-FC-12-COMPETENCIES-005", "TLC-FC-12-COMPETENCIES-006", "TLC-FC-12-COMPETENCIES-007", "TLC-FC-12-COMPETENCIES-008", "TLC-FC-12-COMPETENCIES-009", "TLC-FC-12-COMPETENCIES-010", "TLC-FC-12-COMPETENCIES-011", "TLC-FC-12-COMPETENCIES-012", "TLC-FC-12-COMPETENCIES-013", "TLC-FC-12-COMPETENCIES-016"],
+    "duplicates": [],
+    "missing": [],
+    "foreign_packages": []
+  },
+  "checks": [
+    {"check_id": "COMP-VAL-001", "name": "JSON Schema validation", "status": "prepared", "evidence": "All package files target the repository handoff schemas."},
+    {"check_id": "COMP-VAL-002", "name": "Cross-file identity consistency", "status": "prepared", "evidence": "Manifest, contract, acceptance, traceability, directory, and catalog identities are aligned for 13 packages."},
+    {"check_id": "COMP-VAL-003", "name": "Shared contract resolution", "status": "prepared", "evidence": "Only eight existing handoff shared contracts are referenced at version 1.0.0."},
+    {"check_id": "COMP-VAL-004", "name": "Authoritative error consistency", "status": "prepared", "evidence": "All packages preserve the upstream PascalCase error codes without renaming."},
+    {"check_id": "COMP-VAL-005", "name": "Population exactness", "status": "prepared", "evidence": "The domain catalog matches the 13-feature authoritative finalization inventory exactly and in order."},
+    {"check_id": "COMP-VAL-006", "name": "Scientific non-invention", "status": "prepared", "evidence": "Scientific execution is rejected; unresolved semantics, external dependencies, same-name identities, and relation endpoints remain explicit."},
+    {"check_id": "COMP-VAL-007", "name": "No implementation code", "status": "prepared", "evidence": "Only handoff JSON and Markdown artifacts were added."},
+    {"check_id": "COMP-VAL-008", "name": "Protected-source integrity", "status": "prepared", "evidence": "No source, intermediate artifact, schema, shared contract, validator, workflow, or global catalog was modified."},
+    {"check_id": "COMP-VAL-009", "name": "Write-scope integrity", "status": "prepared", "evidence": "Changes are limited to Competencies feature packages, domain catalog, and domain reports."}
+  ],
+  "scope": {
+    "allowed_roots": ["handoff/features/TLC-FC-12-COMPETENCIES-*", "handoff/domains/competencies", "reports/handoff/competencies"],
+    "out_of_scope_changes": []
+  },
+  "ci": {
+    "status": "pending",
+    "run_url": null,
+    "head_sha": "99a00a930a7f47374fa52a59d22d7fa972a797cf"
+  }
+}
