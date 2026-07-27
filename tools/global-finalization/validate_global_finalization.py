@@ -62,6 +62,10 @@ FORBIDDEN_PREFIXES = (
     "registry/global-reconciliation/",
 )
 FORBIDDEN_SUFFIXES = (".cpp", ".cc", ".cxx", ".hpp", ".hxx", ".so", ".pyd")
+ALLOWED_VALIDATION_WORKFLOWS = {
+    ".github/workflows/global-finalization.yml",
+    ".github/workflows/handoff.yml",
+}
 EXPECTED_MANIFEST_STATUS = "status: integrated_structural_specification_finalized"
 EXPECTED_LIBRARY_STATUS = "status: structurally_finalized_engineering_specification"
 EXPECTED_SCIENTIFIC_DECISION_COUNT = "scientific_decision_count: 147"
@@ -187,8 +191,10 @@ def main() -> None:
         if path.endswith(".status")
         or "__pycache__" in path
         or path.endswith(".log")
-        or path.startswith(".github/workflows/")
-        and "global-finalization" not in path
+        or (
+            path.startswith(".github/workflows/")
+            and path not in ALLOWED_VALIDATION_WORKFLOWS
+        )
     ]
     if temporary:
         fail(f"temporary or unrelated integration artifacts found: {temporary}")
