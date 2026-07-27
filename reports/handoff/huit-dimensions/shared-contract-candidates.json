@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "domain": "huit-dimensions",
+  "candidates": [
+    {
+      "candidate_id": "HD-CAND-ROLE-BINDING-ENVELOPE",
+      "observed_features": ["TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013"],
+      "local_structures": ["exact semantic-role membership", "distinct scientific identities", "opaque value bindings", "complete traceability", "no partial result on failure"],
+      "possible_sharing_reason": "The same engineering shape recurs when source-backed opaque claims are bound to stable semantic roles.",
+      "semantic_merge_risks": "Cardinality, role names, contextual separation, ordering semantics, error conditions, and unresolved statuses differ by feature and may be erased by an overly broad abstraction.",
+      "proposed_decision": "Collect cross-domain evidence before proposing a shared contract; continue composing the existing reference collection, opaque value, traceability, and descriptor envelope contracts locally.",
+      "status": "candidate_only"
+    },
+    {
+      "candidate_id": "HD-CAND-RESERVATION-PROPAGATION-CHECK",
+      "observed_features": ["TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013"],
+      "local_structures": ["exact unresolved identifier set", "exact provisional assumption set", "unresolved status preservation", "no scientific promotion"],
+      "possible_sharing_reason": "All feature oracles require exact reservation and assumption propagation without resolution claims.",
+      "semantic_merge_risks": "The number and meaning of unresolved identifiers vary; a shared helper must not imply that unresolved items are interchangeable or scientifically equivalent.",
+      "proposed_decision": "Retain local obligations until at least one additional domain demonstrates the same observable contract without semantic loss.",
+      "status": "candidate_only"
+    },
+    {
+      "candidate_id": "HD-CAND-SOURCE-ERROR-ALIAS-MAPPING",
+      "observed_features": ["TLC-FC-03-HUIT-DIMENSIONS-DE-TL-001", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-002", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-005", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-006", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-007", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-008", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-009", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-010", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-011", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-012", "TLC-FC-03-HUIT-DIMENSIONS-DE-TL-013"],
+      "local_structures": ["authoritative hyphenated source identifier", "schema-compatible underscore public alias", "one-to-one mapping in condition and acceptance tests"],
+      "possible_sharing_reason": "The global schema and authoritative domain errors use incompatible identifier grammars.",
+      "semantic_merge_risks": "Treating aliases as replacements could break source traceability, hide error provenance, or create collisions.",
+      "proposed_decision": "Resolve at the global schema/model level rather than creating a domain-local shared contract.",
+      "status": "candidate_only"
+    }
+  ]
+}
