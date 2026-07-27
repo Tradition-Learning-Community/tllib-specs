@@ -256,7 +256,11 @@ def validate_authoritative_inventory(domain: str, catalog: dict[str, Any]) -> No
     if len(authoritative_ids) != len(authoritative_features) or any(not isinstance(item, str) for item in authoritative_ids):
         fail(f"authoritative inventory contains an invalid feature entry for domain {domain}")
 
-    declared_counts = [\n        inventory[key]\n        for key in ("feature_count", "population_count", "authoritative_feature_count")\n        if key in inventory\n    ]
+    declared_counts = [
+        inventory[key]
+        for key in ("feature_count", "population_count", "authoritative_feature_count")
+        if key in inventory
+    ]
     if not declared_counts or any(value != len(authoritative_ids) for value in declared_counts):
         fail(f"authoritative inventory feature count mismatch for domain {domain}")
 
