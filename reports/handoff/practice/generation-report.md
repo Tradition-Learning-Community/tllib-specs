@@ -89,16 +89,16 @@ All packages reuse the eight existing handoff shared contracts. No shared contra
 
 Scientific evaluation is deferred for `TLC-FC-13-PRACTICE-004`, `006`, `008`, `010`, and `012`. Scientific execution or evaluation also remains external-provider-dependent for the other five packages. `TLC-FC-13-PRACTICE-012` additionally preserves unresolved endpoint identity and provisional separation.
 
-The inventory naming difference (`population_count` versus `feature_count`) is recorded as non-blocking pending repository CI. No finalization artifact is changed unless the validator proves the compatibility alias necessary.
+The inventory naming difference (`population_count` versus `feature_count`) was verified against required CI. The validator accepts the authoritative `population_count: 10` key directly, so no compatibility alias or domain-finalization change was necessary.
 
 ## Protected-scope confirmation
 
 - No scientific source was modified.
-- No mathematical contract, source IR, test plan, finalized IR, algorithm, oracle, domain-finalization artifact, schema, shared contract, workflow, validator, or global catalog was modified during initial generation.
+- No mathematical contract, source IR, test plan, finalized IR, algorithm, oracle, domain-finalization artifact, schema, shared contract, workflow, validator, or global catalog was modified.
 - No implementation code was added.
 - No package from another domain was modified.
-- All initial writes are under the ten Practice feature directories, `handoff/domains/practice/`, and `reports/handoff/practice/`.
+- All writes are under the ten Practice feature directories, `handoff/domains/practice/`, and `reports/handoff/practice/`.
 
 ## Validation state
 
-Package population and connector-side path-scope checks pass. JSON Schema and repository coherence validation are delegated to the required GitHub Actions workflow and will be recorded in `validation-report.json` after CI.
+Feature handoff validation run `30283139415` completed successfully on commit `593ab0d92fb6f458cf203add1b6007d7a56c4d0c`. JSON Schema validation, package coherence, progressive population scenarios, shared dependency resolution, and pilot bundle resolution all passed. The final report-only head must pass the same workflow before squash merge.
