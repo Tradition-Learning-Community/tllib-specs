@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "shared_contract": {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "title": "Descriptor Envelope"},
+  "purpose": "Provide a common immutable descriptor carrier without constraining domain-specific semantics or runtime representation.",
+  "scope": {
+    "required": [
+      {"id": "ENV-REQ-001", "statement": "The envelope preserves feature_id, representation, references, unresolved, dependencies, provenance, and status."},
+      {"id": "ENV-REQ-002", "statement": "The emitted envelope is immutable as an observable result."}
+    ],
+    "forbidden": [
+      {"id": "ENV-FOR-001", "statement": "The envelope must not interpret scientific references or opaque values."},
+      {"id": "ENV-FOR-002", "statement": "The envelope must not imply a unique programming-language type, memory layout, or serialization format."}
+    ],
+    "deferred": [{"id": "ENV-DEF-001", "statement": "Domain-specific fields and all internal storage strategies are defined by consuming feature packages or implementations."}]
+  },
+  "data_contract": {
+    "shape": "envelope",
+    "fields": [
+      {"name": "feature_id", "required": true, "semantic_role": "feature identity", "shared_contract_ref": "TLC-HC-FEATURE-ID@1.0.0"},
+      {"name": "representation", "required": true, "semantic_role": "structural representation label", "value_kind": "string"},
+      {"name": "references", "required": true, "semantic_role": "scientific reference collections", "shared_contract_ref": "TLC-HC-REFERENCE-COLLECTION@1.0.0"},
+      {"name": "unresolved", "required": true, "semantic_role": "preserved unresolved items", "shared_contract_ref": "TLC-HC-UNRESOLVED-ITEM@1.0.0"},
+      {"name": "dependencies", "required": true, "semantic_role": "declared package dependencies", "value_kind": "array"},
+      {"name": "provenance", "required": true, "semantic_role": "resolvable provenance", "shared_contract_ref": "TLC-HC-TRACEABILITY@1.0.0"},
+      {"name": "status", "required": true, "semantic_role": "descriptor scientific and execution state", "value_kind": "object"}
+    ],
+    "collection": {"supported_kinds": ["scalar"], "membership": "exact", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null},
+    "runtime": {"mutability": "immutable", "layout": "not_constrained", "ownership": "implementation_defined", "lifetime": "implementation_defined", "allocation": "implementation_defined", "thread_safety": "implementation_defined"}
+  },
+  "global_invariants": [
+    {"id": "ENV-INV-001", "statement": "No envelope transformation changes semantic identity or provenance."},
+    {"id": "ENV-INV-002", "statement": "Distinct scientific references remain distinct unless an authoritative alias is declared."}
+  ],
+  "conformance": {"acceptance_required": true, "lossless_preservation_required": true, "notes": []}
+}
