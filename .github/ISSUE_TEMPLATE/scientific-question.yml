@@ -1,0 +1,57 @@
+name: Scientific or mathematical question
+description: Clarify scientific meaning, equations, domains, assumptions, proofs, or unresolved semantics.
+title: "science: "
+labels: ["scientific-question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for questions of scientific or mathematical authority. Do not propose implementation defaults for missing science.
+  - type: input
+    id: source
+    attributes:
+      label: Scientific source
+      description: Exact repository path and section, equation, symbol, or statement.
+      placeholder: maths/05-dynamics.md, section ...
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Question or ambiguity
+      description: State precisely what is undefined, inconsistent, disputed, or in need of clarification.
+    validations:
+      required: true
+  - type: textarea
+    id: features
+    attributes:
+      label: Affected feature IDs
+      description: List known feature IDs and domains. Explain uncertainty when the population is not yet known.
+    validations:
+      required: true
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Current impact
+      options:
+        - Blocks scientific execution
+        - Blocks structural finalization
+        - Creates contradictory observable behavior
+        - Non-blocking clarification
+        - Unknown
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence or proposed adjudication
+      description: Provide references, derivation, counterexample, or a bounded proposal. Separate evidence from preference.
+  - type: checkboxes
+    id: boundary
+    attributes:
+      label: Scientific boundary
+      options:
+        - label: I have not filled the gap with an implementation convenience or unsupported default.
+          required: true
+        - label: I have distinguished known facts from unresolved interpretation.
+          required: true

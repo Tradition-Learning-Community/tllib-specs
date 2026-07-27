@@ -1,0 +1,71 @@
+name: Handoff consumer feedback
+description: Report an implementation-facing ambiguity or missing obligation from a standalone bundle.
+title: "handoff: "
+labels: ["handoff-feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form is for downstream implementers consuming `feature/`, `shared/`, and `bundle-lock.json`. Implementation-specific build or platform defects belong downstream unless the handoff is the root cause.
+  - type: input
+    id: feature
+    attributes:
+      label: Feature ID
+      placeholder: TLC-FC-00-MASTER-005
+    validations:
+      required: true
+  - type: input
+    id: fingerprint
+    attributes:
+      label: Bundle fingerprint
+      description: Aggregate bundle hash or exact commit and package version.
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: Implementation context
+      description: Language and relevant runtime model, only to explain the consumer perspective.
+      placeholder: C++23, Rust stable, Ruby 3.x, another target
+    validations:
+      required: true
+  - type: textarea
+    id: decision
+    attributes:
+      label: Decision that could not be derived
+      description: Identify the input, output, lifetime, ownership, error, ordering, determinism, resource, or conformance question left ambiguous.
+    validations:
+      required: true
+  - type: textarea
+    id: consulted
+    attributes:
+      label: Bundle artifacts consulted
+      description: List the exact feature and shared files reviewed.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Competing conforming interpretations
+      description: Describe at least two plausible interpretations when possible and why the bundle does not distinguish them.
+  - type: dropdown
+    id: result
+    attributes:
+      label: Consequence
+      options:
+        - Implementation is blocked
+        - Multiple observably different implementations appear conforming
+        - Acceptance tests cannot be derived
+        - Low-level guarantee is unclear
+        - Documentation is unclear but contract is sufficient
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope confirmation
+      options:
+        - label: This is a handoff specification concern, not only a downstream build or coding issue.
+          required: true
+        - label: I have not asked the specification to mandate a language-specific design without observable need.
+          required: true

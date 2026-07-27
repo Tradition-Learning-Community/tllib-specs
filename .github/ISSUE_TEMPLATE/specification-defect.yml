@@ -1,0 +1,71 @@
+name: Specification contradiction or defect
+description: Report incompatible obligations, broken traceability, malformed packages, or validation gaps.
+title: "spec: "
+labels: ["specification-defect"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Report the smallest reproducible contradiction or defect. Preserve unresolved semantics rather than selecting a convenient meaning.
+  - type: input
+    id: feature
+    attributes:
+      label: Feature ID or shared contract
+      placeholder: TLC-FC-00-MASTER-005 or TLC-HC-STRUCTURED-ERROR
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Commit, package version, or bundle hash
+      description: Provide the exact artifact identity used.
+    validations:
+      required: true
+  - type: textarea
+    id: files
+    attributes:
+      label: Conflicting or defective files
+      description: List exact paths, fields, operation IDs, test IDs, or traceability entries.
+    validations:
+      required: true
+  - type: textarea
+    id: defect
+    attributes:
+      label: Defect description
+      description: Explain the incompatible obligations, missing information, malformed structure, or validator false acceptance/rejection.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: Include the smallest input, acceptance conflict, command, or bundle fragment that demonstrates the problem.
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Impact
+      options:
+        - Blocks implementation of one feature
+        - Risks incorrect implementation
+        - Breaks deterministic export or validation
+        - Breaks cross-domain consistency
+        - Documentation or traceability only
+        - Unknown
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected repository behavior
+      description: Describe the expected structural or validation outcome without inventing scientific semantics.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmation
+      options:
+        - label: I identified the exact affected artifact rather than reporting only a general concern.
+          required: true
+        - label: I did not resolve the contradiction by choosing an unsupported scientific interpretation.
+          required: true
