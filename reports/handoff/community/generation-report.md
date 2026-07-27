@@ -5,8 +5,10 @@
 - Repository: `Tradition-Learning-Community/tllib-specs`
 - Source branch: `handoff/integration-v1`
 - Branch-creation commit: `21440c05372546b8d3b605f3368680e78a1d3778`
-- Validation-base commit: `b29ebf1c56c0191452b8055956331aba4d71083a`
+- Progressive-validation infrastructure commit inspected during compilation: `b29ebf1c56c0191452b8055956331aba4d71083a`
+- Pull-request base at first CI run: `6e01d536e41565c456a3b94b4a1f3921664b55af`
 - Work branch: `handoff/domain-02-community`
+- Pull request: `#99`
 - Domain: `community`
 - Expected feature-count guard: 8
 - Authoritative active population: 8
@@ -27,7 +29,7 @@ Ordered active features:
 7. `TLC-FC-02-COMMUNITY-008`
 8. `TLC-FC-02-COMMUNITY-009`
 
-Non-active lineage `002`, `010`, `011`, and `012` was not packaged.
+Non-active lineage identifiers `002`, `010`, `011`, and `012` were not packaged.
 
 ## Generated output
 
@@ -72,7 +74,13 @@ Ambiguities are recorded in `ambiguities.json`. Two possible shared patterns are
 
 ## Validation
 
-While this branch was being compiled, `handoff/integration-v1` received the approved progressive-domain validation infrastructure in commit `b29ebf1c56c0191452b8055956331aba4d71083a`. The Community catalog was aligned exactly with `handoff/schemas/domain-catalog.schema.json`. The pull request therefore receives JSON Schema validation, cross-file checks, authoritative inventory comparison, progressive population validation, shared-dependency union validation, pilot preservation checks, and the validator self-test without any validator or workflow modification in this branch.
+Pull request `#99` triggered the permanent `Feature handoff validation` workflow. Run `30260916638` reached the progressive authoritative-inventory check and failed before package-schema validation with:
+
+`authoritative inventory feature count mismatch for domain community`
+
+The Community population itself is coherent: both `registry/domain-finalization/community/manifest.yaml` and `registry/domain-finalization/community/feature-status.yaml` declare eight active feature entries. The incompatibility is structural: `tools/handoff/validate_handoff.py` currently requires a top-level `feature_count`, while the protected Community inventory stores the authoritative count as `summary.active_features`.
+
+This branch cannot legally correct that mismatch because the mission forbids changes to both `tools/handoff/validate_handoff.py` and `registry/domain-finalization/community/feature-status.yaml`. No misleading catalog value or fabricated package was introduced. The PR therefore remains open and unmerged until the shared validation infrastructure accepts the existing authoritative inventory shape.
 
 Validation evidence and CI results are recorded in `validation-report.json`.
 
