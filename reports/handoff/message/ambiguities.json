@@ -5,12 +5,12 @@
   "ambiguities": [
     {
       "ambiguity_id": "MSG-AMB-001",
-      "classification": "cross_feature_inconsistency",
+      "classification": "non_blocking_editorial",
       "affected_features": ["TLC-FC-07-MESSAGE-001", "TLC-FC-07-MESSAGE-002", "TLC-FC-07-MESSAGE-003", "TLC-FC-07-MESSAGE-004", "TLC-FC-07-MESSAGE-005", "TLC-FC-07-MESSAGE-006"],
-      "statement": "The authoritative inventory contains six ordered feature entries and the domain-finalization manifest declares expected_feature_count=6, but feature-status.yaml contains neither feature_count nor population_count although tools/handoff/validate_handoff.py currently requires one of those fields.",
-      "evidence": ["registry/domain-finalization/message/feature-status.yaml", "registry/domain-finalization/message/manifest.yaml", "tools/handoff/validate_handoff.py"],
-      "preservation": "The six-entry authoritative population is used without fabricating metadata. No protected source or validator is modified.",
-      "status": "potential_validation_blocker"
+      "statement": "The authoritative inventory contains six ordered feature entries but no root count alias; the sibling finalization manifest independently declares the same exact population and count.",
+      "evidence": ["registry/domain-finalization/message/feature-status.yaml", "registry/domain-finalization/message/manifest.yaml", "tools/handoff/validate_handoff_compat.py", "reports/handoff/infrastructure/historical-inventory-compatibility.md"],
+      "preservation": "Generic read compatibility verifies exact population and order without changing the inventory, feature identities, statuses, or scientific content.",
+      "status": "resolved_by_generic_compatibility"
     },
     {
       "ambiguity_id": "MSG-AMB-002",
@@ -72,7 +72,7 @@
       "affected_features": ["TLC-FC-07-MESSAGE-001", "TLC-FC-07-MESSAGE-002", "TLC-FC-07-MESSAGE-003", "TLC-FC-07-MESSAGE-004", "TLC-FC-07-MESSAGE-005", "TLC-FC-07-MESSAGE-006"],
       "statement": "The fixed domain-catalog schema has no per-package hash property although the task requests calculable hashes.",
       "evidence": ["handoff/schemas/domain-catalog.schema.json"],
-      "preservation": "The catalog stores exact paths, versions, order, and source commit. Package hashes remain calculable from Git blobs and trees without changing a global schema.",
+      "preservation": "The catalog stores exact paths, versions, order, and source commit. Package fingerprints remain deterministically calculable from Git objects without changing the domain schema.",
       "status": "preserved_non_blocking"
     }
   ]
