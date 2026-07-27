@@ -34,8 +34,18 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install validator dependency
-        run: python -m pip install --disable-pip-version-check jsonschema
+        run: python -m pip install --disable-pip-version-check --quiet jsonschema
       - name: Validate packages and schemas
-        run: python tools/handoff/validate_handoff.py
+        shell: bash
+        run: |
+          set -o pipefail
+          python tools/handoff/validate_handoff.py 2>&1 | tee handoff-validation.log
+      - name: Upload validation diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: handoff-validation-diagnostics
+          path: handoff-validation.log
+          if-no-files-found: error
       - name: Resolve pilot bundle without writing artifacts
         run: python tools/handoff/export_bundle.py TLC-FC-00-MASTER-005 --check
