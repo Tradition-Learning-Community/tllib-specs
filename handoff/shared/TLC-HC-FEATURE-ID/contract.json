@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "shared_contract": {"shared_contract_id": "TLC-HC-FEATURE-ID", "title": "Feature Identifier"},
+  "purpose": "Preserve an exact stable feature identity without assigning scientific semantics to its representation.",
+  "scope": {
+    "required": [
+      {"id": "FID-REQ-001", "statement": "The identifier is preserved and compared exactly."},
+      {"id": "FID-REQ-002", "statement": "A valid feature identifier matches the closed TLC feature identifier syntax."}
+    ],
+    "forbidden": [
+      {"id": "FID-FOR-001", "statement": "Case folding, whitespace normalization, translation, or inferred aliasing is forbidden."},
+      {"id": "FID-FOR-002", "statement": "A shared carrier representation must not be treated as scientific equivalence."}
+    ],
+    "deferred": [
+      {"id": "FID-DEF-001", "statement": "Storage, interning, binary layout, and allocation strategy are implementation-defined."}
+    ]
+  },
+  "data_contract": {
+    "shape": "opaque_scalar",
+    "fields": [
+      {"name": "value", "required": true, "semantic_role": "exact stable identifier", "value_kind": "identifier"}
+    ],
+    "collection": {"supported_kinds": ["scalar"], "membership": "exact", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null},
+    "runtime": {"mutability": "immutable", "layout": "not_constrained", "ownership": "implementation_defined", "lifetime": "implementation_defined", "allocation": "implementation_defined", "thread_safety": "implementation_defined"}
+  },
+  "global_invariants": [
+    {"id": "FID-INV-001", "statement": "Round-trip transport preserves every identifier character exactly."}
+  ],
+  "conformance": {"acceptance_required": true, "lossless_preservation_required": true, "notes": ["The syntax rule does not assign meaning to identifier segments."]}
+}
