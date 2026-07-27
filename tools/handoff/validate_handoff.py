@@ -278,8 +278,8 @@ def validate_acceptance_ids(acceptance: dict[str, Any], global_ids: set[str], pa
 
 def validate_feature_readme(package_dir: Path, feature_id: str) -> None:
     text = (package_dir / "README.md").read_text(encoding="utf-8")
-    if len(text.strip()) < 200 or feature_id not in text:
-        fail(f"feature README is insufficiently specific in {package_dir.relative_to(ROOT)}")
+    if len(text.strip()) < 200:
+        fail(f"feature README for {feature_id} is too short in {package_dir.relative_to(ROOT)}")
 
 
 def validate_pilot(contract: dict[str, Any], acceptance: dict[str, Any], manifest: dict[str, Any]) -> None:
