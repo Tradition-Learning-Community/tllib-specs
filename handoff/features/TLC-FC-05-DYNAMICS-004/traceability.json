@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0", "package_version": "1.0.0", "applies_to": "TLC-FC-05-DYNAMICS-004",
+  "scientific_sources": [{"path": "maths/05-dynamics.md", "role": "Disciple feedback integral and kernel source", "line_range": {"start": 103, "end": 112}}],
+  "mathematical_contracts": [{"path": "registry/math-contracts/TLC-FC-05-DYNAMICS-004/contract.yaml", "role": "Authoritative limited engineering contract", "artifact_id": "TLC-MC-TLC-FC-05-DYNAMICS-004"}],
+  "source_irs": [{"path": "ir/TLC-FC-05-DYNAMICS-004/ir.prototype.json", "role": "Active prototype IR", "artifact_id": "TLC-IR-TLC-FC-05-DYNAMICS-004"}],
+  "finalized_irs": [{"path": "registry/optimized-ir/dynamics/TLC-FC-05-DYNAMICS-004/ir.yaml", "role": "Final declarative structural IR", "artifact_id": "TLC-OPT-IR-TLC-FC-05-DYNAMICS-004"}],
+  "algorithm_specifications": [{"path": "registry/algorithms/dynamics/TLC-FC-05-DYNAMICS-004/algorithm.yaml", "role": "Algorithm input compiled into observable and partial-order obligations", "artifact_id": "TLC-ALG-TLC-FC-05-DYNAMICS-004"}],
+  "test_plans": [{"path": "registry/test-plans/TLC-FC-05-DYNAMICS-004/test-plan.yaml", "role": "Source structural test plan", "artifact_id": "TLC-TP-TLC-FC-05-DYNAMICS-004"}],
+  "acceptance_oracles": [{"path": "registry/oracles/dynamics/TLC-FC-05-DYNAMICS-004/oracle.yaml", "role": "Authoritative structural property oracle", "artifact_id": "TLC-ORACLE-TLC-FC-05-DYNAMICS-004"}],
+  "scientific_decisions": [
+    {"path": "registry/domain-finalization/dynamics/decision-required.yaml", "role": "Preserves unresolved kernel parameter, domain, and convergence semantics", "artifact_id": "DYN-DEC-004"},
+    {"path": "registry/domain-finalization/dynamics/module-specification.yaml", "role": "Domain-level feedback operation and integration boundary"},
+    {"path": "registry/domain-finalization/dynamics/patterns.yaml", "role": "Opaque construction and unevaluated-expression decisions"}
+  ]
+}
