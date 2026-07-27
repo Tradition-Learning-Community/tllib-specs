@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "domain": "dynamics",
   "source_commit": "6e01d536e41565c456a3b94b4a1f3921664b55af",
-  "status": "pending_ci",
+  "status": "blocked_by_protected_validator_inventory_mismatch",
   "checks": [
     {"check_id": "population-guard", "status": "passed", "detail": "Expected guard and authoritative discovered population both equal seven."},
     {"check_id": "feature-identity-uniqueness", "status": "passed", "detail": "Seven ordered Dynamics feature IDs are unique and no foreign feature package is declared."},
@@ -17,7 +17,8 @@
     {"check_id": "protected-scope", "status": "passed", "detail": "Only Dynamics feature packages, the Dynamics domain catalog, and Dynamics handoff reports were modified."},
     {"check_id": "scientific-non-invention", "status": "passed", "detail": "No unresolved scientific question was answered; all execution semantics remain structural-only, preserved unresolved, or external-provider-required."},
     {"check_id": "implementation-code", "status": "passed", "detail": "No implementation code was added."},
-    {"check_id": "validator-inventory-key", "status": "blocked_outside_scope", "detail": "The unchanged validator accepts feature_count or population_count, while the protected Dynamics inventory declares authoritative_population_count. CI evidence is required; neither protected file may be changed in this task."},
-    {"check_id": "github-actions", "status": "pending", "detail": "Awaiting pull-request CI."}
+    {"check_id": "validator-inventory-key", "status": "blocked_outside_scope", "detail": "The unchanged validator reads only feature_count or population_count, while the protected Dynamics inventory declares authoritative_population_count. The actual authoritative feature list contains seven entries and matches the domain catalog exactly. Neither protected file may be changed in this task."},
+    {"check_id": "github-actions", "status": "failed_at_protected_inventory_gate", "detail": "Feature handoff validation run 30262982959, job 89966992533, failed before package validation. Diagnostic artifact 8651644263 is named handoff-validation-ERROR-authoritative-inventory-feature-count-mismatch-for-domain-dynamics-."},
+    {"check_id": "merge", "status": "not_performed", "detail": "The pull request remains open because the required complete CI success condition is not met; merging despite the failure would violate the task contract."}
   ]
 }
