@@ -63,7 +63,7 @@
       {"code": "TYPE_SHAPE_MISMATCH", "category": "invalid_input", "condition": "The component mapping or a component value does not preserve its declared carrier shape.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"},
       {"code": "UNRESOLVED_SCIENTIFIC_SEMANTICS", "category": "unsupported_operation", "condition": "An explicit state space, completeness claim, default, state classification, initial or terminal state, or transition semantics are requested.", "recoverability": "non_retryable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}
     ],
-    "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "constrained", "value": "At most twelve distinct covered component keys"}}
+    "resource_contract": {"time_complexity": {"status": "not_specified", "value": null}, "auxiliary_memory": {"status": "not_specified", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "informative", "value": "At most twelve distinct covered component keys"}}
   }],
   "implementation_modes": [
     {"mode_id": "state-candidate-packaging", "status": "required", "statement": "Expose complete, partial, and empty candidate records with stable errors."},
