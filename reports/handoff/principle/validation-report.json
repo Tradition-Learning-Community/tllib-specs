@@ -1,10 +1,67 @@
 {
-  "schema_version":"1.0",
-  "domain":"principle",
-  "source_commit":"022e6076ceeeb87b31065f2a9a28e95f1811d077",
-  "population":{"expected":10,"produced":10,"pilot_preserved":false,"foreign_packages":0},
-  "checks":{"json_schema":"pending","cross_file_coherence":"pending","shared_dependency_resolution":"pending","identifier_uniqueness":"pending","error_coherence":"pending","authoritative_population":"pending","scientific_non_invention":"pending","protected_paths":"pending"},
-  "workflow":"Feature handoff validation",
-  "status":"pending",
-  "workflow_run":null
+  "schema_version": "1.0",
+  "domain": "principle",
+  "source_commit": "022e6076ceeeb87b31065f2a9a28e95f1811d077",
+  "integration_base_commit": "40a26361e938f6e483687c0c7b9f792a277069b1",
+  "validated_head": "e8ca626e69931b2dcebf05d1f2953b3d51decb62",
+  "population": {
+    "expected": 10,
+    "authoritative": 10,
+    "produced": 10,
+    "foreign_packages": 0,
+    "missing_packages": 0,
+    "synthetic_009": false,
+    "ordered_feature_ids": [
+      "TLC-FC-08-PRINCIPLE-001",
+      "TLC-FC-08-PRINCIPLE-002",
+      "TLC-FC-08-PRINCIPLE-003",
+      "TLC-FC-08-PRINCIPLE-004",
+      "TLC-FC-08-PRINCIPLE-005",
+      "TLC-FC-08-PRINCIPLE-006",
+      "TLC-FC-08-PRINCIPLE-007",
+      "TLC-FC-08-PRINCIPLE-008",
+      "TLC-FC-08-PRINCIPLE-010",
+      "TLC-FC-08-PRINCIPLE-011"
+    ]
+  },
+  "artifact_coverage": {
+    "required_files_per_package": 5,
+    "package_files": 50,
+    "examples_json_count": 0,
+    "traceability": "complete_for_all_ten"
+  },
+  "checks": {
+    "json_schema": "passed",
+    "cross_file_coherence": "passed",
+    "shared_dependency_resolution": "passed",
+    "identifier_uniqueness": "passed",
+    "error_coherence": "passed_with_reversible_source_error_mapping",
+    "authoritative_population": "passed_mapping_form_in_source_order",
+    "scientific_non_invention": "passed",
+    "documentary_dependency_separation": "passed",
+    "partial_order_strategy": "passed",
+    "protected_paths": "passed",
+    "implementation_code_absence": "passed"
+  },
+  "preserved_boundaries": [
+    "Feature 002 retains three unresolved scientific identifiers without invented domains, initial conditions, or solvers.",
+    "Features 006 and 007 remain external-provider descriptors and expose no fabricated boolean or numeric result.",
+    "Feature 005 retains Feature 002 as documentary metadata only and never as a runtime dependency.",
+    "Hyphenated source error identifiers remain traceable through explicit schema-safe public mappings.",
+    "Runtime storage, ownership, allocation, serialization, language, layout, and concurrency remain implementation-defined."
+  ],
+  "workflow": {
+    "name": "Feature handoff validation",
+    "run_id": 30286151567,
+    "run_number": 122,
+    "head_sha": "e8ca626e69931b2dcebf05d1f2953b3d51decb62",
+    "conclusion": "success",
+    "successful_steps": [
+      "Validate packages, schemas, and progressive populations",
+      "Run progressive validation logical scenarios",
+      "Resolve pilot bundle without writing artifacts"
+    ]
+  },
+  "status": "validated",
+  "merge_readiness": "ready_after_report_only_revalidation"
 }
