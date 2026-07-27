@@ -4,7 +4,7 @@
   "source_branch": "handoff/integration-v1",
   "source_commit": "022e6076ceeeb87b31065f2a9a28e95f1811d077",
   "work_branch": "handoff/domain-07-message",
-  "status": "pending_github_actions",
+  "status": "blocked_by_protected_inventory_metadata",
   "population": {
     "expected_guard": 6,
     "authoritative_feature_entries": 6,
@@ -33,32 +33,40 @@
   },
   "conceptual_checks": [
     {"check": "package_file_population", "status": "passed", "details": "Every package declares and contains README.md, manifest.json, contract.json, acceptance.json, and traceability.json; examples are consistently absent."},
-    {"check": "feature_identity_and_order", "status": "passed", "details": "Feature identifiers are unique and catalog order matches the authoritative inventory."},
-    {"check": "shared_dependency_equality", "status": "passed", "details": "Every manifest dependency set equals its contract dependency set; domain catalog dependencies equal their union."},
+    {"check": "feature_identity_and_order", "status": "passed", "details": "Feature identifiers are unique and catalog order matches the six-entry authoritative inventory."},
+    {"check": "shared_dependency_equality", "status": "passed", "details": "Every manifest dependency set equals its contract dependency set; the domain catalog dependencies equal their union."},
     {"check": "authoritative_errors", "status": "passed", "details": "All public error codes are preserved from finalized artefacts; no local code was invented."},
     {"check": "strategy_compilation", "status": "passed", "details": "No algorithm step list was copied as a mandatory total order. All operations use justified partial constraints."},
     {"check": "unresolved_science", "status": "passed", "details": "All routed unresolved identifiers, reservations, unavailable-oracle status, and acceptance-rule markers remain explicit."},
+    {"check": "schema_review", "status": "passed_after_correction", "details": "Manual review against the published schemas found and corrected MESSAGE-006 collection.kind from unsupported record to supported set. Other collection kinds, statuses, error formats, acceptance categories, and traceability shapes were reviewed as schema-valid."},
     {"check": "implementation_code_absence", "status": "passed", "details": "No C++, Python, pseudocode implementation, or language-specific normative code was added."},
     {"check": "protected_write_scope", "status": "passed", "details": "Writes are limited to Message feature packages, Message domain catalog, and Message handoff reports."}
   ],
   "github_actions": {
-    "workflow_runs": [],
-    "checks": [],
-    "result": "not_started"
+    "workflow_runs": [
+      {"run_id": 30263486593, "run_number": 48, "head_sha": "5736187f327d741da94403a32bb8593761246a01", "conclusion": "failure", "diagnostic_artifact_id": 8651835329, "diagnostic": "authoritative-inventory-feature-count-mismatch-for-domain-message"},
+      {"run_id": 30263749290, "run_number": 56, "head_sha": "34eeb8a2bd246ddc0e89be9a7cab214c863b9144", "conclusion": "failure", "diagnostic_artifact_id": 8651932393, "diagnostic": "authoritative-inventory-feature-count-mismatch-for-domain-message"}
+    ],
+    "checks": [
+      {"name": "Validate handoff v1.0", "status": "completed", "conclusion": "failure", "failure_stage": "authoritative_inventory_population_metadata"}
+    ],
+    "result": "blocked_before_feature_package_validation"
   },
   "known_infrastructure_issue": {
-    "status": "potential_blocker",
+    "status": "blocking_out_of_scope",
     "classification": "cross_feature_inconsistency",
-    "statement": "registry/domain-finalization/message/feature-status.yaml has six ordered entries but lacks feature_count or population_count, while tools/handoff/validate_handoff.py requires one of those fields.",
-    "allowed_scope_response": "The discrepancy is documented. No protected inventory or validator file is modified by this domain task."
+    "statement": "registry/domain-finalization/message/feature-status.yaml contains the correct six ordered feature entries but lacks feature_count or population_count, while tools/handoff/validate_handoff.py requires at least one of those fields before validating feature packages.",
+    "independent_population_evidence": ["registry/domain-finalization/message/feature-status.yaml: six feature entries", "registry/domain-finalization/message/manifest.yaml: expected_feature_count=6", "task guard: EXPECTED_FEATURE_COUNT=6"],
+    "allowed_scope_response": "The discrepancy is documented. The task expressly forbids modifying the protected inventory or validator, so no in-scope correction or validator bypass exists."
   },
   "final_gate": {
-    "json_schema": "pending",
-    "cross_file_consistency": "pending",
-    "shared_contract_resolution": "pending",
-    "global_test_id_uniqueness": "pending",
-    "authoritative_population_validation": "pending",
-    "protected_path_diff": "pending",
-    "ci": "pending"
+    "json_schema": "manually_reviewed_after_local_schema_correction_but_not_reached_by_ci",
+    "cross_file_consistency": "manually_passed_but_not_reached_by_ci",
+    "shared_contract_resolution": "manually_passed_but_not_reached_by_ci",
+    "global_test_id_uniqueness": "manually_passed_but_not_reached_by_ci",
+    "authoritative_population_validation": "failed_on_missing_protected_count_metadata",
+    "protected_path_diff": "passed",
+    "ci": "failed_blocked_out_of_scope",
+    "squash_merge": "not_performed"
   }
 }
