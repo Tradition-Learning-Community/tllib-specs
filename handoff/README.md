@@ -35,4 +35,4 @@ The handoff compiles observable obligations conservatively. It preserves unresol
 
 ## Current scope
 
-Version 1.0 establishes eight shared contracts and the pilot package `TLC-FC-00-MASTER-005`. The complete catalogue of 166 feature packages is not yet finalized.
+Version 1.0 establishes eight shared contracts and the pilot package `TLC-FC-00-MASTER-005`. The complete catalog of 166 feature packages is not yet finalized.
