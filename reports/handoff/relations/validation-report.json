@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "domain": "relations",
+  "status": "pending_ci",
+  "population": {
+    "expected": 5,
+    "produced": 5,
+    "foreign_packages": 0
+  },
+  "checks": {
+    "json_schema": "pending_ci",
+    "inter_file_consistency": "pending_ci",
+    "shared_dependency_resolution": "pending_ci",
+    "identifier_uniqueness": "pending_ci",
+    "error_consistency": "pending_ci",
+    "authoritative_inventory": "pending_ci",
+    "scientific_non_invention": "reviewed",
+    "implementation_code_absence": "reviewed",
+    "protected_paths": "reviewed"
+  },
+  "validator": "tools/handoff/validate_handoff.py",
+  "source_commit": "f3f4881cf6de85e6b09b4be65dde34f253bd1b04",
+  "notes": [
+    "The authoritative inventory count key is authoritative_feature_count and is supported by merged progressive-validation infrastructure.",
+    "Final pass status will be recorded after GitHub Actions succeeds."
+  ]
+}
