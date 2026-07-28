@@ -1,16 +1,30 @@
 <div align="center">
 
+<img src="docs/assets/tllib-specs-banner.svg" alt="tllib-specs — language-neutral specifications for the Tradition Learning library" width="100%" />
+
 # tllib-specs
 
-**Language-neutral scientific and engineering specifications for the TLC model.**
+**Scientific, mathematical, algorithmic, and engineering specifications for `tllib`.**
 
 [Feature handoff](handoff/) · [Global catalog](handoff/catalog.json) · [Contributor guide](CONTRIBUTING.md) · [Repository guide](docs/REPOSITORY-GUIDE.md) · [Validation](#validation) · [Security](SECURITY.md)
 
 </div>
 
+## Project identity
+
+**Tradition Learning** is a theory and research programme for learning approaches that do not depend on big-data training regimes.
+
+**Tradition Learning Community (TLC)** is the community of scientists, mathematicians, algorithm designers, engineers, programmers, reviewers, and other contributors who study, formalize, promote, and implement that theory. TLC is an organization of people; it is not the name of the theory and it is not one of the theory's mathematical objects.
+
+**`tllib`** is the principal software product being prepared by the community: a scientific library intended for use in artificial intelligence as a complement to machine learning, deep learning, reinforcement learning, and related methods. Its intended role is comparable to that of a reusable AI library such as TensorFlow or PyTorch, while exposing concepts and capabilities specific to Tradition Learning.
+
+**`tllib-specs`** is the upstream specification repository where scientists, mathematicians, and algorithm designers prepare `tllib` before runtime implementation begins. It transforms the theory into traceable, testable, language-neutral Feature Handoff Packages.
+
+> The **Community** domain under `maths/02-community.md` is one of the sixteen fundamental domains of Tradition Learning, alongside Master, Disciple, Dynamics, Relations, and the other domains. It must not be confused with the Tradition Learning Community organization.
+
 ## Production status
 
-`tllib-specs` is the authoritative specification repository for the TLC model. It contains specifications, validation, traceability, and language-neutral handoff packages—not a runtime library.
+`tllib-specs` contains specifications, validation, traceability, and language-neutral handoff packages—not a runtime library.
 
 | Published artifact | Finalized population |
 |---|---:|
@@ -20,6 +34,29 @@
 | Standalone exports validated by CI | **166** |
 
 Feature Handoff Package v1.0 is finalized. The published model is independent of C++, Rust, Ruby, Python, or any other implementation language. Production runtime code, bindings, solvers, kernels, binary packages, and release archives belong in downstream implementation repositories.
+
+## How the repositories relate
+
+```text
+Tradition Learning theory
+        ↓
+Tradition Learning Community
+  research · formalization · review · implementation
+        ↓
+tllib-specs
+  scientific and engineering specification
+        ↓
+Feature Handoff Packages
+        ↓
+tllib
+  downstream runtime library for AI systems
+```
+
+The repository boundary is intentional:
+
+- this repository defines what `tllib` must mean and how conformity is tested;
+- downstream runtime repositories decide concrete languages, APIs, memory models, build systems, packaging, and optimization strategies;
+- unresolved scientific semantics remain unresolved until reviewed by the proper scientific authority.
 
 ## Choose your path
 
@@ -52,7 +89,7 @@ Detailed role boundaries and workflows are in [`CONTRIBUTING.md`](CONTRIBUTING.m
 ## Repository architecture
 
 ```text
-maths/                         authoritative scientific source texts
+maths/                         authoritative Tradition Learning source texts
 registry/                      compiler-like intermediate specification pipeline
   math-contracts/              mathematical contracts
   ir/                          source intermediate representations
@@ -76,7 +113,7 @@ docs/                          contributor operations and decision records
 The repository functions as a controlled transformation system:
 
 ```text
-scientific authority
+Tradition Learning scientific authority
     → mathematical contracts
     → source IR
     → finalized engineering IR
@@ -84,6 +121,7 @@ scientific authority
     → acceptance oracles
     → Feature Handoff Packages
     → standalone implementation bundles
+    → downstream tllib implementation
 ```
 
 `registry/` is the auditable intermediate pipeline. `handoff/` is the published programmer-facing result.
@@ -211,6 +249,8 @@ An unresolved item is a preserved boundary, not an invitation to create an imple
 
 ## Domains
 
+The sixteen domains below are domains of the **Tradition Learning theory**. The domain named **Community** is a theoretical domain and is distinct from the Tradition Learning Community organization.
+
 | # | Domain | Features |
 |---:|---|---:|
 | 00 | Master | 16 |
@@ -245,4 +285,4 @@ Global evidence is under [`reports/handoff/global/`](reports/handoff/global/), i
 
 ## Repository boundary
 
-Changes are acceptable only when they preserve scientific identity, traceability, unresolved semantics, exact populations, deterministic validation, and language neutrality. Runtime implementation belongs in a separate downstream repository.
+Changes are acceptable only when they preserve scientific identity, traceability, unresolved semantics, exact populations, deterministic validation, and language neutrality. Runtime implementation belongs in a separate downstream repository for `tllib`.

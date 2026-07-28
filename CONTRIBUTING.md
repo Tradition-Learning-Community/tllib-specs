@@ -1,6 +1,12 @@
 # Contributing to `tllib-specs`
 
-`tllib-specs` is the authoritative specification repository for the TLC model. It is not a runtime implementation repository. Contributions are accepted when they improve scientific clarity, mathematical precision, algorithmic contracts, traceability, validation, or the language-neutral Feature Handoff Packages without inventing unresolved science.
+`tllib-specs` is the authoritative specification repository preparing `tllib`, the principal software library of the Tradition Learning Community.
+
+Tradition Learning is the theory and research programme. The Tradition Learning Community (TLC) is the community of people advancing it. `tllib` is the downstream AI library intended to complement machine learning, deep learning, reinforcement learning, and related methods. This repository is the upstream scientific and engineering specification workspace; it is not the runtime implementation repository.
+
+The theoretical domain named **Community** is one of the sixteen fundamental domains of Tradition Learning. It is distinct from the Tradition Learning Community organization.
+
+Contributions are accepted when they improve scientific clarity, mathematical precision, algorithmic contracts, traceability, validation, or the language-neutral Feature Handoff Packages without inventing unresolved science.
 
 ## Choose the right contribution path
 
@@ -16,14 +22,14 @@
 ## Repository layers
 
 ```text
-maths/          scientific authority
+maths/          Tradition Learning scientific authority
 registry/       compiler-like intermediate specification pipeline
-handoff/        final language-neutral programmer interface
+handoff/        final language-neutral programmer interface for tllib
 reports/        audit evidence and reconciliation records
 tools/          deterministic validation, catalog, and export tooling
 ```
 
-A downstream programmer normally starts with a resolved bundle containing `feature/`, `shared/`, and `bundle-lock.json`. The upstream layers remain available for audit and scientific review.
+A downstream `tllib` programmer normally starts with a resolved bundle containing `feature/`, `shared/`, and `bundle-lock.json`. The upstream layers remain available for audit and scientific review.
 
 ## Contribution classes
 
@@ -210,7 +216,7 @@ Specification defects may create downstream safety or integrity risks. Follow `S
 
 ## What belongs elsewhere
 
-The following belong in downstream implementation repositories:
+The following belong in downstream `tllib` implementation repositories:
 
 - runtime source code;
 - bindings;
