@@ -2,19 +2,31 @@
 
 This guide explains how work moves through `tllib-specs`, who owns which decisions, and how to change the repository without weakening scientific integrity or downstream usability.
 
+## Ecosystem terminology
+
+Use these names consistently:
+
+- **Tradition Learning** — the theory and research programme for learning approaches that do not depend on big-data training regimes.
+- **Tradition Learning Community (TLC)** — the community of people who research, formalize, promote, review, and implement Tradition Learning.
+- **Community** — one of the sixteen fundamental domains of the Tradition Learning theory; it is not the TLC organization.
+- **`tllib`** — the principal downstream software library, intended to complement machine learning, deep learning, reinforcement learning, and related AI methods.
+- **`tllib-specs`** — the upstream scientific and engineering specification repository that prepares `tllib` through language-neutral handoff packages.
+
+Do not use “TLC model” as a catch-all for the theory, the community, and the software. Name the exact layer being discussed.
+
 ## Operating model
 
 The repository is a controlled transformation system:
 
 ```text
-scientific authority
+Tradition Learning scientific authority
     → mathematical contracts
     → source intermediate representations
     → finalized engineering IR
     → algorithm specifications
     → acceptance oracles
     → Feature Handoff Packages
-    → standalone bundles for downstream implementation
+    → standalone bundles for downstream tllib implementation
 ```
 
 Each layer has a distinct responsibility. Later layers may clarify structure and testability, but they may not invent scientific meaning absent from earlier authority.
@@ -79,7 +91,7 @@ Specification engineers do not adjudicate science by themselves.
 
 Primary responsibility in this repository:
 
-- consume exported bundles;
+- consume exported bundles intended for `tllib`;
 - identify ambiguities, contradictions, missing observable obligations, or untestable acceptance criteria;
 - provide minimal implementation-facing reproductions.
 
@@ -104,8 +116,8 @@ Primary responsibility:
 | Formal mathematical definition | mathematician | domain expert, algorithm designer where executable |
 | Required algorithmic order | algorithm designer with source authority | mathematician, specification engineer |
 | Handoff structure | specification engineer | downstream implementer, validator maintainer |
-| Concrete language API | downstream implementation project | handoff consumer, runtime maintainers |
-| Memory layout and allocation | downstream implementation project | performance and safety reviewers |
+| Concrete language API | downstream `tllib` implementation project | handoff consumer, runtime maintainers |
+| Memory layout and allocation | downstream `tllib` implementation project | performance and safety reviewers |
 | Resolution of a preserved scientific question | scientific adjudication process | all affected domains |
 
 No single role should silently make a decision outside its authority.
@@ -224,7 +236,7 @@ Keep the repository production-grade:
 
 ## Release posture
 
-Feature Handoff Package v1.0 is a specification release, not a runtime release. Future model versions should publish:
+Feature Handoff Package v1.0 is a specification release for `tllib`, not a runtime release. Future model versions should publish:
 
 - a versioned catalog;
 - migration notes;
