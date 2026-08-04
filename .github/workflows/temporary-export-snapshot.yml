@@ -18,11 +18,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build repository snapshot
-        run: tar --exclude=.git --exclude=tllib-specs-snapshot.tar.gz -czf tllib-specs-snapshot.tar.gz .
+        run: git archive --format=tar.gz --output="$RUNNER_TEMP/tllib-specs-snapshot.tar.gz" HEAD
 
       - name: Upload repository snapshot
         uses: actions/upload-artifact@v4
         with:
           name: tllib-specs-snapshot
-          path: tllib-specs-snapshot.tar.gz
+          path: ${{ runner.temp }}/tllib-specs-snapshot.tar.gz
           if-no-files-found: error
