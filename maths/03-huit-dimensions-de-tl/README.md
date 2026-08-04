@@ -1,11 +1,7 @@
 # Domaine 03 — Huit dimensions de TL
 
-Ce dossier présente le domaine **Huit dimensions de TL** et organise sa source scientifique autoritative. Le fichier de contenu conserve sans réécriture le texte précédemment publié à la racine de `maths/`.
+Le domaine **Huit dimensions de TL** présente l’architecture composée du Message, des Principes, des Valeurs, des Vertus, des Capacités, des Compétences, de la Pratique et de l’Expérience vécue. Il expose leur complémentarité dans la transmission et la résolution collective de problèmes.
 
-## Fichiers
+## Document scientifique
 
-- [`huit-dimensions-de-tl.md`](huit-dimensions-de-tl.md) — texte scientifique existant consacré à le cadre scientifique des huit dimensions de Tradition Learning.
-
-## Compatibilité
-
-Le chemin historique [`../03-huit-dimensions-de-tl.md`](../03-huit-dimensions-de-tl.md) est conservé comme lien symbolique vers ce fichier afin de ne pas rompre la traçabilité des registres, rapports et Feature Handoff Packages déjà finalisés.
+- [`huit-dimensions-de-tl.md`](huit-dimensions-de-tl.md) — présentation intégrée des huit dimensions de la Tradition.

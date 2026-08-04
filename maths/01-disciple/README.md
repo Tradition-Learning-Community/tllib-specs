@@ -1,11 +1,7 @@
 # Domaine 01 — Disciple
 
-Ce dossier présente le domaine **Disciple** et organise sa source scientifique autoritative. Le fichier de contenu conserve sans réécriture le texte précédemment publié à la racine de `maths/`.
+Le domaine **Disciple** formalise l’entité engagée dans une trajectoire de transformation au contact d’un Maître, d’une Communauté et des objets de la Tradition. Il décrit sa structure, ses états, ses capacités de réception et son évolution.
 
-## Fichiers
+## Document scientifique
 
-- [`disciple.md`](disciple.md) — texte scientifique existant consacré à la définition mathématique et scientifique du Disciple.
-
-## Compatibilité
-
-Le chemin historique [`../01-disciple.md`](../01-disciple.md) est conservé comme lien symbolique vers ce fichier afin de ne pas rompre la traçabilité des registres, rapports et Feature Handoff Packages déjà finalisés.
+- [`disciple.md`](disciple.md) — définition scientifique et mathématique du Disciple.

@@ -1,15 +1,11 @@
 # Domaine 25 — Culture
 
-Ce dossier réserve et décrit le domaine **Culture** dans l’architecture scientifique de Tradition Learning. Cette première étape crée uniquement l’organisation documentaire : elle ne complète, ne corrige et n’invente aucun contenu de la théorie.
+Le domaine **Culture** rassemble les développements scientifiques de Tradition Learning consacrés à la culture.
 
-## Sources à transcrire
+## Références scientifiques
 
 - `partie3/Context_Culture`
 
-## Fichiers
+## Documents scientifiques
 
-- [`culture.md`](culture.md) — emplacement réservé à la transcription scientifique du chapitre source correspondant.
-
-## État
-
-L’ossature documentaire est créée. Le contenu scientifique devra être transcrit depuis les sources identifiées, sans duplication textuelle avec les autres domaines et sans déduction non autorisée.
+- [`culture.md`](culture.md) — texte scientifique consacré à la Culture.

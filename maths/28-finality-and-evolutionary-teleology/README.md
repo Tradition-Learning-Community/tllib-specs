@@ -1,15 +1,11 @@
 # Domaine 28 — Finalité et téléologie évolutive
 
-Ce dossier réserve et décrit le domaine **Finalité et téléologie évolutive** dans l’architecture scientifique de Tradition Learning. Cette première étape crée uniquement l’organisation documentaire : elle ne complète, ne corrige et n’invente aucun contenu de la théorie.
+Le domaine **Finalité et téléologie évolutive** rassemble les développements scientifiques de Tradition Learning consacrés à la finalité et à la téléologie évolutive.
 
-## Sources à transcrire
+## Références scientifiques
 
 - `partie3/Finality_and_Evolutionary_Teleology`
 
-## Fichiers
+## Documents scientifiques
 
-- [`finality-and-evolutionary-teleology.md`](finality-and-evolutionary-teleology.md) — emplacement réservé à la transcription scientifique du chapitre source correspondant.
-
-## État
-
-L’ossature documentaire est créée. Le contenu scientifique devra être transcrit depuis les sources identifiées, sans duplication textuelle avec les autres domaines et sans déduction non autorisée.
+- [`finality-and-evolutionary-teleology.md`](finality-and-evolutionary-teleology.md) — texte scientifique consacré à la finalité et à la téléologie évolutive.

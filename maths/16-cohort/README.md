@@ -1,15 +1,11 @@
 # Domaine 16 — Cohorte
 
-Ce dossier réserve et décrit le domaine **Cohorte** dans l’architecture scientifique de Tradition Learning. Cette première étape crée uniquement l’organisation documentaire : elle ne complète, ne corrige et n’invente aucun contenu de la théorie.
+Le domaine **Cohorte** rassemble les développements scientifiques de Tradition Learning consacrés à la cohorte.
 
-## Sources à transcrire
+## Références scientifiques
 
 - `partie3/cohort`
 
-## Fichiers
+## Documents scientifiques
 
-- [`cohort.md`](cohort.md) — emplacement réservé à la transcription scientifique du chapitre source correspondant.
-
-## État
-
-L’ossature documentaire est créée. Le contenu scientifique devra être transcrit depuis les sources identifiées, sans duplication textuelle avec les autres domaines et sans déduction non autorisée.
+- [`cohort.md`](cohort.md) — texte scientifique consacré à la Cohorte.

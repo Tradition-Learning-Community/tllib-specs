@@ -1,11 +1,7 @@
 # Domaine 12 — Compétences
 
-Ce dossier présente le domaine **Compétences** et organise sa source scientifique autoritative. Le fichier de contenu conserve sans réécriture le texte précédemment publié à la racine de `maths/`.
+Le domaine **Compétences** formalise les aptitudes opérationnelles qui transforment les capacités en actions observables et efficaces dans un contexte donné.
 
-## Fichiers
+## Document scientifique
 
-- [`competencies.md`](competencies.md) — texte scientifique existant consacré à la dimension Compétences de la Tradition.
-
-## Compatibilité
-
-Le chemin historique [`../12-competencies.md`](../12-competencies.md) est conservé comme lien symbolique vers ce fichier afin de ne pas rompre la traçabilité des registres, rapports et Feature Handoff Packages déjà finalisés.
+- [`competencies.md`](competencies.md) — définition scientifique des Compétences.

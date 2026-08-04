@@ -1,15 +1,11 @@
 # Domaine 24 — Contexte
 
-Ce dossier réserve et décrit le domaine **Contexte** dans l’architecture scientifique de Tradition Learning. Cette première étape crée uniquement l’organisation documentaire : elle ne complète, ne corrige et n’invente aucun contenu de la théorie.
+Le domaine **Contexte** rassemble les développements scientifiques de Tradition Learning consacrés au contexte.
 
-## Sources à transcrire
+## Références scientifiques
 
 - `partie3/Context_Culture`
 
-## Fichiers
+## Documents scientifiques
 
-- [`context.md`](context.md) — emplacement réservé à la transcription scientifique du chapitre source correspondant.
-
-## État
-
-L’ossature documentaire est créée. Le contenu scientifique devra être transcrit depuis les sources identifiées, sans duplication textuelle avec les autres domaines et sans déduction non autorisée.
+- [`context.md`](context.md) — texte scientifique consacré au Contexte.

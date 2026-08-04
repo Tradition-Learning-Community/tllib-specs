@@ -1,15 +1,11 @@
 # Domaine 19 — Régulation
 
-Ce dossier réserve et décrit le domaine **Régulation** dans l’architecture scientifique de Tradition Learning. Cette première étape crée uniquement l’organisation documentaire : elle ne complète, ne corrige et n’invente aucun contenu de la théorie.
+Le domaine **Régulation** rassemble les développements scientifiques de Tradition Learning consacrés à la régulation.
 
-## Sources à transcrire
+## Références scientifiques
 
 - `partie3/evaluation_regulation`
 
-## Fichiers
+## Documents scientifiques
 
-- [`regulation.md`](regulation.md) — emplacement réservé à la transcription scientifique du chapitre source correspondant.
-
-## État
-
-L’ossature documentaire est créée. Le contenu scientifique devra être transcrit depuis les sources identifiées, sans duplication textuelle avec les autres domaines et sans déduction non autorisée.
+- [`regulation.md`](regulation.md) — texte scientifique consacré à la Régulation.
