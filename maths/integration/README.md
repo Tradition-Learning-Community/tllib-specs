@@ -1,11 +1,9 @@
 # Intégration générale de Tradition Learning
 
-Ce dossier contient les textes qui synthétisent, articulent ou projettent l’ensemble des domaines. Ils ne sont pas numérotés comme domaines autonomes à ce stade, car leur fonction annoncée est intégratrice.
+Ce dossier rassemble les textes qui articulent les domaines de Tradition Learning dans une vue d’ensemble cohérente. Leur fonction est intégratrice : ils présentent la synthèse de la théorie, son passage vers l’implémentation et sa portée générale.
 
-## Fichiers
+## Documents scientifiques
 
-- [`synthesis-and-supreme-integration.md`](synthesis-and-supreme-integration.md)
-- [`towards-implementation.md`](towards-implementation.md)
-- [`tl-as-a-general-theory.md`](tl-as-a-general-theory.md)
-
-Cette ossature ne contient encore aucune transcription scientifique.
+- [`synthesis-and-supreme-integration.md`](synthesis-and-supreme-integration.md) — synthèse et intégration générale des domaines.
+- [`towards-implementation.md`](towards-implementation.md) — articulation entre la théorie et sa mise en œuvre.
+- [`tl-as-a-general-theory.md`](tl-as-a-general-theory.md) — formulation de Tradition Learning comme théorie générale.

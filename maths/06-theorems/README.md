@@ -1,11 +1,7 @@
 # Domaine 06 — Théorèmes
 
-Ce dossier présente le domaine **Théorèmes** et organise sa source scientifique autoritative. Le fichier de contenu conserve sans réécriture le texte précédemment publié à la racine de `maths/`.
+Le domaine **Théorèmes** rassemble les résultats mathématiques qui établissent des propriétés de cohérence, de stabilité, de convergence, d’émergence et de robustesse dans Tradition Learning.
 
-## Fichiers
+## Document scientifique
 
-- [`theorems.md`](theorems.md) — texte scientifique existant consacré à les théorèmes fondamentaux de Tradition Learning.
-
-## Compatibilité
-
-Le chemin historique [`../06-theorems.md`](../06-theorems.md) est conservé comme lien symbolique vers ce fichier afin de ne pas rompre la traçabilité des registres, rapports et Feature Handoff Packages déjà finalisés.
+- [`theorems.md`](theorems.md) — énoncés, hypothèses et démonstrations des théorèmes fondamentaux.

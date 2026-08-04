@@ -1,8 +1,8 @@
 # Domaine 34 — Cycle de transmission
 
-Ce dossier réserve et décrit le domaine **Cycle de transmission** dans l’architecture scientifique de Tradition Learning. Cette première étape crée uniquement l’organisation documentaire : elle ne complète, ne corrige et n’invente aucun contenu de la théorie.
+Le domaine **Cycle de transmission** organise le pipeline opérationnel de transmission et les phases explicitement définies par la théorie : initiation, imprégnation, guidage, incorporation, intégration, validation et autonomisation.
 
-## Sources à transcrire
+## Références scientifiques
 
 - `partie3/Operational_Pipeline_The_Unfolding_of_Transmission`
 - `partie3/Initiation_Phase_Establishing_the_Relationship`
@@ -13,17 +13,13 @@ Ce dossier réserve et décrit le domaine **Cycle de transmission** dans l’arc
 - `partie3/Validation_Phase_Community_Regulation`
 - `partie3/Empowerment_Phase_Emancipation_of_the_Disciple`
 
-## Fichiers
+## Documents scientifiques
 
-- [`operational-pipeline.md`](operational-pipeline.md) — emplacement réservé à la transcription scientifique du chapitre source correspondant.
-- [`initiation-phase.md`](initiation-phase.md) — emplacement réservé à la transcription scientifique du chapitre source correspondant.
-- [`impregnation-phase.md`](impregnation-phase.md) — emplacement réservé à la transcription scientifique du chapitre source correspondant.
-- [`guidance-phase.md`](guidance-phase.md) — emplacement réservé à la transcription scientifique du chapitre source correspondant.
-- [`incorporation-phase.md`](incorporation-phase.md) — emplacement réservé à la transcription scientifique du chapitre source correspondant.
-- [`integration-phase.md`](integration-phase.md) — emplacement réservé à la transcription scientifique du chapitre source correspondant.
-- [`validation-phase.md`](validation-phase.md) — emplacement réservé à la transcription scientifique du chapitre source correspondant.
-- [`empowerment-phase.md`](empowerment-phase.md) — emplacement réservé à la transcription scientifique du chapitre source correspondant.
-
-## État
-
-L’ossature documentaire est créée. Le contenu scientifique devra être transcrit depuis les sources identifiées, sans duplication textuelle avec les autres domaines et sans déduction non autorisée.
+- [`operational-pipeline.md`](operational-pipeline.md) — vue d’ensemble du pipeline opérationnel de transmission.
+- [`initiation-phase.md`](initiation-phase.md) — phase d’initiation et établissement de la relation.
+- [`impregnation-phase.md`](impregnation-phase.md) — phase d’imprégnation, d’exposition et de résonance.
+- [`guidance-phase.md`](guidance-phase.md) — phase de guidage et de transmission active.
+- [`incorporation-phase.md`](incorporation-phase.md) — phase d’incorporation par la pratique et la réflexion.
+- [`integration-phase.md`](integration-phase.md) — phase d’intégration, de cohérence et d’identité.
+- [`validation-phase.md`](validation-phase.md) — phase de validation et de régulation communautaire.
+- [`empowerment-phase.md`](empowerment-phase.md) — phase d’autonomisation du Disciple.

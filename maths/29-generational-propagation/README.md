@@ -1,15 +1,11 @@
 # Domaine 29 — Propagation générationnelle
 
-Ce dossier réserve et décrit le domaine **Propagation générationnelle** dans l’architecture scientifique de Tradition Learning. Cette première étape crée uniquement l’organisation documentaire : elle ne complète, ne corrige et n’invente aucun contenu de la théorie.
+Le domaine **Propagation générationnelle** rassemble les développements scientifiques de Tradition Learning consacrés à la propagation entre générations.
 
-## Sources à transcrire
+## Références scientifiques
 
 - `partie3/Generational_Propagation_and_Expansion`
 
-## Fichiers
+## Documents scientifiques
 
-- [`generational-propagation.md`](generational-propagation.md) — emplacement réservé à la transcription scientifique du chapitre source correspondant.
-
-## État
-
-L’ossature documentaire est créée. Le contenu scientifique devra être transcrit depuis les sources identifiées, sans duplication textuelle avec les autres domaines et sans déduction non autorisée.
+- [`generational-propagation.md`](generational-propagation.md) — texte scientifique consacré à la propagation générationnelle.
