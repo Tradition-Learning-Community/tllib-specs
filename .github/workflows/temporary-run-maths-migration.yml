@@ -1,0 +1,32 @@
+name: Temporary maths migration executor
+
+on:
+  pull_request:
+    types: [opened, ready_for_review]
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    if: github.event.pull_request.head.ref == 'agent/migrate-maths-source-paths'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/migrate-maths-source-paths
+          fetch-depth: 0
+      - name: Apply migration
+        run: python tools/temporary_migrate_maths_paths.py
+      - name: Validate
+        run: |
+          python tools/handoff/generate_catalog.py --check
+          python tools/handoff/validate_handoff.py --self-test
+          python tools/handoff/export_bundle.py --all --check --verify-determinism
+      - name: Commit and push
+        run: |
+          git config user.name 'Tradition Learning Community'
+          git config user.email '264622793+TraditionLearningCommunity@users.noreply.github.com'
+          git add -A
+          git commit -m 'refactor: migrate maths source paths'
+          git push origin HEAD:agent/migrate-maths-source-paths
