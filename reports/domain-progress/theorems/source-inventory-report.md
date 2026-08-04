@@ -1,6 +1,6 @@
 # Theorems source inventory
 
-Baseline: `4a42d88ee71e3660fba02c7a780246e8d755c901`. Source: `maths/06-theorems.md`.
+Baseline: `4a42d88ee71e3660fba02c7a780246e8d755c901`. Source: `maths/06-theorems/theorems.md`.
 
 - 30 objects, 29 relations, 12 unresolved terms, and 9 catalogue features were found.
 - Seven theorem statements are explicit in the source.

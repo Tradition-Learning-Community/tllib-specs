@@ -28,7 +28,7 @@ Faut-il rapprocher les objets de TLC-XD-0078 ?
 - Objets : `TLC-SO-HUIT-DIMENSIONS-DE-TL-053`, `TLC-SO-MESSAGE-032`, `TLC-SO-VIRTUES-203`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/03-huit-dimensions-de-tl.md`, `maths/07-message.md`, `maths/10-virtues.md`
+- Sources : `maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md`, `maths/07-message/message.md`, `maths/10-virtues/virtues.md`
 
 ### Éléments de preuve
 
@@ -36,9 +36,9 @@ Faut-il rapprocher les objets de TLC-XD-0078 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Concept]}
-- TLC-SO-HUIT-DIMENSIONS-DE-TL-053 — Impact transformateur (Concept), référence maths/03-huit-dimensions-de-tl.md:35
-- TLC-SO-MESSAGE-032 — Impact transformateur (Concept), référence maths/07-message.md:24
-- TLC-SO-VIRTUES-203 — Impact transformateur (Concept), référence maths/10-virtues.md:306
+- TLC-SO-HUIT-DIMENSIONS-DE-TL-053 — Impact transformateur (Concept), référence maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md:35
+- TLC-SO-MESSAGE-032 — Impact transformateur (Concept), référence maths/07-message/message.md:24
+- TLC-SO-VIRTUES-203 — Impact transformateur (Concept), référence maths/10-virtues/virtues.md:306
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0078`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-HUIT-DIMENSIONS-DE-TL-053`
@@ -122,7 +122,7 @@ Faut-il rapprocher les objets de TLC-XD-0077 ?
 - Objets : `TLC-SO-HUIT-DIMENSIONS-DE-TL-069`, `TLC-SO-PRINCIPLE-071`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/03-huit-dimensions-de-tl.md`, `maths/08-principle.md`
+- Sources : `maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md`, `maths/08-principle/principle.md`
 
 ### Éléments de preuve
 
@@ -130,8 +130,8 @@ Faut-il rapprocher les objets de TLC-XD-0077 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Concept]}
-- TLC-SO-HUIT-DIMENSIONS-DE-TL-069 — Germination (Concept), référence maths/03-huit-dimensions-de-tl.md:82
-- TLC-SO-PRINCIPLE-071 — Germination (Concept), référence maths/08-principle.md:141
+- TLC-SO-HUIT-DIMENSIONS-DE-TL-069 — Germination (Concept), référence maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md:82
+- TLC-SO-PRINCIPLE-071 — Germination (Concept), référence maths/08-principle/principle.md:141
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0077`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-HUIT-DIMENSIONS-DE-TL-069`
@@ -214,7 +214,7 @@ Faut-il rapprocher les objets de TLC-XD-0126 ?
 - Objets : `TLC-SO-HUIT-DIMENSIONS-DE-TL-071`, `TLC-SO-PRINCIPLE-073`, `TLC-SO-VIRTUES-145`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/03-huit-dimensions-de-tl.md`, `maths/08-principle.md`, `maths/10-virtues.md`
+- Sources : `maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md`, `maths/08-principle/principle.md`, `maths/10-virtues/virtues.md`
 
 ### Éléments de preuve
 
@@ -222,9 +222,9 @@ Faut-il rapprocher les objets de TLC-XD-0126 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Concept]}
-- TLC-SO-HUIT-DIMENSIONS-DE-TL-071 — Stabilisation (Concept), référence maths/03-huit-dimensions-de-tl.md:84
-- TLC-SO-PRINCIPLE-073 — Stabilisation (Concept), référence maths/08-principle.md:143
-- TLC-SO-VIRTUES-145 — Stabilisation (Concept), référence maths/10-virtues.md:166
+- TLC-SO-HUIT-DIMENSIONS-DE-TL-071 — Stabilisation (Concept), référence maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md:84
+- TLC-SO-PRINCIPLE-073 — Stabilisation (Concept), référence maths/08-principle/principle.md:143
+- TLC-SO-VIRTUES-145 — Stabilisation (Concept), référence maths/10-virtues/virtues.md:166
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0126`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-HUIT-DIMENSIONS-DE-TL-071`
@@ -308,7 +308,7 @@ Faut-il rapprocher les objets de TLC-XD-0004 ?
 - Objets : `TLC-SO-HUIT-DIMENSIONS-DE-TL-076`, `TLC-SO-VALUES-054`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/03-huit-dimensions-de-tl.md`, `maths/09-values.md`
+- Sources : `maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md`, `maths/09-values/values.md`
 
 ### Éléments de preuve
 
@@ -316,8 +316,8 @@ Faut-il rapprocher les objets de TLC-XD-0004 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Concept]}
-- TLC-SO-HUIT-DIMENSIONS-DE-TL-076 — Adaptabilité contextuelle (Concept), référence maths/03-huit-dimensions-de-tl.md:110
-- TLC-SO-VALUES-054 — Adaptabilité contextuelle (Concept), référence maths/09-values.md:33
+- TLC-SO-HUIT-DIMENSIONS-DE-TL-076 — Adaptabilité contextuelle (Concept), référence maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md:110
+- TLC-SO-VALUES-054 — Adaptabilité contextuelle (Concept), référence maths/09-values/values.md:33
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0004`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-HUIT-DIMENSIONS-DE-TL-076`
@@ -400,7 +400,7 @@ Faut-il rapprocher les objets de TLC-XD-0008 ?
 - Objets : `TLC-SO-HUIT-DIMENSIONS-DE-TL-075`, `TLC-SO-VALUES-053`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/03-huit-dimensions-de-tl.md`, `maths/09-values.md`
+- Sources : `maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md`, `maths/09-values/values.md`
 
 ### Éléments de preuve
 
@@ -408,8 +408,8 @@ Faut-il rapprocher les objets de TLC-XD-0008 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Concept]}
-- TLC-SO-HUIT-DIMENSIONS-DE-TL-075 — Alignement motivationnel (Concept), référence maths/03-huit-dimensions-de-tl.md:109
-- TLC-SO-VALUES-053 — Alignement motivationnel (Concept), référence maths/09-values.md:32
+- TLC-SO-HUIT-DIMENSIONS-DE-TL-075 — Alignement motivationnel (Concept), référence maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md:109
+- TLC-SO-VALUES-053 — Alignement motivationnel (Concept), référence maths/09-values/values.md:32
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0008`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-HUIT-DIMENSIONS-DE-TL-075`
@@ -492,7 +492,7 @@ Faut-il rapprocher les objets de TLC-XD-0030 ?
 - Objets : `TLC-SO-HUIT-DIMENSIONS-DE-TL-077`, `TLC-SO-VALUES-055`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/03-huit-dimensions-de-tl.md`, `maths/09-values.md`
+- Sources : `maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md`, `maths/09-values/values.md`
 
 ### Éléments de preuve
 
@@ -500,8 +500,8 @@ Faut-il rapprocher les objets de TLC-XD-0030 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Concept]}
-- TLC-SO-HUIT-DIMENSIONS-DE-TL-077 — Croissance intégrative (Concept), référence maths/03-huit-dimensions-de-tl.md:111
-- TLC-SO-VALUES-055 — Croissance intégrative (Concept), référence maths/09-values.md:34
+- TLC-SO-HUIT-DIMENSIONS-DE-TL-077 — Croissance intégrative (Concept), référence maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md:111
+- TLC-SO-VALUES-055 — Croissance intégrative (Concept), référence maths/09-values/values.md:34
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0030`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-HUIT-DIMENSIONS-DE-TL-077`
@@ -584,7 +584,7 @@ Faut-il rapprocher les objets de TLC-XD-0090 ?
 - Objets : `TLC-SO-HUIT-DIMENSIONS-DE-TL-073`, `TLC-SO-VALUES-051`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/03-huit-dimensions-de-tl.md`, `maths/09-values.md`
+- Sources : `maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md`, `maths/09-values/values.md`
 
 ### Éléments de preuve
 
@@ -592,8 +592,8 @@ Faut-il rapprocher les objets de TLC-XD-0090 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Invariant]}
-- TLC-SO-HUIT-DIMENSIONS-DE-TL-073 — Invariance partielle (Invariant), référence maths/03-huit-dimensions-de-tl.md:107
-- TLC-SO-VALUES-051 — Invariance partielle (Invariant), référence maths/09-values.md:30
+- TLC-SO-HUIT-DIMENSIONS-DE-TL-073 — Invariance partielle (Invariant), référence maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md:107
+- TLC-SO-VALUES-051 — Invariance partielle (Invariant), référence maths/09-values/values.md:30
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0090`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-HUIT-DIMENSIONS-DE-TL-073`
@@ -676,7 +676,7 @@ Faut-il rapprocher les objets de TLC-XD-0102 ?
 - Objets : `TLC-SO-HUIT-DIMENSIONS-DE-TL-074`, `TLC-SO-VALUES-052`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/03-huit-dimensions-de-tl.md`, `maths/09-values.md`
+- Sources : `maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md`, `maths/09-values/values.md`
 
 ### Éléments de preuve
 
@@ -684,8 +684,8 @@ Faut-il rapprocher les objets de TLC-XD-0102 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Concept]}
-- TLC-SO-HUIT-DIMENSIONS-DE-TL-074 — Métastabilité hiérarchique (Concept), référence maths/03-huit-dimensions-de-tl.md:108
-- TLC-SO-VALUES-052 — Métastabilité hiérarchique (Concept), référence maths/09-values.md:31
+- TLC-SO-HUIT-DIMENSIONS-DE-TL-074 — Métastabilité hiérarchique (Concept), référence maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md:108
+- TLC-SO-VALUES-052 — Métastabilité hiérarchique (Concept), référence maths/09-values/values.md:31
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0102`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-HUIT-DIMENSIONS-DE-TL-074`
@@ -768,7 +768,7 @@ Faut-il rapprocher les objets de TLC-XD-0038 ?
 - Objets : `TLC-SO-HUIT-DIMENSIONS-DE-TL-080`, `TLC-SO-VIRTUES-064`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/03-huit-dimensions-de-tl.md`, `maths/10-virtues.md`
+- Sources : `maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md`, `maths/10-virtues/virtues.md`
 
 ### Éléments de preuve
 
@@ -776,8 +776,8 @@ Faut-il rapprocher les objets de TLC-XD-0038 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Concept]}
-- TLC-SO-HUIT-DIMENSIONS-DE-TL-080 — Développabilité (Concept), référence maths/03-huit-dimensions-de-tl.md:126
-- TLC-SO-VIRTUES-064 — Développabilité (Concept), référence maths/10-virtues.md:28
+- TLC-SO-HUIT-DIMENSIONS-DE-TL-080 — Développabilité (Concept), référence maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md:126
+- TLC-SO-VIRTUES-064 — Développabilité (Concept), référence maths/10-virtues/virtues.md:28
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0038`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-HUIT-DIMENSIONS-DE-TL-080`
@@ -860,7 +860,7 @@ Faut-il rapprocher les objets de TLC-XD-0058 ?
 - Objets : `TLC-SO-HUIT-DIMENSIONS-DE-TL-086`, `TLC-SO-HUIT-DIMENSIONS-DE-TL-087`, `TLC-SO-VIRTUES-216`, `TLC-SO-VIRTUES-217`, `TLC-SO-VIRTUES-218`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/03-huit-dimensions-de-tl.md`, `maths/10-virtues.md`
+- Sources : `maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md`, `maths/10-virtues/virtues.md`
 
 ### Éléments de preuve
 
@@ -868,11 +868,11 @@ Faut-il rapprocher les objets de TLC-XD-0058 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Theorem]}
-- TLC-SO-HUIT-DIMENSIONS-DE-TL-086 — Équation — Théorème de nécessité des vertus (Theorem), référence maths/03-huit-dimensions-de-tl.md:150
-- TLC-SO-HUIT-DIMENSIONS-DE-TL-087 — Équation — Théorème de nécessité des vertus (Theorem), référence maths/03-huit-dimensions-de-tl.md:153
-- TLC-SO-VIRTUES-216 — Équation — Théorème de nécessité des Vertus (Theorem), référence maths/10-virtues.md:331
-- TLC-SO-VIRTUES-217 — Équation — Théorème de nécessité des Vertus (Theorem), référence maths/10-virtues.md:334
-- TLC-SO-VIRTUES-218 — Équation — Théorème de nécessité des Vertus (Theorem), référence maths/10-virtues.md:343
+- TLC-SO-HUIT-DIMENSIONS-DE-TL-086 — Équation — Théorème de nécessité des vertus (Theorem), référence maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md:150
+- TLC-SO-HUIT-DIMENSIONS-DE-TL-087 — Équation — Théorème de nécessité des vertus (Theorem), référence maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md:153
+- TLC-SO-VIRTUES-216 — Équation — Théorème de nécessité des Vertus (Theorem), référence maths/10-virtues/virtues.md:331
+- TLC-SO-VIRTUES-217 — Équation — Théorème de nécessité des Vertus (Theorem), référence maths/10-virtues/virtues.md:334
+- TLC-SO-VIRTUES-218 — Équation — Théorème de nécessité des Vertus (Theorem), référence maths/10-virtues/virtues.md:343
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0058`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-HUIT-DIMENSIONS-DE-TL-086`
@@ -958,7 +958,7 @@ Faut-il rapprocher les objets de TLC-XD-0072 ?
 - Objets : `TLC-SO-HUIT-DIMENSIONS-DE-TL-081`, `TLC-SO-VIRTUES-065`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/03-huit-dimensions-de-tl.md`, `maths/10-virtues.md`
+- Sources : `maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md`, `maths/10-virtues/virtues.md`
 
 ### Éléments de preuve
 
@@ -966,8 +966,8 @@ Faut-il rapprocher les objets de TLC-XD-0072 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Concept]}
-- TLC-SO-HUIT-DIMENSIONS-DE-TL-081 — Flexibilité contextuelle (Concept), référence maths/03-huit-dimensions-de-tl.md:127
-- TLC-SO-VIRTUES-065 — Flexibilité contextuelle (Concept), référence maths/10-virtues.md:29
+- TLC-SO-HUIT-DIMENSIONS-DE-TL-081 — Flexibilité contextuelle (Concept), référence maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md:127
+- TLC-SO-VIRTUES-065 — Flexibilité contextuelle (Concept), référence maths/10-virtues/virtues.md:29
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0072`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-HUIT-DIMENSIONS-DE-TL-081`
@@ -1050,7 +1050,7 @@ Faut-il rapprocher les objets de TLC-XD-0136 ?
 - Objets : `TLC-SO-HUIT-DIMENSIONS-DE-TL-020`, `TLC-SO-VIRTUES-056`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/03-huit-dimensions-de-tl.md`, `maths/10-virtues.md`
+- Sources : `maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md`, `maths/10-virtues/virtues.md`
 
 ### Éléments de preuve
 
@@ -1058,8 +1058,8 @@ Faut-il rapprocher les objets de TLC-XD-0136 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Theorem]}
-- TLC-SO-HUIT-DIMENSIONS-DE-TL-020 — Théorème de nécessité des vertus (Theorem), référence maths/03-huit-dimensions-de-tl.md:148
-- TLC-SO-VIRTUES-056 — Théorème de nécessité des Vertus (Theorem), référence maths/10-virtues.md:326
+- TLC-SO-HUIT-DIMENSIONS-DE-TL-020 — Théorème de nécessité des vertus (Theorem), référence maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md:148
+- TLC-SO-VIRTUES-056 — Théorème de nécessité des Vertus (Theorem), référence maths/10-virtues/virtues.md:326
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0136`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-HUIT-DIMENSIONS-DE-TL-020`

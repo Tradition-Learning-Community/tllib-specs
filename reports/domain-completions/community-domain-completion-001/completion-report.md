@@ -1,6 +1,6 @@
 # Community domain completion
 
-- Source: `maths/02-community.md`
+- Source: `maths/02-community/community.md`
 - Active software features: **8**
 - Existing owner contracts: **8**
 - Candidate IR registry entries added: **8**

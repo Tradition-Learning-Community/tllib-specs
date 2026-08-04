@@ -35,7 +35,7 @@ For every feature, the compiler found and used:
 - one algorithm specification in `registry/algorithms/practice/<FEATURE-ID>/algorithm.yaml`;
 - one acceptance oracle in `registry/oracles/practice/<FEATURE-ID>/oracle.yaml`;
 - the Practice domain-finalization manifest, feature status, module specification, pattern analysis, implementation tasks, and decision registry;
-- the scientific source `maths/13-practice.md` through preserved traceability only.
+- the scientific source `maths/13-practice/practice.md` through preserved traceability only.
 
 No alternate `ir/<FEATURE-ID>/` population was discovered. No artifact population divergence or duplicate feature identity was found.
 

@@ -1,6 +1,6 @@
 # Theorems contract-production plan
 
-Baseline: `4a42d88ee71e3660fba02c7a780246e8d755c901`. Source: `maths/06-theorems.md`.
+Baseline: `4a42d88ee71e3660fba02c7a780246e8d755c901`. Source: `maths/06-theorems/theorems.md`.
 
 - All nine catalogue features have a contract plan.
 - No contract is produced.

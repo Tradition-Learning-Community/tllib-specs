@@ -6,7 +6,7 @@ La préparation part exclusivement de `origin/main` au commit `ffbcbb66e6fa3fe80
 
 ## Inventaire et couverture
 
-La source `maths/05-dynamics.md` est couverte par 26 objets, 25 relations, 12 unresolved et 7 fonctionnalités canoniques. Couverture scientifique et fonctionnelle : complète, sans élément manquant. Neuf doublons candidats sont conservés.
+La source `maths/05-dynamics/dynamics.md` est couverte par 26 objets, 25 relations, 12 unresolved et 7 fonctionnalités canoniques. Couverture scientifique et fonctionnelle : complète, sans élément manquant. Neuf doublons candidats sont conservés.
 
 ## Sémantique et dépendances
 

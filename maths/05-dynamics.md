@@ -1,1 +1,0 @@
-05-dynamics/dynamics.md

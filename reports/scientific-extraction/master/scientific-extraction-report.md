@@ -5,8 +5,8 @@ version: candidate-1
 status: candidate
 source_slug: master
 source_repository: Tradition-Learning-Community/tllib-specs
-source_path: maths/00-master.md
-source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md
+source_path: maths/00-master/master.md
+source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master/master.md
 source_branch: main
 source_commit: fe8b990d7560869889b153cc8422b5d6918678e6
 source_blob_sha: fe0a408035b07bad720062e98755dd32eaefc6f0
@@ -18,9 +18,9 @@ generator_role: TLC_SCIENTIFIC_OBJECT_EXTRACTOR
 
 ## Source et environnement
 
-- Source traitée : `maths/00-master.md`
+- Source traitée : `maths/00-master/master.md`
 - Source locale : `C:\TLC\repo\tllib-specs\maths\00-master.md`
-- URL reçue : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master.md`
+- URL reçue : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/00-master/master.md`
 - Branche : `main`
 - Commit source : `fe8b990d7560869889b153cc8422b5d6918678e6`
 - Blob source : `fe0a408035b07bad720062e98755dd32eaefc6f0`

@@ -5,8 +5,8 @@ version: candidate-1
 status: candidate
 source_slug: theorems
 source_repository: Tradition-Learning-Community/tllib-specs
-source_path: maths/06-theorems.md
-source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/06-theorems.md
+source_path: maths/06-theorems/theorems.md
+source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/06-theorems/theorems.md
 source_branch: main
 source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
 source_blob_sha: 7b21e3a9e1a928e472c1dbcd743742d51511fd09
@@ -19,7 +19,7 @@ generator_role: TLC_SCIENTIFIC_OBJECT_EXTRACTOR
 ## Source et périmètre
 
 - Source locale : `C:\TLC\repo\tllib-specs\maths\06-theorems.md`
-- URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/06-theorems.md`
+- URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/06-theorems/theorems.md`
 - Branche : `main`
 - Commit source : `68a4d4c728bab655631543b3e1788d4f0da31e8e`
 - Blob : `7b21e3a9e1a928e472c1dbcd743742d51511fd09`

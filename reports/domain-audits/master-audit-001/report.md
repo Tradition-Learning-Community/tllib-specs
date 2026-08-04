@@ -6,7 +6,7 @@ Le domaine est **déjà couvert par des contrats et des IR candidats** dans l’
 
 ## Couverture vérifiée
 
-- Source autoritative : `maths/00-master.md`
+- Source autoritative : `maths/00-master/master.md`
 - Objets scientifiques : 40
 - Relations scientifiques : 37
 - Éléments non résolus : 26

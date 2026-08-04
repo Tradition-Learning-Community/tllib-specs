@@ -58,11 +58,11 @@ if {x.get("provisional_object_id") for x in inventory_objects} != expected_objec
     errors.append("object inventory coverage mismatch")
 if any(x.get("coverage_kind") not in {"direct_scientific_basis", "context_only_not_functionalized"} for x in inventory_objects):
     errors.append("an object is not accounted in feature coverage")
-source_line_count = len((ROOT / "maths/12-competencies.md").read_text(encoding="utf-8").splitlines())
+source_line_count = len((ROOT / "maths/12-competencies/competencies.md").read_text(encoding="utf-8").splitlines())
 for item in inventory_objects:
     ref = item.get("source_reference") or {}
     start, end = ref.get("start_line"), ref.get("end_line")
-    if ref.get("source_path") != "maths/12-competencies.md" or not isinstance(start, int) or not isinstance(end, int) or not (1 <= start <= end <= source_line_count):
+    if ref.get("source_path") != "maths/12-competencies/competencies.md" or not isinstance(start, int) or not isinstance(end, int) or not (1 <= start <= end <= source_line_count):
         errors.append(f"invalid object source range: {item.get('provisional_object_id')}")
 inventory_relations = docs.get("relation-inventory.yaml", {}).get("relations", [])
 if {x.get("provisional_relation_id") for x in inventory_relations} != expected_relations:
@@ -72,7 +72,7 @@ for rel in inventory_relations:
         errors.append(f"invalid relation reference: {rel.get('provisional_relation_id')}")
     ref = rel.get("source_reference") or {}
     start, end = ref.get("start_line"), ref.get("end_line")
-    if ref.get("source_path") != "maths/12-competencies.md" or not isinstance(start, int) or not isinstance(end, int) or not (1 <= start <= end <= source_line_count):
+    if ref.get("source_path") != "maths/12-competencies/competencies.md" or not isinstance(start, int) or not isinstance(end, int) or not (1 <= start <= end <= source_line_count):
         errors.append(f"invalid relation source range: {rel.get('provisional_relation_id')}")
 inventory_unresolved = docs.get("unresolved-analysis.yaml", {}).get("items", [])
 if {x.get("unresolved_id") for x in inventory_unresolved} != expected_unresolved:

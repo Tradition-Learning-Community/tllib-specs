@@ -13,7 +13,7 @@ capacity_or_reference:
 identity: {feature_id: exact, object_ids: exact, preservation: mandatory}
 scope: {kind: descriptive_scope, value: six cited dynamics equations only}
 context:
-  source_file: maths/11-capacities.md
+  source_file: maths/11-capacities/capacities.md
   source_sections: [Potentiel et capacités latentes, Transmission et activation des Capacités, Dynamique temporelle et développementale, Interaction avec la communauté et capacités collectives]
 inputs:
   - {name: capacity_feature_id, type: FeatureId, expected: TLC-FC-11-CAPACITIES-005}
@@ -44,7 +44,7 @@ postconditions:
 invariants: [exact object set, source statements opaque, no dynamics execution]
 errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
 determinism: {status: deterministic, stochastic_source_tokens_executed: false}
-dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities.md]}
+dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities/capacities.md]}
 unresolved_propagated: []
 reservations: [parameters, dimensions, stochastic semantics and execution contracts remain unavailable]
 transformations_applied: [normalized dynamics node envelope, normalized traceability, explicit non-evaluation guard]

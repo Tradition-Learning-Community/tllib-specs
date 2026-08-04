@@ -103,7 +103,7 @@ The detailed classifications are in `registry/domain-finalization/virtues/decisi
 
 - Source contracts are preserved and unchanged.
 - Source IRs are preserved and unchanged.
-- `maths/10-virtues.md` is preserved and unchanged.
+- `maths/10-virtues/virtues.md` is preserved and unchanged.
 - No virtue, hierarchy, priority, score, measurement, comparison, manifestation, acquisition condition, or normative consequence was invented.
 - No artifact belonging to another domain was modified.
 - No global registry was regenerated.

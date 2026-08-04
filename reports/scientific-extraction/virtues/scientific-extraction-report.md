@@ -5,8 +5,8 @@ version: candidate-1
 status: candidate
 source_slug: virtues
 source_repository: Tradition-Learning-Community/tllib-specs
-source_path: maths/10-virtues.md
-source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/10-virtues.md
+source_path: maths/10-virtues/virtues.md
+source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/10-virtues/virtues.md
 source_branch: main
 source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
 source_blob_sha: 9e2518355169d4b3de4033c317550e4c888e3039
@@ -19,7 +19,7 @@ generator_role: TLC_SCIENTIFIC_OBJECT_EXTRACTOR
 ## Source et périmètre
 
 - Source locale : `C:\TLC\repo\tllib-specs\maths\10-virtues.md`
-- URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/10-virtues.md`
+- URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/10-virtues/virtues.md`
 - Branche : `main`
 - Commit source : `68a4d4c728bab655631543b3e1788d4f0da31e8e`
 - Blob : `9e2518355169d4b3de4033c317550e4c888e3039`

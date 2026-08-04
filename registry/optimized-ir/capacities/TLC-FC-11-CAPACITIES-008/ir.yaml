@@ -13,7 +13,7 @@ capacity_or_reference:
 identity: {feature_id: exact, object_ids: exact, preservation: mandatory}
 scope: {kind: descriptive_scope, value: eight cited transformation equations only}
 context:
-  source_file: maths/11-capacities.md
+  source_file: maths/11-capacities/capacities.md
   source_sections: [Potentiel et capacités latentes, Transmission et activation des Capacités, Évaluation et mesure des Capacités, Dynamique temporelle et développementale, Dimensions éthiques motivationnelles et cognitives, Interaction avec la communauté et capacités collectives]
 inputs:
   - {name: capacity_feature_id, type: FeatureId, expected: TLC-FC-11-CAPACITIES-008}
@@ -43,7 +43,7 @@ postconditions:
 invariants: [exact object set, source expressions opaque, no equation execution]
 errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
 determinism: {status: deterministic, basis: identical structural inputs}
-dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities.md]}
+dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities/capacities.md]}
 unresolved_propagated: []
 reservations: [equation parameters, units, evaluator and cross-domain semantics unavailable]
 transformations_applied: [normalized equation node envelope, normalized symbol and provenance lookup, explicit guard]

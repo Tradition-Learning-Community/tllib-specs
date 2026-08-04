@@ -12,7 +12,7 @@ capacity_or_reference:
   object_ids: [TLC-SO-CAPACITIES-042]
 identity: {feature_id: exact, object_ids: exact, preservation: mandatory}
 scope: {kind: descriptive_scope, value: cited spaces and structures object only}
-context: {source_file: maths/11-capacities.md, source_sections: [Formalisation mathématique avancée]}
+context: {source_file: maths/11-capacities/capacities.md, source_sections: [Formalisation mathématique avancée]}
 inputs:
   - {name: capacity_feature_id, type: FeatureId, expected: TLC-FC-11-CAPACITIES-012}
   - {name: ordered_scientific_objects, type: 'List<OpaqueScientificObject>', required_order: [TLC-SO-CAPACITIES-042]}
@@ -41,7 +41,7 @@ postconditions:
 invariants: [singleton identity, component tokens opaque, blocker propagated]
 errors: [UnknownFeatureId, MissingCoveredObject, UnexpectedCoveredObject, ObjectOrderMismatch, MissingSymbolTableEntry, MissingSourceReference, MissingDecisionBlocker, ScientificEvaluationRequested]
 determinism: {status: deterministic, basis: identical structural inputs}
-dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities.md]}
+dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities/capacities.md]}
 unresolved_propagated: [scientific decision required]
 reservations: [Hilbert structure, geometry, curvature and component semantics unresolved]
 transformations_applied: [normalized role-index representation, normalized traceability, explicit geometry guard]

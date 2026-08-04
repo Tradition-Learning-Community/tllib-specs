@@ -154,7 +154,7 @@ def main() -> int:
             if not isinstance(value, dict) or value.get("status") != "unresolved":
                 errors.append(f"{item.get('symbol_id')}.{field} must be explicitly unresolved")
 
-    source_lines = (ROOT / "maths/08-principle.md").read_text(encoding="utf-8").splitlines()
+    source_lines = (ROOT / "maths/08-principle/principle.md").read_text(encoding="utf-8").splitlines()
     source_passage = "\n".join(source_lines[197:200])
     if r"\frac{dP}{dt} = \mathcal{E}(P,D,t)" not in source_passage:
         errors.append("authorized source passage no longer contains the preserved equation")

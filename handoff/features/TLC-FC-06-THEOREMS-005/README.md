@@ -6,7 +6,7 @@ This feature registers two distinct families of CNS source claims: one transform
 
 ## What must be implemented?
 
-Implement `register_cns_operator_claims`. Require the transformation claim to cite `maths/06-theorems.md:54-55`, require every removal-effect claim to cite `maths/06-theorems.md:66-67`, preserve all opaque payloads, prevent a claim from occupying both families, and return an immutable two-family claim set with scientific status `blocked_local`.
+Implement `register_cns_operator_claims`. Require the transformation claim to cite `maths/06-theorems/theorems.md:54-55`, require every removal-effect claim to cite `maths/06-theorems/theorems.md:66-67`, preserve all opaque payloads, prevent a claim from occupying both families, and return an immutable two-family claim set with scientific status `blocked_local`.
 
 ## Valid inputs and required output
 

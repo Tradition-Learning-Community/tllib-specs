@@ -120,7 +120,7 @@ expected_counts = {
 }
 if source.get("counts") != expected_counts:
     errors.append(f"source counts mismatch: {source.get('counts')}")
-if not (ROOT / "maths/13-practice.md").is_file():
+if not (ROOT / "maths/13-practice/practice.md").is_file():
     errors.append("canonical source missing")
 
 objects = docs.get("scientific-inventory.yaml", {}).get("objects", [])

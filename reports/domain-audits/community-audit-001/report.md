@@ -6,7 +6,7 @@ Le domaine est **déjà couvert par des contrats et des IR candidats** dans l’
 
 ## Couverture vérifiée
 
-- Source autoritative : `maths/02-community.md`
+- Source autoritative : `maths/02-community/community.md`
 - Objets scientifiques : 57
 - Relations scientifiques : 56
 - Éléments non résolus : 29

@@ -5,8 +5,8 @@ version: candidate-1
 status: candidate
 source_slug: community
 source_repository: Tradition-Learning-Community/tllib-specs
-source_path: maths/02-community.md
-source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/02-community.md
+source_path: maths/02-community/community.md
+source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/02-community/community.md
 source_branch: main
 source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
 source_blob_sha: d8327b5ebb8b1638cd40017e0bc188fa2cd01d7a
@@ -19,7 +19,7 @@ generator_role: TLC_SCIENTIFIC_OBJECT_EXTRACTOR
 ## Source et périmètre
 
 - Source locale : `C:\TLC\repo\tllib-specs\maths\02-community.md`
-- URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/02-community.md`
+- URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/02-community/community.md`
 - Branche : `main`
 - Commit source : `68a4d4c728bab655631543b3e1788d4f0da31e8e`
 - Blob : `d8327b5ebb8b1638cd40017e0bc188fa2cd01d7a`

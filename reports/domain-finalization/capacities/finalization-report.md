@@ -6,7 +6,7 @@
 - Base HEAD: `c34d40713bf444d38f92f76e1c6239ee596d5a18`
 - Working branch: `phase4/capacities-domain-finalization-001`
 - Authoritative population: 15 active features from `registry/global-reconciliation/domain-feature-matrix.yaml`
-- Scientific source: `maths/11-capacities.md`
+- Scientific source: `maths/11-capacities/capacities.md`
 - Source contracts, source IRs and source test plans are preserved.
 - The global registry and all other domain artifacts are unchanged.
 
@@ -42,7 +42,7 @@ For every active feature, the finalization reviewed:
 - source-object identity and order;
 - explicitly defined relations;
 - dependencies, unresolved items and reservations;
-- the cited sections of `maths/11-capacities.md`;
+- the cited sections of `maths/11-capacities/capacities.md`;
 - Capacities preparation, catalogue, Goose audit and decision reports.
 
 No global extraction or registry regeneration was performed.

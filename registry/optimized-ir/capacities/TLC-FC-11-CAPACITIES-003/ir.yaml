@@ -13,7 +13,7 @@ capacity_or_reference:
 identity: {feature_id: exact, object_ids: exact, preservation: mandatory}
 scope: {kind: descriptive_scope, value: essential properties, mastery progression and latence objects only}
 context:
-  source_file: maths/11-capacities.md
+  source_file: maths/11-capacities/capacities.md
   source_sections: [Propriétés essentielles, Dynamique temporelle et développementale]
 inputs:
   - {name: capacity_feature_id, type: FeatureId, expected: TLC-FC-11-CAPACITIES-003}
@@ -47,7 +47,7 @@ postconditions:
 invariants: [exact object set and order, source statements opaque, blocker propagated]
 errors: [UnknownFeatureId, MissingCoveredObject, UnexpectedCoveredObject, ObjectOrderMismatch, MissingSymbolTableEntry, MissingSourceReference, MissingDecisionBlocker, ScientificEvaluationRequested]
 determinism: {status: deterministic, basis: identical structural inputs}
-dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities.md]}
+dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities/capacities.md]}
 unresolved_propagated: [scientific decision required]
 reservations: [feature separation and scientific execution remain unresolved]
 transformations_applied: [normalized bundle envelope, normalized traceability, explicit non-evaluation guard]

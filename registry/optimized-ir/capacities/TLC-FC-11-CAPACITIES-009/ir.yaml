@@ -13,7 +13,7 @@ capacity_or_reference:
 identity: {feature_id: exact, object_ids: exact, preservation: mandatory}
 scope: {kind: descriptive_scope, value: validity-domain and collective-coordination equations only}
 context:
-  source_file: maths/11-capacities.md
+  source_file: maths/11-capacities/capacities.md
   source_sections: [Domaines de validité, Interaction avec la communauté et capacités collectives]
 inputs:
   - {name: capacity_feature_id, type: FeatureId, expected: TLC-FC-11-CAPACITIES-009}
@@ -43,7 +43,7 @@ postconditions:
 invariants: [exact order, no cross-equation execution, blocker propagated]
 errors: [UnknownFeatureId, MissingCoveredObject, UnexpectedCoveredObject, ObjectOrderMismatch, MissingSymbolTableEntry, MissingSourceReference, MissingDecisionBlocker, ScientificEvaluationRequested]
 determinism: {status: deterministic, basis: identical structural inputs}
-dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities.md]}
+dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities/capacities.md]}
 unresolved_propagated: [scientific decision required]
 reservations: [validity threshold and collective aggregation semantics unresolved]
 transformations_applied: [normalized equation bundle envelope, normalized traceability, explicit guard]

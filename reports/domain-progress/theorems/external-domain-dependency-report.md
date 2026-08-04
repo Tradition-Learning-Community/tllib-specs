@@ -1,6 +1,6 @@
 # Theorems external-domain dependencies
 
-Baseline: `4a42d88ee71e3660fba02c7a780246e8d755c901`. Source: `maths/06-theorems.md`.
+Baseline: `4a42d88ee71e3660fba02c7a780246e8d755c901`. Source: `maths/06-theorems/theorems.md`.
 
 - Values, Virtues, Capacities, Competencies, Practice, Lived Experience, and Relations were analyzed.
 - Explicit CNS dimension references are confirmed at term level; target mappings remain unresolved.

@@ -1,6 +1,6 @@
 # Master domain completion
 
-- Source: `maths/00-master.md`
+- Source: `maths/00-master/master.md`
 - Active software features: **16**
 - Existing owner contracts: **16**
 - Candidate IR registry entries added: **16**

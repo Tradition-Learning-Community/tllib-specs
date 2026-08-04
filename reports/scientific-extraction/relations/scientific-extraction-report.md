@@ -5,8 +5,8 @@ version: candidate-1
 status: candidate
 source_slug: relations
 source_repository: Tradition-Learning-Community/tllib-specs
-source_path: maths/15-relations.md
-source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/15-relations.md
+source_path: maths/15-relations/relations.md
+source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/15-relations/relations.md
 source_branch: main
 source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
 source_blob_sha: ece0d75f120bfe6a95554b768e5fd3e4b2bfed21
@@ -19,7 +19,7 @@ generator_role: TLC_SCIENTIFIC_OBJECT_EXTRACTOR
 ## Source et périmètre
 
 - Source locale : `C:\TLC\repo\tllib-specs\maths\15-relations.md`
-- URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/15-relations.md`
+- URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/15-relations/relations.md`
 - Branche : `main`
 - Commit source : `68a4d4c728bab655631543b3e1788d4f0da31e8e`
 - Blob : `ece0d75f120bfe6a95554b768e5fd3e4b2bfed21`

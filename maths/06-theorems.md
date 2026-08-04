@@ -1,1 +1,0 @@
-06-theorems/theorems.md

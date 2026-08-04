@@ -1,6 +1,6 @@
 # Theorems proof inventory
 
-Baseline: `4a42d88ee71e3660fba02c7a780246e8d755c901`. Source: `maths/06-theorems.md`.
+Baseline: `4a42d88ee71e3660fba02c7a780246e8d755c901`. Source: `maths/06-theorems/theorems.md`.
 
 - Six local proof texts or sketches are inventoried and remain partial.
 - The wave-propagation theorem has no local proof.

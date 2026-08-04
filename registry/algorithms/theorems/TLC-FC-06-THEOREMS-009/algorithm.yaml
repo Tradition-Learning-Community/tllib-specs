@@ -11,7 +11,7 @@ outputs:
 validations:
   - role label is Principles
   - source ordinal equals 2
-  - role cites maths/06-theorems.md:82
+  - role cites maths/06-theorems/theorems.md:82
   - TLC-UT-THEOREMS-006 is attached
 hypotheses:
   - TLC-EA-THEOREMS-009-001 is retained
@@ -52,7 +52,7 @@ pseudocode: |
   function construct_principles_role_descriptor(principles_role, source_ordinal):
       if label(principles_role) != "Principles":
           raise WRONG_DIMENSION_LABEL
-      if source_ordinal != 2 or source_reference(principles_role) != "maths/06-theorems.md:82":
+      if source_ordinal != 2 or source_reference(principles_role) != "maths/06-theorems/theorems.md:82":
           raise WRONG_SOURCE_ORDINAL
       if unresolved_ids(principles_role) does not contain "TLC-UT-THEOREMS-006":
           raise MISSING_PRINCIPLES_UNRESOLVED

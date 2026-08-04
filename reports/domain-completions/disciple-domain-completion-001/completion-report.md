@@ -1,6 +1,6 @@
 # Disciple domain completion
 
-- Source: `maths/01-disciple.md`
+- Source: `maths/01-disciple/disciple.md`
 - Active software features: **10**
 - Existing owner contracts: **10**
 - Candidate IR registry entries added: **10**

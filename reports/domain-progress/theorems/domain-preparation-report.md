@@ -1,6 +1,6 @@
 # Theorems domain preparation
 
-Baseline: `4a42d88ee71e3660fba02c7a780246e8d755c901`. Source: `maths/06-theorems.md`.
+Baseline: `4a42d88ee71e3660fba02c7a780246e8d755c901`. Source: `maths/06-theorems/theorems.md`.
 
 - Preparation is complete with reservations at baseline 4a42d88.
 - Scientific and functional coverage account for all 30 objects, 29 relations, 12 unresolved terms, and nine features.

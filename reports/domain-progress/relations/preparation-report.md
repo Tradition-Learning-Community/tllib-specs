@@ -3,7 +3,7 @@
 ## Authority and scope
 
 This preparation is derived only from `origin/main` at `d8e616c71173495b9a014d4a5909df9f30e2a7ae`. The scientific source is
-`maths/15-relations.md`. No unmerged branch or pull request supplies scientific authority. No contract, IR, C++,
+`maths/15-relations/relations.md`. No unmerged branch or pull request supplies scientific authority. No contract, IR, C++,
 binding, or reference implementation is produced.
 
 ## Audit

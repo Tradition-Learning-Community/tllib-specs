@@ -6,7 +6,7 @@ Le domaine est **déjà couvert par des contrats et des IR candidats** dans l’
 
 ## Couverture vérifiée
 
-- Source autoritative : `maths/01-disciple.md`
+- Source autoritative : `maths/01-disciple/disciple.md`
 - Objets scientifiques : 70
 - Relations scientifiques : 69
 - Éléments non résolus : 32

@@ -11,7 +11,7 @@ outputs:
 validations:
   - transmission_operator is present
   - ergodicity_condition is present
-  - both components cite maths/06-theorems.md:20
+  - both components cite maths/06-theorems/theorems.md:20
 hypotheses:
   - TLC-EA-THEOREMS-004-001 is retained
 preconditions:
@@ -52,8 +52,8 @@ pseudocode: |
           raise MISSING_OPERATOR_SYMBOL
       if ergodicity_condition is missing:
           raise MISSING_ERGODICITY_CONDITION
-      if source_reference(transmission_operator) != "maths/06-theorems.md:20" or
-         source_reference(ergodicity_condition) != "maths/06-theorems.md:20":
+      if source_reference(transmission_operator) != "maths/06-theorems/theorems.md:20" or
+         source_reference(ergodicity_condition) != "maths/06-theorems/theorems.md:20":
           raise SOURCE_REFERENCE_MISMATCH
       result = TransmissionErgodicityHypothesis(
           transmission_operator = preserve_identity(transmission_operator),

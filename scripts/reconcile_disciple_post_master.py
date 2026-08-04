@@ -92,7 +92,7 @@ for i, (_, fid, oids, _) in enumerate(dependency_specs, 1):
         "mapping_id": f"TLC-MAP-DISCIPLE-MASTER-{i:03d}", "disciple_source_term": "Maître / \\mathcal{M}",
         "disciple_object_ids": oids, "disciple_feature_ids": [fid], "master_canonical_object_id": "TLC-SO-MASTER-001",
         "master_feature_ids": ["TLC-FC-00-MASTER-016"], "mapping_status": "confirmed",
-        "evidence": ["maths/01-disciple.md explicit Master reference", "TLC-SO-MASTER-001 canonical entity", "TLC-FC-00-MASTER-016 symbolic type"],
+        "evidence": ["maths/01-disciple/disciple.md explicit Master reference", "TLC-SO-MASTER-001 canonical entity", "TLC-FC-00-MASTER-016 symbolic type"],
         "notes": "Confirms entity identity only; does not infer an internal Master component or executable semantics.",
     })
 for term, oids, fid in [

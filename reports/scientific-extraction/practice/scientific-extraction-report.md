@@ -5,8 +5,8 @@ version: candidate-1
 status: candidate
 source_slug: practice
 source_repository: Tradition-Learning-Community/tllib-specs
-source_path: maths/13-practice.md
-source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/13-practice.md
+source_path: maths/13-practice/practice.md
+source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/13-practice/practice.md
 source_branch: main
 source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
 source_blob_sha: 504366afaf6d0ca12186936e55c8483abe4b6f94
@@ -19,7 +19,7 @@ generator_role: TLC_SCIENTIFIC_OBJECT_EXTRACTOR
 ## Source et périmètre
 
 - Source locale : `C:\TLC\repo\tllib-specs\maths\13-practice.md`
-- URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/13-practice.md`
+- URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/13-practice/practice.md`
 - Branche : `main`
 - Commit source : `68a4d4c728bab655631543b3e1788d4f0da31e8e`
 - Blob : `504366afaf6d0ca12186936e55c8483abe4b6f94`

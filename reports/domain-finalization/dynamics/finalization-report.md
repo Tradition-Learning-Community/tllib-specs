@@ -6,7 +6,7 @@ La finalisation utilise `main@c34d40713bf444d38f92f76e1c6239ee596d5a18`. La popu
 
 ## Sources exploitées
 
-Pour chaque fonctionnalité, le contrat mathématique, l'IR prototype réelle et le plan de tests source ont été lus et conservés. Les analyses Dynamics de sémantique, séparation des concepts, dépendances, unresolved et préparation ont été recoupées avec `maths/05-dynamics.md`. Aucun fichier source n'a été modifié.
+Pour chaque fonctionnalité, le contrat mathématique, l'IR prototype réelle et le plan de tests source ont été lus et conservés. Les analyses Dynamics de sémantique, séparation des concepts, dépendances, unresolved et préparation ont été recoupées avec `maths/05-dynamics/dynamics.md`. Aucun fichier source n'a été modifié.
 
 ## Confirmation scientifique et technique
 

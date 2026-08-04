@@ -20,7 +20,7 @@
 
 **`tllib-specs`** is the upstream specification repository where scientists, mathematicians, and algorithm designers prepare `tllib` before runtime implementation begins. It transforms the theory into traceable, testable, language-neutral Feature Handoff Packages.
 
-> The **Community** domain under `maths/02-community.md` is one of the sixteen fundamental domains of Tradition Learning, alongside Master, Disciple, Dynamics, Relations, and the other domains. It must not be confused with the Tradition Learning Community organization.
+> The **Community** domain under `maths/02-community/community.md` is one of the sixteen fundamental domains of Tradition Learning, alongside Master, Disciple, Dynamics, Relations, and the other domains. It must not be confused with the Tradition Learning Community organization.
 
 ## Production status
 

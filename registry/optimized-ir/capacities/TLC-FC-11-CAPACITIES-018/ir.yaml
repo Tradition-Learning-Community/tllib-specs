@@ -12,7 +12,7 @@ capacity_or_reference:
   object_ids: [TLC-SO-CAPACITIES-010]
 identity: {feature_id: exact, object_ids: exact, preservation: mandatory}
 scope: {kind: descriptive_scope, value: cited social or relational capacity object only}
-context: {source_file: maths/11-capacities.md, source_sections: [Types et formes de Capacités]}
+context: {source_file: maths/11-capacities/capacities.md, source_sections: [Types et formes de Capacités]}
 inputs:
   - {name: capacity_feature_id, type: FeatureId, expected: TLC-FC-11-CAPACITIES-018}
   - {name: object_payloads, type: 'Map<ObjectId,OpaqueScientificObject>', required_object_ids: [TLC-SO-CAPACITIES-010]}
@@ -40,7 +40,7 @@ postconditions:
 invariants: [singleton identity, endpoint opacity, no external-domain mutation]
 errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
 determinism: {status: deterministic, basis: identical structural inputs}
-dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities.md, registry/domain-progress/capacities/external-dependencies.yaml]}
+dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities/capacities.md, registry/domain-progress/capacities/external-dependencies.yaml]}
 unresolved_propagated: []
 reservations: [relation endpoints and external-domain semantics are not established]
 transformations_applied: [normalized relation descriptor envelope, normalized traceability, explicit endpoint-inference guard]

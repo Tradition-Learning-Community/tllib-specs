@@ -1,1 +1,0 @@
-03-huit-dimensions-de-tl/huit-dimensions-de-tl.md

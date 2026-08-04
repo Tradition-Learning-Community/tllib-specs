@@ -18,7 +18,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[2]
 BASELINE_COMMIT = "9aef7ab424f3cf998c47caaa9ed4402302e96031"
 BASELINE_TAG = "tlc-scientific-pipeline-v1"
-SOURCE_PATH = "maths/00-master.md"
+SOURCE_PATH = "maths/00-master/master.md"
 MASTER_PREFIX = "TLC-FC-00-MASTER-"
 
 
@@ -294,7 +294,7 @@ domain_edges = [
     {
         "dependency_id": "TLC-DD-001", "from_domain": "master", "to_domain": "disciple",
         "dependency_type": "entity_dependency", "source_evidence": "Master definition, R3, pedagogy, transmission and limits use Disciple state.",
-        "evidence_locations": ["maths/00-master.md:5", "maths/00-master.md:29", "maths/00-master.md:81", "maths/00-master.md:250"],
+        "evidence_locations": ["maths/00-master/master.md:5", "maths/00-master/master.md:29", "maths/00-master/master.md:81", "maths/00-master/master.md:250"],
         "affected_objects": ["TLC-SO-MASTER-001", "TLC-SO-MASTER-003", "TLC-SO-MASTER-006", "TLC-SO-MASTER-012"],
         "affected_features": [r["feature_id"] for r in feature_records if any(x["domain"] == "disciple" for x in r["external_dependencies"])],
         "dependency_status": "confirmed", "strength": "conditional",
@@ -303,7 +303,7 @@ domain_edges = [
     {
         "dependency_id": "TLC-DD-002", "from_domain": "master", "to_domain": "community",
         "dependency_type": "entity_dependency", "source_evidence": "R4, authority and symbolic status explicitly use Community.",
-        "evidence_locations": ["maths/00-master.md:35", "maths/00-master.md:92", "maths/00-master.md:114", "maths/00-master.md:250"],
+        "evidence_locations": ["maths/00-master/master.md:35", "maths/00-master/master.md:92", "maths/00-master/master.md:114", "maths/00-master/master.md:250"],
         "affected_objects": ["TLC-SO-MASTER-007", "TLC-SO-MASTER-014", "TLC-SO-MASTER-016"],
         "affected_features": [r["feature_id"] for r in feature_records if any(x["domain"] == "community" for x in r["external_dependencies"])],
         "dependency_status": "confirmed", "strength": "conditional",
@@ -313,21 +313,21 @@ domain_edges = [
 
 # Other domain ordering is advisory unless a source explicitly names another domain.
 domain_specs = [
-    ("disciple", "community", "maths/01-disciple.md", "community"),
-    ("community", "relations", "maths/02-community.md", "relation"),
-    ("huit-dimensions-de-tl", "master", "maths/03-huit-dimensions-de-tl.md", "maître"),
-    ("invariants", "dynamics", "maths/04-invariants.md", "dynam"),
-    ("dynamics", "invariants", "maths/05-dynamics.md", "invariant"),
-    ("theorems", "invariants", "maths/06-theorems.md", "invariant"),
-    ("message", "community", "maths/07-message.md", "commun"),
-    ("principle", "values", "maths/08-principle.md", "valeur"),
-    ("values", "virtues", "maths/09-values.md", "vertu"),
-    ("virtues", "values", "maths/10-virtues.md", "valeur"),
-    ("capacities", "competencies", "maths/11-capacities.md", "compét"),
-    ("competencies", "capacities", "maths/12-competencies.md", "capacit"),
-    ("practice", "competencies", "maths/13-practice.md", "compét"),
-    ("lived-experience", "practice", "maths/14-lived-experience.md", "prati"),
-    ("relations", "community", "maths/15-relations.md", "commun"),
+    ("disciple", "community", "maths/01-disciple/disciple.md", "community"),
+    ("community", "relations", "maths/02-community/community.md", "relation"),
+    ("huit-dimensions-de-tl", "master", "maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md", "maître"),
+    ("invariants", "dynamics", "maths/04-invariants/invariants.md", "dynam"),
+    ("dynamics", "invariants", "maths/05-dynamics/dynamics.md", "invariant"),
+    ("theorems", "invariants", "maths/06-theorems/theorems.md", "invariant"),
+    ("message", "community", "maths/07-message/message.md", "commun"),
+    ("principle", "values", "maths/08-principle/principle.md", "valeur"),
+    ("values", "virtues", "maths/09-values/values.md", "vertu"),
+    ("virtues", "values", "maths/10-virtues/virtues.md", "valeur"),
+    ("capacities", "competencies", "maths/11-capacities/capacities.md", "compét"),
+    ("competencies", "capacities", "maths/12-competencies/competencies.md", "capacit"),
+    ("practice", "competencies", "maths/13-practice/practice.md", "compét"),
+    ("lived-experience", "practice", "maths/14-lived-experience/lived-experience.md", "prati"),
+    ("relations", "community", "maths/15-relations/relations.md", "commun"),
 ]
 next_id = 3
 for source, target, path, token in domain_specs:

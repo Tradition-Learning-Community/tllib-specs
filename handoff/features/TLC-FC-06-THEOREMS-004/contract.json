@@ -5,7 +5,7 @@
   "scope": {
     "required": [
       {"id": "TH004-REQ-001", "statement": "Require one present opaque transmission operator and one present opaque spectral-gap condition."},
-      {"id": "TH004-REQ-002", "statement": "Require both components to cite maths/06-theorems.md:20 and preserve that provenance."},
+      {"id": "TH004-REQ-002", "statement": "Require both components to cite maths/06-theorems/theorems.md:20 and preserve that provenance."},
       {"id": "TH004-REQ-003", "statement": "Return the record with verification status hypothesis_not_verified."}
     ],
     "forbidden": [
@@ -22,13 +22,13 @@
     "operation_id": "CONSTRUCT-TRANSMISSION-ERGODICITY-HYPOTHESIS",
     "purpose": "Validate and bind the two exact opaque source components into an unverified hypothesis descriptor.",
     "inputs": [
-      {"name": "transmission_operator", "semantic_role": "opaque operator symbol carrying source provenance", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "fields": [{"name": "source_reference", "required": true, "semantic_role": "required line-20 source", "constant": "maths/06-theorems.md:20"}], "collection": {"kind": "scalar", "membership": "constrained", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}},
-      {"name": "ergodicity_condition", "semantic_role": "opaque spectral-gap condition carrying source provenance", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "fields": [{"name": "source_reference", "required": true, "semantic_role": "required line-20 source", "constant": "maths/06-theorems.md:20"}], "collection": {"kind": "scalar", "membership": "constrained", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}}
+      {"name": "transmission_operator", "semantic_role": "opaque operator symbol carrying source provenance", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "fields": [{"name": "source_reference", "required": true, "semantic_role": "required line-20 source", "constant": "maths/06-theorems/theorems.md:20"}], "collection": {"kind": "scalar", "membership": "constrained", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}},
+      {"name": "ergodicity_condition", "semantic_role": "opaque spectral-gap condition carrying source provenance", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "fields": [{"name": "source_reference", "required": true, "semantic_role": "required line-20 source", "constant": "maths/06-theorems/theorems.md:20"}], "collection": {"kind": "scalar", "membership": "constrained", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}}
     ],
     "outputs": [{"name": "operator_hypothesis", "semantic_role": "immutable unverified transmission-ergodicity hypothesis", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "fields": [
       {"name": "transmission_operator", "required": true, "semantic_role": "preserved opaque operator", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
       {"name": "ergodicity_condition", "required": true, "semantic_role": "preserved opaque condition", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},
-      {"name": "source_reference", "required": true, "semantic_role": "common source provenance", "constant": "maths/06-theorems.md:20"},
+      {"name": "source_reference", "required": true, "semantic_role": "common source provenance", "constant": "maths/06-theorems/theorems.md:20"},
       {"name": "verification_status", "required": true, "semantic_role": "unverified hypothesis status", "constant": "hypothesis_not_verified"}
     ], "collection": {"kind": "scalar", "membership": "exact", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": {"shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0"}}}],
     "preconditions": [

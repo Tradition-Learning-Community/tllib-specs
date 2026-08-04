@@ -5,7 +5,7 @@
 - Domain: `competencies` (index 12)
 - Package model: Feature Handoff Package v1.0
 - Authoritative inventory: `registry/domain-finalization/competencies/feature-status.yaml`
-- Primary scientific source: `maths/12-competencies.md`
+- Primary scientific source: `maths/12-competencies/competencies.md`
 - Expected active features: 13
 - Produced feature packages: 13
 

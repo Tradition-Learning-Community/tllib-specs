@@ -6,7 +6,7 @@ This feature constructs the isolated Principles dimension-role descriptor from t
 
 ## What must be implemented?
 
-Implement `construct_principles_role_descriptor`. Require the exact label `Principles`, exact source ordinal `2`, exact source `maths/06-theorems.md:82`, and unresolved identifier `TLC-UT-THEOREMS-006`. Preserve the supplied opaque role payload and rational-coherence label unchanged.
+Implement `construct_principles_role_descriptor`. Require the exact label `Principles`, exact source ordinal `2`, exact source `maths/06-theorems/theorems.md:82`, and unresolved identifier `TLC-UT-THEOREMS-006`. Preserve the supplied opaque role payload and rational-coherence label unchanged.
 
 ## Valid inputs and required output
 

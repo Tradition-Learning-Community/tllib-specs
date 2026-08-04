@@ -465,8 +465,8 @@ def main() -> int:
         )
 
     require(
-        run_git("hash-object", "maths/05-dynamics.md") == MATHS_HASH,
-        "maths/05-dynamics.md was modified",
+        run_git("hash-object", "maths/05-dynamics/dynamics.md") == MATHS_HASH,
+        "maths/05-dynamics/dynamics.md was modified",
     )
 
     changed_paths = set(

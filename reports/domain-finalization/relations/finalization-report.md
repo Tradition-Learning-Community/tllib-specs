@@ -8,7 +8,7 @@
 - Base HEAD: `c34d40713bf444d38f92f76e1c6239ee596d5a18`
 - Work branch: `phase4/relations-domain-finalization-001`
 - Finalization status: `selected_for_relations_implementation_specification`
-- Scientific source: `maths/15-relations.md`, read only and unchanged.
+- Scientific source: `maths/15-relations/relations.md`, read only and unchanged.
 
 ## Authoritative population
 
