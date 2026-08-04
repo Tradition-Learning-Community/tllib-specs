@@ -24,7 +24,7 @@ No feature was removed, merged or rejected.
 
 ## Sources inspected
 
-For every active feature, the source mathematical contract, complementary contract fields, source IR, source test plan, inputs, outputs, scope, context, application conditions, relations, dependencies, unresolved and reservations were inspected. The authoritative domain catalogue, production-readiness registry, scientific inventory, IR batch manifest and completion report were also used. The scientific source `maths/12-competencies.md` was read and left unchanged.
+For every active feature, the source mathematical contract, complementary contract fields, source IR, source test plan, inputs, outputs, scope, context, application conditions, relations, dependencies, unresolved and reservations were inspected. The authoritative domain catalogue, production-readiness registry, scientific inventory, IR batch manifest and completion report were also used. The scientific source `maths/12-competencies/competencies.md` was read and left unchanged.
 
 All source IRs retain their raw status `canonical_declarative_ir_with_reservations`. This raw historical status was not converted into scientific executability or production readiness.
 
@@ -159,7 +159,7 @@ These blockers are preserved and classified rather than converted into implement
 - Source contracts are preserved and unmodified.
 - Source IRs are preserved and unmodified.
 - Source test plans are preserved and unmodified.
-- `maths/12-competencies.md` is preserved and unmodified.
+- `maths/12-competencies/competencies.md` is preserved and unmodified.
 - No feature is rejected.
 - No competency, measurement, score, level, threshold, comparison or progression is invented.
 - No documentary dependency is promoted to an execution dependency.

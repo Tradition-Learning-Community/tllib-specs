@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REG = ROOT / "registry" / "domain-progress" / "relations"
 REP = ROOT / "reports" / "domain-progress" / "relations"
 BASE_COMMIT = "d8e616c71173495b9a014d4a5909df9f30e2a7ae"
-SOURCE = "maths/15-relations.md"
+SOURCE = "maths/15-relations/relations.md"
 DOMAIN = "relations"
 STATUS = "preparation_complete_with_reservations"
 

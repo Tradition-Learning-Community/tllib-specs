@@ -71,7 +71,7 @@ def mentions_master(f):
 source_inventory = {
     **meta,
     "sources": [
-        {"path": "maths/01-disciple.md", "role": "authoritative_domain_source"},
+        {"path": "maths/01-disciple/disciple.md", "role": "authoritative_domain_source"},
         {"path": "registry/scientific-objects/disciple/scientific-objects.candidate.yaml", "count": len(objects)},
         {"path": "registry/scientific-objects/disciple/scientific-relations.candidate.yaml", "count": len(relations)},
         {"path": "registry/scientific-objects/disciple/unresolved-terms.yaml", "count": len(unresolved)},

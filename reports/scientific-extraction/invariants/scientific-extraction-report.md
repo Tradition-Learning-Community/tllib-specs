@@ -5,8 +5,8 @@ version: candidate-1
 status: candidate
 source_slug: invariants
 source_repository: Tradition-Learning-Community/tllib-specs
-source_path: maths/04-invariants.md
-source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/04-invariants.md
+source_path: maths/04-invariants/invariants.md
+source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/04-invariants/invariants.md
 source_branch: main
 source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
 source_blob_sha: 5bddc38b4a74465c2bc3b1d2e9f8aac004e86800
@@ -19,7 +19,7 @@ generator_role: TLC_SCIENTIFIC_OBJECT_EXTRACTOR
 ## Source et périmètre
 
 - Source locale : `C:\TLC\repo\tllib-specs\maths\04-invariants.md`
-- URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/04-invariants.md`
+- URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/04-invariants/invariants.md`
 - Branche : `main`
 - Commit source : `68a4d4c728bab655631543b3e1788d4f0da31e8e`
 - Blob : `5bddc38b4a74465c2bc3b1d2e9f8aac004e86800`

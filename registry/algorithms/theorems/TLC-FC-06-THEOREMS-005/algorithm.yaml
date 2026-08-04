@@ -50,9 +50,9 @@ pseudocode: |
   function register_cns_operator_claims(transformation_claim, dimension_removal_claims):
       if transformation_claim is missing:
           raise MISSING_TRANSFORMATION_CLAIM
-      if source_reference(transformation_claim) != "maths/06-theorems.md:54-55":
+      if source_reference(transformation_claim) != "maths/06-theorems/theorems.md:54-55":
           raise MISSING_TRANSFORMATION_CLAIM
-      if any removal claim lacks source "maths/06-theorems.md:66-67":
+      if any removal claim lacks source "maths/06-theorems/theorems.md:66-67":
           raise MISSING_REMOVAL_CLAIM_SOURCE
       if transformation_claim is stored in the removal family or a removal claim is stored as transformation:
           raise CLAIM_FAMILY_COLLISION

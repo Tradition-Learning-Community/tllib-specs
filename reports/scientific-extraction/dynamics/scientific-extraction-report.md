@@ -5,8 +5,8 @@ version: candidate-1
 status: candidate
 source_slug: dynamics
 source_repository: Tradition-Learning-Community/tllib-specs
-source_path: maths/05-dynamics.md
-source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md
+source_path: maths/05-dynamics/dynamics.md
+source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics/dynamics.md
 source_branch: main
 source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
 source_blob_sha: 09abf8d06093aca40ca8506f2ed4cdedef573911
@@ -19,7 +19,7 @@ generator_role: TLC_SCIENTIFIC_OBJECT_EXTRACTOR
 ## Source et périmètre
 
 - Source locale : `C:\TLC\repo\tllib-specs\maths\05-dynamics.md`
-- URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics.md`
+- URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/05-dynamics/dynamics.md`
 - Branche : `main`
 - Commit source : `68a4d4c728bab655631543b3e1788d4f0da31e8e`
 - Blob : `09abf8d06093aca40ca8506f2ed4cdedef573911`

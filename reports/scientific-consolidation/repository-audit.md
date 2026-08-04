@@ -15,22 +15,22 @@
 
 ## Sources détectées
 
-- `maths/00-master.md`
-- `maths/01-disciple.md`
-- `maths/02-community.md`
-- `maths/03-huit-dimensions-de-tl.md`
-- `maths/04-invariants.md`
-- `maths/05-dynamics.md`
-- `maths/06-theorems.md`
-- `maths/07-message.md`
-- `maths/08-principle.md`
-- `maths/09-values.md`
-- `maths/10-virtues.md`
-- `maths/11-capacities.md`
-- `maths/12-competencies.md`
-- `maths/13-practice.md`
-- `maths/14-lived-experience.md`
-- `maths/15-relations.md`
+- `maths/00-master/master.md`
+- `maths/01-disciple/disciple.md`
+- `maths/02-community/community.md`
+- `maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md`
+- `maths/04-invariants/invariants.md`
+- `maths/05-dynamics/dynamics.md`
+- `maths/06-theorems/theorems.md`
+- `maths/07-message/message.md`
+- `maths/08-principle/principle.md`
+- `maths/09-values/values.md`
+- `maths/10-virtues/virtues.md`
+- `maths/11-capacities/capacities.md`
+- `maths/12-competencies/competencies.md`
+- `maths/13-practice/practice.md`
+- `maths/14-lived-experience/lived-experience.md`
+- `maths/15-relations/relations.md`
 
 ## Paquets détectés
 
@@ -40,22 +40,22 @@
 
 | Source | Slug | Objets | Relations | Non résolus | Doublons | Rapport | Décision | Complet | Anomalies |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---|
-| maths/11-capacities.md | capacities | oui | oui | oui | oui | oui | oui | oui | aucune |
-| maths/02-community.md | community | oui | oui | oui | oui | oui | oui | oui | aucune |
-| maths/12-competencies.md | competencies | oui | oui | oui | oui | oui | oui | oui | aucune |
-| maths/01-disciple.md | disciple | oui | oui | oui | oui | oui | oui | oui | aucune |
-| maths/05-dynamics.md | dynamics | oui | oui | oui | oui | oui | oui | oui | aucune |
-| maths/03-huit-dimensions-de-tl.md | huit-dimensions-de-tl | oui | oui | oui | oui | oui | oui | oui | aucune |
-| maths/04-invariants.md | invariants | oui | oui | oui | oui | oui | oui | oui | aucune |
-| maths/14-lived-experience.md | lived-experience | oui | oui | oui | oui | oui | oui | oui | aucune |
-| maths/00-master.md | master | oui | oui | oui | oui | oui | oui | oui | aucune |
-| maths/07-message.md | message | oui | oui | oui | oui | oui | oui | oui | aucune |
-| maths/13-practice.md | practice | oui | oui | oui | oui | oui | oui | oui | aucune |
-| maths/08-principle.md | principle | oui | oui | oui | oui | oui | oui | oui | aucune |
-| maths/15-relations.md | relations | oui | oui | oui | oui | oui | oui | oui | aucune |
-| maths/06-theorems.md | theorems | oui | oui | oui | oui | oui | oui | oui | aucune |
-| maths/09-values.md | values | oui | oui | oui | oui | oui | oui | oui | aucune |
-| maths/10-virtues.md | virtues | oui | oui | oui | oui | oui | oui | oui | aucune |
+| maths/11-capacities/capacities.md | capacities | oui | oui | oui | oui | oui | oui | oui | aucune |
+| maths/02-community/community.md | community | oui | oui | oui | oui | oui | oui | oui | aucune |
+| maths/12-competencies/competencies.md | competencies | oui | oui | oui | oui | oui | oui | oui | aucune |
+| maths/01-disciple/disciple.md | disciple | oui | oui | oui | oui | oui | oui | oui | aucune |
+| maths/05-dynamics/dynamics.md | dynamics | oui | oui | oui | oui | oui | oui | oui | aucune |
+| maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md | huit-dimensions-de-tl | oui | oui | oui | oui | oui | oui | oui | aucune |
+| maths/04-invariants/invariants.md | invariants | oui | oui | oui | oui | oui | oui | oui | aucune |
+| maths/14-lived-experience/lived-experience.md | lived-experience | oui | oui | oui | oui | oui | oui | oui | aucune |
+| maths/00-master/master.md | master | oui | oui | oui | oui | oui | oui | oui | aucune |
+| maths/07-message/message.md | message | oui | oui | oui | oui | oui | oui | oui | aucune |
+| maths/13-practice/practice.md | practice | oui | oui | oui | oui | oui | oui | oui | aucune |
+| maths/08-principle/principle.md | principle | oui | oui | oui | oui | oui | oui | oui | aucune |
+| maths/15-relations/relations.md | relations | oui | oui | oui | oui | oui | oui | oui | aucune |
+| maths/06-theorems/theorems.md | theorems | oui | oui | oui | oui | oui | oui | oui | aucune |
+| maths/09-values/values.md | values | oui | oui | oui | oui | oui | oui | oui | aucune |
+| maths/10-virtues/virtues.md | virtues | oui | oui | oui | oui | oui | oui | oui | aucune |
 
 ## Anomalies structurelles
 

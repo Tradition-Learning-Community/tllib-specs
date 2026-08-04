@@ -6,7 +6,7 @@ This feature binds an opaque transmission-operator symbol and an opaque uniform-
 
 ## What must be implemented?
 
-Implement `construct_transmission_ergodicity_hypothesis`. Require both opaque components, require both to cite `maths/06-theorems.md:20`, preserve their identities and payloads unchanged, and return a descriptor explicitly labelled `hypothesis_not_verified`.
+Implement `construct_transmission_ergodicity_hypothesis`. Require both opaque components, require both to cite `maths/06-theorems/theorems.md:20`, preserve their identities and payloads unchanged, and return a descriptor explicitly labelled `hypothesis_not_verified`.
 
 ## Valid inputs and required output
 

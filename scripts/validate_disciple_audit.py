@@ -30,8 +30,8 @@ readiness = load("readiness.yaml")
 deps = load("dependency-matrix.yaml")
 
 if source.get("domain_id") != DOMAIN: errors.append("source inventory domain mismatch")
-if source.get("source_file") != 'maths/01-disciple.md': errors.append("source file mismatch")
-if not (ROOT / 'maths/01-disciple.md').is_file(): errors.append("authoritative source missing")
+if source.get("source_file") != 'maths/01-disciple/disciple.md': errors.append("source file mismatch")
+if not (ROOT / 'maths/01-disciple/disciple.md').is_file(): errors.append("authoritative source missing")
 
 features = catalogue.get("features", [])
 ids = [f.get("feature_id") for f in features]

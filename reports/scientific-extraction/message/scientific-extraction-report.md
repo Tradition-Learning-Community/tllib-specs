@@ -5,8 +5,8 @@ version: candidate-1
 status: candidate
 source_slug: message
 source_repository: Tradition-Learning-Community/tllib-specs
-source_path: maths/07-message.md
-source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/07-message.md
+source_path: maths/07-message/message.md
+source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/07-message/message.md
 source_branch: main
 source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
 source_blob_sha: a407d3d1d91c6e03f0471f49054c64b349cf506c
@@ -19,7 +19,7 @@ generator_role: TLC_SCIENTIFIC_OBJECT_EXTRACTOR
 ## Source et périmètre
 
 - Source locale : `C:\TLC\repo\tllib-specs\maths\07-message.md`
-- URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/07-message.md`
+- URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/07-message/message.md`
 - Branche : `main`
 - Commit source : `68a4d4c728bab655631543b3e1788d4f0da31e8e`
 - Blob : `a407d3d1d91c6e03f0471f49054c64b349cf506c`

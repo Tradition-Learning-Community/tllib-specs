@@ -14,10 +14,10 @@ nature: declarative_structural
 practice_reference:
   feature_kind: operator_candidate
   covered_objects:
-  - {object_id: TLC-SO-PRACTICE-024, canonical_name: Fonctions de performance et seuils, object_type: Function, source_path: maths/13-practice.md}
-  - {object_id: TLC-SO-PRACTICE-074, canonical_name: Opérateur d’actualisation, object_type: Operator, source_path: maths/13-practice.md}
-  - {object_id: TLC-SO-PRACTICE-075, canonical_name: Opérateur de pratique, object_type: Operator, source_path: maths/13-practice.md}
-  - {object_id: TLC-SO-PRACTICE-076, canonical_name: Opérateur de transfert, object_type: Operator, source_path: maths/13-practice.md}
+  - {object_id: TLC-SO-PRACTICE-024, canonical_name: Fonctions de performance et seuils, object_type: Function, source_path: maths/13-practice/practice.md}
+  - {object_id: TLC-SO-PRACTICE-074, canonical_name: Opérateur d’actualisation, object_type: Operator, source_path: maths/13-practice/practice.md}
+  - {object_id: TLC-SO-PRACTICE-075, canonical_name: Opérateur de pratique, object_type: Operator, source_path: maths/13-practice/practice.md}
+  - {object_id: TLC-SO-PRACTICE-076, canonical_name: Opérateur de transfert, object_type: Operator, source_path: maths/13-practice/practice.md}
 identity: {preserved: true, public_feature_id: TLC-FC-13-PRACTICE-009}
 scope: {kind: descriptive_scope, statement: candidate function and operators cited by the source contract}
 context: {kind: descriptive_context, statement: operator domains and codomains remain source-declared opaque references}
@@ -50,7 +50,7 @@ invariants: [operator signatures are preserved textually, no threshold values ar
 errors: [invalid_feature_identity, missing_required_input, invalid_input_type, missing_source_reference, provenance_mismatch, structural_error, external_executor_required, external_evaluator_required, implementation_out_of_scope]
 determinism: {structural_serialization: deterministic, scientific_evaluation: unspecified}
 dependencies:
-  documentary: [maths/13-practice.md]
+  documentary: [maths/13-practice/practice.md]
   scientific: [TLC-SO-PRACTICE-024, TLC-SO-PRACTICE-074, TLC-SO-PRACTICE-075, TLC-SO-PRACTICE-076]
   execution: [external_executor_required]
 unresolved_propagated: []

@@ -37,7 +37,7 @@
       "given": {"valid_reference_bundle": true},
       "when": "The descriptor is emitted.",
       "expect": {"relation_refs_distinct": true, "relation_order": ["TLC-SR-MASTER-007", "TLC-SR-MASTER-008", "TLC-SR-MASTER-009", "TLC-SR-MASTER-010", "TLC-SR-MASTER-011"]},
-      "source_basis": ["registry/oracles/master/TLC-FC-00-MASTER-005/oracle.yaml", "maths/00-master.md"]
+      "source_basis": ["registry/oracles/master/TLC-FC-00-MASTER-005/oracle.yaml", "maths/00-master/master.md"]
     },
     {
       "test_id": "MASTER-005-A05",
@@ -70,7 +70,7 @@
       "test_id": "MASTER-005-A08",
       "applies_to": "package integrity",
       "category": "preservation",
-      "given": {"upstream_artifact_paths": ["maths/00-master.md", "registry/math-contracts/TLC-FC-00-MASTER-005/contract.yaml", "registry/ir/TLC-FC-00-MASTER-005/ir.yaml", "ir/TLC-FC-00-MASTER-005/ir.candidate.json", "registry/test-plans/TLC-FC-00-MASTER-005/test-plan.yaml", "registry/optimized-ir/master/TLC-FC-00-MASTER-005/ir.yaml", "registry/algorithms/master/TLC-FC-00-MASTER-005/algorithm.yaml", "registry/oracles/master/TLC-FC-00-MASTER-005/oracle.yaml"]},
+      "given": {"upstream_artifact_paths": ["maths/00-master/master.md", "registry/math-contracts/TLC-FC-00-MASTER-005/contract.yaml", "registry/ir/TLC-FC-00-MASTER-005/ir.yaml", "ir/TLC-FC-00-MASTER-005/ir.candidate.json", "registry/test-plans/TLC-FC-00-MASTER-005/test-plan.yaml", "registry/optimized-ir/master/TLC-FC-00-MASTER-005/ir.yaml", "registry/algorithms/master/TLC-FC-00-MASTER-005/algorithm.yaml", "registry/oracles/master/TLC-FC-00-MASTER-005/oracle.yaml"]},
       "when": "The handoff is validated.",
       "expect": {"upstream_artifacts_unmodified_by_handoff": true},
       "source_basis": ["registry/oracles/master/TLC-FC-00-MASTER-005/oracle.yaml"]

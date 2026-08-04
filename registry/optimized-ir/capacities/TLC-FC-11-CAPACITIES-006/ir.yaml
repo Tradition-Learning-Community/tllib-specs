@@ -13,7 +13,7 @@ capacity_or_reference:
 identity: {feature_id: exact, object_ids: exact, preservation: mandatory}
 scope: {kind: descriptive_scope, value: context adaptation and motivational engagement equations only}
 context:
-  source_file: maths/11-capacities.md
+  source_file: maths/11-capacities/capacities.md
   source_sections: [Dynamique temporelle et développementale, Dimensions éthiques motivationnelles et cognitives]
 inputs:
   - {name: capacity_feature_id, type: FeatureId, expected: TLC-FC-11-CAPACITIES-006}
@@ -43,7 +43,7 @@ postconditions:
 invariants: [exact order, independent source contexts retained, blocker propagated]
 errors: [UnknownFeatureId, MissingCoveredObject, UnexpectedCoveredObject, ObjectOrderMismatch, MissingSymbolTableEntry, MissingSourceReference, MissingDecisionBlocker, ScientificEvaluationRequested]
 determinism: {status: deterministic, basis: identical structural inputs}
-dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities.md]}
+dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities/capacities.md]}
 unresolved_propagated: [scientific decision required]
 reservations: [context representation, dimensions, parameters and dynamics execution unresolved]
 transformations_applied: [normalized two-node dynamics bundle, normalized traceability, explicit guard]

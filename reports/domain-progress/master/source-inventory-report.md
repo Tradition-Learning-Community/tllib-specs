@@ -1,6 +1,6 @@
 # Master source inventory
 
-- Source: `maths/00-master.md`
+- Source: `maths/00-master/master.md`
 - Extraction commit: `fe8b990d7560869889b153cc8422b5d6918678e6`
 - Baseline commit: `9aef7ab424f3cf998c47caaa9ed4402302e96031`
 - Objects: 40

@@ -28,7 +28,7 @@ def report(name, title, rows, conclusion):
 meta = {"domain": "message", "preparation_only": True, "canonical_baseline": "origin/main", "authority_rule": "canonical_only"}
 
 dump("source-inventory.yaml", {**meta, "sources": [
-    {"path":"maths/07-message.md","role":"primary_scientific_source","canonical":True},
+    {"path":"maths/07-message/message.md","role":"primary_scientific_source","canonical":True},
     {"path":"registry/scientific-objects/message/scientific-objects.candidate.yaml","role":"candidate_objects","count":72},
     {"path":"registry/scientific-objects/message/scientific-relations.candidate.yaml","role":"candidate_relations","count":71},
     {"path":"registry/scientific-objects/message/unresolved-terms.yaml","role":"unresolved_terms","count":61},

@@ -28,7 +28,7 @@ The manifest and preparation registers state `preparation_complete_with_reservat
 
 ## Artefacts reused
 
-- `maths/12-competencies.md` as authoritative source only; it was not modified.
+- `maths/12-competencies/competencies.md` as authoritative source only; it was not modified.
 - `registry/domain-progress/competencies/feature-catalogue.yaml` as primary planned catalogue.
 - `registry/domain-progress/competencies/production-readiness.yaml` for readiness and blockers.
 - `registry/domain-progress/competencies/scientific-inventory.yaml` for object names, source statements, symbols, and provenance.

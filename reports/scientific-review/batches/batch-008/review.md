@@ -28,7 +28,7 @@ Faut-il rapprocher les objets de TLC-XD-0050 ?
 - Objets : `TLC-SO-CAPACITIES-045`, `TLC-SO-COMPETENCIES-047`, `TLC-SO-COMPETENCIES-053`, `TLC-SO-LIVED-EXPERIENCE-041`, `TLC-SO-MESSAGE-025`, `TLC-SO-PRACTICE-046`, `TLC-SO-VALUES-040`, `TLC-SO-VIRTUES-057`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/07-message.md`, `maths/09-values.md`, `maths/10-virtues.md`, `maths/11-capacities.md`, `maths/12-competencies.md`, `maths/13-practice.md`, `maths/14-lived-experience.md`
+- Sources : `maths/07-message/message.md`, `maths/09-values/values.md`, `maths/10-virtues/virtues.md`, `maths/11-capacities/capacities.md`, `maths/12-competencies/competencies.md`, `maths/13-practice/practice.md`, `maths/14-lived-experience/lived-experience.md`
 
 ### Éléments de preuve
 
@@ -36,14 +36,14 @@ Faut-il rapprocher les objets de TLC-XD-0050 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Definition]}
-- TLC-SO-CAPACITIES-045 — Équation — Définition formelle (Definition), référence maths/11-capacities.md:13
-- TLC-SO-COMPETENCIES-047 — Équation — Définition formelle (Definition), référence maths/12-competencies.md:13
-- TLC-SO-COMPETENCIES-053 — Équation — Définition formelle (Definition), référence maths/12-competencies.md:26
-- TLC-SO-LIVED-EXPERIENCE-041 — Équation — Définition formelle (Definition), référence maths/14-lived-experience.md:13
-- TLC-SO-MESSAGE-025 — Équation — Définition formelle (Definition), référence maths/07-message.md:11
-- TLC-SO-PRACTICE-046 — Équation — Définition formelle (Definition), référence maths/13-practice.md:13
-- TLC-SO-VALUES-040 — Équation — Définition formelle (Definition), référence maths/09-values.md:13
-- TLC-SO-VIRTUES-057 — Équation — Définition formelle (Definition), référence maths/10-virtues.md:15
+- TLC-SO-CAPACITIES-045 — Équation — Définition formelle (Definition), référence maths/11-capacities/capacities.md:13
+- TLC-SO-COMPETENCIES-047 — Équation — Définition formelle (Definition), référence maths/12-competencies/competencies.md:13
+- TLC-SO-COMPETENCIES-053 — Équation — Définition formelle (Definition), référence maths/12-competencies/competencies.md:26
+- TLC-SO-LIVED-EXPERIENCE-041 — Équation — Définition formelle (Definition), référence maths/14-lived-experience/lived-experience.md:13
+- TLC-SO-MESSAGE-025 — Équation — Définition formelle (Definition), référence maths/07-message/message.md:11
+- TLC-SO-PRACTICE-046 — Équation — Définition formelle (Definition), référence maths/13-practice/practice.md:13
+- TLC-SO-VALUES-040 — Équation — Définition formelle (Definition), référence maths/09-values/values.md:13
+- TLC-SO-VIRTUES-057 — Équation — Définition formelle (Definition), référence maths/10-virtues/virtues.md:15
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0050`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-CAPACITIES-045`
@@ -132,7 +132,7 @@ Faut-il rapprocher les objets de TLC-XD-0120 ?
 - Objets : `TLC-SO-MESSAGE-044`, `TLC-SO-VIRTUES-120`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/07-message.md`, `maths/10-virtues.md`
+- Sources : `maths/07-message/message.md`, `maths/10-virtues/virtues.md`
 
 ### Éléments de preuve
 
@@ -140,8 +140,8 @@ Faut-il rapprocher les objets de TLC-XD-0120 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Concept]}
-- TLC-SO-MESSAGE-044 — Résistance (Concept), référence maths/07-message.md:83
-- TLC-SO-VIRTUES-120 — Résistance (Concept), référence maths/10-virtues.md:127
+- TLC-SO-MESSAGE-044 — Résistance (Concept), référence maths/07-message/message.md:83
+- TLC-SO-VIRTUES-120 — Résistance (Concept), référence maths/10-virtues/virtues.md:127
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0120`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-MESSAGE-044`
@@ -224,7 +224,7 @@ Faut-il rapprocher les objets de TLC-XD-0034 ?
 - Objets : `TLC-SO-MESSAGE-002`, `TLC-SO-RELATIONS-003`, `TLC-SO-RELATIONS-010`, `TLC-SO-RELATIONS-016`, `TLC-SO-RELATIONS-022`, `TLC-SO-RELATIONS-028`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/07-message.md`, `maths/15-relations.md`
+- Sources : `maths/07-message/message.md`, `maths/15-relations/relations.md`
 
 ### Éléments de preuve
 
@@ -232,12 +232,12 @@ Faut-il rapprocher les objets de TLC-XD-0034 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Definition]}
-- TLC-SO-MESSAGE-002 — Définition et nature (Definition), référence maths/07-message.md:3
-- TLC-SO-RELATIONS-003 — Définition et nature (Definition), référence maths/15-relations.md:11
-- TLC-SO-RELATIONS-010 — Définition et nature (Definition), référence maths/15-relations.md:75
-- TLC-SO-RELATIONS-016 — Définition et nature (Definition), référence maths/15-relations.md:118
-- TLC-SO-RELATIONS-022 — Définition et nature (Definition), référence maths/15-relations.md:161
-- TLC-SO-RELATIONS-028 — Définition et nature (Definition), référence maths/15-relations.md:201
+- TLC-SO-MESSAGE-002 — Définition et nature (Definition), référence maths/07-message/message.md:3
+- TLC-SO-RELATIONS-003 — Définition et nature (Definition), référence maths/15-relations/relations.md:11
+- TLC-SO-RELATIONS-010 — Définition et nature (Definition), référence maths/15-relations/relations.md:75
+- TLC-SO-RELATIONS-016 — Définition et nature (Definition), référence maths/15-relations/relations.md:118
+- TLC-SO-RELATIONS-022 — Définition et nature (Definition), référence maths/15-relations/relations.md:161
+- TLC-SO-RELATIONS-028 — Définition et nature (Definition), référence maths/15-relations/relations.md:201
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0034`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-MESSAGE-002`
@@ -324,7 +324,7 @@ Faut-il rapprocher les objets de TLC-XD-0138 ?
 - Objets : `TLC-SO-MESSAGE-042`, `TLC-SO-RELATIONS-068`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/07-message.md`, `maths/15-relations.md`
+- Sources : `maths/07-message/message.md`, `maths/15-relations/relations.md`
 
 ### Éléments de preuve
 
@@ -332,8 +332,8 @@ Faut-il rapprocher les objets de TLC-XD-0138 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Concept]}
-- TLC-SO-MESSAGE-042 — Traduction (Concept), référence maths/07-message.md:81
-- TLC-SO-RELATIONS-068 — Traduction (Concept), référence maths/15-relations.md:125
+- TLC-SO-MESSAGE-042 — Traduction (Concept), référence maths/07-message/message.md:81
+- TLC-SO-RELATIONS-068 — Traduction (Concept), référence maths/15-relations/relations.md:125
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0138`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-MESSAGE-042`
@@ -416,7 +416,7 @@ Faut-il rapprocher les objets de TLC-XD-0068 ?
 - Objets : `TLC-SO-PRINCIPLE-019`, `TLC-SO-VALUES-015`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/08-principle.md`, `maths/09-values.md`
+- Sources : `maths/08-principle/principle.md`, `maths/09-values/values.md`
 
 ### Éléments de preuve
 
@@ -424,8 +424,8 @@ Faut-il rapprocher les objets de TLC-XD-0068 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Concept]}
-- TLC-SO-PRINCIPLE-019 — Feedback et adaptation (Concept), référence maths/08-principle.md:113
-- TLC-SO-VALUES-015 — Feedback et adaptation (Concept), référence maths/09-values.md:100
+- TLC-SO-PRINCIPLE-019 — Feedback et adaptation (Concept), référence maths/08-principle/principle.md:113
+- TLC-SO-VALUES-015 — Feedback et adaptation (Concept), référence maths/09-values/values.md:100
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0068`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-PRINCIPLE-019`
@@ -508,7 +508,7 @@ Faut-il rapprocher les objets de TLC-XD-0103 ?
 - Objets : `TLC-SO-PRINCIPLE-016`, `TLC-SO-VALUES-012`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/08-principle.md`, `maths/09-values.md`
+- Sources : `maths/08-principle/principle.md`, `maths/09-values/values.md`
 
 ### Éléments de preuve
 
@@ -516,8 +516,8 @@ Faut-il rapprocher les objets de TLC-XD-0103 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Concept]}
-- TLC-SO-PRINCIPLE-016 — Modes de transmission (Concept), référence maths/08-principle.md:91
-- TLC-SO-VALUES-012 — Modes de transmission (Concept), référence maths/09-values.md:73
+- TLC-SO-PRINCIPLE-016 — Modes de transmission (Concept), référence maths/08-principle/principle.md:91
+- TLC-SO-VALUES-012 — Modes de transmission (Concept), référence maths/09-values/values.md:73
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0103`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-PRINCIPLE-016`
@@ -600,7 +600,7 @@ Faut-il rapprocher les objets de TLC-XD-0117 ?
 - Objets : `TLC-SO-PRINCIPLE-017`, `TLC-SO-VALUES-013`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/08-principle.md`, `maths/09-values.md`
+- Sources : `maths/08-principle/principle.md`, `maths/09-values/values.md`
 
 ### Éléments de preuve
 
@@ -608,8 +608,8 @@ Faut-il rapprocher les objets de TLC-XD-0117 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [State]}
-- TLC-SO-PRINCIPLE-017 — Réception et interprétation (State), référence maths/08-principle.md:98
-- TLC-SO-VALUES-013 — Réception et interprétation (State), référence maths/09-values.md:84
+- TLC-SO-PRINCIPLE-017 — Réception et interprétation (State), référence maths/08-principle/principle.md:98
+- TLC-SO-VALUES-013 — Réception et interprétation (State), référence maths/09-values/values.md:84
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0117`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-PRINCIPLE-017`
@@ -692,7 +692,7 @@ Faut-il rapprocher les objets de TLC-XD-0040 ?
 - Objets : `TLC-SO-CAPACITIES-031`, `TLC-SO-COMPETENCIES-032`, `TLC-SO-LIVED-EXPERIENCE-026`, `TLC-SO-PRACTICE-031`, `TLC-SO-PRINCIPLE-030`, `TLC-SO-VALUES-026`, `TLC-SO-VIRTUES-034`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/08-principle.md`, `maths/09-values.md`, `maths/10-virtues.md`, `maths/11-capacities.md`, `maths/12-competencies.md`, `maths/13-practice.md`, `maths/14-lived-experience.md`
+- Sources : `maths/08-principle/principle.md`, `maths/09-values/values.md`, `maths/10-virtues/virtues.md`, `maths/11-capacities/capacities.md`, `maths/12-competencies/competencies.md`, `maths/13-practice/practice.md`, `maths/14-lived-experience/lived-experience.md`
 
 ### Éléments de preuve
 
@@ -700,13 +700,13 @@ Faut-il rapprocher les objets de TLC-XD-0040 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Concept]}
-- TLC-SO-CAPACITIES-031 — Dimensions éthiques, motivationnelles et cognitives (Concept), référence maths/11-capacities.md:181
-- TLC-SO-COMPETENCIES-032 — Dimensions éthiques, motivationnelles et cognitives (Concept), référence maths/12-competencies.md:190
-- TLC-SO-LIVED-EXPERIENCE-026 — Dimensions éthiques, motivationnelles et cognitives (Concept), référence maths/14-lived-experience.md:115
-- TLC-SO-PRACTICE-031 — Dimensions éthiques, motivationnelles et cognitives (Concept), référence maths/13-practice.md:162
-- TLC-SO-PRINCIPLE-030 — Dimensions éthiques, motivationnelles et cognitives (Concept), référence maths/08-principle.md:218
-- TLC-SO-VALUES-026 — Dimensions éthiques, motivationnelles et cognitives (Concept), référence maths/09-values.md:163
-- TLC-SO-VIRTUES-034 — Dimensions éthiques, motivationnelles et cognitives (Concept), référence maths/10-virtues.md:192
+- TLC-SO-CAPACITIES-031 — Dimensions éthiques, motivationnelles et cognitives (Concept), référence maths/11-capacities/capacities.md:181
+- TLC-SO-COMPETENCIES-032 — Dimensions éthiques, motivationnelles et cognitives (Concept), référence maths/12-competencies/competencies.md:190
+- TLC-SO-LIVED-EXPERIENCE-026 — Dimensions éthiques, motivationnelles et cognitives (Concept), référence maths/14-lived-experience/lived-experience.md:115
+- TLC-SO-PRACTICE-031 — Dimensions éthiques, motivationnelles et cognitives (Concept), référence maths/13-practice/practice.md:162
+- TLC-SO-PRINCIPLE-030 — Dimensions éthiques, motivationnelles et cognitives (Concept), référence maths/08-principle/principle.md:218
+- TLC-SO-VALUES-026 — Dimensions éthiques, motivationnelles et cognitives (Concept), référence maths/09-values/values.md:163
+- TLC-SO-VIRTUES-034 — Dimensions éthiques, motivationnelles et cognitives (Concept), référence maths/10-virtues/virtues.md:192
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0040`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-CAPACITIES-031`
@@ -794,7 +794,7 @@ Faut-il rapprocher les objets de TLC-XD-0118 ?
 - Objets : `TLC-SO-COMPETENCIES-063`, `TLC-SO-LIVED-EXPERIENCE-053`, `TLC-SO-PRACTICE-060`, `TLC-SO-PRINCIPLE-057`, `TLC-SO-VALUES-059`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/08-principle.md`, `maths/09-values.md`, `maths/12-competencies.md`, `maths/13-practice.md`, `maths/14-lived-experience.md`
+- Sources : `maths/08-principle/principle.md`, `maths/09-values/values.md`, `maths/12-competencies/competencies.md`, `maths/13-practice/practice.md`, `maths/14-lived-experience/lived-experience.md`
 
 ### Éléments de preuve
 
@@ -802,11 +802,11 @@ Faut-il rapprocher les objets de TLC-XD-0118 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Concept]}
-- TLC-SO-COMPETENCIES-063 — Reconnaissance (Concept), référence maths/12-competencies.md:51
-- TLC-SO-LIVED-EXPERIENCE-053 — Reconnaissance (Concept), référence maths/14-lived-experience.md:38
-- TLC-SO-PRACTICE-060 — Reconnaissance (Concept), référence maths/13-practice.md:40
-- TLC-SO-PRINCIPLE-057 — Reconnaissance (Concept), référence maths/08-principle.md:101
-- TLC-SO-VALUES-059 — Reconnaissance (Concept), référence maths/09-values.md:43
+- TLC-SO-COMPETENCIES-063 — Reconnaissance (Concept), référence maths/12-competencies/competencies.md:51
+- TLC-SO-LIVED-EXPERIENCE-053 — Reconnaissance (Concept), référence maths/14-lived-experience/lived-experience.md:38
+- TLC-SO-PRACTICE-060 — Reconnaissance (Concept), référence maths/13-practice/practice.md:40
+- TLC-SO-PRINCIPLE-057 — Reconnaissance (Concept), référence maths/08-principle/principle.md:101
+- TLC-SO-VALUES-059 — Reconnaissance (Concept), référence maths/09-values/values.md:43
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0118`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-COMPETENCIES-063`
@@ -892,7 +892,7 @@ Faut-il rapprocher les objets de TLC-XD-0064 ?
 - Objets : `TLC-SO-PRACTICE-058`, `TLC-SO-PRINCIPLE-076`, `TLC-SO-VALUES-057`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/08-principle.md`, `maths/09-values.md`, `maths/13-practice.md`
+- Sources : `maths/08-principle/principle.md`, `maths/09-values/values.md`, `maths/13-practice/practice.md`
 
 ### Éléments de preuve
 
@@ -900,9 +900,9 @@ Faut-il rapprocher les objets de TLC-XD-0064 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Concept]}
-- TLC-SO-PRACTICE-058 — Exemplification (Concept), référence maths/13-practice.md:38
-- TLC-SO-PRINCIPLE-076 — Exemplification (Concept), référence maths/08-principle.md:160
-- TLC-SO-VALUES-057 — Exemplification (Concept), référence maths/09-values.md:41
+- TLC-SO-PRACTICE-058 — Exemplification (Concept), référence maths/13-practice/practice.md:38
+- TLC-SO-PRINCIPLE-076 — Exemplification (Concept), référence maths/08-principle/principle.md:160
+- TLC-SO-VALUES-057 — Exemplification (Concept), référence maths/09-values/values.md:41
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0064`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-PRACTICE-058`
@@ -986,7 +986,7 @@ Faut-il rapprocher les objets de TLC-XD-0007 ?
 - Objets : `TLC-SO-CAPACITIES-032`, `TLC-SO-PRINCIPLE-096`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/08-principle.md`, `maths/11-capacities.md`
+- Sources : `maths/08-principle/principle.md`, `maths/11-capacities/capacities.md`
 
 ### Éléments de preuve
 
@@ -994,8 +994,8 @@ Faut-il rapprocher les objets de TLC-XD-0007 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Concept]}
-- TLC-SO-CAPACITIES-032 — Alignement avec les Valeurs et Vertus (Concept), référence maths/11-capacities.md:183
-- TLC-SO-PRINCIPLE-096 — Alignement avec les valeurs et vertus (Concept), référence maths/08-principle.md:222
+- TLC-SO-CAPACITIES-032 — Alignement avec les Valeurs et Vertus (Concept), référence maths/11-capacities/capacities.md:183
+- TLC-SO-PRINCIPLE-096 — Alignement avec les valeurs et vertus (Concept), référence maths/08-principle/principle.md:222
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0007`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-CAPACITIES-032`
@@ -1078,7 +1078,7 @@ Faut-il rapprocher les objets de TLC-XD-0005 ?
 - Objets : `TLC-SO-PRINCIPLE-091`, `TLC-SO-RELATIONS-038`
 - Relations : aucune
 - Termes : aucun
-- Sources : `maths/08-principle.md`, `maths/15-relations.md`
+- Sources : `maths/08-principle/principle.md`, `maths/15-relations/relations.md`
 
 ### Éléments de preuve
 
@@ -1086,8 +1086,8 @@ Faut-il rapprocher les objets de TLC-XD-0005 ?
 - Type de rapprochement : same_normalized_name_across_sources
 - Risque de fusion : medium
 - Différences observées : {object_types: [Concept]}
-- TLC-SO-PRINCIPLE-091 — adaptation (Concept), référence maths/08-principle.md:207
-- TLC-SO-RELATIONS-038 — Adaptation (Concept), référence maths/15-relations.md:24
+- TLC-SO-PRINCIPLE-091 — adaptation (Concept), référence maths/08-principle/principle.md:207
+- TLC-SO-RELATIONS-038 — Adaptation (Concept), référence maths/15-relations/relations.md:24
 - Référence : `reports/scientific-consolidation/human-review-queue.yaml`
 - Référence : `registry/scientific-objects/cross-source-duplicate-candidates.yaml#TLC-XD-0005`
 - Référence : `registry/scientific-objects/global-object-candidates.yaml#TLC-SO-PRINCIPLE-091`

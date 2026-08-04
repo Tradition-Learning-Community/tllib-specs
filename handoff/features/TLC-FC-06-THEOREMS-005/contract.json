@@ -4,8 +4,8 @@
   "purpose": "Register the transformation-signature and per-dimension removal-effect CNS claims as two distinct opaque families without evaluating any CNS proposition.",
   "scope": {
     "required": [
-      {"id": "TH005-REQ-001", "statement": "Require one transformation claim sourced to maths/06-theorems.md:54-55."},
-      {"id": "TH005-REQ-002", "statement": "Require every removal-effect claim to be sourced to maths/06-theorems.md:66-67."},
+      {"id": "TH005-REQ-001", "statement": "Require one transformation claim sourced to maths/06-theorems/theorems.md:54-55."},
+      {"id": "TH005-REQ-002", "statement": "Require every removal-effect claim to be sourced to maths/06-theorems/theorems.md:66-67."},
       {"id": "TH005-REQ-003", "statement": "Keep the transformation and removal-effect families separately addressable and preserve blocked_local status."}
     ],
     "forbidden": [
@@ -22,8 +22,8 @@
     "operation_id": "REGISTER-CNS-OPERATOR-CLAIMS",
     "purpose": "Validate provenance and construct an immutable two-family CNS claim set.",
     "inputs": [
-      {"name": "transformation_claim", "semantic_role": "opaque source transformation-signature claim", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "fields": [{"name": "source_reference", "required": true, "semantic_role": "transformation source", "constant": "maths/06-theorems.md:54-55"}], "collection": {"kind": "scalar", "membership": "constrained", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}},
-      {"name": "dimension_removal_claims", "semantic_role": "dimension-keyed opaque removal-effect claims", "collection": {"kind": "map", "membership": "constrained", "cardinality": {"minimum": 1, "maximum": null}, "ordering": "implementation_defined", "duplicates": "not_applicable", "key_contract": {"role": "DimensionId"}, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "required_source": "maths/06-theorems.md:66-67"}}}
+      {"name": "transformation_claim", "semantic_role": "opaque source transformation-signature claim", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "fields": [{"name": "source_reference", "required": true, "semantic_role": "transformation source", "constant": "maths/06-theorems/theorems.md:54-55"}], "collection": {"kind": "scalar", "membership": "constrained", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}},
+      {"name": "dimension_removal_claims", "semantic_role": "dimension-keyed opaque removal-effect claims", "collection": {"kind": "map", "membership": "constrained", "cardinality": {"minimum": 1, "maximum": null}, "ordering": "implementation_defined", "duplicates": "not_applicable", "key_contract": {"role": "DimensionId"}, "value_contract": {"shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "required_source": "maths/06-theorems/theorems.md:66-67"}}}
     ],
     "outputs": [{"name": "cns_operator_claims", "semantic_role": "immutable separated CNS claim families", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "fields": [
       {"name": "transformation_claim", "required": true, "semantic_role": "separately addressable transformation family", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0"},

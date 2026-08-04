@@ -1,6 +1,6 @@
 # Mathematical contract — TLC-FC-14-LIVED-EXPERIENCE-005
 
-Position 5 of `CONTRACT_WAVE_1`, compiled from `planning/math-contract-entry` at `7f73fd9`. The only scientific source read is `maths/14-lived-experience.md:140-144`; the authorized equation range is 140–142. The sole object is `TLC-SO-LIVED-EXPERIENCE-065`; no relation identifier or contract dependency is authorized.
+Position 5 of `CONTRACT_WAVE_1`, compiled from `planning/math-contract-entry` at `7f73fd9`. The only scientific source read is `maths/14-lived-experience/lived-experience.md:140-144`; the authorized equation range is 140–142. The sole object is `TLC-SO-LIVED-EXPERIENCE-065`; no relation identifier or contract dependency is authorized.
 
 The exact equation defines collective experience as the mean of `N` individual experiences plus `sigma` times an opaque `Synergie` operator. Seven symbols, one equation, one precondition, one postcondition, and one registry invariant are recorded. Types, `N` domain, `sigma`, and `Synergie` remain unresolved. No algorithm, discretization, numerical method, executable oracle, or implementation type is introduced.
 

@@ -12,22 +12,22 @@
 
 | Source | Objects | Relations |
 |---|---:|---:|
-| `maths/00-master.md` | 40 | 37 |
-| `maths/01-disciple.md` | 70 | 69 |
-| `maths/02-community.md` | 57 | 56 |
-| `maths/03-huit-dimensions-de-tl.md` | 118 | 117 |
-| `maths/04-invariants.md` | 69 | 68 |
-| `maths/05-dynamics.md` | 26 | 25 |
-| `maths/06-theorems.md` | 30 | 29 |
-| `maths/07-message.md` | 72 | 71 |
-| `maths/08-principle.md` | 103 | 102 |
-| `maths/09-values.md` | 103 | 102 |
-| `maths/10-virtues.md` | 218 | 217 |
-| `maths/11-capacities.md` | 100 | 99 |
-| `maths/12-competencies.md` | 114 | 113 |
-| `maths/13-practice.md` | 93 | 92 |
-| `maths/14-lived-experience.md` | 70 | 69 |
-| `maths/15-relations.md` | 100 | 99 |
+| `maths/00-master/master.md` | 40 | 37 |
+| `maths/01-disciple/disciple.md` | 70 | 69 |
+| `maths/02-community/community.md` | 57 | 56 |
+| `maths/03-huit-dimensions-de-tl/huit-dimensions-de-tl.md` | 118 | 117 |
+| `maths/04-invariants/invariants.md` | 69 | 68 |
+| `maths/05-dynamics/dynamics.md` | 26 | 25 |
+| `maths/06-theorems/theorems.md` | 30 | 29 |
+| `maths/07-message/message.md` | 72 | 71 |
+| `maths/08-principle/principle.md` | 103 | 102 |
+| `maths/09-values/values.md` | 103 | 102 |
+| `maths/10-virtues/virtues.md` | 218 | 217 |
+| `maths/11-capacities/capacities.md` | 100 | 99 |
+| `maths/12-competencies/competencies.md` | 114 | 113 |
+| `maths/13-practice/practice.md` | 93 | 92 |
+| `maths/14-lived-experience/lived-experience.md` | 70 | 69 |
+| `maths/15-relations/relations.md` | 100 | 99 |
 
 ## Result
 

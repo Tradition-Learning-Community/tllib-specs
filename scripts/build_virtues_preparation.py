@@ -4,7 +4,7 @@ ROOT=Path(__file__).resolve().parents[1]; REG=ROOT/'registry/domain-progress/vir
 def load(p): return yaml.safe_load((ROOT/p).read_text(encoding='utf-8'))
 def dump(n,d): (REG/n).write_text(yaml.safe_dump(d,allow_unicode=True,sort_keys=False,width=110),encoding='utf-8')
 def report(n,t,lines): (REP/n).write_text('# '+t+'\n\n'+'\n'.join(lines).rstrip()+'\n',encoding='utf-8')
-base='d8e616c71173495b9a014d4a5909df9f30e2a7ae'; src='maths/10-virtues.md'; meta={'domain_id':'virtues','source_file':src,'baseline_commit':base,'authority':'origin/main','status':'preparation_complete_with_reservations','scope':'preparation_only'}
+base='d8e616c71173495b9a014d4a5909df9f30e2a7ae'; src='maths/10-virtues/virtues.md'; meta={'domain_id':'virtues','source_file':src,'baseline_commit':base,'authority':'origin/main','status':'preparation_complete_with_reservations','scope':'preparation_only'}
 od=load('registry/scientific-objects/virtues/scientific-objects.candidate.yaml'); rd=load('registry/scientific-objects/virtues/scientific-relations.candidate.yaml'); ud=load('registry/scientific-objects/virtues/unresolved-terms.yaml'); dd=load('registry/scientific-objects/virtues/duplicate-candidates.yaml'); fd=load('registry/features/revised/feature-candidates.yaml'); objs=od['objects']; rels=rd['relations']; unrs=ud['unresolved_terms']; dups=dd['duplicate_candidates']; fs=sorted([f for f in fd['features'] if f['candidate_feature_id'].startswith('TLC-FC-10-VIRTUES-')],key=lambda x:x['candidate_feature_id']); ids=[f['candidate_feature_id'] for f in fs]
 oby={o['provisional_object_id']:o for o in objs}; functional=set(x for f in fs for x in f['scientific_basis'].get('scientific_object_ids',[])); frels=set(x for f in fs for x in f['scientific_basis'].get('scientific_relation_ids',[])); classmap={}
 for f in fs:
@@ -19,7 +19,7 @@ pairs=['Value','Principle','Capacity','Competency','Skill','Quality','Property',
 for x in pairs:
  status='candidate_relation' if x in ['Value','Principle','Disposition','Habit','Practice','Behavior','Message','Relation'] else ('distinct_by_source_type' if x in ['Constraint','Invariant'] else 'unresolved')
  if x=='Value': status='explicit_non_equivalence'
- sep.append({'pair':f'Virtue vs {x}','classification':status,'evidence':'maths/10-virtues.md only','notes':'No external ordinary-language equivalence used.'})
+ sep.append({'pair':f'Virtue vs {x}','classification':status,'evidence':'maths/10-virtues/virtues.md only','notes':'No external ordinary-language equivalence used.'})
 dump('concept-separation.yaml',{**meta,'comparisons':sep})
 features=[]
 for f in fs:

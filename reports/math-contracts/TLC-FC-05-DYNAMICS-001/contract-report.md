@@ -4,7 +4,7 @@ Work item `TLC-MATH-CONTRACT-TLC-FC-05-DYNAMICS-001` processes only `TLC-FC-05-D
 
 ## Inspection and provenance
 
-Inspected inputs: the four `registry/math-contract-entry` registries; `registry/features/revised/feature-candidates.yaml`; `feature-lineage.yaml`; `registry/functional-decomposition/decomposition-input-snapshot.yaml`; and the authorized object entry in `registry/scientific-objects/dynamics/scientific-objects.candidate.yaml`. The only scientific source read was `maths/05-dynamics.md`, “Équations de la Communauté / Contraintes de viabilité”, lines 147–153. No algorithm was referenced or read. No reference was missing. Registry provenance consistently points to scientific source commit `68a4d4c`; the execution commit is `7f73fd9`.
+Inspected inputs: the four `registry/math-contract-entry` registries; `registry/features/revised/feature-candidates.yaml`; `feature-lineage.yaml`; `registry/functional-decomposition/decomposition-input-snapshot.yaml`; and the authorized object entry in `registry/scientific-objects/dynamics/scientific-objects.candidate.yaml`. The only scientific source read was `maths/05-dynamics/dynamics.md`, “Équations de la Communauté / Contraintes de viabilité”, lines 147–153. No algorithm was referenced or read. No reference was missing. Registry provenance consistently points to scientific source commit `68a4d4c`; the execution commit is `7f73fd9`.
 
 ## Contract summary
 

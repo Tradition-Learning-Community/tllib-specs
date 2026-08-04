@@ -5,8 +5,8 @@ version: candidate-1
 status: candidate
 source_slug: capacities
 source_repository: Tradition-Learning-Community/tllib-specs
-source_path: maths/11-capacities.md
-source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/11-capacities.md
+source_path: maths/11-capacities/capacities.md
+source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/11-capacities/capacities.md
 source_branch: main
 source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
 source_blob_sha: e4eca460df250a1479c6c6aff45bb39119fcd6e1
@@ -19,7 +19,7 @@ generator_role: TLC_SCIENTIFIC_OBJECT_EXTRACTOR
 ## Source et périmètre
 
 - Source locale : `C:\TLC\repo\tllib-specs\maths\11-capacities.md`
-- URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/11-capacities.md`
+- URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/11-capacities/capacities.md`
 - Branche : `main`
 - Commit source : `68a4d4c728bab655631543b3e1788d4f0da31e8e`
 - Blob : `e4eca460df250a1479c6c6aff45bb39119fcd6e1`

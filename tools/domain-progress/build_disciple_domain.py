@@ -98,7 +98,7 @@ for f in features:
     computational_status = "non_computational" if reps == "declarative" else ("structurally_representable_not_executable" if reps in {"structural", "validation"} else "computational_with_unresolved")
     contract = {
         "contract_id": f"TLC-MC-{fid}", "feature_id": fid, "canonical_name": f["name"],
-        "source_file": "maths/01-disciple.md", "contract_version": "candidate-1",
+        "source_file": "maths/01-disciple/disciple.md", "contract_version": "candidate-1",
         "source_provenance": f.get("scientific_basis", {}).get("source_references", []),
         "source_objects": oids, "source_relations": rids, "scientific_status": "candidate_with_unresolved",
         "computational_status": computational_status, "representation": reps,
@@ -150,7 +150,7 @@ for f in features:
     all_contracts.append(contract); all_irs.append(ir); coverage_rows.append(coverage)
 
 write_yaml("registry/domain-progress/disciple/production-baseline.yaml", {
-    "domain_id": "disciple", "source_file": "maths/01-disciple.md", "main_commit": MAIN_COMMIT,
+    "domain_id": "disciple", "source_file": "maths/01-disciple/disciple.md", "main_commit": MAIN_COMMIT,
     "master_commit": MASTER_COMMIT, "preparation_merge_commit": MAIN_COMMIT,
     "objects": len(objects), "relations": len(relations), "unresolved": len(unresolved),
     "features_total": len(ids), "feature_ids": ids, "production_gate_status": "accepted", "baseline_valid": True,
@@ -194,7 +194,7 @@ write_yaml("registry/domain-progress/disciple/master-dependency-audit.yaml", {"c
 write_text("reports/domain-progress/disciple/master-dependency-audit-report.md", "# Disciple Master dependency audit\n\nAll four symbol-only dependencies are represented in their contracts and IRs. Three sub-symbols remain explicit unresolved references.\n")
 
 write_yaml("registry/domain-progress/disciple/domain-status.yaml", {
-    "domain_id": "disciple", "source_file": "maths/01-disciple.md", "main_baseline_commit": MAIN_COMMIT,
+    "domain_id": "disciple", "source_file": "maths/01-disciple/disciple.md", "main_baseline_commit": MAIN_COMMIT,
     "master_domain_commit": MASTER_COMMIT, "preparation_merge_commit": MAIN_COMMIT,
     "features": {"total": 10, "contract_required": 10, "contract_complete": 10, "contract_non_computational": 1, "contract_with_unresolved": sum(bool(c["unresolved"] or c["master_subsymbols_unresolved"]) for c in all_contracts), "contract_blocked": 0, "ir_required": 10, "ir_complete": 10, "ir_non_computational": 3, "ir_with_unresolved": sum(bool(i["unresolved"] or i["master_subsymbols_unresolved"]) for i in all_irs), "ir_blocked": 0},
     "scientific_coverage": {"objects": 70, "relations": 69, "unresolved": 32},

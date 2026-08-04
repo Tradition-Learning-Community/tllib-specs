@@ -5,8 +5,8 @@ version: candidate-1
 status: candidate
 source_slug: principle
 source_repository: Tradition-Learning-Community/tllib-specs
-source_path: maths/08-principle.md
-source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/08-principle.md
+source_path: maths/08-principle/principle.md
+source_url: https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/08-principle/principle.md
 source_branch: main
 source_commit: 68a4d4c728bab655631543b3e1788d4f0da31e8e
 source_blob_sha: ee50de68e1fb8c9cc7038d681480ca387e9d7938
@@ -19,7 +19,7 @@ generator_role: TLC_SCIENTIFIC_OBJECT_EXTRACTOR
 ## Source et périmètre
 
 - Source locale : `C:\TLC\repo\tllib-specs\maths\08-principle.md`
-- URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/08-principle.md`
+- URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/08-principle/principle.md`
 - Branche : `main`
 - Commit source : `68a4d4c728bab655631543b3e1788d4f0da31e8e`
 - Blob : `ee50de68e1fb8c9cc7038d681480ca387e9d7938`

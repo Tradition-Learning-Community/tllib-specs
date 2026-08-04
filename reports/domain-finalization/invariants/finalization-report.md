@@ -17,7 +17,7 @@ The authoritative baseline and domain feature matrix confirm exactly ten active 
 9. `TLC-FC-04-INVARIANTS-009`
 10. `TLC-FC-04-INVARIANTS-010`
 
-No population divergence was found. Every feature has one preserved limited engineering contract, one preserved prototype IR, one preserved source test plan, and contract traceability to `maths/04-invariants.md`.
+No population divergence was found. Every feature has one preserved limited engineering contract, one preserved prototype IR, one preserved source test plan, and contract traceability to `maths/04-invariants/invariants.md`.
 
 ## Source findings
 
@@ -103,7 +103,7 @@ The domain package also includes the manifest, finalized status, patterns, compl
 - All ten active features are retained.
 - No source contract is modified or removed.
 - No source IR is modified or removed.
-- `maths/04-invariants.md` is not modified.
+- `maths/04-invariants/invariants.md` is not modified.
 - No Master, Disciple, Community, Huit Dimensions, or other concurrently finalized domain artifact is modified.
 - No global reconciliation registry is regenerated or modified.
 - No C++ code is produced.

@@ -104,10 +104,10 @@ def main() -> int:
         "automatic duplicate merge detected",
     )
 
-    source_line_count = len((ROOT / "maths/15-relations.md").read_text(encoding="utf-8").splitlines())
+    source_line_count = len((ROOT / "maths/15-relations/relations.md").read_text(encoding="utf-8").splitlines())
     for item in [*objects, *relations]:
         ref = item["source_reference"]
-        require(ref["source_path"] == "maths/15-relations.md", "wrong source path")
+        require(ref["source_path"] == "maths/15-relations/relations.md", "wrong source path")
         require(
             1 <= ref["start_line"] <= ref["end_line"] <= source_line_count,
             f"invalid source range in {item}",

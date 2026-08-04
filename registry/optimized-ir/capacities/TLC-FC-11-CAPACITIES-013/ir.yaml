@@ -12,7 +12,7 @@ capacity_or_reference:
   object_ids: [TLC-SO-CAPACITIES-049]
 identity: {feature_id: exact, object_ids: exact, preservation: mandatory}
 scope: {kind: descriptive_scope, value: emergent-capacity symbol only}
-context: {source_file: maths/11-capacities.md, source_sections: [Définition formelle]}
+context: {source_file: maths/11-capacities/capacities.md, source_sections: [Définition formelle]}
 inputs:
   - {name: capacity_feature_id, type: FeatureId, expected: TLC-FC-11-CAPACITIES-013}
   - {name: object_payloads, type: 'Map<ObjectId,OpaqueScientificObject>', required_object_ids: [TLC-SO-CAPACITIES-049]}
@@ -38,7 +38,7 @@ postconditions:
 invariants: [singleton object identity, symbol opaque, no application]
 errors: [UnknownFeatureId, MissingCoveredObject, DuplicateCoveredObject, MissingSourceReference, ScientificEvaluationRequested, BlockedScientificDecision]
 determinism: {status: deterministic, basis: identical structural inputs}
-dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities.md]}
+dependencies: {internal_execution: [], external_execution: [], documentary: [maths/11-capacities/capacities.md]}
 unresolved_propagated: []
 reservations: [operator signature beyond cited symbol is undefined]
 transformations_applied: [normalized operator descriptor envelope, normalized traceability, explicit application guard]

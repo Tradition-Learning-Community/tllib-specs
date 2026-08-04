@@ -85,7 +85,7 @@ for required in [objects_doc, relations_doc, unresolved_doc, duplicates_doc, rev
 
 dump("source-inventory.yaml", {
     **meta,
-    "source_file": "maths/02-community.md",
+    "source_file": "maths/02-community/community.md",
     "source_commit": source_commit,
     "objects_count": len(objects), "relations_count": len(relations), "unresolved_count": len(unresolved),
     "duplicate_candidates_count": len(duplicates), "features_total": len(features), "feature_ids": ids,
@@ -164,7 +164,7 @@ for f in features:
     elif d: contract_status = "ready_after_disciple"
     else: contract_status = "ready_independent_of_master_and_disciple"
     feature_rows.append({
-        "feature_id": fid, "canonical_name": f["name"], "source_file": "maths/02-community.md", "source_objects": fobjects(f), "source_relations": frelations(f),
+        "feature_id": fid, "canonical_name": f["name"], "source_file": "maths/02-community/community.md", "source_objects": fobjects(f), "source_relations": frelations(f),
         "review_status": f.get("review_application", {}).get("review_decision", "accepted_in_revised_catalogue"), "revised_catalogue_status": "active_candidate",
         "scientific_unresolved": f.get("unresolved_questions", []), "master_dependency_status": "inferred_candidate" if m else "none_evidenced",
         "disciple_dependency_status": "inferred_candidate" if d else "none_evidenced", "other_domain_dependency_status": "domain_level_advisory_only" if external_rows else "none_evidenced",

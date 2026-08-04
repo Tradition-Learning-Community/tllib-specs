@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REG = ROOT / "registry/domain-progress/values"
 REP = ROOT / "reports/domain-progress/values"
 BASELINE = "d8e616c71173495b9a014d4a5909df9f30e2a7ae"
-SOURCE = "maths/09-values.md"
+SOURCE = "maths/09-values/values.md"
 
 
 def load(path: str):

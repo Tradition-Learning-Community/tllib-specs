@@ -1,6 +1,6 @@
 # Theorems feature inventory
 
-Baseline: `4a42d88ee71e3660fba02c7a780246e8d755c901`. Source: `maths/06-theorems.md`.
+Baseline: `4a42d88ee71e3660fba02c7a780246e8d755c901`. Source: `maths/06-theorems/theorems.md`.
 
 - The canonical catalogue contains exactly nine Theorems feature IDs.
 - All nine are inventoried; none is missing, duplicated, or orphaned.

@@ -1,6 +1,6 @@
 # Theorems concept separation
 
-Baseline: `4a42d88ee71e3660fba02c7a780246e8d755c901`. Source: `maths/06-theorems.md`.
+Baseline: `4a42d88ee71e3660fba02c7a780246e8d755c901`. Source: `maths/06-theorems/theorems.md`.
 
 - Theorem, proposition, lemma, corollary, axiom, hypothesis, definition, invariant, constraint, proof, algorithm, and validation rule remain distinct.
 - No proposition, lemma, or corollary is explicitly present.
