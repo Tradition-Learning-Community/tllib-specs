@@ -1,0 +1,26 @@
+name: Temporary repository snapshot export
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Build repository snapshot
+        run: tar --exclude=.git --exclude=tllib-specs-snapshot.tar.gz -czf tllib-specs-snapshot.tar.gz .
+
+      - name: Upload repository snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: tllib-specs-snapshot
+          path: tllib-specs-snapshot.tar.gz
+          if-no-files-found: error
