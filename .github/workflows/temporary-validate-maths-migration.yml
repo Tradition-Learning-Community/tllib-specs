@@ -1,0 +1,45 @@
+name: Temporary maths migration validator
+
+on:
+  pull_request:
+    types: [opened, ready_for_review]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    if: github.event.pull_request.head.ref == 'agent/migrate-maths-source-paths'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/migrate-maths-source-paths
+          fetch-depth: 0
+      - name: Verify historical paths are absent
+        run: |
+          test ! -e maths/00-master.md
+          test ! -e maths/01-disciple.md
+          test ! -e maths/02-community.md
+          test ! -e maths/03-huit-dimensions-de-tl.md
+          test ! -e maths/04-invariants.md
+          test ! -e maths/05-dynamics.md
+          test ! -e maths/06-theorems.md
+          test ! -e maths/07-message.md
+          test ! -e maths/08-principle.md
+          test ! -e maths/09-values.md
+          test ! -e maths/10-virtues.md
+          test ! -e maths/11-capacities.md
+          test ! -e maths/12-competencies.md
+          test ! -e maths/13-practice.md
+          test ! -e maths/14-lived-experience.md
+          test ! -e maths/15-relations.md
+          if git grep -n -E 'maths/(00-master|01-disciple|02-community|03-huit-dimensions-de-tl|04-invariants|05-dynamics|06-theorems|07-message|08-principle|09-values|10-virtues|11-capacities|12-competencies|13-practice|14-lived-experience|15-relations)\.md'; then
+            exit 1
+          fi
+      - name: Validate catalog
+        run: python tools/handoff/generate_catalog.py --check
+      - name: Validate handoff
+        run: python tools/handoff/validate_handoff.py --self-test
+      - name: Validate deterministic exports
+        run: python tools/handoff/export_bundle.py --all --check --verify-determinism
