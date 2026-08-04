@@ -18,8 +18,9 @@ jobs:
           fetch-depth: 0
       - name: Apply migration
         run: python tools/temporary_migrate_maths_paths.py
-      - name: Validate
+      - name: Regenerate and validate
         run: |
+          python tools/handoff/generate_catalog.py --write
           python tools/handoff/generate_catalog.py --check
           python tools/handoff/validate_handoff.py --self-test
           python tools/handoff/export_bundle.py --all --check --verify-determinism
