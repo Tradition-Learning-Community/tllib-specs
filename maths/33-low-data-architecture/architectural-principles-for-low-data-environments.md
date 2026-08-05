@@ -214,8 +214,14 @@ Le rituel filtre par convolution
 \mathcal T_{\text{rit}}(\mathbf X)=\int K(t-s)\mathbf X(s)\,ds.
 \]
 
-La correction collective donne $\boldsymbol\varepsilon_{\text{final}}=
-\boldsymbol\varepsilon-\mathbf C(\boldsymbol\varepsilon)$ ; la reconstruction générative exige
+La correction collective donne
+
+\[
+\boldsymbol\varepsilon_{\text{final}}
+=\boldsymbol\varepsilon-\mathbf C(\boldsymbol\varepsilon).
+\]
+
+La reconstruction générative exige
 
 \[
 \|\mathcal R_{\text{rec}}(\tilde x)-x\|

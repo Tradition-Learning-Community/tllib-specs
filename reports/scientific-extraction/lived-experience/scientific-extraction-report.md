@@ -18,7 +18,7 @@ generator_role: TLC_SCIENTIFIC_OBJECT_EXTRACTOR
 
 ## Source et périmètre
 
-- Source locale : `C:\TLC\repo\tllib-specs\maths\14-lived-experience.md`
+- Source du dépôt : `maths/14-lived-experience/lived-experience.md`
 - URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/14-lived-experience/lived-experience.md`
 - Branche : `main`
 - Commit source : `68a4d4c728bab655631543b3e1788d4f0da31e8e`

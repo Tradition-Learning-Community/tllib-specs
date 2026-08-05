@@ -78,7 +78,7 @@ H=p\cdot\mathbf F(\mathbf X,u)-L(\mathbf X,u,\mathcal G)
 La trajectoire optimale satisfait aussi
 
 \[
-\frac{\partial V}{\partial t}+min_u
+\frac{\partial V}{\partial t}+\min_u
 \left[L(\mathbf X,u,t,\mathcal G)
 +\nabla_{\mathbf X}V\cdot\mathbf F(\mathbf X,u)\right]=0.
 \]

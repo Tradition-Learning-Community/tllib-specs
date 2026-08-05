@@ -18,7 +18,7 @@ generator_role: TLC_SCIENTIFIC_OBJECT_EXTRACTOR
 
 ## Source et périmètre
 
-- Source locale : `C:\TLC\repo\tllib-specs\maths\12-competencies.md`
+- Source du dépôt : `maths/12-competencies/competencies.md`
 - URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/12-competencies/competencies.md`
 - Branche : `main`
 - Commit source : `aef09e74f85b5f0c930d5940f1753536af61686f`

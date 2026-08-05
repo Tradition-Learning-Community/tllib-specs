@@ -18,7 +18,7 @@ generator_role: TLC_SCIENTIFIC_OBJECT_EXTRACTOR
 
 ## Source et périmètre
 
-- Source locale : `C:\TLC\repo\tllib-specs\maths\08-principle.md`
+- Source du dépôt : `maths/08-principle/principle.md`
 - URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/08-principle/principle.md`
 - Branche : `main`
 - Commit source : `68a4d4c728bab655631543b3e1788d4f0da31e8e`

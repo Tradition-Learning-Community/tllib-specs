@@ -18,7 +18,7 @@ generator_role: TLC_SCIENTIFIC_OBJECT_EXTRACTOR
 
 ## Source et périmètre
 
-- Source locale : `C:\TLC\repo\tllib-specs\maths\09-values.md`
+- Source du dépôt : `maths/09-values/values.md`
 - URL GitHub : `https://github.com/Tradition-Learning-Community/tllib-specs/blob/main/maths/09-values/values.md`
 - Branche : `main`
 - Commit source : `68a4d4c728bab655631543b3e1788d4f0da31e8e`
