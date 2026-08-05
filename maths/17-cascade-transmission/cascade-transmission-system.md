@@ -14,7 +14,9 @@ Il est défini comme le 12-uplet
 
 où $\mathcal G_L$ est le graphe temporel de lignée, $\mathcal G_D$ le graphe doctrinal, $\mathcal F$ la fonction de filiation, $\mathcal P$ le processus de préservation, $\mathcal R$ le système de régulation, $\mathcal C$ le conseil des anciens, $\mathcal A$ l’architecture d’adaptation, $\mathcal S$ le spectre des seuils critiques, $\mathcal M$ les mécanismes de mesure, $\mathcal E$ l’environnement socioculturel, $\mathcal T$ la temporalité multi-échelle et $\mathcal V$ l’espace des valeurs fondatrices.
 
-La transivité est contrôlée : un récepteur ne devient émetteur qu’après validation. Les transformations sont locales au contexte, préservent un noyau essentiel et disposent d’une marge créative.
+> **Convention de notation.** La source réutilise notamment $\mathcal F$ pour la filiation, la fusion et une variable de fidélité, ainsi que $\mathcal R$ pour le système et l’opérateur de régulation. Chaque occurrence conserve ici le sens défini dans sa section.
+
+La transitivité est contrôlée : un récepteur ne devient émetteur qu’après validation. Les transformations sont locales au contexte, préservent un noyau essentiel et disposent d’une marge créative.
 
 ## 2. Axiomes
 

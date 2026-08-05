@@ -93,7 +93,7 @@ La mémoire explicite possède sa propre équation,
 \frac{d\mathcal M_{\mathrm{expl}}}{dt}
 =\mu(t)\mathcal E_{\mathrm{first}}(\mathcal N_{\min},\mathcal D)
 -\lambda_{\mathrm{expl}}\mathcal M_{\mathrm{expl}}
-+\text{recall term},
++\underbrace{\text{terme de rappel}}_{\text{non défini dans la source}},
 \]
 
 puis les deux mémoires sont couplées par

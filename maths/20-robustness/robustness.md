@@ -4,6 +4,8 @@
 
 La robustesse traditionnelle est la capacité du système culturel à préserver son noyau identitaire face aux perturbations tout en restant capable d’adaptation contrôlée. Elle est définie par
 
+> **Convention de notation.** La source emploie $\mathcal R$ pour les différentes composantes de robustesse puis pour une variable dynamique globale ; $\mathcal F$ désigne selon les sections la fidélité $\mathcal F_{\mathrm{fid}}$ ou une composante du système couplé. Ces surcharges sont conservées avec leur sens local.
+
 \[
 \mathcal{R}obustness=\mathcal R_{\text{struct}}\times
 \mathcal R_{\text{proc}}\times\mathcal R_{\text{ctx}}
@@ -38,7 +40,7 @@ La dimension procédurale relève de l’[équité](../21-fairness/fairness.md).
 ## 2. Robustesse intégrée
 
 \[
-\mathcal R_{\text{syst}}=left(\prod_{i=1}^{8}\mathcal R_i^{w_i(t)}\right)
+\mathcal R_{\text{syst}}=\left(\prod_{i=1}^{8}\mathcal R_i^{w_i(t)}\right)
 \exp\!\left(-\sum_{i<j}\operatorname{Cov}(\mathcal R_i,\mathcal R_j)
 -\lambda\|\nabla_{\mathcal{D}im}\mathcal R\|^2\right),
 \]
@@ -158,7 +160,7 @@ sous $\mathcal S_{\text{compl}}(G)\ge\theta_{\text{compl}}$ et $\mathcal F_{\tex
 \]
 
 \[
-\mathcal R_{\text{struct}}=min_{v\in V}
+\mathcal R_{\text{struct}}=\min_{v\in V}
 \frac{\deg(v)}{\deg_{\text{avg}}}\lambda_2(L_G)
 \mathcal S_{\text{conn}}(G)\mathcal A\text{lig}(G,\mathcal T).
 \]
@@ -189,7 +191,7 @@ avec $\|\beta(c)\|\le\beta_{\max}$ et $\mathcal F_{\text{fid}}(\hat y_{\mathcal 
 \]
 
 \[
-\mathcal R_{\text{ctx}}^{\mathcal T}=min_{c\in\mathcal C}
+\mathcal R_{\text{ctx}}^{\mathcal T}=\min_{c\in\mathcal C}
 \frac{\mathcal P(c)}{\mathcal P_{\max}}
 \frac{\mathcal F_{\text{fid}}(c)}{\mathcal F_{\text{fid}}^{\max}}
 \frac{\mathcal A\text{lig}(c,\mathcal T)}{\mathcal A\text{lig}_{\max}}.
