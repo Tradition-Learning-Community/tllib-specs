@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0", "package_version": "1.0.0",
+  "feature": {"feature_id": "TLC-FC-16-COHORT-002", "title": "Trait-profile similarity metrics", "domain": "cohort"},
+  "purpose": "Evaluate the source Euclidean distance and cosine similarity for two validated twelve-coordinate profiles.",
+  "scope": {
+    "required": [{"id": "C002-REQ-001", "statement": "Evaluate both source formulas for supplied valid profiles.", "basis": ["registry/math-contracts/TLC-FC-16-COHORT-002/contract.yaml"]}],
+    "forbidden": [{"id": "C002-FOR-001", "statement": "Do not impute coordinates, normalize inputs as a preprocessing rule, or return a default cosine value for zero norm."}],
+    "deferred": []
+  },
+  "operations": [{
+    "operation_id": "EVALUATE-COHORT-002", "purpose": "Return Euclidean distance and cosine similarity exactly from the source definitions.",
+    "inputs": [{"name": "scientific_inputs", "semantic_role": "two validated profiles and feature provenance", "shared_contract_ref": "TLC-HC-OPAQUE-VALUE@1.0.0", "collection": {"kind": "map", "membership": "constrained", "cardinality": {"minimum": 1, "maximum": null}, "ordering": "implementation_defined", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}}],
+    "outputs": [{"name": "result", "semantic_role": "metric result envelope", "shared_contract_ref": "TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0", "collection": {"kind": "scalar", "membership": "exact", "cardinality": {"minimum": 1, "maximum": 1}, "ordering": "not_applicable", "duplicates": "not_applicable", "key_contract": null, "value_contract": null}}],
+    "preconditions": [{"id": "C002-PRE-001", "statement": "Both profiles contain twelve coordinates and both cosine norms are nonzero."}],
+    "postconditions": [{"id": "C002-POST-001", "statement": "Outputs equal the source Euclidean and normalized-inner-product formulas."}],
+    "invariants": [{"id": "C002-INV-001", "statement": "Euclidean distance is nonnegative and symmetric."}],
+    "strategy_contract": {"mode": "prescribed", "steps": ["validate profile shapes", "evaluate Euclidean formula", "validate cosine denominator", "evaluate cosine formula"], "partial_order": [{"before": "validate profile shapes", "after": "evaluate Euclidean formula"}], "prescription_basis": ["registry/algorithms/cohort/TLC-FC-16-COHORT-002/algorithm.yaml"]},
+    "runtime_contract": {"mutability": "immutable", "result_ownership": "implementation_defined", "input_retention": "not_required", "input_change_visibility": "not_visible", "lifetime": "implementation_defined", "aliasing": "not_constrained", "layout": "not_constrained", "contiguity": "not_required", "alignment": "not_required", "address_stability": "not_required", "copy_semantics": "not_constrained", "move_semantics": "not_constrained", "allocation": "implementation_defined", "zero_copy": "not_required", "thread_safety": "implementation_defined", "reentrancy": "implementation_defined", "failure_atomicity": "no_observable_partial_result"},
+    "determinism": {"semantic_output": "required", "field_presence": "required", "collection_order": "not_required", "canonical_serialization": "not_required", "binary_layout": "not_constrained", "memory_address": "not_constrained", "allocation_pattern": "not_constrained", "concurrent_scheduling": "implementation_defined", "floating_point": "implementation_defined", "randomness": "not_applicable"},
+    "error_contract": [{"code": "ZeroCosineNorm", "category": "input", "condition": "At least one supplied profile has zero norm.", "recoverability": "recoverable", "public_result": "no_partial_result", "failure_atomicity": "no_observable_partial_result", "transport": "implementation_defined"}],
+    "resource_contract": {"time_complexity": {"status": "informative", "value": "O(12)"}, "auxiliary_memory": {"status": "not_constrained", "value": null}, "allocations": {"status": "implementation_defined", "value": null}, "maximum_input_size": {"status": "not_constrained", "value": null}}
+  }],
+  "implementation_modes": [{"mode_id": "source-formula-evaluation", "status": "required", "statement": "Evaluate only the formulas authorized by the source."}],
+  "global_invariants": [{"id": "C002-GINV-001", "statement": "Source scientific semantics remain unchanged."}],
+  "dependencies": [
+    {"shared_contract_id": "TLC-HC-FEATURE-ID", "version": "1.0.0", "purpose": "Exact feature identity."}, {"shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE", "version": "1.0.0", "purpose": "Scientific provenance."}, {"shared_contract_id": "TLC-HC-REFERENCE-COLLECTION", "version": "1.0.0", "purpose": "Reference collections."}, {"shared_contract_id": "TLC-HC-UNRESOLVED-ITEM", "version": "1.0.0", "purpose": "Unresolved reservations."}, {"shared_contract_id": "TLC-HC-OPAQUE-VALUE", "version": "1.0.0", "purpose": "Scientific values."}, {"shared_contract_id": "TLC-HC-STRUCTURED-ERROR", "version": "1.0.0", "purpose": "Structured failures."}, {"shared_contract_id": "TLC-HC-TRACEABILITY", "version": "1.0.0", "purpose": "Traceability."}, {"shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE", "version": "1.0.0", "purpose": "Result envelope."}
+  ],
+  "conformance": {"acceptance_required": true, "all_required_tests_must_pass": true, "forbidden_behavior_is_nonconforming": true, "notes": ["No scientific behavior beyond the two source formulas is authorized."]}
+}
