@@ -1,0 +1,18 @@
+contract_id: TLC-MC-TLC-FC-16-COHORT-015
+feature_id: TLC-FC-16-COHORT-015
+title: Robustness functional descriptor
+domain_id: cohort
+contract_kind: declarative_non_execution_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/16-cohort/cohort.md
+source_section: '6. Propriétés émergentes et santé'
+inputs: [{name: source_functional, type: opaque_source_expression}, {name: gradient_reference, type: opaque_provider_reference}, {name: hessian_reference, type: opaque_provider_reference}, {name: delta_p_domain_reference, type: opaque_provider_reference}]
+outputs: [{name: robustness_descriptor, type: structural_descriptor}]
+preconditions: [source functional is available]
+postconditions: [descriptor preserves the minimization gradient inverse norm lambda term and Hessian spectral-radius term]
+invariants: [no admissible Delta-p domain derivative construction Hessian construction minimizer or lambda calibration is invented]
+errors: [ExternalRobustnessEvaluatorRequired, MissingPerturbationDomain, OpaqueFormulaMutation]
+opaque_parameters: [lambda, delta_p_domain_reference, gradient_reference, hessian_reference]
+scientific_reservations: [TLC-UR-COHORT-007, TLC-UR-COHORT-012]
+dependencies: {scientific: [], runtime: []}
+traceability: {source: maths/16-cohort/cohort.md}
