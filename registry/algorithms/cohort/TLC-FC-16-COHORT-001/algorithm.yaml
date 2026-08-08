@@ -1,0 +1,15 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-16-COHORT-001
+feature_id: TLC-FC-16-COHORT-001
+status: selected_for_cohort_implementation_specification
+source_ir: registry/optimized-ir/cohort/TLC-FC-16-COHORT-001/ir.yaml
+algorithm_kind: structural_validation
+ordered_steps:
+  - require exactly twelve trait coordinates
+  - preserve coordinate order and values
+  - attach the caller-supplied coordinate-domain descriptor
+  - propagate TLC-UR-COHORT-001 and TLC-UR-COHORT-006
+  - return the immutable profile descriptor
+errors: [InvalidTraitCoordinateCount, CoordinateDomainCanonicalizationProhibited]
+forbidden: [correct tensor-product dimension, choose a single coordinate interval]
+determinism: structural_path_deterministic
