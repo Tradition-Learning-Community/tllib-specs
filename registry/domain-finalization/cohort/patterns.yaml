@@ -1,0 +1,28 @@
+schema_version: 1
+domain: cohort
+status: selected_for_implementation_specification
+patterns:
+  - pattern_id: COHORT-PAT-001
+    name: opaque_scientific_value_carriage
+    applies_to: [TLC-FC-16-COHORT-003, TLC-FC-16-COHORT-005, TLC-FC-16-COHORT-008, TLC-FC-16-COHORT-009, TLC-FC-16-COHORT-011, TLC-FC-16-COHORT-012, TLC-FC-16-COHORT-013, TLC-FC-16-COHORT-014, TLC-FC-16-COHORT-016, TLC-FC-16-COHORT-017]
+    rule: Caller-supplied coefficients thresholds intervals expectations or provider results remain values carried by the implementation and are never calibrated locally.
+  - pattern_id: COHORT-PAT-002
+    name: source_formula_evaluation
+    applies_to: [TLC-FC-16-COHORT-002, TLC-FC-16-COHORT-003, TLC-FC-16-COHORT-005, TLC-FC-16-COHORT-007, TLC-FC-16-COHORT-008, TLC-FC-16-COHORT-009, TLC-FC-16-COHORT-011, TLC-FC-16-COHORT-012, TLC-FC-16-COHORT-013, TLC-FC-16-COHORT-014, TLC-FC-16-COHORT-016, TLC-FC-16-COHORT-017]
+    rule: Evaluate only the source-backed formula or predicate after validating all required supplied scientific inputs.
+  - pattern_id: COHORT-PAT-003
+    name: structural_non_execution_guard
+    applies_to: [TLC-FC-16-COHORT-004, TLC-FC-16-COHORT-010, TLC-FC-16-COHORT-015]
+    rule: Preserve source expressions and unresolved providers but reject semantic or numerical evaluation absent source-authorized construction rules.
+  - pattern_id: COHORT-PAT-004
+    name: external_scientific_term
+    applies_to: [TLC-FC-16-COHORT-005, TLC-FC-16-COHORT-007, TLC-FC-16-COHORT-012, TLC-FC-16-COHORT-013, TLC-FC-16-COHORT-014, TLC-FC-16-COHORT-016, TLC-FC-16-COHORT-017]
+    rule: Accept externally supplied scientific terms such as d_type complementarity graph distances stability zones or expected efficiencies without defining the missing provider.
+  - pattern_id: COHORT-PAT-005
+    name: deterministic_validation
+    applies_to: [TLC-FC-16-COHORT-001, TLC-FC-16-COHORT-006]
+    rule: Validate exact structural identities cardinalities order and source-declared invariants without adding scientific semantics.
+  - pattern_id: COHORT-PAT-006
+    name: continuous_dynamics_without_integrator
+    applies_to: [TLC-FC-16-COHORT-010, TLC-FC-16-COHORT-011]
+    rule: Preserve or evaluate a continuous-time equation or right-hand side without choosing a numerical integration or PDE discretization method.
