@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-008
+tests:
+  - {id: COHORT-008-T01, type: exact, assertion: kappa follows the source spectral-ratio and proportion expression}
+  - {id: COHORT-008-T02, type: error, assertion: lambda_n equal to zero is rejected}
+  - {id: COHORT-008-T03, type: property, assertion: optimal-zone membership compares only with supplied kappa bounds}
+  - {id: COHORT-008-T04, type: preservation, assertion: no numerical kappa bound is embedded by the feature}
