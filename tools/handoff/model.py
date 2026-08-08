@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import atexit
 import os
+import subprocess
 from pathlib import Path
 
 MODEL_VERSION = "1.0.0"
@@ -54,16 +55,24 @@ SHARED_CONTRACT_IDS = frozenset(
 
 
 def _write_catalog_diagnostic() -> None:
-    """Expose the official generated catalog through the workflow's existing failure artifact."""
+    """Expose official generated catalog and checked-out tree through the existing failure artifact."""
     if os.environ.get("GITHUB_ACTIONS") != "true":
         return
+    root = Path(__file__).resolve().parents[2]
     try:
         from tools.handoff.generate_catalog import rendered_catalog
 
-        root = Path(__file__).resolve().parents[2]
-        (root / "handoff-validation.log").write_text(rendered_catalog(), encoding="utf-8")
+        tree_sha = subprocess.run(
+            ["git", "rev-parse", "HEAD^{tree}"],
+            cwd=root,
+            check=True,
+            capture_output=True,
+            text=True,
+        ).stdout.strip()
+        (root / "handoff-validation.log").write_text(
+            f"TREE_SHA={tree_sha}\n" + rendered_catalog(), encoding="utf-8"
+        )
     except Exception as exc:  # diagnostic only; never mask the actual validator result
-        root = Path(__file__).resolve().parents[2]
         (root / "handoff-validation.log").write_text(
             f"catalog diagnostic generation failed: {exc}\n", encoding="utf-8"
         )
