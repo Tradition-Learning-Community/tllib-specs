@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-012
+status: canonical_candidate_with_reservations
+source_contract: registry/math-contracts/TLC-FC-16-COHORT-012/contract.yaml
+source_candidate_ir: ir/TLC-FC-16-COHORT-012/ir.candidate.json
+nature: validation
+inputs: [jacobian_eigenvalues, lambda2, H_type, stability_zone]
+outputs: [stability_conditions_satisfied]
+steps: [validate inputs, test all real parts negative, test lambda2 positive, test H_type in supplied zone, combine conditions]
+errors: [MissingJacobianSpectrum, MissingStabilityZone, InvalidStabilityZone]
