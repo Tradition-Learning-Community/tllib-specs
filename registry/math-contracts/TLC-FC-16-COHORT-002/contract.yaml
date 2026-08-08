@@ -1,0 +1,23 @@
+contract_id: TLC-MC-TLC-FC-16-COHORT-002
+feature_id: TLC-FC-16-COHORT-002
+title: Trait-profile similarity metrics
+domain_id: cohort
+contract_kind: computational_contract
+scientific_status: defined
+scientific_authority: maths/16-cohort/cohort.md
+source_sections: ['2. Espace des traits disciplinaires', '3. Typologie']
+inputs:
+  - {name: profile_a, type: ordered_12_coordinate_profile}
+  - {name: profile_b, type: ordered_12_coordinate_profile}
+outputs:
+  - {name: euclidean_distance, type: nonnegative_scalar}
+  - {name: cosine_similarity, type: scalar}
+preconditions: [both profiles contain twelve coordinates, both cosine norms are nonzero]
+postconditions: [euclidean distance follows the source square-root sum, cosine similarity follows the source normalized inner product]
+invariants: [euclidean distance is symmetric, profile ordering is preserved]
+errors: [InvalidTraitCoordinateCount, ZeroCosineNorm]
+edge_cases: [zero norm is rejected because the source quotient is undefined]
+opaque_parameters: []
+scientific_reservations: []
+dependencies: {scientific: [disciple], runtime: []}
+traceability: {source: maths/16-cohort/cohort.md, inventory: registry/domain-progress/cohort/feature-inventory.yaml}
