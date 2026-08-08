@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-007
+status: selected_for_cohort_implementation_specification
+source_ir: registry/ir/TLC-FC-16-COHORT-007/ir.yaml
+representation: graph_metric_operation
+execution: conditionally_executable
+inputs: [weighted_adjacency, graph_distances]
+outputs: [degrees, degree_matrix, laplacian, lambda2_positive, diameter]
+ordered_operations: [validate_shapes, compute_degree_and_laplacian, obtain_laplacian_spectrum, test_lambda2, evaluate_diameter_from_supplied_distances]
+forbidden: [invent_shortest_path_semantics, reinterpret_edge_weights]
