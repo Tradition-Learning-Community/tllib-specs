@@ -1,0 +1,11 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-008
+status: selected_for_cohort_implementation_specification
+source_ir: registry/ir/TLC-FC-16-COHORT-008/ir.yaml
+representation: cohesion_assessment_operation
+execution: conditionally_executable
+inputs: [lambda2, lambda_n, cohort_size, type_proportions, kappa_min, kappa_max]
+outputs: [kappa, optimal_zone_membership]
+ordered_operations: [validate_inputs, compute_kappa, evaluate_supplied_optimal_interval]
+forbidden: [calibrate_kappa_min, calibrate_kappa_max]
+scientific_reservations: [TLC-UR-COHORT-008]
