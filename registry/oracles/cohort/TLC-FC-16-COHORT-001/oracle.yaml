@@ -1,0 +1,11 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-16-COHORT-001
+feature_id: TLC-FC-16-COHORT-001
+oracle_type: structural_and_preservation
+source_contract: registry/math-contracts/TLC-FC-16-COHORT-001/contract.yaml
+checks:
+  - successful output has exactly twelve coordinates in input order
+  - invalid coordinate count returns InvalidTraitCoordinateCount with no partial result
+  - unresolved dimensional inconsistency is present
+  - coordinate-domain descriptor is preserved without canonicalization
+expected_numeric_values: none
