@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-003
+tests:
+  - {id: COHORT-003-T01, type: property, assertion: nonnegative coefficients summing to one are accepted}
+  - {id: COHORT-003-T02, type: error, assertion: a negative coefficient is rejected}
+  - {id: COHORT-003-T03, type: error, assertion: a coefficient-sum mismatch is rejected}
+  - {id: COHORT-003-T04, type: preservation, assertion: no coefficient-estimation method is introduced}
+no_arbitrary_numeric_fixtures: true
