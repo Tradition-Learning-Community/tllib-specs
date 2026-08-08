@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-007
+tests:
+  - {id: COHORT-007-T01, type: structure, assertion: degree matrix diagonal equals row-sum degrees}
+  - {id: COHORT-007-T02, type: exact, assertion: laplacian equals D minus A for supplied matrices}
+  - {id: COHORT-007-T03, type: property, assertion: non-fragmentation result is exactly the sign test lambda2>0}
+  - {id: COHORT-007-T04, type: property, assertion: diameter equals maximum supplied pairwise graph distance}
+  - {id: COHORT-007-T05, type: error, assertion: missing graph-distance data is rejected rather than choosing a shortest-path algorithm}
