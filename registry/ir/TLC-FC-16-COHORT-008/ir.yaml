@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-008
+status: canonical_candidate_with_reservations
+source_contract: registry/math-contracts/TLC-FC-16-COHORT-008/contract.yaml
+source_candidate_ir: ir/TLC-FC-16-COHORT-008/ir.candidate.json
+nature: metric
+inputs: [lambda2, lambda_n, cohort_size, type_proportions, kappa_min, kappa_max]
+outputs: [kappa, optimal_zone_membership]
+steps:
+  - validate inputs
+  - evaluate the source cohesion expression
+  - compare kappa to the caller-supplied interval
+errors: [ZeroLargestLaplacianEigenvalue, InvalidCohortSize, InvalidTypeProportionCount, MissingKappaThreshold, InvalidKappaInterval]
