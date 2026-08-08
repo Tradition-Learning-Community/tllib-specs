@@ -1,0 +1,18 @@
+contract_id: TLC-MC-TLC-FC-16-COHORT-011
+feature_id: TLC-FC-16-COHORT-011
+title: Typological composition dynamics
+domain_id: cohort
+contract_kind: computational_rhs_contract
+scientific_status: defined
+scientific_authority: maths/16-cohort/cohort.md
+source_section: '5. Dynamiques'
+inputs: [{name: p, type: six_scalars}, {name: alpha_i, type: six_scalars}, {name: beta_ij, type: compatible_matrix}, {name: gamma_i, type: six_scalars}, {name: eta_i, type: six_supplied_values_at_t}]
+outputs: [{name: dp_dt, type: six_scalars}]
+preconditions: [all vectors contain six type entries, beta_ij has compatible indices]
+postconditions: [each derivative equals alpha_i p_i(1-p_i) plus sum over j not equal i beta_ij p_j minus gamma_i p_i plus eta_i]
+invariants: [no time integration method is selected]
+errors: [CompositionShapeMismatch]
+opaque_parameters: [alpha_i, beta_ij, gamma_i, eta_i]
+scientific_reservations: [TLC-UR-COHORT-007]
+dependencies: {scientific: [], runtime: []}
+traceability: {source: maths/16-cohort/cohort.md}
