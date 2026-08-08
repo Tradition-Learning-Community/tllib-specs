@@ -1,0 +1,9 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-16-COHORT-017
+feature_id: TLC-FC-16-COHORT-017
+oracle_type: exact_formula_bound_and_alert
+checks:
+  - health equals the unnormalized source product
+  - alert set is exactly the four explicit source predicates that are true
+  - missing thresholds or terms are rejected
+  - no normalization or near-one threshold is introduced
