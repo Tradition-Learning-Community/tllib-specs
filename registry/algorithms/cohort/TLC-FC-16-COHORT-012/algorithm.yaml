@@ -1,0 +1,8 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-16-COHORT-012
+feature_id: TLC-FC-16-COHORT-012
+status: selected_for_cohort_implementation_specification
+algorithm_kind: condition_validation
+ordered_steps: [require supplied Jacobian spectrum and stability zone, check all real parts are negative, check lambda2 is positive, check H_type belongs to supplied zone, return conjunction]
+errors: [MissingJacobianSpectrum, MissingStabilityZone, InvalidStabilityZone]
+forbidden: [threshold calibration]
