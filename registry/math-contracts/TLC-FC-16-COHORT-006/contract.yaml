@@ -1,0 +1,17 @@
+contract_id: TLC-MC-TLC-FC-16-COHORT-006
+feature_id: TLC-FC-16-COHORT-006
+title: Cohort algebraic and graph descriptor
+domain_id: cohort
+contract_kind: structural_contract
+scientific_status: defined
+scientific_authority: maths/16-cohort/cohort.md
+source_section: '4. Définition algébrique et topologie'
+inputs: [{name: disciples, type: set}, {name: learning_relation, type: relation}, {name: collaboration_operation_reference, type: operator_reference}, {name: equivalence_partition, type: partition}, {name: weighted_graph, type: graph}]
+outputs: [{name: cohort_descriptor, type: quintuple_descriptor}]
+preconditions: [weighted graph vertex set equals disciples]
+postconditions: [descriptor preserves C=(D,R,circle,sim,G)]
+invariants: [collaboration is only a magma and is not assumed associative, sim remains an equivalence partition, graph weights remain positive as stated]
+errors: [GraphVertexSetMismatch, UndeclaredAssociativity, InvalidEquivalencePartition]
+scientific_reservations: []
+dependencies: {scientific: [disciple], runtime: []}
+traceability: {source: maths/16-cohort/cohort.md}
