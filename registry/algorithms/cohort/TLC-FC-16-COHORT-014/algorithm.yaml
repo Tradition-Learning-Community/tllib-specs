@@ -1,0 +1,8 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-16-COHORT-014
+feature_id: TLC-FC-16-COHORT-014
+status: selected_for_cohort_implementation_specification
+algorithm_kind: condition_validation
+ordered_steps: [require supplied H_crit kappa bounds expected complementarity and theta_comp, evaluate H_type>H_crit, evaluate kappa_min<kappa<kappa_max, evaluate expected_complementarity>theta_comp, return conjunction]
+errors: [MissingEmergenceThreshold, InvalidKappaInterval, MissingComplementarityValue]
+forbidden: [threshold calibration, optimum inference]
