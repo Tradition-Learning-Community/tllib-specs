@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-014
+status: selected_for_cohort_implementation_specification
+source_ir: registry/ir/TLC-FC-16-COHORT-014/ir.yaml
+representation: emergence_condition_validator
+execution: conditionally_executable
+inputs: [H_type, H_crit, kappa, kappa_min, kappa_max, expected_complementarity, theta_comp]
+outputs: [emergence_conditions_satisfied]
+ordered_operations: [validate_supplied_values, evaluate_three_inequalities, conjunction]
+forbidden: [threshold_calibration, optimum_inference]
