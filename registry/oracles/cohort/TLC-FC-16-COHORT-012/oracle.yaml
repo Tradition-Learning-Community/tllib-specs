@@ -1,0 +1,10 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-16-COHORT-012
+feature_id: TLC-FC-16-COHORT-012
+oracle_type: property_and_bound
+checks:
+  - true requires all Jacobian eigenvalue real parts negative
+  - true requires lambda2 positive
+  - true requires H_type inside the supplied zone
+  - missing or malformed zone is rejected
+  - no zone bound is generated internally

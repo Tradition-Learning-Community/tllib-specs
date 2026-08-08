@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-006
+status: selected_for_cohort_implementation_specification
+source_ir: registry/ir/TLC-FC-16-COHORT-006/ir.yaml
+representation: cohort_quintuple_descriptor
+execution: structural_validation
+inputs: [disciples, learning_relation, collaboration_operation_reference, equivalence_partition, weighted_graph]
+outputs: [cohort_descriptor]
+ordered_operations: [validate_graph_vertices, validate_partition, preserve_quintuple]
+forbidden: [infer_associativity, infer_additional_relation_properties]

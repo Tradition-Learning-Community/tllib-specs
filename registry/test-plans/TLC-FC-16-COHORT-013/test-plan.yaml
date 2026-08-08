@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-013
+tests:
+  - {id: COHORT-013-T01, type: exact, assertion: I_coll equals the source weighted sum for supplied terms}
+  - {id: COHORT-013-T02, type: exact, assertion: synergy equals I_coll minus the supplied weighted individual-intelligence sum}
+  - {id: COHORT-013-T03, type: error, assertion: missing formula term or incompatible six-type shape is rejected}
+  - {id: COHORT-013-T04, type: preservation, assertion: no coefficient or individual-intelligence value is inferred}

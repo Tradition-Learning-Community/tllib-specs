@@ -1,0 +1,53 @@
+domain_id: cohort
+status: preparation_complete_with_reservations
+authority: main@a26c45478bbac54096578687fb1508d65e7bd36b
+working_base_commit: a26c45478bbac54096578687fb1508d65e7bd36b
+scope: vertical_domain_16_production
+source_file: maths/16-cohort/cohort.md
+source_blob_sha: ee3129c1c23180ced886fc45b7bd9391d2876be8
+objects_count: 50
+relations_count: 29
+unresolved_count: 16
+features_total: 17
+feature_ids:
+  - TLC-FC-16-COHORT-001
+  - TLC-FC-16-COHORT-002
+  - TLC-FC-16-COHORT-003
+  - TLC-FC-16-COHORT-004
+  - TLC-FC-16-COHORT-005
+  - TLC-FC-16-COHORT-006
+  - TLC-FC-16-COHORT-007
+  - TLC-FC-16-COHORT-008
+  - TLC-FC-16-COHORT-009
+  - TLC-FC-16-COHORT-010
+  - TLC-FC-16-COHORT-011
+  - TLC-FC-16-COHORT-012
+  - TLC-FC-16-COHORT-013
+  - TLC-FC-16-COHORT-014
+  - TLC-FC-16-COHORT-015
+  - TLC-FC-16-COHORT-016
+  - TLC-FC-16-COHORT-017
+input_artifacts:
+  - registry/scientific-objects/cohort/scientific-objects.candidate.yaml
+  - registry/scientific-objects/cohort/scientific-relations.candidate.yaml
+  - registry/scientific-objects/cohort/unresolved-terms.yaml
+inventory_status: complete_with_reservations
+scientific_boundaries:
+  tensor_product_dimension_inconsistency: preserved
+  type_geometry: unresolved
+  hybrid_estimation_method: unresolved
+  fokker_planck_boundary_conditions: unresolved
+  bifurcation_threshold: unresolved
+  calibration_values: opaque
+  health_normalization: absent
+  diversity_distance_argument_typing: ambiguous
+external_scientific_dependencies:
+  confirmed:
+    - domain_index: 0
+      slug: master
+      evidence: The drift field explicitly uses the Master profile mu_M.
+    - domain_index: 1
+      slug: disciple
+      evidence: The cohort is explicitly a set/collective of Disciples and uses Disciple trait profiles.
+  provisional: []
+  runtime: []

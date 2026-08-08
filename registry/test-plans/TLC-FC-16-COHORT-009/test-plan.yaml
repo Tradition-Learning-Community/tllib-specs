@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-009
+tests:
+  - {id: COHORT-009-T01, type: exact, assertion: drift equals alpha(master-trait)+beta(peer-trait)}
+  - {id: COHORT-009-T02, type: property, assertion: alpha and beta zero yield the zero drift vector}
+  - {id: COHORT-009-T03, type: error, assertion: incompatible profile dimensions are rejected}
+  - {id: COHORT-009-T04, type: preservation, assertion: alpha and beta are never internally calibrated}

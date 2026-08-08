@@ -1,0 +1,9 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-16-COHORT-009
+feature_id: TLC-FC-16-COHORT-009
+oracle_type: exact_formula
+checks:
+  - output vector equals the source drift expression for supplied inputs
+  - zero alpha and beta yield zero drift
+  - dimension mismatch is rejected
+  - no coefficient value is injected by the feature

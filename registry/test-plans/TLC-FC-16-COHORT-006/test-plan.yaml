@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-006
+tests:
+  - {id: COHORT-006-T01, type: structure, assertion: output preserves all five quintuple components}
+  - {id: COHORT-006-T02, type: invariant, assertion: graph vertex set equals Disciple set}
+  - {id: COHORT-006-T03, type: preservation, assertion: associativity is not asserted for the collaboration magma}
+  - {id: COHORT-006-T04, type: error, assertion: vertex-set mismatch is rejected}

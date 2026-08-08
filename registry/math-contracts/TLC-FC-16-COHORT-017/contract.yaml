@@ -1,0 +1,18 @@
+contract_id: TLC-MC-TLC-FC-16-COHORT-017
+feature_id: TLC-FC-16-COHORT-017
+title: Cohort health assessment
+domain_id: cohort
+contract_kind: computational_contract_with_opaque_thresholds
+scientific_status: partially_defined
+scientific_authority: maths/16-cohort/cohort.md
+source_section: '6. Propriétés émergentes et santé'
+inputs: [{name: kappa, type: scalar}, {name: H_type, type: scalar}, {name: expected_eta, type: supplied_scalar}, {name: synergy, type: scalar}, {name: H_min, type: opaque_scalar}, {name: kappa_min, type: opaque_scalar}, {name: kappa_max, type: opaque_scalar}]
+outputs: [{name: H_health, type: scalar}, {name: alerts, type: set_of_alert_codes}]
+preconditions: [all health terms and three alert thresholds are supplied]
+postconditions: [H_health equals kappa*H_type*expected_eta*synergy, alerts correspond exactly to H_type<H_min or kappa<kappa_min or kappa>kappa_max or synergy<0]
+invariants: [H_health remains unnormalized, no near-one healthy cutoff is created]
+errors: [MissingHealthThreshold, MissingHealthTerm, InvalidKappaInterval]
+opaque_parameters: [expected_eta, H_min, kappa_min, kappa_max]
+scientific_reservations: [TLC-UR-COHORT-008, TLC-UR-COHORT-013]
+dependencies: {scientific: [], runtime: []}
+traceability: {source: maths/16-cohort/cohort.md}

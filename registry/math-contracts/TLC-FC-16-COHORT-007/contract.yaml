@@ -1,0 +1,17 @@
+contract_id: TLC-MC-TLC-FC-16-COHORT-007
+feature_id: TLC-FC-16-COHORT-007
+title: Weighted graph topology metrics
+domain_id: cohort
+contract_kind: computational_contract
+scientific_status: defined
+scientific_authority: maths/16-cohort/cohort.md
+source_section: '4. Définition algébrique et topologie'
+inputs: [{name: weighted_adjacency, type: square_matrix}, {name: graph_distances, type: supplied_pairwise_distance_matrix}]
+outputs: [{name: degrees, type: vector}, {name: degree_matrix, type: diagonal_matrix}, {name: laplacian, type: square_matrix}, {name: lambda2_positive, type: boolean}, {name: diameter, type: scalar}]
+preconditions: [weighted adjacency is square, graph-distances shape matches the vertex population]
+postconditions: [degree is row-sum, L equals D minus A, non-fragmentation is lambda2(L)>0, diameter equals max supplied graph distance]
+invariants: [no shortest-path algorithm or edge-weight interpretation beyond the source is selected]
+errors: [AdjacencyShapeMismatch, GraphDistanceShapeMismatch, MissingGraphDistanceData]
+scientific_reservations: []
+dependencies: {scientific: [], runtime: []}
+traceability: {source: maths/16-cohort/cohort.md}

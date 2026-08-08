@@ -1,0 +1,85 @@
+schema_version: 1
+domain: cohort
+source: maths/16-cohort/cohort.md
+status: preserved_unresolved
+items:
+  - id: TLC-UR-COHORT-001
+    category: dimensional_inconsistency
+    statement: The tensor product of four three-dimensional spaces has dimension 81 while the source identifies the trait space with R^12.
+    source_section: '8. Limites et points scientifiques non résolus'
+    policy: preserve_without_correction
+  - id: TLC-UR-COHORT-002
+    category: type_centers_unspecified
+    statement: The centers or representative vectors of the six pure types are not specified.
+    source_section: '8. Limites et points scientifiques non résolus'
+    policy: opaque_provider_required
+  - id: TLC-UR-COHORT-003
+    category: operator_unspecified
+    statement: The classification map Phi and its inverse/preimage realization are not specified.
+    source_section: '8. Limites et points scientifiques non résolus'
+    policy: opaque_provider_required
+  - id: TLC-UR-COHORT-004
+    category: metric_unspecified
+    statement: The metric g on the type space and the geodesic construction are not specified.
+    source_section: '8. Limites et points scientifiques non résolus'
+    policy: no_distance_evaluator_invented
+  - id: TLC-UR-COHORT-005
+    category: estimation_unspecified
+    statement: The method for estimating hybrid coefficients alpha_i is not specified; projection or supervised learning is only mentioned as a possibility.
+    source_section: '3. Typologie'
+    policy: validate_supplied_coefficients_only
+  - id: TLC-UR-COHORT-006
+    category: typing_incomplete
+    statement: Trait coordinates are stated as in [0,1] or, in an open formulation, in a continuous interval.
+    source_section: '2. Espace des traits disciplinaires'
+    policy: do_not_canonicalize_interval
+  - id: TLC-UR-COHORT-007
+    category: parameter_calibration
+    statement: Coefficients such as diversity alpha and many model coefficients are not numerically calibrated.
+    source_section: '8. Limites et points scientifiques non résolus'
+    policy: opaque_value_required
+  - id: TLC-UR-COHORT-008
+    category: threshold_calibration
+    statement: H_crit H_min theta_comp kappa_min kappa_max and stability zones are not numerically calibrated.
+    source_section: '8. Limites et points scientifiques non résolus'
+    policy: opaque_value_required
+  - id: TLC-UR-COHORT-009
+    category: diffusion_typing
+    statement: The tensorial nature of Sigma in the Fokker-Planck equation is not specified.
+    source_section: '8. Limites et points scientifiques non résolus'
+    policy: preserve_symbolically
+  - id: TLC-UR-COHORT-010
+    category: boundary_conditions
+    statement: Boundary conditions for the Fokker-Planck dynamics are not specified.
+    source_section: '8. Limites et points scientifiques non résolus'
+    policy: no_numerical_solver_authorized
+  - id: TLC-UR-COHORT-011
+    category: bifurcation_threshold
+    statement: The spectral threshold for peer-driven bifurcation/polarization is referenced but not given.
+    source_section: '5. Dynamiques'
+    policy: no_threshold_invented
+  - id: TLC-UR-COHORT-012
+    category: robustness_domain
+    statement: The admissible domain for the minimization over Delta p in the robustness functional is not specified.
+    source_section: '6. Propriétés émergentes et santé'
+    policy: structural_only
+  - id: TLC-UR-COHORT-013
+    category: normalization_absent
+    statement: H_health is not normalized despite the source interpretation that a value near one is healthy.
+    source_section: '8. Limites et points scientifiques non résolus'
+    policy: no_normalization_invented
+  - id: TLC-UR-COHORT-014
+    category: argument_mismatch
+    statement: H_type writes d_type between D_i and D_j although d_type is defined on types T_i and T_j.
+    source_section: '8. Limites et points scientifiques non résolus'
+    policy: preserve_argument_ambiguity
+  - id: TLC-UR-COHORT-015
+    category: complementarity_unspecified
+    statement: The complementarity function/expectation used by emergence and interaction formulas is named but not constructed.
+    source_section: '6. Propriétés émergentes et santé'
+    policy: opaque_provider_required
+  - id: TLC-UR-COHORT-016
+    category: performance_matrix_semantics
+    statement: Theta and H in the Hadamard performance matrix are named without dimensions or entry semantics.
+    source_section: '6. Propriétés émergentes et santé'
+    policy: shape_compatibility_only

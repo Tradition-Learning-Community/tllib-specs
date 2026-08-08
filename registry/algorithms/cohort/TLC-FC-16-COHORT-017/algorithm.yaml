@@ -1,0 +1,8 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-16-COHORT-017
+feature_id: TLC-FC-16-COHORT-017
+status: selected_for_cohort_implementation_specification
+algorithm_kind: source_formula_and_alert_evaluation
+ordered_steps: [require supplied health terms and thresholds, compute kappa*H_type*expected_eta*synergy, add diversity alert when H_type<H_min, add low-cohesion alert when kappa<kappa_min, add high-cohesion alert when kappa>kappa_max, add negative-synergy alert when synergy<0]
+errors: [MissingHealthThreshold, MissingHealthTerm, InvalidKappaInterval]
+forbidden: [normalize health, invent healthy cutoff, calibrate thresholds]

@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-003
+status: canonical_candidate_with_reservations
+source_contract: registry/math-contracts/TLC-FC-16-COHORT-003/contract.yaml
+source_candidate_ir: ir/TLC-FC-16-COHORT-003/ir.candidate.json
+nature: transform
+inputs: [pure_type_vectors, alpha_coefficients]
+outputs: [hybrid_profile]
+steps: [validate six coefficients, validate nonnegativity, validate sum equals one, evaluate supplied weighted sum]
+forbidden: [infer type centers, choose projection estimator, choose supervised learning estimator]

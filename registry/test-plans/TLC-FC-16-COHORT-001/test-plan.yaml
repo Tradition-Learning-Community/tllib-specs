@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-001
+source_contract: registry/math-contracts/TLC-FC-16-COHORT-001/contract.yaml
+tests:
+  - {id: COHORT-001-T01, type: structure, assertion: exactly twelve ordered coordinates are preserved}
+  - {id: COHORT-001-T02, type: error, assertion: a non-twelve coordinate sequence is rejected}
+  - {id: COHORT-001-T03, type: preservation, assertion: the tensor-product/R^12 inconsistency remains an unresolved reservation}
+  - {id: COHORT-001-T04, type: preservation, assertion: the open coordinate-domain wording is not replaced by a single canonical interval}
+no_arbitrary_numeric_fixtures: true

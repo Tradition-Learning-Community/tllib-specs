@@ -1,0 +1,231 @@
+domain_id: cohort
+status: population_frozen_with_reservations
+feature_count: 17
+source: maths/16-cohort/cohort.md
+features:
+  - feature_id: TLC-FC-16-COHORT-001
+    canonical_name: Trait profile record and validation
+    category: structural
+    source_objects: [TLC-SO-COHORT-002, TLC-SO-COHORT-007, TLC-SO-COHORT-008]
+    source_section: '2. Espace des traits disciplinaires'
+    purpose: Represent a twelve-coordinate Disciple trait profile while preserving the source dimensional inconsistency and open coordinate-domain wording.
+    inputs: [trait_coordinates, coordinate_domain_descriptor]
+    outputs: [validated_trait_profile]
+    preconditions: [exactly twelve coordinates supplied]
+    invariants: [trait ordering preserved, no tensor-dimension correction]
+    invalid_cases: [wrong coordinate count, unsupported canonicalization request]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-16-COHORT-002
+    canonical_name: Trait-profile similarity metrics
+    category: metric
+    source_objects: [TLC-SO-COHORT-009, TLC-SO-COHORT-013]
+    source_section: '2. Espace des traits disciplinaires; 3. Typologie'
+    purpose: Evaluate the source Euclidean profile distance and cosine similarity for supplied twelve-coordinate profiles.
+    inputs: [profile_a, profile_b]
+    outputs: [euclidean_distance, cosine_similarity]
+    preconditions: [both profiles have twelve coordinates, cosine denominator is nonzero]
+    invariants: [euclidean distance is nonnegative and symmetric]
+    invalid_cases: [zero cosine denominator, wrong coordinate count]
+    algorithmic: true
+    scientific_status: defined
+  - feature_id: TLC-FC-16-COHORT-003
+    canonical_name: Hybrid typology mixture
+    category: transform
+    source_objects: [TLC-SO-COHORT-010, TLC-SO-COHORT-011, TLC-SO-COHORT-012]
+    source_section: '3. Typologie'
+    purpose: Validate supplied nonnegative mixture coefficients summing to one and combine supplied pure-type vectors.
+    inputs: [six_type_vectors, alpha_coefficients]
+    outputs: [hybrid_profile]
+    preconditions: [six coefficients, alpha_i nonnegative, sum alpha_i equals one]
+    invariants: [no coefficient-estimation procedure selected]
+    invalid_cases: [negative coefficient, coefficient sum mismatch, missing pure type vector]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-16-COHORT-004
+    canonical_name: Typological distance descriptor
+    category: declarative
+    source_objects: [TLC-SO-COHORT-014, TLC-SO-COHORT-015, TLC-SO-COHORT-016]
+    source_section: '3. Typologie'
+    purpose: Preserve the typological-distance functional and its unresolved geometric providers without evaluating it.
+    inputs: [type_i_reference, type_j_reference, opaque_geometry]
+    outputs: [typological_distance_descriptor]
+    preconditions: [source formula and unresolved items available]
+    invariants: [Phi inverse g and geodesic evaluator are not invented]
+    invalid_cases: [semantic evaluation request without external provider]
+    algorithmic: false
+    scientific_status: preserved_unresolved
+  - feature_id: TLC-FC-16-COHORT-005
+    canonical_name: Typological diversity index
+    category: aggregation
+    source_objects: [TLC-SO-COHORT-017, TLC-SO-COHORT-014]
+    source_section: '3. Typologie'
+    purpose: Combine six type proportions with a supplied expected typological-distance term using the source diversity expression.
+    inputs: [type_proportions, calibration_alpha, expected_typological_distance]
+    outputs: [H_type]
+    preconditions: [six proportions supplied, calibration_alpha positive]
+    invariants: [distance-argument ambiguity remains documented]
+    invalid_cases: [missing expected distance provider value, nonpositive alpha]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-16-COHORT-006
+    canonical_name: Cohort algebraic and graph descriptor
+    category: structural
+    source_objects: [TLC-SO-COHORT-018, TLC-SO-COHORT-019, TLC-SO-COHORT-020, TLC-SO-COHORT-021, TLC-SO-COHORT-022, TLC-SO-COHORT-023]
+    source_section: '4. Définition algébrique et topologie'
+    purpose: Represent the source cohort quintuple, magma declaration, equivalence partition and weighted graph identities.
+    inputs: [disciples, learning_relation, collaboration_operation_reference, equivalence_partition, weighted_graph]
+    outputs: [cohort_descriptor]
+    preconditions: [graph vertex set equals disciple set]
+    invariants: [collaboration is not assumed associative, equivalence classes remain explicit]
+    invalid_cases: [vertex-set mismatch, undeclared algebraic property]
+    algorithmic: true
+    scientific_status: defined
+  - feature_id: TLC-FC-16-COHORT-007
+    canonical_name: Weighted graph topology metrics
+    category: metric
+    source_objects: [TLC-SO-COHORT-024, TLC-SO-COHORT-025, TLC-SO-COHORT-026, TLC-SO-COHORT-027, TLC-SO-COHORT-028]
+    source_section: '4. Définition algébrique et topologie'
+    purpose: Compute weighted degrees, degree matrix, Laplacian, non-fragmentation condition and diameter from source-declared graph data.
+    inputs: [weighted_adjacency, graph_distances]
+    outputs: [degrees, degree_matrix, laplacian, lambda2_positive, diameter]
+    preconditions: [compatible square adjacency, supplied graph distances for diameter]
+    invariants: [L equals D minus A]
+    invalid_cases: [shape mismatch, missing distance data]
+    algorithmic: true
+    scientific_status: defined
+  - feature_id: TLC-FC-16-COHORT-008
+    canonical_name: Cohesion assessment
+    category: metric
+    source_objects: [TLC-SO-COHORT-029, TLC-SO-COHORT-026]
+    source_section: '4. Définition algébrique et topologie'
+    purpose: Evaluate kappa from supplied Laplacian eigenvalues and type proportions and assess a supplied opaque optimal interval.
+    inputs: [lambda2, lambda_n, cohort_size, type_proportions, kappa_min, kappa_max]
+    outputs: [kappa, optimal_zone_membership]
+    preconditions: [cohort_size positive, lambda_n nonzero, six proportions supplied]
+    invariants: [kappa thresholds remain caller-supplied opaque scientific values]
+    invalid_cases: [zero lambda_n, invalid interval ordering]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-16-COHORT-009
+    canonical_name: Trait drift field
+    category: dynamical
+    source_objects: [TLC-SO-COHORT-032, TLC-SO-COHORT-033]
+    source_section: '5. Dynamiques'
+    purpose: Evaluate the source drift field from a profile, Master profile, peer expectation and supplied alpha/beta coefficients.
+    inputs: [trait_profile, master_profile, expected_peer_profile, alpha, beta]
+    outputs: [drift_vector]
+    preconditions: [compatible profile dimensions]
+    invariants: [no coefficient calibration added]
+    invalid_cases: [dimension mismatch]
+    algorithmic: true
+    scientific_status: defined
+  - feature_id: TLC-FC-16-COHORT-010
+    canonical_name: Trait-distribution dynamics descriptor
+    category: declarative
+    source_objects: [TLC-SO-COHORT-030, TLC-SO-COHORT-031, TLC-SO-COHORT-034, TLC-SO-COHORT-035, TLC-SO-COHORT-036]
+    source_section: '5. Dynamiques'
+    purpose: Preserve the Fokker-Planck equation, stationary relation and convergence conditions without selecting a discretization or boundary condition.
+    inputs: [distribution_reference, drift_reference, diffusion_reference, regularity_conditions]
+    outputs: [dynamics_descriptor]
+    preconditions: [source relations available]
+    invariants: [no Euler Runge-Kutta PDE discretization or boundary condition invented]
+    invalid_cases: [numerical evolution request without an external solver contract]
+    algorithmic: false
+    scientific_status: preserved_unresolved
+  - feature_id: TLC-FC-16-COHORT-011
+    canonical_name: Typological composition dynamics
+    category: dynamical
+    source_objects: [TLC-SO-COHORT-037]
+    source_section: '5. Dynamiques'
+    purpose: Evaluate the declared right-hand side dp_i/dt from supplied proportions coefficients and eta_i(t).
+    inputs: [p, alpha_i, beta_ij, gamma_i, eta_i]
+    outputs: [dp_dt]
+    preconditions: [six type proportions and compatible coefficient arrays supplied]
+    invariants: [no time integration method selected]
+    invalid_cases: [shape mismatch]
+    algorithmic: true
+    scientific_status: defined
+  - feature_id: TLC-FC-16-COHORT-012
+    canonical_name: Configuration stability assessment
+    category: validation
+    source_objects: [TLC-SO-COHORT-038, TLC-SO-COHORT-049]
+    source_section: '5. Dynamiques; 7. Théorèmes formulés par la source'
+    purpose: Assess the three source stability conditions from supplied Jacobian eigenvalues lambda2 and a supplied diversity stability zone.
+    inputs: [jacobian_eigenvalues, lambda2, H_type, stability_zone]
+    outputs: [stability_conditions_satisfied]
+    preconditions: [stability zone supplied]
+    invariants: [no stability-zone threshold invented]
+    invalid_cases: [missing zone, incomplete eigenvalue data]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-16-COHORT-013
+    canonical_name: Collective intelligence and synergy metrics
+    category: aggregation
+    source_objects: [TLC-SO-COHORT-039, TLC-SO-COHORT-040]
+    source_section: '6. Propriétés émergentes et santé'
+    purpose: Evaluate I_coll and S from supplied source terms and opaque coefficients.
+    inputs: [type_proportions, omega, alpha, beta, gamma, kappa, H_type, expected_d_type, individual_intelligence]
+    outputs: [I_coll, synergy]
+    preconditions: [six type values and compatible inputs supplied]
+    invariants: [weights and coefficients remain supplied]
+    invalid_cases: [shape mismatch, missing source term]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-16-COHORT-014
+    canonical_name: Synergy emergence conditions
+    category: validation
+    source_objects: [TLC-SO-COHORT-041, TLC-SO-COHORT-050]
+    source_section: '6. Propriétés émergentes et santé; 7. Théorèmes formulés par la source'
+    purpose: Evaluate the three explicit emergence inequalities using supplied opaque thresholds and complementarity expectation.
+    inputs: [H_type, H_crit, kappa, kappa_min, kappa_max, expected_complementarity, theta_comp]
+    outputs: [emergence_conditions_satisfied]
+    preconditions: [all opaque thresholds supplied]
+    invariants: [no numerical optimum or threshold is inferred]
+    invalid_cases: [missing threshold]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-16-COHORT-015
+    canonical_name: Robustness functional descriptor
+    category: declarative
+    source_objects: [TLC-SO-COHORT-042]
+    source_section: '6. Propriétés émergentes et santé'
+    purpose: Preserve the robustness functional and its unresolved minimization domain and derivative providers without evaluating a minimum.
+    inputs: [gradient_reference, hessian_reference, lambda, delta_p_domain_reference]
+    outputs: [robustness_descriptor]
+    preconditions: [source functional available]
+    invariants: [no admissible Delta-p domain minimizer or Hessian construction invented]
+    invalid_cases: [evaluation request without explicit external providers]
+    algorithmic: false
+    scientific_status: preserved_unresolved
+  - feature_id: TLC-FC-16-COHORT-016
+    canonical_name: Type-pair interaction model
+    category: transform
+    source_objects: [TLC-SO-COHORT-043, TLC-SO-COHORT-044, TLC-SO-COHORT-045]
+    source_section: '6. Propriétés émergentes et santé'
+    purpose: Evaluate logistic type-pair link probability, interaction efficiency and a shape-compatible Hadamard performance matrix from supplied source parameters.
+    inputs: [theta_kl, eta_base, alpha_kl, beta_kl, d_type, complementarity, Theta, H]
+    outputs: [link_probability, interaction_efficiency, performance_matrix]
+    preconditions: [Theta and H shapes match]
+    invariants: [matrix dimensions and complementarity semantics are not invented]
+    invalid_cases: [shape mismatch, missing complementarity or distance value]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-16-COHORT-017
+    canonical_name: Cohort health assessment
+    category: aggregation
+    source_objects: [TLC-SO-COHORT-046, TLC-SO-COHORT-047]
+    source_section: '6. Propriétés émergentes et santé'
+    purpose: Compute the unnormalized source health product and evaluate the four explicit alerts using supplied opaque thresholds.
+    inputs: [kappa, H_type, expected_eta, synergy, H_min, kappa_min, kappa_max]
+    outputs: [H_health, alerts]
+    preconditions: [all alert thresholds supplied]
+    invariants: [health is not normalized and no near-one cutoff is invented]
+    invalid_cases: [missing threshold]
+    algorithmic: true
+    scientific_status: partially_defined
+population_decision:
+  duplicate_features_removed: true
+  pseudo_features_removed: true
+  equation_per_feature_rule_rejected: true
+  blocked_semantics_preserved_structurally: [TLC-FC-16-COHORT-004, TLC-FC-16-COHORT-010, TLC-FC-16-COHORT-015]

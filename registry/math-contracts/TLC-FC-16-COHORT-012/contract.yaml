@@ -1,0 +1,18 @@
+contract_id: TLC-MC-TLC-FC-16-COHORT-012
+feature_id: TLC-FC-16-COHORT-012
+title: Configuration stability assessment
+domain_id: cohort
+contract_kind: validation_contract_with_opaque_zone
+scientific_status: partially_defined
+scientific_authority: maths/16-cohort/cohort.md
+source_sections: ['5. Dynamiques', '7. Théorèmes formulés par la source']
+inputs: [{name: jacobian_eigenvalues, type: complex_sequence}, {name: lambda2, type: scalar}, {name: H_type, type: scalar}, {name: stability_zone, type: opaque_interval}]
+outputs: [{name: stability_conditions_satisfied, type: boolean}]
+preconditions: [all relevant Jacobian eigenvalues supplied, stability zone supplied]
+postconditions: [true iff every supplied Jacobian eigenvalue has negative real part and lambda2 is positive and H_type lies in the supplied stability zone]
+invariants: [no stability-zone bound is invented]
+errors: [MissingJacobianSpectrum, MissingStabilityZone, InvalidStabilityZone]
+opaque_parameters: [stability_zone]
+scientific_reservations: [TLC-UR-COHORT-008]
+dependencies: {scientific: [], runtime: []}
+traceability: {source: maths/16-cohort/cohort.md}

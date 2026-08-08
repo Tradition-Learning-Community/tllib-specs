@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-16-COHORT-005
+feature_id: TLC-FC-16-COHORT-005
+title: Typological diversity index
+domain_id: cohort
+contract_kind: computational_contract_with_reservations
+scientific_status: partially_defined
+scientific_authority: maths/16-cohort/cohort.md
+source_section: '3. Typologie'
+inputs: [{name: type_proportions, type: six_scalars}, {name: calibration_alpha, type: positive_opaque_scalar}, {name: expected_typological_distance, type: supplied_scalar}]
+outputs: [{name: H_type, type: scalar}]
+preconditions: [six proportions supplied, calibration_alpha is positive, expected typological distance supplied]
+postconditions: [output equals negative sum p_i log p_i plus calibration_alpha times supplied expected typological distance]
+invariants: [the D_i versus T_i argument mismatch is preserved as a reservation]
+errors: [InvalidTypeProportionCount, NonPositiveDiversityCalibration, MissingTypologicalDistanceValue]
+edge_cases: [zero proportions contribute by the conventional limiting term only if the implementation can represent the source entropy expression without inventing a new model]
+opaque_parameters: [calibration_alpha, expected_typological_distance]
+scientific_reservations: [TLC-UR-COHORT-007, TLC-UR-COHORT-014]
+dependencies: {scientific: [], runtime: []}
+traceability: {source: maths/16-cohort/cohort.md, inventory: registry/domain-progress/cohort/feature-inventory.yaml}

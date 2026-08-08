@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-016
+status: selected_for_cohort_implementation_specification
+source_ir: registry/ir/TLC-FC-16-COHORT-016/ir.yaml
+representation: type_pair_interaction_operation
+execution: conditionally_executable
+inputs: [theta_kl, eta_base, alpha_kl, beta_kl, d_type, complementarity, Theta, H]
+outputs: [link_probability, interaction_efficiency, performance_matrix]
+ordered_operations: [validate_external_terms, compute_logistic_probability, compute_interaction_efficiency, validate_shapes, compute_Hadamard_product]
+forbidden: [compute_d_type_locally, infer_complementarity, invent_matrix_semantics]

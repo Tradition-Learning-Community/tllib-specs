@@ -1,0 +1,13 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-16-COHORT-003
+feature_id: TLC-FC-16-COHORT-003
+status: selected_for_cohort_implementation_specification
+algorithm_kind: source_formula_evaluation
+ordered_steps:
+  - require exactly six supplied type vectors and six coefficients
+  - reject negative coefficients
+  - require coefficient sum equal to one
+  - form the source weighted sum of the supplied type vectors
+errors: [InvalidHybridCoefficientCount, NegativeHybridCoefficient, HybridCoefficientSumMismatch, MissingTypeRepresentative]
+forbidden: [estimate coefficients, infer type centers]
+determinism: deterministic_for_supplied_vectors_and_coefficients

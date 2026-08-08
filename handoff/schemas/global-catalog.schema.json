@@ -93,14 +93,14 @@
     "domains": {
       "type": "array",
       "minItems": 16,
-      "maxItems": 16,
+      "maxItems": 36,
       "items": {
         "type": "object",
         "additionalProperties": false,
         "required": ["domain", "domain_index", "catalog_path", "feature_count", "catalog_sha256"],
         "properties": {
           "domain": {"type": "string", "minLength": 1},
-          "domain_index": {"type": "integer", "minimum": 0, "maximum": 15},
+          "domain_index": {"type": "integer", "minimum": 0, "maximum": 35},
           "catalog_path": {"$ref": "#/$defs/safe_path"},
           "feature_count": {"type": "integer", "minimum": 1},
           "catalog_sha256": {"$ref": "#/$defs/sha256"}
@@ -110,7 +110,6 @@
     "features": {
       "type": "array",
       "minItems": 166,
-      "maxItems": 166,
       "items": {
         "type": "object",
         "additionalProperties": false,
@@ -159,14 +158,14 @@
         "promoted_shared_contract_candidates"
       ],
       "properties": {
-        "domain_count": {"const": 16},
-        "feature_count": {"const": 166},
+        "domain_count": {"type": "integer", "minimum": 16, "maximum": 36},
+        "feature_count": {"type": "integer", "minimum": 166},
         "shared_contract_count": {"const": 8},
         "package_statuses": {"$ref": "#/$defs/count_map"},
         "scientific_statuses": {"$ref": "#/$defs/count_map"},
         "execution_statuses": {"$ref": "#/$defs/count_map"},
-        "examples_present": {"type": "integer", "minimum": 0, "maximum": 166},
-        "examples_absent": {"type": "integer", "minimum": 0, "maximum": 166},
+        "examples_present": {"type": "integer", "minimum": 0},
+        "examples_absent": {"type": "integer", "minimum": 0},
         "promoted_shared_contract_candidates": {"const": 0}
       }
     }

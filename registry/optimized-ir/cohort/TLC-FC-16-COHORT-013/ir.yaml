@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-013
+status: selected_for_cohort_implementation_specification
+source_ir: registry/ir/TLC-FC-16-COHORT-013/ir.yaml
+representation: collective_intelligence_synergy_operation
+execution: conditionally_executable
+inputs: [type_proportions, omega, alpha, beta, gamma, kappa, H_type, expected_d_type, individual_intelligence]
+outputs: [I_coll, synergy]
+ordered_operations: [validate_inputs, compute_I_coll, compute_weighted_individual_term, compute_synergy]
+forbidden: [calibrate_weights, infer_expected_d_type, infer_individual_intelligence]

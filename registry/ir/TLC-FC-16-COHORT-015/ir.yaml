@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-015
+status: canonical_declarative_ir_non_executable
+source_contract: registry/math-contracts/TLC-FC-16-COHORT-015/contract.yaml
+source_candidate_ir: ir/TLC-FC-16-COHORT-015/ir.candidate.json
+nature: declarative_functional
+inputs: [source_functional, gradient_reference, hessian_reference, delta_p_domain_reference]
+outputs: [robustness_descriptor]
+steps: [preserve_functional, propagate_unresolved_domain_and_providers, attach_non_execution_guard]
+errors: [ExternalRobustnessEvaluatorRequired, MissingPerturbationDomain, OpaqueFormulaMutation]

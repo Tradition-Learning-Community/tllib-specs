@@ -1,0 +1,11 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-017
+status: selected_for_cohort_implementation_specification
+source_ir: registry/ir/TLC-FC-16-COHORT-017/ir.yaml
+representation: cohort_health_assessment_operation
+execution: conditionally_executable
+inputs: [kappa, H_type, expected_eta, synergy, H_min, kappa_min, kappa_max]
+outputs: [H_health, alerts]
+ordered_operations: [validate_inputs, compute_health_product, evaluate_source_alerts]
+forbidden: [normalize_health, create_near_one_cutoff, calibrate_alert_thresholds]
+scientific_reservations: [TLC-UR-COHORT-008, TLC-UR-COHORT-013]

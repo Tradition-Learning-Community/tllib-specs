@@ -1,0 +1,90 @@
+schema_version: 1
+module_id: TLC-MODULE-COHORT-001
+module_name: Cohort
+status: selected_for_cohort_implementation_specification
+purpose: >-
+  Provide source-faithful structural records, metric and formula evaluators, condition
+  validators, and guarded declarative descriptors for exactly the seventeen Cohort
+  features while preserving every unresolved scientific boundary from cohort.md.
+active_features:
+  - TLC-FC-16-COHORT-001
+  - TLC-FC-16-COHORT-002
+  - TLC-FC-16-COHORT-003
+  - TLC-FC-16-COHORT-004
+  - TLC-FC-16-COHORT-005
+  - TLC-FC-16-COHORT-006
+  - TLC-FC-16-COHORT-007
+  - TLC-FC-16-COHORT-008
+  - TLC-FC-16-COHORT-009
+  - TLC-FC-16-COHORT-010
+  - TLC-FC-16-COHORT-011
+  - TLC-FC-16-COHORT-012
+  - TLC-FC-16-COHORT-013
+  - TLC-FC-16-COHORT-014
+  - TLC-FC-16-COHORT-015
+  - TLC-FC-16-COHORT-016
+  - TLC-FC-16-COHORT-017
+public_operations:
+  - {operation: validate_trait_profile, features: [TLC-FC-16-COHORT-001], semantic_evaluation: false}
+  - {operation: evaluate_profile_metrics, features: [TLC-FC-16-COHORT-002], semantic_evaluation: true}
+  - {operation: combine_hybrid_profile, features: [TLC-FC-16-COHORT-003], semantic_evaluation: conditional_on_supplied_type_vectors}
+  - {operation: preserve_typological_distance, features: [TLC-FC-16-COHORT-004], semantic_evaluation: false}
+  - {operation: evaluate_typological_diversity, features: [TLC-FC-16-COHORT-005], semantic_evaluation: conditional_on_supplied_distance}
+  - {operation: validate_cohort_descriptor, features: [TLC-FC-16-COHORT-006], semantic_evaluation: false}
+  - {operation: evaluate_graph_metrics, features: [TLC-FC-16-COHORT-007], semantic_evaluation: conditional_on_supplied_graph_distances}
+  - {operation: assess_cohesion, features: [TLC-FC-16-COHORT-008], semantic_evaluation: conditional_on_supplied_thresholds}
+  - {operation: evaluate_trait_drift, features: [TLC-FC-16-COHORT-009], semantic_evaluation: true}
+  - {operation: preserve_trait_distribution_dynamics, features: [TLC-FC-16-COHORT-010], semantic_evaluation: false}
+  - {operation: evaluate_typological_rhs, features: [TLC-FC-16-COHORT-011], semantic_evaluation: true}
+  - {operation: assess_configuration_stability, features: [TLC-FC-16-COHORT-012], semantic_evaluation: conditional_on_supplied_zone}
+  - {operation: evaluate_collective_intelligence_synergy, features: [TLC-FC-16-COHORT-013], semantic_evaluation: conditional_on_supplied_terms}
+  - {operation: assess_synergy_emergence, features: [TLC-FC-16-COHORT-014], semantic_evaluation: conditional_on_supplied_thresholds}
+  - {operation: preserve_robustness_functional, features: [TLC-FC-16-COHORT-015], semantic_evaluation: false}
+  - {operation: evaluate_type_pair_interaction, features: [TLC-FC-16-COHORT-016], semantic_evaluation: conditional_on_supplied_external_terms}
+  - {operation: assess_cohort_health, features: [TLC-FC-16-COHORT-017], semantic_evaluation: conditional_on_supplied_thresholds}
+shared_types:
+  CohortOpaqueScientificValue:
+    purpose: caller-supplied coefficient threshold interval expectation provider output or source expression that this module must not calibrate
+  CohortStructuralDescriptor:
+    fields: [feature_id, source_reference, preserved_payload, unresolved_items, scientific_status]
+  CohortConditionResult:
+    fields: [feature_id, satisfied, evaluated_predicates, supplied_opaque_values]
+  CohortStructuredError:
+    fields: [code, category, condition]
+scientific_dependencies:
+  - {domain: master, class: scientific, imported_semantics: false, evidence: 'mu_M is explicitly used by the source drift field'}
+  - {domain: disciple, class: scientific, imported_semantics: false, evidence: 'D is a set of Disciples and profiles are Disciple profiles'}
+runtime_dependencies: []
+shared_contract_dependencies:
+  - TLC-HC-FEATURE-ID@1.0.0
+  - TLC-HC-SCIENTIFIC-REFERENCE@1.0.0
+  - TLC-HC-REFERENCE-COLLECTION@1.0.0
+  - TLC-HC-UNRESOLVED-ITEM@1.0.0
+  - TLC-HC-OPAQUE-VALUE@1.0.0
+  - TLC-HC-STRUCTURED-ERROR@1.0.0
+  - TLC-HC-TRACEABILITY@1.0.0
+  - TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0
+non_execution_guards:
+  TLC-FC-16-COHORT-004: ExternalTypeGeometryRequired
+  TLC-FC-16-COHORT-010: ExternalPdeSolverRequired
+  TLC-FC-16-COHORT-015: ExternalRobustnessEvaluatorRequired
+unresolved_policy:
+  preserve: true
+  propagate: true
+  resolve_automatically: false
+  promote_to_defaults: false
+out_of_scope:
+  - scientific calibration
+  - type-center inference or classification training
+  - typological geodesic construction
+  - PDE discretization and boundary-condition selection
+  - time integration for type-composition dynamics
+  - robustness optimization
+  - runtime framework selection
+  - C++ implementation
+  - Python bindings
+implementation_readiness:
+  handoff_population_structurally_ready: true
+  semantic_evaluation_is_feature_specific: true
+  structural_only_features: [TLC-FC-16-COHORT-004, TLC-FC-16-COHORT-010, TLC-FC-16-COHORT-015]
+future_implementation_tasks: registry/domain-finalization/cohort/implementation-tasks.yaml

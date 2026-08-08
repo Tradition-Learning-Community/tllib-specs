@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-002
+status: selected_for_cohort_implementation_specification
+source_ir: registry/ir/TLC-FC-16-COHORT-002/ir.yaml
+representation: deterministic_metric_operation
+execution: executable
+inputs: [profile_a, profile_b]
+outputs: [euclidean_distance, cosine_similarity]
+ordered_operations: [validate_shapes, compute_euclidean_distance, validate_cosine_denominator, compute_cosine_similarity]
+forbidden: [coordinate_imputation, zero_norm_default]

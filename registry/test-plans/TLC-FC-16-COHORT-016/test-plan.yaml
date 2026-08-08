@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-016
+tests:
+  - {id: COHORT-016-T01, type: exact, assertion: link probability equals the source logistic expression for supplied theta_kl}
+  - {id: COHORT-016-T02, type: exact, assertion: efficiency equals eta_base plus alpha_kl*d_type plus beta_kl*complementarity}
+  - {id: COHORT-016-T03, type: structure, assertion: performance matrix is the entrywise Hadamard product of shape-compatible Theta and H}
+  - {id: COHORT-016-T04, type: error, assertion: matrix shape mismatch or missing external term is rejected}
+  - {id: COHORT-016-T05, type: preservation, assertion: no d_type complementarity or matrix-entry semantics are invented}

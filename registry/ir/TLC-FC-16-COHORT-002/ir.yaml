@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-002
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-16-COHORT-002/contract.yaml
+source_candidate_ir: ir/TLC-FC-16-COHORT-002/ir.candidate.json
+nature: metric
+inputs: [profile_a, profile_b]
+outputs: [euclidean_distance, cosine_similarity]
+steps: [validate profile shapes, evaluate euclidean expression, validate nonzero norms, evaluate cosine expression]
+errors: [InvalidTraitCoordinateCount, ZeroCosineNorm]

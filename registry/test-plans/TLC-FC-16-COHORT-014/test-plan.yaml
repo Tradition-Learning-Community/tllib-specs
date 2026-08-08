@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-014
+tests:
+  - {id: COHORT-014-T01, type: property, assertion: result is true only when all three source inequalities are true}
+  - {id: COHORT-014-T02, type: error, assertion: any missing threshold is rejected}
+  - {id: COHORT-014-T03, type: error, assertion: missing complementarity expectation is rejected}
+  - {id: COHORT-014-T04, type: preservation, assertion: no threshold or diversity optimum is created}

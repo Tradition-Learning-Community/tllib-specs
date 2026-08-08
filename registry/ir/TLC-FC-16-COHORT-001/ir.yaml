@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-001
+status: canonical_candidate_with_reservations
+source_contract: registry/math-contracts/TLC-FC-16-COHORT-001/contract.yaml
+source_candidate_ir: ir/TLC-FC-16-COHORT-001/ir.candidate.json
+nature: structural_validation
+inputs: [trait_coordinates, coordinate_domain_descriptor]
+outputs: [trait_profile]
+steps:
+  - validate exactly twelve coordinates
+  - preserve source trait order and values
+  - attach coordinate-domain descriptor and unresolved reservations
+errors: [InvalidTraitCoordinateCount, CoordinateDomainCanonicalizationProhibited]
+invariants: [no dimensional correction, no coordinate-domain canonicalization]

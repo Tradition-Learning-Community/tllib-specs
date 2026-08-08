@@ -1,0 +1,13 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-16-COHORT-005
+feature_id: TLC-FC-16-COHORT-005
+status: selected_for_cohort_implementation_specification
+algorithm_kind: source_formula_evaluation
+ordered_steps:
+  - validate six supplied type proportions
+  - require positive caller-supplied calibration alpha
+  - require caller-supplied expected typological distance
+  - evaluate the source entropy sum
+  - add alpha times the supplied expected distance
+errors: [InvalidTypeProportionCount, NonPositiveDiversityCalibration, MissingTypologicalDistanceValue]
+forbidden: [compute unresolved d_type internally, calibrate alpha]

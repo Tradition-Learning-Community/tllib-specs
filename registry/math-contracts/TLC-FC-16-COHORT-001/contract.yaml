@@ -1,0 +1,32 @@
+contract_id: TLC-MC-TLC-FC-16-COHORT-001
+feature_id: TLC-FC-16-COHORT-001
+title: Trait profile record and validation
+domain_id: cohort
+contract_kind: structural_validation_contract
+scientific_status: partially_defined
+scientific_authority: maths/16-cohort/cohort.md
+source_section: '2. Espace des traits disciplinaires'
+inputs:
+  - {name: trait_coordinates, type: ordered_12_coordinate_profile}
+  - {name: coordinate_domain_descriptor, type: opaque_value}
+outputs:
+  - {name: trait_profile, type: validated_trait_profile}
+preconditions:
+  - exactly twelve coordinates are supplied in source trait order
+postconditions:
+  - output preserves all twelve coordinates and their order
+  - output records the coordinate-domain wording without choosing between [0,1] and an open continuous interval
+invariants:
+  - the source declaration of orthonormal basis vectors is preserved
+  - the tensor-product/R^12 dimensional inconsistency is preserved and not corrected
+errors: [InvalidTraitCoordinateCount, CoordinateDomainCanonicalizationProhibited]
+edge_cases:
+  - alternate continuous-interval formulations remain opaque
+opaque_parameters: [coordinate_domain_descriptor]
+scientific_reservations: [TLC-UR-COHORT-001, TLC-UR-COHORT-006]
+dependencies:
+  scientific: [disciple]
+  runtime: []
+traceability:
+  source: maths/16-cohort/cohort.md
+  inventory: registry/domain-progress/cohort/feature-inventory.yaml

@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-010
+tests:
+  - {id: COHORT-010-T01, type: structure, assertion: descriptor contains the exact source PDE stationary relation and potential roles}
+  - {id: COHORT-010-T02, type: preservation, assertion: Sigma typing and boundary conditions remain unresolved}
+  - {id: COHORT-010-T03, type: error, assertion: numerical evolution request without an external solver is rejected}
+  - {id: COHORT-010-T04, type: preservation, assertion: no Euler Runge-Kutta or other discretization appears}

@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-009
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-16-COHORT-009/contract.yaml
+source_candidate_ir: ir/TLC-FC-16-COHORT-009/ir.candidate.json
+nature: dynamical_field
+inputs: [trait_profile, master_profile, expected_peer_profile, alpha, beta]
+outputs: [drift_vector]
+steps: [validate_dimensions, evaluate_master_attraction_term, evaluate_peer_term, add_terms]
+errors: [ProfileDimensionMismatch]

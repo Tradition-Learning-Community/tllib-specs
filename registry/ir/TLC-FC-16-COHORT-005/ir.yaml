@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-005
+status: canonical_candidate_with_reservations
+source_contract: registry/math-contracts/TLC-FC-16-COHORT-005/contract.yaml
+source_candidate_ir: ir/TLC-FC-16-COHORT-005/ir.candidate.json
+nature: aggregation
+inputs: [type_proportions, calibration_alpha, expected_typological_distance]
+outputs: [H_type]
+steps: [validate six proportions, validate alpha positive, require supplied expected distance, evaluate source diversity expression]
+errors: [InvalidTypeProportionCount, NonPositiveDiversityCalibration, MissingTypologicalDistanceValue]

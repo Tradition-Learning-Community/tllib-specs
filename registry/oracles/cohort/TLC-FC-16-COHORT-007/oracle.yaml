@@ -1,0 +1,10 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-16-COHORT-007
+feature_id: TLC-FC-16-COHORT-007
+oracle_type: exact_structure_and_property
+checks:
+  - degrees equal adjacency row sums
+  - degree matrix is diagonal with those degrees
+  - laplacian equals D minus A
+  - lambda2_positive equals the strict lambda2>0 condition
+  - diameter equals the maximum supplied graph-distance value

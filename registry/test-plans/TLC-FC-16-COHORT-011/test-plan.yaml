@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-011
+tests:
+  - {id: COHORT-011-T01, type: exact, assertion: each dp_i/dt equals the declared source RHS for supplied inputs}
+  - {id: COHORT-011-T02, type: structure, assertion: cross-type sum excludes j=i exactly as written}
+  - {id: COHORT-011-T03, type: error, assertion: incompatible coefficient shapes are rejected}
+  - {id: COHORT-011-T04, type: preservation, assertion: no time-stepping method is introduced}

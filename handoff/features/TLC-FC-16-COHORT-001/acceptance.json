@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "applies_to": "TLC-FC-16-COHORT-001",
+  "tests": [
+    {"test_id": "TLC-FC-16-COHORT-001-AT-001", "applies_to": "VALIDATE-COHORT-001", "category": "valid_input", "given": "Exactly twelve ordered trait coordinates and the source coordinate-domain descriptor are supplied.", "when": "Trait-profile validation runs.", "expect": "A source-faithful descriptor is returned with the same twelve coordinates and unresolved reservations.", "source_basis": ["registry/oracles/cohort/TLC-FC-16-COHORT-001/oracle.yaml"]},
+    {"test_id": "TLC-FC-16-COHORT-001-AT-002", "applies_to": "VALIDATE-COHORT-001", "category": "invalid_input", "given": "The coordinate population is not exactly twelve.", "when": "Validation runs.", "expect": "InvalidTraitCoordinateCount and no partial result.", "source_basis": ["registry/oracles/cohort/TLC-FC-16-COHORT-001/oracle.yaml"]},
+    {"test_id": "TLC-FC-16-COHORT-001-AT-003", "applies_to": "VALIDATE-COHORT-001", "category": "preservation", "given": "A caller attempts to repair the tensor-product/R^12 inconsistency or force one coordinate interval.", "when": "Scientific-preservation validation runs.", "expect": "The request is nonconforming and the source ambiguity remains explicit.", "source_basis": ["registry/test-plans/TLC-FC-16-COHORT-001/test-plan.yaml"]}
+  ]
+}

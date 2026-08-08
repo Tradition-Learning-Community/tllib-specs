@@ -1,0 +1,13 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-16-COHORT-002
+feature_id: TLC-FC-16-COHORT-002
+status: selected_for_cohort_implementation_specification
+algorithm_kind: source_formula_evaluation
+source_ir: registry/optimized-ir/cohort/TLC-FC-16-COHORT-002/ir.yaml
+ordered_steps:
+  - validate both profiles have twelve coordinates
+  - compute square root of the sum of twelve squared coordinate differences
+  - compute both profile norms and reject a zero norm
+  - compute the source normalized inner product
+errors: [InvalidTraitCoordinateCount, ZeroCosineNorm]
+determinism: deterministic_for_supplied_numeric_inputs

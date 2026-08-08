@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-016
+status: canonical_candidate_with_reservations
+source_contract: registry/math-contracts/TLC-FC-16-COHORT-016/contract.yaml
+source_candidate_ir: ir/TLC-FC-16-COHORT-016/ir.candidate.json
+nature: transform
+inputs: [theta_kl, eta_base, alpha_kl, beta_kl, d_type, complementarity, Theta, H]
+outputs: [link_probability, interaction_efficiency, performance_matrix]
+steps: [validate_supplied_terms, compute_logistic_probability, compute_efficiency, validate_matrix_shapes, compute_Hadamard_product]
+errors: [InteractionMatrixShapeMismatch, MissingInteractionTerm]

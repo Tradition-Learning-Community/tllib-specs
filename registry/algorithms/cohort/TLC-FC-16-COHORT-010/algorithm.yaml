@@ -1,0 +1,9 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-16-COHORT-010
+feature_id: TLC-FC-16-COHORT-010
+status: selected_for_cohort_implementation_specification
+algorithm_kind: structural_only_non_execution_guard
+ordered_steps: [validate source references, preserve Fokker-Planck equation, preserve stationary expression and potential, propagate diffusion boundary and bifurcation reservations, reject numerical evolution requests, return descriptor]
+errors: [ExternalPdeSolverRequired, BoundaryConditionRequired, DiffusionTypingRequired]
+scientific_result: none
+forbidden: [Euler, Runge-Kutta, finite-difference scheme, invented boundary condition]

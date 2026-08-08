@@ -1,0 +1,12 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-16-COHORT-008
+feature_id: TLC-FC-16-COHORT-008
+status: selected_for_cohort_implementation_specification
+algorithm_kind: source_formula_evaluation
+ordered_steps:
+  - validate cohort size type proportions and nonzero lambda_n
+  - compute kappa exactly from the source expression
+  - require caller-supplied kappa_min and kappa_max
+  - report whether kappa lies in the supplied optimal interval
+errors: [ZeroLargestLaplacianEigenvalue, InvalidCohortSize, InvalidTypeProportionCount, MissingKappaThreshold, InvalidKappaInterval]
+forbidden: [threshold calibration]

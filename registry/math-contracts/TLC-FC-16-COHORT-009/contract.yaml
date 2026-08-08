@@ -1,0 +1,18 @@
+contract_id: TLC-MC-TLC-FC-16-COHORT-009
+feature_id: TLC-FC-16-COHORT-009
+title: Trait drift field
+domain_id: cohort
+contract_kind: computational_contract
+scientific_status: defined
+scientific_authority: maths/16-cohort/cohort.md
+source_section: '5. Dynamiques'
+inputs: [{name: trait_profile, type: vector}, {name: master_profile, type: vector}, {name: expected_peer_profile, type: vector}, {name: alpha, type: supplied_scalar}, {name: beta, type: supplied_scalar}]
+outputs: [{name: drift_vector, type: vector}]
+preconditions: [all three profiles have compatible dimensions]
+postconditions: [drift equals alpha times master_profile minus trait_profile plus beta times expected_peer_profile minus trait_profile]
+invariants: [alpha and beta are caller-supplied and are not calibrated]
+errors: [ProfileDimensionMismatch]
+opaque_parameters: [alpha, beta]
+scientific_reservations: [TLC-UR-COHORT-007]
+dependencies: {scientific: [master, disciple], runtime: []}
+traceability: {source: maths/16-cohort/cohort.md}

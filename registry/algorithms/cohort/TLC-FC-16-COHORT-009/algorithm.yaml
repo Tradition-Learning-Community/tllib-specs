@@ -1,0 +1,8 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-16-COHORT-009
+feature_id: TLC-FC-16-COHORT-009
+status: selected_for_cohort_implementation_specification
+algorithm_kind: source_formula_evaluation
+ordered_steps: [validate compatible profile dimensions, compute master_profile minus trait_profile, scale by supplied alpha, compute expected_peer_profile minus trait_profile, scale by supplied beta, add both vectors]
+errors: [ProfileDimensionMismatch]
+forbidden: [coefficient calibration]

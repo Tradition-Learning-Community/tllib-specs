@@ -1,0 +1,8 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-16-COHORT-011
+feature_id: TLC-FC-16-COHORT-011
+status: selected_for_cohort_implementation_specification
+algorithm_kind: source_formula_evaluation
+ordered_steps: [validate six-type shapes, for each i compute alpha_i*p_i*(1-p_i), add beta_ij*p_j for j not equal i, subtract gamma_i*p_i, add eta_i at the requested time]
+errors: [CompositionShapeMismatch]
+forbidden: [time integration, parameter calibration]

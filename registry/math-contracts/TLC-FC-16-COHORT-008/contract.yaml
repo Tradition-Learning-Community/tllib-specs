@@ -1,0 +1,18 @@
+contract_id: TLC-MC-TLC-FC-16-COHORT-008
+feature_id: TLC-FC-16-COHORT-008
+title: Cohesion assessment
+domain_id: cohort
+contract_kind: computational_contract_with_opaque_thresholds
+scientific_status: partially_defined
+scientific_authority: maths/16-cohort/cohort.md
+source_section: '4. Définition algébrique et topologie'
+inputs: [{name: lambda2, type: scalar}, {name: lambda_n, type: scalar}, {name: cohort_size, type: positive_integer}, {name: type_proportions, type: six_scalars}, {name: kappa_min, type: opaque_scalar}, {name: kappa_max, type: opaque_scalar}]
+outputs: [{name: kappa, type: scalar}, {name: optimal_zone_membership, type: boolean}]
+preconditions: [lambda_n is nonzero, cohort_size is positive, six proportions supplied, kappa_min and kappa_max supplied]
+postconditions: [kappa equals the source spectral-ratio expression, zone membership uses the supplied interval]
+invariants: [no kappa threshold is calibrated locally]
+errors: [ZeroLargestLaplacianEigenvalue, InvalidCohortSize, InvalidTypeProportionCount, MissingKappaThreshold, InvalidKappaInterval]
+opaque_parameters: [kappa_min, kappa_max]
+scientific_reservations: [TLC-UR-COHORT-008]
+dependencies: {scientific: [], runtime: []}
+traceability: {source: maths/16-cohort/cohort.md}

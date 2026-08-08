@@ -1,0 +1,9 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-16-COHORT-013
+feature_id: TLC-FC-16-COHORT-013
+oracle_type: exact_formula
+checks:
+  - I_coll equals the source expression from supplied terms
+  - synergy equals I_coll minus the supplied individual-intelligence aggregate
+  - missing terms and shape mismatches are rejected
+  - no weights coefficients expected distance or individual-intelligence values are fabricated

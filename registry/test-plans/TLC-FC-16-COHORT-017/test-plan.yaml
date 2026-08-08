@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-017
+tests:
+  - {id: COHORT-017-T01, type: exact, assertion: H_health equals kappa*H_type*expected_eta*synergy}
+  - {id: COHORT-017-T02, type: property, assertion: alerts correspond exactly to the four source predicates}
+  - {id: COHORT-017-T03, type: error, assertion: missing health threshold or term is rejected}
+  - {id: COHORT-017-T04, type: preservation, assertion: health remains unnormalized and no near-one cutoff is created}

@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-012
+tests:
+  - {id: COHORT-012-T01, type: property, assertion: stability requires every Jacobian eigenvalue real part negative}
+  - {id: COHORT-012-T02, type: property, assertion: stability requires lambda2 strictly positive}
+  - {id: COHORT-012-T03, type: property, assertion: stability requires H_type inside the supplied stability zone}
+  - {id: COHORT-012-T04, type: error, assertion: missing stability-zone data is rejected}
+  - {id: COHORT-012-T05, type: preservation, assertion: no stability-zone bound is embedded}

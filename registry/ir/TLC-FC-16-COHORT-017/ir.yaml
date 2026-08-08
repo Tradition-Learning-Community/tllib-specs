@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-017
+status: canonical_candidate_with_reservations
+source_contract: registry/math-contracts/TLC-FC-16-COHORT-017/contract.yaml
+source_candidate_ir: ir/TLC-FC-16-COHORT-017/ir.candidate.json
+nature: aggregation_and_alerting
+inputs: [kappa, H_type, expected_eta, synergy, H_min, kappa_min, kappa_max]
+outputs: [H_health, alerts]
+steps: [validate supplied terms and thresholds, compute source health product, evaluate four explicit alert predicates]
+errors: [MissingHealthThreshold, MissingHealthTerm, InvalidKappaInterval]

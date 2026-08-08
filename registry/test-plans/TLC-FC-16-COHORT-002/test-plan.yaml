@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-002
+tests:
+  - {id: COHORT-002-T01, type: property, assertion: Euclidean distance is nonnegative}
+  - {id: COHORT-002-T02, type: metamorphic, assertion: Swapping profiles preserves Euclidean distance}
+  - {id: COHORT-002-T03, type: property, assertion: Identical nonzero profiles have cosine similarity one}
+  - {id: COHORT-002-T04, type: error, assertion: A zero-norm profile is rejected for cosine similarity}
+no_arbitrary_numeric_fixtures: true
