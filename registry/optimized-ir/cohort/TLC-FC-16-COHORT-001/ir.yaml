@@ -1,0 +1,11 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-001
+status: selected_for_cohort_implementation_specification
+source_ir: registry/ir/TLC-FC-16-COHORT-001/ir.yaml
+representation: immutable_trait_profile_descriptor
+execution: structural_validation
+inputs: [trait_coordinates, coordinate_domain_descriptor]
+outputs: [trait_profile]
+ordered_operations: [validate_coordinate_count, preserve_ordered_coordinates, attach_unresolved_metadata]
+forbidden: [tensor_dimension_correction, coordinate_interval_canonicalization]
+scientific_reservations: [TLC-UR-COHORT-001, TLC-UR-COHORT-006]
