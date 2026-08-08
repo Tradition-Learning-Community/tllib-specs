@@ -504,7 +504,7 @@ def main() -> int:
         try:
             Draft202012Validator.check_schema(schema)
         except Exception as exc:
-            fail(f"invalid {name} schema: {exc}") from exc
+            fail(f"invalid {name} schema: {exc}")
     for path in sorted(HANDOFF.rglob("*.json")):
         load_json(path)
 
