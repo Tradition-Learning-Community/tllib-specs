@@ -4,7 +4,7 @@ status: selected_for_memory_implementation_specification
 source_ir: registry/ir/TLC-FC-23-MEMORY-003/ir.yaml
 representation: conditional_source_aggregation
 execution: conditionally_executable
-inputs: [continuous_term, event_states, event_weights, delta_epsilon_values]
+inputs: [continuous_term, event_states, event_times, event_weights, delta_epsilon_values]
 outputs: [adaptive_memory_value]
-ordered_operations: [validate_supplied_terms, evaluate_event_sum, add_continuous_term]
-forbidden: [quadrature_selection, dirac_approximation, event_weight_evolution]
+ordered_operations: [validate_supplied_terms, preserve_event_time_provenance, evaluate_event_sum, add_continuous_term]
+forbidden: [quadrature_selection, dirac_approximation, event_time_inference, event_weight_evolution]

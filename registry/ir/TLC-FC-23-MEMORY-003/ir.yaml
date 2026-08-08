@@ -4,7 +4,7 @@ status: canonical_candidate
 source_contract: registry/math-contracts/TLC-FC-23-MEMORY-003/contract.yaml
 source_candidate_ir: ir/TLC-FC-23-MEMORY-003/ir.candidate.json
 nature: transform
-inputs: [continuous_term, event_states, event_weights, delta_epsilon_values]
+inputs: [continuous_term, event_states, event_times, event_weights, delta_epsilon_values]
 outputs: [adaptive_memory_value]
-steps: [validate external terms, compute exact finite event sum, add continuous term]
+steps: [validate supplied continuous and event terms, preserve event times as source t_i provenance, compute exact finite event sum, add continuous term]
 errors: [ExternalMemoryIntegralProviderRequired, ExternalDeltaEpsilonRequired, EventMemoryShapeMismatch]
