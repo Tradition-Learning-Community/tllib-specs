@@ -1,0 +1,3 @@
+# TLC-FC-23-MEMORY-002 — Collective-memory weighted measure descriptor
+
+The source writes collective memory as the weighted integral of histories over `H`, but it does not define the measure on trajectory space or the space in which the integrated trajectories and result take values. This package therefore exposes a source-preserving structural descriptor and an explicit non-execution guard. A future implementation may carry externally supplied measure and value-space references, but it must not choose a measure, Banach/Hilbert structure, quadrature, or trajectory representation locally. A request for semantic evaluation without the missing scientific definitions fails with a structured provider error.

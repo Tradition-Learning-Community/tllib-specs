@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-23-MEMORY-002
+tests:
+  - {id: MEMORY-002-T01, type: structural, assertion: Descriptor preserves the exact weighted trajectory-space integral}
+  - {id: MEMORY-002-T02, type: preservation, assertion: Both missing measure and missing target value space remain enumerated}
+  - {id: MEMORY-002-T03, type: error, assertion: Semantic evaluation without both external definitions is rejected}
+  - {id: MEMORY-002-T04, type: negative, assertion: No quadrature Banach space Hilbert space or measure is selected}
+no_arbitrary_numeric_fixtures: true
