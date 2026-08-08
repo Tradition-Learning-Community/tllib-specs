@@ -1,0 +1,11 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-003
+status: selected_for_cohort_implementation_specification
+source_ir: registry/ir/TLC-FC-16-COHORT-003/ir.yaml
+representation: validated_weighted_type_profile
+execution: executable_for_supplied_type_vectors
+inputs: [pure_type_vectors, alpha_coefficients]
+outputs: [hybrid_profile]
+ordered_operations: [validate_coefficient_contract, validate_type_vector_population, evaluate_weighted_sum]
+forbidden: [estimate_alpha, infer_type_representatives]
+scientific_reservations: [TLC-UR-COHORT-002, TLC-UR-COHORT-005]
