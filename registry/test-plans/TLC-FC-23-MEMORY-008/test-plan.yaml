@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-23-MEMORY-008
+tests:
+  - {id: MEMORY-008-T01, type: structural, assertion: Assessment preserves kernel norm Lipschitz and G-gradient assumptions plus the exponential bound}
+  - {id: MEMORY-008-T02, type: preservation, assertion: K versus K1 K2 mismatch and missing linkage constants remain visible}
+  - {id: MEMORY-008-T03, type: error, assertion: Unconditional stability or X_star uniqueness certification is rejected}
+no_arbitrary_numeric_fixtures: true

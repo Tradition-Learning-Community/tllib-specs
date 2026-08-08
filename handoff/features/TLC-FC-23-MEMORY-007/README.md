@@ -1,0 +1,3 @@
+# TLC-FC-23-MEMORY-007 — Differential multi-scale memory
+
+The source defines multi-scale memory as a finite sum over derivative orders `k = 0..m`, with caller-dependent coefficients `alpha_k(t)` multiplying derivatives of a memory convolution. Because the source gives no numerical differentiation or quadrature method, this package accepts those derivative-convolution terms as externally supplied scientific values. It validates that every required order is present, multiplies each term by its supplied coefficient, and returns the exact finite sum. It must not create finite differences, choose a quadrature, infer coefficients, or synthesize a missing derivative order.
