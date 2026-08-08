@@ -10,7 +10,7 @@ Les domaines `16–35` disposent actuellement de leurs sources scientifiques sou
 
 Le registre machine-readable de cette extension est `registry/domain-progress/extension-16-35.yaml`.
 
-## Sources autoritatives
+## Sources de référence
 
 La préparation et les futures finalisations verticales utilisent uniquement les sources du dépôt :
 
@@ -29,7 +29,7 @@ La production `16–35` conserve les conventions observées dans les domaines ex
 
 - slugs de domaine stables et chemins de sources relatifs au dépôt ;
 - identifiants de fonctionnalités attribués uniquement après la décomposition fonctionnelle ;
-- population fonctionnelle autoritative figée avant la finalisation aval ;
+- population fonctionnelle de référence figée avant la finalisation aval ;
 - finalisation par domaine sous `registry/domain-finalization/<slug>/` ;
 - IR finalisées sous `registry/optimized-ir/<slug>/<FEATURE_ID>/` ;
 - algorithmes sous `registry/algorithms/<slug>/<FEATURE_ID>/` uniquement lorsque la théorie permet une procédure exploitable ;
