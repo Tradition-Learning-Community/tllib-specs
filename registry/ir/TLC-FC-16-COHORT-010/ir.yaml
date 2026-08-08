@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-010
+status: canonical_declarative_ir_non_executable
+source_contract: registry/math-contracts/TLC-FC-16-COHORT-010/contract.yaml
+source_candidate_ir: ir/TLC-FC-16-COHORT-010/ir.candidate.json
+nature: declarative_dynamics
+inputs: [distribution_reference, drift_reference, diffusion_reference, source_conditions]
+outputs: [dynamics_descriptor]
+steps: [preserve_pde, preserve_stationary_relation, preserve_potential, propagate_unresolved_items, attach_non_execution_guard]
+errors: [ExternalPdeSolverRequired, BoundaryConditionRequired, DiffusionTypingRequired]
