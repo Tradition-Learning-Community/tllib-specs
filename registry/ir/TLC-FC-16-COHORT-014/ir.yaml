@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-014
+status: canonical_candidate_with_reservations
+source_contract: registry/math-contracts/TLC-FC-16-COHORT-014/contract.yaml
+source_candidate_ir: ir/TLC-FC-16-COHORT-014/ir.candidate.json
+nature: validation
+inputs: [H_type, H_crit, kappa, kappa_min, kappa_max, expected_complementarity, theta_comp]
+outputs: [emergence_conditions_satisfied]
+steps: [validate_supplied_thresholds, evaluate_diversity_condition, evaluate_cohesion_interval, evaluate_complementarity_condition, conjunction]
+errors: [MissingEmergenceThreshold, InvalidKappaInterval, MissingComplementarityValue]
