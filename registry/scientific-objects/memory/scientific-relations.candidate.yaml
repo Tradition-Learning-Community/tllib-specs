@@ -1,0 +1,43 @@
+artifact:
+  artifact_id: TLC-SCI-MEMORY-SCIENTIFIC-RELATION-REGISTRY-001
+  artifact_type: scientific_relation_registry
+  version: candidate-1
+  status: candidate_with_reservations
+  source_slug: memory
+  source_path: maths/23-memory/memory.md
+  source_commit: a7edd2b0049d3d9f37d920a8cc0729d09e9a9e9c
+relations:
+  - {provisional_relation_id: TLC-SR-MEMORY-001, relation_type: membership_definition, source: TLC-SO-MEMORY-001, target: TLC-SO-MEMORY-002, statement: 'H contains C1 histories satisfying the stated derivative bound and P-threshold.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-002, relation_type: regularity_condition, source: TLC-SO-MEMORY-003, target: TLC-SO-MEMORY-002, statement: 'Each admitted history is declared C1.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-003, relation_type: speed_condition, source: TLC-SO-MEMORY-004, target: TLC-SO-MEMORY-002, statement: 'Each admitted history satisfies the stated derivative norm bound.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-004, relation_type: threshold_condition, source: TLC-SO-MEMORY-005, target: TLC-SO-MEMORY-006, statement: 'History admission requires P(gamma)>theta.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-005, relation_type: weighting, source: TLC-SO-MEMORY-007, target: TLC-SO-MEMORY-002, statement: 'Each history carries the time-dependent weight w(gamma,t).'}
+  - {provisional_relation_id: TLC-SR-MEMORY-006, relation_type: measure_expression, source: TLC-SO-MEMORY-008, target: TLC-SO-MEMORY-001, statement: 'Collective memory is the stated weighted trajectory-space integral.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-007, relation_type: operator_definition, source: TLC-SO-MEMORY-009, target: TLC-SO-MEMORY-010, statement: 'The adaptive memory operator includes the stated continuous past term.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-008, relation_type: operator_definition, source: TLC-SO-MEMORY-009, target: TLC-SO-MEMORY-011, statement: 'The adaptive memory operator adds the stated point-event term.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-009, relation_type: event_weighting, source: TLC-SO-MEMORY-014, target: TLC-SO-MEMORY-011, statement: 'Point events are weighted by w_i(t).'}
+  - {provisional_relation_id: TLC-SR-MEMORY-010, relation_type: event_localization, source: TLC-SO-MEMORY-012, target: TLC-SO-MEMORY-011, statement: 'Point events use the unresolved delta_epsilon factor at t-t_i.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-011, relation_type: kernel_use, source: TLC-SO-MEMORY-015, target: TLC-SO-MEMORY-010, statement: 'The proposed K is a source-authorized kernel for continuous past aggregation.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-012, relation_type: parameterization, source: TLC-SO-MEMORY-016, target: TLC-SO-MEMORY-015, statement: 'alpha scales the proposed kernel.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-013, relation_type: parameterization, source: TLC-SO-MEMORY-017, target: TLC-SO-MEMORY-015, statement: 'beta controls temporal separation decay.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-014, relation_type: parameterization, source: TLC-SO-MEMORY-018, target: TLC-SO-MEMORY-015, statement: 'gamma controls state-resonance decay.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-015, relation_type: parameterization, source: TLC-SO-MEMORY-019, target: TLC-SO-MEMORY-015, statement: 'delta controls dynamic-coherence decay.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-016, relation_type: subset_definition, source: TLC-SO-MEMORY-020, target: TLC-SO-MEMORY-001, statement: 'The mnemonic core is declared a subset of H satisfying the persistent weight threshold.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-017, relation_type: threshold_condition, source: TLC-SO-MEMORY-021, target: TLC-SO-MEMORY-020, statement: 'Core membership uses w(gamma,t)>theta_noyau for all t.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-018, relation_type: invariance_claim, source: TLC-SO-MEMORY-022, target: TLC-SO-MEMORY-020, statement: 'The source declares the mnemonic core invariant under legitimate contextual transformations.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-019, relation_type: dynamic_definition, source: TLC-SO-MEMORY-023, target: TLC-SO-MEMORY-025, statement: 'The hereditary system RHS is the stated F applied to present state, weighted past mean, and weighted past trend.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-020, relation_type: convolution_term, source: TLC-SO-MEMORY-026, target: TLC-SO-MEMORY-030, statement: 'K1 and G1 define the stated weighted past mean.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-021, relation_type: derivative_convolution_term, source: TLC-SO-MEMORY-027, target: TLC-SO-MEMORY-031, statement: 'K2 and G2 define the convolution whose derivative is the weighted past trend.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-022, relation_type: multiscale_definition, source: TLC-SO-MEMORY-032, target: TLC-SO-MEMORY-033, statement: 'M_diff is the finite weighted sum of derivative orders k=0..m of the memory convolution.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-023, relation_type: stability_condition, source: TLC-SO-MEMORY-034, target: TLC-SO-MEMORY-035, statement: 'The source stability assertion includes ||K||_L1<1.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-024, relation_type: stability_condition, source: TLC-SO-MEMORY-039, target: TLC-SO-MEMORY-035, statement: 'The source stability assertion includes gradient bounds for G_i and Lipschitz F.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-025, relation_type: theorem_claim, source: TLC-SO-MEMORY-035, target: TLC-SO-MEMORY-036, statement: 'The source asserts exponential convergence toward X_star under its stated conditions.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-026, relation_type: bound_parameterization, source: TLC-SO-MEMORY-037, target: TLC-SO-MEMORY-035, statement: 'C appears in the asserted exponential stability bound.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-027, relation_type: bound_parameterization, source: TLC-SO-MEMORY-038, target: TLC-SO-MEMORY-035, statement: 'lambda appears as the asserted exponential decay rate.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-028, relation_type: functional_definition, source: TLC-SO-MEMORY-040, target: TLC-SO-MEMORY-041, statement: 'Historical impact integrates weighted state norm with temporal and state-distance decay.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-029, relation_type: metric_definition, source: TLC-SO-MEMORY-043, target: TLC-SO-MEMORY-044, statement: 'Mnemonic resilience integrates evolution speed while the state lies within the reference-memory neighborhood.'}
+  - {provisional_relation_id: TLC-SR-MEMORY-030, relation_type: context_weighting, source: TLC-SO-MEMORY-046, target: TLC-SO-MEMORY-043, statement: 'The contextual factor C_context(s) weights the resilience integrand.'}
+source_reference_policy:
+  source_path: maths/23-memory/memory.md
+  source_commit: a7edd2b0049d3d9f37d920a8cc0729d09e9a9e9c
+  no_external_science: true
