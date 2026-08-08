@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-005
+tests:
+  - {id: COHORT-005-T01, type: property, assertion: output is the source entropy term plus alpha times the supplied expected distance}
+  - {id: COHORT-005-T02, type: error, assertion: nonpositive calibration alpha is rejected}
+  - {id: COHORT-005-T03, type: error, assertion: missing expected typological-distance value is rejected}
+  - {id: COHORT-005-T04, type: preservation, assertion: the source D_i/T_i distance-argument ambiguity remains traceable}
+no_arbitrary_numeric_fixtures: true
