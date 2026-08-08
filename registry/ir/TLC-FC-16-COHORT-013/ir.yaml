@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-013
+status: canonical_candidate_with_reservations
+source_contract: registry/math-contracts/TLC-FC-16-COHORT-013/contract.yaml
+source_candidate_ir: ir/TLC-FC-16-COHORT-013/ir.candidate.json
+nature: aggregation
+inputs: [type_proportions, omega, alpha, beta, gamma, kappa, H_type, expected_d_type, individual_intelligence]
+outputs: [I_coll, synergy]
+steps: [validate six-type shapes, evaluate weighted proportion term, add cohesion diversity and distance terms, compute weighted individual intelligence, subtract to obtain synergy]
+errors: [CollectiveMetricShapeMismatch, MissingCollectiveMetricTerm]
