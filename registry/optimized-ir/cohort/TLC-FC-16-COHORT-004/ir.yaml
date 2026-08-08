@@ -1,0 +1,11 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-004
+status: selected_for_cohort_implementation_specification
+source_ir: registry/ir/TLC-FC-16-COHORT-004/ir.yaml
+representation: opaque_typological_distance_descriptor
+execution: structural_only
+inputs: [type_i_reference, type_j_reference, source_formula]
+outputs: [typological_distance_descriptor]
+ordered_operations: [validate_identity, preserve_formula, preserve_unresolved_geometry, enable_non_execution_guard]
+forbidden: [construct_Phi, construct_metric_g, select_geodesic_solver, evaluate_distance]
+scientific_reservations: [TLC-UR-COHORT-002, TLC-UR-COHORT-003, TLC-UR-COHORT-004]
