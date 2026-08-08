@@ -129,12 +129,21 @@ def build_catalog() -> dict[str, Any]:
     execution_statuses: Counter[str] = Counter()
     examples_present = 0
     seen: set[str] = set()
+    seen_domain_indices: set[int] = set()
 
-    for expected_index, domain in enumerate(DOMAIN_ORDER):
+    for domain in DOMAIN_ORDER:
         catalog_path = HANDOFF / "domains" / domain / "catalog.json"
         domain_catalog = load_json(catalog_path)
-        if domain_catalog.get("domain") != domain or domain_catalog.get("domain_index") != expected_index:
+        domain_index = domain_catalog.get("domain_index")
+        if (
+            domain_catalog.get("domain") != domain
+            or isinstance(domain_index, bool)
+            or not isinstance(domain_index, int)
+        ):
             raise CatalogGenerationFailure(f"domain identity or index mismatch: {catalog_path.relative_to(ROOT)}")
+        if domain_index in seen_domain_indices:
+            raise CatalogGenerationFailure(f"duplicate domain index {domain_index}: {catalog_path.relative_to(ROOT)}")
+        seen_domain_indices.add(domain_index)
         ordered_ids = domain_catalog.get("ordered_feature_ids")
         entries = domain_catalog.get("feature_packages")
         if not isinstance(ordered_ids, list) or not isinstance(entries, list):
@@ -147,7 +156,7 @@ def build_catalog() -> dict[str, Any]:
         domains.append(
             {
                 "domain": domain,
-                "domain_index": expected_index,
+                "domain_index": domain_index,
                 "catalog_path": catalog_path.relative_to(ROOT).as_posix(),
                 "feature_count": len(ordered_ids),
                 "catalog_sha256": sha256_file(catalog_path),

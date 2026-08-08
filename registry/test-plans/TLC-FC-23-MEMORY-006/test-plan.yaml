@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-23-MEMORY-006
+tests:
+  - {id: MEMORY-006-T01, type: exact_structure, assertion: F receives X_t then supplied K1G1 history mean then supplied derivative K2G2 trend}
+  - {id: MEMORY-006-T02, type: error, assertion: Missing historical terms are rejected}
+  - {id: MEMORY-006-T03, type: preservation, assertion: No time integrator quadrature or numerical derivative is selected}
+no_arbitrary_numeric_fixtures: true

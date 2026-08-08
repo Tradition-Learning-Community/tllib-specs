@@ -407,12 +407,21 @@ def discover_domain_catalogs(
     catalogs: dict[str, dict[str, Any]] = {}
     owners: dict[str, str] = {}
     package_entries: dict[str, dict[str, Any]] = {}
-    for expected_index, domain in enumerate(DOMAIN_ORDER):
+    seen_domain_indices: set[int] = set()
+    for domain in DOMAIN_ORDER:
         catalog_path = domains_root / domain / "catalog.json"
         catalog = load_json(catalog_path)
         validate_schema(catalog, schema, catalog_path)
-        if catalog["domain"] != domain or catalog["domain_index"] != expected_index:
+        expected_index = catalog.get("domain_index")
+        if (
+            catalog["domain"] != domain
+            or isinstance(expected_index, bool)
+            or not isinstance(expected_index, int)
+        ):
             fail(f"domain catalog identity or index mismatch in {catalog_path.relative_to(ROOT)}")
+        if expected_index in seen_domain_indices:
+            fail(f"duplicate domain index {expected_index} in {catalog_path.relative_to(ROOT)}")
+        seen_domain_indices.add(expected_index)
         if catalog["statuses"] != {"population": "complete", "validation": "validated"}:
             fail(f"domain catalog is not globally validated: {domain}")
         ordered_ids = catalog["ordered_feature_ids"]

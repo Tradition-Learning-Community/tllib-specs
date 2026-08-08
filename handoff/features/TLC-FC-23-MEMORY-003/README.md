@@ -1,0 +1,3 @@
+# TLC-FC-23-MEMORY-003 — Adaptive memory operator
+
+This package implements only the algebra that can be executed without inventing missing science. The caller supplies the already evaluated continuous-memory integral, event states, the source event times `t_i`, current event weights, and the values of the unresolved `delta_epsilon` factor corresponding to those declared events. The implementation validates compatible event state/time/weight/delta arrays, preserves event times as provenance, evaluates the finite source sum, and adds it to the continuous term. It must not choose a quadrature method, infer event times, approximate a Dirac distribution, define `delta_epsilon`, or invent evolution rules for `w_i(t)`. Missing external terms produce structured errors.

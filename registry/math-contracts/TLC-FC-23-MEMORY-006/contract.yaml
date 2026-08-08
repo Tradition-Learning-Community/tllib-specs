@@ -1,0 +1,18 @@
+contract_id: TLC-MC-TLC-FC-23-MEMORY-006
+feature_id: TLC-FC-23-MEMORY-006
+title: Nonlinear hereditary system right-hand side
+domain_id: memory
+contract_kind: conditional_dynamical_contract
+scientific_status: partially_defined
+scientific_authority: maths/23-memory/memory.md
+source_sections: ['4. Système héréditaire non linéaire']
+inputs: [{name: X_t, type: state}, {name: K1_G1_integral, type: supplied_exact_history_term}, {name: derivative_K2_G2_integral, type: supplied_exact_history_trend}, {name: F_provider, type: external_function_provider}]
+outputs: [{name: dX_dt, type: state_derivative}]
+preconditions: [both historical terms supplied, F provider supplied]
+postconditions: [dX_dt equals F applied in the source argument order]
+invariants: [no time integrator, no convolution quadrature, derivative term is supplied rather than discretized]
+errors: [ExternalHereditaryHistoryTermsRequired, ExternalHereditaryFieldRequired]
+opaque_parameters: [historical_terms, F_provider]
+scientific_reservations: []
+dependencies: {scientific: [], runtime: []}
+traceability: {source: maths/23-memory/memory.md, inventory: registry/domain-progress/memory/feature-inventory.yaml}

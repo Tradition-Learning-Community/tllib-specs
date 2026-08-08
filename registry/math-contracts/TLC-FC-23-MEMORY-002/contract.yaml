@@ -1,0 +1,23 @@
+contract_id: TLC-MC-TLC-FC-23-MEMORY-002
+feature_id: TLC-FC-23-MEMORY-002
+title: Collective-memory weighted measure descriptor
+domain_id: memory
+contract_kind: guarded_declarative_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/23-memory/memory.md
+source_sections: ['1. Espace des histoires pondérées', '7. Limites et points scientifiques non résolus']
+inputs:
+  - {name: history_space_reference, type: reference}
+  - {name: weight_reference, type: reference}
+  - {name: measure_provider_reference, type: optional_external_reference}
+  - {name: value_space_reference, type: optional_external_reference}
+outputs:
+  - {name: collective_memory_descriptor, type: structural_descriptor}
+preconditions: [source expression is available]
+postconditions: [descriptor preserves integral of w(gamma,t) gamma dgamma and unresolved measure/codomain reservations]
+invariants: [no trajectory measure selected, no Banach or Hilbert space selected, no quadrature selected]
+errors: [ExternalHistoryMeasureAndValueSpaceRequired, OpaqueFormulaMutation]
+opaque_parameters: [measure_provider_reference, value_space_reference]
+scientific_reservations: [TLC-UR-MEMORY-001, TLC-UR-MEMORY-002]
+dependencies: {scientific: [], runtime: []}
+traceability: {source: maths/23-memory/memory.md, inventory: registry/domain-progress/memory/feature-inventory.yaml}

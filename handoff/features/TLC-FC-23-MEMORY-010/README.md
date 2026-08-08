@@ -1,0 +1,3 @@
+# TLC-FC-23-MEMORY-010 — Contextual mnemonic resilience
+
+The source defines `R_memory(t)` as the time-average of state-evolution speed, gated by a strict neighborhood condition around `X_ref` and weighted by a contextual factor. It then interprets a large value as strong resilience even though the formula grows with evolution speed and gives no normalization or bound. This package therefore exposes only the raw source metric. The caller supplies derivative, neighborhood-radius, context-factor, and integral providers; `t` must be positive because the formula divides by `t`. The implementation must not normalize the result, invent a resilience threshold, reinterpret its direction, or choose a quadrature or derivative approximation.

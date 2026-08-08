@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-23-MEMORY-003
+tests:
+  - {id: MEMORY-003-T01, type: exact_formula, assertion: Result equals supplied continuous term plus sum of supplied w_i delta_epsilon X(t_i) terms with event_times preserving the t_i provenance}
+  - {id: MEMORY-003-T02, type: error, assertion: Missing delta_epsilon data is rejected without approximation}
+  - {id: MEMORY-003-T03, type: error, assertion: Incompatible event state time weight or delta arrays are rejected}
+  - {id: MEMORY-003-T04, type: preservation, assertion: Event times are supplied and never inferred or reconstructed}
+no_arbitrary_numeric_fixtures: true

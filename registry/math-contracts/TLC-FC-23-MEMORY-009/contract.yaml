@@ -1,0 +1,18 @@
+contract_id: TLC-MC-TLC-FC-23-MEMORY-009
+feature_id: TLC-FC-23-MEMORY-009
+title: Weighted historical impact
+domain_id: memory
+contract_kind: conditional_aggregation_contract
+scientific_status: partially_defined
+scientific_authority: maths/23-memory/memory.md
+source_sections: ['6. Persistance et résilience', '7. Limites et points scientifiques non résolus']
+inputs: [{name: X_history, type: supplied_state_history}, {name: X_t, type: state}, {name: weight_provider, type: external_weight_value_provider}, {name: lambda, type: opaque_scalar}, {name: mu, type: opaque_scalar}, {name: integral_provider, type: external_integral_provider}]
+outputs: [{name: I_history, type: source_integral_result}]
+preconditions: [weight values and integral provider are supplied]
+postconditions: [result is the integral of the exact source integrand]
+invariants: [no quadrature selected, no weight-evolution rule invented, source temporal and state-distance decay preserved]
+errors: [ExternalHistoricalWeightRequired, ExternalHistoricalIntegralRequired]
+opaque_parameters: [lambda, mu, weight_provider, integral_provider]
+scientific_reservations: [TLC-UR-MEMORY-004]
+dependencies: {scientific: [], runtime: []}
+traceability: {source: maths/23-memory/memory.md, inventory: registry/domain-progress/memory/feature-inventory.yaml}

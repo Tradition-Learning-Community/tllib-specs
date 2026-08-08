@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-23-MEMORY-008
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-23-MEMORY-008/contract.yaml
+source_candidate_ir: ir/TLC-FC-23-MEMORY-008/ir.candidate.json
+nature: validation
+inputs: [kernel_norm_claim, F_lipschitz_evidence, G_gradient_bounds, bound_constants, attractor_reference]
+outputs: [stability_claim_assessment]
+steps: [preserve source assumptions, preserve exponential bound, attach unresolved kernel linkage and attractor guarantees, reject unconditional stability certification]
+errors: [StabilityCertificationUnsupported, ExternalStabilitySemanticsRequired]

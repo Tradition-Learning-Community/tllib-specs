@@ -1,0 +1,18 @@
+contract_id: TLC-MC-TLC-FC-23-MEMORY-008
+feature_id: TLC-FC-23-MEMORY-008
+title: Exponential-stability claim assessment
+domain_id: memory
+contract_kind: structural_claim_validation_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/23-memory/memory.md
+source_sections: ['5. Stabilité', '7. Limites et points scientifiques non résolus']
+inputs: [{name: kernel_norm_claim, type: opaque_evidence}, {name: F_lipschitz_evidence, type: opaque_evidence}, {name: G_gradient_bounds, type: opaque_evidence}, {name: bound_constants, type: opaque_values}, {name: attractor_reference, type: opaque_reference}]
+outputs: [{name: stability_claim_assessment, type: structural_descriptor}]
+preconditions: [source claim and reservations are available]
+postconditions: [assessment preserves the stated assumptions and exponential bound without returning an unconditional stability certification]
+invariants: [K versus K1 K2 mismatch retained, missing linkage constants retained, X_star existence and uniqueness not inferred]
+errors: [StabilityCertificationUnsupported, ExternalStabilitySemanticsRequired]
+opaque_parameters: [C, lambda, L_i, kernel_norm_claim]
+scientific_reservations: [TLC-UR-MEMORY-007, TLC-UR-MEMORY-008]
+dependencies: {scientific: [], runtime: []}
+traceability: {source: maths/23-memory/memory.md, inventory: registry/domain-progress/memory/feature-inventory.yaml}

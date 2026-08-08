@@ -1,0 +1,9 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-23-MEMORY-001
+feature_id: TLC-FC-23-MEMORY-001
+oracle_type: structural_property_and_error
+checks:
+  - all three source history-space conditions are required
+  - P_value equal to theta does not satisfy the strict threshold
+  - absent P evidence yields ExternalHistoryScoreRequired with no fabricated score
+  - no provider for P or trajectory regularization is introduced by the feature

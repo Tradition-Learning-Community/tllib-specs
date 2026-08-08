@@ -1,0 +1,142 @@
+domain_id: memory
+status: population_frozen_with_reservations
+feature_count: 10
+source: maths/23-memory/memory.md
+features:
+  - feature_id: TLC-FC-23-MEMORY-001
+    canonical_name: Weighted-history admissibility
+    category: validation
+    source_objects: [TLC-SO-MEMORY-001, TLC-SO-MEMORY-002, TLC-SO-MEMORY-003, TLC-SO-MEMORY-004, TLC-SO-MEMORY-005, TLC-SO-MEMORY-006]
+    source_section: '1. Espace des histoires pondérées'
+    purpose: Validate the source membership conditions for a supplied history without constructing the opaque score functional P.
+    inputs: [history, c1_evidence, derivative_norm_bound_evidence, supplied_P_value, theta]
+    outputs: [history_admissibility]
+    preconditions: [P value is externally supplied, derivative norm evidence is supplied]
+    invariants: [C1 requirement preserved, strict P greater-than theta inequality preserved, no P construction invented]
+    invalid_cases: [missing P value, missing regularity evidence]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-23-MEMORY-002
+    canonical_name: Collective-memory weighted measure descriptor
+    category: declarative
+    source_objects: [TLC-SO-MEMORY-001, TLC-SO-MEMORY-007, TLC-SO-MEMORY-008]
+    source_section: '1. Espace des histoires pondérées'
+    purpose: Preserve the collective-memory integral while refusing semantic evaluation until a trajectory-space measure and target value space are externally defined.
+    inputs: [history_space_reference, weight_reference, measure_provider_reference, value_space_reference]
+    outputs: [collective_memory_descriptor]
+    preconditions: [source expression available]
+    invariants: [no measure selected, no Banach or Hilbert space inferred, no quadrature selected]
+    invalid_cases: [evaluation request without measure and value-space providers]
+    algorithmic: false
+    scientific_status: preserved_unresolved
+  - feature_id: TLC-FC-23-MEMORY-003
+    canonical_name: Adaptive memory operator
+    category: transform
+    source_objects: [TLC-SO-MEMORY-009, TLC-SO-MEMORY-010, TLC-SO-MEMORY-011, TLC-SO-MEMORY-012, TLC-SO-MEMORY-013, TLC-SO-MEMORY-014, TLC-SO-MEMORY-015]
+    source_section: '2. Opérateur de mémoire adaptatif'
+    purpose: Combine a supplied continuous-memory integral result with the exact finite event sum using caller-supplied delta_epsilon and event weights.
+    inputs: [continuous_term, event_states, event_times, event_weights, delta_epsilon_values]
+    outputs: [adaptive_memory_value]
+    preconditions: [continuous integral result supplied, event arrays shape-compatible, delta_epsilon values supplied]
+    invariants: [no quadrature, no Dirac approximation, no evolution rule for event weights]
+    invalid_cases: [missing external continuous term, missing delta_epsilon value, event shape mismatch]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-23-MEMORY-004
+    canonical_name: Proposed adaptive memory kernel
+    category: kernel
+    source_objects: [TLC-SO-MEMORY-015, TLC-SO-MEMORY-016, TLC-SO-MEMORY-017, TLC-SO-MEMORY-018, TLC-SO-MEMORY-019]
+    source_section: '2. Opérateur de mémoire adaptatif'
+    purpose: Evaluate the source-proposed exponential kernel for supplied state and gradient differences and supplied coefficients.
+    inputs: [t, s, X_t, X_s, grad_X_t, grad_X_s, alpha, beta, gamma, delta]
+    outputs: [kernel_value]
+    preconditions: [norm operations are defined for supplied state and gradient values]
+    invariants: [exact source exponent preserved, coefficients remain caller supplied]
+    invalid_cases: [incompatible state or gradient norms]
+    algorithmic: true
+    scientific_status: defined
+  - feature_id: TLC-FC-23-MEMORY-005
+    canonical_name: Mnemonic-core descriptor
+    category: declarative
+    source_objects: [TLC-SO-MEMORY-020, TLC-SO-MEMORY-021, TLC-SO-MEMORY-022, TLC-SO-MEMORY-001, TLC-SO-MEMORY-007]
+    source_section: '3. Noyau d’influence mnésique'
+    purpose: Preserve the persistent-weight set condition and the source minimality/invariance claims without inventing minimality or legitimacy semantics.
+    inputs: [history_space_reference, weight_reference, theta_noyau, contextual_transformation_reference]
+    outputs: [mnemonic_core_descriptor]
+    preconditions: [source set expression available]
+    invariants: [strict threshold and forall-t condition preserved, minimality not inferred, legitimacy not constructed]
+    invalid_cases: [request to compute a minimal core or certify legitimate-context invariance locally]
+    algorithmic: false
+    scientific_status: preserved_unresolved
+  - feature_id: TLC-FC-23-MEMORY-006
+    canonical_name: Nonlinear hereditary system right-hand side
+    category: dynamical
+    source_objects: [TLC-SO-MEMORY-023, TLC-SO-MEMORY-024, TLC-SO-MEMORY-025, TLC-SO-MEMORY-026, TLC-SO-MEMORY-027, TLC-SO-MEMORY-028, TLC-SO-MEMORY-029, TLC-SO-MEMORY-030, TLC-SO-MEMORY-031]
+    source_section: '4. Système héréditaire non linéaire'
+    purpose: Evaluate F at the current state and supplied exact historical mean/trend terms while choosing no time integrator or convolution discretization.
+    inputs: [X_t, supplied_K1_G1_integral, supplied_derivative_K2_G2_integral, F_provider]
+    outputs: [dX_dt]
+    preconditions: [historical terms and F evaluation provider supplied]
+    invariants: [source argument order preserved, no time integration, no convolution quadrature]
+    invalid_cases: [missing historical term, missing F provider]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-23-MEMORY-007
+    canonical_name: Differential multi-scale memory
+    category: aggregation
+    source_objects: [TLC-SO-MEMORY-032, TLC-SO-MEMORY-033, TLC-SO-MEMORY-015, TLC-SO-MEMORY-024]
+    source_section: '4. Système héréditaire non linéaire'
+    purpose: Evaluate the finite source sum from supplied derivative-of-convolution terms and alpha_k(t) coefficients without choosing derivative or integration approximations.
+    inputs: [m, alpha_k_values, derivative_convolution_terms]
+    outputs: [M_diff]
+    preconditions: [terms are supplied for every k from zero through m, coefficient and term arrays match]
+    invariants: [finite sum index 0..m preserved, no numerical differentiation, no quadrature]
+    invalid_cases: [missing derivative term, coefficient count mismatch]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-23-MEMORY-008
+    canonical_name: Exponential-stability claim assessment
+    category: validation
+    source_objects: [TLC-SO-MEMORY-034, TLC-SO-MEMORY-035, TLC-SO-MEMORY-036, TLC-SO-MEMORY-037, TLC-SO-MEMORY-038, TLC-SO-MEMORY-039, TLC-SO-MEMORY-023]
+    source_section: '5. Stabilité'
+    purpose: Preserve and structurally assess the stated assumptions and exponential bound without certifying stability or attractor uniqueness under the incomplete formal hypotheses.
+    inputs: [kernel_norm_claim, F_lipschitz_evidence, G_gradient_bounds, bound_constants, attractor_reference]
+    outputs: [stability_claim_assessment]
+    preconditions: [source claim available]
+    invariants: [K versus K1/K2 mismatch retained, missing linkage constants retained, no existence or uniqueness inference]
+    invalid_cases: [request for unconditional stability certification]
+    algorithmic: true
+    scientific_status: preserved_unresolved
+  - feature_id: TLC-FC-23-MEMORY-009
+    canonical_name: Weighted historical impact
+    category: aggregation
+    source_objects: [TLC-SO-MEMORY-040, TLC-SO-MEMORY-041, TLC-SO-MEMORY-038, TLC-SO-MEMORY-042, TLC-SO-MEMORY-024]
+    source_section: '6. Persistance et résilience'
+    purpose: Evaluate the source historical-impact integral only through a supplied exact/authorized integral provider and supplied current weight function values.
+    inputs: [X_history, X_t, weight_provider, lambda, mu, integral_provider]
+    outputs: [I_history]
+    preconditions: [weight values and integral provider supplied]
+    invariants: [source integrand preserved, no quadrature, no weight evolution rule]
+    invalid_cases: [missing weight or integral provider]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-23-MEMORY-010
+    canonical_name: Contextual mnemonic resilience
+    category: metric
+    source_objects: [TLC-SO-MEMORY-043, TLC-SO-MEMORY-044, TLC-SO-MEMORY-045, TLC-SO-MEMORY-046, TLC-SO-MEMORY-024]
+    source_section: '6. Persistance et résilience'
+    purpose: Evaluate the raw source resilience functional through supplied derivative, neighborhood, context and integral providers while preserving the missing normalization.
+    inputs: [t, state_derivative_provider, X_history, X_ref, delta_radius_provider, context_factor_provider, integral_provider]
+    outputs: [raw_R_memory]
+    preconditions: [t is positive, all source-term providers supplied]
+    invariants: [strict neighborhood indicator preserved, no normalization or resilience-strength threshold inferred]
+    invalid_cases: [nonpositive t, missing provider, request for normalized resilience]
+    algorithmic: true
+    scientific_status: partially_defined
+population_decision:
+  feature_count: 10
+  duplicate_features_removed: true
+  pseudo_features_removed: true
+  equation_per_feature_rule_rejected: true
+  blocked_semantics_preserved_structurally: [TLC-FC-23-MEMORY-002, TLC-FC-23-MEMORY-005]
+  structural_stability_claim_only: [TLC-FC-23-MEMORY-008]

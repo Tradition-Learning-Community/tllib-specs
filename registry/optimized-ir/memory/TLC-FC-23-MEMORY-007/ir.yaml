@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-23-MEMORY-007
+status: selected_for_memory_implementation_specification
+source_ir: registry/ir/TLC-FC-23-MEMORY-007/ir.yaml
+representation: conditional_finite_source_sum
+execution: conditionally_executable
+inputs: [m, alpha_k_values, derivative_convolution_terms]
+outputs: [M_diff]
+ordered_operations: [validate_k_population, multiply_supplied_terms, sum_products]
+forbidden: [numerical_differentiation, convolution_quadrature, coefficient_inference]

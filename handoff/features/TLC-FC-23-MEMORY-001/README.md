@@ -1,0 +1,3 @@
+# TLC-FC-23-MEMORY-001 — Weighted-history admissibility
+
+This handoff package implements only the membership test stated for the weighted history space in `maths/23-memory/memory.md`. A caller supplies the history, evidence that it is C1, evidence for the derivative-norm bound, the opaque value `P(gamma)`, and `theta`. The implementation validates those supplied facts and preserves the strict `P(gamma) > theta` condition. It must not construct the functional `P`, infer a trajectory space, repair a history, interpolate missing data, or invent a threshold. Missing scientific evidence is a structured failure, not permission to complete the theory locally.

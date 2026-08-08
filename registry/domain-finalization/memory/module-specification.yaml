@@ -1,0 +1,82 @@
+schema_version: 1
+module_id: TLC-MODULE-MEMORY-001
+module_name: Memory
+status: selected_for_memory_implementation_specification
+purpose: >-
+  Provide source-faithful history validation, memory-kernel and source-formula evaluators,
+  guarded memory descriptors, hereditary RHS evaluation, and structural stability assessment
+  for exactly the ten Memory features while preserving every unresolved boundary in memory.md.
+active_features:
+  - TLC-FC-23-MEMORY-001
+  - TLC-FC-23-MEMORY-002
+  - TLC-FC-23-MEMORY-003
+  - TLC-FC-23-MEMORY-004
+  - TLC-FC-23-MEMORY-005
+  - TLC-FC-23-MEMORY-006
+  - TLC-FC-23-MEMORY-007
+  - TLC-FC-23-MEMORY-008
+  - TLC-FC-23-MEMORY-009
+  - TLC-FC-23-MEMORY-010
+public_operations:
+  - {operation: validate_weighted_history, features: [TLC-FC-23-MEMORY-001], semantic_evaluation: conditional_on_supplied_P_value_and_regulariry_evidence}
+  - {operation: preserve_collective_memory_integral, features: [TLC-FC-23-MEMORY-002], semantic_evaluation: false}
+  - {operation: evaluate_adaptive_memory, features: [TLC-FC-23-MEMORY-003], semantic_evaluation: conditional_on_supplied_integral_and_event_terms}
+  - {operation: evaluate_proposed_memory_kernel, features: [TLC-FC-23-MEMORY-004], semantic_evaluation: true}
+  - {operation: preserve_mnemonic_core, features: [TLC-FC-23-MEMORY-005], semantic_evaluation: false}
+  - {operation: evaluate_hereditary_rhs, features: [TLC-FC-23-MEMORY-006], semantic_evaluation: conditional_on_supplied_history_terms}
+  - {operation: evaluate_multiscale_memory_sum, features: [TLC-FC-23-MEMORY-007], semantic_evaluation: conditional_on_supplied_derivative_terms}
+  - {operation: assess_stability_claim, features: [TLC-FC-23-MEMORY-008], semantic_evaluation: structural_only}
+  - {operation: evaluate_historical_impact, features: [TLC-FC-23-MEMORY-009], semantic_evaluation: conditional_on_external_integral_provider}
+  - {operation: evaluate_raw_mnemonic_resilience, features: [TLC-FC-23-MEMORY-010], semantic_evaluation: conditional_on_external_integral_and_term_providers}
+shared_types:
+  MemoryOpaqueScientificValue:
+    purpose: caller-supplied coefficient weight provider output or source term that the module must not construct or calibrate
+  MemoryStructuralDescriptor:
+    fields: [feature_id, source_reference, preserved_payload, unresolved_items, scientific_status]
+  MemoryStructuredError:
+    fields: [code, category, condition]
+scientific_dependencies: []
+incoming_scientific_consumers:
+  - {domain: temporality, domain_index: 22, direction: 22_to_23, imported_semantics: true, evidence: 'Temporality explicitly uses Memory K and M'}
+runtime_dependencies: []
+shared_contract_dependencies:
+  - TLC-HC-FEATURE-ID@1.0.0
+  - TLC-HC-SCIENTIFIC-REFERENCE@1.0.0
+  - TLC-HC-REFERENCE-COLLECTION@1.0.0
+  - TLC-HC-UNRESOLVED-ITEM@1.0.0
+  - TLC-HC-OPAQUE-VALUE@1.0.0
+  - TLC-HC-STRUCTURED-ERROR@1.0.0
+  - TLC-HC-TRACEABILITY@1.0.0
+  - TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0
+non_execution_guards:
+  TLC-FC-23-MEMORY-002: ExternalHistoryMeasureAndValueSpaceRequired
+  TLC-FC-23-MEMORY-005: ExternalMnemonicCoreSemanticsRequired
+structural_claim_guards:
+  TLC-FC-23-MEMORY-008: StabilityCertificationUnsupported
+unresolved_policy:
+  preserve: true
+  propagate: true
+  resolve_automatically: false
+  promote_to_defaults: false
+out_of_scope:
+  - trajectory-space measure selection
+  - Banach or Hilbert space selection
+  - delta_epsilon construction or Dirac approximation
+  - history or event weight evolution
+  - legitimacy semantics
+  - mnemonic-core minimality algorithm
+  - convolution quadrature and numerical differentiation
+  - time integration
+  - missing stability theorem hypotheses or constants
+  - attractor existence or uniqueness proof
+  - resilience normalization or threshold calibration
+  - runtime framework selection
+  - C++ implementation
+  - Python bindings
+implementation_readiness:
+  handoff_population_structurally_ready: true
+  semantic_evaluation_is_feature_specific: true
+  executable_features: [TLC-FC-23-MEMORY-004]
+  conditionally_executable_features: [TLC-FC-23-MEMORY-001, TLC-FC-23-MEMORY-003, TLC-FC-23-MEMORY-006, TLC-FC-23-MEMORY-007, TLC-FC-23-MEMORY-009, TLC-FC-23-MEMORY-010]
+  structural_only_features: [TLC-FC-23-MEMORY-002, TLC-FC-23-MEMORY-005, TLC-FC-23-MEMORY-008]
+future_implementation_tasks: registry/domain-finalization/memory/implementation-tasks.yaml

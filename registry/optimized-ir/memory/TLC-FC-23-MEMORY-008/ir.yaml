@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-23-MEMORY-008
+status: selected_for_memory_implementation_specification
+source_ir: registry/ir/TLC-FC-23-MEMORY-008/ir.yaml
+representation: structural_stability_claim_assessment
+execution: structural_only
+inputs: [kernel_norm_claim, F_lipschitz_evidence, G_gradient_bounds, bound_constants, attractor_reference]
+outputs: [stability_claim_assessment]
+ordered_operations: [preserve_assumptions, preserve_bound, attach_unresolved_hypotheses, reject_certification]
+forbidden: [K_to_K1_K2_inference, missing_constant_inference, attractor_existence_inference, stability_boolean_certification]

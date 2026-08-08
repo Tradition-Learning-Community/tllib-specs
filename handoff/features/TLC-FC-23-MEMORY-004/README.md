@@ -1,0 +1,3 @@
+# TLC-FC-23-MEMORY-004 — Proposed adaptive memory kernel
+
+This package evaluates the one kernel formula that `memory.md` proposes explicitly. For supplied times, states, gradients, and coefficients `alpha`, `beta`, `gamma`, and `delta`, the implementation must preserve the exponent exactly: absolute time separation, squared state-distance norm, and unsquared gradient-distance norm. No calibration, sign change, normalization, or alternative kernel is authorized. If the supplied state or gradient objects do not support the required norms, evaluation fails rather than silently selecting another geometry.

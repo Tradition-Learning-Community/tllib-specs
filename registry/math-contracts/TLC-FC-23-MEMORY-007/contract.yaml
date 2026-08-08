@@ -1,0 +1,18 @@
+contract_id: TLC-MC-TLC-FC-23-MEMORY-007
+feature_id: TLC-FC-23-MEMORY-007
+title: Differential multi-scale memory
+domain_id: memory
+contract_kind: conditional_aggregation_contract
+scientific_status: partially_defined
+scientific_authority: maths/23-memory/memory.md
+source_sections: ['4. Système héréditaire non linéaire']
+inputs: [{name: m, type: nonnegative_integer}, {name: alpha_k_values, type: sequence}, {name: derivative_convolution_terms, type: sequence}]
+outputs: [{name: M_diff, type: source_sum_result}]
+preconditions: [one coefficient and one derivative-convolution term are supplied for every k from zero through m]
+postconditions: [M_diff equals the finite source sum over k=0..m]
+invariants: [no numerical differentiation, no quadrature, no coefficient calibration]
+errors: [MissingMultiscaleDerivativeTerm, MultiscaleCoefficientShapeMismatch]
+opaque_parameters: [alpha_k_values, derivative_convolution_terms]
+scientific_reservations: []
+dependencies: {scientific: [], runtime: []}
+traceability: {source: maths/23-memory/memory.md, inventory: registry/domain-progress/memory/feature-inventory.yaml}
