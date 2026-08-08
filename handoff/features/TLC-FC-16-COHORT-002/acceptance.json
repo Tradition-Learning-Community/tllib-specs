@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0", "package_version": "1.0.0", "applies_to": "TLC-FC-16-COHORT-002",
+  "tests": [
+    {"test_id": "TLC-FC-16-COHORT-002-AT-001", "applies_to": "EVALUATE-COHORT-002", "category": "output_contract", "given": "Two valid nonzero twelve-coordinate profiles.", "when": "Metric evaluation runs.", "expect": "Euclidean distance and cosine similarity equal the source formulas.", "source_basis": ["registry/oracles/cohort/TLC-FC-16-COHORT-002/oracle.yaml"]},
+    {"test_id": "TLC-FC-16-COHORT-002-AT-002", "applies_to": "EVALUATE-COHORT-002", "category": "invariant", "given": "The two profiles are exchanged.", "when": "Euclidean distance is reevaluated.", "expect": "The Euclidean result is unchanged and remains nonnegative.", "source_basis": ["registry/test-plans/TLC-FC-16-COHORT-002/test-plan.yaml"]},
+    {"test_id": "TLC-FC-16-COHORT-002-AT-003", "applies_to": "EVALUATE-COHORT-002", "category": "invalid_input", "given": "At least one profile has zero norm.", "when": "Cosine evaluation is requested.", "expect": "ZeroCosineNorm and no fabricated similarity value.", "source_basis": ["registry/oracles/cohort/TLC-FC-16-COHORT-002/oracle.yaml"]}
+  ]
+}
