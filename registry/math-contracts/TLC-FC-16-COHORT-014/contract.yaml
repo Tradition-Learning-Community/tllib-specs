@@ -1,0 +1,18 @@
+contract_id: TLC-MC-TLC-FC-16-COHORT-014
+feature_id: TLC-FC-16-COHORT-014
+title: Synergy emergence conditions
+domain_id: cohort
+contract_kind: validation_contract_with_opaque_thresholds
+scientific_status: partially_defined
+scientific_authority: maths/16-cohort/cohort.md
+source_sections: ['6. Propriétés émergentes et santé', '7. Théorèmes formulés par la source']
+inputs: [{name: H_type, type: scalar}, {name: H_crit, type: opaque_scalar}, {name: kappa, type: scalar}, {name: kappa_min, type: opaque_scalar}, {name: kappa_max, type: opaque_scalar}, {name: expected_complementarity, type: supplied_scalar}, {name: theta_comp, type: opaque_scalar}]
+outputs: [{name: emergence_conditions_satisfied, type: boolean}]
+preconditions: [all three threshold groups and complementarity expectation supplied]
+postconditions: [true iff H_type>H_crit and kappa_min<kappa<kappa_max and expected_complementarity>theta_comp]
+invariants: [no threshold or optimum is inferred]
+errors: [MissingEmergenceThreshold, InvalidKappaInterval, MissingComplementarityValue]
+opaque_parameters: [H_crit, kappa_min, kappa_max, theta_comp, expected_complementarity]
+scientific_reservations: [TLC-UR-COHORT-008, TLC-UR-COHORT-015]
+dependencies: {scientific: [], runtime: []}
+traceability: {source: maths/16-cohort/cohort.md}
