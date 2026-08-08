@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-006
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-16-COHORT-006/contract.yaml
+source_candidate_ir: ir/TLC-FC-16-COHORT-006/ir.candidate.json
+nature: structural
+inputs: [disciples, learning_relation, collaboration_operation_reference, equivalence_partition, weighted_graph]
+outputs: [cohort_descriptor]
+steps: [validate_vertex_identity, validate_partition_structure, preserve_quintuple, attach_magma_nonassociative_reservation]
+errors: [GraphVertexSetMismatch, UndeclaredAssociativity, InvalidEquivalencePartition]
