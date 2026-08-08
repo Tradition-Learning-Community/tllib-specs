@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-23-MEMORY-001
+tests:
+  - {id: MEMORY-001-T01, type: property, assertion: A history is accepted only when all three source membership conditions are supplied and satisfied}
+  - {id: MEMORY-001-T02, type: boundary, assertion: P_value equal to theta is rejected because the source inequality is strict}
+  - {id: MEMORY-001-T03, type: error, assertion: Missing P value returns ExternalHistoryScoreRequired rather than constructing P}
+  - {id: MEMORY-001-T04, type: preservation, assertion: No trajectory interpolation or score model is introduced}
+no_arbitrary_numeric_fixtures: true

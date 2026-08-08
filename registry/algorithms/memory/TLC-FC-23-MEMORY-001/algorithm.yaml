@@ -1,0 +1,14 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-23-MEMORY-001
+feature_id: TLC-FC-23-MEMORY-001
+status: selected_for_memory_implementation_specification
+algorithm_kind: source_backed_structural_validation
+source_ir: registry/optimized-ir/memory/TLC-FC-23-MEMORY-001/ir.yaml
+ordered_steps:
+  - require externally supplied C1 and derivative-bound evidence and P value
+  - validate that the history satisfies the supplied C1 evidence
+  - validate that the derivative norm does not exceed the supplied M bound
+  - accept the source score condition only when supplied P_value is strictly greater than theta
+errors: [ExternalHistoryScoreRequired, MissingHistoryRegularityEvidence]
+determinism: deterministic_for_supplied_evidence
+forbidden: [construct P, infer M, weaken strict inequality]
