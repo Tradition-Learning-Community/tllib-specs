@@ -1,0 +1,18 @@
+contract_id: TLC-MC-TLC-FC-16-COHORT-016
+feature_id: TLC-FC-16-COHORT-016
+title: Type-pair interaction model
+domain_id: cohort
+contract_kind: computational_contract_with_external_terms
+scientific_status: partially_defined
+scientific_authority: maths/16-cohort/cohort.md
+source_section: '6. Propriétés émergentes et santé'
+inputs: [{name: theta_kl, type: supplied_scalar}, {name: eta_base, type: supplied_scalar}, {name: alpha_kl, type: supplied_scalar}, {name: beta_kl, type: supplied_scalar}, {name: d_type, type: supplied_scalar}, {name: complementarity, type: supplied_scalar}, {name: Theta, type: matrix}, {name: H, type: matrix}]
+outputs: [{name: link_probability, type: scalar}, {name: interaction_efficiency, type: scalar}, {name: performance_matrix, type: matrix}]
+preconditions: [Theta and H have identical shapes, all distance complementarity and coefficients are supplied]
+postconditions: [link probability equals exp(theta)/(1+exp(theta)), efficiency equals the source affine expression, performance matrix equals the Hadamard product Theta circle H]
+invariants: [d_type and complementarity are supplied rather than constructed, matrix entry semantics and dimensions are not invented]
+errors: [InteractionMatrixShapeMismatch, MissingInteractionTerm]
+opaque_parameters: [theta_kl, eta_base, alpha_kl, beta_kl, d_type, complementarity]
+scientific_reservations: [TLC-UR-COHORT-003, TLC-UR-COHORT-004, TLC-UR-COHORT-015, TLC-UR-COHORT-016]
+dependencies: {scientific: [], runtime: []}
+traceability: {source: maths/16-cohort/cohort.md}
