@@ -128,6 +128,18 @@ dependency_graph:
       members: [29, 30, 31]
       status: operational
   scientific:
+    - id: scientific-16-00
+      from_domain: 16
+      to_domain: 0
+      status: confirmed
+      evidence: maths/16-cohort/cohort.md
+      rationale: Cohort trait drift explicitly uses the Master profile mu_M.
+    - id: scientific-16-01
+      from_domain: 16
+      to_domain: 1
+      status: confirmed
+      evidence: maths/16-cohort/cohort.md
+      rationale: Cohort is explicitly a collective/set of Disciples and uses Disciple trait profiles.
     - id: scientific-19-18
       from_domain: 19
       to_domain: 18
@@ -189,21 +201,21 @@ domains:
       - maths/16-cohort/cohort.md
     wave: pilot
     analysis_companions: []
-    feature_count: null
-    handoff_publication: false
+    feature_count: 17
+    handoff_publication: true
     dependencies:
-      confirmed: []
+      confirmed: [0, 1]
       provisional: []
-      unknown: true
-    pipeline: &unstarted_pipeline
+      unknown: false
+    pipeline:
       scientific_source: complete
-      functional_decomposition: not_started
-      registries: not_started
-      ir: not_started
-      contracts: not_started
-      algorithms: not_started
-      oracles: not_started
-      handoff_packages: not_started
+      functional_decomposition: complete
+      registries: complete
+      ir: complete
+      contracts: complete
+      algorithms: complete_or_not_applicable
+      oracles: complete
+      handoff_packages: complete
 
   - index: 17
     slug: cascade-transmission
@@ -220,7 +232,15 @@ domains:
       confirmed: []
       provisional: []
       unknown: true
-    pipeline: *unstarted_pipeline
+    pipeline: &unstarted_pipeline
+      scientific_source: complete
+      functional_decomposition: not_started
+      registries: not_started
+      ir: not_started
+      contracts: not_started
+      algorithms: not_started
+      oracles: not_started
+      handoff_packages: not_started
 
   - index: 18
     slug: evaluation
