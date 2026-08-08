@@ -1,0 +1,28 @@
+schema_version: 1
+domain: memory
+status: selected_for_implementation_specification
+patterns:
+  - pattern_id: MEMORY-PAT-001
+    name: opaque_scientific_value_carriage
+    applies_to: [TLC-FC-23-MEMORY-001, TLC-FC-23-MEMORY-003, TLC-FC-23-MEMORY-004, TLC-FC-23-MEMORY-006, TLC-FC-23-MEMORY-007, TLC-FC-23-MEMORY-009, TLC-FC-23-MEMORY-010]
+    rule: Caller-supplied coefficients weights provider results and opaque scientific values are carried without local calibration or evolution rules.
+  - pattern_id: MEMORY-PAT-002
+    name: source_formula_evaluation
+    applies_to: [TLC-FC-23-MEMORY-003, TLC-FC-23-MEMORY-004, TLC-FC-23-MEMORY-006, TLC-FC-23-MEMORY-007, TLC-FC-23-MEMORY-009, TLC-FC-23-MEMORY-010]
+    rule: Evaluate only the source-backed algebra after all externally required scientific terms have been supplied.
+  - pattern_id: MEMORY-PAT-003
+    name: structural_non_execution_guard
+    applies_to: [TLC-FC-23-MEMORY-002, TLC-FC-23-MEMORY-005]
+    rule: Preserve source expressions and unresolved providers while rejecting semantic evaluation that would require invented measure, value-space, minimality, or legitimacy semantics.
+  - pattern_id: MEMORY-PAT-004
+    name: continuous_memory_without_discretization
+    applies_to: [TLC-FC-23-MEMORY-003, TLC-FC-23-MEMORY-006, TLC-FC-23-MEMORY-007, TLC-FC-23-MEMORY-009, TLC-FC-23-MEMORY-010]
+    rule: Accept externally supplied integral or derivative terms and evaluate source algebra without choosing quadrature, numerical differentiation, or time integration.
+  - pattern_id: MEMORY-PAT-005
+    name: structural_claim_assessment
+    applies_to: [TLC-FC-23-MEMORY-008]
+    rule: Preserve and inspect the source stability assumptions and bound but do not certify exponential stability or attractor existence/uniqueness under incomplete hypotheses.
+  - pattern_id: MEMORY-PAT-006
+    name: no_silent_scientific_completion
+    applies_to: [TLC-FC-23-MEMORY-001, TLC-FC-23-MEMORY-002, TLC-FC-23-MEMORY-003, TLC-FC-23-MEMORY-005, TLC-FC-23-MEMORY-006, TLC-FC-23-MEMORY-007, TLC-FC-23-MEMORY-008, TLC-FC-23-MEMORY-009, TLC-FC-23-MEMORY-010]
+    rule: Missing measure, delta_epsilon, weight dynamics, legitimacy, minimality, stability linkage, attractor guarantees, and resilience normalization remain explicit unresolved constraints.
