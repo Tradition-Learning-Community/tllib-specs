@@ -1,0 +1,18 @@
+contract_id: TLC-MC-TLC-FC-16-COHORT-010
+feature_id: TLC-FC-16-COHORT-010
+title: Trait-distribution dynamics descriptor
+domain_id: cohort
+contract_kind: declarative_non_execution_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/16-cohort/cohort.md
+source_section: '5. Dynamiques'
+inputs: [{name: distribution_reference, type: opaque_distribution}, {name: drift_reference, type: field_reference}, {name: diffusion_reference, type: opaque_diffusion}, {name: source_conditions, type: reference_collection}]
+outputs: [{name: dynamics_descriptor, type: fokker_planck_descriptor}]
+preconditions: [source equations and conditions are available]
+postconditions: [descriptor preserves the Fokker-Planck equation stationary relation potential and convergence wording]
+invariants: [no boundary condition diffusion tensor shape time step discretization or numerical solver is selected]
+errors: [ExternalPdeSolverRequired, BoundaryConditionRequired, DiffusionTypingRequired]
+opaque_parameters: [Sigma, sigma_squared, boundary_conditions]
+scientific_reservations: [TLC-UR-COHORT-009, TLC-UR-COHORT-010, TLC-UR-COHORT-011]
+dependencies: {scientific: [master, disciple], runtime: []}
+traceability: {source: maths/16-cohort/cohort.md}
