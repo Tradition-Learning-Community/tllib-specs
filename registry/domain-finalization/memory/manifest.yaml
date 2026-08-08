@@ -1,0 +1,67 @@
+schema_version: 1
+manifest_id: TLC-MEMORY-DOMAIN-FINALIZATION-001
+domain: memory
+phase: 4
+status: selected_for_implementation_handoff
+base_branch: main
+base_commit: a7edd2b0049d3d9f37d920a8cc0729d09e9a9e9c
+population:
+  - TLC-FC-23-MEMORY-001
+  - TLC-FC-23-MEMORY-002
+  - TLC-FC-23-MEMORY-003
+  - TLC-FC-23-MEMORY-004
+  - TLC-FC-23-MEMORY-005
+  - TLC-FC-23-MEMORY-006
+  - TLC-FC-23-MEMORY-007
+  - TLC-FC-23-MEMORY-008
+  - TLC-FC-23-MEMORY-009
+  - TLC-FC-23-MEMORY-010
+source_authority:
+  scientific_source:
+    path: maths/23-memory/memory.md
+    blob_sha: 28af5a638cf96a878a9e16c04a7bb7ac6a0a95f4
+    modified: false
+  analysis_companion:
+    path: maths/22-temporality/temporality.md
+    publication_in_this_pr: false
+  inventories:
+    - registry/domain-progress/memory/source-inventory.yaml
+    - registry/domain-progress/memory/feature-inventory.yaml
+    - registry/domain-progress/memory/feature-dependencies.yaml
+    - registry/scientific-objects/memory/scientific-objects.candidate.yaml
+    - registry/scientific-objects/memory/scientific-relations.candidate.yaml
+    - registry/scientific-objects/memory/unresolved-terms.yaml
+source_artifact_patterns:
+  contract: registry/math-contracts/<FEATURE_ID>/contract.yaml
+  candidate_ir: ir/<FEATURE_ID>/ir.candidate.json
+  source_ir: registry/ir/<FEATURE_ID>/ir.yaml
+  test_plan: registry/test-plans/<FEATURE_ID>/test-plan.yaml
+finalized_artifact_patterns:
+  optimized_ir: registry/optimized-ir/memory/<FEATURE_ID>/ir.yaml
+  algorithm: registry/algorithms/memory/<FEATURE_ID>/algorithm.yaml
+  oracle: registry/oracles/memory/<FEATURE_ID>/oracle.yaml
+  implementation_tasks: registry/domain-finalization/memory/implementation-tasks.yaml
+feature_artifacts:
+  TLC-FC-23-MEMORY-001: {contract: registry/math-contracts/TLC-FC-23-MEMORY-001/contract.yaml, candidate_ir: ir/TLC-FC-23-MEMORY-001/ir.candidate.json, source_ir: registry/ir/TLC-FC-23-MEMORY-001/ir.yaml, test_plan: registry/test-plans/TLC-FC-23-MEMORY-001/test-plan.yaml, optimized_ir: registry/optimized-ir/memory/TLC-FC-23-MEMORY-001/ir.yaml, algorithm: registry/algorithms/memory/TLC-FC-23-MEMORY-001/algorithm.yaml, oracle: registry/oracles/memory/TLC-FC-23-MEMORY-001/oracle.yaml}
+  TLC-FC-23-MEMORY-002: {contract: registry/math-contracts/TLC-FC-23-MEMORY-002/contract.yaml, candidate_ir: ir/TLC-FC-23-MEMORY-002/ir.candidate.json, source_ir: registry/ir/TLC-FC-23-MEMORY-002/ir.yaml, test_plan: registry/test-plans/TLC-FC-23-MEMORY-002/test-plan.yaml, optimized_ir: registry/optimized-ir/memory/TLC-FC-23-MEMORY-002/ir.yaml, algorithm: registry/algorithms/memory/TLC-FC-23-MEMORY-002/algorithm.yaml, oracle: registry/oracles/memory/TLC-FC-23-MEMORY-002/oracle.yaml}
+  TLC-FC-23-MEMORY-003: {contract: registry/math-contracts/TLC-FC-23-MEMORY-003/contract.yaml, candidate_ir: ir/TLC-FC-23-MEMORY-003/ir.candidate.json, source_ir: registry/ir/TLC-FC-23-MEMORY-003/ir.yaml, test_plan: registry/test-plans/TLC-FC-23-MEMORY-003/test-plan.yaml, optimized_ir: registry/optimized-ir/memory/TLC-FC-23-MEMORY-003/ir.yaml, algorithm: registry/algorithms/memory/TLC-FC-23-MEMORY-003/algorithm.yaml, oracle: registry/oracles/memory/TLC-FC-23-MEMORY-003/oracle.yaml}
+  TLC-FC-23-MEMORY-004: {contract: registry/math-contracts/TLC-FC-23-MEMORY-004/contract.yaml, candidate_ir: ir/TLC-FC-23-MEMORY-004/ir.candidate.json, source_ir: registry/ir/TLC-FC-23-MEMORY-004/ir.yaml, test_plan: registry/test-plans/TLC-FC-23-MEMORY-004/test-plan.yaml, optimized_ir: registry/optimized-ir/memory/TLC-FC-23-MEMORY-004/ir.yaml, algorithm: registry/algorithms/memory/TLC-FC-23-MEMORY-004/algorithm.yaml, oracle: registry/oracles/memory/TLC-FC-23-MEMORY-004/oracle.yaml}
+  TLC-FC-23-MEMORY-005: {contract: registry/math-contracts/TLC-FC-23-MEMORY-005/contract.yaml, candidate_ir: ir/TLC-FC-23-MEMORY-005/ir.candidate.json, source_ir: registry/ir/TLC-FC-23-MEMORY-005/ir.yaml, test_plan: registry/test-plans/TLC-FC-23-MEMORY-005/test-plan.yaml, optimized_ir: registry/optimized-ir/memory/TLC-FC-23-MEMORY-005/ir.yaml, algorithm: registry/algorithms/memory/TLC-FC-23-MEMORY-005/algorithm.yaml, oracle: registry/oracles/memory/TLC-FC-23-MEMORY-005/oracle.yaml}
+  TLC-FC-23-MEMORY-006: {contract: registry/math-contracts/TLC-FC-23-MEMORY-006/contract.yaml, candidate_ir: ir/TLC-FC-23-MEMORY-006/ir.candidate.json, source_ir: registry/ir/TLC-FC-23-MEMORY-006/ir.yaml, test_plan: registry/test-plans/TLC-FC-23-MEMORY-006/test-plan.yaml, optimized_ir: registry/optimized-ir/memory/TLC-FC-23-MEMORY-006/ir.yaml, algorithm: registry/algorithms/memory/TLC-FC-23-MEMORY-006/algorithm.yaml, oracle: registry/oracles/memory/TLC-FC-23-MEMORY-006/oracle.yaml}
+  TLC-FC-23-MEMORY-007: {contract: registry/math-contracts/TLC-FC-23-MEMORY-007/contract.yaml, candidate_ir: ir/TLC-FC-23-MEMORY-007/ir.candidate.json, source_ir: registry/ir/TLC-FC-23-MEMORY-007/ir.yaml, test_plan: registry/test-plans/TLC-FC-23-MEMORY-007/test-plan.yaml, optimized_ir: registry/optimized-ir/memory/TLC-FC-23-MEMORY-007/ir.yaml, algorithm: registry/algorithms/memory/TLC-FC-23-MEMORY-007/algorithm.yaml, oracle: registry/oracles/memory/TLC-FC-23-MEMORY-007/oracle.yaml}
+  TLC-FC-23-MEMORY-008: {contract: registry/math-contracts/TLC-FC-23-MEMORY-008/contract.yaml, candidate_ir: ir/TLC-FC-23-MEMORY-008/ir.candidate.json, source_ir: registry/ir/TLC-FC-23-MEMORY-008/ir.yaml, test_plan: registry/test-plans/TLC-FC-23-MEMORY-008/test-plan.yaml, optimized_ir: registry/optimized-ir/memory/TLC-FC-23-MEMORY-008/ir.yaml, algorithm: registry/algorithms/memory/TLC-FC-23-MEMORY-008/algorithm.yaml, oracle: registry/oracles/memory/TLC-FC-23-MEMORY-008/oracle.yaml}
+  TLC-FC-23-MEMORY-009: {contract: registry/math-contracts/TLC-FC-23-MEMORY-009/contract.yaml, candidate_ir: ir/TLC-FC-23-MEMORY-009/ir.candidate.json, source_ir: registry/ir/TLC-FC-23-MEMORY-009/ir.yaml, test_plan: registry/test-plans/TLC-FC-23-MEMORY-009/test-plan.yaml, optimized_ir: registry/optimized-ir/memory/TLC-FC-23-MEMORY-009/ir.yaml, algorithm: registry/algorithms/memory/TLC-FC-23-MEMORY-009/algorithm.yaml, oracle: registry/oracles/memory/TLC-FC-23-MEMORY-009/oracle.yaml}
+  TLC-FC-23-MEMORY-010: {contract: registry/math-contracts/TLC-FC-23-MEMORY-010/contract.yaml, candidate_ir: ir/TLC-FC-23-MEMORY-010/ir.candidate.json, source_ir: registry/ir/TLC-FC-23-MEMORY-010/ir.yaml, test_plan: registry/test-plans/TLC-FC-23-MEMORY-010/test-plan.yaml, optimized_ir: registry/optimized-ir/memory/TLC-FC-23-MEMORY-010/ir.yaml, algorithm: registry/algorithms/memory/TLC-FC-23-MEMORY-010/algorithm.yaml, oracle: registry/oracles/memory/TLC-FC-23-MEMORY-010/oracle.yaml}
+preservation:
+  scientific_source_modified: false
+  historical_handoffs_modified: false
+  temporality_published: false
+  other_future_domains_published: false
+  unresolved_science_preserved: true
+  new_shared_contracts: []
+completion_scope:
+  structural_implementation_specification_ready: true
+  semantic_execution_is_feature_specific: true
+  runtime_implementation_produced: false
+  cpp_produced: false
+  python_bindings_produced: false
