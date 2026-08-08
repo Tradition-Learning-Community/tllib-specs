@@ -1,0 +1,3 @@
+# TLC-FC-23-MEMORY-006 — Nonlinear hereditary system right-hand side
+
+The source gives a continuous-time hereditary differential equation, but it does not prescribe any numerical integration, convolution quadrature, or differentiation method. This package therefore evaluates only the right-hand side. A caller supplies the current state, the already evaluated `K1/G1` historical integral, the already evaluated derivative of the `K2/G2` historical integral, and an `F` provider. The implementation calls `F` in the source argument order and returns `dX/dt`; it must not advance time, approximate either convolution, or numerically differentiate the history term.

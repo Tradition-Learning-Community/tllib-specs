@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-23-MEMORY-005
+status: selected_for_memory_implementation_specification
+source_ir: registry/ir/TLC-FC-23-MEMORY-005/ir.yaml
+representation: guarded_mnemonic_core_descriptor
+execution: structural_only
+inputs: [history_space_reference, weight_reference, theta_noyau, optional_context_reference]
+outputs: [mnemonic_core_descriptor]
+ordered_operations: [preserve_set_condition, attach_unresolved_semantics, guard_minimality_and_invariance_claims]
+forbidden: [minimality_algorithm, legitimacy_rule, contextual_invariance_certification]

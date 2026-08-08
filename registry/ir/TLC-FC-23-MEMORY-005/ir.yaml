@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-23-MEMORY-005
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-23-MEMORY-005/contract.yaml
+source_candidate_ir: ir/TLC-FC-23-MEMORY-005/ir.candidate.json
+nature: declarative
+inputs: [history_space_reference, weight_reference, theta_noyau, contextual_transformation_reference]
+outputs: [mnemonic_core_descriptor]
+steps: [preserve source subset expression, preserve strict forall-t threshold, attach unresolved minimality and legitimacy, reject unsupported certification]
+errors: [ExternalMnemonicCoreSemanticsRequired, OpaqueFormulaMutation]

@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-23-MEMORY-006
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-23-MEMORY-006/contract.yaml
+source_candidate_ir: ir/TLC-FC-23-MEMORY-006/ir.candidate.json
+nature: dynamical
+inputs: [X_t, K1_G1_integral, derivative_K2_G2_integral, F_provider]
+outputs: [dX_dt]
+steps: [require supplied historical mean and trend, require F provider, evaluate F with source argument order]
+errors: [ExternalHereditaryHistoryTermsRequired, ExternalHereditaryFieldRequired]
