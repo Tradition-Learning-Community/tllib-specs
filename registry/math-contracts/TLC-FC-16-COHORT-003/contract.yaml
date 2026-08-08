@@ -1,0 +1,18 @@
+contract_id: TLC-MC-TLC-FC-16-COHORT-003
+feature_id: TLC-FC-16-COHORT-003
+title: Hybrid typology mixture
+domain_id: cohort
+contract_kind: computational_contract_with_opaque_estimation
+scientific_status: partially_defined
+scientific_authority: maths/16-cohort/cohort.md
+source_section: '3. Typologie'
+inputs: [{name: pure_type_vectors, type: sequence_of_six_vectors}, {name: alpha_coefficients, type: sequence_of_six_scalars}]
+outputs: [{name: hybrid_profile, type: vector}]
+preconditions: [six coefficients supplied, all alpha_i are nonnegative, alpha coefficients sum to one, six representative type vectors supplied]
+postconditions: [hybrid profile equals the stated weighted sum]
+invariants: [no projection or supervised-learning estimator is selected]
+errors: [InvalidHybridCoefficientCount, NegativeHybridCoefficient, HybridCoefficientSumMismatch, MissingTypeRepresentative]
+opaque_parameters: [pure_type_vectors]
+scientific_reservations: [TLC-UR-COHORT-002, TLC-UR-COHORT-005]
+dependencies: {scientific: [], runtime: []}
+traceability: {source: maths/16-cohort/cohort.md, inventory: registry/domain-progress/cohort/feature-inventory.yaml}
