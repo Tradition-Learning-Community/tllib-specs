@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-16-COHORT-004
+feature_id: TLC-FC-16-COHORT-004
+title: Typological distance descriptor
+domain_id: cohort
+contract_kind: declarative_non_execution_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/16-cohort/cohort.md
+source_section: '3. Typologie'
+inputs: [{name: type_i_reference, type: opaque_type_reference}, {name: type_j_reference, type: opaque_type_reference}, {name: source_formula, type: opaque_source_expression}]
+outputs: [{name: descriptor, type: typological_distance_descriptor}]
+preconditions: [source type references and formula are present]
+postconditions: [descriptor preserves the geodesic term Phi inverse term lambda and unresolved providers]
+invariants: [no Phi inverse metric g geodesic solver or type center is constructed]
+errors: [ExternalTypeGeometryRequired, OpaqueFormulaMutation]
+edge_cases: [evaluation requests are rejected without an explicit external geometry provider]
+opaque_parameters: [lambda, Phi, Phi_inverse, g, geodesic]
+scientific_reservations: [TLC-UR-COHORT-002, TLC-UR-COHORT-003, TLC-UR-COHORT-004]
+dependencies: {scientific: [], runtime: []}
+traceability: {source: maths/16-cohort/cohort.md, inventory: registry/domain-progress/cohort/feature-inventory.yaml}
