@@ -1,0 +1,47 @@
+schema_version: 1
+domain: cohort
+feature_count: 17
+scientific_dependencies:
+  external_confirmed:
+    - domain_index: 0
+      slug: master
+      evidence:
+        source: maths/16-cohort/cohort.md
+        section: '5. Dynamiques'
+        statement: The drift field explicitly uses the Master profile mu_M.
+      used_by: [TLC-FC-16-COHORT-009, TLC-FC-16-COHORT-010]
+    - domain_index: 1
+      slug: disciple
+      evidence:
+        source: maths/16-cohort/cohort.md
+        section: '1. Périmètre; 2. Espace des traits disciplinaires; 4. Définition algébrique et topologie'
+        statement: A cohort is a structured collective/set of Disciples and each Disciple has the source trait profile.
+      used_by: [TLC-FC-16-COHORT-001, TLC-FC-16-COHORT-002, TLC-FC-16-COHORT-006]
+  external_provisional: []
+  unknown: false
+runtime_dependencies: []
+shared_contract_dependencies:
+  - TLC-HC-FEATURE-ID@1.0.0
+  - TLC-HC-SCIENTIFIC-REFERENCE@1.0.0
+  - TLC-HC-REFERENCE-COLLECTION@1.0.0
+  - TLC-HC-UNRESOLVED-ITEM@1.0.0
+  - TLC-HC-OPAQUE-VALUE@1.0.0
+  - TLC-HC-STRUCTURED-ERROR@1.0.0
+  - TLC-HC-TRACEABILITY@1.0.0
+  - TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0
+intra_domain:
+  - {from: TLC-FC-16-COHORT-001, to: TLC-FC-16-COHORT-002, class: scientific_input}
+  - {from: TLC-FC-16-COHORT-004, to: TLC-FC-16-COHORT-005, class: supplied_value_provider_optional}
+  - {from: TLC-FC-16-COHORT-007, to: TLC-FC-16-COHORT-008, class: scientific_input}
+  - {from: TLC-FC-16-COHORT-009, to: TLC-FC-16-COHORT-010, class: referenced_component}
+  - {from: TLC-FC-16-COHORT-011, to: TLC-FC-16-COHORT-012, class: analysis_input}
+  - {from: TLC-FC-16-COHORT-005, to: TLC-FC-16-COHORT-013, class: scientific_input}
+  - {from: TLC-FC-16-COHORT-008, to: TLC-FC-16-COHORT-013, class: scientific_input}
+  - {from: TLC-FC-16-COHORT-013, to: TLC-FC-16-COHORT-014, class: condition_context}
+  - {from: TLC-FC-16-COHORT-004, to: TLC-FC-16-COHORT-016, class: supplied_value_provider_optional}
+  - {from: TLC-FC-16-COHORT-013, to: TLC-FC-16-COHORT-017, class: scientific_input}
+  - {from: TLC-FC-16-COHORT-016, to: TLC-FC-16-COHORT-017, class: scientific_input}
+policy:
+  scientific_dependency_is_not_runtime_dependency: true
+  optional_provider_edge_does_not_require_in_process_execution: true
+  no_dependency_inferred_from_terminology_only: true
