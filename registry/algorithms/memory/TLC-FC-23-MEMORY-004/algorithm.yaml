@@ -1,0 +1,9 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-23-MEMORY-004
+feature_id: TLC-FC-23-MEMORY-004
+status: selected_for_memory_implementation_specification
+algorithm_kind: source_formula_evaluation
+source_ir: registry/optimized-ir/memory/TLC-FC-23-MEMORY-004/ir.yaml
+ordered_steps: [compute absolute t-s, compute squared norm of X_t-X_s, compute norm of grad_X_t-grad_X_s, form the source negative exponent with supplied beta gamma delta, multiply exp of that exponent by supplied alpha]
+errors: [IncompatibleKernelNormInput]
+determinism: deterministic_for_supplied_numeric_inputs

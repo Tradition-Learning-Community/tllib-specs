@@ -1,0 +1,10 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-23-MEMORY-003
+feature_id: TLC-FC-23-MEMORY-003
+status: selected_for_memory_implementation_specification
+algorithm_kind: source_formula_with_external_integral_and_event_terms
+source_ir: registry/optimized-ir/memory/TLC-FC-23-MEMORY-003/ir.yaml
+ordered_steps: [require supplied continuous integral result, validate event array compatibility, require supplied delta_epsilon values, evaluate exact finite event sum, add the supplied continuous term]
+errors: [ExternalMemoryIntegralProviderRequired, ExternalDeltaEpsilonRequired, EventMemoryShapeMismatch]
+determinism: deterministic_for_supplied_terms
+forbidden: [quadrature, delta approximation, weight evolution]

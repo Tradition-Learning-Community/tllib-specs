@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-23-MEMORY-004
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-23-MEMORY-004/contract.yaml
+source_candidate_ir: ir/TLC-FC-23-MEMORY-004/ir.candidate.json
+nature: kernel
+inputs: [t, s, X_t, X_s, grad_X_t, grad_X_s, alpha, beta, gamma, delta]
+outputs: [kernel_value]
+steps: [compute temporal separation, compute state squared norm term, compute gradient norm term, evaluate alpha times exponential of negative summed terms]
+errors: [IncompatibleKernelNormInput]

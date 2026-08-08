@@ -1,0 +1,18 @@
+contract_id: TLC-MC-TLC-FC-23-MEMORY-004
+feature_id: TLC-FC-23-MEMORY-004
+title: Proposed adaptive memory kernel
+domain_id: memory
+contract_kind: computational_contract
+scientific_status: defined
+scientific_authority: maths/23-memory/memory.md
+source_sections: ['2. Opérateur de mémoire adaptatif']
+inputs: [{name: t, type: scalar}, {name: s, type: scalar}, {name: X_t, type: normed_state}, {name: X_s, type: normed_state}, {name: grad_X_t, type: normed_gradient}, {name: grad_X_s, type: normed_gradient}, {name: alpha, type: scalar}, {name: beta, type: scalar}, {name: gamma, type: scalar}, {name: delta, type: scalar}]
+outputs: [{name: kernel_value, type: scalar}]
+preconditions: [state and gradient norms are defined]
+postconditions: [kernel_value equals the source proposed exponential expression]
+invariants: [time uses absolute separation, state difference is squared norm, gradient difference is unsquared norm, coefficients are caller supplied]
+errors: [IncompatibleKernelNormInput]
+opaque_parameters: [alpha, beta, gamma, delta]
+scientific_reservations: []
+dependencies: {scientific: [], runtime: []}
+traceability: {source: maths/23-memory/memory.md, inventory: registry/domain-progress/memory/feature-inventory.yaml}
