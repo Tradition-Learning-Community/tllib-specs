@@ -1,0 +1,11 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-015
+status: selected_for_cohort_implementation_specification
+source_ir: registry/ir/TLC-FC-16-COHORT-015/ir.yaml
+representation: opaque_robustness_functional_descriptor
+execution: structural_only
+inputs: [source_functional, gradient_reference, hessian_reference, delta_p_domain_reference]
+outputs: [robustness_descriptor]
+ordered_operations: [validate_source_identity, preserve_functional, preserve_provider_references, attach_non_execution_guard]
+forbidden: [choose_perturbation_domain, construct_derivatives, choose_minimizer, evaluate_robustness]
+scientific_reservations: [TLC-UR-COHORT-007, TLC-UR-COHORT-012]
