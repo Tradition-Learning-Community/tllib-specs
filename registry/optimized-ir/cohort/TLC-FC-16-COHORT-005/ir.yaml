@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-005
+status: selected_for_cohort_implementation_specification
+source_ir: registry/ir/TLC-FC-16-COHORT-005/ir.yaml
+representation: diversity_index_operation
+execution: conditionally_executable
+inputs: [type_proportions, calibration_alpha, expected_typological_distance]
+outputs: [H_type]
+ordered_operations: [validate_inputs, evaluate_entropy_term, combine_supplied_expected_distance]
+forbidden: [estimate_alpha, evaluate_d_type_locally, resolve_D_T_argument_ambiguity]
