@@ -1,0 +1,18 @@
+contract_id: TLC-MC-TLC-FC-23-MEMORY-010
+feature_id: TLC-FC-23-MEMORY-010
+title: Contextual mnemonic resilience
+domain_id: memory
+contract_kind: conditional_metric_contract
+scientific_status: partially_defined
+scientific_authority: maths/23-memory/memory.md
+source_sections: ['6. Persistance et résilience', '7. Limites et points scientifiques non résolus']
+inputs: [{name: t, type: positive_scalar}, {name: state_derivative_provider, type: external_provider}, {name: X_history, type: supplied_state_history}, {name: X_ref, type: reference_state}, {name: delta_radius_provider, type: external_provider}, {name: context_factor_provider, type: external_provider}, {name: integral_provider, type: external_integral_provider}]
+outputs: [{name: raw_R_memory, type: nonnormalized_source_metric}]
+preconditions: [t is positive, every source-term provider is supplied]
+postconditions: [result equals one over t times externally evaluated integral of the exact source integrand]
+invariants: [strict neighborhood condition preserved, no normalization or high-resilience threshold, no quadrature]
+errors: [NonPositiveMemoryHorizon, ExternalResilienceProviderRequired, ResilienceNormalizationUnsupported]
+opaque_parameters: [X_ref, delta_radius_provider, context_factor_provider]
+scientific_reservations: [TLC-UR-MEMORY-009]
+dependencies: {scientific: [], runtime: []}
+traceability: {source: maths/23-memory/memory.md, inventory: registry/domain-progress/memory/feature-inventory.yaml}
