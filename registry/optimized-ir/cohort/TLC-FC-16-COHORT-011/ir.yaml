@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-16-COHORT-011
+status: selected_for_cohort_implementation_specification
+source_ir: registry/ir/TLC-FC-16-COHORT-011/ir.yaml
+representation: typological_rhs_operation
+execution: executable_for_supplied_parameters
+inputs: [p, alpha_i, beta_ij, gamma_i, eta_i]
+outputs: [dp_dt]
+ordered_operations: [validate_shapes, evaluate_source_rhs_for_each_type]
+forbidden: [time_integration, parameter_calibration]
