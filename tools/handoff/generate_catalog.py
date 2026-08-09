@@ -276,6 +276,9 @@ def main() -> int:
     except FileNotFoundError as exc:
         raise CatalogGenerationFailure("handoff/catalog.json is missing") from exc
     if current != rendered:
+        print("BEGIN GENERATED HANDOFF CATALOG")
+        print(rendered, end="")
+        print("END GENERATED HANDOFF CATALOG")
         raise CatalogGenerationFailure(
             "handoff/catalog.json is stale; regenerate with tools/handoff/generate_catalog.py --write"
         )
