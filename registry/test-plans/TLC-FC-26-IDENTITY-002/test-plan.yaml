@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-26-IDENTITY-002
+tests:
+  - {id: IDENTITY-002-T01, type: exact_formula, assertion: Phi_id equals the exact three-term source sum from supplied provider values}
+  - {id: IDENTITY-002-T02, type: error, assertion: Missing dual-primal or norm provider returns the corresponding structured error}
+  - {id: IDENTITY-002-T03, type: preservation, assertion: No Riesz map norm derivative scheme or solver is selected}
+no_arbitrary_numeric_fixtures: true

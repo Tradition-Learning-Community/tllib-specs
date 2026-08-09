@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-26-IDENTITY-011
+tests:
+  - {id: IDENTITY-011-T01, type: exact_formula, assertion: S_id preserves exact velocity-mismatch and context-gradient exponential integrand divided by T}
+  - {id: IDENTITY-011-T02, type: preservation, assertion: Low S_id remains stronger stability and high S_id fragility}
+  - {id: IDENTITY-011-T03, type: error, assertion: Missing integral or context-gradient provider is rejected and no quadrature is selected}
+no_arbitrary_numeric_fixtures: true

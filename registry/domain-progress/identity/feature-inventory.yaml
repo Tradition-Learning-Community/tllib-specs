@@ -1,0 +1,181 @@
+domain_id: identity
+status: population_frozen_with_reservations
+feature_count: 13
+source: maths/26-identity/identity.md
+features:
+  - feature_id: TLC-FC-26-IDENTITY-001
+    canonical_name: Identity space and product metric descriptor
+    category: declarative
+    source_objects: [TLC-SO-IDENTITY-001, TLC-SO-IDENTITY-002, TLC-SO-IDENTITY-003, TLC-SO-IDENTITY-004, TLC-SO-IDENTITY-005, TLC-SO-IDENTITY-006, TLC-SO-IDENTITY-007, TLC-SO-IDENTITY-008, TLC-SO-IDENTITY-009, TLC-SO-IDENTITY-010, TLC-SO-IDENTITY-011, TLC-SO-IDENTITY-012, TLC-SO-IDENTITY-013]
+    source_section: '1. Espace identitaire'
+    purpose: Preserve the announced identity space, practical pair (X,R), metacognition-in-dynamics statement, and product metric without constructing the announced isomorphism, jet bundle, cotangent realization, or a dual-primal identification.
+    inputs: [identity_source_reference]
+    outputs: [identity_space_descriptor]
+    preconditions: [authoritative source available]
+    invariants: [announced isomorphism remains a claim, practical state remains (X,R), product metric remains g_TLS direct-sum g_TLS-star]
+    invalid_cases: [request to construct the isomorphism, request to choose a Riesz identification]
+    algorithmic: true
+    scientific_status: preserved_unresolved
+  - feature_id: TLC-FC-26-IDENTITY-002
+    canonical_name: Identity dissonance cost
+    category: transform
+    source_objects: [TLC-SO-IDENTITY-014, TLC-SO-IDENTITY-015, TLC-SO-IDENTITY-016, TLC-SO-IDENTITY-017, TLC-SO-IDENTITY-018, TLC-SO-IDENTITY-019]
+    source_section: '2. Coût de dissonance'
+    purpose: Evaluate the exact Phi_id sum only from supplied dual-primal subtraction, norm, gradient, and derivative-compatible values/providers.
+    inputs: [X, R, lambda, mu, grad_R, dR_dt, dX_dt, dual_primal_difference_provider, squared_norm_provider]
+    outputs: [Phi_id]
+    preconditions: [lambda positive, mu positive, dual-primal difference provider supplied, norm provider supplied]
+    invariants: [three source terms preserved exactly, no Riesz map chosen, no solver or derivative approximation]
+    invalid_cases: [missing identification provider, missing norm provider, nonpositive lambda or mu]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-26-IDENTITY-003
+    canonical_name: Identity health threshold assessment
+    category: validation
+    source_objects: [TLC-SO-IDENTITY-014, TLC-SO-IDENTITY-020, TLC-SO-IDENTITY-021]
+    source_section: '2. Coût de dissonance'
+    purpose: Assess the source strict healthy condition Phi_id < Phi_seuil and threshold-exceeded condition from a caller-supplied threshold without calibration.
+    inputs: [Phi_id, Phi_seuil]
+    outputs: [identity_health_assessment]
+    preconditions: [Phi_seuil supplied]
+    invariants: [healthy uses strict less-than, exceeded uses strict greater-than, equality is not silently classified, threshold has no default]
+    invalid_cases: [missing threshold, request for default calibration]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-26-IDENTITY-004
+    canonical_name: Objective social identity right-hand side
+    category: dynamical
+    source_objects: [TLC-SO-IDENTITY-009, TLC-SO-IDENTITY-026, TLC-SO-IDENTITY-028, TLC-SO-IDENTITY-034]
+    source_section: '4. Dynamique sociale'
+    purpose: Evaluate dX_i/dt as the supplied F_i value plus the exact peer-coupling sum without advancing time.
+    inputs: [X_i, R_i, peer_X_values, gamma_ij_values, F_i_provider, primal_difference_provider]
+    outputs: [dX_i_dt]
+    preconditions: [F_i provider supplied, peer coefficients and primal subtraction available]
+    invariants: [sum excludes i, gamma weights preserved, no ODE integrator]
+    invalid_cases: [missing field provider, missing peer term or subtraction provider]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-26-IDENTITY-005
+    canonical_name: Subjective social identity right-hand side
+    category: dynamical
+    source_objects: [TLC-SO-IDENTITY-010, TLC-SO-IDENTITY-027, TLC-SO-IDENTITY-029, TLC-SO-IDENTITY-030, TLC-SO-IDENTITY-031, TLC-SO-IDENTITY-032, TLC-SO-IDENTITY-033, TLC-SO-IDENTITY-035, TLC-SO-IDENTITY-052]
+    source_section: '4. Dynamique sociale'
+    purpose: Evaluate the exact source dR_i/dt RHS from supplied G_i, dual-primal arithmetic, gradient, peer, and ideal-image terms without correcting signs or integrating.
+    inputs: [R_i, X_i, peer_R_values, alpha_i, beta_i, delta_ij_values, zeta_i_t, R_i_star, grad_Ri_Phi_id, G_i_provider, dual_primal_difference_provider]
+    outputs: [dR_i_dt]
+    preconditions: [G_i and dual-primal providers supplied, gradient and all coefficients supplied]
+    invariants: [positive alpha and beta terms are preserved as written, peer and ideal terms preserved, no sign correction, no ODE integrator]
+    invalid_cases: [missing provider, request to rewrite source signs]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-26-IDENTITY-006
+    canonical_name: Identity attractor family descriptor
+    category: declarative
+    source_objects: [TLC-SO-IDENTITY-036, TLC-SO-IDENTITY-037, TLC-SO-IDENTITY-038]
+    source_section: '4. Dynamique sociale'
+    purpose: Preserve the three announced attractor families and qualitative convergence/contagion/polarization labels without inventing a numeric classifier or existence proof.
+    inputs: [source_attractor_evidence]
+    outputs: [identity_attractor_descriptor]
+    preconditions: [source declarations available]
+    invariants: [integrated identity retains X approximately R, divided identity retained, identity oscillations retained]
+    invalid_cases: [request for fabricated thresholds or computed attractors]
+    algorithmic: true
+    scientific_status: preserved_unresolved
+  - feature_id: TLC-FC-26-IDENTITY-007
+    canonical_name: Isolated convergence theorem claim guard
+    category: validation
+    source_objects: [TLC-SO-IDENTITY-039]
+    source_section: '5. Théorèmes formulés par la source'
+    purpose: Expose the isolated-subject convergence statement as a conditional theorem claim while refusing to manufacture a Lyapunov proof, basin characterization, or exponential rate.
+    inputs: [theorem_claim_reference, optional_external_proof_reference]
+    outputs: [convergence_claim_availability_assessment]
+    preconditions: [source theorem statement available]
+    invariants: [source assumptions and conclusion preserved, no proof synthesized]
+    invalid_cases: [request to certify general convergence without proof provider]
+    algorithmic: true
+    scientific_status: preserved_unresolved
+  - feature_id: TLC-FC-26-IDENTITY-008
+    canonical_name: Contextual identity stability bound assessment
+    category: validation
+    source_objects: [TLC-SO-IDENTITY-040, TLC-SO-IDENTITY-041, TLC-SO-IDENTITY-050, TLC-SO-IDENTITY-051]
+    source_section: '5. Théorèmes formulés par la source'
+    purpose: Evaluate the stated bound ||R-X|| <= C||c(t)-c0||+epsilon from supplied values and arithmetic without claiming to prove contextual stability.
+    inputs: [X, R, c_t, c_0, C, epsilon, dual_primal_difference_provider, context_difference_provider, norm_provider]
+    outputs: [contextual_bound_satisfied]
+    preconditions: [all constants and difference/norm providers supplied]
+    invariants: [source inequality orientation preserved, c(t) remains external scientific input, no Context runtime dependency]
+    invalid_cases: [missing provider, request to infer C or epsilon]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-26-IDENTITY-009
+    canonical_name: Identity bifurcation theorem claim guard
+    category: validation
+    source_objects: [TLC-SO-IDENTITY-014, TLC-SO-IDENTITY-020, TLC-SO-IDENTITY-042]
+    source_section: '5. Théorèmes formulés par la source'
+    purpose: Preserve the threshold-triggered multiple-attractor and Arrhenius-type claims as non-constructive statements and reject invented transition laws.
+    inputs: [Phi_id, Phi_seuil, theorem_claim_reference]
+    outputs: [bifurcation_claim_descriptor]
+    preconditions: [source claim and caller-supplied threshold available]
+    invariants: [strict Phi_id greater-than threshold antecedent preserved, at-least-two-attractors claim not computed, Arrhenius law remains absent]
+    invalid_cases: [request to construct Arrhenius probability, request to generate attractors]
+    algorithmic: true
+    scientific_status: preserved_unresolved
+  - feature_id: TLC-FC-26-IDENTITY-010
+    canonical_name: Identity coherence metric
+    category: transform
+    source_objects: [TLC-SO-IDENTITY-009, TLC-SO-IDENTITY-010, TLC-SO-IDENTITY-019, TLC-SO-IDENTITY-043]
+    source_section: '6. Métriques'
+    purpose: Evaluate the exact C_id formula with supplied compatible norms and differences and return the raw value without clamping.
+    inputs: [X, R, dR_dt, dX_dt, dual_primal_difference_provider, norm_provider]
+    outputs: [C_id]
+    preconditions: [required subtraction and norm operations supplied]
+    invariants: [denominator is ||X||+||R||+1, no clamp, no asserted [0,1] postcondition]
+    invalid_cases: [missing provider, request to clamp or renormalize]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-26-IDENTITY-011
+    canonical_name: Identity stability metric
+    category: transform
+    source_objects: [TLC-SO-IDENTITY-019, TLC-SO-IDENTITY-040, TLC-SO-IDENTITY-044, TLC-SO-IDENTITY-045, TLC-SO-IDENTITY-053]
+    source_section: '6. Métriques'
+    purpose: Evaluate S_id only from the exact source integrand and an external integration result/provider, preserving the stated lower-is-more-stable orientation.
+    inputs: [T, sigma, velocity_mismatch_norm_provider, context_gradient_norm_provider, integral_provider]
+    outputs: [S_id]
+    preconditions: [T and sigma supplied, required norm and integral providers supplied]
+    invariants: [exact exponential attenuation preserved, division by T preserved, low S_id means stronger stability, no quadrature selected]
+    invalid_cases: [missing integral provider, request to reverse metric orientation]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-26-IDENTITY-012
+    canonical_name: Identity recovery-time indicator guard
+    category: validation
+    source_objects: [TLC-SO-IDENTITY-014, TLC-SO-IDENTITY-020, TLC-SO-IDENTITY-048]
+    source_section: '6. Métriques'
+    purpose: Preserve return time below Phi_seuil as a named Identity indicator while refusing a numeric implementation because Identity supplies no return-time construction.
+    inputs: [recovery_time_definition_provider]
+    outputs: [recovery_time_availability_assessment]
+    preconditions: [Identity source indicator declaration available]
+    invariants: [no Reflexivity formula is imported as Identity authority, no sampling or interpolation rule invented]
+    invalid_cases: [numeric recovery-time request without external definition provider]
+    algorithmic: true
+    scientific_status: preserved_unresolved
+  - feature_id: TLC-FC-26-IDENTITY-013
+    canonical_name: Contextual robustness orientation guard
+    category: validation
+    source_objects: [TLC-SO-IDENTITY-049]
+    source_section: '6. Métriques; 7. Limites et points scientifiques non résolus'
+    purpose: Preserve the source contextual-robustness indicator orientation as a minimum relative gap and forbid inversion or replacement by a maximum.
+    inputs: [contextual_robustness_source_reference]
+    outputs: [contextual_robustness_semantics_descriptor]
+    preconditions: [source declaration available]
+    invariants: [minimum orientation preserved, small coherent value is not silently relabeled as high robustness, no missing formula completed]
+    invalid_cases: [request to invert orientation, request to invent full numeric formula]
+    algorithmic: true
+    scientific_status: preserved_unresolved
+population_decision:
+  feature_count: 13
+  equation_per_feature_rule_rejected: true
+  unsupported_named_indicators_not_promoted: [narrative_continuity, values_practices_congruence]
+  structural_descriptors: [TLC-FC-26-IDENTITY-001, TLC-FC-26-IDENTITY-006]
+  non_execution_guards: [TLC-FC-26-IDENTITY-007, TLC-FC-26-IDENTITY-009, TLC-FC-26-IDENTITY-012, TLC-FC-26-IDENTITY-013]
+  conditional_source_backed: [TLC-FC-26-IDENTITY-002, TLC-FC-26-IDENTITY-003, TLC-FC-26-IDENTITY-004, TLC-FC-26-IDENTITY-005, TLC-FC-26-IDENTITY-008, TLC-FC-26-IDENTITY-010, TLC-FC-26-IDENTITY-011]

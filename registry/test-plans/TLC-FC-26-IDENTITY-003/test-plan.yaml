@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-26-IDENTITY-003
+tests:
+  - {id: IDENTITY-003-T01, type: invariant, assertion: Healthy assessment uses strict Phi_id < Phi_seuil}
+  - {id: IDENTITY-003-T02, type: invariant, assertion: Exceeded assessment uses strict Phi_id > Phi_seuil and equality remains boundary}
+  - {id: IDENTITY-003-T03, type: error, assertion: Missing threshold is rejected and no default is introduced}
+no_arbitrary_numeric_fixtures: true

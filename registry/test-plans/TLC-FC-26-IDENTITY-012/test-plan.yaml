@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-26-IDENTITY-012
+tests:
+  - {id: IDENTITY-012-T01, type: structure, assertion: Return time under Phi_seuil is preserved as a named Identity indicator}
+  - {id: IDENTITY-012-T02, type: error, assertion: Numeric execution without an external definition provider returns RecoveryTimeDefinitionRequired}
+  - {id: IDENTITY-012-T03, type: preservation, assertion: Reflexivity formula sampling interpolation and crossing rules are not imported or invented}
+no_arbitrary_numeric_fixtures: true

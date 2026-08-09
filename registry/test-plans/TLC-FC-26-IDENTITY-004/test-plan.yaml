@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-26-IDENTITY-004
+tests:
+  - {id: IDENTITY-004-T01, type: exact_formula, assertion: RHS equals supplied F_i value plus exact j-not-equal-i gamma-weighted peer sum}
+  - {id: IDENTITY-004-T02, type: error, assertion: Missing field or peer arithmetic provider is rejected}
+  - {id: IDENTITY-004-T03, type: preservation, assertion: No time integrator and no self-coupling term is introduced}
+no_arbitrary_numeric_fixtures: true

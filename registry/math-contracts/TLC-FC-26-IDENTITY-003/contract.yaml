@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-26-IDENTITY-003
+feature_id: TLC-FC-26-IDENTITY-003
+title: Identity health threshold assessment
+domain_id: identity
+contract_kind: conditional_validation_contract
+scientific_status: partially_defined
+scientific_authority: maths/26-identity/identity.md
+source_sections: ['2. Coût de dissonance']
+inputs: [{name: Phi_id, type: source_cost_value}, {name: Phi_seuil, type: externally_supplied_threshold}]
+outputs: [{name: assessment, type: threshold_assessment}]
+preconditions: [Phi_seuil supplied]
+postconditions: [healthy iff Phi_id < Phi_seuil, exceeded iff Phi_id > Phi_seuil, equality remains boundary]
+invariants: [strict inequalities preserved, no default threshold]
+errors: [IdentityThresholdRequired]
+opaque_parameters: [Phi_seuil]
+scientific_reservations: [TLC-UR-IDENTITY-004]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [calibrating Phi_seuil, silently classifying equality as healthy or exceeded]
+traceability: {source: maths/26-identity/identity.md, inventory: registry/domain-progress/identity/feature-inventory.yaml}

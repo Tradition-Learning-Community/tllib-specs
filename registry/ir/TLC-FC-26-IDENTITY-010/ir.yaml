@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-26-IDENTITY-010
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-26-IDENTITY-010/contract.yaml
+source_candidate_ir: ir/TLC-FC-26-IDENTITY-010/ir.candidate.json
+nature: conditional_formula
+inputs: [X, R, dR_dt, dX_dt, dual_primal_difference_provider, norm_provider]
+outputs: [C_id]
+steps: [require providers, evaluate mismatch numerator, evaluate source denominator, return raw formula]
+errors: [DualPrimalIdentificationRequired, NormProviderRequired]

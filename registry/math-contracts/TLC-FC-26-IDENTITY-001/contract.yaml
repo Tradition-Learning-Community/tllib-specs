@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-26-IDENTITY-001
+feature_id: TLC-FC-26-IDENTITY-001
+title: Identity space and product metric descriptor
+domain_id: identity
+contract_kind: structural_scientific_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/26-identity/identity.md
+source_sections: ['1. Espace identitaire', '7. Limites et points scientifiques non résolus']
+inputs: [{name: identity_source_reference, type: scientific_reference}]
+outputs: [{name: identity_space_descriptor, type: structural_descriptor}]
+preconditions: [authoritative source available]
+postconditions: [descriptor preserves I equals TLS x TLS-star x Meta(TLS), descriptor preserves announced isomorphism as unconstructed claim, descriptor preserves practical state (X,R), descriptor preserves g_I equals g_TLS direct-sum g_TLS-star]
+invariants: [no cotangent construction, no jet construction, no dimension assumption, no dual-primal identification]
+errors: [IdentitySpaceConstructionUnsupported]
+opaque_parameters: [TLS, TLS-star, Meta(TLS), T-star-TLS, J-k-TLS]
+scientific_reservations: [TLC-UR-IDENTITY-001, TLC-UR-IDENTITY-014]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [constructing the announced isomorphism, selecting a Riesz identification, inventing jet-bundle structure]
+traceability: {source: maths/26-identity/identity.md, inventory: registry/domain-progress/identity/feature-inventory.yaml}

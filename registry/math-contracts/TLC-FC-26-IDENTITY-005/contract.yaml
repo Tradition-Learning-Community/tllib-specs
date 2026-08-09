@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-26-IDENTITY-005
+feature_id: TLC-FC-26-IDENTITY-005
+title: Subjective social identity right-hand side
+domain_id: identity
+contract_kind: conditional_computational_contract
+scientific_status: partially_defined
+scientific_authority: maths/26-identity/identity.md
+source_sections: ['4. Dynamique sociale', '7. Limites et points scientifiques non résolus']
+inputs: [{name: R_i, type: opaque_subjective_state}, {name: X_i, type: opaque_objective_state}, {name: peer_R_values, type: opaque_collection}, {name: alpha_i, type: supplied_coefficient}, {name: beta_i, type: supplied_coefficient}, {name: delta_ij_values, type: coefficient_collection}, {name: zeta_i_t, type: supplied_coefficient}, {name: R_i_star, type: opaque_ideal_image}, {name: grad_Ri_Phi_id, type: supplied_gradient}, {name: G_i_provider, type: external_provider}, {name: dual_primal_difference_provider, type: external_provider}]
+outputs: [{name: dR_i_dt, type: source_rhs_value}]
+preconditions: [G_i provider supplied, dual-primal arithmetic supplied, gradient and all coefficients supplied]
+postconditions: [result preserves G_i + alpha_i(R_i-X_i) + beta_i grad_Ri Phi_id + sum delta_ij(R_j-R_i) + zeta_i(t)(R_i_star-R_i)]
+invariants: [positive printed alpha and beta signs preserved, no sign correction, no time integration]
+errors: [SubjectiveFieldProviderRequired, DualPrimalIdentificationRequired, IdentityGradientRequired, PeerSubjectiveDataRequired]
+opaque_parameters: [R_i, X_i, R_i_star, grad_Ri_Phi_id]
+scientific_reservations: [TLC-UR-IDENTITY-002, TLC-UR-IDENTITY-003]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [rewriting source signs, choosing a Riesz map, selecting an ODE integrator]
+traceability: {source: maths/26-identity/identity.md, inventory: registry/domain-progress/identity/feature-inventory.yaml}

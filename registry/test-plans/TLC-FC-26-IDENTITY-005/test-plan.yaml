@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-26-IDENTITY-005
+tests:
+  - {id: IDENTITY-005-T01, type: exact_formula, assertion: RHS preserves G alpha beta delta and zeta terms with source signs exactly}
+  - {id: IDENTITY-005-T02, type: error, assertion: Missing dual-primal gradient or field provider is rejected}
+  - {id: IDENTITY-005-T03, type: preservation, assertion: Positive printed alpha and beta signs are not silently corrected and no solver is selected}
+no_arbitrary_numeric_fixtures: true

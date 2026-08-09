@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-26-IDENTITY-008
+tests:
+  - {id: IDENTITY-008-T01, type: exact_formula, assertion: Assessment evaluates ||R-X|| <= C||c(t)-c0||+epsilon with supplied providers}
+  - {id: IDENTITY-008-T02, type: error, assertion: Missing arithmetic provider C or epsilon is rejected}
+  - {id: IDENTITY-008-T03, type: preservation, assertion: c(t) remains external and no Context runtime dependency or theorem proof is inferred}
+no_arbitrary_numeric_fixtures: true

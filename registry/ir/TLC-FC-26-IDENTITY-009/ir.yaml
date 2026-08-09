@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-26-IDENTITY-009
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-26-IDENTITY-009/contract.yaml
+source_candidate_ir: ir/TLC-FC-26-IDENTITY-009/ir.candidate.json
+nature: theorem_claim_guard
+inputs: [Phi_id, Phi_seuil, theorem_claim_reference]
+outputs: [bifurcation_claim_descriptor]
+steps: [preserve strict antecedent, preserve multiple-attractor claim structurally, record missing Arrhenius law, reject execution]
+errors: [BifurcationExecutionUnsupported, ArrheniusLawUnavailable]
