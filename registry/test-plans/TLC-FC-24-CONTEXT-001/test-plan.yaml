@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-001
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-001/contract.yaml
+tests:
+  - {id: C001-T01, category: invariant, verifies: exact five-factor order and R^m times M inclusion}
+  - {id: C001-T02, category: preservation, verifies: M remains opaque and non-vectorial as declared}
+  - {id: C001-T03, category: error, verifies: smooth-structure construction request is rejected}
+  - {id: C001-T04, category: preservation, verifies: no Culture runtime provider is required}

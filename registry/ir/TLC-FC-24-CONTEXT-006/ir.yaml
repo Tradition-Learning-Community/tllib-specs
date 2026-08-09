@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-006
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-006/contract.yaml
+source_candidate_ir: ir/TLC-FC-24-CONTEXT-006/ir.candidate.json
+nature: aggregation
+inputs: [grad_c_H, grad2_c_H, partial_H_partial_grad_c, norm_provider]
+outputs: [S_contexte]
+steps: [require derivative values, require norm provider, norm each of three source derivatives, add three norms]
+errors: [ContextDerivativeProviderRequired, ContextNormProviderRequired]

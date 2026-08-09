@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-24-CONTEXT-005
+feature_id: TLC-FC-24-CONTEXT-005
+title: Tradition-context coupled right-hand sides
+domain_id: context
+contract_kind: computational_contract
+scientific_status: partially_defined
+scientific_authority: maths/24-context/context.md
+source_sections: ['3. Couplage tradition–contexte']
+inputs: [{name: X, type: opaque_state}, {name: c, type: opaque_context_state}, {name: t, type: time_like}, {name: grad_c, type: opaque_gradient}, {name: grad_X, type: opaque_gradient}, {name: c_opt, type: opaque_context_state}, {name: H_provider, type: external_provider}, {name: J_provider, type: external_provider}, {name: K_provider, type: external_provider}]
+outputs: [{name: dX_dt, type: provider_result}, {name: dc_dt, type: provider_result}]
+preconditions: [H J and K providers are supplied with source-compatible signatures]
+postconditions: [dX_dt equals H source result, dc_dt equals J source result plus K source result acting on c_opt minus c]
+invariants: [H and J Lipschitz declarations remain claims not locally proved, no time integration]
+errors: [ContextFieldProviderRequired, ContextFieldSignatureIncompatible]
+opaque_parameters: [X, c, grad_c, grad_X, c_opt]
+scientific_reservations: []
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [selecting an ODE solver, inventing H J or K, altering recall sign]
+traceability: {source: maths/24-context/context.md, inventory: registry/domain-progress/context/feature-inventory.yaml}

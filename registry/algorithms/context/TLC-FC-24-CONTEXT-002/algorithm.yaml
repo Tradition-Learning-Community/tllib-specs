@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-002
+algorithm_kind: source_formula
+execution: executable
+steps:
+  - accumulate each supplied w_i times dx_i tensor dx_i
+  - for each declared i<j pair add supplied gamma_ij times dx_i tensor dx_j
+  - return the raw tensor expression
+forbidden: [adding transposed cross terms, testing or asserting SPD]

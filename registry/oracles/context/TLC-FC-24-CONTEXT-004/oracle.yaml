@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-004
+oracle_kind: exact_formula_and_preservation
+acceptance:
+  - output is algebraically identical to the written three-term RHS
+  - E_contexte is not expanded into an inferred vector
+  - missing contraction produces ContextWeightDerivativeTermRequired
+  - no integration or defaults are introduced

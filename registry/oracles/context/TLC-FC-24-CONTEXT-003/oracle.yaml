@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-003
+oracle_kind: structural_and_error
+acceptance:
+  - absent differentiable or metric evidence yields ContextDistanceScientificEvidenceRequired
+  - absent provider yields ContextDistanceProviderRequired
+  - no distance value is locally synthesized
+  - no symmetrization or positivity completion occurs
+rejections: [numeric local distance, invented metric conditions]
