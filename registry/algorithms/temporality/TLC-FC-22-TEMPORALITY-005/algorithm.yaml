@@ -1,0 +1,17 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-22-TEMPORALITY-005
+feature_id: TLC-FC-22-TEMPORALITY-005
+status: selected_for_temporality_implementation_specification
+algorithm_kind: source_multiscale_rhs_evaluation
+source_ir: registry/optimized-ir/temporality/TLC-FC-22-TEMPORALITY-005/ir.yaml
+ordered_steps:
+  - require externally supplied epsilon hierarchy evidence
+  - require all four F_i providers and all source arguments
+  - evaluate epsilon1 times F1(X t1 theta)
+  - evaluate epsilon2 times F2(X t2 grad_theta)
+  - evaluate epsilon3 times F3(X t3 grad2_theta)
+  - evaluate epsilon4 times F4(X t4 mnemonic_X)
+  - return all four RHS values without integrating the system
+errors: [ExternalScaleFieldRequired, MissingThetaDerivedInput, ExternalMnemonicValueRequired, EpsilonHierarchyEvidenceRequired]
+determinism: deterministic_for_supplied_provider_results
+forbidden: [ODE solver, PDE solver, finite differences, space construction, epsilon calibration]
