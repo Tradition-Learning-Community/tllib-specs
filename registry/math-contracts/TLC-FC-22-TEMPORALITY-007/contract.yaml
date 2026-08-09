@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-22-TEMPORALITY-007
+feature_id: TLC-FC-22-TEMPORALITY-007
+title: Temporal regime criteria assessment
+domain_id: temporality
+contract_kind: conditional_validation_contract
+scientific_status: partially_defined
+scientific_authority: maths/22-temporality/temporality.md
+source_sections: ['5. Régimes', '6. Limites et points scientifiques non résolus']
+inputs: [{name: speed_norm, type: scalar}, {name: stasis_threshold, type: scalar}, {name: transition_threshold, type: scalar}, {name: eigenvalue_real_part_evidence, type: opaque_spectral_evidence}, {name: periodicity_evidence, type: boolean_or_evidence}, {name: quasiperiodicity_evidence, type: boolean_or_evidence}, {name: fractal_dimension_evidence, type: opaque_value}, {name: fractal_bound_evidence, type: opaque_evidence}]
+outputs: [{name: satisfied_regime_criteria, type: regime_assessment_set}]
+preconditions: [the evidence needed for each assessed regime is supplied]
+postconditions: [result records each source regime whose supplied criteria are satisfied without forcing exclusivity]
+invariants: [stasis uses strict speed below epsilon and negative near-zero real parts, periodic regime uses periodic or quasi-periodic evidence with zero real part, turbulence uses strict speed above theta_trans and positive real part, structured chaos uses positive real part with externally evidenced bounded fractal dimension]
+errors: [RegimeThresholdRequired, ExternalSpectralEvidenceRequired, ExternalFractalBoundRequired, ExclusiveRegimeClassificationUnsupported]
+opaque_parameters: [stasis_threshold, transition_threshold, eigenvalue_real_part_evidence, fractal_dimension_evidence, fractal_bound_evidence]
+scientific_reservations: [TLC-UR-TEMPORALITY-013, TLC-UR-TEMPORALITY-014, TLC-UR-TEMPORALITY-015, TLC-UR-TEMPORALITY-019]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [inventing thresholds, selecting a spectral operator, forcing a unique regime when source criteria overlap, inventing a fractal critical value]
+traceability: {source: maths/22-temporality/temporality.md, inventory: registry/domain-progress/temporality/feature-inventory.yaml}
