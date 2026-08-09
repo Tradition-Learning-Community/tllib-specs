@@ -1,0 +1,8 @@
+{
+  "schema_version":"1.0","package_version":"1.0.0","applies_to":"TLC-FC-23-MEMORY-001",
+  "tests":[
+    {"test_id":"TLC-FC-23-MEMORY-001-AT-001","applies_to":"VALIDATE-MEMORY-001","category":"output_contract","given":"All source membership evidence is supplied and satisfied with P_value strictly greater than theta.","when":"Admissibility is evaluated.","expect":"The history is accepted without modifying the supplied scientific evidence.","source_basis":["registry/oracles/memory/TLC-FC-23-MEMORY-001/oracle.yaml"]},
+    {"test_id":"TLC-FC-23-MEMORY-001-AT-002","applies_to":"VALIDATE-MEMORY-001","category":"invariant","given":"P_value equals theta.","when":"The threshold condition is evaluated.","expect":"The history is not admitted because the source inequality is strict.","source_basis":["registry/test-plans/TLC-FC-23-MEMORY-001/test-plan.yaml"]},
+    {"test_id":"TLC-FC-23-MEMORY-001-AT-003","applies_to":"VALIDATE-MEMORY-001","category":"invalid_input","given":"P_value is missing.","when":"Validation is requested.","expect":"ExternalHistoryScoreRequired and no locally invented P value.","source_basis":["registry/oracles/memory/TLC-FC-23-MEMORY-001/oracle.yaml"]}
+  ]
+}

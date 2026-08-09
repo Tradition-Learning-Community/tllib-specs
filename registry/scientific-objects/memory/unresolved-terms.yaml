@@ -1,0 +1,50 @@
+schema_version: 1
+domain: memory
+source: maths/23-memory/memory.md
+status: preserved_unresolved
+items:
+  - id: TLC-UR-MEMORY-001
+    category: trajectory_measure_unspecified
+    statement: The collective-memory integral does not specify a measure on the history or trajectory space.
+    source_section: '7. Limites et points scientifiques non résolus'
+    policy: external_measure_provider_required
+  - id: TLC-UR-MEMORY-002
+    category: integral_codomain_unspecified
+    statement: The source does not specify the value space in which the integrated trajectories and collective-memory result live.
+    source_section: '7. Limites et points scientifiques non résolus'
+    policy: external_value_space_required
+  - id: TLC-UR-MEMORY-003
+    category: distribution_like_symbol_undefined
+    statement: delta_epsilon in the point-event term is not defined.
+    source_section: '7. Limites et points scientifiques non résolus'
+    policy: external_provider_required_no_dirac_approximation
+  - id: TLC-UR-MEMORY-004
+    category: weight_dynamics_unspecified
+    statement: The evolution rules for w(gamma,t) and w_i(t) are not defined.
+    source_section: '7. Limites et points scientifiques non résolus'
+    policy: supplied_weights_only_no_evolution_rule_invented
+  - id: TLC-UR-MEMORY-005
+    category: legitimacy_undefined
+    statement: The notion of legitimacy used to characterize memory weighting and contextual transformations is not constructed.
+    source_section: '7. Limites et points scientifiques non résolus'
+    policy: no_legitimacy_rule_invented
+  - id: TLC-UR-MEMORY-006
+    category: minimality_unformalized
+    statement: The asserted minimality of the mnemonic core is not formalized by the threshold-set expression.
+    source_section: '7. Limites et points scientifiques non résolus'
+    policy: no_minimality_algorithm_invented
+  - id: TLC-UR-MEMORY-007
+    category: stability_kernel_mismatch_and_constants
+    statement: The stability statement cites one K whereas the hereditary system uses K1 and K2, and no constants relate their norms to the Lipschitz data of F and G_i.
+    source_section: '7. Limites et points scientifiques non résolus'
+    policy: no_stability_certification_without_external_resolution
+  - id: TLC-UR-MEMORY-008
+    category: attractor_existence_uniqueness_unjustified
+    statement: The formal assumptions provided do not explicitly guarantee existence or uniqueness of the attractor X_star.
+    source_section: '7. Limites et points scientifiques non résolus'
+    policy: no_attractor_existence_or_uniqueness_inference
+  - id: TLC-UR-MEMORY-009
+    category: resilience_normalization_absent
+    statement: R_memory increases with evolution speed although a large value is interpreted as strong resilience; no normalization or bound is provided.
+    source_section: '7. Limites et points scientifiques non résolus'
+    policy: return_raw_source_metric_only_no_strength_normalization

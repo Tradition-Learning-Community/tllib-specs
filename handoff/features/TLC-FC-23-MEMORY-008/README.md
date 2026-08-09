@@ -1,0 +1,3 @@
+# TLC-FC-23-MEMORY-008 — Exponential-stability claim assessment
+
+The source states an exponential stability result under a kernel `L1` norm bound, Lipschitz behavior of `F`, and gradient bounds for `G_i`. It also leaves critical formal gaps: the theorem names a single `K` while the hereditary system uses `K1` and `K2`, gives no constants connecting those kernel norms to the Lipschitz data, and does not formally guarantee existence or uniqueness of `X_star`. This package therefore preserves and structurally assesses the stated assumptions and bound, but it does not return a scientific `stable=true` result, prove an attractor, or infer missing theorem hypotheses.

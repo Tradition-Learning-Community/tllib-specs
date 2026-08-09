@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-23-MEMORY-001
+status: selected_for_memory_implementation_specification
+source_ir: registry/ir/TLC-FC-23-MEMORY-001/ir.yaml
+representation: conditional_source_membership_validation
+execution: conditionally_executable
+inputs: [history, c1_evidence, derivative_norm_bound_evidence, P_value, theta]
+outputs: [history_admissibility]
+ordered_operations: [require_external_evidence, validate_c1, validate_derivative_bound, evaluate_strict_P_threshold]
+forbidden: [P_model_inference, trajectory_interpolation, threshold_default]

@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-23-MEMORY-007
+tests:
+  - {id: MEMORY-007-T01, type: exact_formula, assertion: Output equals sum from k=0 through m of supplied alpha_k times supplied derivative-convolution term k}
+  - {id: MEMORY-007-T02, type: error, assertion: Missing a derivative order is rejected}
+  - {id: MEMORY-007-T03, type: preservation, assertion: No finite-difference derivative or convolution quadrature is introduced}
+no_arbitrary_numeric_fixtures: true

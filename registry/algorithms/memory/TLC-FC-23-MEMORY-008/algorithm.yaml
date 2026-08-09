@@ -1,0 +1,10 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-23-MEMORY-008
+feature_id: TLC-FC-23-MEMORY-008
+status: selected_for_memory_implementation_specification
+algorithm_kind: source_backed_structural_stability_assessment
+source_ir: registry/optimized-ir/memory/TLC-FC-23-MEMORY-008/ir.yaml
+ordered_steps: [record the source condition ||K||_L1 less than one as supplied evidence, record supplied Lipschitz and G-gradient evidence, preserve the source exponential-bound form and supplied C lambda X_star references, attach unresolved K versus K1 K2 and missing constants, attach missing X_star existence uniqueness guarantee, reject unconditional stability certification]
+errors: [StabilityCertificationUnsupported, ExternalStabilitySemanticsRequired]
+scientific_result: assumption_and_bound_descriptor_only
+forbidden: [infer kernel correspondence, prove missing hypotheses, certify attractor existence or uniqueness]

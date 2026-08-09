@@ -1,0 +1,24 @@
+contract_id: TLC-MC-TLC-FC-23-MEMORY-001
+feature_id: TLC-FC-23-MEMORY-001
+title: Weighted-history admissibility
+domain_id: memory
+contract_kind: validation_contract
+scientific_status: partially_defined
+scientific_authority: maths/23-memory/memory.md
+source_sections: ['1. Espace des histoires pondérées']
+inputs:
+  - {name: history, type: supplied_history_trajectory}
+  - {name: c1_evidence, type: supplied_regularity_evidence}
+  - {name: derivative_norm_bound_evidence, type: supplied_bound_evidence}
+  - {name: P_value, type: opaque_scalar}
+  - {name: theta, type: opaque_scalar}
+outputs:
+  - {name: history_admissibility, type: boolean_with_evidence}
+preconditions: [C1 evidence is supplied, derivative norm evidence is supplied, P value is supplied]
+postconditions: [admissibility is true exactly when the supplied evidence satisfies C1 and norm bound and P_value is strictly greater than theta]
+invariants: [no construction of P, strict inequality preserved, no trajectory interpolation]
+errors: [ExternalHistoryScoreRequired, MissingHistoryRegularityEvidence]
+opaque_parameters: [P_value, theta, M]
+scientific_reservations: [The source does not construct P; implementations may validate only a supplied P value.]
+dependencies: {scientific: [], runtime: []}
+traceability: {source: maths/23-memory/memory.md, inventory: registry/domain-progress/memory/feature-inventory.yaml}

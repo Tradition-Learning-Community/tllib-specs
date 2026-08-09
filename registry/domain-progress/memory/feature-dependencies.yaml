@@ -1,0 +1,34 @@
+schema_version: 1
+domain: memory
+feature_count: 10
+scientific_dependencies:
+  external_confirmed: []
+  external_provisional: []
+  unknown: false
+  incoming_confirmed_consumers:
+    - domain_index: 22
+      slug: temporality
+      direction: 22_to_23
+      evidence:
+        source: maths/22-temporality/temporality.md
+        statement: Temporality explicitly uses the memory kernel K and mnemonic operator M defined by Memory.
+runtime_dependencies: []
+shared_contract_dependencies:
+  - TLC-HC-FEATURE-ID@1.0.0
+  - TLC-HC-SCIENTIFIC-REFERENCE@1.0.0
+  - TLC-HC-REFERENCE-COLLECTION@1.0.0
+  - TLC-HC-UNRESOLVED-ITEM@1.0.0
+  - TLC-HC-OPAQUE-VALUE@1.0.0
+  - TLC-HC-STRUCTURED-ERROR@1.0.0
+  - TLC-HC-TRACEABILITY@1.0.0
+  - TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0
+intra_domain:
+  - {from: TLC-FC-23-MEMORY-001, to: TLC-FC-23-MEMORY-002, class: history_space_definition}
+  - {from: TLC-FC-23-MEMORY-004, to: TLC-FC-23-MEMORY-003, class: proposed_kernel_provider_optional}
+  - {from: TLC-FC-23-MEMORY-001, to: TLC-FC-23-MEMORY-005, class: history_space_definition}
+  - {from: TLC-FC-23-MEMORY-006, to: TLC-FC-23-MEMORY-008, class: analysis_context}
+policy:
+  scientific_dependency_is_not_runtime_dependency: true
+  incoming_dependency_does_not_create_reverse_edge: true
+  optional_provider_edge_does_not_require_in_process_execution: true
+  no_dependency_inferred_from_terminology_only: true

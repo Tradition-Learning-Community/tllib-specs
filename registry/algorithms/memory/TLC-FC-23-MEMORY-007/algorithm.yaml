@@ -1,0 +1,10 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-23-MEMORY-007
+feature_id: TLC-FC-23-MEMORY-007
+status: selected_for_memory_implementation_specification
+algorithm_kind: source_finite_sum_with_supplied_derivative_terms
+source_ir: registry/optimized-ir/memory/TLC-FC-23-MEMORY-007/ir.yaml
+ordered_steps: [require exactly m+1 supplied coefficients, require exactly m+1 supplied derivative-convolution terms, multiply matching terms for every k from zero through m, sum the products]
+errors: [MissingMultiscaleDerivativeTerm, MultiscaleCoefficientShapeMismatch]
+determinism: deterministic_for_supplied_terms
+forbidden: [finite differences, automatic derivative approximation, quadrature]

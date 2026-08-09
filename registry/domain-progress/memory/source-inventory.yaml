@@ -1,0 +1,48 @@
+domain_id: memory
+status: preparation_complete_with_reservations
+authority: main@a7edd2b0049d3d9f37d920a8cc0729d09e9a9e9c
+working_base_commit: a7edd2b0049d3d9f37d920a8cc0729d09e9a9e9c
+scope: vertical_domain_23_production
+source_file: maths/23-memory/memory.md
+source_blob_sha: 28af5a638cf96a878a9e16c04a7bb7ac6a0a95f4
+analysis_companion: maths/22-temporality/temporality.md
+objects_count: 46
+relations_count: 30
+unresolved_count: 9
+features_total: 10
+feature_ids:
+  - TLC-FC-23-MEMORY-001
+  - TLC-FC-23-MEMORY-002
+  - TLC-FC-23-MEMORY-003
+  - TLC-FC-23-MEMORY-004
+  - TLC-FC-23-MEMORY-005
+  - TLC-FC-23-MEMORY-006
+  - TLC-FC-23-MEMORY-007
+  - TLC-FC-23-MEMORY-008
+  - TLC-FC-23-MEMORY-009
+  - TLC-FC-23-MEMORY-010
+input_artifacts:
+  - registry/scientific-objects/memory/scientific-objects.candidate.yaml
+  - registry/scientific-objects/memory/scientific-relations.candidate.yaml
+  - registry/scientific-objects/memory/unresolved-terms.yaml
+inventory_status: complete_with_reservations
+scientific_boundaries:
+  collective_memory_measure: unresolved
+  collective_memory_codomain: unresolved
+  delta_epsilon: unresolved
+  weight_dynamics: unresolved
+  legitimacy: unresolved
+  mnemonic_core_minimality: unresolved
+  stability_kernel_correspondence: unresolved
+  stability_constants: unresolved
+  attractor_existence_uniqueness: unresolved
+  resilience_normalization: absent
+external_scientific_dependencies:
+  confirmed: []
+  provisional: []
+  runtime: []
+incoming_scientific_consumers:
+  - domain_index: 22
+    slug: temporality
+    evidence: maths/22-temporality/temporality.md explicitly uses a memory kernel K and mnemonic operator M from Memory.
+    direction: temporality_to_memory

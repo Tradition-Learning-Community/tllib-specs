@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-23-MEMORY-009
+status: selected_for_memory_implementation_specification
+source_ir: registry/ir/TLC-FC-23-MEMORY-009/ir.yaml
+representation: conditional_source_integral
+execution: conditionally_executable
+inputs: [X_history, X_t, weight_provider, lambda, mu, integral_provider]
+outputs: [I_history]
+ordered_operations: [require_weight_values, form_source_integrand, require_integral_provider, evaluate_external_integral]
+forbidden: [weight_evolution, quadrature_selection, decay_reparameterization]

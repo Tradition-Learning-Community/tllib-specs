@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-23-MEMORY-001
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-23-MEMORY-001/contract.yaml
+source_candidate_ir: ir/TLC-FC-23-MEMORY-001/ir.candidate.json
+nature: validation
+inputs: [history, c1_evidence, derivative_norm_bound_evidence, P_value, theta]
+outputs: [history_admissibility]
+steps: [require supplied scientific evidence, validate C1 evidence, validate derivative norm bound evidence, compare P_value strictly with theta]
+errors: [ExternalHistoryScoreRequired, MissingHistoryRegularityEvidence]

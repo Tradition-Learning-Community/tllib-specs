@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-23-MEMORY-010
+tests:
+  - {id: MEMORY-010-T01, type: exact_structure, assertion: Integrand is state speed times strict reference-neighborhood indicator times supplied context factor}
+  - {id: MEMORY-010-T02, type: boundary, assertion: t must be positive because the source formula divides by t}
+  - {id: MEMORY-010-T03, type: preservation, assertion: Raw metric is returned without normalization bound or resilience-strength classification}
+  - {id: MEMORY-010-T04, type: error, assertion: Missing integral or source-term provider is rejected}
+no_arbitrary_numeric_fixtures: true

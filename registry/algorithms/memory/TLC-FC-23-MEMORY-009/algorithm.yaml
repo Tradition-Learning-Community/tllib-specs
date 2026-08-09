@@ -1,0 +1,10 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-23-MEMORY-009
+feature_id: TLC-FC-23-MEMORY-009
+status: selected_for_memory_implementation_specification
+algorithm_kind: source_integrand_with_external_integral_provider
+source_ir: registry/optimized-ir/memory/TLC-FC-23-MEMORY-009/ir.yaml
+ordered_steps: [require supplied w(s,t) values for requested evaluation points or provider semantics, form the exact source integrand using supplied lambda and mu, require an externally authorized integral provider over 0 to t, evaluate that provider without changing the integrand, return I_history]
+errors: [ExternalHistoricalWeightRequired, ExternalHistoricalIntegralRequired]
+determinism: determined_by_supplied_values_and_integral_provider
+forbidden: [weight evolution, quadrature choice, numerical integration default]

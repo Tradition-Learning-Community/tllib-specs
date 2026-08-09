@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-23-MEMORY-004
+tests:
+  - {id: MEMORY-004-T01, type: exact_formula, assertion: Kernel equals alpha times the source exponential for supplied values}
+  - {id: MEMORY-004-T02, type: property, assertion: With identical t s state and gradient the exponent is zero and K equals alpha}
+  - {id: MEMORY-004-T03, type: preservation, assertion: State norm is squared while gradient norm is not squared}
+no_arbitrary_numeric_fixtures: true

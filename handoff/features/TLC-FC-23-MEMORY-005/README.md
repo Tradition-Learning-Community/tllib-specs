@@ -1,0 +1,3 @@
+# TLC-FC-23-MEMORY-005 — Mnemonic-core descriptor
+
+The source defines a threshold subset of histories whose weight remains strictly above `theta_noyau` for every time, then describes that set as a minimal identity-preserving core invariant under legitimate contextual transformations. The threshold-set expression is preservable, but the source does not formalize minimality or construct legitimacy. This package therefore returns a structural descriptor and explicitly refuses local minimal-core computation or contextual-invariance certification. Future code may consume externally supplied semantics, but it must never substitute a search heuristic, legitimacy classifier, or inferred transformation rule.

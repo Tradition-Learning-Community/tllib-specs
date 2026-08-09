@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-23-MEMORY-004
+status: selected_for_memory_implementation_specification
+source_ir: registry/ir/TLC-FC-23-MEMORY-004/ir.yaml
+representation: deterministic_kernel_formula
+execution: executable
+inputs: [t, s, X_t, X_s, grad_X_t, grad_X_s, alpha, beta, gamma, delta]
+outputs: [kernel_value]
+ordered_operations: [compute_time_term, compute_state_term, compute_gradient_term, evaluate_exponential_kernel]
+forbidden: [coefficient_calibration, exponent_reparameterization, gradient_norm_squaring]

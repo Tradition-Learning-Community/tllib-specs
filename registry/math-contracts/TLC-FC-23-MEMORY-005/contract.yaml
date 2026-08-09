@@ -1,0 +1,18 @@
+contract_id: TLC-MC-TLC-FC-23-MEMORY-005
+feature_id: TLC-FC-23-MEMORY-005
+title: Mnemonic-core descriptor
+domain_id: memory
+contract_kind: guarded_declarative_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/23-memory/memory.md
+source_sections: ['3. Noyau d’influence mnésique', '7. Limites et points scientifiques non résolus']
+inputs: [{name: history_space_reference, type: reference}, {name: weight_reference, type: reference}, {name: theta_noyau, type: opaque_scalar}, {name: contextual_transformation_reference, type: optional_reference}]
+outputs: [{name: mnemonic_core_descriptor, type: structural_descriptor}]
+preconditions: [source set expression is available]
+postconditions: [descriptor preserves forall-t strict weight threshold and unresolved minimality and legitimacy claims]
+invariants: [no minimality algorithm, no legitimacy construction, no invariance certification]
+errors: [ExternalMnemonicCoreSemanticsRequired, OpaqueFormulaMutation]
+opaque_parameters: [theta_noyau]
+scientific_reservations: [TLC-UR-MEMORY-005, TLC-UR-MEMORY-006]
+dependencies: {scientific: [], runtime: []}
+traceability: {source: maths/23-memory/memory.md, inventory: registry/domain-progress/memory/feature-inventory.yaml}

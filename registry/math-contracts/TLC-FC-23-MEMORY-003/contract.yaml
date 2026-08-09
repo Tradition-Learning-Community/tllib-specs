@@ -1,0 +1,18 @@
+contract_id: TLC-MC-TLC-FC-23-MEMORY-003
+feature_id: TLC-FC-23-MEMORY-003
+title: Adaptive memory operator
+domain_id: memory
+contract_kind: conditional_computational_contract
+scientific_status: partially_defined
+scientific_authority: maths/23-memory/memory.md
+source_sections: ['2. Opérateur de mémoire adaptatif', '7. Limites et points scientifiques non résolus']
+inputs: [{name: continuous_term, type: externally_evaluated_integral}, {name: event_states, type: sequence}, {name: event_times, type: sequence}, {name: event_weights, type: sequence}, {name: delta_epsilon_values, type: sequence}]
+outputs: [{name: adaptive_memory_value, type: source_algebra_result}]
+preconditions: [continuous term supplied, event state/time/weight/delta arrays shape compatible, delta_epsilon values supplied for the declared event times]
+postconditions: [result equals supplied continuous term plus source finite event sum]
+invariants: [event times are preserved as the t_i provenance of supplied delta_epsilon values, no quadrature, no Dirac approximation, no event-weight evolution rule]
+errors: [ExternalMemoryIntegralProviderRequired, ExternalDeltaEpsilonRequired, EventMemoryShapeMismatch]
+opaque_parameters: [event_times, event_weights, delta_epsilon_values]
+scientific_reservations: [TLC-UR-MEMORY-003, TLC-UR-MEMORY-004]
+dependencies: {scientific: [], runtime: []}
+traceability: {source: maths/23-memory/memory.md, inventory: registry/domain-progress/memory/feature-inventory.yaml}

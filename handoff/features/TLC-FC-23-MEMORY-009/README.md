@@ -1,0 +1,3 @@
+# TLC-FC-23-MEMORY-009 — Weighted historical impact
+
+The historical-impact functional weights the norm of past state by a supplied history weight and an exponential decay in both elapsed time and distance from the current state. The source does not define the evolution of `w(s,t)` and does not prescribe a quadrature. This package therefore constructs the exact source integrand from caller-supplied state data, current weight values, `lambda`, and `mu`, then delegates the integral itself to an explicitly supplied scientific integral provider. It must not evolve the weights, sample on an invented grid, select a numerical integration rule, or recalibrate either decay coefficient.

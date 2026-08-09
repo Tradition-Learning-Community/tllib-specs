@@ -1,0 +1,9 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-23-MEMORY-002
+feature_id: TLC-FC-23-MEMORY-002
+oracle_type: structural_and_error
+checks:
+  - descriptor contains the exact source collective-memory integral
+  - TLC-UR-MEMORY-001 and TLC-UR-MEMORY-002 remain attached
+  - evaluation without external measure and value-space definitions returns ExternalHistoryMeasureAndValueSpaceRequired
+  - no measure value-space or numerical integration scheme appears as an implementation default

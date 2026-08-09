@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-23-MEMORY-009
+tests:
+  - {id: MEMORY-009-T01, type: exact_structure, assertion: Integrand is norm X(s) times supplied w(s,t) times exp of minus lambda(t-s) minus mu norm X(t)-X(s)}
+  - {id: MEMORY-009-T02, type: error, assertion: Missing current weight values are rejected without evolving w}
+  - {id: MEMORY-009-T03, type: preservation, assertion: Missing integral provider is rejected without selecting quadrature}
+no_arbitrary_numeric_fixtures: true
