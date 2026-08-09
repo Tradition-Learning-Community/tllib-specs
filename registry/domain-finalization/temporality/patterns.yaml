@@ -1,0 +1,32 @@
+schema_version: 1
+domain: temporality
+status: selected_for_implementation_specification
+patterns:
+  - pattern_id: TEMPORALITY-PAT-001
+    name: opaque_scientific_value_carriage
+    applies_to: [TLC-FC-22-TEMPORALITY-002, TLC-FC-22-TEMPORALITY-004, TLC-FC-22-TEMPORALITY-005, TLC-FC-22-TEMPORALITY-006, TLC-FC-22-TEMPORALITY-007, TLC-FC-22-TEMPORALITY-008]
+    rule: Source coefficients thresholds provider results gradients energy gaps and other uncalibrated scientific values remain caller supplied with no local defaults.
+  - pattern_id: TEMPORALITY-PAT-002
+    name: exact_source_formula_evaluation
+    applies_to: [TLC-FC-22-TEMPORALITY-002, TLC-FC-22-TEMPORALITY-008]
+    rule: Evaluate exact source algebra only; preserve alpha4 t3 cubed and preserve the multiplicative f factor without correction or normalization.
+  - pattern_id: TEMPORALITY-PAT-003
+    name: continuous_dynamics_without_solver
+    applies_to: [TLC-FC-22-TEMPORALITY-004, TLC-FC-22-TEMPORALITY-005, TLC-FC-22-TEMPORALITY-006]
+    rule: Return source right-hand sides or aggregate supplied derivative terms without selecting quadrature numerical differentiation ODE PDE or tensor-space constructions.
+  - pattern_id: TEMPORALITY-PAT-004
+    name: structural_non_execution_guard
+    applies_to: [TLC-FC-22-TEMPORALITY-003, TLC-FC-22-TEMPORALITY-009]
+    rule: Reject semantic execution requiring an invented metric distance or invented probability normalization while preserving the source expressions and missing scientific rules.
+  - pattern_id: TEMPORALITY-PAT-005
+    name: memory_scientific_provenance_without_runtime_binding
+    applies_to: [TLC-FC-22-TEMPORALITY-004, TLC-FC-22-TEMPORALITY-005]
+    rule: Preserve the confirmed 22-to-23 scientific dependency and reference the relevant published Memory features without inventing adapters between nonmatching K or M observable signatures.
+  - pattern_id: TEMPORALITY-PAT-006
+    name: evidence_based_regime_assessment
+    applies_to: [TLC-FC-22-TEMPORALITY-007]
+    rule: Evaluate only source-declared regime criteria from supplied threshold spectral periodicity and fractal evidence; do not impose exclusivity or precedence.
+  - pattern_id: TEMPORALITY-PAT-007
+    name: no_silent_scientific_completion
+    applies_to: [TLC-FC-22-TEMPORALITY-001, TLC-FC-22-TEMPORALITY-002, TLC-FC-22-TEMPORALITY-003, TLC-FC-22-TEMPORALITY-004, TLC-FC-22-TEMPORALITY-005, TLC-FC-22-TEMPORALITY-006, TLC-FC-22-TEMPORALITY-007, TLC-FC-22-TEMPORALITY-008, TLC-FC-22-TEMPORALITY-009]
+    rule: Fiber geometry SPD conditions state spaces theta spaces derivatives fields thresholds spectra energy calibration temporal coefficients and transition normalization remain explicit unresolved science where the source leaves them unspecified.
