@@ -8,6 +8,7 @@ sources or intermediate IR content, and it emits no volatile timestamp.
 from __future__ import annotations
 
 import argparse
+import base64
 import hashlib
 import json
 import sys
@@ -276,9 +277,11 @@ def main() -> int:
     except FileNotFoundError as exc:
         raise CatalogGenerationFailure("handoff/catalog.json is missing") from exc
     if current != rendered:
-        print("BEGIN GENERATED HANDOFF CATALOG")
-        print(rendered, end="")
-        print("END GENERATED HANDOFF CATALOG")
+        encoded = base64.b64encode(rendered.encode("utf-8")).decode("ascii")
+        print("BEGIN GENERATED HANDOFF CATALOG BASE64")
+        for index, offset in enumerate(range(0, len(encoded), 16000)):
+            print(f"CATALOG_BASE64_{index:03d}:{encoded[offset:offset + 16000]}")
+        print("END GENERATED HANDOFF CATALOG BASE64")
         raise CatalogGenerationFailure(
             "handoff/catalog.json is stale; regenerate with tools/handoff/generate_catalog.py --write"
         )
