@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-003
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-003/contract.yaml
+source_candidate_ir: ir/TLC-FC-27-REFLEXIVITY-003/ir.candidate.json
+nature: dynamical_rhs
+inputs: [grad_R_Phi_id, eta_t, zeta_t, R_star, R]
+outputs: [adaptive_correction_rhs]
+steps: [require source term providers, negate supplied gradient, add opaque fluctuation, add ideal-attraction term, return RHS without integration]
+errors: [IdentityGradientProviderRequired, FluctuationValueRequired, IdealStateProviderRequired]
