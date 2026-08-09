@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-22-TEMPORALITY-009
+tests:
+  - {id: TEMPORALITY-009-T01, type: guard, assertion: Local normalization request returns TransitionNormalizationUnsupported}
+  - {id: TEMPORALITY-009-T02, type: guard, assertion: Distribution certification without an external normalization rule is rejected}
+  - {id: TEMPORALITY-009-T03, type: preservation, assertion: Raw transition expression and multiplicative f factor remain unchanged}
+no_arbitrary_numeric_fixtures: true
