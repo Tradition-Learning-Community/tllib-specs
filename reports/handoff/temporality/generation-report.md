@@ -9,6 +9,7 @@
 - Published scientific companion/dependency: `23 — Memory`
 - Frozen feature population: **9**
 - Production branch: `pipeline/domain-22-temporality`
+- Production PR: `#144`
 
 ## Frozen feature population
 
@@ -52,15 +53,34 @@ Every frozen feature has a mathematical contract, candidate IR, registered IR, t
 ## Catalog impact
 
 - Before: `18 domains / 193 features / 8 shared contracts`.
-- Target after exact deterministic generation: `19 domains / 202 features / 8 shared contracts`.
+- Published Temporalité state: `19 domains / 202 features / 8 shared contracts`.
 
-`tools/handoff/model.py` now reflects those counts and appends `temporality` after the previously published `memory` entry. Domain indices remain explicit and sparse: publication order is not treated as scientific index order.
+`tools/handoff/model.py` reflects those counts and appends `temporality` after the previously published `memory` entry. Domain indices remain explicit and sparse: publication order is not treated as scientific index order.
 
-`handoff/catalog.json` must be regenerated only by `tools/handoff/generate_catalog.py`; derived package and descriptor hashes must not be entered manually.
+The final `handoff/catalog.json` is exact output obtained from `tools/handoff/generate_catalog.py` through the permanent validation environment. Its Git blob is `276b2c34da13de79fe5e9b12433645548b23178d` and its SHA-256 is `d6a145e4ec9c5333b54618a26858cb0a026d1936810a7a8a0fa8fcb4a8c7f514`. No package, descriptor, or catalog hash was manually derived or edited.
 
 ## Validation
 
-Permanent CI results are not yet claimed in this initial report. The exact deterministic global catalog has not yet been committed for the new 19-domain state, so permanent handoff validation is expected to fail its first deterministic-catalog gate until the official generator output is published. Both permanent workflows must pass on the exact final PR HEAD before merge.
+First complete green validation was observed on PR HEAD `90e55808df71e258e333b3c4090da1851e5a580d` after the exact deterministic global catalog was installed.
+
+- Feature handoff validation run `31294254438`: **SUCCESS**.
+  - deterministic global catalog: success
+  - published domains and feature packages: success
+  - finalized logical self-tests: success
+  - domains 16–35 extension publication: success
+  - standalone exports and determinism: success
+  - committed archive rejection: success
+- Global finalization validation run `31294254390`: **SUCCESS**.
+  - all 16 historical domain parity jobs: success
+  - global integrity: success
+
+Earlier validation failures were limited to the intentionally stale global catalog while the 19-domain generator output had not yet been installed. After the exact generator output was available, a browser upload initially placed the correct blob at `handoff/handoff-catalog-temporality.json`; the production branch then reused that exact verified blob for `handoff/catalog.json` and removed the extra file. No scientific or package semantics changed during this correction.
+
+Because this report records actual CI evidence, its update creates a new PR HEAD. Both permanent workflows must therefore pass again on that exact final HEAD before merge; this report is not to be edited again after that final validation unless a new defect requires another full validation cycle.
+
+## Review
+
+Sourcery submitted a commented review with no `CHANGES_REQUESTED` state and no inline review threads. Its concern that the Temporalité domain catalog was empty was checked against the repository and found factually obsolete: the catalog contains all nine finalized feature IDs. Its suggestion to introduce another shared schema/reference layer was not adopted because the eight existing shared contracts already cover the common handoff primitives and no demonstrated cross-domain need justifies a ninth contract or parallel format.
 
 ## Scope integrity
 
@@ -70,3 +90,4 @@ Permanent CI results are not yet claimed in this initial report. The exact deter
 - Domains 24–35 and other unpublished extension domains remain unpublished.
 - No runtime C++ or Python implementation is produced.
 - No temporary workflow or permission escalation is introduced.
+- No scientific formula, calibration, normalization, geometry, solver, threshold, energy model, coefficient, or missing mathematical space was invented.
