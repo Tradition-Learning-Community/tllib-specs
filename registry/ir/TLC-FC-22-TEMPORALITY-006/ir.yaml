@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-22-TEMPORALITY-006
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-22-TEMPORALITY-006/contract.yaml
+source_candidate_ir: ir/TLC-FC-22-TEMPORALITY-006/ir.candidate.json
+nature: aggregation
+inputs: [scale_derivatives, gamma_ij_values, tensor_product_provider]
+outputs: [C_scale]
+steps: [validate i<j pair population, obtain external tensor products, multiply by supplied gamma_ij values, sum pair terms]
+errors: [MissingScaleDerivative, MissingScaleCouplingCoefficient, ExternalTensorProductRequired]
