@@ -1,0 +1,66 @@
+schema_version: 1
+manifest_id: TLC-TEMPORALITY-DOMAIN-FINALIZATION-001
+domain: temporality
+phase: 4
+status: selected_for_implementation_handoff
+base_branch: main
+base_commit: e777f39f4369c609b9c35ce30cf6fc71505a5467
+population:
+  - TLC-FC-22-TEMPORALITY-001
+  - TLC-FC-22-TEMPORALITY-002
+  - TLC-FC-22-TEMPORALITY-003
+  - TLC-FC-22-TEMPORALITY-004
+  - TLC-FC-22-TEMPORALITY-005
+  - TLC-FC-22-TEMPORALITY-006
+  - TLC-FC-22-TEMPORALITY-007
+  - TLC-FC-22-TEMPORALITY-008
+  - TLC-FC-22-TEMPORALITY-009
+source_authority:
+  scientific_source:
+    path: maths/22-temporality/temporality.md
+    blob_sha: 210af821e5cb64c93bccf949106213f568eb214d
+    modified: false
+  analysis_companion:
+    path: maths/23-memory/memory.md
+    publication_status: published_dependency
+    modified_in_this_pr: false
+  inventories:
+    - registry/domain-progress/temporality/source-inventory.yaml
+    - registry/domain-progress/temporality/feature-inventory.yaml
+    - registry/domain-progress/temporality/feature-dependencies.yaml
+    - registry/scientific-objects/temporality/scientific-objects.candidate.yaml
+    - registry/scientific-objects/temporality/scientific-relations.candidate.yaml
+    - registry/scientific-objects/temporality/unresolved-terms.yaml
+source_artifact_patterns:
+  contract: registry/math-contracts/<FEATURE_ID>/contract.yaml
+  candidate_ir: ir/<FEATURE_ID>/ir.candidate.json
+  source_ir: registry/ir/<FEATURE_ID>/ir.yaml
+  test_plan: registry/test-plans/<FEATURE_ID>/test-plan.yaml
+finalized_artifact_patterns:
+  optimized_ir: registry/optimized-ir/temporality/<FEATURE_ID>/ir.yaml
+  algorithm: registry/algorithms/temporality/<FEATURE_ID>/algorithm.yaml
+  oracle: registry/oracles/temporality/<FEATURE_ID>/oracle.yaml
+  implementation_tasks: registry/domain-finalization/temporality/implementation-tasks.yaml
+feature_artifacts:
+  TLC-FC-22-TEMPORALITY-001: {contract: registry/math-contracts/TLC-FC-22-TEMPORALITY-001/contract.yaml, candidate_ir: ir/TLC-FC-22-TEMPORALITY-001/ir.candidate.json, source_ir: registry/ir/TLC-FC-22-TEMPORALITY-001/ir.yaml, test_plan: registry/test-plans/TLC-FC-22-TEMPORALITY-001/test-plan.yaml, optimized_ir: registry/optimized-ir/temporality/TLC-FC-22-TEMPORALITY-001/ir.yaml, algorithm: registry/algorithms/temporality/TLC-FC-22-TEMPORALITY-001/algorithm.yaml, oracle: registry/oracles/temporality/TLC-FC-22-TEMPORALITY-001/oracle.yaml}
+  TLC-FC-22-TEMPORALITY-002: {contract: registry/math-contracts/TLC-FC-22-TEMPORALITY-002/contract.yaml, candidate_ir: ir/TLC-FC-22-TEMPORALITY-002/ir.candidate.json, source_ir: registry/ir/TLC-FC-22-TEMPORALITY-002/ir.yaml, test_plan: registry/test-plans/TLC-FC-22-TEMPORALITY-002/test-plan.yaml, optimized_ir: registry/optimized-ir/temporality/TLC-FC-22-TEMPORALITY-002/ir.yaml, algorithm: registry/algorithms/temporality/TLC-FC-22-TEMPORALITY-002/algorithm.yaml, oracle: registry/oracles/temporality/TLC-FC-22-TEMPORALITY-002/oracle.yaml}
+  TLC-FC-22-TEMPORALITY-003: {contract: registry/math-contracts/TLC-FC-22-TEMPORALITY-003/contract.yaml, candidate_ir: ir/TLC-FC-22-TEMPORALITY-003/ir.candidate.json, source_ir: registry/ir/TLC-FC-22-TEMPORALITY-003/ir.yaml, test_plan: registry/test-plans/TLC-FC-22-TEMPORALITY-003/test-plan.yaml, optimized_ir: registry/optimized-ir/temporality/TLC-FC-22-TEMPORALITY-003/ir.yaml, algorithm: registry/algorithms/temporality/TLC-FC-22-TEMPORALITY-003/algorithm.yaml, oracle: registry/oracles/temporality/TLC-FC-22-TEMPORALITY-003/oracle.yaml}
+  TLC-FC-22-TEMPORALITY-004: {contract: registry/math-contracts/TLC-FC-22-TEMPORALITY-004/contract.yaml, candidate_ir: ir/TLC-FC-22-TEMPORALITY-004/ir.candidate.json, source_ir: registry/ir/TLC-FC-22-TEMPORALITY-004/ir.yaml, test_plan: registry/test-plans/TLC-FC-22-TEMPORALITY-004/test-plan.yaml, optimized_ir: registry/optimized-ir/temporality/TLC-FC-22-TEMPORALITY-004/ir.yaml, algorithm: registry/algorithms/temporality/TLC-FC-22-TEMPORALITY-004/algorithm.yaml, oracle: registry/oracles/temporality/TLC-FC-22-TEMPORALITY-004/oracle.yaml}
+  TLC-FC-22-TEMPORALITY-005: {contract: registry/math-contracts/TLC-FC-22-TEMPORALITY-005/contract.yaml, candidate_ir: ir/TLC-FC-22-TEMPORALITY-005/ir.candidate.json, source_ir: registry/ir/TLC-FC-22-TEMPORALITY-005/ir.yaml, test_plan: registry/test-plans/TLC-FC-22-TEMPORALITY-005/test-plan.yaml, optimized_ir: registry/optimized-ir/temporality/TLC-FC-22-TEMPORALITY-005/ir.yaml, algorithm: registry/algorithms/temporality/TLC-FC-22-TEMPORALITY-005/algorithm.yaml, oracle: registry/oracles/temporality/TLC-FC-22-TEMPORALITY-005/oracle.yaml}
+  TLC-FC-22-TEMPORALITY-006: {contract: registry/math-contracts/TLC-FC-22-TEMPORALITY-006/contract.yaml, candidate_ir: ir/TLC-FC-22-TEMPORALITY-006/ir.candidate.json, source_ir: registry/ir/TLC-FC-22-TEMPORALITY-006/ir.yaml, test_plan: registry/test-plans/TLC-FC-22-TEMPORALITY-006/test-plan.yaml, optimized_ir: registry/optimized-ir/temporality/TLC-FC-22-TEMPORALITY-006/ir.yaml, algorithm: registry/algorithms/temporality/TLC-FC-22-TEMPORALITY-006/algorithm.yaml, oracle: registry/oracles/temporality/TLC-FC-22-TEMPORALITY-006/oracle.yaml}
+  TLC-FC-22-TEMPORALITY-007: {contract: registry/math-contracts/TLC-FC-22-TEMPORALITY-007/contract.yaml, candidate_ir: ir/TLC-FC-22-TEMPORALITY-007/ir.candidate.json, source_ir: registry/ir/TLC-FC-22-TEMPORALITY-007/ir.yaml, test_plan: registry/test-plans/TLC-FC-22-TEMPORALITY-007/test-plan.yaml, optimized_ir: registry/optimized-ir/temporality/TLC-FC-22-TEMPORALITY-007/ir.yaml, algorithm: registry/algorithms/temporality/TLC-FC-22-TEMPORALITY-007/algorithm.yaml, oracle: registry/oracles/temporality/TLC-FC-22-TEMPORALITY-007/oracle.yaml}
+  TLC-FC-22-TEMPORALITY-008: {contract: registry/math-contracts/TLC-FC-22-TEMPORALITY-008/contract.yaml, candidate_ir: ir/TLC-FC-22-TEMPORALITY-008/ir.candidate.json, source_ir: registry/ir/TLC-FC-22-TEMPORALITY-008/ir.yaml, test_plan: registry/test-plans/TLC-FC-22-TEMPORALITY-008/test-plan.yaml, optimized_ir: registry/optimized-ir/temporality/TLC-FC-22-TEMPORALITY-008/ir.yaml, algorithm: registry/algorithms/temporality/TLC-FC-22-TEMPORALITY-008/algorithm.yaml, oracle: registry/oracles/temporality/TLC-FC-22-TEMPORALITY-008/oracle.yaml}
+  TLC-FC-22-TEMPORALITY-009: {contract: registry/math-contracts/TLC-FC-22-TEMPORALITY-009/contract.yaml, candidate_ir: ir/TLC-FC-22-TEMPORALITY-009/ir.candidate.json, source_ir: registry/ir/TLC-FC-22-TEMPORALITY-009/ir.yaml, test_plan: registry/test-plans/TLC-FC-22-TEMPORALITY-009/test-plan.yaml, optimized_ir: registry/optimized-ir/temporality/TLC-FC-22-TEMPORALITY-009/ir.yaml, algorithm: registry/algorithms/temporality/TLC-FC-22-TEMPORALITY-009/algorithm.yaml, oracle: registry/oracles/temporality/TLC-FC-22-TEMPORALITY-009/oracle.yaml}
+preservation:
+  scientific_source_modified: false
+  memory_artifacts_modified: false
+  historical_handoffs_modified: false
+  other_future_domains_published: false
+  unresolved_science_preserved: true
+  new_shared_contracts: []
+completion_scope:
+  structural_implementation_specification_ready: true
+  semantic_execution_is_feature_specific: true
+  runtime_implementation_produced: false
+  cpp_produced: false
+  python_bindings_produced: false
