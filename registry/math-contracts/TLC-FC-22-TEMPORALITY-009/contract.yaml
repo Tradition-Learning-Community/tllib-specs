@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-22-TEMPORALITY-009
+feature_id: TLC-FC-22-TEMPORALITY-009
+title: Transition distribution certification guard
+domain_id: temporality
+contract_kind: non_execution_guard_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/22-temporality/temporality.md
+source_sections: ['5. Régimes', '6. Limites et points scientifiques non résolus']
+inputs: [{name: raw_transition_expression_reference, type: scientific_reference}, {name: normalization_rule_reference, type: opaque_optional_reference}]
+outputs: [{name: distribution_availability_assessment, type: guarded_descriptor}]
+preconditions: [source transition expression is available]
+postconditions: [assessment preserves that normalized distribution semantics are not locally available under the source as written]
+invariants: [f is never removed, raw expressions are never rescaled locally, no unit-mass claim is inferred]
+errors: [TransitionNormalizationUnsupported, ExternalTransitionNormalizationRuleRequired]
+opaque_parameters: [normalization_rule_reference]
+scientific_reservations: [TLC-UR-TEMPORALITY-010]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [normalizing the source formula, deleting f, presenting raw expressions as a certified probability distribution]
+traceability: {source: maths/22-temporality/temporality.md, inventory: registry/domain-progress/temporality/feature-inventory.yaml}
