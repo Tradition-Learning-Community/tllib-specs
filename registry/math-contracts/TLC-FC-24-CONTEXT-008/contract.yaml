@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-24-CONTEXT-008
+feature_id: TLC-FC-24-CONTEXT-008
+title: Conditional optimal-family derivative
+domain_id: context
+contract_kind: guarded_computational_contract
+scientific_status: external_provider_required
+scientific_authority: maths/24-context/context.md
+source_sections: ['4. Adaptation optimale', '6. Limites et points scientifiques non résolus']
+inputs: [{name: optimality_applicability_evidence, type: external_scientific_evidence}, {name: strict_convexity_evidence, type: external_scientific_evidence}, {name: grad_X_H_invertibility_evidence, type: external_scientific_evidence}, {name: inverse_grad_X_H_action_provider, type: external_provider}, {name: grad_c_H, type: external_derivative_value}, {name: dc_dt, type: external_derivative_value}, {name: partial_H_partial_t, type: external_derivative_value}]
+outputs: [{name: dX_star_dt, type: derivative_value}]
+preconditions: [all three applicability conditions and all derivative values are supplied, inverse action provider is supplied]
+postconditions: [output equals minus inverse_grad_X_H applied to grad_c_H dot dc_dt plus partial_H_partial_t]
+invariants: [leading minus sign preserved, no J-to-H optimality proof is invented, no matrix inversion method is selected]
+errors: [ContextOptimalityApplicabilityRequired, ContextInverseJacobianActionRequired, ContextDerivativeProviderRequired]
+opaque_parameters: [optimality_applicability_evidence, strict_convexity_evidence, grad_X_H_invertibility_evidence]
+scientific_reservations: [TLC-UR-CONTEXT-006, TLC-UR-CONTEXT-009]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [deriving applicability from source assertion alone, constructing an inverse algorithm, inventing relation between objective J and H]
+traceability: {source: maths/24-context/context.md, inventory: registry/domain-progress/context/feature-inventory.yaml}

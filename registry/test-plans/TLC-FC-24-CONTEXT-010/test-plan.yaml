@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-010
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-010/contract.yaml
+tests:
+  - {id: C010-T01, category: output_contract, verifies: exact distance over supplied global maximum ratio}
+  - {id: C010-T02, category: invalid_input, verifies: uncertified distance is rejected}
+  - {id: C010-T03, category: invalid_input, verifies: absent or zero global maximum is rejected}
+  - {id: C010-T04, category: preservation, verifies: no maximum search compactness or supremum substitution}

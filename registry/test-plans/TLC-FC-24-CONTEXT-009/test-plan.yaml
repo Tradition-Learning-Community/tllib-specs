@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-009
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-009/contract.yaml
+tests:
+  - {id: C009-T01, category: output_contract, verifies: exact J(X,c) over J(X_star,c) orientation}
+  - {id: C009-T02, category: invalid_input, verifies: zero denominator is rejected}
+  - {id: C009-T03, category: preservation, verifies: value above one remains above one and is not clamped}
+  - {id: C009-T04, category: preservation, verifies: ratio is not inverted normalized or certified in zero-one}

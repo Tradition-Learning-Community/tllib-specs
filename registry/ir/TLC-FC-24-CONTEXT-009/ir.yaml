@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-009
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-009/contract.yaml
+source_candidate_ir: ir/TLC-FC-24-CONTEXT-009/ir.candidate.json
+nature: transform
+inputs: [J_X_c, J_X_star_c]
+outputs: [P_ctx_raw]
+steps: [reject zero denominator, divide source numerator by source denominator, return raw ratio with contradiction reservation]
+errors: [ContextPerformanceDenominatorZero, ContextPerformanceReorientationForbidden]

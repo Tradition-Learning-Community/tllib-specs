@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-007
+oracle_kind: exact_formula_provider_and_error
+acceptance:
+  - output is exactly X + alpha(X_star-X) + beta grad_c X_star
+  - X_star and its gradient are treated as external scientific values
+  - no optimization or differentiation is performed
+  - missing external value yields the declared structured error

@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-007
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-007/contract.yaml
+tests:
+  - {id: C007-T01, category: output_contract, verifies: exact X plus alpha correction plus beta gradient expression}
+  - {id: C007-T02, category: invalid_input, verifies: missing X_star is rejected}
+  - {id: C007-T03, category: invalid_input, verifies: missing grad_c_X_star is rejected}
+  - {id: C007-T04, category: preservation, verifies: no optimizer or differentiation method is selected}

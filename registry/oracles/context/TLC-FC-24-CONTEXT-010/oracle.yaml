@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-010
+oracle_kind: guarded_exact_ratio_and_error
+acceptance:
+  - numerator and denominator must be externally supplied under certified semantics
+  - output is exactly their source ratio
+  - missing or zero maximum yields the declared structured error
+  - no distance or maximum is locally constructed
+rejections: [local max search, invented compactness, uncertified distance use]

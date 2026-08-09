@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-009
+oracle_kind: exact_formula_and_contradiction_preservation
+acceptance:
+  - output exactly follows the source numerator-over-denominator orientation
+  - a mathematically valid result greater than one is preserved unchanged
+  - no clamp inversion normalization or zero-one claim is emitted
+  - zero denominator yields ContextPerformanceDenominatorZero
+rejections: [clamped ratio, reciprocal ratio, fabricated range guarantee]

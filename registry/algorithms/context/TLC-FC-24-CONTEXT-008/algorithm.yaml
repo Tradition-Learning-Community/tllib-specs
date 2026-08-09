@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-008
+algorithm_kind: conditional_formula_with_scientific_guard
+execution: conditionally_executable
+steps:
+  - require explicit external applicability evidence linking the announced optimal-family claim to H
+  - require strict-convexity and grad_X H invertibility evidence
+  - require supplied grad_c H dc/dt and partial_t H values
+  - form grad_c H dot dc/dt plus partial_t H
+  - apply the external inverse-grad_X-H action provider
+  - negate the provider result
+forbidden: [proving the missing J-H relation, selecting an inversion or differentiation method]

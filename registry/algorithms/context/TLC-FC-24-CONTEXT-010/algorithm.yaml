@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-010
+algorithm_kind: externally_denominated_ratio
+execution: conditionally_executable
+steps:
+  - require an externally certified d_C(c,c0) value
+  - require an externally established finite global maximum distance
+  - reject a zero maximum
+  - return the exact numerator divided by supplied maximum
+forbidden: [geodesic computation, global search, compactness assumption, max-to-sup replacement]

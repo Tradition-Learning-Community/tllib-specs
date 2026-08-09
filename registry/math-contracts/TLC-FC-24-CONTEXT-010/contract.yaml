@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-24-CONTEXT-010
+feature_id: TLC-FC-24-CONTEXT-010
+title: Conditional contextual shift ratio
+domain_id: context
+contract_kind: guarded_computational_contract
+scientific_status: external_provider_required
+scientific_authority: maths/24-context/context.md
+source_sections: ['5. Métriques', '6. Limites et points scientifiques non résolus']
+inputs: [{name: distance_c_c0, type: externally_certified_distance_value}, {name: global_max_distance, type: externally_established_global_maximum_value}]
+outputs: [{name: Delta_ctx, type: scalar_like_ratio}]
+preconditions: [distance value comes from externally certified Context distance semantics, global maximum is externally established finite and nonzero]
+postconditions: [output equals distance_c_c0 divided by global_max_distance]
+invariants: [no global search compactness assumption supremum substitution or distance construction is performed]
+errors: [ContextDistanceCertificationRequired, ContextGlobalMaximumRequired, ContextGlobalMaximumZero]
+opaque_parameters: [distance_c_c0, global_max_distance]
+scientific_reservations: [TLC-UR-CONTEXT-004, TLC-UR-CONTEXT-008]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [computing d_C locally, searching for maximum, assuming compactness, replacing max by supremum]
+traceability: {source: maths/24-context/context.md, inventory: registry/domain-progress/context/feature-inventory.yaml}

@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-007
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-007/contract.yaml
+source_candidate_ir: ir/TLC-FC-24-CONTEXT-007/ir.candidate.json
+nature: transform
+inputs: [X, c, grad_c, X_star_at_c, grad_c_X_star, alpha_value, beta_value]
+outputs: [A_contexte]
+steps: [require externally supplied X_star and gradient, form correction term, form anticipation term, add both to X]
+errors: [ContextOptimalStateRequired, ContextOptimalGradientRequired]

@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-008
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-008/contract.yaml
+source_candidate_ir: ir/TLC-FC-24-CONTEXT-008/ir.candidate.json
+nature: guarded_dynamical_rhs
+inputs: [optimality_applicability_evidence, strict_convexity_evidence, grad_X_H_invertibility_evidence, inverse_grad_X_H_action_provider, grad_c_H, dc_dt, partial_H_partial_t]
+outputs: [dX_star_dt]
+steps: [require external theorem applicability evidence, require derivative values, form inner source term, apply supplied inverse Jacobian action, negate]
+errors: [ContextOptimalityApplicabilityRequired, ContextInverseJacobianActionRequired, ContextDerivativeProviderRequired]
