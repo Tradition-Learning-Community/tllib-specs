@@ -1,0 +1,131 @@
+domain_id: temporality
+status: population_frozen_with_reservations
+feature_count: 9
+source: maths/22-temporality/temporality.md
+features:
+  - feature_id: TLC-FC-22-TEMPORALITY-001
+    canonical_name: Multiscale temporal structure descriptor
+    category: declarative
+    source_objects: [TLC-SO-TEMPORALITY-001, TLC-SO-TEMPORALITY-002, TLC-SO-TEMPORALITY-003, TLC-SO-TEMPORALITY-004, TLC-SO-TEMPORALITY-005, TLC-SO-TEMPORALITY-006, TLC-SO-TEMPORALITY-007]
+    source_section: '1. Espace-temps évolutif'
+    purpose: Preserve the four continuous temporal scales, their product-space identity and the announced-but-unconstructed fiber statement without inventing a fiber bundle construction.
+    inputs: [temporal_scale_references]
+    outputs: [multiscale_temporal_structure_descriptor]
+    preconditions: [source scale declarations available]
+    invariants: [exact four-scale order preserved, each scale R-plus isomorphism claim preserved, no temporal fiber construction invented]
+    invalid_cases: [request to instantiate a fiber bundle or infer missing bundle maps]
+    algorithmic: true
+    scientific_status: preserved_unresolved
+  - feature_id: TLC-FC-22-TEMPORALITY-002
+    canonical_name: Temporal metric matrix
+    category: transform
+    source_objects: [TLC-SO-TEMPORALITY-008, TLC-SO-TEMPORALITY-009, TLC-SO-TEMPORALITY-010, TLC-SO-TEMPORALITY-011, TLC-SO-TEMPORALITY-012, TLC-SO-TEMPORALITY-013, TLC-SO-TEMPORALITY-014]
+    source_section: '2. Métrique temporelle'
+    purpose: Evaluate the exact symmetric 4x4 source matrix for caller-supplied coordinates and coefficients without asserting positive definiteness.
+    inputs: [t1, t2, t3, alpha1, alpha2, alpha3, alpha4, lambda1, lambda2, beta12, gamma13, gamma23, delta14, delta24, delta34]
+    outputs: [g_tau_matrix]
+    preconditions: [supplied values support the stated scalar arithmetic and exponential]
+    invariants: [matrix symmetry preserved, fourth diagonal term is alpha4 times t3 cubed, no t4 substitution, no coefficient defaults]
+    invalid_cases: [unsupported scalar arithmetic, request to certify SPD as part of matrix construction]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-22-TEMPORALITY-003
+    canonical_name: Temporal distance certification guard
+    category: validation
+    source_objects: [TLC-SO-TEMPORALITY-008, TLC-SO-TEMPORALITY-015]
+    source_section: '2. Métrique temporelle'
+    purpose: Guard requests for a true temporal metric distance because the source supplies neither positive-definiteness conditions nor a distance construction rule.
+    inputs: [g_tau_reference, positive_definiteness_evidence, distance_construction_reference]
+    outputs: [temporal_distance_availability_assessment]
+    preconditions: [source metric declaration available]
+    invariants: [no SPD domain invented, no geodesic or distance formula invented, historical/mnemonic interpretation remains descriptive only]
+    invalid_cases: [request for a numeric or metric-certified distance without external evidence and construction]
+    algorithmic: true
+    scientific_status: preserved_unresolved
+  - feature_id: TLC-FC-22-TEMPORALITY-004
+    canonical_name: Hereditary temporal flux right-hand side
+    category: dynamical
+    source_objects: [TLC-SO-TEMPORALITY-016, TLC-SO-TEMPORALITY-017, TLC-SO-TEMPORALITY-018, TLC-SO-TEMPORALITY-019, TLC-SO-TEMPORALITY-020, TLC-SO-TEMPORALITY-021, TLC-SO-TEMPORALITY-022, TLC-SO-TEMPORALITY-023]
+    source_section: '3. Flux temporel héréditaire'
+    purpose: Evaluate the source RHS from a supplied F_tau value/provider and supplied exact hereditary-memory integral term while preserving Memory as scientific provenance and selecting no integral or time solver.
+    inputs: [phi_tau, tau, temporal_values_gradient, F_tau_provider, hereditary_memory_integral_term, memory_kernel_reference, mnemonic_operator_reference]
+    outputs: [dphi_dtau]
+    preconditions: [F_tau provider and hereditary integral term supplied, Memory references identify the scientific K and M provenance]
+    invariants: [source additive structure preserved, no quadrature, no time integrator, no direct runtime binding to incompatible Memory signatures]
+    invalid_cases: [missing F_tau provider, missing hereditary term, missing Memory scientific provenance]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-22-TEMPORALITY-005
+    canonical_name: Multiscale evolution right-hand sides
+    category: dynamical
+    source_objects: [TLC-SO-TEMPORALITY-024, TLC-SO-TEMPORALITY-025, TLC-SO-TEMPORALITY-026, TLC-SO-TEMPORALITY-027, TLC-SO-TEMPORALITY-028, TLC-SO-TEMPORALITY-029, TLC-SO-TEMPORALITY-030, TLC-SO-TEMPORALITY-031, TLC-SO-TEMPORALITY-032, TLC-SO-TEMPORALITY-033, TLC-SO-TEMPORALITY-034]
+    source_section: '4. Évolution multi-échelle'
+    purpose: Evaluate the four source right-hand sides from caller-supplied epsilon values, theta-derived quantities, mnemonic value and F_i providers without integrating the system.
+    inputs: [X, t1, t2, t3, t4, epsilon1, epsilon2, epsilon3, epsilon4, theta, grad_theta, grad2_theta, mnemonic_X, F1_provider, F2_provider, F3_provider, F4_provider]
+    outputs: [dX_dt1, dX_dt2, dX_dt3, dX_dt4]
+    preconditions: [all four F_i providers and required supplied arguments are available, epsilon hierarchy evidence is supplied]
+    invariants: [argument structure per scale preserved, epsilon1 much-greater-than epsilon2 much-greater-than epsilon3 much-greater-than epsilon4 preserved as an external invariant, no ODE or PDE solver]
+    invalid_cases: [missing provider, missing theta-derived quantity, missing mnemonic value, missing hierarchy evidence]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-22-TEMPORALITY-006
+    canonical_name: Inter-scale coupling aggregation
+    category: aggregation
+    source_objects: [TLC-SO-TEMPORALITY-033, TLC-SO-TEMPORALITY-035, TLC-SO-TEMPORALITY-036, TLC-SO-TEMPORALITY-037]
+    source_section: '4. Évolution multi-échelle'
+    purpose: Aggregate the exact source sum over i<j from supplied derivative values, coupling coefficients and externally defined tensor products.
+    inputs: [scale_derivatives, gamma_ij_values, tensor_product_provider]
+    outputs: [C_scale]
+    preconditions: [derivatives and gamma values supplied for each declared i<j pair, tensor product provider supplied]
+    invariants: [strict i<j pair order preserved, no derivative approximation, no tensor-space construction invented]
+    invalid_cases: [missing pair derivative, missing gamma coefficient, missing tensor product provider]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-22-TEMPORALITY-007
+    canonical_name: Temporal regime criteria assessment
+    category: validation
+    source_objects: [TLC-SO-TEMPORALITY-038, TLC-SO-TEMPORALITY-039, TLC-SO-TEMPORALITY-040, TLC-SO-TEMPORALITY-041, TLC-SO-TEMPORALITY-042, TLC-SO-TEMPORALITY-043, TLC-SO-TEMPORALITY-044, TLC-SO-TEMPORALITY-045, TLC-SO-TEMPORALITY-046]
+    source_section: '5. Régimes'
+    purpose: Assess which source regime criteria are satisfied by supplied evidence without inventing thresholds, spectral operators, exclusivity or precedence.
+    inputs: [speed_norm, stasis_threshold, transition_threshold, eigenvalue_real_part_evidence, periodicity_evidence, quasiperiodicity_evidence, fractal_dimension_evidence, fractal_bound_evidence]
+    outputs: [satisfied_regime_criteria]
+    preconditions: [all evidence required by each assessed regime is supplied]
+    invariants: [strict source inequalities preserved, zero-real-part condition preserved, no unique classification forced, no missing threshold or spectral operator inferred]
+    invalid_cases: [missing threshold, missing spectral evidence, request for exclusive classification from overlapping criteria]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-22-TEMPORALITY-008
+    canonical_name: Raw temporal transition expression
+    category: transform
+    source_objects: [TLC-SO-TEMPORALITY-019, TLC-SO-TEMPORALITY-047, TLC-SO-TEMPORALITY-048, TLC-SO-TEMPORALITY-049, TLC-SO-TEMPORALITY-050, TLC-SO-TEMPORALITY-051]
+    source_section: '5. Régimes'
+    purpose: Evaluate the exact source Boltzmann-like transition expression times the supplied modulation value f without renormalizing or claiming a probability distribution.
+    inputs: [delta_E_i_to_candidates, target_j, beta, modulation_f_value]
+    outputs: [raw_transition_expression]
+    preconditions: [energy gaps, beta and modulation value supplied, denominator evaluable and nonzero]
+    invariants: [exact exponential ratio preserved, multiplicative f preserved, no normalization or default parameter values]
+    invalid_cases: [missing energy gap, missing beta, missing modulation value, zero or non-evaluable denominator]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-22-TEMPORALITY-009
+    canonical_name: Transition distribution certification guard
+    category: validation
+    source_objects: [TLC-SO-TEMPORALITY-049, TLC-SO-TEMPORALITY-050, TLC-SO-TEMPORALITY-051]
+    source_section: '5. Régimes'
+    purpose: Refuse presentation or production of the source transition expression as a normalized probability distribution because the multiplicative f factor can break unit mass and no normalization rule is supplied.
+    inputs: [raw_transition_expression_reference, normalization_rule_reference]
+    outputs: [transition_distribution_availability_assessment]
+    preconditions: [source transition expression available]
+    invariants: [f is never removed, source expression is never silently renormalized, normalized distribution semantics remain external]
+    invalid_cases: [request to normalize locally, request to certify unit mass without external scientific rule]
+    algorithmic: true
+    scientific_status: preserved_unresolved
+population_decision:
+  feature_count: 9
+  duplicate_features_removed: true
+  pseudo_features_removed: true
+  equation_per_feature_rule_rejected: true
+  structural_descriptors: [TLC-FC-22-TEMPORALITY-001]
+  non_execution_guards: [TLC-FC-22-TEMPORALITY-003, TLC-FC-22-TEMPORALITY-009]
+  executable_source_formulas: [TLC-FC-22-TEMPORALITY-002, TLC-FC-22-TEMPORALITY-008]
+  conditional_source_backed: [TLC-FC-22-TEMPORALITY-004, TLC-FC-22-TEMPORALITY-005, TLC-FC-22-TEMPORALITY-006, TLC-FC-22-TEMPORALITY-007]
