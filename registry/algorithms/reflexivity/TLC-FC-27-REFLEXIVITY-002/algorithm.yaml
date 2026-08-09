@@ -1,0 +1,11 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-002
+algorithm_kind: conditional_source_expression
+execution: conditionally_executable
+steps:
+  - validate alpha_t is in [0,1] and beta_t is positive
+  - require compatible X R arithmetic and supplied Identity gradient value
+  - compute alpha_t times (R-X) with a positive source sign
+  - compute beta_t times grad_R Phi_id with a positive source sign
+  - return (X, R + alpha_term + beta_gradient_term)
+forbidden: [alpha sign flip, beta-gradient sign flip, minimization claim, trajectory solver]
