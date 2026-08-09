@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-007
+oracle_kind: recovery_and_error
+acceptance:
+  - Identity threshold is required and never defaulted
+  - candidate recovery time is checked only against supplied threshold-crossing evidence
+  - source infimum remains unsolved
+  - no finite-return claim is emitted without evidence
+rejections: [invented threshold, numerical integration, root search, invented recovery bound, false finiteness certificate]
