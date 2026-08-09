@@ -1,0 +1,10 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-22-TEMPORALITY-002
+feature_id: TLC-FC-22-TEMPORALITY-002
+oracle_type: exact_formula_and_preservation
+checks:
+  - matrix has the exact source diagonal and symmetric off-diagonal entries
+  - fourth diagonal is alpha4 times t3 cubed exactly
+  - t4 is never substituted into the fourth diagonal
+  - no positive-definiteness claim is emitted by matrix evaluation
+  - coefficients remain caller supplied
