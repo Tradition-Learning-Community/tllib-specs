@@ -1,0 +1,16 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-22-TEMPORALITY-002
+feature_id: TLC-FC-22-TEMPORALITY-002
+status: selected_for_temporality_implementation_specification
+algorithm_kind: source_formula_evaluation
+source_ir: registry/optimized-ir/temporality/TLC-FC-22-TEMPORALITY-002/ir.yaml
+ordered_steps:
+  - evaluate alpha1 exp(-lambda1 t1)
+  - evaluate alpha2 t2 exp(-lambda2 t2)
+  - evaluate alpha3 t3 squared
+  - evaluate alpha4 t3 cubed exactly
+  - place beta12 gamma13 gamma23 delta14 delta24 delta34 symmetrically
+  - return the 4 by 4 matrix
+errors: [TemporalMetricArithmeticUnsupported, TemporalMetricCertificationUnsupported]
+determinism: deterministic_for_supplied_scalar_inputs
+forbidden: [t4 substitution, SPD certification, coefficient defaults, distance computation]
