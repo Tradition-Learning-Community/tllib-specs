@@ -197,16 +197,12 @@ domains:
     title: Cohorte
     scientific_directory: maths/16-cohort/
     scientific_readme: maths/16-cohort/README.md
-    scientific_sources:
-      - maths/16-cohort/cohort.md
+    scientific_sources: [maths/16-cohort/cohort.md]
     wave: pilot
     analysis_companions: []
     feature_count: 17
     handoff_publication: true
-    dependencies:
-      confirmed: [0, 1]
-      provisional: []
-      unknown: false
+    dependencies: {confirmed: [0, 1], provisional: [], unknown: false}
     pipeline:
       scientific_source: complete
       functional_decomposition: complete
@@ -222,16 +218,12 @@ domains:
     title: Transmission en cascade
     scientific_directory: maths/17-cascade-transmission/
     scientific_readme: maths/17-cascade-transmission/README.md
-    scientific_sources:
-      - maths/17-cascade-transmission/cascade-transmission-system.md
+    scientific_sources: [maths/17-cascade-transmission/cascade-transmission-system.md]
     wave: wave-4
     analysis_companions: []
     feature_count: null
     handoff_publication: false
-    dependencies:
-      confirmed: []
-      provisional: []
-      unknown: true
+    dependencies: {confirmed: [], provisional: [], unknown: true}
     pipeline: &unstarted_pipeline
       scientific_source: complete
       functional_decomposition: not_started
@@ -247,16 +239,12 @@ domains:
     title: Évaluation
     scientific_directory: maths/18-evaluation/
     scientific_readme: maths/18-evaluation/README.md
-    scientific_sources:
-      - maths/18-evaluation/evaluation.md
+    scientific_sources: [maths/18-evaluation/evaluation.md]
     wave: wave-2
     analysis_companions: [19]
     feature_count: null
     handoff_publication: false
-    dependencies:
-      confirmed: []
-      provisional: []
-      unknown: true
+    dependencies: {confirmed: [], provisional: [], unknown: true}
     pipeline: *unstarted_pipeline
 
   - index: 19
@@ -264,16 +252,12 @@ domains:
     title: Régulation
     scientific_directory: maths/19-regulation/
     scientific_readme: maths/19-regulation/README.md
-    scientific_sources:
-      - maths/19-regulation/regulation.md
+    scientific_sources: [maths/19-regulation/regulation.md]
     wave: wave-2
     analysis_companions: [18]
     feature_count: null
     handoff_publication: false
-    dependencies:
-      confirmed: [18]
-      provisional: []
-      unknown: true
+    dependencies: {confirmed: [18], provisional: [], unknown: true}
     pipeline: *unstarted_pipeline
 
   - index: 20
@@ -281,16 +265,12 @@ domains:
     title: Robustesse
     scientific_directory: maths/20-robustness/
     scientific_readme: maths/20-robustness/README.md
-    scientific_sources:
-      - maths/20-robustness/robustness.md
+    scientific_sources: [maths/20-robustness/robustness.md]
     wave: wave-2
     analysis_companions: [21]
     feature_count: null
     handoff_publication: false
-    dependencies:
-      confirmed: [21]
-      provisional: []
-      unknown: true
+    dependencies: {confirmed: [21], provisional: [], unknown: true}
     pipeline: *unstarted_pipeline
 
   - index: 21
@@ -298,16 +278,12 @@ domains:
     title: Équité
     scientific_directory: maths/21-fairness/
     scientific_readme: maths/21-fairness/README.md
-    scientific_sources:
-      - maths/21-fairness/fairness.md
+    scientific_sources: [maths/21-fairness/fairness.md]
     wave: wave-2
     analysis_companions: [20]
     feature_count: null
     handoff_publication: false
-    dependencies:
-      confirmed: []
-      provisional: []
-      unknown: true
+    dependencies: {confirmed: [], provisional: [], unknown: true}
     pipeline: *unstarted_pipeline
 
   - index: 22
@@ -315,16 +291,12 @@ domains:
     title: Temporalité
     scientific_directory: maths/22-temporality/
     scientific_readme: maths/22-temporality/README.md
-    scientific_sources:
-      - maths/22-temporality/temporality.md
+    scientific_sources: [maths/22-temporality/temporality.md]
     wave: wave-1
     analysis_companions: [23]
     feature_count: 9
     handoff_publication: true
-    dependencies:
-      confirmed: [23]
-      provisional: []
-      unknown: false
+    dependencies: {confirmed: [23], provisional: [], unknown: false}
     pipeline:
       scientific_source: complete
       functional_decomposition: complete
@@ -340,16 +312,12 @@ domains:
     title: Mémoire
     scientific_directory: maths/23-memory/
     scientific_readme: maths/23-memory/README.md
-    scientific_sources:
-      - maths/23-memory/memory.md
+    scientific_sources: [maths/23-memory/memory.md]
     wave: wave-1
     analysis_companions: [22]
     feature_count: 10
     handoff_publication: true
-    dependencies:
-      confirmed: []
-      provisional: []
-      unknown: false
+    dependencies: {confirmed: [], provisional: [], unknown: false}
     pipeline:
       scientific_source: complete
       functional_decomposition: complete
@@ -365,16 +333,12 @@ domains:
     title: Contexte
     scientific_directory: maths/24-context/
     scientific_readme: maths/24-context/README.md
-    scientific_sources:
-      - maths/24-context/context.md
+    scientific_sources: [maths/24-context/context.md]
     wave: wave-1
     analysis_companions: [25]
     feature_count: null
     handoff_publication: false
-    dependencies:
-      confirmed: []
-      provisional: [25]
-      unknown: true
+    dependencies: {confirmed: [], provisional: [25], unknown: true}
     pipeline: *unstarted_pipeline
 
   - index: 25
@@ -382,16 +346,12 @@ domains:
     title: Culture
     scientific_directory: maths/25-culture/
     scientific_readme: maths/25-culture/README.md
-    scientific_sources:
-      - maths/25-culture/culture.md
+    scientific_sources: [maths/25-culture/culture.md]
     wave: wave-1
     analysis_companions: [24]
     feature_count: null
     handoff_publication: false
-    dependencies:
-      confirmed: [24]
-      provisional: []
-      unknown: true
+    dependencies: {confirmed: [24], provisional: [], unknown: true}
     pipeline: *unstarted_pipeline
 
   - index: 26
@@ -399,33 +359,33 @@ domains:
     title: Identité
     scientific_directory: maths/26-identity/
     scientific_readme: maths/26-identity/README.md
-    scientific_sources:
-      - maths/26-identity/identity.md
+    scientific_sources: [maths/26-identity/identity.md]
     wave: wave-1
     analysis_companions: [27]
-    feature_count: null
-    handoff_publication: false
-    dependencies:
-      confirmed: []
-      provisional: [27]
-      unknown: true
-    pipeline: *unstarted_pipeline
+    feature_count: 13
+    handoff_publication: true
+    dependencies: {confirmed: [], provisional: [], unknown: false}
+    pipeline:
+      scientific_source: complete
+      functional_decomposition: complete
+      registries: complete
+      ir: complete
+      contracts: complete
+      algorithms: complete_or_not_applicable
+      oracles: complete
+      handoff_packages: complete
 
   - index: 27
     slug: reflexivity
     title: Réflexivité
     scientific_directory: maths/27-reflexivity/
     scientific_readme: maths/27-reflexivity/README.md
-    scientific_sources:
-      - maths/27-reflexivity/reflexivity.md
+    scientific_sources: [maths/27-reflexivity/reflexivity.md]
     wave: wave-1
     analysis_companions: [26]
     feature_count: null
     handoff_publication: false
-    dependencies:
-      confirmed: [26]
-      provisional: []
-      unknown: true
+    dependencies: {confirmed: [26], provisional: [], unknown: true}
     pipeline: *unstarted_pipeline
 
   - index: 28
@@ -433,16 +393,12 @@ domains:
     title: Finalité et téléologie évolutive
     scientific_directory: maths/28-finality-and-evolutionary-teleology/
     scientific_readme: maths/28-finality-and-evolutionary-teleology/README.md
-    scientific_sources:
-      - maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+    scientific_sources: [maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md]
     wave: wave-3
     analysis_companions: []
     feature_count: null
     handoff_publication: false
-    dependencies:
-      confirmed: []
-      provisional: []
-      unknown: true
+    dependencies: {confirmed: [], provisional: [], unknown: true}
     pipeline: *unstarted_pipeline
 
   - index: 29
@@ -450,16 +406,12 @@ domains:
     title: Propagation générationnelle
     scientific_directory: maths/29-generational-propagation/
     scientific_readme: maths/29-generational-propagation/README.md
-    scientific_sources:
-      - maths/29-generational-propagation/generational-propagation.md
+    scientific_sources: [maths/29-generational-propagation/generational-propagation.md]
     wave: wave-3
     analysis_companions: [30, 31]
     feature_count: null
     handoff_publication: false
-    dependencies:
-      confirmed: []
-      provisional: []
-      unknown: true
+    dependencies: {confirmed: [], provisional: [], unknown: true}
     pipeline: *unstarted_pipeline
 
   - index: 30
@@ -467,16 +419,12 @@ domains:
     title: Expansion
     scientific_directory: maths/30-expansion/
     scientific_readme: maths/30-expansion/README.md
-    scientific_sources:
-      - maths/30-expansion/expansion.md
+    scientific_sources: [maths/30-expansion/expansion.md]
     wave: wave-3
     analysis_companions: [29, 31]
     feature_count: null
     handoff_publication: false
-    dependencies:
-      confirmed: [29]
-      provisional: []
-      unknown: true
+    dependencies: {confirmed: [29], provisional: [], unknown: true}
     pipeline: *unstarted_pipeline
 
   - index: 31
@@ -484,16 +432,12 @@ domains:
     title: Institutionnalisation
     scientific_directory: maths/31-institutionalization/
     scientific_readme: maths/31-institutionalization/README.md
-    scientific_sources:
-      - maths/31-institutionalization/institutionalization.md
+    scientific_sources: [maths/31-institutionalization/institutionalization.md]
     wave: wave-3
     analysis_companions: [29, 30]
     feature_count: null
     handoff_publication: false
-    dependencies:
-      confirmed: []
-      provisional: []
-      unknown: true
+    dependencies: {confirmed: [], provisional: [], unknown: true}
     pipeline: *unstarted_pipeline
 
   - index: 32
@@ -501,16 +445,12 @@ domains:
     title: Dérive et correction
     scientific_directory: maths/32-drift-and-correction/
     scientific_readme: maths/32-drift-and-correction/README.md
-    scientific_sources:
-      - maths/32-drift-and-correction/stability-drift-and-correction.md
+    scientific_sources: [maths/32-drift-and-correction/stability-drift-and-correction.md]
     wave: wave-2
     analysis_companions: [35]
     feature_count: null
     handoff_publication: false
-    dependencies:
-      confirmed: [4]
-      provisional: [35]
-      unknown: true
+    dependencies: {confirmed: [4], provisional: [35], unknown: true}
     pipeline: *unstarted_pipeline
 
   - index: 33
@@ -518,16 +458,12 @@ domains:
     title: Architecture pour environnements à faibles données
     scientific_directory: maths/33-low-data-architecture/
     scientific_readme: maths/33-low-data-architecture/README.md
-    scientific_sources:
-      - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+    scientific_sources: [maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md]
     wave: wave-5
     analysis_companions: []
     feature_count: null
     handoff_publication: false
-    dependencies:
-      confirmed: []
-      provisional: []
-      unknown: true
+    dependencies: {confirmed: [], provisional: [], unknown: true}
     pipeline: *unstarted_pipeline
 
   - index: 34
@@ -548,10 +484,7 @@ domains:
     analysis_companions: []
     feature_count: null
     handoff_publication: false
-    dependencies:
-      confirmed: []
-      provisional: []
-      unknown: true
+    dependencies: {confirmed: [], provisional: [], unknown: true}
     pipeline: *unstarted_pipeline
 
   - index: 35
@@ -559,14 +492,10 @@ domains:
     title: Fidélité au noyau invariant
     scientific_directory: maths/35-fidelity-to-invariant-core/
     scientific_readme: maths/35-fidelity-to-invariant-core/README.md
-    scientific_sources:
-      - maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md
+    scientific_sources: [maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md]
     wave: wave-2
     analysis_companions: [32]
     feature_count: null
     handoff_publication: false
-    dependencies:
-      confirmed: [4]
-      provisional: [32]
-      unknown: true
+    dependencies: {confirmed: [4], provisional: [32], unknown: true}
     pipeline: *unstarted_pipeline
