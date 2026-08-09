@@ -1,0 +1,84 @@
+schema_version: 1
+module_id: TLC-MODULE-CONTEXT-001
+module_name: Context
+status: selected_for_context_implementation_specification
+purpose: >-
+  Provide source-faithful Context descriptors, raw contextual tensor and weight RHS evaluation,
+  provider-based coupled dynamics, sensitivity and adaptation calculations, guarded optimal-family behavior,
+  raw and conditional Context metrics, and crisis assessment while preserving all unresolved scientific boundaries.
+active_features:
+  - TLC-FC-24-CONTEXT-001
+  - TLC-FC-24-CONTEXT-002
+  - TLC-FC-24-CONTEXT-003
+  - TLC-FC-24-CONTEXT-004
+  - TLC-FC-24-CONTEXT-005
+  - TLC-FC-24-CONTEXT-006
+  - TLC-FC-24-CONTEXT-007
+  - TLC-FC-24-CONTEXT-008
+  - TLC-FC-24-CONTEXT-009
+  - TLC-FC-24-CONTEXT-010
+  - TLC-FC-24-CONTEXT-011
+  - TLC-FC-24-CONTEXT-012
+public_operations:
+  - {operation: describe_context_space, features: [TLC-FC-24-CONTEXT-001], semantic_evaluation: structural_only}
+  - {operation: evaluate_raw_context_tensor, features: [TLC-FC-24-CONTEXT-002], semantic_evaluation: true}
+  - {operation: assess_context_distance_availability, features: [TLC-FC-24-CONTEXT-003], semantic_evaluation: false}
+  - {operation: evaluate_context_weight_rhs, features: [TLC-FC-24-CONTEXT-004], semantic_evaluation: true}
+  - {operation: evaluate_tradition_context_rhs, features: [TLC-FC-24-CONTEXT-005], semantic_evaluation: conditional_on_H_J_K_providers}
+  - {operation: aggregate_context_sensitivity, features: [TLC-FC-24-CONTEXT-006], semantic_evaluation: conditional_on_external_derivatives_and_norm}
+  - {operation: evaluate_context_adaptation, features: [TLC-FC-24-CONTEXT-007], semantic_evaluation: conditional_on_external_optimal_state_and_gradient}
+  - {operation: evaluate_conditional_optimal_family_derivative, features: [TLC-FC-24-CONTEXT-008], semantic_evaluation: conditional_on_external_scientific_applicability_and_inverse_action}
+  - {operation: evaluate_raw_context_performance_ratio, features: [TLC-FC-24-CONTEXT-009], semantic_evaluation: true_without_range_certification}
+  - {operation: evaluate_conditional_context_shift, features: [TLC-FC-24-CONTEXT-010], semantic_evaluation: conditional_on_certified_distance_and_global_maximum}
+  - {operation: evaluate_conditional_adaptation_rate, features: [TLC-FC-24-CONTEXT-011], semantic_evaluation: conditional_on_external_derivatives_and_norm}
+  - {operation: assess_adaptation_crisis, features: [TLC-FC-24-CONTEXT-012], semantic_evaluation: conditional_on_external_capacity}
+shared_types:
+  ContextOpaqueScientificValue:
+    purpose: caller-supplied state coefficient derivative norm extremum threshold evidence or provider result that Context must not construct
+  ContextStructuralDescriptor:
+    fields: [feature_id, source_reference, preserved_payload, unresolved_items, scientific_status]
+  ContextStructuredError:
+    fields: [code, category, condition]
+scientific_dependencies: []
+runtime_dependencies: []
+analysis_companions:
+  - {domain: culture, domain_index: 25, mode: explanatory_only_no_runtime_dependency}
+shared_contract_dependencies:
+  - TLC-HC-FEATURE-ID@1.0.0
+  - TLC-HC-SCIENTIFIC-REFERENCE@1.0.0
+  - TLC-HC-REFERENCE-COLLECTION@1.0.0
+  - TLC-HC-UNRESOLVED-ITEM@1.0.0
+  - TLC-HC-OPAQUE-VALUE@1.0.0
+  - TLC-HC-STRUCTURED-ERROR@1.0.0
+  - TLC-HC-TRACEABILITY@1.0.0
+  - TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0
+non_execution_guards:
+  TLC-FC-24-CONTEXT-003: ContextDistanceScientificEvidenceRequired
+unresolved_policy:
+  preserve: true
+  propagate: true
+  resolve_automatically: false
+  promote_to_defaults: false
+out_of_scope:
+  - constructing a differentiable structure for C or M
+  - symmetrizing or certifying g_c as SPD
+  - geodesic path search or distance solvers
+  - vectorizing E_contexte or calibrating coefficients
+  - ODE integration numerical differentiation or automatic differentiation
+  - constructing H J K X star or calligraphic J
+  - proving the missing J-to-H optimality relation
+  - choosing a matrix inverse or optimizer
+  - clamping reversing or normalizing P_ctx
+  - finding a global contextual-distance maximum
+  - inventing system capacity or crisis threshold
+  - requiring Culture as a Context runtime provider
+  - runtime framework selection
+  - C++ implementation
+  - Python bindings
+implementation_readiness:
+  handoff_population_structurally_ready: true
+  semantic_evaluation_is_feature_specific: true
+  executable_features: [TLC-FC-24-CONTEXT-002, TLC-FC-24-CONTEXT-004, TLC-FC-24-CONTEXT-009]
+  conditionally_executable_features: [TLC-FC-24-CONTEXT-005, TLC-FC-24-CONTEXT-006, TLC-FC-24-CONTEXT-007, TLC-FC-24-CONTEXT-008, TLC-FC-24-CONTEXT-010, TLC-FC-24-CONTEXT-011, TLC-FC-24-CONTEXT-012]
+  structural_only_features: [TLC-FC-24-CONTEXT-001, TLC-FC-24-CONTEXT-003]
+future_implementation_tasks: registry/domain-finalization/context/implementation-tasks.yaml
