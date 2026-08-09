@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-25-CULTURE-005
+algorithm_kind: structural_only_non_execution_guard
+execution: structural_only
+steps:
+  - preserve robust low-sensitivity and plastic higher-sensitivity source categories
+  - preserve source examples as qualitative and mainly-qualified
+  - verify external classification evidence is present before returning any concrete label
+  - otherwise return CulturePlasticityEvidenceRequired
+forbidden: [threshold selection, numeric classification, S_contexte redefinition]

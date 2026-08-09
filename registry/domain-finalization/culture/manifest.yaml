@@ -1,0 +1,65 @@
+schema_version: 1
+manifest_id: TLC-CULTURE-DOMAIN-FINALIZATION-001
+domain: culture
+phase: 4
+status: selected_for_implementation_handoff
+base_branch: main
+base_commit: 6f989e75aba0f4795e8d5cc42ab83107c7767d57
+population:
+  - TLC-FC-25-CULTURE-001
+  - TLC-FC-25-CULTURE-002
+  - TLC-FC-25-CULTURE-003
+  - TLC-FC-25-CULTURE-004
+  - TLC-FC-25-CULTURE-005
+  - TLC-FC-25-CULTURE-006
+  - TLC-FC-25-CULTURE-007
+  - TLC-FC-25-CULTURE-008
+source_authority:
+  scientific_source:
+    path: maths/25-culture/culture.md
+    blob_sha: 947ba8bb3b3a2d7c9243522bb376923b45c68d01
+    modified: false
+  scientific_dependency:
+    domain: context
+    domain_index: 24
+    publication_status: published
+    modified_in_this_pr: false
+  inventories:
+    - registry/domain-progress/culture/source-inventory.yaml
+    - registry/domain-progress/culture/feature-inventory.yaml
+    - registry/domain-progress/culture/feature-dependencies.yaml
+    - registry/scientific-objects/culture/scientific-objects.candidate.yaml
+    - registry/scientific-objects/culture/scientific-relations.candidate.yaml
+    - registry/scientific-objects/culture/unresolved-terms.yaml
+source_artifact_patterns:
+  contract: registry/math-contracts/<FEATURE_ID>/contract.yaml
+  candidate_ir: ir/<FEATURE_ID>/ir.candidate.json
+  source_ir: registry/ir/<FEATURE_ID>/ir.yaml
+  test_plan: registry/test-plans/<FEATURE_ID>/test-plan.yaml
+finalized_artifact_patterns:
+  optimized_ir: registry/optimized-ir/culture/<FEATURE_ID>/ir.yaml
+  algorithm: registry/algorithms/culture/<FEATURE_ID>/algorithm.yaml
+  oracle: registry/oracles/culture/<FEATURE_ID>/oracle.yaml
+  implementation_tasks: registry/domain-finalization/culture/implementation-tasks.yaml
+feature_artifacts:
+  TLC-FC-25-CULTURE-001: {contract: registry/math-contracts/TLC-FC-25-CULTURE-001/contract.yaml, candidate_ir: ir/TLC-FC-25-CULTURE-001/ir.candidate.json, source_ir: registry/ir/TLC-FC-25-CULTURE-001/ir.yaml, test_plan: registry/test-plans/TLC-FC-25-CULTURE-001/test-plan.yaml, optimized_ir: registry/optimized-ir/culture/TLC-FC-25-CULTURE-001/ir.yaml, algorithm: registry/algorithms/culture/TLC-FC-25-CULTURE-001/algorithm.yaml, oracle: registry/oracles/culture/TLC-FC-25-CULTURE-001/oracle.yaml}
+  TLC-FC-25-CULTURE-002: {contract: registry/math-contracts/TLC-FC-25-CULTURE-002/contract.yaml, candidate_ir: ir/TLC-FC-25-CULTURE-002/ir.candidate.json, source_ir: registry/ir/TLC-FC-25-CULTURE-002/ir.yaml, test_plan: registry/test-plans/TLC-FC-25-CULTURE-002/test-plan.yaml, optimized_ir: registry/optimized-ir/culture/TLC-FC-25-CULTURE-002/ir.yaml, algorithm: registry/algorithms/culture/TLC-FC-25-CULTURE-002/algorithm.yaml, oracle: registry/oracles/culture/TLC-FC-25-CULTURE-002/oracle.yaml}
+  TLC-FC-25-CULTURE-003: {contract: registry/math-contracts/TLC-FC-25-CULTURE-003/contract.yaml, candidate_ir: ir/TLC-FC-25-CULTURE-003/ir.candidate.json, source_ir: registry/ir/TLC-FC-25-CULTURE-003/ir.yaml, test_plan: registry/test-plans/TLC-FC-25-CULTURE-003/test-plan.yaml, optimized_ir: registry/optimized-ir/culture/TLC-FC-25-CULTURE-003/ir.yaml, algorithm: registry/algorithms/culture/TLC-FC-25-CULTURE-003/algorithm.yaml, oracle: registry/oracles/culture/TLC-FC-25-CULTURE-003/oracle.yaml}
+  TLC-FC-25-CULTURE-004: {contract: registry/math-contracts/TLC-FC-25-CULTURE-004/contract.yaml, candidate_ir: ir/TLC-FC-25-CULTURE-004/ir.candidate.json, source_ir: registry/ir/TLC-FC-25-CULTURE-004/ir.yaml, test_plan: registry/test-plans/TLC-FC-25-CULTURE-004/test-plan.yaml, optimized_ir: registry/optimized-ir/culture/TLC-FC-25-CULTURE-004/ir.yaml, algorithm: registry/algorithms/culture/TLC-FC-25-CULTURE-004/algorithm.yaml, oracle: registry/oracles/culture/TLC-FC-25-CULTURE-004/oracle.yaml}
+  TLC-FC-25-CULTURE-005: {contract: registry/math-contracts/TLC-FC-25-CULTURE-005/contract.yaml, candidate_ir: ir/TLC-FC-25-CULTURE-005/ir.candidate.json, source_ir: registry/ir/TLC-FC-25-CULTURE-005/ir.yaml, test_plan: registry/test-plans/TLC-FC-25-CULTURE-005/test-plan.yaml, optimized_ir: registry/optimized-ir/culture/TLC-FC-25-CULTURE-005/ir.yaml, algorithm: registry/algorithms/culture/TLC-FC-25-CULTURE-005/algorithm.yaml, oracle: registry/oracles/culture/TLC-FC-25-CULTURE-005/oracle.yaml}
+  TLC-FC-25-CULTURE-006: {contract: registry/math-contracts/TLC-FC-25-CULTURE-006/contract.yaml, candidate_ir: ir/TLC-FC-25-CULTURE-006/ir.candidate.json, source_ir: registry/ir/TLC-FC-25-CULTURE-006/ir.yaml, test_plan: registry/test-plans/TLC-FC-25-CULTURE-006/test-plan.yaml, optimized_ir: registry/optimized-ir/culture/TLC-FC-25-CULTURE-006/ir.yaml, algorithm: registry/algorithms/culture/TLC-FC-25-CULTURE-006/algorithm.yaml, oracle: registry/oracles/culture/TLC-FC-25-CULTURE-006/oracle.yaml}
+  TLC-FC-25-CULTURE-007: {contract: registry/math-contracts/TLC-FC-25-CULTURE-007/contract.yaml, candidate_ir: ir/TLC-FC-25-CULTURE-007/ir.candidate.json, source_ir: registry/ir/TLC-FC-25-CULTURE-007/ir.yaml, test_plan: registry/test-plans/TLC-FC-25-CULTURE-007/test-plan.yaml, optimized_ir: registry/optimized-ir/culture/TLC-FC-25-CULTURE-007/ir.yaml, algorithm: registry/algorithms/culture/TLC-FC-25-CULTURE-007/algorithm.yaml, oracle: registry/oracles/culture/TLC-FC-25-CULTURE-007/oracle.yaml}
+  TLC-FC-25-CULTURE-008: {contract: registry/math-contracts/TLC-FC-25-CULTURE-008/contract.yaml, candidate_ir: ir/TLC-FC-25-CULTURE-008/ir.candidate.json, source_ir: registry/ir/TLC-FC-25-CULTURE-008/ir.yaml, test_plan: registry/test-plans/TLC-FC-25-CULTURE-008/test-plan.yaml, optimized_ir: registry/optimized-ir/culture/TLC-FC-25-CULTURE-008/ir.yaml, algorithm: registry/algorithms/culture/TLC-FC-25-CULTURE-008/algorithm.yaml, oracle: registry/oracles/culture/TLC-FC-25-CULTURE-008/oracle.yaml}
+preservation:
+  scientific_source_modified: false
+  context_domain_artifacts_modified: false
+  historical_handoffs_modified: false
+  other_future_domains_published: false
+  unresolved_science_preserved: true
+  new_shared_contracts: []
+completion_scope:
+  structural_implementation_specification_ready: true
+  semantic_execution_is_feature_specific: true
+  runtime_implementation_produced: false
+  cpp_produced: false
+  python_bindings_produced: false

@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-25-CULTURE-006
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-25-CULTURE-006/ir.yaml
+operation: delegate_cultural_adaptation_to_context
+required_behavior: [require TLC-FC-24-CONTEXT-007 conformant provider, require external sensitive-form evidence, require robust-preservation evidence, delegate to A_contexte]
+forbidden_behavior: [construct A_culture, locally optimize X_star, adapt without evidence]
+error_codes: [CultureContextAdaptationProviderRequired, CulturePlasticityEvidenceRequired, CultureRobustPreservationEvidenceRequired]
