@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-22-TEMPORALITY-008
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-22-TEMPORALITY-008/contract.yaml
+source_candidate_ir: ir/TLC-FC-22-TEMPORALITY-008/ir.candidate.json
+nature: transform
+inputs: [delta_E_i_to_candidates, target_j, beta, modulation_f_value]
+outputs: [raw_transition_expression]
+steps: [evaluate target exponential numerator, evaluate candidate exponential denominator, divide by nonzero denominator, multiply by supplied f value]
+errors: [MissingRegimeEnergyGap, SocialInverseTemperatureRequired, TransitionModulationValueRequired, InvalidTransitionDenominator]
