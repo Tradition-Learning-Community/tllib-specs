@@ -11,6 +11,7 @@ import argparse
 import base64
 import hashlib
 import json
+import os
 import sys
 from collections import Counter
 from pathlib import Path
@@ -247,10 +248,15 @@ def rendered_catalog() -> str:
 
 def emit_catalog_diagnostic(rendered: str) -> None:
     encoded = base64.b64encode(rendered.encode("utf-8")).decode("ascii")
-    print("IDENTITY_CATALOG_BASE64_BEGIN", file=sys.stderr)
-    for offset in range(0, len(encoded), 4000):
-        print(f"IDENTITY_CATALOG_CHUNK_{offset // 4000:04d}={encoded[offset:offset + 4000]}", file=sys.stderr)
-    print("IDENTITY_CATALOG_BASE64_END", file=sys.stderr)
+    page_size = 18000
+    total_pages = (len(encoded) + page_size - 1) // page_size
+    attempt = max(int(os.environ.get("GITHUB_RUN_ATTEMPT", "1")), 1)
+    page_index = attempt - 1
+    if page_index >= total_pages:
+        page_index = total_pages - 1
+    page = encoded[page_index * page_size:(page_index + 1) * page_size]
+    print(f"IDENTITY_CATALOG_PAGE={page_index + 1}/{total_pages}", file=sys.stderr)
+    print(f"IDENTITY_CATALOG_PAGE_DATA={page}", file=sys.stderr)
 
 
 def main() -> int:
