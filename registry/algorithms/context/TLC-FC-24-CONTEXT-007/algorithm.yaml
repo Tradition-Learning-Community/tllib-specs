@@ -1,0 +1,11 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-007
+algorithm_kind: provider_based_adaptation
+execution: conditionally_executable
+steps:
+  - require externally supplied X star at c and grad_c X star
+  - form X star at c minus X
+  - multiply the correction by supplied alpha value
+  - multiply supplied grad_c X star by supplied beta value
+  - return X plus the two source terms
+forbidden: [optimization, numerical or automatic differentiation]

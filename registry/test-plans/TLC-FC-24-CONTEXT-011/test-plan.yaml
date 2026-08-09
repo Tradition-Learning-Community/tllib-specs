@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-011
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-011/contract.yaml
+tests:
+  - {id: C011-T01, category: output_contract, verifies: exact product of two externally supplied derivative norms}
+  - {id: C011-T02, category: invalid_input, verifies: missing derivative quantity is rejected}
+  - {id: C011-T03, category: invalid_input, verifies: missing norm provider is rejected}
+  - {id: C011-T04, category: preservation, verifies: no derivative approximation or norm default}

@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-010
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-24-CONTEXT-010/ir.yaml
+operation: evaluate_conditional_context_shift
+required_behavior: [use externally certified distance and established global maximum, preserve source ratio]
+forbidden_behavior: [distance construction, maximum search, compactness inference, supremum substitution]
+error_codes: [ContextDistanceCertificationRequired, ContextGlobalMaximumRequired, ContextGlobalMaximumZero]

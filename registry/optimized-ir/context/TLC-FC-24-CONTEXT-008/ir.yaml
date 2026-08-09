@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-008
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-24-CONTEXT-008/ir.yaml
+operation: evaluate_conditional_optimal_family_derivative
+required_behavior: [require external applicability evidence, use supplied inverse action and derivatives, preserve leading minus sign]
+forbidden_behavior: [invent J-H relation, choose matrix inversion, approximate derivatives]
+error_codes: [ContextOptimalityApplicabilityRequired, ContextInverseJacobianActionRequired, ContextDerivativeProviderRequired]

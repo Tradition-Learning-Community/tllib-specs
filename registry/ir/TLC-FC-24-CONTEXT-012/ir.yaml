@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-012
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-012/contract.yaml
+source_candidate_ir: ir/TLC-FC-24-CONTEXT-012/ir.candidate.json
+nature: validation
+inputs: [tau_adapt, system_capacity]
+outputs: [adaptation_crisis_assessment]
+steps: [require externally defined capacity, require compatible comparison semantics, evaluate strict greater-than predicate, report potential crisis when true]
+errors: [ContextCapacityRequired, ContextCapacityComparisonUnsupported]

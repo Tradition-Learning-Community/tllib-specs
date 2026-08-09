@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-24-CONTEXT-007
+feature_id: TLC-FC-24-CONTEXT-007
+title: Context adaptation operator
+domain_id: context
+contract_kind: computational_contract
+scientific_status: external_provider_required
+scientific_authority: maths/24-context/context.md
+source_sections: ['4. Adaptation optimale', '6. Limites et points scientifiques non résolus']
+inputs: [{name: X, type: opaque_state}, {name: c, type: opaque_context_state}, {name: grad_c, type: opaque_gradient}, {name: X_star_at_c, type: external_optimal_state_value}, {name: grad_c_X_star, type: external_derivative_value}, {name: alpha_value, type: scalar_like}, {name: beta_value, type: scalar_like}]
+outputs: [{name: A_contexte, type: adapted_state_value}]
+preconditions: [X_star_at_c and grad_c_X_star are externally supplied and algebraically compatible]
+postconditions: [output equals X plus alpha times X_star_at_c minus X plus beta times grad_c_X_star]
+invariants: [no optimization is solved, no derivative is approximated, source signs are preserved]
+errors: [ContextOptimalStateRequired, ContextOptimalGradientRequired]
+opaque_parameters: [X, c, grad_c, X_star_at_c, grad_c_X_star]
+scientific_reservations: [TLC-UR-CONTEXT-009]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [solving for X_star, differentiating X_star locally, changing source term orientation]
+traceability: {source: maths/24-context/context.md, inventory: registry/domain-progress/context/feature-inventory.yaml}

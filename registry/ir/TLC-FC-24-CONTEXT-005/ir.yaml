@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-005
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-005/contract.yaml
+source_candidate_ir: ir/TLC-FC-24-CONTEXT-005/ir.candidate.json
+nature: dynamical_rhs
+inputs: [X, c, t, grad_c, grad_X, c_opt, H_provider, J_provider, K_provider]
+outputs: [dX_dt, dc_dt]
+steps: [evaluate H provider, evaluate J provider, evaluate K provider, form c_opt minus c, combine J plus K times context difference]
+errors: [ContextFieldProviderRequired, ContextFieldSignatureIncompatible]

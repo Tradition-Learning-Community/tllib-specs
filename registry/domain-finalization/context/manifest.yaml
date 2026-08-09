@@ -1,0 +1,72 @@
+schema_version: 1
+manifest_id: TLC-CONTEXT-DOMAIN-FINALIZATION-001
+domain: context
+phase: 4
+status: selected_for_implementation_handoff
+base_branch: main
+base_commit: 86f5875e12c73deec3409f24cd2c4fa2314a69fe
+population:
+  - TLC-FC-24-CONTEXT-001
+  - TLC-FC-24-CONTEXT-002
+  - TLC-FC-24-CONTEXT-003
+  - TLC-FC-24-CONTEXT-004
+  - TLC-FC-24-CONTEXT-005
+  - TLC-FC-24-CONTEXT-006
+  - TLC-FC-24-CONTEXT-007
+  - TLC-FC-24-CONTEXT-008
+  - TLC-FC-24-CONTEXT-009
+  - TLC-FC-24-CONTEXT-010
+  - TLC-FC-24-CONTEXT-011
+  - TLC-FC-24-CONTEXT-012
+source_authority:
+  scientific_source:
+    path: maths/24-context/context.md
+    blob_sha: c95c233b4f7f09e837dab975dcd7393ccd8edc64
+    modified: false
+  analysis_companion:
+    path: maths/25-culture/culture.md
+    publication_status: unpublished_analysis_companion
+    modified_in_this_pr: false
+  inventories:
+    - registry/domain-progress/context/source-inventory.yaml
+    - registry/domain-progress/context/feature-inventory.yaml
+    - registry/domain-progress/context/feature-dependencies.yaml
+    - registry/scientific-objects/context/scientific-objects.candidate.yaml
+    - registry/scientific-objects/context/scientific-relations.candidate.yaml
+    - registry/scientific-objects/context/unresolved-terms.yaml
+source_artifact_patterns:
+  contract: registry/math-contracts/<FEATURE_ID>/contract.yaml
+  candidate_ir: ir/<FEATURE_ID>/ir.candidate.json
+  source_ir: registry/ir/<FEATURE_ID>/ir.yaml
+  test_plan: registry/test-plans/<FEATURE_ID>/test-plan.yaml
+finalized_artifact_patterns:
+  optimized_ir: registry/optimized-ir/context/<FEATURE_ID>/ir.yaml
+  algorithm: registry/algorithms/context/<FEATURE_ID>/algorithm.yaml
+  oracle: registry/oracles/context/<FEATURE_ID>/oracle.yaml
+  implementation_tasks: registry/domain-finalization/context/implementation-tasks.yaml
+feature_artifacts:
+  TLC-FC-24-CONTEXT-001: {contract: registry/math-contracts/TLC-FC-24-CONTEXT-001/contract.yaml, candidate_ir: ir/TLC-FC-24-CONTEXT-001/ir.candidate.json, source_ir: registry/ir/TLC-FC-24-CONTEXT-001/ir.yaml, test_plan: registry/test-plans/TLC-FC-24-CONTEXT-001/test-plan.yaml, optimized_ir: registry/optimized-ir/context/TLC-FC-24-CONTEXT-001/ir.yaml, algorithm: registry/algorithms/context/TLC-FC-24-CONTEXT-001/algorithm.yaml, oracle: registry/oracles/context/TLC-FC-24-CONTEXT-001/oracle.yaml}
+  TLC-FC-24-CONTEXT-002: {contract: registry/math-contracts/TLC-FC-24-CONTEXT-002/contract.yaml, candidate_ir: ir/TLC-FC-24-CONTEXT-002/ir.candidate.json, source_ir: registry/ir/TLC-FC-24-CONTEXT-002/ir.yaml, test_plan: registry/test-plans/TLC-FC-24-CONTEXT-002/test-plan.yaml, optimized_ir: registry/optimized-ir/context/TLC-FC-24-CONTEXT-002/ir.yaml, algorithm: registry/algorithms/context/TLC-FC-24-CONTEXT-002/algorithm.yaml, oracle: registry/oracles/context/TLC-FC-24-CONTEXT-002/oracle.yaml}
+  TLC-FC-24-CONTEXT-003: {contract: registry/math-contracts/TLC-FC-24-CONTEXT-003/contract.yaml, candidate_ir: ir/TLC-FC-24-CONTEXT-003/ir.candidate.json, source_ir: registry/ir/TLC-FC-24-CONTEXT-003/ir.yaml, test_plan: registry/test-plans/TLC-FC-24-CONTEXT-003/test-plan.yaml, optimized_ir: registry/optimized-ir/context/TLC-FC-24-CONTEXT-003/ir.yaml, algorithm: registry/algorithms/context/TLC-FC-24-CONTEXT-003/algorithm.yaml, oracle: registry/oracles/context/TLC-FC-24-CONTEXT-003/oracle.yaml}
+  TLC-FC-24-CONTEXT-004: {contract: registry/math-contracts/TLC-FC-24-CONTEXT-004/contract.yaml, candidate_ir: ir/TLC-FC-24-CONTEXT-004/ir.candidate.json, source_ir: registry/ir/TLC-FC-24-CONTEXT-004/ir.yaml, test_plan: registry/test-plans/TLC-FC-24-CONTEXT-004/test-plan.yaml, optimized_ir: registry/optimized-ir/context/TLC-FC-24-CONTEXT-004/ir.yaml, algorithm: registry/algorithms/context/TLC-FC-24-CONTEXT-004/algorithm.yaml, oracle: registry/oracles/context/TLC-FC-24-CONTEXT-004/oracle.yaml}
+  TLC-FC-24-CONTEXT-005: {contract: registry/math-contracts/TLC-FC-24-CONTEXT-005/contract.yaml, candidate_ir: ir/TLC-FC-24-CONTEXT-005/ir.candidate.json, source_ir: registry/ir/TLC-FC-24-CONTEXT-005/ir.yaml, test_plan: registry/test-plans/TLC-FC-24-CONTEXT-005/test-plan.yaml, optimized_ir: registry/optimized-ir/context/TLC-FC-24-CONTEXT-005/ir.yaml, algorithm: registry/algorithms/context/TLC-FC-24-CONTEXT-005/algorithm.yaml, oracle: registry/oracles/context/TLC-FC-24-CONTEXT-005/oracle.yaml}
+  TLC-FC-24-CONTEXT-006: {contract: registry/math-contracts/TLC-FC-24-CONTEXT-006/contract.yaml, candidate_ir: ir/TLC-FC-24-CONTEXT-006/ir.candidate.json, source_ir: registry/ir/TLC-FC-24-CONTEXT-006/ir.yaml, test_plan: registry/test-plans/TLC-FC-24-CONTEXT-006/test-plan.yaml, optimized_ir: registry/optimized-ir/context/TLC-FC-24-CONTEXT-006/ir.yaml, algorithm: registry/algorithms/context/TLC-FC-24-CONTEXT-006/algorithm.yaml, oracle: registry/oracles/context/TLC-FC-24-CONTEXT-006/oracle.yaml}
+  TLC-FC-24-CONTEXT-007: {contract: registry/math-contracts/TLC-FC-24-CONTEXT-007/contract.yaml, candidate_ir: ir/TLC-FC-24-CONTEXT-007/ir.candidate.json, source_ir: registry/ir/TLC-FC-24-CONTEXT-007/ir.yaml, test_plan: registry/test-plans/TLC-FC-24-CONTEXT-007/test-plan.yaml, optimized_ir: registry/optimized-ir/context/TLC-FC-24-CONTEXT-007/ir.yaml, algorithm: registry/algorithms/context/TLC-FC-24-CONTEXT-007/algorithm.yaml, oracle: registry/oracles/context/TLC-FC-24-CONTEXT-007/oracle.yaml}
+  TLC-FC-24-CONTEXT-008: {contract: registry/math-contracts/TLC-FC-24-CONTEXT-008/contract.yaml, candidate_ir: ir/TLC-FC-24-CONTEXT-008/ir.candidate.json, source_ir: registry/ir/TLC-FC-24-CONTEXT-008/ir.yaml, test_plan: registry/test-plans/TLC-FC-24-CONTEXT-008/test-plan.yaml, optimized_ir: registry/optimized-ir/context/TLC-FC-24-CONTEXT-008/ir.yaml, algorithm: registry/algorithms/context/TLC-FC-24-CONTEXT-008/algorithm.yaml, oracle: registry/oracles/context/TLC-FC-24-CONTEXT-008/oracle.yaml}
+  TLC-FC-24-CONTEXT-009: {contract: registry/math-contracts/TLC-FC-24-CONTEXT-009/contract.yaml, candidate_ir: ir/TLC-FC-24-CONTEXT-009/ir.candidate.json, source_ir: registry/ir/TLC-FC-24-CONTEXT-009/ir.yaml, test_plan: registry/test-plans/TLC-FC-24-CONTEXT-009/test-plan.yaml, optimized_ir: registry/optimized-ir/context/TLC-FC-24-CONTEXT-009/ir.yaml, algorithm: registry/algorithms/context/TLC-FC-24-CONTEXT-009/algorithm.yaml, oracle: registry/oracles/context/TLC-FC-24-CONTEXT-009/oracle.yaml}
+  TLC-FC-24-CONTEXT-010: {contract: registry/math-contracts/TLC-FC-24-CONTEXT-010/contract.yaml, candidate_ir: ir/TLC-FC-24-CONTEXT-010/ir.candidate.json, source_ir: registry/ir/TLC-FC-24-CONTEXT-010/ir.yaml, test_plan: registry/test-plans/TLC-FC-24-CONTEXT-010/test-plan.yaml, optimized_ir: registry/optimized-ir/context/TLC-FC-24-CONTEXT-010/ir.yaml, algorithm: registry/algorithms/context/TLC-FC-24-CONTEXT-010/algorithm.yaml, oracle: registry/oracles/context/TLC-FC-24-CONTEXT-010/oracle.yaml}
+  TLC-FC-24-CONTEXT-011: {contract: registry/math-contracts/TLC-FC-24-CONTEXT-011/contract.yaml, candidate_ir: ir/TLC-FC-24-CONTEXT-011/ir.candidate.json, source_ir: registry/ir/TLC-FC-24-CONTEXT-011/ir.yaml, test_plan: registry/test-plans/TLC-FC-24-CONTEXT-011/test-plan.yaml, optimized_ir: registry/optimized-ir/context/TLC-FC-24-CONTEXT-011/ir.yaml, algorithm: registry/algorithms/context/TLC-FC-24-CONTEXT-011/algorithm.yaml, oracle: registry/oracles/context/TLC-FC-24-CONTEXT-011/oracle.yaml}
+  TLC-FC-24-CONTEXT-012: {contract: registry/math-contracts/TLC-FC-24-CONTEXT-012/contract.yaml, candidate_ir: ir/TLC-FC-24-CONTEXT-012/ir.candidate.json, source_ir: registry/ir/TLC-FC-24-CONTEXT-012/ir.yaml, test_plan: registry/test-plans/TLC-FC-24-CONTEXT-012/test-plan.yaml, optimized_ir: registry/optimized-ir/context/TLC-FC-24-CONTEXT-012/ir.yaml, algorithm: registry/algorithms/context/TLC-FC-24-CONTEXT-012/algorithm.yaml, oracle: registry/oracles/context/TLC-FC-24-CONTEXT-012/oracle.yaml}
+preservation:
+  scientific_source_modified: false
+  culture_artifacts_modified: false
+  historical_handoffs_modified: false
+  other_future_domains_published: false
+  unresolved_science_preserved: true
+  new_shared_contracts: []
+completion_scope:
+  structural_implementation_specification_ready: true
+  semantic_execution_is_feature_specific: true
+  runtime_implementation_produced: false
+  cpp_produced: false
+  python_bindings_produced: false

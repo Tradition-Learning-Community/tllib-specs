@@ -1,0 +1,3 @@
+# TLC-FC-24-CONTEXT-011 — Conditional adaptation rate
+
+This package evaluates the source adaptation-rate metric `tau_adapt = ||dX*/dc|| ||dc/dt||` only when both norm values are supplied by external scientific providers. The source does not define how to obtain `dX*/dc`, choose a norm, or numerically differentiate the optimal family. The package therefore performs just the displayed multiplication and rejects missing derivative or norm evidence.

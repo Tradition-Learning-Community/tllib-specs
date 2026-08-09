@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-006
+oracle_kind: exact_formula_provider_and_error
+acceptance:
+  - output is exactly the sum of the three supplied derivative norms
+  - derivative and norm providers remain external
+  - missing derivative or norm provider yields the declared structured error
+rejections: [locally approximated derivative, implicit norm]

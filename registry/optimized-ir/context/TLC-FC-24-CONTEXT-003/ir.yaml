@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-003
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-24-CONTEXT-003/ir.yaml
+operation: assess_context_distance_availability
+required_behavior: [guard local execution, require external scientific evidence and provider]
+forbidden_behavior: [geodesic computation, path enumeration, tensor symmetrization, SPD completion]
+error_codes: [ContextDistanceScientificEvidenceRequired, ContextDistanceProviderRequired]

@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-005
+oracle_kind: exact_rhs_provider_and_error
+acceptance:
+  - providers receive exactly source-declared argument roles
+  - dX_dt equals H provider result
+  - dc_dt preserves J plus K(c_opt-c)
+  - no trajectory integration occurs
+rejections: [missing provider accepted, altered recall term]

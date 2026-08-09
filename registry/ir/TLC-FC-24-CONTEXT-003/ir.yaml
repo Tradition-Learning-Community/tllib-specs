@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-003
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-003/contract.yaml
+source_candidate_ir: ir/TLC-FC-24-CONTEXT-003/ir.candidate.json
+nature: validation
+inputs: [raw_context_tensor_reference, differentiable_structure_evidence, symmetric_positive_metric_evidence, geodesic_distance_provider_reference]
+outputs: [context_distance_availability_assessment]
+steps: [require differentiable-structure evidence, require symmetric-positive-metric evidence, require external distance provider, certify only external availability]
+errors: [ContextDistanceScientificEvidenceRequired, ContextDistanceProviderRequired]

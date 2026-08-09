@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-009
+algorithm_kind: source_formula
+execution: executable
+steps:
+  - require nonzero J(X_star(c),c) denominator
+  - divide supplied J(X,c) by supplied J(X_star(c),c)
+  - return the raw result without a range assertion
+forbidden: [clamping, ratio inversion, normalization, range certification]

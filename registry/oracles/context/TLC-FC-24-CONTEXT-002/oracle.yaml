@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-002
+oracle_kind: exact_formula_and_preservation
+acceptance:
+  - output is exactly the source diagonal sum plus written i<j cross terms
+  - no reverse cross term is inserted unless itself source-supplied
+  - no symmetry positivity or SPD claim is emitted
+rejections: [symmetrized tensor, metric-certified output]

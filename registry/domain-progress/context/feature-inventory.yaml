@@ -1,0 +1,169 @@
+domain_id: context
+status: population_frozen_with_reservations
+feature_count: 12
+source: maths/24-context/context.md
+features:
+  - feature_id: TLC-FC-24-CONTEXT-001
+    canonical_name: Context space descriptor
+    category: declarative
+    source_objects: [TLC-SO-CONTEXT-001, TLC-SO-CONTEXT-002, TLC-SO-CONTEXT-003, TLC-SO-CONTEXT-004, TLC-SO-CONTEXT-005, TLC-SO-CONTEXT-006, TLC-SO-CONTEXT-007, TLC-SO-CONTEXT-008]
+    source_section: '1. Espace contextuel'
+    purpose: Preserve the five-factor product declaration and the embedding in R^m times M while keeping cultural and symbolic internals opaque and refusing to invent a differentiable product structure.
+    inputs: [component_references, metric_symbolic_component_reference]
+    outputs: [context_space_descriptor]
+    preconditions: [source component declarations available]
+    invariants: [five-factor order preserved, M remains only source-declared metric/non-vectorial carrier, no manifold charts or smooth structure invented, Culture is analysis-only]
+    invalid_cases: [request to construct an unspecified differentiable structure, request to require Culture as runtime provider]
+    algorithmic: true
+    scientific_status: preserved_unresolved
+  - feature_id: TLC-FC-24-CONTEXT-002
+    canonical_name: Raw adaptive contextual tensor expression
+    category: transform
+    source_objects: [TLC-SO-CONTEXT-014, TLC-SO-CONTEXT-015, TLC-SO-CONTEXT-016, TLC-SO-CONTEXT-017]
+    source_section: '2. Métrique adaptative'
+    purpose: Evaluate or represent the exact source tensor expression from caller-supplied weights and interactions without symmetrizing it or certifying it as a metric.
+    inputs: [w_i_values, gamma_ij_values, basis_covector_products]
+    outputs: [raw_context_tensor]
+    preconditions: [all required source terms are supplied and support the stated tensor addition and scalar multiplication]
+    invariants: [only i<j cross terms are included, no dx_j tensor dx_i term is invented, no SPD or positivity claim]
+    invalid_cases: [request for automatic symmetrization, request for metric certification]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-24-CONTEXT-003
+    canonical_name: Contextual geodesic distance certification guard
+    category: validation
+    source_objects: [TLC-SO-CONTEXT-014, TLC-SO-CONTEXT-018, TLC-SO-CONTEXT-019, TLC-SO-CONTEXT-020, TLC-SO-CONTEXT-021]
+    source_section: '2. Métrique adaptative'
+    purpose: Guard requests for a true geodesic distance because differentiability, symmetry and positive-definiteness conditions required by the announced construction are absent.
+    inputs: [raw_context_tensor_reference, differentiable_structure_evidence, symmetric_positive_metric_evidence, geodesic_distance_provider_reference]
+    outputs: [context_distance_availability_assessment]
+    preconditions: [source distance declaration available]
+    invariants: [no geodesic solver, path search, symmetrization or SPD completion invented]
+    invalid_cases: [request for local numeric distance without external scientific evidence and provider]
+    algorithmic: true
+    scientific_status: preserved_unresolved
+  - feature_id: TLC-FC-24-CONTEXT-004
+    canonical_name: Context weight evolution right-hand side
+    category: dynamical
+    source_objects: [TLC-SO-CONTEXT-015, TLC-SO-CONTEXT-022, TLC-SO-CONTEXT-023, TLC-SO-CONTEXT-024, TLC-SO-CONTEXT-025, TLC-SO-CONTEXT-026, TLC-SO-CONTEXT-027, TLC-SO-CONTEXT-028]
+    source_section: '2. Métrique adaptative'
+    purpose: Evaluate the exact source RHS for one supplied weight index without integrating the equation and without vectorizing the common E_contexte value.
+    inputs: [w_i, alpha_i, beta_i, gamma_i, E_contexte, grad_X_w_i_dot_dX_dt]
+    outputs: [dw_i_dt]
+    preconditions: [caller supplies the common E_contexte value exactly as an opaque scalar-like source value and the contracted derivative term]
+    invariants: [three additive source terms preserved, E_contexte is not replaced by an inferred vector, no ODE integrator]
+    invalid_cases: [missing contracted derivative term, unsupported arithmetic, request for default coefficients]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-24-CONTEXT-005
+    canonical_name: Tradition-context coupled right-hand sides
+    category: dynamical
+    source_objects: [TLC-SO-CONTEXT-029, TLC-SO-CONTEXT-030, TLC-SO-CONTEXT-031, TLC-SO-CONTEXT-032, TLC-SO-CONTEXT-033, TLC-SO-CONTEXT-034, TLC-SO-CONTEXT-035, TLC-SO-CONTEXT-036, TLC-SO-CONTEXT-037, TLC-SO-CONTEXT-060]
+    source_section: '3. Couplage tradition–contexte'
+    purpose: Evaluate the two source RHS values through supplied H J and K providers and the supplied reference-context difference, without integrating the coupled system.
+    inputs: [X, c, t, grad_c, grad_X, c_opt, H_provider, J_provider, K_provider]
+    outputs: [dX_dt, dc_dt]
+    preconditions: [all three source providers are supplied and callable on source-declared arguments]
+    invariants: [H and J Lipschitz claims preserved only as source assertions, K multiplies c_opt minus c, no time solver]
+    invalid_cases: [missing provider, incompatible provider signature, request for integration]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-24-CONTEXT-006
+    canonical_name: Contextual sensitivity aggregation
+    category: aggregation
+    source_objects: [TLC-SO-CONTEXT-038, TLC-SO-CONTEXT-039, TLC-SO-CONTEXT-040, TLC-SO-CONTEXT-041]
+    source_section: '3. Couplage tradition–contexte'
+    purpose: Evaluate the exact sensitivity sum from externally supplied derivative objects and norm evaluations without choosing differentiation or norm constructions.
+    inputs: [grad_c_H, grad2_c_H, partial_H_partial_grad_c, norm_provider]
+    outputs: [S_contexte]
+    preconditions: [all derivative values or derivative-provider results and a compatible norm provider are supplied]
+    invariants: [exact three-term norm sum preserved, no finite differences automatic differentiation or norm default]
+    invalid_cases: [missing derivative evidence, missing norm provider]
+    algorithmic: true
+    scientific_status: external_provider_required
+  - feature_id: TLC-FC-24-CONTEXT-007
+    canonical_name: Context adaptation operator
+    category: transform
+    source_objects: [TLC-SO-CONTEXT-042, TLC-SO-CONTEXT-043, TLC-SO-CONTEXT-044, TLC-SO-CONTEXT-045, TLC-SO-CONTEXT-046]
+    source_section: '4. Adaptation optimale'
+    purpose: Evaluate the exact source adaptation expression from supplied optimal-state and contextual-gradient values without solving an optimization or differentiating X star.
+    inputs: [X, c, grad_c, X_star_at_c, grad_c_X_star, alpha_value, beta_value]
+    outputs: [A_contexte]
+    preconditions: [X_star and grad_c_X_star are externally supplied and algebraically compatible]
+    invariants: [X plus alpha times X_star minus X plus beta times grad_c_X_star preserved, no optimizer, no derivative approximation]
+    invalid_cases: [missing X_star provider result, missing gradient provider result]
+    algorithmic: true
+    scientific_status: external_provider_required
+  - feature_id: TLC-FC-24-CONTEXT-008
+    canonical_name: Conditional optimal-family derivative
+    category: dynamical
+    source_objects: [TLC-SO-CONTEXT-047, TLC-SO-CONTEXT-048, TLC-SO-CONTEXT-049, TLC-SO-CONTEXT-050]
+    source_section: '4. Adaptation optimale'
+    purpose: Evaluate the announced dX star over dt expression only when an external scientific authority attests applicability linking the optimality statement to H and supplies the required inverse-Jacobian action and derivatives.
+    inputs: [optimality_applicability_evidence, inverse_grad_X_H_action_provider, grad_c_H, dc_dt, partial_H_partial_t]
+    outputs: [dX_star_dt]
+    preconditions: [strict-convexity evidence, grad_X_H invertibility evidence, explicit external applicability evidence, derivative values and inverse action provider are supplied]
+    invariants: [leading minus sign preserved, no relation between J and H is invented, no matrix inversion algorithm selected]
+    invalid_cases: [missing applicability evidence, missing inverse action provider, missing derivative]
+    algorithmic: true
+    scientific_status: external_provider_required
+  - feature_id: TLC-FC-24-CONTEXT-009
+    canonical_name: Raw contextual performance ratio
+    category: transform
+    source_objects: [TLC-SO-CONTEXT-047, TLC-SO-CONTEXT-052]
+    source_section: '5. Métriques'
+    purpose: Evaluate the exact source ratio J(X,c) divided by J(X star(c),c) without clamping, inversion or range certification.
+    inputs: [J_X_c, J_X_star_c]
+    outputs: [P_ctx_raw]
+    preconditions: [denominator is supplied and nonzero and values support division]
+    invariants: [source orientation preserved, output is not clamped to zero-one, no assertion that result lies in zero-one]
+    invalid_cases: [zero denominator, request to reverse or normalize the ratio]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-24-CONTEXT-010
+    canonical_name: Conditional contextual shift ratio
+    category: transform
+    source_objects: [TLC-SO-CONTEXT-021, TLC-SO-CONTEXT-053, TLC-SO-CONTEXT-055]
+    source_section: '5. Métriques'
+    purpose: Evaluate Delta_ctx only from externally supplied valid contextual distances and an externally established global maximum denominator, without searching the domain or assuming compactness.
+    inputs: [distance_c_c0, global_max_distance]
+    outputs: [Delta_ctx]
+    preconditions: [distance values come from an externally certified distance construction, global maximum is externally established and nonzero]
+    invariants: [exact ratio preserved, no local global-max search, no compactness or maximum existence inferred]
+    invalid_cases: [missing certified distance, missing maximum, zero maximum]
+    algorithmic: true
+    scientific_status: external_provider_required
+  - feature_id: TLC-FC-24-CONTEXT-011
+    canonical_name: Conditional adaptation rate
+    category: transform
+    source_objects: [TLC-SO-CONTEXT-054, TLC-SO-CONTEXT-056, TLC-SO-CONTEXT-057]
+    source_section: '5. Métriques'
+    purpose: Evaluate tau_adapt as the product of externally supplied norms of dX star over dc and dc over dt.
+    inputs: [dX_star_dc, dc_dt, norm_provider]
+    outputs: [tau_adapt]
+    preconditions: [both derivative quantities and compatible norm provider are supplied]
+    invariants: [exact product of two norms preserved, no derivative approximation or norm default]
+    invalid_cases: [missing derivative quantity, missing norm provider]
+    algorithmic: true
+    scientific_status: external_provider_required
+  - feature_id: TLC-FC-24-CONTEXT-012
+    canonical_name: Conditional adaptation crisis assessment
+    category: validation
+    source_objects: [TLC-SO-CONTEXT-054, TLC-SO-CONTEXT-058, TLC-SO-CONTEXT-059]
+    source_section: '5. Métriques'
+    purpose: Assess the source crisis predicate only when caller supplies an externally defined system-capacity threshold; no default capacity is introduced.
+    inputs: [tau_adapt, system_capacity]
+    outputs: [adaptation_crisis_assessment]
+    preconditions: [system capacity is externally supplied with comparable semantics]
+    invariants: [crisis only when tau_adapt exceeds supplied capacity, no default threshold, equality is not silently changed to crisis]
+    invalid_cases: [missing capacity threshold, incompatible comparison semantics]
+    algorithmic: true
+    scientific_status: preserved_unresolved
+population_decision:
+  feature_count: 12
+  equation_per_feature_rule_rejected: true
+  metrics_split_by_execution_boundary: true
+  structural_descriptors: [TLC-FC-24-CONTEXT-001]
+  non_execution_guards: [TLC-FC-24-CONTEXT-003]
+  executable_source_formulas: [TLC-FC-24-CONTEXT-002, TLC-FC-24-CONTEXT-004, TLC-FC-24-CONTEXT-009]
+  conditional_source_backed: [TLC-FC-24-CONTEXT-005, TLC-FC-24-CONTEXT-006, TLC-FC-24-CONTEXT-007, TLC-FC-24-CONTEXT-008, TLC-FC-24-CONTEXT-010, TLC-FC-24-CONTEXT-011, TLC-FC-24-CONTEXT-012]

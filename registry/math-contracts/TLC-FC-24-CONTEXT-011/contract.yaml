@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-24-CONTEXT-011
+feature_id: TLC-FC-24-CONTEXT-011
+title: Conditional adaptation rate
+domain_id: context
+contract_kind: guarded_computational_contract
+scientific_status: external_provider_required
+scientific_authority: maths/24-context/context.md
+source_sections: ['5. Métriques', '6. Limites et points scientifiques non résolus']
+inputs: [{name: dX_star_dc, type: external_derivative_value}, {name: dc_dt, type: external_derivative_value}, {name: norm_provider, type: external_provider}]
+outputs: [{name: tau_adapt, type: scalar_like}]
+preconditions: [both derivative quantities and a compatible norm provider are supplied]
+postconditions: [output equals norm dX_star_dc times norm dc_dt]
+invariants: [no derivative approximation or norm construction is selected]
+errors: [ContextDerivativeQuantityRequired, ContextNormProviderRequired]
+opaque_parameters: [dX_star_dc, dc_dt]
+scientific_reservations: [TLC-UR-CONTEXT-009]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [differentiating X_star, integrating c, choosing a norm]
+traceability: {source: maths/24-context/context.md, inventory: registry/domain-progress/context/feature-inventory.yaml}

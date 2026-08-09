@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-24-CONTEXT-004
+feature_id: TLC-FC-24-CONTEXT-004
+title: Context weight evolution right-hand side
+domain_id: context
+contract_kind: computational_contract
+scientific_status: partially_defined
+scientific_authority: maths/24-context/context.md
+source_sections: ['2. Métrique adaptative', '6. Limites et points scientifiques non résolus']
+inputs: [{name: w_i, type: scalar_like}, {name: alpha_i, type: scalar_like}, {name: beta_i, type: scalar_like}, {name: gamma_i, type: scalar_like}, {name: E_contexte, type: opaque_common_equilibrium_value}, {name: grad_X_w_i_dot_dX_dt, type: scalar_like_contracted_term}]
+outputs: [{name: dw_i_dt, type: scalar_like}]
+preconditions: [all source terms are supplied and support the written arithmetic]
+postconditions: [output equals alpha_i(E_contexte-w_i)+beta_i w_i(1-w_i)+gamma_i contracted_term]
+invariants: [E_contexte is preserved as caller supplied and is never vectorized, no ODE integration]
+errors: [ContextWeightArithmeticUnsupported, ContextWeightDerivativeTermRequired]
+opaque_parameters: [E_contexte]
+scientific_reservations: [TLC-UR-CONTEXT-005]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [inventing vector equilibrium, defaulting coefficients, integrating the weight trajectory]
+traceability: {source: maths/24-context/context.md, inventory: registry/domain-progress/context/feature-inventory.yaml}

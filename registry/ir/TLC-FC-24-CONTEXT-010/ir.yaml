@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-010
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-010/contract.yaml
+source_candidate_ir: ir/TLC-FC-24-CONTEXT-010/ir.candidate.json
+nature: guarded_transform
+inputs: [distance_c_c0, global_max_distance]
+outputs: [Delta_ctx]
+steps: [require certified external distance, require externally established global maximum, reject zero maximum, divide numerator by denominator]
+errors: [ContextDistanceCertificationRequired, ContextGlobalMaximumRequired, ContextGlobalMaximumZero]

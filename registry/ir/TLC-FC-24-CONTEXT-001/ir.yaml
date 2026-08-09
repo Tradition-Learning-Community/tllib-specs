@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-001
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-001/contract.yaml
+source_candidate_ir: ir/TLC-FC-24-CONTEXT-001/ir.candidate.json
+nature: declarative
+inputs: [component_references, metric_symbolic_component_reference]
+outputs: [context_space_descriptor]
+steps: [validate five source component references, preserve product order, preserve R^m times M inclusion, attach unresolved differentiability reservation]
+errors: [ContextDifferentiableStructureUnavailable, ContextCultureRuntimeDependencyForbidden]

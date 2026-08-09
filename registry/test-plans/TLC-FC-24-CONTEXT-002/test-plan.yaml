@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-002
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-002/contract.yaml
+tests:
+  - {id: C002-T01, category: output_contract, verifies: exact diagonal plus i<j expression}
+  - {id: C002-T02, category: preservation, verifies: no dx_j tensor dx_i term is synthesized}
+  - {id: C002-T03, category: preservation, verifies: no SPD or metric certification}
+  - {id: C002-T04, category: error, verifies: unsupported arithmetic is structured failure}

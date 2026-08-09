@@ -1,0 +1,11 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-004
+algorithm_kind: source_rhs
+execution: executable
+steps:
+  - require the externally supplied contraction grad_X w_i dot dX/dt
+  - compute alpha_i times E_contexte minus w_i
+  - compute beta_i times w_i times one minus w_i
+  - compute gamma_i times the supplied contraction
+  - add the three source terms
+forbidden: [vector equilibrium synthesis, numerical integration]

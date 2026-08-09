@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-24-CONTEXT-002
+feature_id: TLC-FC-24-CONTEXT-002
+title: Raw adaptive contextual tensor expression
+domain_id: context
+contract_kind: computational_contract
+scientific_status: partially_defined
+scientific_authority: maths/24-context/context.md
+source_sections: ['2. Métrique adaptative', '6. Limites et points scientifiques non résolus']
+inputs: [{name: w_i_values, type: indexed_scalar_values}, {name: gamma_ij_values, type: strict_upper_pair_values}, {name: basis_covector_products, type: externally_defined_tensor_terms}]
+outputs: [{name: raw_context_tensor, type: tensor_expression_value}]
+preconditions: [supplied terms support the stated scalar multiplication and addition]
+postconditions: [output equals the exact written sum of diagonal terms and i<j cross terms]
+invariants: [no dx_j tensor dx_i counterpart is added, no symmetry positivity or SPD is certified]
+errors: [ContextTensorArithmeticUnsupported, ContextMetricCertificationUnsupported]
+opaque_parameters: [w_i_values, gamma_ij_values, basis_covector_products]
+scientific_reservations: [TLC-UR-CONTEXT-002, TLC-UR-CONTEXT-003]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [symmetrizing g_c, certifying SPD, adding coefficient defaults]
+traceability: {source: maths/24-context/context.md, inventory: registry/domain-progress/context/feature-inventory.yaml}

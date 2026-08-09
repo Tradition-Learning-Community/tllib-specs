@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-008
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-008/contract.yaml
+tests:
+  - {id: C008-T01, category: output_contract, verifies: exact announced derivative formula and leading minus sign}
+  - {id: C008-T02, category: invalid_input, verifies: absent applicability evidence blocks execution}
+  - {id: C008-T03, category: invalid_input, verifies: absent inverse action provider blocks execution}
+  - {id: C008-T04, category: preservation, verifies: no J-H proof or matrix inversion method is invented}
