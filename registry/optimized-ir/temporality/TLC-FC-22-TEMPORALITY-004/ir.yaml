@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-22-TEMPORALITY-004
+status: selected_for_temporality_implementation_specification
+source_ir: registry/ir/TLC-FC-22-TEMPORALITY-004/ir.yaml
+representation: hereditary_temporal_rhs_with_external_memory_term
+execution: conditionally_executable
+inputs: [phi_tau, tau, temporal_values_gradient, F_tau_provider, hereditary_memory_integral_term, memory_kernel_reference, mnemonic_operator_reference]
+outputs: [dphi_dtau]
+ordered_operations: [validate_memory_scientific_provenance, evaluate_F_tau_provider, add_supplied_hereditary_memory_term]
+forbidden: [quadrature_selection, time_integrator_selection, direct_memory_signature_adapter_invention]
