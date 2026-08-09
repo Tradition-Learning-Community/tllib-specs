@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-22-TEMPORALITY-003
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-22-TEMPORALITY-003/contract.yaml
+source_candidate_ir: ir/TLC-FC-22-TEMPORALITY-003/ir.candidate.json
+nature: validation_guard
+inputs: [g_tau_reference, positive_definiteness_evidence, distance_construction_reference]
+outputs: [distance_availability_assessment]
+steps: [inspect SPD evidence, inspect distance construction reference, return guarded descriptor without distance execution]
+errors: [ExternalTemporalMetricEvidenceRequired, ExternalTemporalDistanceConstructionRequired, TemporalDistanceExecutionUnsupported]
