@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-007
+source_contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-007/contract.yaml
+tests:
+  - {id: R007-T01, category: error, verifies: missing Identity threshold is rejected without a default}
+  - {id: R007-T02, category: error, verifies: missing recovery trajectory evidence is rejected}
+  - {id: R007-T03, category: preservation, verifies: supplied candidate time is assessed without solving the infimum}
+  - {id: R007-T04, category: unsupported_operation, verifies: no integration root search or generic finite-return claim occurs}
