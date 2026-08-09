@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-004
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-004/contract.yaml
+source_candidate_ir: ir/TLC-FC-27-REFLEXIVITY-004/ir.candidate.json
+nature: validation
+inputs: [Phi_id_value, Phi_seuil]
+outputs: [threshold_assessment]
+steps: [require Identity cost value, require opaque Identity threshold, compare values, expose source above-threshold trigger predicate without lifecycle]
+errors: [IdentityDissonanceValueRequired, IdentityThresholdRequired]
