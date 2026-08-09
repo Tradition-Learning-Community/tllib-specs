@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-003
+oracle_kind: rhs_and_preservation
+acceptance:
+  - output begins with the exact negative supplied Identity gradient term
+  - eta is consumed only as a supplied opaque value
+  - R-star absence yields IdealStateProviderRequired
+  - no trajectory integration occurs
+rejections: [positive gradient substitution, Gaussian eta assumption, white-noise eta assumption, invented ideal state, numerical solver]
