@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-26-IDENTITY-005
+status: selected_for_identity_implementation_specification
+source_ir: registry/ir/TLC-FC-26-IDENTITY-005/ir.yaml
+representation: subjective_social_identity_rhs
+execution: conditionally_executable
+inputs: [R_i, X_i, peer_R_values, alpha_i, beta_i, delta_ij_values, zeta_i_t, R_i_star, grad_Ri_Phi_id, G_i_provider, dual_primal_difference_provider]
+outputs: [dR_i_dt]
+ordered_operations: [evaluate_G_i, evaluate_R_minus_X_with_provider, apply_alpha_term_with_source_sign, apply_beta_gradient_term_with_source_sign, aggregate_delta_peer_terms, apply_zeta_ideal_term, sum_source_terms]
+forbidden: [sign_correction, default_riesz_map, coefficient_defaults, time_integrator]

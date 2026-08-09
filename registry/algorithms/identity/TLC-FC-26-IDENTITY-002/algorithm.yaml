@@ -1,0 +1,10 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-26-IDENTITY-002
+feature_id: TLC-FC-26-IDENTITY-002
+status: selected_for_identity_implementation_specification
+algorithm_kind: exact_source_formula_with_external_geometry
+source_ir: registry/optimized-ir/identity/TLC-FC-26-IDENTITY-002/ir.yaml
+ordered_steps: [require lambda and mu positive, require dual-primal difference provider, require squared-norm provider, evaluate R-X term, evaluate grad-R term, evaluate velocity-mismatch term, sum exact terms]
+errors: [DualPrimalIdentificationRequired, NormProviderRequired, PositiveCoefficientRequired]
+determinism: deterministic_for_supplied_provider_results
+forbidden: [Riesz default, norm selection, derivative approximation]

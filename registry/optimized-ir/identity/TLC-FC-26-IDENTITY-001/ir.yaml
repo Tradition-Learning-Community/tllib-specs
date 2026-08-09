@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-26-IDENTITY-001
+status: selected_for_identity_implementation_specification
+source_ir: registry/ir/TLC-FC-26-IDENTITY-001/ir.yaml
+representation: identity_space_product_metric_descriptor
+execution: structural_only
+inputs: [identity_source_reference]
+outputs: [identity_space_descriptor]
+ordered_operations: [emit_source_factor_references, emit_practical_state_pair, emit_product_metric_reference, attach_unconstructed_isomorphism_reservation]
+forbidden: [isomorphism_construction, jet_bundle_construction, cotangent_realization, default_riesz_identification]

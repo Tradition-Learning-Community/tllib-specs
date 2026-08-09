@@ -1,0 +1,79 @@
+schema_version: 1
+module_id: TLC-MODULE-IDENTITY-001
+module_name: Identity
+status: selected_for_identity_implementation_specification
+purpose: >-
+  Provide source-faithful Identity structure, conditional dissonance/threshold/dynamics/bound/metric evaluation,
+  structural attractor descriptors, and non-execution guards for incomplete theorem and indicator claims across
+  exactly thirteen features while preserving every unresolved scientific boundary.
+active_features:
+  - TLC-FC-26-IDENTITY-001
+  - TLC-FC-26-IDENTITY-002
+  - TLC-FC-26-IDENTITY-003
+  - TLC-FC-26-IDENTITY-004
+  - TLC-FC-26-IDENTITY-005
+  - TLC-FC-26-IDENTITY-006
+  - TLC-FC-26-IDENTITY-007
+  - TLC-FC-26-IDENTITY-008
+  - TLC-FC-26-IDENTITY-009
+  - TLC-FC-26-IDENTITY-010
+  - TLC-FC-26-IDENTITY-011
+  - TLC-FC-26-IDENTITY-012
+  - TLC-FC-26-IDENTITY-013
+public_operations:
+  - {operation: describe_identity_space, features: [TLC-FC-26-IDENTITY-001], semantic_evaluation: structural_only}
+  - {operation: evaluate_identity_dissonance, features: [TLC-FC-26-IDENTITY-002], semantic_evaluation: conditional_on_external_geometry}
+  - {operation: assess_identity_health, features: [TLC-FC-26-IDENTITY-003], semantic_evaluation: conditional_on_external_threshold}
+  - {operation: evaluate_objective_identity_rhs, features: [TLC-FC-26-IDENTITY-004], semantic_evaluation: conditional_on_external_field_and_arithmetic}
+  - {operation: evaluate_subjective_identity_rhs, features: [TLC-FC-26-IDENTITY-005], semantic_evaluation: conditional_on_external_field_geometry_and_gradient}
+  - {operation: describe_identity_attractors, features: [TLC-FC-26-IDENTITY-006], semantic_evaluation: structural_only}
+  - {operation: assess_isolated_convergence_claim, features: [TLC-FC-26-IDENTITY-007], semantic_evaluation: false}
+  - {operation: assess_contextual_stability_bound, features: [TLC-FC-26-IDENTITY-008], semantic_evaluation: conditional_on_external_context_and_geometry}
+  - {operation: assess_identity_bifurcation_claim, features: [TLC-FC-26-IDENTITY-009], semantic_evaluation: false}
+  - {operation: evaluate_identity_coherence, features: [TLC-FC-26-IDENTITY-010], semantic_evaluation: conditional_on_external_geometry}
+  - {operation: evaluate_identity_stability, features: [TLC-FC-26-IDENTITY-011], semantic_evaluation: conditional_on_external_integral_and_context_gradient}
+  - {operation: assess_recovery_time_availability, features: [TLC-FC-26-IDENTITY-012], semantic_evaluation: false}
+  - {operation: assess_contextual_robustness_semantics, features: [TLC-FC-26-IDENTITY-013], semantic_evaluation: false}
+shared_types:
+  IdentityOpaqueScientificValue: {purpose: caller-supplied scientific state coefficient threshold gradient norm provider result or evidence not locally constructed}
+  IdentityStructuralDescriptor: {fields: [feature_id, source_reference, preserved_payload, unresolved_items, scientific_status]}
+  IdentityStructuredError: {fields: [code, category, condition]}
+scientific_dependencies: []
+incoming_scientific_consumers:
+  - {domain: reflexivity, domain_index: 27, direction: 27_to_26, mode: Identity primitives consumed by later domain}
+runtime_dependencies: []
+shared_contract_dependencies:
+  - TLC-HC-FEATURE-ID@1.0.0
+  - TLC-HC-SCIENTIFIC-REFERENCE@1.0.0
+  - TLC-HC-REFERENCE-COLLECTION@1.0.0
+  - TLC-HC-UNRESOLVED-ITEM@1.0.0
+  - TLC-HC-OPAQUE-VALUE@1.0.0
+  - TLC-HC-STRUCTURED-ERROR@1.0.0
+  - TLC-HC-TRACEABILITY@1.0.0
+  - TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0
+non_execution_guards:
+  TLC-FC-26-IDENTITY-007: ConvergenceCertificationUnsupported
+  TLC-FC-26-IDENTITY-009: ArrheniusLawUnavailable
+  TLC-FC-26-IDENTITY-012: RecoveryTimeDefinitionRequired
+  TLC-FC-26-IDENTITY-013: ContextualRobustnessExecutionUnsupported
+unresolved_policy: {preserve: true, propagate: true, resolve_automatically: false, promote_to_defaults: false}
+out_of_scope:
+  - constructing the announced identity-space isomorphism cotangent realization or jet structure
+  - choosing a Riesz identification between TLS-star and TLS
+  - selecting norms derivative approximations quadrature or ODE solvers
+  - clamping or renormalizing C_id
+  - calibrating Phi_seuil or other source-absent parameters
+  - inventing Lyapunov or exponential-convergence proofs
+  - inventing post-threshold attractors or an Arrhenius law
+  - importing Reflexivity runtime semantics into Identity
+  - inverting contextual robustness or replacing minimum by maximum
+  - runtime framework selection
+  - C++ implementation
+  - Python bindings
+implementation_readiness:
+  handoff_population_structurally_ready: true
+  semantic_evaluation_is_feature_specific: true
+  executable_features: []
+  conditionally_executable_features: [TLC-FC-26-IDENTITY-002, TLC-FC-26-IDENTITY-003, TLC-FC-26-IDENTITY-004, TLC-FC-26-IDENTITY-005, TLC-FC-26-IDENTITY-008, TLC-FC-26-IDENTITY-010, TLC-FC-26-IDENTITY-011]
+  structural_only_features: [TLC-FC-26-IDENTITY-001, TLC-FC-26-IDENTITY-006, TLC-FC-26-IDENTITY-007, TLC-FC-26-IDENTITY-009, TLC-FC-26-IDENTITY-012, TLC-FC-26-IDENTITY-013]
+future_implementation_tasks: registry/domain-finalization/identity/implementation-tasks.yaml

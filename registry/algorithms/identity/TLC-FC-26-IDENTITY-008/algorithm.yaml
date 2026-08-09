@@ -1,0 +1,10 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-26-IDENTITY-008
+feature_id: TLC-FC-26-IDENTITY-008
+status: selected_for_identity_implementation_specification
+algorithm_kind: source_bound_with_external_arithmetic
+source_ir: registry/optimized-ir/identity/TLC-FC-26-IDENTITY-008/ir.yaml
+ordered_steps: [require arithmetic and norm providers, evaluate ||R-X||, evaluate ||c(t)-c0||, form C times context norm plus epsilon, compare source less-than-or-equal bound]
+errors: [ContextualBoundProviderRequired, DualPrimalIdentificationRequired]
+determinism: deterministic_for_supplied_provider_results
+forbidden: [Context runtime dependency inference, C or epsilon calibration, theorem proof claim]

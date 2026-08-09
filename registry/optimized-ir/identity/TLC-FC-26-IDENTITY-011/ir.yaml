@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-26-IDENTITY-011
+status: selected_for_identity_implementation_specification
+source_ir: registry/ir/TLC-FC-26-IDENTITY-011/ir.yaml
+representation: source_stability_metric_with_external_integral
+execution: conditionally_executable
+inputs: [T, sigma, velocity_mismatch_norm_provider, context_gradient_norm_provider, integral_provider]
+outputs: [S_id]
+ordered_operations: [require_T_sigma_and_providers, form_exact_source_integrand, delegate_integration, divide_by_T, retain_source_interpretation]
+forbidden: [quadrature_selection, time_discretization, sigma_default, orientation_reversal]

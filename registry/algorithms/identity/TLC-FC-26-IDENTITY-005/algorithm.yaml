@@ -1,0 +1,10 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-26-IDENTITY-005
+feature_id: TLC-FC-26-IDENTITY-005
+status: selected_for_identity_implementation_specification
+algorithm_kind: source_rhs_with_external_dual_primal_arithmetic
+source_ir: registry/optimized-ir/identity/TLC-FC-26-IDENTITY-005/ir.yaml
+ordered_steps: [require G_i provider and dual-primal arithmetic, evaluate G_i(R_i,X_i), evaluate alpha_i(R_i-X_i) with source sign, add beta_i grad_Ri Phi_id with source sign, aggregate delta_ij(R_j-R_i), add zeta_i(t)(R_i_star-R_i), return dR_i_dt without advancing R]
+errors: [SubjectiveFieldProviderRequired, DualPrimalIdentificationRequired, IdentityGradientRequired, PeerSubjectiveDataRequired]
+determinism: deterministic_for_supplied_provider_results_and_peer_order
+forbidden: [sign correction, Riesz default, ODE integrator]
