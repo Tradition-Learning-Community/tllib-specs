@@ -1,0 +1,37 @@
+schema_version: 1
+domain: reflexivity
+status: candidate_frozen
+source: maths/27-reflexivity/reflexivity.md
+object_count: 31
+objects:
+  - {id: RFX-OBJ-001, name: MMeta(TLS), kind: space, status: declared, note: metacognitive process space; internal state structure unspecified}
+  - {id: RFX-OBJ-002, name: X, kind: state_component, status: imported, authority: TLC-FC-26-IDENTITY-001}
+  - {id: RFX-OBJ-003, name: R, kind: state_component, status: imported, authority: TLC-FC-26-IDENTITY-001}
+  - {id: RFX-OBJ-004, name: '(X,R)', kind: identity_state, status: imported, authority: TLC-FC-26-IDENTITY-001}
+  - {id: RFX-OBJ-005, name: Phi_id, kind: cost, status: imported, authority: TLC-FC-26-IDENTITY-002}
+  - {id: RFX-OBJ-006, name: grad_R Phi_id, kind: gradient, status: provider_backed, authority: TLC-FC-26-IDENTITY-002}
+  - {id: RFX-OBJ-007, name: I, kind: operator, status: source_defined}
+  - {id: RFX-OBJ-008, name: alpha(t), kind: parameter, status: source_defined, constraint: '[0,1]'}
+  - {id: RFX-OBJ-009, name: beta(t), kind: parameter, status: source_defined, constraint: '>0'}
+  - {id: RFX-OBJ-010, name: eta(t), kind: fluctuation, status: unresolved_distribution}
+  - {id: RFX-OBJ-011, name: zeta(t), kind: parameter, status: source_defined}
+  - {id: RFX-OBJ-012, name: R*, kind: ideal_state, status: external_provider_required}
+  - {id: RFX-OBJ-013, name: adaptive_correction_rhs, kind: rhs, status: source_defined}
+  - {id: RFX-OBJ-014, name: Phi_seuil, kind: threshold, status: imported_opaque, authority: TLC-FC-26-IDENTITY-003}
+  - {id: RFX-OBJ-015, name: crisis_realignement, kind: event_semantics, status: partially_declared}
+  - {id: RFX-OBJ-016, name: R_i, kind: social_state_component, status: imported_identity_semantics}
+  - {id: RFX-OBJ-017, name: X_i, kind: social_state_component, status: imported_identity_semantics}
+  - {id: RFX-OBJ-018, name: G_i, kind: external_rhs_term, status: provider_backed}
+  - {id: RFX-OBJ-019, name: alpha_i, kind: social_parameter, status: source_defined}
+  - {id: RFX-OBJ-020, name: beta_i, kind: social_parameter, status: source_defined}
+  - {id: RFX-OBJ-021, name: delta_ij, kind: coupling_parameter, status: source_defined}
+  - {id: RFX-OBJ-022, name: social_coupling_sum, kind: coupling_term, status: source_defined}
+  - {id: RFX-OBJ-023, name: zeta_i(t), kind: social_parameter, status: source_defined}
+  - {id: RFX-OBJ-024, name: R_i*, kind: ideal_state, status: external_provider_required}
+  - {id: RFX-OBJ-025, name: social_reflexivity_rhs, kind: rhs, status: source_defined}
+  - {id: RFX-OBJ-026, name: identity_gap_norm, kind: metric_condition, status: imported_geometry_provider_required}
+  - {id: RFX-OBJ-027, name: recovery_time_infimum, kind: temporal_condition, status: source_defined_guarded}
+  - {id: RFX-OBJ-028, name: narrative_continuity, kind: preservation_condition, status: undefined_metric}
+  - {id: RFX-OBJ-029, name: values_practices_congruence, kind: preservation_condition, status: undefined_metric}
+  - {id: RFX-OBJ-030, name: contextual_stability, kind: preservation_condition, status: undefined_metric}
+  - {id: RFX-OBJ-031, name: semantic_correction_mode, kind: external_choice, status: required_when_request_is_semantic_correction}
