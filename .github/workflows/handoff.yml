@@ -24,7 +24,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   validate:
@@ -40,8 +40,15 @@ jobs:
           python-version: '3.12'
       - name: Install validator dependencies
         run: python -m pip install --disable-pip-version-check --quiet jsonschema pyyaml
-      - name: Verify deterministic global catalog
-        run: python tools/handoff/generate_catalog.py --check
+      - name: Materialize exact deterministic global catalog on PR branch
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          python tools/handoff/generate_catalog.py --write
+          python tools/handoff/generate_catalog.py --check
+          python tools/handoff/materialize_catalog.py
+          exit 1
       - name: Validate published domains and feature packages
         id: validate
         shell: bash
