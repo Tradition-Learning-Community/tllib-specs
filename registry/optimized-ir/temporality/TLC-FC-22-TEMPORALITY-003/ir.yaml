@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-22-TEMPORALITY-003
+status: selected_for_temporality_implementation_specification
+source_ir: registry/ir/TLC-FC-22-TEMPORALITY-003/ir.yaml
+representation: guarded_temporal_distance_descriptor
+execution: structural_only
+inputs: [g_tau_reference, positive_definiteness_evidence, distance_construction_reference]
+outputs: [distance_availability_assessment]
+ordered_operations: [check_external_spd_evidence, check_external_distance_construction, reject_local_distance_execution, return_guarded_descriptor]
+forbidden: [spd_domain_invention, geodesic_invention, norm_invention, numeric_distance_execution]
