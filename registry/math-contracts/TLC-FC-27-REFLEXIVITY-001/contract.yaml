@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-27-REFLEXIVITY-001
+feature_id: TLC-FC-27-REFLEXIVITY-001
+title: Reflexive process and identity-state descriptor
+domain_id: reflexivity
+contract_kind: descriptor_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/27-reflexivity/reflexivity.md
+source_sections: ['1. Définition', '6. Limites et points scientifiques non résolus']
+inputs: [{name: identity_state_reference, type: reference, authority: TLC-FC-26-IDENTITY-001}]
+outputs: [{name: reflexive_process_descriptor, type: descriptor}]
+preconditions: [Identity state reference identifies the published (X,R) semantics]
+postconditions: [descriptor states reflexivity is a metacognitive process over identity state without inventing a metacognitive state variable]
+invariants: [Identity definitions are referenced rather than redefined]
+errors: [IdentityStateReferenceRequired]
+opaque_parameters: [metacognitive_internal_state]
+scientific_reservations: [TLC-UR-REFLEXIVITY-005]
+dependencies: {scientific: [26], identity_features: [TLC-FC-26-IDENTITY-001], runtime: []}
+forbidden_behaviors: [inventing a hidden metacognitive variable, redefining X or R, synthesizing an observation equation]
+traceability: {source: maths/27-reflexivity/reflexivity.md, inventory: registry/domain-progress/reflexivity/feature-inventory.yaml}
