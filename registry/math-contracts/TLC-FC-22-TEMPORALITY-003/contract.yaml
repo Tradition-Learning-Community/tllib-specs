@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-22-TEMPORALITY-003
+feature_id: TLC-FC-22-TEMPORALITY-003
+title: Temporal distance certification guard
+domain_id: temporality
+contract_kind: non_execution_guard_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/22-temporality/temporality.md
+source_sections: ['2. Métrique temporelle', '6. Limites et points scientifiques non résolus']
+inputs: [{name: g_tau_reference, type: matrix_reference}, {name: positive_definiteness_evidence, type: opaque_optional_evidence}, {name: distance_construction_reference, type: opaque_optional_reference}]
+outputs: [{name: distance_availability_assessment, type: guarded_descriptor}]
+preconditions: [source metric declaration is available]
+postconditions: [assessment records whether external SPD evidence and an external distance construction are both supplied, no local distance value is produced]
+invariants: [no SPD domain inferred, no geodesic norm or distance rule invented, interpretation as historically weighted time remains descriptive]
+errors: [ExternalTemporalMetricEvidenceRequired, ExternalTemporalDistanceConstructionRequired, TemporalDistanceExecutionUnsupported]
+opaque_parameters: [positive_definiteness_evidence, distance_construction_reference]
+scientific_reservations: [TLC-UR-TEMPORALITY-002, TLC-UR-TEMPORALITY-003]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [computing a true metric distance locally, treating g_tau as SPD without evidence]
+traceability: {source: maths/22-temporality/temporality.md, inventory: registry/domain-progress/temporality/feature-inventory.yaml}
