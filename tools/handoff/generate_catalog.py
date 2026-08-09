@@ -8,13 +8,9 @@ sources or intermediate IR content, and it emits no volatile timestamp.
 from __future__ import annotations
 
 import argparse
-import base64
 import hashlib
 import json
-import os
 import sys
-import urllib.error
-import urllib.request
 from collections import Counter
 from pathlib import Path
 from typing import Any, Iterable
@@ -224,9 +220,20 @@ def build_catalog() -> dict[str, Any]:
         "model_version": MODEL_VERSION,
         "catalog_status": "finalized",
         "complete_166_feature_catalog_finalized": True,
-        "validator": {"entrypoint": "tools/handoff/validate_handoff.py", "version": VALIDATOR_VERSION},
-        "exporter": {"entrypoint": "tools/handoff/export_bundle.py", "version": EXPORTER_VERSION},
-        "generation": {"entrypoint": "tools/handoff/generate_catalog.py", "version": CATALOG_GENERATOR_VERSION, "deterministic": True, "volatile_fields_present": False},
+        "validator": {
+            "entrypoint": "tools/handoff/validate_handoff.py",
+            "version": VALIDATOR_VERSION,
+        },
+        "exporter": {
+            "entrypoint": "tools/handoff/export_bundle.py",
+            "version": EXPORTER_VERSION,
+        },
+        "generation": {
+            "entrypoint": "tools/handoff/generate_catalog.py",
+            "version": CATALOG_GENERATOR_VERSION,
+            "deterministic": True,
+            "volatile_fields_present": False,
+        },
         "shared_contracts": shared_contracts,
         "domains": domains,
         "features": features,
@@ -248,59 +255,6 @@ def rendered_catalog() -> str:
     return json.dumps(build_catalog(), ensure_ascii=False, indent=2) + "\n"
 
 
-def checkout_token() -> str | None:
-    candidates = [ROOT / ".git/config", Path.home() / ".gitconfig"]
-    for path in candidates:
-        if not path.is_file():
-            continue
-        for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
-            if "extraheader" not in line.lower() or "basic " not in line.lower():
-                continue
-            encoded = line.split("basic ", 1)[1].strip()
-            try:
-                decoded = base64.b64decode(encoded).decode("utf-8")
-            except Exception:
-                continue
-            if ":" in decoded:
-                token = decoded.split(":", 1)[1]
-                if token:
-                    return token
-    return None
-
-
-def emit_catalog_diagnostic(rendered: str) -> None:
-    token = checkout_token()
-    repository = os.environ.get("GITHUB_REPOSITORY")
-    if not token or not repository:
-        print("IDENTITY_CATALOG_BLOB_ERROR=checkout_token_or_repository_unavailable", file=sys.stderr)
-        return
-    url = f"https://api.github.com/repos/{repository}/git/blobs"
-    payload = json.dumps({"content": rendered, "encoding": "utf-8"}).encode("utf-8")
-    request = urllib.request.Request(
-        url,
-        data=payload,
-        method="POST",
-        headers={
-            "Authorization": f"Bearer {token}",
-            "Accept": "application/vnd.github+json",
-            "X-GitHub-Api-Version": "2022-11-28",
-            "Content-Type": "application/json",
-        },
-    )
-    try:
-        with urllib.request.urlopen(request, timeout=30) as response:
-            body = json.loads(response.read().decode("utf-8"))
-        sha = body.get("sha")
-        if isinstance(sha, str) and sha:
-            print(f"IDENTITY_CATALOG_BLOB_SHA={sha}", file=sys.stderr)
-        else:
-            print("IDENTITY_CATALOG_BLOB_ERROR=missing_sha_in_response", file=sys.stderr)
-    except urllib.error.HTTPError as exc:
-        print(f"IDENTITY_CATALOG_BLOB_ERROR=http_{exc.code}", file=sys.stderr)
-    except Exception as exc:
-        print(f"IDENTITY_CATALOG_BLOB_ERROR={type(exc).__name__}", file=sys.stderr)
-
-
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     mode = parser.add_mutually_exclusive_group(required=True)
@@ -311,7 +265,10 @@ def main() -> int:
     rendered = rendered_catalog()
     if arguments.write:
         CATALOG_PATH.write_text(rendered, encoding="utf-8")
-        print(f"Wrote finalized deterministic handoff catalog ({EXPECTED_DOMAIN_COUNT} domains, {EXPECTED_FEATURE_COUNT} features).")
+        print(
+            f"Wrote finalized deterministic handoff catalog "
+            f"({EXPECTED_DOMAIN_COUNT} domains, {EXPECTED_FEATURE_COUNT} features)."
+        )
         return 0
 
     try:
@@ -319,7 +276,6 @@ def main() -> int:
     except FileNotFoundError as exc:
         raise CatalogGenerationFailure("handoff/catalog.json is missing") from exc
     if current != rendered:
-        emit_catalog_diagnostic(rendered)
         raise CatalogGenerationFailure(
             "handoff/catalog.json is stale; regenerate with tools/handoff/generate_catalog.py --write"
         )
