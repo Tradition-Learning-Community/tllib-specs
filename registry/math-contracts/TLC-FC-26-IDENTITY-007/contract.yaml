@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-26-IDENTITY-007
+feature_id: TLC-FC-26-IDENTITY-007
+title: Isolated convergence theorem claim guard
+domain_id: identity
+contract_kind: structural_guard_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/26-identity/identity.md
+source_sections: ['5. Théorèmes formulés par la source', '7. Limites et points scientifiques non résolus']
+inputs: [{name: theorem_claim_reference, type: scientific_reference}, {name: external_proof_reference, type: optional_external_provider}]
+outputs: [{name: convergence_claim_assessment, type: structural_descriptor}]
+preconditions: [source theorem statement available]
+postconditions: [source assumptions and exponential-convergence conclusion are represented only as a theorem claim]
+invariants: [no Lyapunov proof, no basin construction, no rate calculation]
+errors: [ConvergenceCertificationUnsupported]
+opaque_parameters: [basin_of_attraction, convergence_rate]
+scientific_reservations: [TLC-UR-IDENTITY-005, TLC-UR-IDENTITY-006]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [inventing proof, certifying general convergence without external proof, generating an exponential rate]
+traceability: {source: maths/26-identity/identity.md, inventory: registry/domain-progress/identity/feature-inventory.yaml}

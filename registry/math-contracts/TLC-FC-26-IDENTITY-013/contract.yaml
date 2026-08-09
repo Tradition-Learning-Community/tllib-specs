@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-26-IDENTITY-013
+feature_id: TLC-FC-26-IDENTITY-013
+title: Contextual robustness orientation guard
+domain_id: identity
+contract_kind: structural_guard_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/26-identity/identity.md
+source_sections: ['6. Métriques', '7. Limites et points scientifiques non résolus']
+inputs: [{name: contextual_robustness_source_reference, type: scientific_reference}]
+outputs: [{name: contextual_robustness_semantics_descriptor, type: structural_descriptor}]
+preconditions: [source declaration available]
+postconditions: [minimum relative-gap orientation and source warning are preserved]
+invariants: [minimum is not replaced by maximum, metric direction is not inverted, absent formula is not completed]
+errors: [ContextualRobustnessExecutionUnsupported]
+opaque_parameters: [contextual_robustness_formula]
+scientific_reservations: [TLC-UR-IDENTITY-010]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [inverting orientation, replacing minimum by maximum, inventing numeric formula]
+traceability: {source: maths/26-identity/identity.md, inventory: registry/domain-progress/identity/feature-inventory.yaml}

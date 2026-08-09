@@ -1,0 +1,52 @@
+artifact:
+  artifact_id: TLC-SCI-IDENTITY-SCIENTIFIC-RELATION-REGISTRY-001
+  artifact_type: scientific_relation_registry
+  version: candidate-1
+  status: candidate_with_reservations
+  source_slug: identity
+  source_path: maths/26-identity/identity.md
+  source_commit: 86f5875e12c73deec3409f24cd2c4fa2314a69fe
+relations:
+  - {provisional_relation_id: TLC-SR-IDENTITY-001, relation_type: product_definition, source: TLC-SO-IDENTITY-001, target: TLC-SO-IDENTITY-002, source_section: '1. Espace identitaire', statement: 'I contains the objective TLS factor.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-002, relation_type: product_definition, source: TLC-SO-IDENTITY-001, target: TLC-SO-IDENTITY-003, source_section: '1. Espace identitaire', statement: 'I contains the subjective TLS-star factor.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-003, relation_type: product_definition, source: TLC-SO-IDENTITY-001, target: TLC-SO-IDENTITY-004, source_section: '1. Espace identitaire', statement: 'I contains the metacognitive factor.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-004, relation_type: isomorphism_claim, source: TLC-SO-IDENTITY-007, target: TLC-SO-IDENTITY-005, source_section: '1. Espace identitaire', statement: 'The source announces an isomorphism involving T-star TLS without constructing it.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-005, relation_type: isomorphism_claim, source: TLC-SO-IDENTITY-007, target: TLC-SO-IDENTITY-006, source_section: '1. Espace identitaire', statement: 'The source announces an isomorphism involving J^k(TLS) without constructing it.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-006, relation_type: practical_reduction, source: TLC-SO-IDENTITY-008, target: TLC-SO-IDENTITY-009, source_section: '1. Espace identitaire', statement: 'The practical state pair contains X.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-007, relation_type: practical_reduction, source: TLC-SO-IDENTITY-008, target: TLC-SO-IDENTITY-010, source_section: '1. Espace identitaire', statement: 'The practical state pair contains R.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-008, relation_type: metric_sum, source: TLC-SO-IDENTITY-011, target: TLC-SO-IDENTITY-012, source_section: '1. Espace identitaire', statement: 'g_I includes g_TLS as a direct-sum metric component.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-009, relation_type: metric_sum, source: TLC-SO-IDENTITY-011, target: TLC-SO-IDENTITY-013, source_section: '1. Espace identitaire', statement: 'g_I includes g_TLS-star as a direct-sum metric component.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-010, relation_type: cost_term, source: TLC-SO-IDENTITY-017, target: TLC-SO-IDENTITY-014, source_section: '2. Coût de dissonance', statement: 'Squared norm of R-X is the first Phi_id term.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-011, relation_type: cost_term, source: TLC-SO-IDENTITY-018, target: TLC-SO-IDENTITY-014, source_section: '2. Coût de dissonance', statement: 'lambda times squared norm of grad R is the second Phi_id term.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-012, relation_type: cost_term, source: TLC-SO-IDENTITY-019, target: TLC-SO-IDENTITY-014, source_section: '2. Coût de dissonance', statement: 'mu times squared norm of velocity mismatch is the third Phi_id term.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-013, relation_type: positivity_constraint, source: TLC-SO-IDENTITY-015, target: TLC-SO-IDENTITY-014, source_section: '2. Coût de dissonance', statement: 'lambda is strictly positive.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-014, relation_type: positivity_constraint, source: TLC-SO-IDENTITY-016, target: TLC-SO-IDENTITY-014, source_section: '2. Coût de dissonance', statement: 'mu is strictly positive.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-015, relation_type: threshold_condition, source: TLC-SO-IDENTITY-014, target: TLC-SO-IDENTITY-021, source_section: '2. Coût de dissonance', statement: 'Healthy identity is stated as Phi_id strictly below Phi_seuil.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-016, relation_type: axiom_claim, source: TLC-SO-IDENTITY-022, target: TLC-SO-IDENTITY-014, source_section: '3. Axiomes identitaires', statement: 'Unity states that Phi_id should decrease along trajectories.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-017, relation_type: axiom_claim, source: TLC-SO-IDENTITY-023, target: TLC-SO-IDENTITY-017, source_section: '3. Axiomes identitaires', statement: 'Realism bounds the asymptotic R-X mismatch by epsilon under regularity.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-018, relation_type: documentary_forward_reference, source: TLC-SO-IDENTITY-024, target: TLC-SO-IDENTITY-004, source_section: '3. Axiomes identitaires', statement: 'The reflexivity axiom refers to domain 27 for the process details; Identity retains no runtime dependency on it.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-019, relation_type: social_coupling_claim, source: TLC-SO-IDENTITY-025, target: TLC-SO-IDENTITY-034, source_section: '3. Axiomes identitaires; 4. Dynamique sociale', statement: 'Social coupling contributes peer objective-state differences to dX_i/dt.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-020, relation_type: rhs_definition, source: TLC-SO-IDENTITY-026, target: TLC-SO-IDENTITY-034, source_section: '4. Dynamique sociale', statement: 'F_i(X_i,R_i) is the intrinsic objective RHS term.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-021, relation_type: peer_weight, source: TLC-SO-IDENTITY-028, target: TLC-SO-IDENTITY-034, source_section: '4. Dynamique sociale', statement: 'gamma_ij weights each objective peer difference.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-022, relation_type: rhs_definition, source: TLC-SO-IDENTITY-027, target: TLC-SO-IDENTITY-035, source_section: '4. Dynamique sociale', statement: 'G_i(R_i,X_i) is the intrinsic subjective RHS term.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-023, relation_type: rhs_term, source: TLC-SO-IDENTITY-030, target: TLC-SO-IDENTITY-035, source_section: '4. Dynamique sociale', statement: 'alpha_i multiplies R_i-X_i with the positive sign printed by the source.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-024, relation_type: rhs_term, source: TLC-SO-IDENTITY-031, target: TLC-SO-IDENTITY-035, source_section: '4. Dynamique sociale', statement: 'beta_i multiplies grad_Ri Phi_id with the positive sign printed by the source.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-025, relation_type: rhs_term, source: TLC-SO-IDENTITY-029, target: TLC-SO-IDENTITY-035, source_section: '4. Dynamique sociale', statement: 'delta_ij weights subjective peer differences.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-026, relation_type: rhs_term, source: TLC-SO-IDENTITY-032, target: TLC-SO-IDENTITY-035, source_section: '4. Dynamique sociale', statement: 'zeta_i(t) weights attraction toward R_i-star.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-027, relation_type: attractor_claim, source: TLC-SO-IDENTITY-036, target: TLC-SO-IDENTITY-008, source_section: '4. Dynamique sociale', statement: 'Integrated identity is characterized qualitatively by X approximately R.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-028, relation_type: attractor_claim, source: TLC-SO-IDENTITY-037, target: TLC-SO-IDENTITY-008, source_section: '4. Dynamique sociale', statement: 'Divided identity is announced as an attractor family.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-029, relation_type: attractor_claim, source: TLC-SO-IDENTITY-038, target: TLC-SO-IDENTITY-008, source_section: '4. Dynamique sociale', statement: 'Identity oscillations are announced as an attractor family.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-030, relation_type: theorem_claim, source: TLC-SO-IDENTITY-039, target: TLC-SO-IDENTITY-008, source_section: '5. Théorèmes formulés par la source', statement: 'The isolated-subject theorem claims exponential approach to a fixed point under stated conditions.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-031, relation_type: contextual_bound, source: TLC-SO-IDENTITY-040, target: TLC-SO-IDENTITY-041, source_section: '5. Théorèmes formulés par la source', statement: 'c(t)-c0 enters the stated contextual stability upper bound.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-032, relation_type: bifurcation_antecedent, source: TLC-SO-IDENTITY-014, target: TLC-SO-IDENTITY-042, source_section: '5. Théorèmes formulés par la source', statement: 'The bifurcation claim uses Phi_id strictly above Phi_seuil as antecedent.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-033, relation_type: metric_definition, source: TLC-SO-IDENTITY-019, target: TLC-SO-IDENTITY-043, source_section: '6. Métriques', statement: 'C_id includes the velocity-mismatch norm in its numerator.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-034, relation_type: metric_definition, source: TLC-SO-IDENTITY-019, target: TLC-SO-IDENTITY-044, source_section: '6. Métriques', statement: 'S_id integrates the velocity-mismatch norm.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-035, relation_type: context_weight, source: TLC-SO-IDENTITY-053, target: TLC-SO-IDENTITY-044, source_section: '6. Métriques', statement: 'S_id weights its integrand by exp(-||grad c(t)||^2/(2 sigma^2)).'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-036, relation_type: orientation_claim, source: TLC-SO-IDENTITY-044, target: TLC-SO-IDENTITY-008, source_section: '6. Métriques', statement: 'Low S_id is stated to mean strong stability and high S_id fragility.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-037, relation_type: indicator_declaration, source: TLC-SO-IDENTITY-048, target: TLC-SO-IDENTITY-020, source_section: '6. Métriques', statement: 'Return time under Phi_seuil is named as an additional indicator without a construction in Identity.'}
+  - {provisional_relation_id: TLC-SR-IDENTITY-038, relation_type: unresolved_orientation, source: TLC-SO-IDENTITY-049, target: TLC-SO-IDENTITY-008, source_section: '7. Limites et points scientifiques non résolus', statement: 'Contextual robustness is described as a minimum relative gap whose orientation is potentially inverse to its name; the minimum is preserved.'}
+source_reference_policy:
+  source_path: maths/26-identity/identity.md
+  source_commit: 86f5875e12c73deec3409f24cd2c4fa2314a69fe
+  every_relation_has_source_section: true
+  companion_reflexivity_used_only_for_dependency_direction: true

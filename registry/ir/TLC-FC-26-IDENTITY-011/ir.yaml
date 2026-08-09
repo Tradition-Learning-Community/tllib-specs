@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-26-IDENTITY-011
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-26-IDENTITY-011/contract.yaml
+source_candidate_ir: ir/TLC-FC-26-IDENTITY-011/ir.candidate.json
+nature: conditional_integral_metric
+inputs: [T, sigma, velocity_mismatch_norm_provider, context_gradient_norm_provider, integral_provider]
+outputs: [S_id]
+steps: [require providers, form exact source integrand, delegate integration, divide by T, preserve interpretation]
+errors: [StabilityIntegralProviderRequired, ContextGradientProviderRequired, StabilityScaleRequired]

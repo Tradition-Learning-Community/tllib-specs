@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-26-IDENTITY-012
+status: selected_for_identity_implementation_specification
+source_ir: registry/ir/TLC-FC-26-IDENTITY-012/ir.yaml
+representation: recovery_time_indicator_non_execution_guard
+execution: structural_only
+inputs: [recovery_time_definition_provider]
+outputs: [recovery_time_availability_assessment]
+ordered_operations: [preserve_named_indicator, expose_missing_identity_definition, reject_numeric_execution_without_provider]
+forbidden: [reflexivity_formula_import, sampling_rule_invention, interpolation_rule_invention, crossing_rule_invention]

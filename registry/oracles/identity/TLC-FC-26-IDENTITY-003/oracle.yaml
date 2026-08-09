@@ -1,0 +1,5 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-26-IDENTITY-003
+feature_id: TLC-FC-26-IDENTITY-003
+oracle_type: strict_threshold_contract
+checks: [healthy iff Phi_id is strictly less than supplied Phi_seuil, exceeded iff strictly greater, equality remains boundary, missing threshold returns IdentityThresholdRequired, no numeric default exists]

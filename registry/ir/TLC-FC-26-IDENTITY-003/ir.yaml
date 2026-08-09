@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-26-IDENTITY-003
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-26-IDENTITY-003/contract.yaml
+source_candidate_ir: ir/TLC-FC-26-IDENTITY-003/ir.candidate.json
+nature: threshold_assessment
+inputs: [Phi_id, Phi_seuil]
+outputs: [identity_health_assessment]
+steps: [require threshold, assess strict healthy condition, assess strict exceeded condition, preserve equality boundary]
+errors: [IdentityThresholdRequired]

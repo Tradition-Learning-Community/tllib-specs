@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-26-IDENTITY-013
+tests:
+  - {id: IDENTITY-013-T01, type: structure, assertion: Contextual robustness retains source minimum-relative-gap orientation and warning}
+  - {id: IDENTITY-013-T02, type: error, assertion: Request to invert or numerically complete the metric is rejected}
+  - {id: IDENTITY-013-T03, type: preservation, assertion: Minimum is never replaced by maximum and direction is not reversed}
+no_arbitrary_numeric_fixtures: true

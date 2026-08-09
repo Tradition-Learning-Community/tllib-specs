@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-26-IDENTITY-009
+feature_id: TLC-FC-26-IDENTITY-009
+title: Identity bifurcation theorem claim guard
+domain_id: identity
+contract_kind: structural_guard_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/26-identity/identity.md
+source_sections: ['5. Théorèmes formulés par la source', '7. Limites et points scientifiques non résolus']
+inputs: [{name: Phi_id, type: source_cost_value}, {name: Phi_seuil, type: externally_supplied_threshold}, {name: theorem_claim_reference, type: scientific_reference}]
+outputs: [{name: bifurcation_claim_descriptor, type: structural_descriptor}]
+preconditions: [source claim available, threshold supplied]
+postconditions: [strict threshold antecedent and nonconstructive claims preserved]
+invariants: [no multiple-attractor construction, no Arrhenius law, no transition probability]
+errors: [BifurcationExecutionUnsupported, ArrheniusLawUnavailable]
+opaque_parameters: [Phi_seuil, post_threshold_attractors]
+scientific_reservations: [TLC-UR-IDENTITY-004, TLC-UR-IDENTITY-007, TLC-UR-IDENTITY-008]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [inventing Arrhenius probability, constructing attractors, calibrating threshold]
+traceability: {source: maths/26-identity/identity.md, inventory: registry/domain-progress/identity/feature-inventory.yaml}

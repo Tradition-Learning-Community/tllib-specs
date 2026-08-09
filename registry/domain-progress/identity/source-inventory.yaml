@@ -1,0 +1,65 @@
+domain_id: identity
+status: preparation_complete_with_reservations
+authority: main@86f5875e12c73deec3409f24cd2c4fa2314a69fe
+working_base_commit: 86f5875e12c73deec3409f24cd2c4fa2314a69fe
+scope: vertical_domain_26_production
+source_file: maths/26-identity/identity.md
+source_blob_sha: a78baf0cc8650eec6f85c301e69b2234671117ed
+analysis_companion: maths/27-reflexivity/reflexivity.md
+analysis_companion_blob_sha: dc33dd515b7728f7f9f23f84081cd40b637a4a3d
+objects_count: 53
+relations_count: 38
+unresolved_count: 14
+features_total: 13
+feature_ids:
+  - TLC-FC-26-IDENTITY-001
+  - TLC-FC-26-IDENTITY-002
+  - TLC-FC-26-IDENTITY-003
+  - TLC-FC-26-IDENTITY-004
+  - TLC-FC-26-IDENTITY-005
+  - TLC-FC-26-IDENTITY-006
+  - TLC-FC-26-IDENTITY-007
+  - TLC-FC-26-IDENTITY-008
+  - TLC-FC-26-IDENTITY-009
+  - TLC-FC-26-IDENTITY-010
+  - TLC-FC-26-IDENTITY-011
+  - TLC-FC-26-IDENTITY-012
+  - TLC-FC-26-IDENTITY-013
+input_artifacts:
+  - registry/scientific-objects/identity/scientific-objects.candidate.yaml
+  - registry/scientific-objects/identity/scientific-relations.candidate.yaml
+  - registry/scientific-objects/identity/unresolved-terms.yaml
+inventory_status: complete_with_reservations
+scientific_boundaries:
+  announced_isomorphism: preserved_unconstructed
+  dual_primal_identification: external_provider_required
+  riesz_identification_default: forbidden
+  c_id_clamping: forbidden
+  c_id_range_claim: unresolved
+  contextual_robustness_orientation: preserved_exactly
+  lyapunov_decrease_proof: unresolved
+  general_exponential_convergence_proof: unresolved
+  post_threshold_multiple_attractor_proof: unresolved
+  arrhenius_law: absent_and_forbidden_to_invent
+  phi_threshold_calibration: absent
+  numerical_solver: absent
+  metacognitive_state_equation: absent
+  return_time_formula_in_identity_source: absent
+external_scientific_dependencies:
+  confirmed: []
+  provisional: []
+  runtime: []
+incoming_scientific_consumers:
+  - domain_index: 27
+    slug: reflexivity
+    evidence: maths/27-reflexivity/reflexivity.md reuses the Identity state pair, Phi_id, and grad_R Phi_id.
+analysis_companions:
+  - {domain_index: 27, slug: reflexivity, publication: read_only_unpublished}
+non_promoted_domain_mentions:
+  - {domain_index: 16, slug: cohort, reason: Social-coupling actor label only; no Cohort observable contract is reused.}
+  - {domain_index: 0, slug: master, reason: Social-coupling actor label only; no Master observable contract is reused.}
+  - {domain_index: 2, slug: community, reason: Social-coupling actor label only; no Community observable contract is reused.}
+  - {domain_index: 24, slug: context, reason: c(t) is usable as an external scientific input; no Context runtime contract is required.}
+  - {domain_index: 9, slug: values, reason: Values-Practices congruence is named without a domain-09 observable contract.}
+  - {domain_index: 13, slug: practice, reason: Values-Practices congruence is named without a domain-13 observable contract.}
+  - {domain_index: 12, slug: competencies, reason: Competencies occur in the descriptive TLS scope but no domain-12 operation is reused.}

@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-26-IDENTITY-004
+status: selected_for_identity_implementation_specification
+source_ir: registry/ir/TLC-FC-26-IDENTITY-004/ir.yaml
+representation: objective_social_identity_rhs
+execution: conditionally_executable
+inputs: [X_i, R_i, peer_X_values, gamma_ij_values, F_i_provider, primal_difference_provider]
+outputs: [dX_i_dt]
+ordered_operations: [evaluate_F_i, enumerate_peers_excluding_i, evaluate_weighted_primal_differences, sum_peer_terms, add_intrinsic_term]
+forbidden: [self_coupling, gamma_defaults, time_integrator]

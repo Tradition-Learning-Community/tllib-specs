@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-26-IDENTITY-012
+feature_id: TLC-FC-26-IDENTITY-012
+title: Identity recovery-time indicator guard
+domain_id: identity
+contract_kind: structural_guard_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/26-identity/identity.md
+source_sections: ['6. Métriques']
+inputs: [{name: recovery_time_definition_provider, type: optional_external_provider}]
+outputs: [{name: recovery_time_availability_assessment, type: structural_descriptor}]
+preconditions: [Identity source indicator declaration available]
+postconditions: [return time under Phi_seuil remains a named indicator unless an external definition provider is supplied]
+invariants: [no Reflexivity formula imported, no sampling interpolation or crossing rule invented]
+errors: [RecoveryTimeDefinitionRequired]
+opaque_parameters: [recovery_time_semantics]
+scientific_reservations: [TLC-UR-IDENTITY-011]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [importing domain-27 formula as Identity authority, inventing a crossing algorithm]
+traceability: {source: maths/26-identity/identity.md, companion_read_only: maths/27-reflexivity/reflexivity.md, inventory: registry/domain-progress/identity/feature-inventory.yaml}

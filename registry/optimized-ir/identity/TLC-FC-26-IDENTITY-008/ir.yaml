@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-26-IDENTITY-008
+status: selected_for_identity_implementation_specification
+source_ir: registry/ir/TLC-FC-26-IDENTITY-008/ir.yaml
+representation: contextual_stability_bound_assessment
+execution: conditionally_executable
+inputs: [X, R, c_t, c_0, C, epsilon, dual_primal_difference_provider, context_difference_provider, norm_provider]
+outputs: [contextual_bound_satisfied]
+ordered_operations: [require_providers, evaluate_identity_mismatch_norm, evaluate_context_change_norm, form_source_upper_bound, compare_less_than_or_equal]
+forbidden: [context_runtime_dependency_inference, C_calibration, epsilon_calibration, theorem_proof_invention]

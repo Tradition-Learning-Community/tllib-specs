@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[2]
 MANIFEST_PATH = ROOT / "registry/domain-progress/extension-16-35.yaml"
 CATALOG_PATH = ROOT / "handoff/catalog.json"
 EXPECTED_INDICES = set(range(16, 36))
-ALLOWED_PUBLISHED_EXTENSION_INDICES = {16, 22, 23}
+ALLOWED_PUBLISHED_EXTENSION_INDICES = {16, 22, 23, 26}
 BASELINE_DOMAIN_COUNT = 16
 BASELINE_FEATURE_COUNT = 166
 EXPECTED_WAVES = {
@@ -134,9 +134,7 @@ def validate_published_domain(domain: dict, errors: list[str]) -> list[str]:
             if pipeline.get(state) != "complete":
                 errors.append(f"{label}: published downstream state {state} must be complete")
         if pipeline.get("algorithms") not in {"complete", "complete_or_not_applicable"}:
-            errors.append(
-                f"{label}: algorithms must be complete or complete_or_not_applicable for publication"
-            )
+            errors.append(f"{label}: algorithms must be complete or complete_or_not_applicable for publication")
 
     status_path = ROOT / f"registry/domain-finalization/{slug}/feature-status.yaml"
     domain_catalog_path = ROOT / f"handoff/domains/{slug}/catalog.json"
@@ -150,9 +148,7 @@ def validate_published_domain(domain: dict, errors: list[str]) -> list[str]:
     registry_ids = feature_population_from_status(status_path, errors)
     validate_feature_ids(index, slug, registry_ids, label, errors)
     if len(registry_ids) != feature_count:
-        errors.append(
-            f"{label}: feature_count={feature_count} but finalization registry contains {len(registry_ids)} features"
-        )
+        errors.append(f"{label}: feature_count={feature_count} but finalization registry contains {len(registry_ids)} features")
 
     domain_catalog = load_json(domain_catalog_path, errors)
     if not isinstance(domain_catalog, dict):
@@ -204,22 +200,12 @@ def validate_unpublished_domain(domain: dict, errors: list[str]) -> None:
             errors.append(f"{label}: unpublished downstream state {state} must remain not_started")
 
 
-def validate_global_catalog(
-    catalog,
-    published_populations: dict[int, tuple[str, list[str]]],
-    errors: list[str],
-) -> None:
+def validate_global_catalog(catalog, published_populations: dict[int, tuple[str, list[str]]], errors: list[str]) -> None:
     if not isinstance(catalog, dict):
         errors.append("handoff/catalog.json must contain a JSON object")
         return
-
     expected_published_indices = set(published_populations)
-    expected_feature_ids = {
-        feature_id
-        for _slug, feature_ids in published_populations.values()
-        for feature_id in feature_ids
-    }
-
+    expected_feature_ids = {feature_id for _slug, feature_ids in published_populations.values() for feature_id in feature_ids}
     domains = catalog.get("domains")
     extension_catalog_indices: set[int] = set()
     if not isinstance(domains, list):
@@ -249,10 +235,7 @@ def validate_global_catalog(
                 if domain.get("catalog_path") != expected_path:
                     errors.append(f"{path}.catalog_path must be {expected_path}")
     if extension_catalog_indices != expected_published_indices:
-        errors.append(
-            "Global catalog extension-domain population differs from published registry: "
-            f"expected {sorted(expected_published_indices)}, got {sorted(extension_catalog_indices)}"
-        )
+        errors.append(f"Global catalog extension-domain population differs from published registry: expected {sorted(expected_published_indices)}, got {sorted(extension_catalog_indices)}")
 
     features = catalog.get("features")
     extension_feature_ids: set[str] = set()
@@ -286,9 +269,7 @@ def validate_global_catalog(
         errors.append("handoff/catalog.json summary must be an object")
     else:
         expected_domain_count = BASELINE_DOMAIN_COUNT + len(published_populations)
-        expected_feature_count = BASELINE_FEATURE_COUNT + sum(
-            len(ids) for _slug, ids in published_populations.values()
-        )
+        expected_feature_count = BASELINE_FEATURE_COUNT + sum(len(ids) for _slug, ids in published_populations.values())
         if summary.get("domain_count") != expected_domain_count:
             errors.append(f"Global handoff catalog domain_count must be {expected_domain_count}")
         if summary.get("feature_count") != expected_feature_count:
@@ -310,7 +291,6 @@ def main() -> int:
     if not isinstance(manifest, dict):
         errors.append("Extension manifest must be a YAML mapping")
         return print_failure(errors)
-
     if manifest.get("schema_version") != 1:
         errors.append("schema_version must be 1")
 
@@ -424,7 +404,6 @@ def main() -> int:
         label = f"domain {index} ({slug})"
         if index not in EXPECTED_INDICES:
             continue
-
         declared_wave = domain.get("wave")
         if declared_wave not in EXPECTED_WAVES or index not in EXPECTED_WAVES[declared_wave]:
             errors.append(f"{label}: inconsistent wave {declared_wave}")
@@ -481,7 +460,6 @@ def main() -> int:
     if catalog is None:
         return print_failure(errors)
     validate_global_catalog(catalog, published_populations, errors)
-
     if errors:
         return print_failure(errors)
 

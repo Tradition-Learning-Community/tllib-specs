@@ -1,0 +1,62 @@
+schema_version: 1
+manifest_id: TLC-IDENTITY-DOMAIN-FINALIZATION-001
+domain: identity
+phase: 4
+status: selected_for_implementation_handoff
+base_branch: main
+base_commit: 86f5875e12c73deec3409f24cd2c4fa2314a69fe
+population:
+  - TLC-FC-26-IDENTITY-001
+  - TLC-FC-26-IDENTITY-002
+  - TLC-FC-26-IDENTITY-003
+  - TLC-FC-26-IDENTITY-004
+  - TLC-FC-26-IDENTITY-005
+  - TLC-FC-26-IDENTITY-006
+  - TLC-FC-26-IDENTITY-007
+  - TLC-FC-26-IDENTITY-008
+  - TLC-FC-26-IDENTITY-009
+  - TLC-FC-26-IDENTITY-010
+  - TLC-FC-26-IDENTITY-011
+  - TLC-FC-26-IDENTITY-012
+  - TLC-FC-26-IDENTITY-013
+source_authority:
+  scientific_source: {path: maths/26-identity/identity.md, blob_sha: a78baf0cc8650eec6f85c301e69b2234671117ed, modified: false}
+  analysis_companion: {path: maths/27-reflexivity/reflexivity.md, publication_status: read_only_unpublished, modified_in_this_pr: false}
+  inventories: [registry/domain-progress/identity/source-inventory.yaml, registry/domain-progress/identity/feature-inventory.yaml, registry/domain-progress/identity/feature-dependencies.yaml, registry/scientific-objects/identity/scientific-objects.candidate.yaml, registry/scientific-objects/identity/scientific-relations.candidate.yaml, registry/scientific-objects/identity/unresolved-terms.yaml]
+source_artifact_patterns:
+  contract: registry/math-contracts/<FEATURE_ID>/contract.yaml
+  candidate_ir: ir/<FEATURE_ID>/ir.candidate.json
+  source_ir: registry/ir/<FEATURE_ID>/ir.yaml
+  test_plan: registry/test-plans/<FEATURE_ID>/test-plan.yaml
+finalized_artifact_patterns:
+  optimized_ir: registry/optimized-ir/identity/<FEATURE_ID>/ir.yaml
+  algorithm: registry/algorithms/identity/<FEATURE_ID>/algorithm.yaml
+  oracle: registry/oracles/identity/<FEATURE_ID>/oracle.yaml
+  implementation_tasks: registry/domain-finalization/identity/implementation-tasks.yaml
+feature_artifacts:
+  TLC-FC-26-IDENTITY-001: {contract: registry/math-contracts/TLC-FC-26-IDENTITY-001/contract.yaml, candidate_ir: ir/TLC-FC-26-IDENTITY-001/ir.candidate.json, source_ir: registry/ir/TLC-FC-26-IDENTITY-001/ir.yaml, test_plan: registry/test-plans/TLC-FC-26-IDENTITY-001/test-plan.yaml, optimized_ir: registry/optimized-ir/identity/TLC-FC-26-IDENTITY-001/ir.yaml, algorithm: registry/algorithms/identity/TLC-FC-26-IDENTITY-001/algorithm.yaml, oracle: registry/oracles/identity/TLC-FC-26-IDENTITY-001/oracle.yaml}
+  TLC-FC-26-IDENTITY-002: {contract: registry/math-contracts/TLC-FC-26-IDENTITY-002/contract.yaml, candidate_ir: ir/TLC-FC-26-IDENTITY-002/ir.candidate.json, source_ir: registry/ir/TLC-FC-26-IDENTITY-002/ir.yaml, test_plan: registry/test-plans/TLC-FC-26-IDENTITY-002/test-plan.yaml, optimized_ir: registry/optimized-ir/identity/TLC-FC-26-IDENTITY-002/ir.yaml, algorithm: registry/algorithms/identity/TLC-FC-26-IDENTITY-002/algorithm.yaml, oracle: registry/oracles/identity/TLC-FC-26-IDENTITY-002/oracle.yaml}
+  TLC-FC-26-IDENTITY-003: {contract: registry/math-contracts/TLC-FC-26-IDENTITY-003/contract.yaml, candidate_ir: ir/TLC-FC-26-IDENTITY-003/ir.candidate.json, source_ir: registry/ir/TLC-FC-26-IDENTITY-003/ir.yaml, test_plan: registry/test-plans/TLC-FC-26-IDENTITY-003/test-plan.yaml, optimized_ir: registry/optimized-ir/identity/TLC-FC-26-IDENTITY-003/ir.yaml, algorithm: registry/algorithms/identity/TLC-FC-26-IDENTITY-003/algorithm.yaml, oracle: registry/oracles/identity/TLC-FC-26-IDENTITY-003/oracle.yaml}
+  TLC-FC-26-IDENTITY-004: {contract: registry/math-contracts/TLC-FC-26-IDENTITY-004/contract.yaml, candidate_ir: ir/TLC-FC-26-IDENTITY-004/ir.candidate.json, source_ir: registry/ir/TLC-FC-26-IDENTITY-004/ir.yaml, test_plan: registry/test-plans/TLC-FC-26-IDENTITY-004/test-plan.yaml, optimized_ir: registry/optimized-ir/identity/TLC-FC-26-IDENTITY-004/ir.yaml, algorithm: registry/algorithms/identity/TLC-FC-26-IDENTITY-004/algorithm.yaml, oracle: registry/oracles/identity/TLC-FC-26-IDENTITY-004/oracle.yaml}
+  TLC-FC-26-IDENTITY-005: {contract: registry/math-contracts/TLC-FC-26-IDENTITY-005/contract.yaml, candidate_ir: ir/TLC-FC-26-IDENTITY-005/ir.candidate.json, source_ir: registry/ir/TLC-FC-26-IDENTITY-005/ir.yaml, test_plan: registry/test-plans/TLC-FC-26-IDENTITY-005/test-plan.yaml, optimized_ir: registry/optimized-ir/identity/TLC-FC-26-IDENTITY-005/ir.yaml, algorithm: registry/algorithms/identity/TLC-FC-26-IDENTITY-005/algorithm.yaml, oracle: registry/oracles/identity/TLC-FC-26-IDENTITY-005/oracle.yaml}
+  TLC-FC-26-IDENTITY-006: {contract: registry/math-contracts/TLC-FC-26-IDENTITY-006/contract.yaml, candidate_ir: ir/TLC-FC-26-IDENTITY-006/ir.candidate.json, source_ir: registry/ir/TLC-FC-26-IDENTITY-006/ir.yaml, test_plan: registry/test-plans/TLC-FC-26-IDENTITY-006/test-plan.yaml, optimized_ir: registry/optimized-ir/identity/TLC-FC-26-IDENTITY-006/ir.yaml, algorithm: registry/algorithms/identity/TLC-FC-26-IDENTITY-006/algorithm.yaml, oracle: registry/oracles/identity/TLC-FC-26-IDENTITY-006/oracle.yaml}
+  TLC-FC-26-IDENTITY-007: {contract: registry/math-contracts/TLC-FC-26-IDENTITY-007/contract.yaml, candidate_ir: ir/TLC-FC-26-IDENTITY-007/ir.candidate.json, source_ir: registry/ir/TLC-FC-26-IDENTITY-007/ir.yaml, test_plan: registry/test-plans/TLC-FC-26-IDENTITY-007/test-plan.yaml, optimized_ir: registry/optimized-ir/identity/TLC-FC-26-IDENTITY-007/ir.yaml, algorithm: registry/algorithms/identity/TLC-FC-26-IDENTITY-007/algorithm.yaml, oracle: registry/oracles/identity/TLC-FC-26-IDENTITY-007/oracle.yaml}
+  TLC-FC-26-IDENTITY-008: {contract: registry/math-contracts/TLC-FC-26-IDENTITY-008/contract.yaml, candidate_ir: ir/TLC-FC-26-IDENTITY-008/ir.candidate.json, source_ir: registry/ir/TLC-FC-26-IDENTITY-008/ir.yaml, test_plan: registry/test-plans/TLC-FC-26-IDENTITY-008/test-plan.yaml, optimized_ir: registry/optimized-ir/identity/TLC-FC-26-IDENTITY-008/ir.yaml, algorithm: registry/algorithms/identity/TLC-FC-26-IDENTITY-008/algorithm.yaml, oracle: registry/oracles/identity/TLC-FC-26-IDENTITY-008/oracle.yaml}
+  TLC-FC-26-IDENTITY-009: {contract: registry/math-contracts/TLC-FC-26-IDENTITY-009/contract.yaml, candidate_ir: ir/TLC-FC-26-IDENTITY-009/ir.candidate.json, source_ir: registry/ir/TLC-FC-26-IDENTITY-009/ir.yaml, test_plan: registry/test-plans/TLC-FC-26-IDENTITY-009/test-plan.yaml, optimized_ir: registry/optimized-ir/identity/TLC-FC-26-IDENTITY-009/ir.yaml, algorithm: registry/algorithms/identity/TLC-FC-26-IDENTITY-009/algorithm.yaml, oracle: registry/oracles/identity/TLC-FC-26-IDENTITY-009/oracle.yaml}
+  TLC-FC-26-IDENTITY-010: {contract: registry/math-contracts/TLC-FC-26-IDENTITY-010/contract.yaml, candidate_ir: ir/TLC-FC-26-IDENTITY-010/ir.candidate.json, source_ir: registry/ir/TLC-FC-26-IDENTITY-010/ir.yaml, test_plan: registry/test-plans/TLC-FC-26-IDENTITY-010/test-plan.yaml, optimized_ir: registry/optimized-ir/identity/TLC-FC-26-IDENTITY-010/ir.yaml, algorithm: registry/algorithms/identity/TLC-FC-26-IDENTITY-010/algorithm.yaml, oracle: registry/oracles/identity/TLC-FC-26-IDENTITY-010/oracle.yaml}
+  TLC-FC-26-IDENTITY-011: {contract: registry/math-contracts/TLC-FC-26-IDENTITY-011/contract.yaml, candidate_ir: ir/TLC-FC-26-IDENTITY-011/ir.candidate.json, source_ir: registry/ir/TLC-FC-26-IDENTITY-011/ir.yaml, test_plan: registry/test-plans/TLC-FC-26-IDENTITY-011/test-plan.yaml, optimized_ir: registry/optimized-ir/identity/TLC-FC-26-IDENTITY-011/ir.yaml, algorithm: registry/algorithms/identity/TLC-FC-26-IDENTITY-011/algorithm.yaml, oracle: registry/oracles/identity/TLC-FC-26-IDENTITY-011/oracle.yaml}
+  TLC-FC-26-IDENTITY-012: {contract: registry/math-contracts/TLC-FC-26-IDENTITY-012/contract.yaml, candidate_ir: ir/TLC-FC-26-IDENTITY-012/ir.candidate.json, source_ir: registry/ir/TLC-FC-26-IDENTITY-012/ir.yaml, test_plan: registry/test-plans/TLC-FC-26-IDENTITY-012/test-plan.yaml, optimized_ir: registry/optimized-ir/identity/TLC-FC-26-IDENTITY-012/ir.yaml, algorithm: registry/algorithms/identity/TLC-FC-26-IDENTITY-012/algorithm.yaml, oracle: registry/oracles/identity/TLC-FC-26-IDENTITY-012/oracle.yaml}
+  TLC-FC-26-IDENTITY-013: {contract: registry/math-contracts/TLC-FC-26-IDENTITY-013/contract.yaml, candidate_ir: ir/TLC-FC-26-IDENTITY-013/ir.candidate.json, source_ir: registry/ir/TLC-FC-26-IDENTITY-013/ir.yaml, test_plan: registry/test-plans/TLC-FC-26-IDENTITY-013/test-plan.yaml, optimized_ir: registry/optimized-ir/identity/TLC-FC-26-IDENTITY-013/ir.yaml, algorithm: registry/algorithms/identity/TLC-FC-26-IDENTITY-013/algorithm.yaml, oracle: registry/oracles/identity/TLC-FC-26-IDENTITY-013/oracle.yaml}
+preservation:
+  scientific_source_modified: false
+  reflexivity_source_modified: false
+  reflexivity_published: false
+  historical_handoffs_modified: false
+  unresolved_science_preserved: true
+  new_shared_contracts: []
+completion_scope:
+  structural_implementation_specification_ready: true
+  semantic_execution_is_feature_specific: true
+  runtime_implementation_produced: false
+  cpp_produced: false
+  python_bindings_produced: false

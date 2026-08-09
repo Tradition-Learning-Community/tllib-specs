@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-26-IDENTITY-010
+tests:
+  - {id: IDENTITY-010-T01, type: exact_formula, assertion: C_id matches the displayed source quotient exactly}
+  - {id: IDENTITY-010-T02, type: preservation, assertion: Raw values outside [0,1] are returned unchanged with no clamp}
+  - {id: IDENTITY-010-T03, type: error, assertion: Missing dual-primal or norm provider is rejected}
+no_arbitrary_numeric_fixtures: true

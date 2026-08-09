@@ -1,0 +1,10 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-26-IDENTITY-003
+feature_id: TLC-FC-26-IDENTITY-003
+status: selected_for_identity_implementation_specification
+algorithm_kind: strict_source_threshold_assessment
+source_ir: registry/optimized-ir/identity/TLC-FC-26-IDENTITY-003/ir.yaml
+ordered_steps: [require caller-supplied Phi_seuil, return healthy for strict less-than, return exceeded for strict greater-than, return boundary for equality]
+errors: [IdentityThresholdRequired]
+determinism: deterministic_for_supplied_values
+forbidden: [threshold default, threshold calibration, equality coercion]

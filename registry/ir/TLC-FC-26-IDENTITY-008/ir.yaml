@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-26-IDENTITY-008
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-26-IDENTITY-008/contract.yaml
+source_candidate_ir: ir/TLC-FC-26-IDENTITY-008/ir.candidate.json
+nature: conditional_bound_assessment
+inputs: [X, R, c_t, c_0, C, epsilon, dual_primal_difference_provider, context_difference_provider, norm_provider]
+outputs: [contextual_bound_satisfied]
+steps: [require arithmetic providers, evaluate both source norms, form right bound, compare with source orientation]
+errors: [ContextualBoundProviderRequired, DualPrimalIdentificationRequired]

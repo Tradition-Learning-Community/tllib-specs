@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-26-IDENTITY-010
+status: selected_for_identity_implementation_specification
+source_ir: registry/ir/TLC-FC-26-IDENTITY-010/ir.yaml
+representation: raw_identity_coherence_metric
+execution: conditionally_executable
+inputs: [X, R, dR_dt, dX_dt, dual_primal_difference_provider, norm_provider]
+outputs: [C_id]
+ordered_operations: [evaluate_R_minus_X_norm, evaluate_velocity_mismatch_norm, evaluate_X_and_R_norms, form_source_denominator, return_one_minus_raw_quotient]
+forbidden: [clamp, renormalization, bounded_range_assertion, default_riesz_map]

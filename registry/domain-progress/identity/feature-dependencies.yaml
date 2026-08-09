@@ -1,0 +1,47 @@
+schema_version: 1
+domain: identity
+feature_count: 13
+scientific_dependencies:
+  external_confirmed: []
+  external_provisional: []
+  incoming_confirmed:
+    - domain_index: 27
+      slug: reflexivity
+      direction: 27_to_26
+      evidence:
+        source: maths/27-reflexivity/reflexivity.md
+        statement: Reflexivity is defined as a process over the Identity state and explicitly reuses Phi_id and grad_R Phi_id.
+      identity_primitives_consumed: [TLC-FC-26-IDENTITY-002, TLC-FC-26-IDENTITY-003, TLC-FC-26-IDENTITY-005]
+  unknown: false
+runtime_dependencies: []
+shared_contract_dependencies:
+  - TLC-HC-FEATURE-ID@1.0.0
+  - TLC-HC-SCIENTIFIC-REFERENCE@1.0.0
+  - TLC-HC-REFERENCE-COLLECTION@1.0.0
+  - TLC-HC-UNRESOLVED-ITEM@1.0.0
+  - TLC-HC-OPAQUE-VALUE@1.0.0
+  - TLC-HC-STRUCTURED-ERROR@1.0.0
+  - TLC-HC-TRACEABILITY@1.0.0
+  - TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0
+analysis_companions:
+  - {domain_index: 27, slug: reflexivity, mode: read_only}
+non_promoted_references:
+  - {domain_index: 0, slug: master, reason: Actor label in social coupling; no runtime or reusable scientific contract identified.}
+  - {domain_index: 2, slug: community, reason: Actor label in social coupling; no runtime or reusable scientific contract identified.}
+  - {domain_index: 16, slug: cohort, reason: Actor label in social coupling; no runtime or reusable scientific contract identified.}
+  - {domain_index: 24, slug: context, reason: c(t) is an external scientific input in the bound and S_id; publication state does not create a dependency.}
+  - {domain_index: 9, slug: values, reason: Named only in an unconstructed congruence indicator.}
+  - {domain_index: 13, slug: practice, reason: Named only in an unconstructed congruence indicator.}
+  - {domain_index: 12, slug: competencies, reason: Mentioned descriptively inside TLS; no operation reused.}
+intra_domain:
+  - {from: TLC-FC-26-IDENTITY-001, to: TLC-FC-26-IDENTITY-002, class: state_and_metric_context}
+  - {from: TLC-FC-26-IDENTITY-002, to: TLC-FC-26-IDENTITY-003, class: cost_for_health_assessment}
+  - {from: TLC-FC-26-IDENTITY-002, to: TLC-FC-26-IDENTITY-005, class: gradient_semantics_for_subjective_rhs}
+  - {from: TLC-FC-26-IDENTITY-002, to: TLC-FC-26-IDENTITY-009, class: cost_for_bifurcation_claim}
+  - {from: TLC-FC-26-IDENTITY-002, to: TLC-FC-26-IDENTITY-012, class: cost_for_recovery_indicator}
+policy:
+  scientific_dependency_is_not_runtime_dependency: true
+  incoming_dependency_does_not_create_reverse_runtime_edge: true
+  companion_analysis_is_not_runtime_dependency: true
+  domain_mention_is_not_dependency: true
+  context_publication_state_does_not_change_scientific_dependency: true

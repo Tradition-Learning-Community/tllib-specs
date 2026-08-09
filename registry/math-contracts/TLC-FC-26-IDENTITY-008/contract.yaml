@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-26-IDENTITY-008
+feature_id: TLC-FC-26-IDENTITY-008
+title: Contextual identity stability bound assessment
+domain_id: identity
+contract_kind: conditional_validation_contract
+scientific_status: partially_defined
+scientific_authority: maths/26-identity/identity.md
+source_sections: ['5. Théorèmes formulés par la source']
+inputs: [{name: X, type: opaque_objective_state}, {name: R, type: opaque_subjective_state}, {name: c_t, type: external_context_value}, {name: c_0, type: external_context_value}, {name: C, type: supplied_constant}, {name: epsilon, type: supplied_bound}, {name: dual_primal_difference_provider, type: external_provider}, {name: context_difference_provider, type: external_provider}, {name: norm_provider, type: external_provider}]
+outputs: [{name: contextual_bound_satisfied, type: boolean_assessment}]
+preconditions: [C epsilon and all arithmetic providers supplied]
+postconditions: [result assesses ||R-X|| <= C||c(t)-c0|| + epsilon exactly]
+invariants: [inequality orientation preserved, c(t) remains external input, no Context runtime dependency]
+errors: [ContextualBoundProviderRequired, DualPrimalIdentificationRequired]
+opaque_parameters: [c_t, c_0, C, epsilon]
+scientific_reservations: [TLC-UR-IDENTITY-002, TLC-UR-IDENTITY-013]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [inferring C or epsilon, creating a Context runtime dependency from publication order, claiming proof of the theorem]
+traceability: {source: maths/26-identity/identity.md, inventory: registry/domain-progress/identity/feature-inventory.yaml}

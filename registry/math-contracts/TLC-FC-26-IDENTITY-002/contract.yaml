@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-26-IDENTITY-002
+feature_id: TLC-FC-26-IDENTITY-002
+title: Identity dissonance cost
+domain_id: identity
+contract_kind: conditional_computational_contract
+scientific_status: partially_defined
+scientific_authority: maths/26-identity/identity.md
+source_sections: ['2. Coût de dissonance', '7. Limites et points scientifiques non résolus']
+inputs: [{name: X, type: opaque_objective_state}, {name: R, type: opaque_subjective_state}, {name: lambda, type: positive_scalar}, {name: mu, type: positive_scalar}, {name: grad_R, type: supplied_gradient}, {name: dR_dt, type: supplied_derivative}, {name: dX_dt, type: supplied_derivative}, {name: dual_primal_difference_provider, type: external_provider}, {name: squared_norm_provider, type: external_provider}]
+outputs: [{name: Phi_id, type: source_cost_value}]
+preconditions: [lambda > 0, mu > 0, dual-primal subtraction provider supplied, squared norm provider supplied]
+postconditions: [result equals ||R-X||^2 + lambda||grad R||^2 + mu||dR/dt-dX/dt||^2]
+invariants: [no default Riesz identification, no derivative approximation, no norm choice]
+errors: [DualPrimalIdentificationRequired, NormProviderRequired, PositiveCoefficientRequired]
+opaque_parameters: [X, R, grad_R, dR_dt, dX_dt]
+scientific_reservations: [TLC-UR-IDENTITY-002, TLC-UR-IDENTITY-003]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [choosing a Riesz map, selecting a norm, approximating derivatives]
+traceability: {source: maths/26-identity/identity.md, inventory: registry/domain-progress/identity/feature-inventory.yaml}
