@@ -1,0 +1,3 @@
+# TLC-FC-24-CONTEXT-006 — Contextual sensitivity aggregation
+
+This package computes `S_contexte` only when the three derivative-norm values required by the source are supplied by external scientific derivative providers. It sums the norm of the first contextual derivative of `H`, the second contextual derivative, and the derivative with respect to `grad c`. It defines neither derivative methods nor norm spaces, and it does not fabricate unavailable derivatives.

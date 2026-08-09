@@ -1,0 +1,3 @@
+# TLC-FC-24-CONTEXT-010 — Conditional contextual shift ratio
+
+This package computes `Delta_ctx` only from an externally certified Context distance value and an externally established, nonzero global maximum distance. The source does not provide compactness, attainment, or a maximum-search method, and the raw contextual tensor is not automatically certified as a metric. Consequently this handoff performs neither geodesic evaluation nor global optimization and never invents a denominator.

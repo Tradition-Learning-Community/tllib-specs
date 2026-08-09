@@ -1,0 +1,3 @@
+# TLC-FC-24-CONTEXT-002 — Raw adaptive contextual tensor expression
+
+This package evaluates only the source tensor expression for `g_c` from caller-supplied weights and interaction coefficients. The `i<j` interaction terms are preserved exactly as written. The package never inserts transposed terms, never symmetrizes the expression, and never certifies positivity, SPD geometry, or a geodesic metric. All coefficients remain externally supplied scientific values.

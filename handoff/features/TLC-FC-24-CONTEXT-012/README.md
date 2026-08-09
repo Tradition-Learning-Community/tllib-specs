@@ -1,0 +1,3 @@
+# TLC-FC-24-CONTEXT-012 — Conditional adaptation crisis assessment
+
+The source identifies a potential crisis when `tau_adapt` exceeds the capacity of the system, but it does not define that capacity or provide a numerical threshold. This package therefore evaluates only the strict comparison `tau_adapt > capacity` when a capacity value is supplied by an external scientific authority. It provides no default threshold, calibration heuristic, normalization, or inferred system capability.
