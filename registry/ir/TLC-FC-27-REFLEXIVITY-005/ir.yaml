@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-005
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-005/contract.yaml
+source_candidate_ir: ir/TLC-FC-27-REFLEXIVITY-005/ir.candidate.json
+nature: dynamical_rhs
+inputs: [G_i_value, R_i, X_i, alpha_i, beta_i, grad_Ri_Phi_id, social_coupling_terms, zeta_i_t, R_i_star]
+outputs: [social_reflexivity_rhs]
+steps: [require all supplied source terms, add G_i, add positive alpha_i term, add positive beta_i-gradient term, add social coupling sum, add ideal-attraction term, return RHS without integration]
+errors: [SocialRhsProviderRequired, IdentityGradientProviderRequired, IdealStateProviderRequired]
