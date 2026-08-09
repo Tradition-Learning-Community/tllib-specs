@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-22-TEMPORALITY-007
+status: selected_for_temporality_implementation_specification
+source_ir: registry/ir/TLC-FC-22-TEMPORALITY-007/ir.yaml
+representation: source_regime_criteria_assessment
+execution: conditionally_executable
+inputs: [speed_norm, stasis_threshold, transition_threshold, eigenvalue_real_part_evidence, periodicity_evidence, quasiperiodicity_evidence, fractal_dimension_evidence, fractal_bound_evidence]
+outputs: [satisfied_regime_criteria]
+ordered_operations: [assess_stasis, assess_periodic_or_quasiperiodic, assess_turbulence_or_transition, assess_structured_chaos, return_all_satisfied_criteria]
+forbidden: [threshold_invention, spectral_operator_invention, fractal_bound_invention, exclusive_classification_invention]
