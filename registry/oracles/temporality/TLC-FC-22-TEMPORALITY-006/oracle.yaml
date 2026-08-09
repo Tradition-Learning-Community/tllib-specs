@@ -1,0 +1,10 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-22-TEMPORALITY-006
+feature_id: TLC-FC-22-TEMPORALITY-006
+oracle_type: exact_sum_provider_and_error
+checks:
+  - aggregation includes exactly the declared i<j scale pairs
+  - each pair term equals supplied gamma_ij times the externally supplied tensor product result
+  - missing derivative or coupling coefficient returns the matching structured error
+  - missing tensor product provider returns ExternalTensorProductRequired
+  - no derivative approximation or tensor-space construction appears
