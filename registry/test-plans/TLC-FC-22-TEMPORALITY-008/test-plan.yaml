@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-22-TEMPORALITY-008
+tests:
+  - {id: TEMPORALITY-008-T01, type: exact_formula, assertion: Raw result equals the exact Boltzmann-like ratio multiplied by supplied f value}
+  - {id: TEMPORALITY-008-T02, type: preservation, assertion: f is retained and no normalization or parameter default is applied}
+  - {id: TEMPORALITY-008-T03, type: error, assertion: Missing energy beta f or valid denominator returns the matching structured error}
+no_arbitrary_numeric_fixtures: true
