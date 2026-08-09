@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-002
+source_contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-002/contract.yaml
+tests:
+  - {id: R002-T01, category: preservation, verifies: +alpha(R-X) sign is preserved exactly}
+  - {id: R002-T02, category: preservation, verifies: +beta grad_R Phi_id sign is preserved exactly}
+  - {id: R002-T03, category: invariant, verifies: raw operator evaluation makes no minimization or correction claim}
+  - {id: R002-T04, category: error, verifies: missing Identity gradient provider is rejected without fallback}
