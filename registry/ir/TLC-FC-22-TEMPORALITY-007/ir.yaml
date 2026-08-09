@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-22-TEMPORALITY-007
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-22-TEMPORALITY-007/contract.yaml
+source_candidate_ir: ir/TLC-FC-22-TEMPORALITY-007/ir.candidate.json
+nature: validation
+inputs: [speed_norm, stasis_threshold, transition_threshold, eigenvalue_real_part_evidence, periodicity_evidence, quasiperiodicity_evidence, fractal_dimension_evidence, fractal_bound_evidence]
+outputs: [satisfied_regime_criteria]
+steps: [assess stasis criteria, assess periodic or quasiperiodic criteria, assess turbulence criteria, assess structured-chaos criteria, return all satisfied criteria without precedence]
+errors: [RegimeThresholdRequired, ExternalSpectralEvidenceRequired, ExternalFractalBoundRequired, ExclusiveRegimeClassificationUnsupported]
