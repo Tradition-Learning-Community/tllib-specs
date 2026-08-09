@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-001
+source_contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-001/contract.yaml
+tests:
+  - {id: R001-T01, category: preservation, verifies: published Identity state semantics are referenced rather than redefined}
+  - {id: R001-T02, category: preservation, verifies: no hidden metacognitive state variable is synthesized}
+  - {id: R001-T03, category: error, verifies: missing Identity state reference returns structured error}
