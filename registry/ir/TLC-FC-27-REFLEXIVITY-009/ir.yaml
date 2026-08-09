@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-009
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-009/contract.yaml
+source_candidate_ir: ir/TLC-FC-27-REFLEXIVITY-009/ir.candidate.json
+nature: validation
+inputs: [requested_semantics, explicit_semantic_mode_or_provider, crisis_lifecycle_provider]
+outputs: [reflexivity_semantic_guard_assessment]
+steps: [classify raw-expression versus semantic request, preserve all contradictory source signs, require external semantic mode for correction requests, require lifecycle provider for crisis requests]
+errors: [ReflexivitySignConventionAmbiguous, CrisisLifecycleProviderRequired]
