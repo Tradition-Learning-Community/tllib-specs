@@ -1,0 +1,3 @@
+# TLC-FC-24-CONTEXT-007 — Context adaptation operator
+
+This handoff evaluates the adaptation expression `X + alpha(X*,c-related)(X*−X) + beta grad_c X*` only from externally supplied `X*`, `grad_c X*`, alpha, and beta values. It does not solve the contextual optimization problem, infer an optimum, differentiate an optimum, or import Culture semantics. The source algebra is preserved exactly and missing provider values produce structured errors.

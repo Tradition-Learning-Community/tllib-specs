@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-006
+algorithm_kind: derivative_provider_aggregation
+execution: conditionally_executable
+steps:
+  - require all three externally produced derivative values
+  - require a compatible norm provider
+  - apply the supplied norm to each derivative value
+  - return the sum of the three norms
+forbidden: [derivative approximation, automatic differentiation, norm selection]

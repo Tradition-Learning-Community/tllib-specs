@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-008
+oracle_kind: guarded_exact_formula_and_error
+acceptance:
+  - execution requires explicit external applicability strict-convexity and invertibility evidence
+  - exact inner sum and leading minus sign are preserved
+  - inverse Jacobian action comes only from the supplied provider
+  - no missing relation between objective J and H is synthesized
+rejections: [unguarded execution, local matrix inversion, invented optimality proof]

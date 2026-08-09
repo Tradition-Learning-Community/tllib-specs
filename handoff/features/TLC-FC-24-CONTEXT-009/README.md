@@ -1,0 +1,3 @@
+# TLC-FC-24-CONTEXT-009 — Raw contextual performance ratio
+
+This package evaluates the source ratio `P_ctx = J(X,c) / J(X*(c),c)` exactly as written. The source simultaneously places this quantity in `[0,1]`, while a minimized cost interpretation can make the ratio exceed one. That contradiction is preserved. The implementation must not clamp, invert, normalize, or reverse the ratio, and must reject a zero denominator rather than inventing a convention.

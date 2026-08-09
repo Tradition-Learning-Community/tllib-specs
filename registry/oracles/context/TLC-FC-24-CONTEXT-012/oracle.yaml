@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-012
+oracle_kind: guarded_predicate_and_error
+acceptance:
+  - missing capacity yields ContextCapacityRequired
+  - crisis is true only for strict tau_adapt greater than supplied capacity
+  - equality is not classified as exceeding
+  - no default threshold units or calibration are introduced
+rejections: [invented threshold, greater-than-or-equal crisis rule]

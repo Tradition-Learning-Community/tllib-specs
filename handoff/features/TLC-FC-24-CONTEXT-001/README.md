@@ -1,0 +1,3 @@
+# TLC-FC-24-CONTEXT-001 — Context space descriptor
+
+This autonomous handoff preserves the five-factor Context product declaration and its inclusion in `R^m × M`. It treats cultural and symbolic internals as opaque source-described factors, does not construct a differentiable structure for the product, and creates no runtime dependency on Culture 25. Implementers must retain the unresolved geometry explicitly and return only source-faithful structural information.

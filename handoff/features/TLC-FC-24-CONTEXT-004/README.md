@@ -1,0 +1,3 @@
+# TLC-FC-24-CONTEXT-004 — Context weight evolution right-hand side
+
+This package evaluates the three-term source right-hand side for one contextual weight `w_i`. The same source value `E_contexte` is carried exactly as supplied and is not promoted to a vector or per-coordinate family. The operation returns only the instantaneous derivative; it introduces no integration scheme, coefficient calibration, equilibrium solver, clipping, or hidden default.

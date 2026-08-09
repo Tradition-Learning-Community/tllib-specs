@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-002
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-002/contract.yaml
+source_candidate_ir: ir/TLC-FC-24-CONTEXT-002/ir.candidate.json
+nature: transform
+inputs: [w_i_values, gamma_ij_values, basis_covector_products]
+outputs: [raw_context_tensor]
+steps: [aggregate diagonal source terms, aggregate only written i<j cross terms, return unsymmetrized raw tensor]
+errors: [ContextTensorArithmeticUnsupported, ContextMetricCertificationUnsupported]

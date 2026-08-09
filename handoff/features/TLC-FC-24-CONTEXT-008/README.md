@@ -1,0 +1,3 @@
+# TLC-FC-24-CONTEXT-008 — Conditional optimal-family derivative
+
+The source states a formula for `dX*/dt` under strict convexity of `J` and invertibility of `grad_X H`, but it does not establish the missing link between the optimality conditions of `J` and `H`. This package therefore evaluates the displayed formula only when an external applicability certificate, derivative values, and inverse-Jacobian action are supplied. It invents neither proof nor inverse algorithm.

@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-24-CONTEXT-003
+feature_id: TLC-FC-24-CONTEXT-003
+title: Contextual geodesic distance certification guard
+domain_id: context
+contract_kind: guard_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/24-context/context.md
+source_sections: ['2. Métrique adaptative', '6. Limites et points scientifiques non résolus']
+inputs: [{name: raw_context_tensor_reference, type: reference}, {name: differentiable_structure_evidence, type: optional_external_evidence}, {name: symmetric_positive_metric_evidence, type: optional_external_evidence}, {name: geodesic_distance_provider_reference, type: optional_external_provider_reference}]
+outputs: [{name: context_distance_availability_assessment, type: guarded_assessment}]
+preconditions: [source distance declaration is available]
+postconditions: [local numeric distance is unavailable unless all external scientific evidence and provider are supplied]
+invariants: [no geodesic solver path search symmetrization or SPD completion is performed]
+errors: [ContextDistanceScientificEvidenceRequired, ContextDistanceProviderRequired]
+opaque_parameters: [differentiable_structure_evidence, symmetric_positive_metric_evidence, geodesic_distance_provider_reference]
+scientific_reservations: [TLC-UR-CONTEXT-001, TLC-UR-CONTEXT-002, TLC-UR-CONTEXT-003, TLC-UR-CONTEXT-004]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [computing distance locally, inventing path regularity, symmetrizing g_c, assuming SPD]
+traceability: {source: maths/24-context/context.md, inventory: registry/domain-progress/context/feature-inventory.yaml}

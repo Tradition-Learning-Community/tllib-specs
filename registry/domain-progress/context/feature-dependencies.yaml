@@ -1,0 +1,37 @@
+schema_version: 1
+domain: context
+feature_count: 12
+scientific_dependencies:
+  external_confirmed: []
+  external_provisional: []
+  unknown: false
+runtime_dependencies: []
+shared_contract_dependencies:
+  - TLC-HC-FEATURE-ID@1.0.0
+  - TLC-HC-SCIENTIFIC-REFERENCE@1.0.0
+  - TLC-HC-REFERENCE-COLLECTION@1.0.0
+  - TLC-HC-UNRESOLVED-ITEM@1.0.0
+  - TLC-HC-OPAQUE-VALUE@1.0.0
+  - TLC-HC-STRUCTURED-ERROR@1.0.0
+  - TLC-HC-TRACEABILITY@1.0.0
+  - TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0
+analysis_companions:
+  - {domain_index: 25, slug: culture}
+non_promoted_references:
+  - domain_index: 25
+    slug: culture
+    source_phrase: structures of C_cultural and C_symbolic are specified in Culture
+    reason: Context can preserve these factors as opaque components and Culture explicitly consumes Context; no Context-to-Culture runtime or scientific dependency is required for Context publication.
+intra_domain:
+  - {from: TLC-FC-24-CONTEXT-002, to: TLC-FC-24-CONTEXT-003, class: raw_tensor_for_distance_guard}
+  - {from: TLC-FC-24-CONTEXT-005, to: TLC-FC-24-CONTEXT-006, class: H_derivatives_share_scientific_provenance}
+  - {from: TLC-FC-24-CONTEXT-007, to: TLC-FC-24-CONTEXT-008, class: optimal_state_family_scientific_context}
+  - {from: TLC-FC-24-CONTEXT-003, to: TLC-FC-24-CONTEXT-010, class: certified_distance_required_for_shift_metric}
+  - {from: TLC-FC-24-CONTEXT-008, to: TLC-FC-24-CONTEXT-011, class: optimal_family_derivative_provenance}
+  - {from: TLC-FC-24-CONTEXT-011, to: TLC-FC-24-CONTEXT-012, class: adaptation_rate_for_crisis_assessment}
+policy:
+  scientific_dependency_is_not_runtime_dependency: true
+  companion_analysis_is_not_runtime_dependency: true
+  culture_is_downstream_consumer_not_context_runtime_provider: true
+  no_circular_runtime_dependency: true
+  no_dependency_inferred_from_cross_reference_without_required_provider: true

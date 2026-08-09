@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-011
+algorithm_kind: provider_based_metric
+execution: conditionally_executable
+steps:
+  - require externally supplied dX star over dc and dc over dt
+  - require a compatible external norm provider
+  - compute the supplied norm of each derivative value
+  - multiply the two norm results
+forbidden: [derivative approximation, norm inference, trajectory integration]

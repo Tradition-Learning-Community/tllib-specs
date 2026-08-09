@@ -1,0 +1,26 @@
+schema_version: 1
+domain: context
+status: selected_for_implementation_handoff
+authoritative_feature_count: 12
+features:
+  - {feature_id: TLC-FC-24-CONTEXT-001, canonical_name: Context space descriptor, category: declarative, scientific_status: preserved_unresolved, execution: structural_only, algorithm: structural_source_descriptor, oracle: structural_and_error}
+  - {feature_id: TLC-FC-24-CONTEXT-002, canonical_name: Raw adaptive contextual tensor expression, category: transform, scientific_status: partially_defined, execution: executable, algorithm: source_formula, oracle: exact_formula_and_preservation}
+  - {feature_id: TLC-FC-24-CONTEXT-003, canonical_name: Contextual geodesic distance certification guard, category: validation, scientific_status: preserved_unresolved, execution: structural_only, algorithm: structural_only_non_execution_guard, oracle: structural_and_error}
+  - {feature_id: TLC-FC-24-CONTEXT-004, canonical_name: Context weight evolution right-hand side, category: dynamical, scientific_status: partially_defined, execution: executable, algorithm: source_rhs, oracle: exact_formula_and_preservation}
+  - {feature_id: TLC-FC-24-CONTEXT-005, canonical_name: Tradition-context coupled right-hand sides, category: dynamical, scientific_status: partially_defined, execution: conditionally_executable, algorithm: provider_based_source_rhs, oracle: exact_rhs_provider_and_error}
+  - {feature_id: TLC-FC-24-CONTEXT-006, canonical_name: Contextual sensitivity aggregation, category: aggregation, scientific_status: external_provider_required, execution: conditionally_executable, algorithm: derivative_provider_aggregation, oracle: exact_formula_provider_and_error}
+  - {feature_id: TLC-FC-24-CONTEXT-007, canonical_name: Context adaptation operator, category: transform, scientific_status: external_provider_required, execution: conditionally_executable, algorithm: provider_based_adaptation, oracle: exact_formula_provider_and_error}
+  - {feature_id: TLC-FC-24-CONTEXT-008, canonical_name: Conditional optimal-family derivative, category: dynamical, scientific_status: external_provider_required, execution: conditionally_executable, algorithm: conditional_formula_with_scientific_guard, oracle: guarded_exact_formula_and_error}
+  - {feature_id: TLC-FC-24-CONTEXT-009, canonical_name: Raw contextual performance ratio, category: transform, scientific_status: partially_defined, execution: executable, algorithm: source_formula, oracle: exact_formula_and_contradiction_preservation}
+  - {feature_id: TLC-FC-24-CONTEXT-010, canonical_name: Conditional contextual shift ratio, category: transform, scientific_status: external_provider_required, execution: conditionally_executable, algorithm: externally_denominated_ratio, oracle: guarded_exact_ratio_and_error}
+  - {feature_id: TLC-FC-24-CONTEXT-011, canonical_name: Conditional adaptation rate, category: transform, scientific_status: external_provider_required, execution: conditionally_executable, algorithm: provider_based_metric, oracle: exact_formula_provider_and_error}
+  - {feature_id: TLC-FC-24-CONTEXT-012, canonical_name: Conditional adaptation crisis assessment, category: validation, scientific_status: preserved_unresolved, execution: conditionally_executable, algorithm: threshold_provider_assessment, oracle: guarded_predicate_and_error}
+summary:
+  active_features: 12
+  structurally_finalized: 12
+  semantic_execution_ready: 3
+  conditional_execution_ready: 7
+  structural_only: 2
+  non_execution_guards: 1
+  rejected: 0
+  blocked_from_handoff: 0

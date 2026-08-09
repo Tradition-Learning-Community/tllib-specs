@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-003
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-003/contract.yaml
+tests:
+  - {id: C003-T01, category: unsupported_operation, verifies: missing metric evidence blocks distance execution}
+  - {id: C003-T02, category: error, verifies: missing distance provider returns structured error}
+  - {id: C003-T03, category: preservation, verifies: no symmetrization or SPD completion occurs}
+  - {id: C003-T04, category: preservation, verifies: no geodesic or path-search method is selected}

@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-012
+algorithm_kind: threshold_provider_assessment
+execution: conditionally_executable
+steps:
+  - require externally defined system capacity with comparable semantics
+  - compare tau_adapt strictly greater than supplied capacity
+  - report the source potential-crisis predicate without calibration claims
+forbidden: [default capacity, invented units, greater-than-or-equal substitution]

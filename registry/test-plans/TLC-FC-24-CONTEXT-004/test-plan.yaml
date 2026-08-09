@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-004
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-004/contract.yaml
+tests:
+  - {id: C004-T01, category: output_contract, verifies: exact three-term source RHS}
+  - {id: C004-T02, category: preservation, verifies: E_contexte remains caller-supplied common value}
+  - {id: C004-T03, category: invalid_input, verifies: missing contracted derivative term fails}
+  - {id: C004-T04, category: preservation, verifies: no ODE solver or coefficient defaults}

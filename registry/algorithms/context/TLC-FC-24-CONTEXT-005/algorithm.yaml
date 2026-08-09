@@ -1,0 +1,11 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-005
+algorithm_kind: provider_based_source_rhs
+execution: conditionally_executable
+steps:
+  - require source-compatible H J and K providers
+  - evaluate H(X,c,t,grad c)
+  - evaluate J(c,X,t,grad X)
+  - evaluate K(c,X)
+  - return H result and J result plus K result acting on c_opt minus c
+forbidden: [ODE solver selection, provider invention, recall sign change]

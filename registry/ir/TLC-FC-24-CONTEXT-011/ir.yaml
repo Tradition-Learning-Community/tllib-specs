@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-011
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-011/contract.yaml
+source_candidate_ir: ir/TLC-FC-24-CONTEXT-011/ir.candidate.json
+nature: guarded_transform
+inputs: [dX_star_dc, dc_dt, norm_provider]
+outputs: [tau_adapt]
+steps: [require derivative values, require norm provider, compute each supplied norm, multiply the two norm values]
+errors: [ContextDerivativeQuantityRequired, ContextNormProviderRequired]

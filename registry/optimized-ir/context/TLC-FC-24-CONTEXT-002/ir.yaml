@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-002
+status: finalized
+execution: executable
+source_ir: registry/ir/TLC-FC-24-CONTEXT-002/ir.yaml
+operation: evaluate_raw_context_tensor
+required_behavior: [exact source summation, preserve strict i<j cross-term orientation]
+forbidden_behavior: [automatic symmetrization, positivity certification, SPD certification]
+error_codes: [ContextTensorArithmeticUnsupported, ContextMetricCertificationUnsupported]

@@ -1,0 +1,3 @@
+# TLC-FC-24-CONTEXT-003 — Contextual geodesic distance certification guard
+
+The source writes a geodesic-length infimum, but the prerequisites needed to treat `g_c` as a genuine metric are not established. This package therefore exposes a structural non-execution guard: it preserves the announced distance expression and requires external differentiability, symmetry/positivity and distance-construction evidence. It performs no geodesic solve and never silently repairs `g_c`.

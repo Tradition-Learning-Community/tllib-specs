@@ -1,0 +1,3 @@
+# TLC-FC-24-CONTEXT-005 — Tradition-context coupled right-hand sides
+
+This handoff evaluates the two source right-hand sides only from externally supplied `H`, `J`, and `K` provider results and source state values. It preserves `dc/dt = J + K(c,X)(c_opt-c)` exactly and returns no integrated trajectory. Lipschitz declarations remain source claims; no ODE/PDE solver, discretization, provider construction, or Culture runtime dependency is introduced.

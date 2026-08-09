@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-006
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-006/contract.yaml
+tests:
+  - {id: C006-T01, category: output_contract, verifies: exact three-norm sum}
+  - {id: C006-T02, category: invalid_input, verifies: missing derivative value is rejected}
+  - {id: C006-T03, category: invalid_input, verifies: missing norm provider is rejected}
+  - {id: C006-T04, category: preservation, verifies: no differentiation or norm construction is invented}

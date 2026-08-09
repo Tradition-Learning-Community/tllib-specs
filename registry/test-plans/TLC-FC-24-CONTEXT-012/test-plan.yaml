@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-012
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-012/contract.yaml
+tests:
+  - {id: C012-T01, category: invariant, verifies: crisis predicate uses strict greater-than}
+  - {id: C012-T02, category: invalid_input, verifies: missing system capacity is rejected}
+  - {id: C012-T03, category: preservation, verifies: no default capacity or calibration is introduced}
+  - {id: C012-T04, category: preservation, verifies: equality is not changed into a crisis condition}

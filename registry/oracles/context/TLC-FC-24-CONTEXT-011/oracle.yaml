@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-011
+oracle_kind: exact_formula_provider_and_error
+acceptance:
+  - tau_adapt equals the product of exactly two externally normed derivative quantities
+  - derivative and norm construction remain external
+  - missing derivative or norm provider yields the declared structured error
+rejections: [locally differentiated X_star, implicit norm]

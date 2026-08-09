@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-24-CONTEXT-009
+feature_id: TLC-FC-24-CONTEXT-009
+title: Raw contextual performance ratio
+domain_id: context
+contract_kind: computational_contract
+scientific_status: partially_defined
+scientific_authority: maths/24-context/context.md
+source_sections: ['5. Métriques', '6. Limites et points scientifiques non résolus']
+inputs: [{name: J_X_c, type: scalar_like_objective_value}, {name: J_X_star_c, type: scalar_like_objective_value}]
+outputs: [{name: P_ctx_raw, type: scalar_like_ratio}]
+preconditions: [denominator is supplied nonzero and supports division]
+postconditions: [output equals J_X_c divided by J_X_star_c exactly]
+invariants: [source numerator and denominator orientation is preserved, no clamp inversion normalization or zero-one certification]
+errors: [ContextPerformanceDenominatorZero, ContextPerformanceReorientationForbidden]
+opaque_parameters: []
+scientific_reservations: [TLC-UR-CONTEXT-007]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [clamping to zero-one, reversing ratio, normalizing, asserting output in zero-one]
+traceability: {source: maths/24-context/context.md, inventory: registry/domain-progress/context/feature-inventory.yaml}

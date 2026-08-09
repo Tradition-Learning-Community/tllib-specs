@@ -1,0 +1,11 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-003
+algorithm_kind: structural_only_non_execution_guard
+execution: structural_only
+steps:
+  - verify external differentiable-structure evidence is present
+  - verify external symmetric-positive metric evidence is present
+  - verify an external geodesic-distance provider is referenced
+  - otherwise return the corresponding structured non-execution error
+  - when all are present report externally provided availability without computing a distance
+forbidden: [local geodesic solver, path search, symmetrization, SPD inference]

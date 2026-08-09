@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-24-CONTEXT-006
+feature_id: TLC-FC-24-CONTEXT-006
+title: Contextual sensitivity aggregation
+domain_id: context
+contract_kind: computational_contract
+scientific_status: external_provider_required
+scientific_authority: maths/24-context/context.md
+source_sections: ['3. Couplage tradition–contexte', '6. Limites et points scientifiques non résolus']
+inputs: [{name: grad_c_H, type: external_derivative_value}, {name: grad2_c_H, type: external_derivative_value}, {name: partial_H_partial_grad_c, type: external_derivative_value}, {name: norm_provider, type: external_provider}]
+outputs: [{name: S_contexte, type: scalar_like}]
+preconditions: [all derivative values and a compatible norm provider are supplied]
+postconditions: [output equals norm grad_c H plus norm grad_c squared H plus norm partial H over partial grad c]
+invariants: [no differentiation method is selected, no norm is invented]
+errors: [ContextDerivativeProviderRequired, ContextNormProviderRequired]
+opaque_parameters: [grad_c_H, grad2_c_H, partial_H_partial_grad_c]
+scientific_reservations: [TLC-UR-CONTEXT-001, TLC-UR-CONTEXT-009]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [finite differences, automatic differentiation, default norm]
+traceability: {source: maths/24-context/context.md, inventory: registry/domain-progress/context/feature-inventory.yaml}

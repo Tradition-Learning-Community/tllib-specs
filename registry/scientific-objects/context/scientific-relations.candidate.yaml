@@ -1,0 +1,58 @@
+artifact:
+  artifact_id: TLC-SCI-CONTEXT-SCIENTIFIC-RELATION-REGISTRY-001
+  artifact_type: scientific_relation_registry
+  version: candidate-1
+  status: candidate_with_reservations
+  source_slug: context
+  source_path: maths/24-context/context.md
+  source_commit: 86f5875e12c73deec3409f24cd2c4fa2314a69fe
+relations:
+  - {provisional_relation_id: TLC-SR-CONTEXT-001, relation_type: product_definition, source: TLC-SO-CONTEXT-001, target: TLC-SO-CONTEXT-002, statement: 'C contains the cultural component.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-002, relation_type: product_definition, source: TLC-SO-CONTEXT-001, target: TLC-SO-CONTEXT-003, statement: 'C contains the social component.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-003, relation_type: product_definition, source: TLC-SO-CONTEXT-001, target: TLC-SO-CONTEXT-004, statement: 'C contains the institutional component.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-004, relation_type: product_definition, source: TLC-SO-CONTEXT-001, target: TLC-SO-CONTEXT-005, statement: 'C contains the material component.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-005, relation_type: product_definition, source: TLC-SO-CONTEXT-001, target: TLC-SO-CONTEXT-006, statement: 'C contains the symbolic component.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-006, relation_type: ambient_inclusion, source: TLC-SO-CONTEXT-001, target: TLC-SO-CONTEXT-007, statement: 'The source places C inside R^m times M.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-007, relation_type: ambient_inclusion, source: TLC-SO-CONTEXT-001, target: TLC-SO-CONTEXT-008, statement: 'The source places C inside R^m times M where M carries non-vectorial symbolic aspects.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-008, relation_type: component_semantics, source: TLC-SO-CONTEXT-002, target: TLC-SO-CONTEXT-009, statement: 'The cultural factor represents values beliefs norms and languages.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-009, relation_type: component_semantics, source: TLC-SO-CONTEXT-003, target: TLC-SO-CONTEXT-010, statement: 'The social factor represents structures and social relations.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-010, relation_type: component_semantics, source: TLC-SO-CONTEXT-004, target: TLC-SO-CONTEXT-011, statement: 'The institutional factor represents organizations laws and procedures.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-011, relation_type: component_semantics, source: TLC-SO-CONTEXT-005, target: TLC-SO-CONTEXT-012, statement: 'The material factor represents resources techniques and physical environment.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-012, relation_type: component_semantics, source: TLC-SO-CONTEXT-006, target: TLC-SO-CONTEXT-013, statement: 'The symbolic factor represents myths narratives figures and symbolic objects.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-013, relation_type: tensor_definition, source: TLC-SO-CONTEXT-015, target: TLC-SO-CONTEXT-014, statement: 'w_i weights diagonal dx_i tensor dx_i terms.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-014, relation_type: tensor_definition, source: TLC-SO-CONTEXT-016, target: TLC-SO-CONTEXT-014, statement: 'gamma_ij weights only the explicitly written i<j dx_i tensor dx_j terms.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-015, relation_type: tensor_basis, source: TLC-SO-CONTEXT-017, target: TLC-SO-CONTEXT-014, statement: 'g_c is expressed using coordinate covectors dx_i.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-016, relation_type: path_length_definition, source: TLC-SO-CONTEXT-014, target: TLC-SO-CONTEXT-020, statement: 'The announced path length evaluates g_c on path velocity inside the square root.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-017, relation_type: path_endpoint_constraint, source: TLC-SO-CONTEXT-018, target: TLC-SO-CONTEXT-021, statement: 'Candidate paths run from c1 to c2.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-018, relation_type: path_velocity, source: TLC-SO-CONTEXT-019, target: TLC-SO-CONTEXT-020, statement: 'The path length uses dot gamma.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-019, relation_type: infimum_definition, source: TLC-SO-CONTEXT-020, target: TLC-SO-CONTEXT-021, statement: 'The source defines d_C as the infimum of announced path lengths.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-020, relation_type: dynamics_definition, source: TLC-SO-CONTEXT-022, target: TLC-SO-CONTEXT-015, statement: 'The source supplies one evolution equation for each weight w_i.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-021, relation_type: relaxation_term, source: TLC-SO-CONTEXT-023, target: TLC-SO-CONTEXT-022, statement: 'alpha_i multiplies E_contexte minus w_i.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-022, relation_type: logistic_term, source: TLC-SO-CONTEXT-024, target: TLC-SO-CONTEXT-022, statement: 'beta_i multiplies w_i(1-w_i).'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-023, relation_type: transport_term, source: TLC-SO-CONTEXT-025, target: TLC-SO-CONTEXT-022, statement: 'gamma_i multiplies the X-gradient contraction with dX/dt.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-024, relation_type: equilibrium_use, source: TLC-SO-CONTEXT-026, target: TLC-SO-CONTEXT-022, statement: 'The same E_contexte symbol appears in every weight equation.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-025, relation_type: gradient_transport, source: TLC-SO-CONTEXT-027, target: TLC-SO-CONTEXT-022, statement: 'grad_X w_i is dotted with tradition velocity.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-026, relation_type: coupled_dynamic_definition, source: TLC-SO-CONTEXT-031, target: TLC-SO-CONTEXT-028, statement: 'H defines dX/dt.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-027, relation_type: coupled_dynamic_definition, source: TLC-SO-CONTEXT-032, target: TLC-SO-CONTEXT-057, statement: 'J contributes to dc/dt.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-028, relation_type: recall_term, source: TLC-SO-CONTEXT-033, target: TLC-SO-CONTEXT-057, statement: 'K(c,X)(c_opt-c) is added to J in the context RHS.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-029, relation_type: recall_target, source: TLC-SO-CONTEXT-034, target: TLC-SO-CONTEXT-033, statement: 'c_opt is the reference context target of the recall term.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-030, relation_type: regularity_claim, source: TLC-SO-CONTEXT-060, target: TLC-SO-CONTEXT-031, statement: 'H is declared Lipschitz.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-031, relation_type: regularity_claim, source: TLC-SO-CONTEXT-060, target: TLC-SO-CONTEXT-032, statement: 'J is declared Lipschitz.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-032, relation_type: sensitivity_definition, source: TLC-SO-CONTEXT-039, target: TLC-SO-CONTEXT-038, statement: 'S_contexte includes norm grad_c H.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-033, relation_type: sensitivity_definition, source: TLC-SO-CONTEXT-040, target: TLC-SO-CONTEXT-038, statement: 'S_contexte includes norm grad_c squared H.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-034, relation_type: sensitivity_definition, source: TLC-SO-CONTEXT-041, target: TLC-SO-CONTEXT-038, statement: 'S_contexte includes norm partial H with respect to grad c.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-035, relation_type: adaptation_definition, source: TLC-SO-CONTEXT-043, target: TLC-SO-CONTEXT-042, statement: 'A_contexte corrects X toward X star(c).'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-036, relation_type: adaptation_weight, source: TLC-SO-CONTEXT-044, target: TLC-SO-CONTEXT-042, statement: 'alpha weights X star minus X.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-037, relation_type: anticipation_weight, source: TLC-SO-CONTEXT-045, target: TLC-SO-CONTEXT-042, statement: 'beta weights grad_c X star.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-038, relation_type: anticipation_term, source: TLC-SO-CONTEXT-046, target: TLC-SO-CONTEXT-042, statement: 'grad_c X star is the anticipatory term.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-039, relation_type: theorem_condition, source: TLC-SO-CONTEXT-048, target: TLC-SO-CONTEXT-050, statement: 'Strict convexity of J in X is stated as a condition for the announced optimal family.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-040, relation_type: theorem_condition, source: TLC-SO-CONTEXT-049, target: TLC-SO-CONTEXT-050, statement: 'Invertibility of grad_X H is stated as a condition for the announced derivative formula.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-041, relation_type: unresolved_theorem_link, source: TLC-SO-CONTEXT-047, target: TLC-SO-CONTEXT-031, statement: 'The source presents the dX star/dt formula as an optimality consequence but does not give the required relation between objective J and dynamics H.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-042, relation_type: metric_definition, source: TLC-SO-CONTEXT-047, target: TLC-SO-CONTEXT-052, statement: 'P_ctx is J(X,c) divided by J(X star(c),c) exactly as written.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-043, relation_type: metric_definition, source: TLC-SO-CONTEXT-021, target: TLC-SO-CONTEXT-053, statement: 'Delta_ctx uses contextual distance in numerator and global maximum contextual distance in denominator.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-044, relation_type: metric_definition, source: TLC-SO-CONTEXT-056, target: TLC-SO-CONTEXT-054, statement: 'tau_adapt multiplies norm dX star/dc by norm dc/dt.'}
+  - {provisional_relation_id: TLC-SR-CONTEXT-045, relation_type: crisis_condition, source: TLC-SO-CONTEXT-054, target: TLC-SO-CONTEXT-059, statement: 'A potential crisis is identified when tau_adapt exceeds externally undefined system capacity.'}
+source_reference_policy:
+  source_path: maths/24-context/context.md
+  source_commit: 86f5875e12c73deec3409f24cd2c4fa2314a69fe
+  no_external_science: true

@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-24-CONTEXT-005
+source_contract: registry/math-contracts/TLC-FC-24-CONTEXT-005/contract.yaml
+tests:
+  - {id: C005-T01, category: output_contract, verifies: dX_dt is supplied H evaluation}
+  - {id: C005-T02, category: output_contract, verifies: dc_dt preserves J plus K(c_opt-c)}
+  - {id: C005-T03, category: invalid_input, verifies: missing provider is rejected}
+  - {id: C005-T04, category: preservation, verifies: no time integrator or invented provider}
