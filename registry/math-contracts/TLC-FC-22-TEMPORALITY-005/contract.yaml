@@ -1,0 +1,20 @@
+contract_id: TLC-MC-TLC-FC-22-TEMPORALITY-005
+feature_id: TLC-FC-22-TEMPORALITY-005
+title: Multiscale evolution right-hand sides
+domain_id: temporality
+contract_kind: conditional_computational_contract
+scientific_status: partially_defined
+scientific_authority: maths/22-temporality/temporality.md
+source_sections: ['4. Évolution multi-échelle', '6. Limites et points scientifiques non résolus']
+inputs: [{name: X, type: opaque_state}, {name: t1, type: scalar}, {name: t2, type: scalar}, {name: t3, type: scalar}, {name: t4, type: scalar}, {name: epsilon1, type: scalar}, {name: epsilon2, type: scalar}, {name: epsilon3, type: scalar}, {name: epsilon4, type: scalar}, {name: theta, type: opaque_value}, {name: grad_theta, type: opaque_value}, {name: grad2_theta, type: opaque_value}, {name: mnemonic_X, type: opaque_value}, {name: F1_provider, type: external_provider}, {name: F2_provider, type: external_provider}, {name: F3_provider, type: external_provider}, {name: F4_provider, type: external_provider}, {name: epsilon_hierarchy_evidence, type: external_evidence}]
+outputs: [{name: dX_dt1, type: source_rhs_value}, {name: dX_dt2, type: source_rhs_value}, {name: dX_dt3, type: source_rhs_value}, {name: dX_dt4, type: source_rhs_value}]
+preconditions: [all four F_i providers supplied, theta-derived values and mnemonic_X supplied, epsilon hierarchy evidence supplied]
+postconditions: [each output equals epsilon_i times the corresponding source F_i call]
+invariants: [F1 uses theta, F2 uses grad_theta, F3 uses grad2_theta, F4 uses mnemonic_X, epsilon ordering is preserved as external evidence, no numerical integration]
+errors: [ExternalScaleFieldRequired, MissingThetaDerivedInput, ExternalMnemonicValueRequired, EpsilonHierarchyEvidenceRequired]
+opaque_parameters: [X, epsilon1, epsilon2, epsilon3, epsilon4, theta, grad_theta, grad2_theta, mnemonic_X]
+scientific_reservations: [TLC-UR-TEMPORALITY-005, TLC-UR-TEMPORALITY-006, TLC-UR-TEMPORALITY-007, TLC-UR-TEMPORALITY-008, TLC-UR-TEMPORALITY-018]
+dependencies: {scientific: [TLC-FC-23-MEMORY-003], runtime: []}
+dependency_notes: The fourth source equation uses M(X); the published adaptive-memory feature supplies scientific provenance but no direct runtime adapter is inferred.
+forbidden_behaviors: [constructing X or theta spaces, numerical differentiation, selecting an ODE or PDE solver, inventing epsilon values]
+traceability: {source: maths/22-temporality/temporality.md, inventory: registry/domain-progress/temporality/feature-inventory.yaml, memory_source: maths/23-memory/memory.md}
