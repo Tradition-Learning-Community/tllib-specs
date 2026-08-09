@@ -1,0 +1,20 @@
+contract_id: TLC-MC-TLC-FC-27-REFLEXIVITY-002
+feature_id: TLC-FC-27-REFLEXIVITY-002
+title: Source coherent-identity operator exact expression
+domain_id: reflexivity
+contract_kind: source_expression_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/27-reflexivity/reflexivity.md
+source_sections: ['2. Opérateur d’identité cohérente', '6. Limites et points scientifiques non résolus']
+formula: 'I(X,R,t) = (X, R + alpha(t)(R-X) + beta(t) grad_R Phi_id(X,R))'
+inputs: [{name: X, type: identity_state_component}, {name: R, type: identity_state_component}, {name: alpha_t, type: scalar, constraint: '0 <= alpha_t <= 1'}, {name: beta_t, type: scalar, constraint: 'beta_t > 0'}, {name: grad_R_Phi_id, type: external_identity_gradient_value}]
+outputs: [{name: raw_operator_result, type: identity_pair_expression}]
+preconditions: [all operands are supplied with compatible arithmetic]
+postconditions: [both source-positive terms are preserved byte-for-semantics]
+invariants: ['alpha term sign remains +', 'beta-gradient term sign remains +', no claim of dissonance reduction is inferred]
+errors: [IdentityGradientProviderRequired, CompatibleIdentityArithmeticRequired]
+opaque_parameters: [identity_gradient_realization]
+scientific_reservations: [TLC-UR-REFLEXIVITY-001, TLC-UR-REFLEXIVITY-002, TLC-UR-REFLEXIVITY-003, TLC-UR-REFLEXIVITY-013]
+dependencies: {scientific: [26], identity_features: [TLC-FC-26-IDENTITY-001, TLC-FC-26-IDENTITY-002], runtime: []}
+forbidden_behaviors: [silently changing alpha sign, silently changing beta-gradient sign, claiming minimization from this expression, inventing a solver]
+traceability: {source: maths/27-reflexivity/reflexivity.md, inventory: registry/domain-progress/reflexivity/feature-inventory.yaml}
