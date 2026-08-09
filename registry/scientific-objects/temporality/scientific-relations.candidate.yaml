@@ -1,0 +1,54 @@
+artifact:
+  artifact_id: TLC-SCI-TEMPORALITY-SCIENTIFIC-RELATION-REGISTRY-001
+  artifact_type: scientific_relation_registry
+  version: candidate-1
+  status: candidate_with_reservations
+  source_slug: temporality
+  source_path: maths/22-temporality/temporality.md
+  source_commit: e777f39f4369c609b9c35ce30cf6fc71505a5467
+relations:
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-001, relation_type: product_definition, source: TLC-SO-TEMPORALITY-001, target: TLC-SO-TEMPORALITY-002, statement: 'T is the product containing the micro scale.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-002, relation_type: product_definition, source: TLC-SO-TEMPORALITY-001, target: TLC-SO-TEMPORALITY-003, statement: 'T is the product containing the meso scale.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-003, relation_type: product_definition, source: TLC-SO-TEMPORALITY-001, target: TLC-SO-TEMPORALITY-004, statement: 'T is the product containing the macro scale.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-004, relation_type: product_definition, source: TLC-SO-TEMPORALITY-001, target: TLC-SO-TEMPORALITY-005, statement: 'T is the product containing the meta scale.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-005, relation_type: isomorphism_claim, source: TLC-SO-TEMPORALITY-006, target: TLC-SO-TEMPORALITY-001, statement: 'Each temporal level is announced isomorphic to positive real time.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-006, relation_type: fiber_claim, source: TLC-SO-TEMPORALITY-007, target: TLC-SO-TEMPORALITY-004, statement: 'The announced fiber structure uses macro time as the point carrying constituent micro and meso times.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-007, relation_type: matrix_definition, source: TLC-SO-TEMPORALITY-008, target: TLC-SO-TEMPORALITY-009, statement: 'g_tau uses alpha_i amplitudes on its diagonal terms.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-008, relation_type: matrix_parameterization, source: TLC-SO-TEMPORALITY-010, target: TLC-SO-TEMPORALITY-008, statement: 'lambda_1 and lambda_2 appear in the first two diagonal exponential terms.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-009, relation_type: matrix_parameterization, source: TLC-SO-TEMPORALITY-011, target: TLC-SO-TEMPORALITY-008, statement: 'beta_12 is the symmetric 1-2 off-diagonal coupling.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-010, relation_type: matrix_parameterization, source: TLC-SO-TEMPORALITY-012, target: TLC-SO-TEMPORALITY-008, statement: 'gamma_13 and gamma_23 are symmetric off-diagonal couplings.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-011, relation_type: matrix_parameterization, source: TLC-SO-TEMPORALITY-013, target: TLC-SO-TEMPORALITY-008, statement: 'delta_14 delta_24 and delta_34 are symmetric off-diagonal couplings.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-012, relation_type: exact_term_identity, source: TLC-SO-TEMPORALITY-014, target: TLC-SO-TEMPORALITY-008, statement: 'The fourth diagonal entry is exactly alpha_4 t_3^3, not a t_4 expression.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-013, relation_type: intended_geometry, source: TLC-SO-TEMPORALITY-008, target: TLC-SO-TEMPORALITY-015, statement: 'The source intends a temporal distance informed by the matrix, historical importance and mnemonic weight but supplies no distance construction.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-014, relation_type: dynamic_definition, source: TLC-SO-TEMPORALITY-023, target: TLC-SO-TEMPORALITY-017, statement: 'The hereditary temporal flow defines dphi/dtau as the sum of the non-autonomous field term and hereditary memory integral.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-015, relation_type: field_argument, source: TLC-SO-TEMPORALITY-018, target: TLC-SO-TEMPORALITY-016, statement: 'F_tau is evaluated on phi(tau), tau and the temporal Values gradient.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-016, relation_type: field_argument, source: TLC-SO-TEMPORALITY-019, target: TLC-SO-TEMPORALITY-018, statement: 'The temporal Values gradient is an explicit argument of F_tau.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-017, relation_type: hereditary_kernel_use, source: TLC-SO-TEMPORALITY-020, target: TLC-SO-TEMPORALITY-022, statement: 'The hereditary integral uses K(tau-s).'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-018, relation_type: hereditary_operator_use, source: TLC-SO-TEMPORALITY-021, target: TLC-SO-TEMPORALITY-022, statement: 'The hereditary integral applies M to phi(s).'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-019, relation_type: scientific_dependency, source: TLC-SO-TEMPORALITY-020, target: TLC-SO-TEMPORALITY-021, statement: 'The source identifies K as a Memory kernel and M as the mnemonic operator; both establish the confirmed Temporalité to Memory scientific dependency.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-020, relation_type: evolution_definition, source: TLC-SO-TEMPORALITY-032, target: TLC-SO-TEMPORALITY-033, statement: 'The multiscale system defines one partial derivative of X for each t_i.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-021, relation_type: scale_parameterization, source: TLC-SO-TEMPORALITY-025, target: TLC-SO-TEMPORALITY-032, statement: 'Each scale RHS is multiplied by its epsilon_i parameter.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-022, relation_type: ordering_claim, source: TLC-SO-TEMPORALITY-026, target: TLC-SO-TEMPORALITY-025, statement: 'The source states epsilon_1 >> epsilon_2 >> epsilon_3 >> epsilon_4.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-023, relation_type: field_argument, source: TLC-SO-TEMPORALITY-028, target: TLC-SO-TEMPORALITY-027, statement: 'F_1 receives theta.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-024, relation_type: field_argument, source: TLC-SO-TEMPORALITY-029, target: TLC-SO-TEMPORALITY-027, statement: 'F_2 receives grad theta.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-025, relation_type: field_argument, source: TLC-SO-TEMPORALITY-030, target: TLC-SO-TEMPORALITY-027, statement: 'F_3 receives grad squared theta.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-026, relation_type: field_argument, source: TLC-SO-TEMPORALITY-031, target: TLC-SO-TEMPORALITY-027, statement: 'F_4 receives M(X).'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-027, relation_type: regularity_claim, source: TLC-SO-TEMPORALITY-034, target: TLC-SO-TEMPORALITY-027, statement: 'The source declares all F_i Lipschitz.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-028, relation_type: coupling_definition, source: TLC-SO-TEMPORALITY-035, target: TLC-SO-TEMPORALITY-037, statement: 'C_scale is the sum over i<j of weighted pairwise derivative tensor products.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-029, relation_type: coupling_weight, source: TLC-SO-TEMPORALITY-036, target: TLC-SO-TEMPORALITY-035, statement: 'gamma_ij weights each pair in the scale-coupling sum.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-030, relation_type: regime_condition, source: TLC-SO-TEMPORALITY-042, target: TLC-SO-TEMPORALITY-038, statement: 'Metastable stasis requires speed norm below epsilon.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-031, relation_type: regime_condition, source: TLC-SO-TEMPORALITY-043, target: TLC-SO-TEMPORALITY-038, statement: 'Metastable stasis also requires negative eigenvalue real parts close to zero.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-032, relation_type: regime_condition, source: TLC-SO-TEMPORALITY-043, target: TLC-SO-TEMPORALITY-039, statement: 'Periodic or quasi-periodic behavior is paired with zero eigenvalue real part.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-033, relation_type: regime_condition, source: TLC-SO-TEMPORALITY-042, target: TLC-SO-TEMPORALITY-040, statement: 'Turbulence or transition requires speed norm above theta_trans.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-034, relation_type: regime_condition, source: TLC-SO-TEMPORALITY-043, target: TLC-SO-TEMPORALITY-040, statement: 'Turbulence or transition requires positive eigenvalue real part.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-035, relation_type: regime_condition, source: TLC-SO-TEMPORALITY-043, target: TLC-SO-TEMPORALITY-041, statement: 'Structured chaos uses positive eigenvalue real part.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-036, relation_type: regime_condition, source: TLC-SO-TEMPORALITY-046, target: TLC-SO-TEMPORALITY-041, statement: 'Structured chaos additionally requires bounded fractal dimension.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-037, relation_type: transition_energy_weight, source: TLC-SO-TEMPORALITY-047, target: TLC-SO-TEMPORALITY-051, statement: 'Delta E_ij enters the exponential numerator and candidate denominator terms.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-038, relation_type: transition_temperature_weight, source: TLC-SO-TEMPORALITY-048, target: TLC-SO-TEMPORALITY-051, statement: 'beta multiplies every energy gap in the negative exponential.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-039, relation_type: boltzmann_denominator, source: TLC-SO-TEMPORALITY-050, target: TLC-SO-TEMPORALITY-051, statement: 'The denominator sums exp(-beta Delta E_ik) over k.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-040, relation_type: multiplicative_modulation, source: TLC-SO-TEMPORALITY-049, target: TLC-SO-TEMPORALITY-051, statement: 'f(nabla_tau V) multiplies the Boltzmann-like ratio and is not removed.'}
+  - {provisional_relation_id: TLC-SR-TEMPORALITY-041, relation_type: normalization_reservation, source: TLC-SO-TEMPORALITY-049, target: TLC-SO-TEMPORALITY-051, statement: 'The source explicitly notes that the f factor can prevent transition expressions from summing to one and supplies no extra normalization.'}
+source_reference_policy:
+  source_path: maths/22-temporality/temporality.md
+  source_commit: e777f39f4369c609b9c35ce30cf6fc71505a5467
+  no_external_science: true

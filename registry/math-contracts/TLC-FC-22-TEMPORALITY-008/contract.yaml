@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-22-TEMPORALITY-008
+feature_id: TLC-FC-22-TEMPORALITY-008
+title: Raw temporal transition expression
+domain_id: temporality
+contract_kind: computational_contract
+scientific_status: partially_defined
+scientific_authority: maths/22-temporality/temporality.md
+source_sections: ['5. Régimes', '6. Limites et points scientifiques non résolus']
+inputs: [{name: delta_E_i_to_candidates, type: indexed_scalar_values}, {name: target_j, type: index}, {name: beta, type: scalar}, {name: modulation_f_value, type: scalar}]
+outputs: [{name: raw_transition_expression, type: scalar}]
+preconditions: [target energy gap exists, all denominator candidate energy gaps exist, beta supplied, modulation value supplied, Boltzmann denominator is evaluable and nonzero]
+postconditions: [result equals exp(-beta DeltaE_ij) divided by sum_k exp(-beta DeltaE_ik) then multiplied by modulation_f_value]
+invariants: [multiplicative f factor preserved, denominator includes the declared candidate population, no normalization, no default energies beta or f]
+errors: [MissingRegimeEnergyGap, SocialInverseTemperatureRequired, TransitionModulationValueRequired, InvalidTransitionDenominator]
+opaque_parameters: [delta_E_i_to_candidates, beta, modulation_f_value]
+scientific_reservations: [TLC-UR-TEMPORALITY-010, TLC-UR-TEMPORALITY-011, TLC-UR-TEMPORALITY-012, TLC-UR-TEMPORALITY-020]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [removing f, renormalizing the result, inventing energy gaps, inventing beta, inventing a functional form for f]
+traceability: {source: maths/22-temporality/temporality.md, inventory: registry/domain-progress/temporality/feature-inventory.yaml}

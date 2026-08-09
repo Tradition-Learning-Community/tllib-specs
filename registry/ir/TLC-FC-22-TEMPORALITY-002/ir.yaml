@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-22-TEMPORALITY-002
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-22-TEMPORALITY-002/contract.yaml
+source_candidate_ir: ir/TLC-FC-22-TEMPORALITY-002/ir.candidate.json
+nature: transform
+inputs: [t1, t2, t3, alpha1, alpha2, alpha3, alpha4, lambda1, lambda2, beta12, gamma13, gamma23, delta14, delta24, delta34]
+outputs: [g_tau_matrix]
+steps: [evaluate first diagonal alpha1 exp(-lambda1 t1), evaluate second diagonal alpha2 t2 exp(-lambda2 t2), evaluate third diagonal alpha3 t3 squared, evaluate fourth diagonal alpha4 t3 cubed, place symmetric off-diagonal couplings]
+errors: [TemporalMetricArithmeticUnsupported, TemporalMetricCertificationUnsupported]

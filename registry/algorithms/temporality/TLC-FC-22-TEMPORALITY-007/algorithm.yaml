@@ -1,0 +1,16 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-22-TEMPORALITY-007
+feature_id: TLC-FC-22-TEMPORALITY-007
+status: selected_for_temporality_implementation_specification
+algorithm_kind: source_backed_regime_criteria_assessment
+source_ir: registry/optimized-ir/temporality/TLC-FC-22-TEMPORALITY-007/ir.yaml
+ordered_steps:
+  - require supplied thresholds and spectral evidence for requested assessments
+  - assess metastable stasis from strict speed and negative-near-zero spectral evidence
+  - assess periodic or quasi-periodic regime from supplied behavior evidence and zero-real-part evidence
+  - assess turbulence or transition from strict speed and positive-real-part evidence
+  - assess structured chaos from positive-real-part and supplied bounded-fractal-dimension evidence
+  - return every satisfied source criterion set without precedence
+errors: [RegimeThresholdRequired, ExternalSpectralEvidenceRequired, ExternalFractalBoundRequired, ExclusiveRegimeClassificationUnsupported]
+determinism: deterministic_for_supplied_evidence
+forbidden: [threshold invention, spectral operator invention, fractal bound invention, exclusive classification]

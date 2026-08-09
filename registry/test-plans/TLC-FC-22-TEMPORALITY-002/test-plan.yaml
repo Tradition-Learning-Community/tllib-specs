@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-22-TEMPORALITY-002
+tests:
+  - {id: TEMPORALITY-002-T01, type: exact_formula, assertion: Every matrix entry equals the source expression for supplied symbolic values}
+  - {id: TEMPORALITY-002-T02, type: invariant, assertion: Matrix is structurally symmetric and the fourth diagonal is alpha4 times t3 cubed}
+  - {id: TEMPORALITY-002-T03, type: preservation, assertion: No t4 substitution or positive-definiteness claim is introduced}
+no_arbitrary_numeric_fixtures: true

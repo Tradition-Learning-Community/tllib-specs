@@ -1,0 +1,10 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-22-TEMPORALITY-009
+feature_id: TLC-FC-22-TEMPORALITY-009
+oracle_type: structural_and_error
+checks:
+  - raw transition expression remains unchanged
+  - multiplicative f factor remains present
+  - local normalization returns TransitionNormalizationUnsupported
+  - distribution certification without external scientific normalization rule returns ExternalTransitionNormalizationRuleRequired
+  - no unit-mass claim is emitted from the source expression alone

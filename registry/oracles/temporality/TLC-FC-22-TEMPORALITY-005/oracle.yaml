@@ -1,0 +1,11 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-22-TEMPORALITY-005
+feature_id: TLC-FC-22-TEMPORALITY-005
+oracle_type: exact_rhs_structure_and_error
+checks:
+  - dX_dt1 equals epsilon1 times supplied F1(X t1 theta)
+  - dX_dt2 equals epsilon2 times supplied F2(X t2 grad_theta)
+  - dX_dt3 equals epsilon3 times supplied F3(X t3 grad2_theta)
+  - dX_dt4 equals epsilon4 times supplied F4(X t4 mnemonic_X)
+  - epsilon hierarchy evidence is required and no epsilon values are invented
+  - no numerical solver or derivative method is selected

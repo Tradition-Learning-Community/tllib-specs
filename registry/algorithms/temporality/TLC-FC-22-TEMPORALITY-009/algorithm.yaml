@@ -1,0 +1,15 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-22-TEMPORALITY-009
+feature_id: TLC-FC-22-TEMPORALITY-009
+status: selected_for_temporality_implementation_specification
+algorithm_kind: structural_only_non_execution_guard
+source_ir: registry/optimized-ir/temporality/TLC-FC-22-TEMPORALITY-009/ir.yaml
+ordered_steps:
+  - validate the raw transition-expression reference
+  - attach the source normalization reservation
+  - reject any request to remove f or rescale the source expression locally
+  - reject probability-distribution certification without an external scientific normalization rule
+  - return the guarded availability descriptor
+errors: [TransitionNormalizationUnsupported, ExternalTransitionNormalizationRuleRequired]
+scientific_result: none
+forbidden: [normalization, f removal, unit-mass inference]

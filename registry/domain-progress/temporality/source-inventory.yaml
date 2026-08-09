@@ -1,0 +1,61 @@
+domain_id: temporality
+status: preparation_complete_with_reservations
+authority: main@e777f39f4369c609b9c35ce30cf6fc71505a5467
+working_base_commit: e777f39f4369c609b9c35ce30cf6fc71505a5467
+scope: vertical_domain_22_production
+source_file: maths/22-temporality/temporality.md
+source_blob_sha: 210af821e5cb64c93bccf949106213f568eb214d
+analysis_companion: maths/23-memory/memory.md
+objects_count: 51
+relations_count: 41
+unresolved_count: 20
+features_total: 9
+feature_ids:
+  - TLC-FC-22-TEMPORALITY-001
+  - TLC-FC-22-TEMPORALITY-002
+  - TLC-FC-22-TEMPORALITY-003
+  - TLC-FC-22-TEMPORALITY-004
+  - TLC-FC-22-TEMPORALITY-005
+  - TLC-FC-22-TEMPORALITY-006
+  - TLC-FC-22-TEMPORALITY-007
+  - TLC-FC-22-TEMPORALITY-008
+  - TLC-FC-22-TEMPORALITY-009
+input_artifacts:
+  - registry/scientific-objects/temporality/scientific-objects.candidate.yaml
+  - registry/scientific-objects/temporality/scientific-relations.candidate.yaml
+  - registry/scientific-objects/temporality/unresolved-terms.yaml
+inventory_status: complete_with_reservations
+scientific_boundaries:
+  fourth_metric_diagonal_uses_t3_cubed: preserved
+  metric_positive_definiteness: unresolved
+  temporal_distance_construction: unresolved
+  temporal_fiber_structure: unresolved
+  X_space: unresolved
+  theta_space: unresolved
+  interscale_derivatives: unresolved
+  F_i_construction: unresolved
+  F_tau_construction: unresolved
+  transition_normalization: absent
+  regime_energies: unresolved
+  social_inverse_temperature: unresolved
+  stasis_threshold: unresolved
+  transition_threshold: unresolved
+  fractal_dimension_bound: unresolved
+  metric_coefficients_calibration: unresolved
+  coupling_coefficients_calibration: unresolved
+  temporal_scale_parameters_calibration: unresolved
+  spectral_operator_identity: unresolved
+  transition_modulation_function: partially_specified
+external_scientific_dependencies:
+  confirmed:
+    - domain_index: 23
+      slug: memory
+      evidence: maths/22-temporality/temporality.md explicitly links K to Memory and uses the mnemonic operator M.
+  provisional: []
+  runtime: []
+analysis_companions:
+  - domain_index: 23
+    slug: memory
+values_reference_policy:
+  domain_09_dependency_promoted: false
+  rationale: The source names a temporal gradient of Values but does not identify a domain-09 contract or observable operation; it remains an externally supplied scientific quantity.

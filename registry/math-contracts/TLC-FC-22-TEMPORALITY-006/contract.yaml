@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-22-TEMPORALITY-006
+feature_id: TLC-FC-22-TEMPORALITY-006
+title: Inter-scale coupling aggregation
+domain_id: temporality
+contract_kind: conditional_computational_contract
+scientific_status: partially_defined
+scientific_authority: maths/22-temporality/temporality.md
+source_sections: ['4. Évolution multi-échelle', '6. Limites et points scientifiques non résolus']
+inputs: [{name: scale_derivatives, type: indexed_opaque_values}, {name: gamma_ij_values, type: indexed_scalar_values}, {name: tensor_product_provider, type: external_provider}]
+outputs: [{name: C_scale, type: source_aggregation_value}]
+preconditions: [derivative values and gamma coefficients supplied for every declared i<j pair, tensor product provider supplied]
+postconditions: [C_scale equals the source sum over i<j of gamma_ij times supplied tensor products of scale derivatives]
+invariants: [strict i<j indexing preserved, no derivative approximation, no tensor space or tensor product semantics invented]
+errors: [MissingScaleDerivative, MissingScaleCouplingCoefficient, ExternalTensorProductRequired]
+opaque_parameters: [scale_derivatives, gamma_ij_values]
+scientific_reservations: [TLC-UR-TEMPORALITY-005, TLC-UR-TEMPORALITY-007, TLC-UR-TEMPORALITY-017]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [finite differences, automatic differentiation assumptions, constructing a tensor space, inventing gamma coefficients]
+traceability: {source: maths/22-temporality/temporality.md, inventory: registry/domain-progress/temporality/feature-inventory.yaml}

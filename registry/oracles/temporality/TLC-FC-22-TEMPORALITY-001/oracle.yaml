@@ -1,0 +1,10 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-22-TEMPORALITY-001
+feature_id: TLC-FC-22-TEMPORALITY-001
+oracle_type: structural_and_error
+checks:
+  - descriptor contains exactly T_micro T_meso T_macro T_meta in the source product order
+  - positive-real isomorphism claim is preserved as a claim
+  - TLC-UR-TEMPORALITY-004 remains attached
+  - fiber construction request returns TemporalFiberConstructionUnsupported
+  - no bundle projection fiber space or local trivialization is introduced

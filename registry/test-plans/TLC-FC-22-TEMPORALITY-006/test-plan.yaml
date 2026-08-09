@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-22-TEMPORALITY-006
+tests:
+  - {id: TEMPORALITY-006-T01, type: exact_formula, assertion: C_scale equals the sum over exactly the supplied i<j weighted tensor terms}
+  - {id: TEMPORALITY-006-T02, type: error, assertion: Missing derivative coefficient or tensor provider is rejected}
+  - {id: TEMPORALITY-006-T03, type: preservation, assertion: No derivative approximation tensor space or gamma calibration is invented}
+no_arbitrary_numeric_fixtures: true

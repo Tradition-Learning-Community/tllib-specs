@@ -1,0 +1,10 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-22-TEMPORALITY-008
+feature_id: TLC-FC-22-TEMPORALITY-008
+oracle_type: exact_formula_and_error
+checks:
+  - numerator is exactly exp(-beta DeltaE_ij)
+  - denominator is exactly the supplied-candidate sum of exp(-beta DeltaE_ik)
+  - result multiplies the ratio by supplied modulation_f_value
+  - f is never removed and the raw result is never normalized locally
+  - missing energy beta f or valid denominator returns the matching structured error

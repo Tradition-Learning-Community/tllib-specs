@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-22-TEMPORALITY-005
+tests:
+  - {id: TEMPORALITY-005-T01, type: exact_formula, assertion: Four RHS outputs preserve epsilon_i times the matching F_i source calls and arguments}
+  - {id: TEMPORALITY-005-T02, type: invariant, assertion: Supplied epsilon hierarchy evidence is required and no numeric calibration is invented}
+  - {id: TEMPORALITY-005-T03, type: preservation, assertion: No ODE PDE solver or numerical differentiation is selected}
+no_arbitrary_numeric_fixtures: true

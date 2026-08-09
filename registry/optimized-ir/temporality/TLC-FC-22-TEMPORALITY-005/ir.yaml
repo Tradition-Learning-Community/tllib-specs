@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-22-TEMPORALITY-005
+status: selected_for_temporality_implementation_specification
+source_ir: registry/ir/TLC-FC-22-TEMPORALITY-005/ir.yaml
+representation: four_scale_rhs_evaluation
+execution: conditionally_executable
+inputs: [X, t1, t2, t3, t4, epsilon1, epsilon2, epsilon3, epsilon4, theta, grad_theta, grad2_theta, mnemonic_X, F1_provider, F2_provider, F3_provider, F4_provider, epsilon_hierarchy_evidence]
+outputs: [dX_dt1, dX_dt2, dX_dt3, dX_dt4]
+ordered_operations: [validate_hierarchy_evidence, evaluate_F1_rhs, evaluate_F2_rhs, evaluate_F3_rhs, evaluate_F4_rhs]
+forbidden: [state_space_construction, theta_space_construction, numerical_differentiation, ode_solver_selection, pde_solver_selection, epsilon_calibration]

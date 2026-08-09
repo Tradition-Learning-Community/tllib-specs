@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-22-TEMPORALITY-001
+feature_id: TLC-FC-22-TEMPORALITY-001
+title: Multiscale temporal structure descriptor
+domain_id: temporality
+contract_kind: structural_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/22-temporality/temporality.md
+source_sections: ['1. Espace-temps évolutif', '6. Limites et points scientifiques non résolus']
+inputs: [{name: temporal_scale_references, type: reference_collection}]
+outputs: [{name: structure_descriptor, type: structural_descriptor}]
+preconditions: [the four source scale declarations are available]
+postconditions: [descriptor preserves T_micro T_meso T_macro T_meta and their ordered product T, descriptor records the R-plus isomorphism claim and unresolved fiber statement]
+invariants: [exact four-scale population, product order preserved, no fiber bundle maps spaces or projections invented]
+errors: [TemporalFiberConstructionUnsupported, TemporalScalePopulationMismatch]
+opaque_parameters: [temporal_scale_references]
+scientific_reservations: [TLC-UR-TEMPORALITY-004]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [constructing a temporal fiber bundle, inventing bundle projection or fiber spaces]
+traceability: {source: maths/22-temporality/temporality.md, inventory: registry/domain-progress/temporality/feature-inventory.yaml}

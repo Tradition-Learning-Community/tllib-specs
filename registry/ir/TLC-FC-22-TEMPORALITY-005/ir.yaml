@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-22-TEMPORALITY-005
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-22-TEMPORALITY-005/contract.yaml
+source_candidate_ir: ir/TLC-FC-22-TEMPORALITY-005/ir.candidate.json
+nature: multiscale_rhs
+inputs: [X, t1, t2, t3, t4, epsilon1, epsilon2, epsilon3, epsilon4, theta, grad_theta, grad2_theta, mnemonic_X, F1_provider, F2_provider, F3_provider, F4_provider, epsilon_hierarchy_evidence]
+outputs: [dX_dt1, dX_dt2, dX_dt3, dX_dt4]
+steps: [validate supplied hierarchy evidence, evaluate epsilon1 times F1(X t1 theta), evaluate epsilon2 times F2(X t2 grad_theta), evaluate epsilon3 times F3(X t3 grad2_theta), evaluate epsilon4 times F4(X t4 mnemonic_X)]
+errors: [ExternalScaleFieldRequired, MissingThetaDerivedInput, ExternalMnemonicValueRequired, EpsilonHierarchyEvidenceRequired]

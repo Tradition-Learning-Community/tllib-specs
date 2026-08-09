@@ -1,0 +1,17 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-22-TEMPORALITY-008
+feature_id: TLC-FC-22-TEMPORALITY-008
+status: selected_for_temporality_implementation_specification
+algorithm_kind: source_formula_evaluation
+source_ir: registry/optimized-ir/temporality/TLC-FC-22-TEMPORALITY-008/ir.yaml
+ordered_steps:
+  - require target and candidate energy gaps
+  - require supplied beta and modulation_f_value
+  - evaluate exp(-beta DeltaE_ij)
+  - sum exp(-beta DeltaE_ik) over the supplied candidate population
+  - reject a zero or non-evaluable denominator
+  - divide numerator by denominator
+  - multiply by the supplied f value and return the raw expression
+errors: [MissingRegimeEnergyGap, SocialInverseTemperatureRequired, TransitionModulationValueRequired, InvalidTransitionDenominator]
+determinism: deterministic_for_supplied_scalar_inputs
+forbidden: [normalization, f removal, energy default, beta default, f-function invention]

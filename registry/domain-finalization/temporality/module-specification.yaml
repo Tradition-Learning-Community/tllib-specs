@@ -1,0 +1,80 @@
+schema_version: 1
+module_id: TLC-MODULE-TEMPORALITY-001
+module_name: Temporality
+status: selected_for_temporality_implementation_specification
+purpose: >-
+  Provide source-faithful multiscale temporal descriptors, exact metric and raw-transition formula evaluation,
+  guarded distance and distribution semantics, hereditary and multiscale RHS evaluation, inter-scale coupling,
+  and regime-criteria assessment for exactly the nine Temporalité features while preserving every unresolved boundary.
+active_features:
+  - TLC-FC-22-TEMPORALITY-001
+  - TLC-FC-22-TEMPORALITY-002
+  - TLC-FC-22-TEMPORALITY-003
+  - TLC-FC-22-TEMPORALITY-004
+  - TLC-FC-22-TEMPORALITY-005
+  - TLC-FC-22-TEMPORALITY-006
+  - TLC-FC-22-TEMPORALITY-007
+  - TLC-FC-22-TEMPORALITY-008
+  - TLC-FC-22-TEMPORALITY-009
+public_operations:
+  - {operation: describe_multiscale_time, features: [TLC-FC-22-TEMPORALITY-001], semantic_evaluation: structural_only}
+  - {operation: evaluate_temporal_metric_matrix, features: [TLC-FC-22-TEMPORALITY-002], semantic_evaluation: true}
+  - {operation: assess_temporal_distance_availability, features: [TLC-FC-22-TEMPORALITY-003], semantic_evaluation: false}
+  - {operation: evaluate_hereditary_temporal_rhs, features: [TLC-FC-22-TEMPORALITY-004], semantic_evaluation: conditional_on_external_field_and_memory_term}
+  - {operation: evaluate_multiscale_rhs, features: [TLC-FC-22-TEMPORALITY-005], semantic_evaluation: conditional_on_external_fields_and_inputs}
+  - {operation: aggregate_scale_coupling, features: [TLC-FC-22-TEMPORALITY-006], semantic_evaluation: conditional_on_supplied_derivatives_and_tensor_provider}
+  - {operation: assess_regime_criteria, features: [TLC-FC-22-TEMPORALITY-007], semantic_evaluation: conditional_on_threshold_spectral_and_fractal_evidence}
+  - {operation: evaluate_raw_transition_expression, features: [TLC-FC-22-TEMPORALITY-008], semantic_evaluation: true}
+  - {operation: assess_transition_distribution_availability, features: [TLC-FC-22-TEMPORALITY-009], semantic_evaluation: false}
+shared_types:
+  TemporalityOpaqueScientificValue:
+    purpose: caller-supplied coefficient threshold energy gradient provider result or evidence that the module must not calibrate or construct
+  TemporalityStructuralDescriptor:
+    fields: [feature_id, source_reference, preserved_payload, unresolved_items, scientific_status]
+  TemporalityStructuredError:
+    fields: [code, category, condition]
+scientific_dependencies:
+  - domain: memory
+    domain_index: 23
+    direction: 22_to_23
+    feature_correspondence:
+      - {temporality_feature: TLC-FC-22-TEMPORALITY-004, memory_features: [TLC-FC-23-MEMORY-003, TLC-FC-23-MEMORY-004], mode: scientific_provenance_only}
+      - {temporality_feature: TLC-FC-22-TEMPORALITY-005, memory_features: [TLC-FC-23-MEMORY-003], mode: scientific_provenance_only}
+runtime_dependencies: []
+shared_contract_dependencies:
+  - TLC-HC-FEATURE-ID@1.0.0
+  - TLC-HC-SCIENTIFIC-REFERENCE@1.0.0
+  - TLC-HC-REFERENCE-COLLECTION@1.0.0
+  - TLC-HC-UNRESOLVED-ITEM@1.0.0
+  - TLC-HC-OPAQUE-VALUE@1.0.0
+  - TLC-HC-STRUCTURED-ERROR@1.0.0
+  - TLC-HC-TRACEABILITY@1.0.0
+  - TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0
+non_execution_guards:
+  TLC-FC-22-TEMPORALITY-003: TemporalDistanceExecutionUnsupported
+  TLC-FC-22-TEMPORALITY-009: TransitionNormalizationUnsupported
+unresolved_policy:
+  preserve: true
+  propagate: true
+  resolve_automatically: false
+  promote_to_defaults: false
+out_of_scope:
+  - changing alpha4 t3 cubed to a t4-dependent expression
+  - inventing SPD coefficient conditions or metric geometry
+  - constructing the temporal fiber bundle
+  - constructing X or theta spaces
+  - numerical differentiation quadrature ODE PDE or geodesic solvers
+  - constructing F_tau or F_i
+  - calibrating metric coupling temporal energy beta threshold or fractal parameters
+  - normalizing the transition expression or removing f
+  - direct runtime adapters to Memory without an externally specified compatible contract
+  - runtime framework selection
+  - C++ implementation
+  - Python bindings
+implementation_readiness:
+  handoff_population_structurally_ready: true
+  semantic_evaluation_is_feature_specific: true
+  executable_features: [TLC-FC-22-TEMPORALITY-002, TLC-FC-22-TEMPORALITY-008]
+  conditionally_executable_features: [TLC-FC-22-TEMPORALITY-004, TLC-FC-22-TEMPORALITY-005, TLC-FC-22-TEMPORALITY-006, TLC-FC-22-TEMPORALITY-007]
+  structural_only_features: [TLC-FC-22-TEMPORALITY-001, TLC-FC-22-TEMPORALITY-003, TLC-FC-22-TEMPORALITY-009]
+future_implementation_tasks: registry/domain-finalization/temporality/implementation-tasks.yaml

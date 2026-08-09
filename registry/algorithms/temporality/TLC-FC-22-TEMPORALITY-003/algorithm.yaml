@@ -1,0 +1,15 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-22-TEMPORALITY-003
+feature_id: TLC-FC-22-TEMPORALITY-003
+status: selected_for_temporality_implementation_specification
+algorithm_kind: structural_only_non_execution_guard
+source_ir: registry/optimized-ir/temporality/TLC-FC-22-TEMPORALITY-003/ir.yaml
+ordered_steps:
+  - validate the metric reference
+  - require external positive-definiteness evidence for metric certification
+  - require an external distance-construction reference for distance execution
+  - reject local distance execution or certification when either requirement is absent
+  - return a guarded availability descriptor
+errors: [ExternalTemporalMetricEvidenceRequired, ExternalTemporalDistanceConstructionRequired, TemporalDistanceExecutionUnsupported]
+scientific_result: none
+forbidden: [SPD-domain construction, geodesic construction, norm selection, numeric distance execution]

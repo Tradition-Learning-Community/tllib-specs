@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-22-TEMPORALITY-002
+status: selected_for_temporality_implementation_specification
+source_ir: registry/ir/TLC-FC-22-TEMPORALITY-002/ir.yaml
+representation: symmetric_source_metric_matrix
+execution: executable
+inputs: [t1, t2, t3, alpha1, alpha2, alpha3, alpha4, lambda1, lambda2, beta12, gamma13, gamma23, delta14, delta24, delta34]
+outputs: [g_tau_matrix]
+ordered_operations: [evaluate_diagonal_terms, preserve_alpha4_t3_cubed, place_symmetric_off_diagonal_terms, return_matrix]
+forbidden: [t4_substitution, positive_definiteness_assumption, coefficient_defaults, distance_execution]

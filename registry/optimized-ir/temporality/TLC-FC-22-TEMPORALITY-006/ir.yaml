@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-22-TEMPORALITY-006
+status: selected_for_temporality_implementation_specification
+source_ir: registry/ir/TLC-FC-22-TEMPORALITY-006/ir.yaml
+representation: supplied_derivative_tensor_aggregation
+execution: conditionally_executable
+inputs: [scale_derivatives, gamma_ij_values, tensor_product_provider]
+outputs: [C_scale]
+ordered_operations: [validate_i_lt_j_population, obtain_external_tensor_products, weight_by_gamma_ij, sum_pair_terms]
+forbidden: [derivative_approximation, tensor_space_construction, gamma_calibration]
