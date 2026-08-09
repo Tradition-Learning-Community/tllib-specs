@@ -357,10 +357,18 @@ domains:
     scientific_sources: [maths/25-culture/culture.md]
     wave: wave-1
     analysis_companions: [24]
-    feature_count: null
-    handoff_publication: false
-    dependencies: {confirmed: [24], provisional: [], unknown: true}
-    pipeline: *unstarted_pipeline
+    feature_count: 8
+    handoff_publication: true
+    dependencies: {confirmed: [24], provisional: [], unknown: false}
+    pipeline:
+      scientific_source: complete
+      functional_decomposition: complete
+      registries: complete
+      ir: complete
+      contracts: complete
+      algorithms: complete_or_not_applicable
+      oracles: complete
+      handoff_packages: complete
 
   - index: 26
     slug: identity
