@@ -1,0 +1,105 @@
+schema_version: 1
+domain: temporality
+source: maths/22-temporality/temporality.md
+status: preserved_unresolved
+items:
+  - id: TLC-UR-TEMPORALITY-001
+    category: fourth_metric_diagonal_notation_preserved
+    statement: The fourth diagonal term of g_tau is alpha_4 t_3^3 rather than a t_4-dependent term; the source explicitly requires preserving this notation without correction.
+    source_section: '6. Limites et points scientifiques non résolus'
+    policy: preserve_t3_cubed_exactly_no_t4_substitution
+  - id: TLC-UR-TEMPORALITY-002
+    category: metric_positive_definiteness_unjustified
+    statement: The source gives no sufficient conditions ensuring that g_tau is symmetric positive definite for admitted coefficients.
+    source_section: '6. Limites et points scientifiques non résolus'
+    policy: no_metric_distance_certification_without_external_spd_evidence
+  - id: TLC-UR-TEMPORALITY-003
+    category: temporal_distance_construction_unspecified
+    statement: The source describes the intended meaning of temporal distance but supplies no geodesic, norm or other construction that turns g_tau into an executable distance operation.
+    source_section: '2. Métrique temporelle'
+    policy: no_distance_formula_invented
+  - id: TLC-UR-TEMPORALITY-004
+    category: temporal_fiber_structure_unconstructed
+    statement: A temporal fiber structure is announced but its bundle spaces, projections, fibers and maps are not constructed.
+    source_section: '6. Limites et points scientifiques non résolus'
+    policy: structural_descriptor_only_no_fiber_construction
+  - id: TLC-UR-TEMPORALITY-005
+    category: multiscale_state_space_unspecified
+    statement: The mathematical space in which the multiscale state X takes values is not constructed.
+    source_section: '6. Limites et points scientifiques non résolus'
+    policy: opaque_state_values_only
+  - id: TLC-UR-TEMPORALITY-006
+    category: theta_space_unspecified
+    statement: The mathematical space of theta is not constructed.
+    source_section: '6. Limites et points scientifiques non résolus'
+    policy: opaque_theta_values_only
+  - id: TLC-UR-TEMPORALITY-007
+    category: interscale_derivative_semantics_unconstructed
+    statement: The source does not construct the derivative spaces or operators needed for cross-scale differential semantics.
+    source_section: '6. Limites et points scientifiques non résolus'
+    policy: supplied_derivative_values_only_no_numerical_differentiation
+  - id: TLC-UR-TEMPORALITY-008
+    category: scale_fields_unconstructed
+    statement: The functions F_i are declared Lipschitz but are not constructed.
+    source_section: '6. Limites et points scientifiques non résolus'
+    policy: external_F_i_providers_required
+  - id: TLC-UR-TEMPORALITY-009
+    category: hereditary_field_unspecified
+    statement: F_tau is identified as a non-autonomous field but no executable definition is supplied.
+    source_section: '3. Flux temporel héréditaire'
+    policy: external_F_tau_provider_required
+  - id: TLC-UR-TEMPORALITY-010
+    category: transition_normalization_absent
+    statement: The multiplicative f(nabla_tau V) factor can prevent the source transition expressions from summing to one and no additional normalization rule is given.
+    source_section: '6. Limites et points scientifiques non résolus'
+    policy: raw_transition_expression_only_no_local_normalization
+  - id: TLC-UR-TEMPORALITY-011
+    category: regime_energies_undefined
+    statement: The regime energies underlying Delta E_ij remain undefined.
+    source_section: '6. Limites et points scientifiques non résolus'
+    policy: supplied_energy_gaps_only
+  - id: TLC-UR-TEMPORALITY-012
+    category: social_inverse_temperature_undefined
+    statement: The social inverse temperature beta is not calibrated or otherwise defined numerically.
+    source_section: '6. Limites et points scientifiques non résolus'
+    policy: supplied_beta_only_no_default
+  - id: TLC-UR-TEMPORALITY-013
+    category: stasis_threshold_undefined
+    statement: The epsilon threshold used for metastable stasis is not defined.
+    source_section: '6. Limites et points scientifiques non résolus'
+    policy: supplied_stasis_threshold_only
+  - id: TLC-UR-TEMPORALITY-014
+    category: transition_threshold_undefined
+    statement: theta_trans is not defined.
+    source_section: '6. Limites et points scientifiques non résolus'
+    policy: supplied_transition_threshold_only
+  - id: TLC-UR-TEMPORALITY-015
+    category: fractal_dimension_bound_undefined
+    statement: Structured chaos requires bounded fractal dimension but the source gives no critical bound or threshold.
+    source_section: '6. Limites et points scientifiques non résolus'
+    policy: external_fractal_bound_evidence_required
+  - id: TLC-UR-TEMPORALITY-016
+    category: metric_coefficients_uncalibrated
+    statement: The alpha lambda beta gamma and delta coefficients appearing in g_tau have no source-supplied calibration or admissible numerical domain sufficient for metric certification.
+    source_section: '2. Métrique temporelle'
+    policy: caller_supplied_coefficients_only
+  - id: TLC-UR-TEMPORALITY-017
+    category: coupling_coefficients_uncalibrated
+    statement: The gamma_ij coefficients in C_scale are not calibrated.
+    source_section: '4. Évolution multi-échelle'
+    policy: caller_supplied_coupling_coefficients_only
+  - id: TLC-UR-TEMPORALITY-018
+    category: temporal_scale_parameters_uncalibrated
+    statement: The epsilon_i temporal scale parameters are ordered qualitatively but no numerical calibration is supplied.
+    source_section: '4. Évolution multi-échelle'
+    policy: caller_supplied_epsilon_values_with_external_hierarchy_evidence
+  - id: TLC-UR-TEMPORALITY-019
+    category: spectral_operator_identity_unspecified
+    statement: The regime criteria refer to eigenvalue real parts without identifying the operator or Jacobian whose spectrum is meant.
+    source_section: '5. Régimes'
+    policy: external_spectral_evidence_only
+  - id: TLC-UR-TEMPORALITY-020
+    category: transition_modulation_function_partially_specified
+    statement: f is described only as an increasing function of the temporal Values gradient; no executable functional form is supplied.
+    source_section: '5. Régimes'
+    policy: supplied_modulation_value_or_external_provider_only
