@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-22-TEMPORALITY-004
+tests:
+  - {id: TEMPORALITY-004-T01, type: exact_formula, assertion: RHS equals supplied F_tau value plus supplied hereditary memory integral term}
+  - {id: TEMPORALITY-004-T02, type: error, assertion: Missing hereditary term or F_tau provider returns the corresponding structured error}
+  - {id: TEMPORALITY-004-T03, type: preservation, assertion: Memory K and M remain scientific provenance with no quadrature time solver or direct signature adapter invented}
+no_arbitrary_numeric_fixtures: true
