@@ -1,0 +1,23 @@
+schema_version: 1
+domain: temporality
+status: selected_for_implementation_handoff
+authoritative_feature_count: 9
+features:
+  - {feature_id: TLC-FC-22-TEMPORALITY-001, canonical_name: Multiscale temporal structure descriptor, category: declarative, scientific_status: preserved_unresolved, execution: structural_only, algorithm: structural_source_descriptor, oracle: structural_and_error}
+  - {feature_id: TLC-FC-22-TEMPORALITY-002, canonical_name: Temporal metric matrix, category: transform, scientific_status: partially_defined, execution: executable, algorithm: source_formula, oracle: exact_formula_and_preservation}
+  - {feature_id: TLC-FC-22-TEMPORALITY-003, canonical_name: Temporal distance certification guard, category: validation, scientific_status: preserved_unresolved, execution: structural_only, algorithm: non_execution_guard, oracle: structural_and_error}
+  - {feature_id: TLC-FC-22-TEMPORALITY-004, canonical_name: Hereditary temporal flux right-hand side, category: dynamical, scientific_status: partially_defined, execution: conditionally_executable, algorithm: source_rhs_with_external_memory_term, oracle: exact_rhs_provider_and_dependency}
+  - {feature_id: TLC-FC-22-TEMPORALITY-005, canonical_name: Multiscale evolution right-hand sides, category: dynamical, scientific_status: partially_defined, execution: conditionally_executable, algorithm: source_multiscale_rhs_evaluation, oracle: exact_rhs_structure_and_error}
+  - {feature_id: TLC-FC-22-TEMPORALITY-006, canonical_name: Inter-scale coupling aggregation, category: aggregation, scientific_status: partially_defined, execution: conditionally_executable, algorithm: source_pairwise_tensor_aggregation, oracle: exact_sum_provider_and_error}
+  - {feature_id: TLC-FC-22-TEMPORALITY-007, canonical_name: Temporal regime criteria assessment, category: validation, scientific_status: partially_defined, execution: conditionally_executable, algorithm: source_regime_criteria_assessment, oracle: structural_criteria_and_error}
+  - {feature_id: TLC-FC-22-TEMPORALITY-008, canonical_name: Raw temporal transition expression, category: transform, scientific_status: partially_defined, execution: executable, algorithm: source_formula, oracle: exact_formula_and_error}
+  - {feature_id: TLC-FC-22-TEMPORALITY-009, canonical_name: Transition distribution certification guard, category: validation, scientific_status: preserved_unresolved, execution: structural_only, algorithm: non_execution_guard, oracle: structural_and_error}
+summary:
+  active_features: 9
+  structurally_finalized: 9
+  semantic_execution_ready: 2
+  conditional_execution_ready: 4
+  structural_only: 3
+  non_execution_guards: 2
+  rejected: 0
+  blocked_from_handoff: 0
