@@ -1,0 +1,49 @@
+schema_version: 1
+domain: context
+status: preserved_unresolved
+source: maths/24-context/context.md
+items:
+  - id: TLC-UR-CONTEXT-001
+    topic: differentiable_context_structure
+    statement: The source calls C differentiable while embedding it in R^m times M with M only metric; no hypotheses construct a differentiable product.
+    consequence: Do not construct charts, tangent spaces, smooth paths, or derivatives from this declaration alone.
+  - id: TLC-UR-CONTEXT-002
+    topic: contextual_tensor_symmetry
+    statement: The i<j term gamma_ij dx_i tensor dx_j has no explicit dx_j tensor dx_i counterpart.
+    consequence: Do not symmetrize g_c automatically.
+  - id: TLC-UR-CONTEXT-003
+    topic: contextual_tensor_positivity
+    statement: No positivity or positive-definiteness conditions are supplied for g_c.
+    consequence: Do not certify g_c as a Riemannian metric or assume the square-root integrand is a real nonnegative length.
+  - id: TLC-UR-CONTEXT-004
+    topic: geodesic_distance_legitimacy
+    statement: The announced geodesic distance lacks the structural and regularity hypotheses required to ensure a genuine distance construction.
+    consequence: Numeric or metric-certified distance requires external scientific evidence and a provider.
+  - id: TLC-UR-CONTEXT-005
+    topic: context_equilibrium_typing
+    statement: E_contexte is a common value in every weight equation without vector typing or per-dimension structure.
+    consequence: Preserve the caller-supplied source value and do not invent a vector equilibrium.
+  - id: TLC-UR-CONTEXT-006
+    topic: optimality_dynamics_link
+    statement: The source associates dX*/dt with optimality of calligraphic J while the formula uses derivatives and inverse Jacobian of H without an explicit relation between J first-order conditions and H.
+    consequence: The optimal-family derivative requires external applicability evidence; no proof or relation is synthesized.
+  - id: TLC-UR-CONTEXT-007
+    topic: contextual_performance_orientation
+    statement: P_ctx is written J(X,c)/J(X*(c),c) and claimed in [0,1], but for a minimized cost the ratio can exceed 1.
+    consequence: Preserve source orientation; do not clamp, invert, normalize, or certify the stated interval.
+  - id: TLC-UR-CONTEXT-008
+    topic: global_context_distance_maximum
+    statement: Delta_ctx divides by max over c,c' of d_C without hypotheses ensuring a finite attained maximum.
+    consequence: No compactness, boundedness, supremum-to-maximum conversion, or global search procedure is inferred.
+  - id: TLC-UR-CONTEXT-009
+    topic: derivative_and_norm_providers
+    statement: The source uses derivatives of H and X* and norms but supplies no differentiation procedure, representation, or norm construction compatible with the unresolved context geometry.
+    consequence: Such quantities must be externally supplied where executable behavior depends on them.
+  - id: TLC-UR-CONTEXT-010
+    topic: adaptation_capacity
+    statement: Crisis is identified when tau_adapt exceeds system capacity, but that capacity and its units or threshold semantics are undefined.
+    consequence: No default threshold is introduced.
+policy:
+  preserve_source_contradictions: true
+  no_silent_completion: true
+  culture_details_remain_opaque_to_context: true
