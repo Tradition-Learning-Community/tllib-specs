@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-005
+source_contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-005/contract.yaml
+tests:
+  - {id: R005-T01, category: preservation, verifies: +alpha_i(R_i-X_i) sign is preserved exactly}
+  - {id: R005-T02, category: preservation, verifies: +beta_i grad_Ri Phi_id sign is preserved exactly}
+  - {id: R005-T03, category: preservation, verifies: social coupling sum and ideal-attraction term are retained}
+  - {id: R005-T04, category: unsupported_operation, verifies: no Master Cohort Community runtime contract or trajectory solver is invented}
