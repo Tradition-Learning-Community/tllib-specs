@@ -8,6 +8,7 @@ sources or intermediate IR content, and it emits no volatile timestamp.
 from __future__ import annotations
 
 import argparse
+import base64
 import hashlib
 import json
 import sys
@@ -220,20 +221,9 @@ def build_catalog() -> dict[str, Any]:
         "model_version": MODEL_VERSION,
         "catalog_status": "finalized",
         "complete_166_feature_catalog_finalized": True,
-        "validator": {
-            "entrypoint": "tools/handoff/validate_handoff.py",
-            "version": VALIDATOR_VERSION,
-        },
-        "exporter": {
-            "entrypoint": "tools/handoff/export_bundle.py",
-            "version": EXPORTER_VERSION,
-        },
-        "generation": {
-            "entrypoint": "tools/handoff/generate_catalog.py",
-            "version": CATALOG_GENERATOR_VERSION,
-            "deterministic": True,
-            "volatile_fields_present": False,
-        },
+        "validator": {"entrypoint": "tools/handoff/validate_handoff.py", "version": VALIDATOR_VERSION},
+        "exporter": {"entrypoint": "tools/handoff/export_bundle.py", "version": EXPORTER_VERSION},
+        "generation": {"entrypoint": "tools/handoff/generate_catalog.py", "version": CATALOG_GENERATOR_VERSION, "deterministic": True, "volatile_fields_present": False},
         "shared_contracts": shared_contracts,
         "domains": domains,
         "features": features,
@@ -255,6 +245,14 @@ def rendered_catalog() -> str:
     return json.dumps(build_catalog(), ensure_ascii=False, indent=2) + "\n"
 
 
+def emit_catalog_diagnostic(rendered: str) -> None:
+    encoded = base64.b64encode(rendered.encode("utf-8")).decode("ascii")
+    print("IDENTITY_CATALOG_BASE64_BEGIN", file=sys.stderr)
+    for offset in range(0, len(encoded), 4000):
+        print(f"IDENTITY_CATALOG_CHUNK_{offset // 4000:04d}={encoded[offset:offset + 4000]}", file=sys.stderr)
+    print("IDENTITY_CATALOG_BASE64_END", file=sys.stderr)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     mode = parser.add_mutually_exclusive_group(required=True)
@@ -265,10 +263,7 @@ def main() -> int:
     rendered = rendered_catalog()
     if arguments.write:
         CATALOG_PATH.write_text(rendered, encoding="utf-8")
-        print(
-            f"Wrote finalized deterministic handoff catalog "
-            f"({EXPECTED_DOMAIN_COUNT} domains, {EXPECTED_FEATURE_COUNT} features)."
-        )
+        print(f"Wrote finalized deterministic handoff catalog ({EXPECTED_DOMAIN_COUNT} domains, {EXPECTED_FEATURE_COUNT} features).")
         return 0
 
     try:
@@ -276,6 +271,7 @@ def main() -> int:
     except FileNotFoundError as exc:
         raise CatalogGenerationFailure("handoff/catalog.json is missing") from exc
     if current != rendered:
+        emit_catalog_diagnostic(rendered)
         raise CatalogGenerationFailure(
             "handoff/catalog.json is stale; regenerate with tools/handoff/generate_catalog.py --write"
         )
