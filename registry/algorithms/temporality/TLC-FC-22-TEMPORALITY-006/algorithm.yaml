@@ -1,0 +1,15 @@
+schema_version: 1
+algorithm_id: TLC-ALG-TLC-FC-22-TEMPORALITY-006
+feature_id: TLC-FC-22-TEMPORALITY-006
+status: selected_for_temporality_implementation_specification
+algorithm_kind: source_pairwise_tensor_aggregation
+source_ir: registry/optimized-ir/temporality/TLC-FC-22-TEMPORALITY-006/ir.yaml
+ordered_steps:
+  - enumerate the declared scale pairs with i less than j
+  - require supplied derivative values and gamma_ij for every pair
+  - request each tensor product from the external provider
+  - multiply each tensor result by its supplied gamma_ij
+  - sum the pair terms and return C_scale
+errors: [MissingScaleDerivative, MissingScaleCouplingCoefficient, ExternalTensorProductRequired]
+determinism: deterministic_for_supplied_provider_results_and_pair_order
+forbidden: [derivative approximation, tensor-space construction, gamma calibration]
