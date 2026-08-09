@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-007
+algorithm_kind: conditional_recovery_evidence_assessment
+execution: conditionally_executable
+steps:
+  - require Identity Phi_seuil and external above-threshold evidence
+  - require a candidate recovery time and external below-threshold evidence at that candidate
+  - validate consistency with the source threshold-crossing condition
+  - report candidate evidence without computing the source infimum
+forbidden: [numerical integration, root search, invented return-time bound, generic finite-return certificate]
