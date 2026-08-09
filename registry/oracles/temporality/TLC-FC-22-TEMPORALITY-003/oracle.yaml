@@ -1,0 +1,10 @@
+schema_version: 1
+oracle_id: TLC-ORACLE-TLC-FC-22-TEMPORALITY-003
+feature_id: TLC-FC-22-TEMPORALITY-003
+oracle_type: structural_and_error
+checks:
+  - absent positive-definiteness evidence produces ExternalTemporalMetricEvidenceRequired
+  - absent external distance construction produces ExternalTemporalDistanceConstructionRequired
+  - unsupported local distance execution produces TemporalDistanceExecutionUnsupported
+  - unresolved metric and distance reservations remain explicit
+  - no distance construction is supplied as a default
