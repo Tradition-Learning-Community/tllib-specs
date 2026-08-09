@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-22-TEMPORALITY-002
+feature_id: TLC-FC-22-TEMPORALITY-002
+title: Temporal metric matrix
+domain_id: temporality
+contract_kind: computational_contract
+scientific_status: partially_defined
+scientific_authority: maths/22-temporality/temporality.md
+source_sections: ['2. Métrique temporelle', '6. Limites et points scientifiques non résolus']
+inputs: [{name: t1, type: scalar}, {name: t2, type: scalar}, {name: t3, type: scalar}, {name: alpha1, type: scalar}, {name: alpha2, type: scalar}, {name: alpha3, type: scalar}, {name: alpha4, type: scalar}, {name: lambda1, type: scalar}, {name: lambda2, type: scalar}, {name: beta12, type: scalar}, {name: gamma13, type: scalar}, {name: gamma23, type: scalar}, {name: delta14, type: scalar}, {name: delta24, type: scalar}, {name: delta34, type: scalar}]
+outputs: [{name: g_tau_matrix, type: symmetric_4x4_matrix_value}]
+preconditions: [supplied scalar values support multiplication powers and exponential evaluation]
+postconditions: [matrix equals the exact source 4 by 4 expression]
+invariants: [symmetric placement of off-diagonal terms, fourth diagonal equals alpha4 times t3 cubed, no t4 substitution, coefficients are caller supplied]
+errors: [TemporalMetricArithmeticUnsupported, TemporalMetricCertificationUnsupported]
+opaque_parameters: [alpha1, alpha2, alpha3, alpha4, lambda1, lambda2, beta12, gamma13, gamma23, delta14, delta24, delta34]
+scientific_reservations: [TLC-UR-TEMPORALITY-001, TLC-UR-TEMPORALITY-002, TLC-UR-TEMPORALITY-016]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [replacing t3 cubed by t4 cubed, assuming positive definiteness, supplying coefficient defaults]
+traceability: {source: maths/22-temporality/temporality.md, inventory: registry/domain-progress/temporality/feature-inventory.yaml}
