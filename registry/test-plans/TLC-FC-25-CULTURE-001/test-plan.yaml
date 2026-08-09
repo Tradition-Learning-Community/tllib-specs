@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-25-CULTURE-001
+source_contract: registry/math-contracts/TLC-FC-25-CULTURE-001/contract.yaml
+tests:
+  - {id: CU001-T01, category: invariant, verifies: C_cultural times C_symbolic remains a subset of Context C}
+  - {id: CU001-T02, category: preservation, verifies: M remains metric and not necessarily vectorial}
+  - {id: CU001-T03, category: error, verifies: autonomous Culture geometry request is rejected}
+  - {id: CU001-T04, category: preservation, verifies: no cultural object is vectorized}

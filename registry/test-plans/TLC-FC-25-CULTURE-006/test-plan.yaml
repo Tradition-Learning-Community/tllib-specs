@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-25-CULTURE-006
+source_contract: registry/math-contracts/TLC-FC-25-CULTURE-006/contract.yaml
+tests:
+  - {id: CU006-T01, category: provider, verifies: conformant TLC-FC-24-CONTEXT-007 provider is used for delegation}
+  - {id: CU006-T02, category: error, verifies: missing plasticity evidence blocks adaptation}
+  - {id: CU006-T03, category: preservation, verifies: A_contexte remains the sole adaptation operator}
+  - {id: CU006-T04, category: preservation, verifies: robust elements are not locally modified}

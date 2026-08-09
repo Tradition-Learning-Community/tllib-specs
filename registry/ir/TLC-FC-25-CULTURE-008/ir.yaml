@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-25-CULTURE-008
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-25-CULTURE-008/contract.yaml
+source_candidate_ir: ir/TLC-FC-25-CULTURE-008/ir.candidate.json
+nature: structural_guard
+inputs: [transmission_reference, external_failure_evidence]
+outputs: [failure_mode_detection_availability]
+steps: [preserve two failure labels, check for external failure evidence, refuse automatic detection when evidence is absent]
+errors: [CultureFailureDetectionEvidenceRequired]

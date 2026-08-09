@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-25-CULTURE-004
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-25-CULTURE-004/contract.yaml
+source_candidate_ir: ir/TLC-FC-25-CULTURE-004/ir.candidate.json
+nature: provider_delegation
+inputs: [cultural_weight_inputs, context_weight_rhs_provider]
+outputs: [delegated_dw_i_dt]
+steps: [require TLC-FC-24-CONTEXT-004 provider conformance, forward opaque weight inputs, return provider result, attach Context delegation provenance]
+errors: [CultureContextWeightProviderRequired, CultureContextWeightProviderNonConformant]

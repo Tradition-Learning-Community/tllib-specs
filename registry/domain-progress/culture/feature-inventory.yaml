@@ -1,0 +1,117 @@
+domain_id: culture
+status: population_frozen_with_reservations
+feature_count: 8
+source: maths/25-culture/culture.md
+features:
+  - feature_id: TLC-FC-25-CULTURE-001
+    canonical_name: Cultural and symbolic Context component descriptor
+    category: declarative
+    source_objects: [TLC-SO-CULTURE-001, TLC-SO-CULTURE-002, TLC-SO-CULTURE-003, TLC-SO-CULTURE-004, TLC-SO-CULTURE-005, TLC-SO-CULTURE-006, TLC-SO-CULTURE-007, TLC-SO-CULTURE-008, TLC-SO-CULTURE-009, TLC-SO-CULTURE-010, TLC-SO-CULTURE-011, TLC-SO-CULTURE-012, TLC-SO-CULTURE-013, TLC-SO-CULTURE-014, TLC-SO-CULTURE-015]
+    source_section: '1. Définition'
+    purpose: Preserve Culture as the cultural and symbolic factors of Context and enumerate only the source-listed cultural contents without constructing a separate cultural state space.
+    inputs: [context_reference, cultural_component_reference, symbolic_component_reference, symbolic_metric_carrier_reference]
+    outputs: [culture_component_descriptor]
+    preconditions: [published Context authority is referenced]
+    invariants: [C_cultural times C_symbolic remains a subset of C, M remains metric and not necessarily vectorial, no C_culture or autonomous cultural geometry]
+    invalid_cases: [request to construct cultural coordinates, request to create a cultural metric or autonomous state space]
+    algorithmic: true
+    scientific_status: preserved_unresolved
+  - feature_id: TLC-FC-25-CULTURE-002
+    canonical_name: Cultural transmission influence descriptor
+    category: declarative
+    source_objects: [TLC-SO-CULTURE-016, TLC-SO-CULTURE-017, TLC-SO-CULTURE-018, TLC-SO-CULTURE-019, TLC-SO-CULTURE-020, TLC-SO-CULTURE-021, TLC-SO-CULTURE-022]
+    source_section: '2. Fonction structurante'
+    purpose: Preserve the four source-declared influence surfaces reception of Message, application of Principles, incarnation of Values, and practice of Competencies without inventing effect magnitudes or transfer functions.
+    inputs: [message_reference, principle_reference, values_reference, competencies_reference]
+    outputs: [cultural_influence_descriptor]
+    preconditions: [all referenced tradition objects are treated as opaque references]
+    invariants: [exact four influence surfaces preserved, no quantitative influence coefficient, no new dependency inferred from a prose mention alone]
+    invalid_cases: [request for influence score, request for unsourced transfer function]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-25-CULTURE-003
+    canonical_name: Cultural participation in contextual weighting descriptor
+    category: declarative
+    source_objects: [TLC-SO-CULTURE-023, TLC-SO-CULTURE-024, TLC-SO-CULTURE-025, TLC-SO-CULTURE-026, TLC-SO-CULTURE-027, TLC-SO-CULTURE-028, TLC-SO-CULTURE-029, TLC-SO-CULTURE-030, TLC-SO-CULTURE-031]
+    source_section: '2. Fonction structurante'
+    purpose: Record that Culture participates in Context weights and couplings and that cultural weight variation remains governed by the general Context law rather than a separate cultural metric or dynamics.
+    inputs: [context_weight_reference, context_coupling_reference, contextual_tensor_reference, event_references]
+    outputs: [cultural_context_participation_descriptor]
+    preconditions: [Context metric and weight dynamics are referenced as external authority]
+    invariants: [g_c remains Context-owned, w_i dynamics are not duplicated as an autonomous cultural law, events crises innovations and social transformations remain qualitative drivers]
+    invalid_cases: [request for g_culture, request for autonomous cultural weight equation]
+    algorithmic: true
+    scientific_status: partially_defined
+  - feature_id: TLC-FC-25-CULTURE-004
+    canonical_name: Context weight evolution delegation for cultural factors
+    category: dynamical
+    source_objects: [TLC-SO-CULTURE-023, TLC-SO-CULTURE-030, TLC-SO-CULTURE-031]
+    source_section: '2. Fonction structurante'
+    purpose: Delegate evaluation of a cultural-factor weight RHS to a caller-supplied provider conforming to Context feature TLC-FC-24-CONTEXT-004 without reimplementing the formula in Culture.
+    inputs: [cultural_weight_inputs, context_weight_rhs_provider]
+    outputs: [delegated_dw_i_dt]
+    preconditions: [provider attests conformance to TLC-FC-24-CONTEXT-004 and receives the source-declared inputs]
+    invariants: [Context is the mathematical authority, no duplicated cultural ODE, no solver or default coefficients]
+    invalid_cases: [missing provider, provider not conformant to Context authority, request for local cultural dynamics]
+    algorithmic: true
+    scientific_status: external_provider_required
+  - feature_id: TLC-FC-25-CULTURE-005
+    canonical_name: Relative cultural plasticity classification guard
+    category: validation
+    source_objects: [TLC-SO-CULTURE-032, TLC-SO-CULTURE-033, TLC-SO-CULTURE-034, TLC-SO-CULTURE-035, TLC-SO-CULTURE-036, TLC-SO-CULTURE-037, TLC-SO-CULTURE-038, TLC-SO-CULTURE-039, TLC-SO-CULTURE-040]
+    source_section: '3. Plasticité culturelle et noyau identitaire'
+    purpose: Preserve the qualitative robust-versus-plastic distinction while refusing a local numeric classification because the source supplies no separation threshold.
+    inputs: [element_reference, contextual_sensitivity_reference, external_classification_evidence]
+    outputs: [plasticity_classification_availability]
+    preconditions: [source qualitative categories are available]
+    invariants: [Principles and fundamental Values are cited as mainly robust, Practices and some Competencies as mainly plastic, no threshold is invented, S_contexte remains Context-owned]
+    invalid_cases: [request for threshold-based local classification without external evidence]
+    algorithmic: true
+    scientific_status: preserved_unresolved
+  - feature_id: TLC-FC-25-CULTURE-006
+    canonical_name: Cultural adaptation delegation to Context
+    category: transform
+    source_objects: [TLC-SO-CULTURE-041, TLC-SO-CULTURE-042, TLC-SO-CULTURE-043]
+    source_section: '3. Plasticité culturelle et noyau identitaire'
+    purpose: Delegate legitimate cultural adaptation to a caller-supplied provider conforming to Context feature TLC-FC-24-CONTEXT-007 while preserving robust elements and refusing any autonomous A_culture.
+    inputs: [context_adaptation_inputs, plasticity_evidence, robust_element_references, context_adaptation_provider]
+    outputs: [delegated_cultural_adaptation_result]
+    preconditions: [provider attests conformance to TLC-FC-24-CONTEXT-007, external evidence identifies eligible sensitive forms, caller supplies preservation evidence for robust elements]
+    invariants: [A_contexte remains the sole adaptation operator, only externally justified sensitive forms may vary, robust elements are not locally modified]
+    invalid_cases: [missing Context provider, missing eligibility evidence, request to synthesize A_culture]
+    algorithmic: true
+    scientific_status: external_provider_required
+  - feature_id: TLC-FC-25-CULTURE-007
+    canonical_name: Cultural fidelity evidence assessment
+    category: validation
+    source_objects: [TLC-SO-CULTURE-044, TLC-SO-CULTURE-045, TLC-SO-CULTURE-046, TLC-SO-CULTURE-047, TLC-SO-CULTURE-048, TLC-SO-CULTURE-049]
+    source_section: '4. Conditions de fidélité culturelle'
+    purpose: Assess the simultaneous source conditions only from externally supplied evidence for receivable forms, common-source connection, and invariant-core neighborhood preservation; no quantitative neighborhood or penalty guarantee is computed.
+    inputs: [receivability_evidence, common_source_connection_evidence, core_neighborhood_preservation_evidence, failure_avoidance_evidence]
+    outputs: [cultural_fidelity_assessment]
+    preconditions: [all four evidence inputs are supplied by external scientific providers]
+    invariants: [all four source conditions are conjunctive, no neighborhood radius, no minimum J penalty, no automatic fidelity guarantee]
+    invalid_cases: [missing evidence, request for quantitative guarantee without source parameters]
+    algorithmic: true
+    scientific_status: external_provider_required
+  - feature_id: TLC-FC-25-CULTURE-008
+    canonical_name: Cultural failure-mode detection guard
+    category: validation
+    source_objects: [TLC-SO-CULTURE-050, TLC-SO-CULTURE-051]
+    source_section: '4. Conditions de fidélité culturelle'
+    purpose: Preserve the two named failure modes ignorance of the milieu and dissolution in the milieu while refusing local detection because no observable criteria or thresholds are supplied.
+    inputs: [transmission_reference, external_failure_evidence]
+    outputs: [failure_mode_detection_availability]
+    preconditions: [the two source failure labels are available]
+    invariants: [exact two failure modes preserved, no numeric detector, no threshold or score invented]
+    invalid_cases: [request for automatic failure detection without external evidence]
+    algorithmic: true
+    scientific_status: preserved_unresolved
+population_decision:
+  feature_count: 8
+  equation_per_feature_rule_rejected: true
+  context_definitions_not_duplicated: true
+  structural_descriptors: [TLC-FC-25-CULTURE-001, TLC-FC-25-CULTURE-002, TLC-FC-25-CULTURE-003]
+  non_execution_guards: [TLC-FC-25-CULTURE-005, TLC-FC-25-CULTURE-008]
+  executable_source_formulas: []
+  conditional_source_backed: [TLC-FC-25-CULTURE-004, TLC-FC-25-CULTURE-006, TLC-FC-25-CULTURE-007]

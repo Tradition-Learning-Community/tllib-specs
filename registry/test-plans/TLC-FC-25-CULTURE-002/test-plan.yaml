@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-25-CULTURE-002
+source_contract: registry/math-contracts/TLC-FC-25-CULTURE-002/contract.yaml
+tests:
+  - {id: CU002-T01, category: invariant, verifies: exact four source influence surfaces are preserved}
+  - {id: CU002-T02, category: preservation, verifies: no effect magnitude or transfer function is introduced}
+  - {id: CU002-T03, category: preservation, verifies: Message Principle Values and Competencies mentions do not create runtime dependencies}
+  - {id: CU002-T04, category: error, verifies: quantitative influence request reports unavailable science}

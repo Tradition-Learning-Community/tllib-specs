@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-25-CULTURE-004
+source_contract: registry/math-contracts/TLC-FC-25-CULTURE-004/contract.yaml
+tests:
+  - {id: CU004-T01, category: provider, verifies: conformant TLC-FC-24-CONTEXT-004 provider result is returned with delegation provenance}
+  - {id: CU004-T02, category: error, verifies: missing provider yields CultureContextWeightProviderRequired}
+  - {id: CU004-T03, category: error, verifies: nonconformant provider is rejected}
+  - {id: CU004-T04, category: preservation, verifies: no local ODE solver or duplicated formula is introduced}

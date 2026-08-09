@@ -1,0 +1,20 @@
+contract_id: TLC-MC-TLC-FC-25-CULTURE-001
+feature_id: TLC-FC-25-CULTURE-001
+title: Cultural and symbolic Context component descriptor
+domain_id: culture
+contract_kind: structural_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/25-culture/culture.md
+source_sections: ['1. Définition', '5. Limites et points scientifiques non résolus']
+inputs: [{name: context_reference, type: scientific_reference}, {name: cultural_component_reference, type: opaque_reference}, {name: symbolic_component_reference, type: opaque_reference}, {name: symbolic_metric_carrier_reference, type: opaque_reference}]
+outputs: [{name: culture_component_descriptor, type: descriptor}]
+preconditions: [Context domain 24 is referenced as scientific authority]
+postconditions: [descriptor preserves C_cultural times C_symbolic as a subset of C and enumerates only source-listed contents]
+invariants: [M remains metric and not necessarily vectorial, no autonomous culture space operator or metric, no vectorization]
+errors: [CultureAutonomousStructureUnavailable, CultureCoordinateConstructionForbidden]
+opaque_parameters: [C, C_cultural, C_symbolic, M, cultural_element_instances]
+scientific_reservations: [TLC-UR-CULTURE-001, TLC-UR-CULTURE-002]
+dependencies: {scientific: [24], runtime: []}
+provider_requirements: []
+forbidden_behaviors: [constructing C_culture, constructing A_culture, constructing g_culture, vectorizing cultural objects]
+traceability: {source: maths/25-culture/culture.md, inventory: registry/domain-progress/culture/feature-inventory.yaml}
