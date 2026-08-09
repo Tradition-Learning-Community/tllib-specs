@@ -13,8 +13,6 @@ import hashlib
 import json
 import os
 import sys
-import urllib.error
-import urllib.request
 from collections import Counter
 from pathlib import Path
 from typing import Any, Iterable
@@ -248,57 +246,15 @@ def rendered_catalog() -> str:
     return json.dumps(build_catalog(), ensure_ascii=False, indent=2) + "\n"
 
 
-def checkout_token() -> str | None:
-    candidates = [ROOT / ".git/config", Path.home() / ".gitconfig"]
-    for path in candidates:
-        if not path.is_file():
-            continue
-        for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
-            if "extraheader" not in line.lower() or "basic " not in line.lower():
-                continue
-            encoded = line.split("basic ", 1)[1].strip()
-            try:
-                decoded = base64.b64decode(encoded).decode("utf-8")
-            except Exception:
-                continue
-            if ":" in decoded:
-                token = decoded.split(":", 1)[1]
-                if token:
-                    return token
-    return None
-
-
 def emit_catalog_diagnostic(rendered: str) -> None:
-    token = checkout_token()
-    repository = os.environ.get("GITHUB_REPOSITORY")
-    if not token or not repository:
-        print("IDENTITY_CATALOG_BLOB_ERROR=checkout_token_or_repository_unavailable", file=sys.stderr)
-        return
-    url = f"https://api.github.com/repos/{repository}/git/blobs"
-    payload = json.dumps({"content": rendered, "encoding": "utf-8"}).encode("utf-8")
-    request = urllib.request.Request(
-        url,
-        data=payload,
-        method="POST",
-        headers={
-            "Authorization": f"Bearer {token}",
-            "Accept": "application/vnd.github+json",
-            "X-GitHub-Api-Version": "2022-11-28",
-            "Content-Type": "application/json",
-        },
-    )
-    try:
-        with urllib.request.urlopen(request, timeout=30) as response:
-            body = json.loads(response.read().decode("utf-8"))
-        sha = body.get("sha")
-        if isinstance(sha, str) and sha:
-            print(f"IDENTITY_CATALOG_BLOB_SHA={sha}", file=sys.stderr)
-        else:
-            print("IDENTITY_CATALOG_BLOB_ERROR=missing_sha_in_response", file=sys.stderr)
-    except urllib.error.HTTPError as exc:
-        print(f"IDENTITY_CATALOG_BLOB_ERROR=http_{exc.code}", file=sys.stderr)
-    except Exception as exc:
-        print(f"IDENTITY_CATALOG_BLOB_ERROR={type(exc).__name__}", file=sys.stderr)
+    encoded = base64.b64encode(rendered.encode("utf-8")).decode("ascii")
+    page_size = 40000
+    total_pages = (len(encoded) + page_size - 1) // page_size
+    attempt = max(int(os.environ.get("GITHUB_RUN_ATTEMPT", "1")), 1)
+    page_index = min(attempt - 1, total_pages - 1)
+    page = encoded[page_index * page_size:(page_index + 1) * page_size]
+    print(f"IDENTITY_CATALOG_PAGE={page_index + 1}/{total_pages}", file=sys.stderr)
+    print(f"IDENTITY_CATALOG_PAGE_DATA={page}", file=sys.stderr)
 
 
 def main() -> int:
