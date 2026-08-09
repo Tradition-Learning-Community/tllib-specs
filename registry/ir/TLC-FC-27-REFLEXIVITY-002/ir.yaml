@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-002
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-002/contract.yaml
+source_candidate_ir: ir/TLC-FC-27-REFLEXIVITY-002/ir.candidate.json
+nature: transform
+inputs: [X, R, alpha_t, beta_t, grad_R_Phi_id]
+outputs: [raw_operator_result]
+steps: [validate coefficient ranges, compute positive alpha term, compute positive beta-gradient term, return literal source pair]
+errors: [IdentityGradientProviderRequired, CompatibleIdentityArithmeticRequired]
