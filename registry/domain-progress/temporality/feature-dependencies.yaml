@@ -1,0 +1,49 @@
+schema_version: 1
+domain: temporality
+feature_count: 9
+scientific_dependencies:
+  external_confirmed:
+    - domain_index: 23
+      slug: memory
+      direction: 22_to_23
+      evidence:
+        source: maths/22-temporality/temporality.md
+        statement: The hereditary temporal flow explicitly links K to Memory and uses the mnemonic operator M; the fourth multiscale equation also uses M(X).
+      feature_correspondence:
+        - temporality_feature: TLC-FC-22-TEMPORALITY-004
+          memory_features: [TLC-FC-23-MEMORY-003, TLC-FC-23-MEMORY-004]
+          compatibility: scientific_provenance_only
+          rationale: Temporality writes K(tau-s) and M(phi(s)); published Memory contracts expose a richer adaptive K signature and a time-indexed adaptive M contract, so no direct runtime call signature is asserted.
+        - temporality_feature: TLC-FC-22-TEMPORALITY-005
+          memory_features: [TLC-FC-23-MEMORY-003]
+          compatibility: scientific_provenance_only
+          rationale: The source uses M(X) as an input to F4 but does not specify the adapter from the published adaptive-memory operation to this argument.
+  external_provisional: []
+  unknown: false
+runtime_dependencies: []
+shared_contract_dependencies:
+  - TLC-HC-FEATURE-ID@1.0.0
+  - TLC-HC-SCIENTIFIC-REFERENCE@1.0.0
+  - TLC-HC-REFERENCE-COLLECTION@1.0.0
+  - TLC-HC-UNRESOLVED-ITEM@1.0.0
+  - TLC-HC-OPAQUE-VALUE@1.0.0
+  - TLC-HC-STRUCTURED-ERROR@1.0.0
+  - TLC-HC-TRACEABILITY@1.0.0
+  - TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0
+analysis_companions:
+  - {domain_index: 23, slug: memory}
+non_promoted_references:
+  - domain_index: 9
+    slug: values
+    source_phrase: temporal gradient of Values
+    reason: The source does not identify a domain-09 contract or operation; no scientific dependency edge is promoted from terminology alone.
+intra_domain:
+  - {from: TLC-FC-22-TEMPORALITY-002, to: TLC-FC-22-TEMPORALITY-003, class: metric_structure_for_distance_guard}
+  - {from: TLC-FC-22-TEMPORALITY-005, to: TLC-FC-22-TEMPORALITY-006, class: derivative_terms_for_scale_coupling}
+  - {from: TLC-FC-22-TEMPORALITY-008, to: TLC-FC-22-TEMPORALITY-009, class: raw_expression_for_distribution_guard}
+policy:
+  scientific_dependency_is_not_runtime_dependency: true
+  companion_analysis_is_not_runtime_dependency: true
+  published_memory_feature_reference_requires_signature_compatibility: true
+  no_direct_runtime_binding_inferred_for_K_or_M: true
+  no_dependency_inferred_from_terminology_only: true
