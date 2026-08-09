@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-27-REFLEXIVITY-006
+feature_id: TLC-FC-27-REFLEXIVITY-006
+title: Ordinary-trajectory functionality assessment
+domain_id: reflexivity
+contract_kind: conditional_validation_contract
+scientific_status: external_provider_required
+scientific_authority: maths/27-reflexivity/reflexivity.md
+source_sections: ['5. Conditions et résultats attendus']
+inputs: [{name: Phi_descent_observation_or_certificate, type: external_evidence}, {name: identity_gap_boundedness_evidence, type: external_evidence}, {name: identity_gap_convergence_evidence, type: external_evidence}, {name: realism_conditions_reference, type: external_reference}]
+outputs: [{name: ordinary_functionality_assessment, type: guarded_assessment}]
+preconditions: [all requested claims have externally supplied evidence]
+postconditions: [assessment reports only the supplied evidence status and never upgrades it into a generic theorem]
+invariants: [no trajectory solve, no convergence proof, no Phi descent certificate is synthesized]
+errors: [TrajectoryEvidenceRequired, RealismConditionsRequired]
+opaque_parameters: [realism_conditions_reference]
+scientific_reservations: [TLC-UR-REFLEXIVITY-009, TLC-UR-REFLEXIVITY-010]
+dependencies: {scientific: [26], identity_features: [TLC-FC-26-IDENTITY-001, TLC-FC-26-IDENTITY-002], runtime: []}
+forbidden_behaviors: [integrating dynamics, asserting generic convergence, asserting generic Phi decrease, inventing realism conditions]
+traceability: {source: maths/27-reflexivity/reflexivity.md, inventory: registry/domain-progress/reflexivity/feature-inventory.yaml}
