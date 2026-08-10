@@ -1,0 +1,27 @@
+contract_id: TLC-MC-TLC-FC-21-FAIRNESS-011
+feature_id: TLC-FC-21-FAIRNESS-011
+title: Alignment loss expression
+domain_id: fairness
+contract_kind: provider_backed_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/21-fairness/fairness.md
+source_sections: ['5. Responsabilité et alignement éthique']
+expression: 'L_align^T(theta) = L_task(theta) + lambda sum_i v_i(theta) + mu sum_j g_j(theta) + nu R_eth(theta) + xi D_trad(theta)'
+inputs:
+  - {name: task_loss, type: supplied_provider_value}
+  - {name: violations, type: supplied_provider_values}
+  - {name: constraints, type: supplied_provider_values}
+  - {name: ethical_robustness, type: supplied_provider_value}
+  - {name: traditional_distance, type: supplied_provider_value}
+  - {name: coefficients, type: supplied_values}
+outputs: [{name: L_align_T, type: scalar}]
+opaque_providers: [task_loss, violations, constraints, ethical_robustness, traditional_distance]
+preconditions: [all source operands are supplied]
+postconditions: [evaluate exact additive source expression]
+invariants: [violations constraints ethical robustness and traditional distance are never constructed locally]
+constraints: [provider-only semantics]
+structured_errors: [AlignmentLossProviderRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FAIRNESS-010]
+forbidden_behaviors: [invent_violation, invent_constraint, invent_ethical_robustness, invent_traditional_distance]
+traceability: {source: maths/21-fairness/fairness.md, inventory: registry/domain-progress/fairness/feature-inventory.yaml}

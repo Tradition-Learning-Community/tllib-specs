@@ -1,0 +1,23 @@
+contract_id: TLC-MC-TLC-FC-21-FAIRNESS-014
+feature_id: TLC-FC-21-FAIRNESS-014
+title: Temporal responsibility expression
+domain_id: fairness
+contract_kind: horizon_guarded_provider_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/21-fairness/fairness.md
+source_sections: ['5. Responsabilité et alignement éthique']
+expression: 'R_resp^T = (1/T) integral_0^T |dE_align^T/dt| 1_{E_align^T > theta} F_fid(t) dt'
+inputs:
+  - {name: T, type: scalar}
+  - {name: supplied_integral_value, type: supplied_provider_value}
+outputs: [{name: R_resp_T, type: scalar}]
+opaque_providers: [alignment_efficiency_derivative, indicator_inputs, fidelity_time_function, integral]
+preconditions: [T is nonzero, integral value for the exact source integrand is supplied]
+postconditions: [divide the supplied exact integral value by T]
+invariants: [no numerical derivative quadrature discretization interpolation or time-series policy is created]
+constraints: [T zero is an explicit error]
+structured_errors: [ResponsibilityHorizonZero, TemporalResponsibilityProviderRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FAIRNESS-011]
+forbidden_behaviors: [invent_derivative, invent_integrator, numerical_quadrature, discretize_time, interpolate_time_series, invent_time_series_policy]
+traceability: {source: maths/21-fairness/fairness.md, inventory: registry/domain-progress/fairness/feature-inventory.yaml}

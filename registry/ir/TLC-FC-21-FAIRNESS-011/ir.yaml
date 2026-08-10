@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-011
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-011/contract.yaml
+source_candidate_ir: ir/TLC-FC-21-FAIRNESS-011/ir.candidate.json
+nature: provider_backed_expression
+inputs: [task_loss, violations, constraints, ethical_robustness, traditional_distance, coefficients]
+outputs: [L_align_T]
+steps: [require provider values, evaluate exact source sum]
+errors: [AlignmentLossProviderRequired]

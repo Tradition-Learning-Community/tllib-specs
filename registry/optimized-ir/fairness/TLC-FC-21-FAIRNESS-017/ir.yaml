@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-017
+status: finalized
+execution: executable
+source_ir: registry/ir/TLC-FC-21-FAIRNESS-017/ir.yaml
+operation: assess_contextual_fairness_declared_threshold
+required_behavior: [use exact 0.6, preserve strict greater-than, scope threshold to contextual fairness]
+forbidden_behavior: [silently_calibrate_threshold, generalize_0_6_threshold, weaken_strict_inequality]
+error_codes: []

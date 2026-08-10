@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-017
+algorithm_kind: exact_predicate_evaluator
+execution: executable
+steps: [accept supplied E_ctx_T, return whether E_ctx_T is strictly greater than 0.6]
+forbidden: [silently_calibrate_threshold, generalize_0_6_threshold, weaken_strict_inequality, claim_threshold_derivation]

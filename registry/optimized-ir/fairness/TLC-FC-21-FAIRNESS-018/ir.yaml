@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-018
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-21-FAIRNESS-018/ir.yaml
+operation: enforce_fairness_scientific_non_invention
+required_behavior: [preserve unresolved science, enforce provider boundaries, preserve 20 to 21 dependency direction, keep 20 32 35 unpublished]
+forbidden_behavior: [invent_optimizer, invent_argmax_search, invent_estimator, invent_calibration, repair_source_ambiguity, reverse_dependency]
+error_codes: [FairnessScientificProviderRequired, FairnessAmbiguityUnresolved]

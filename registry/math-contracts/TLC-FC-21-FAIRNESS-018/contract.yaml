@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-21-FAIRNESS-018
+feature_id: TLC-FC-21-FAIRNESS-018
+title: Fairness scientific non-invention guard
+domain_id: fairness
+contract_kind: scientific_non_invention_guard_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/21-fairness/fairness.md
+source_sections: ['7. Limites et points scientifiques non résolus']
+expression: 'Preserve Fairness unresolved science and the downstream dependency direction 20 Robustness -> 21 Fairness.'
+inputs: []
+outputs: [{name: fairness_non_invention_guard_descriptor, type: structural_descriptor}]
+opaque_providers: []
+preconditions: []
+postconditions: [enumerate all preserved unresolved boundaries and forbidden inventions]
+invariants: [Fairness has no scientific or runtime dependency on Robustness, Robustness remains the downstream consumer]
+constraints: [no runtime implementation solver estimator calibration or governance policy is introduced]
+structured_errors: [FairnessScientificProviderRequired, FairnessAmbiguityUnresolved]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FAIRNESS-001, TLC-UR-FAIRNESS-002, TLC-UR-FAIRNESS-003, TLC-UR-FAIRNESS-004, TLC-UR-FAIRNESS-005, TLC-UR-FAIRNESS-006, TLC-UR-FAIRNESS-007, TLC-UR-FAIRNESS-008, TLC-UR-FAIRNESS-009, TLC-UR-FAIRNESS-010, TLC-UR-FAIRNESS-011, TLC-UR-FAIRNESS-012, TLC-UR-FAIRNESS-013, TLC-UR-FAIRNESS-014]
+forbidden_behaviors: [invent_bias_component, invent_category, invent_score, invent_expectation_estimator, invent_correlation_estimator, invent_KL_estimator, invent_optimizer, invent_argmax_search, invent_weight_normalization, invent_residual_legitimacy_classifier, invent_gradient, invent_derivative, invent_integrator, clamp_procedural_robustness, repair_lagrangian_sign, choose_entropy_sign, regularize_zero_denominator, silently_calibrate_threshold, reverse_robustness_fairness_dependency, publish_robustness]
+traceability: {source: maths/21-fairness/fairness.md, inventory: registry/domain-progress/fairness/feature-inventory.yaml}

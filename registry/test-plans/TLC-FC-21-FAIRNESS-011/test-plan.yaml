@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-011
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-011/contract.yaml
+tests:
+  - {id: FAIR011-T01, category: preservation, verifies: exact alignment-loss expression is preserved}
+  - {id: FAIR011-T02, category: error, verifies: missing violation constraint ethical-robustness or distance provider is rejected}
+  - {id: FAIR011-T03, category: invariant, verifies: provider quantities are never synthesized}

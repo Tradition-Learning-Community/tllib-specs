@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-010
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-010/contract.yaml
+tests:
+  - {id: FAIR010-T01, category: preservation, verifies: exact complementarity numerator denominator and factors are preserved}
+  - {id: FAIR010-T02, category: error, verifies: zero sum_i P_i yields ComplementarityDenominatorZero}
+  - {id: FAIR010-T03, category: invariant, verifies: numerator sign is not changed and performances are not normalized}

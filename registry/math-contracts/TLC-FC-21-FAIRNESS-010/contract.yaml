@@ -1,0 +1,25 @@
+contract_id: TLC-MC-TLC-FC-21-FAIRNESS-010
+feature_id: TLC-FC-21-FAIRNESS-010
+title: Complementarity expression
+domain_id: fairness
+contract_kind: denominator_guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/21-fairness/fairness.md
+source_sections: ['4. Pluralité des Maîtres']
+expression: 'C_comp^T = ((P_collect - max_i P_i) / sum_i P_i) D_cog^T Alig_collect'
+inputs:
+  - {name: P_collect, type: supplied_provider_value}
+  - {name: individual_performances, type: supplied_provider_values}
+  - {name: D_cog_T, type: supplied_value}
+  - {name: Alig_collect, type: supplied_provider_value}
+outputs: [{name: C_comp_T, type: scalar}]
+opaque_providers: [collective_performance, individual_performances, cognitive_diversity, collective_alignment]
+preconditions: [sum of supplied individual performances is nonzero]
+postconditions: [preserve numerator P_collect minus max_i P_i and exact denominator]
+invariants: [no sign change normalization or denominator clamp]
+constraints: [zero denominator yields a structured error]
+structured_errors: [ComplementarityDenominatorZero, ComplementarityProviderRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FAIRNESS-011]
+forbidden_behaviors: [clamp_complementarity_denominator, normalize_performances, change_complementarity_numerator_sign, invent_performance_provider]
+traceability: {source: maths/21-fairness/fairness.md, inventory: registry/domain-progress/fairness/feature-inventory.yaml}

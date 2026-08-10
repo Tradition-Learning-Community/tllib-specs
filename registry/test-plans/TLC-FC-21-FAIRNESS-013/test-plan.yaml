@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-013
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-013/contract.yaml
+tests:
+  - {id: FAIR013-T01, category: preservation, verifies: exact 1/m indicator derivative exponential and alignment factors are preserved}
+  - {id: FAIR013-T02, category: error, verifies: m equal zero yields AlignmentConstraintCountZero}
+  - {id: FAIR013-T03, category: invariant, verifies: derivatives gradients norms and constraints remain provider-supplied}

@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-21-FAIRNESS-017
+feature_id: TLC-FC-21-FAIRNESS-017
+title: Contextual fairness threshold assessment
+domain_id: fairness
+contract_kind: exact_declared_threshold_predicate_contract
+scientific_status: defined
+scientific_authority: maths/21-fairness/fairness.md
+source_sections: ['6. Propriété asymptotique et mesure contextuelle', '7. Limites et points scientifiques non résolus']
+expression: 'E_ctx^T > 0.6'
+inputs: [{name: E_ctx_T, type: scalar}]
+outputs: [{name: contextual_fairness_threshold_satisfied, type: boolean}]
+opaque_providers: []
+preconditions: [E_ctx_T is supplied]
+postconditions: [evaluate the strict source predicate using exactly 0.6]
+invariants: [0.6 is a declared operational threshold not a derived calibrated or universal fairness constant]
+constraints: [threshold is scoped only to this contextual-fairness predicate]
+structured_errors: []
+dependencies: {scientific: [TLC-FC-21-FAIRNESS-016], runtime: []}
+unresolved_items: [TLC-UR-FAIRNESS-014]
+forbidden_behaviors: [silently_calibrate_threshold, generalize_0_6_threshold, weaken_strict_inequality, claim_threshold_derivation]
+traceability: {source: maths/21-fairness/fairness.md, inventory: registry/domain-progress/fairness/feature-inventory.yaml}

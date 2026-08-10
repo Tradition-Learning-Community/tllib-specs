@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-010
+algorithm_kind: denominator_guarded_source_expression_evaluator
+execution: conditionally_executable
+steps: [require performance diversity and alignment values, compute denominator, fail if zero, evaluate exact expression]
+forbidden: [clamp_denominator, normalize_performances, change_numerator_sign]

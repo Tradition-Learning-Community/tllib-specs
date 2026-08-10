@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-015
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-21-FAIRNESS-015/ir.yaml
+operation: describe_bias_decay_inequality
+required_behavior: [preserve source upper bound, preserve residual legitimate-bias ambiguity]
+forbidden_behavior: [invent_residual_legitimacy_classifier, invent_residual_bias_estimator, invent_convergence_proof]
+error_codes: [BiasDecayCertificationUnavailable]
