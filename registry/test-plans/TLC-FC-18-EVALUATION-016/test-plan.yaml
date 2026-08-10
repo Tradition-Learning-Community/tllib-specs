@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-016
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-016/contract.yaml
+tests:
+  - {id: EVA016-T01, category: valid_input, verifies: supplied scalars produce the exact five-term health expression}
+  - {id: EVA016-T02, category: preservation, verifies: Cohesion Diversity Resilience Adaptability and Synergy all remain present}
+  - {id: EVA016-T03, category: invariant, verifies: coefficients are not normalized or recalibrated}

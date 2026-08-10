@@ -1,0 +1,3 @@
+# TLC-FC-18-EVALUATION-013 — Multi-source aggregation and source-weight constraints
+
+This package specifies `E_total` as the source weighted sum plus geometric-product term plus synergy term. Complete aggregation requires mentor, peers, self and an externally supplied community evaluation; the source names `E_community` but gives no formula, so a missing value is a structured error. Source weights must already satisfy `sum alpha_i = 1`, their supplied minima, and the mentor minimum before the supplied autonomy time. The implementation may not project to a simplex, silently renormalize weights, invent minimum values, or create an autonomy policy.

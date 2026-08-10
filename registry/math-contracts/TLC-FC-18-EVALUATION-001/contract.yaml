@@ -1,0 +1,34 @@
+contract_id: TLC-MC-TLC-FC-18-EVALUATION-001
+feature_id: TLC-FC-18-EVALUATION-001
+title: Evaluation validity and admissibility assessment
+domain_id: evaluation
+contract_kind: guarded_predicate_contract
+scientific_status: external_provider_required
+scientific_authority: maths/18-evaluation/evaluation.md
+source_sections: ['1. Périmètre et architecture']
+expression: 'valid iff confidence(d,t)>theta_c and T_transparency(c,t)>theta_t and B(c,t)>theta_b and V(c) in V_admissible, with each evaluation source reliability above theta_reliability and the source-stated average confidence/transparency/benevolence constraints satisfied'
+inputs:
+  - {name: confidence_d_t, type: scalar}
+  - {name: transparency_c_t, type: scalar}
+  - {name: benevolence_c_t, type: scalar}
+  - {name: value_state_c, type: opaque_value}
+  - {name: admissible_values, type: membership_provider}
+  - {name: source_reliabilities, type: source_indexed_scalars}
+  - {name: average_confidence, type: scalar}
+  - {name: average_transparency, type: scalar}
+  - {name: average_benevolence, type: scalar}
+  - {name: theta_c, type: opaque_threshold}
+  - {name: theta_t, type: opaque_threshold}
+  - {name: theta_b, type: opaque_threshold}
+  - {name: theta_reliability, type: opaque_threshold}
+outputs: [{name: admissibility_assessment, type: structured_predicate_result}]
+preconditions: [all threshold values and admissible-set membership semantics are supplied, reliability values exist for every requested evaluation source]
+postconditions: [no threshold is calibrated locally, every source predicate remains visible in the result]
+invariants: [strict greater-than signs are preserved, admissible Values membership is preserved, Regulation is not consulted]
+errors: [ValidityThresholdProviderRequired, ReliabilityProviderRequired, AdmissibilityProviderRequired]
+opaque_parameters: [theta_c, theta_t, theta_b, theta_reliability, V_admissible]
+providers: [admissible_values_membership, source_reliability_values]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-EVALUATION-012]
+forbidden_behaviors: [invent_threshold, infer_missing_reliability, weaken_strict_inequality, import_regulation_runtime]
+traceability: {source: maths/18-evaluation/evaluation.md, inventory: registry/domain-progress/evaluation/feature-inventory.yaml}

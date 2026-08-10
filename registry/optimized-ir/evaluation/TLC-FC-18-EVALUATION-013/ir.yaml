@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-013
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-18-EVALUATION-013/ir.yaml
+operation: evaluate_multisource_aggregation
+required_behavior: [require all source evaluations including E_community, validate sum alpha_i equals one, validate alpha minima and mentor-before-autonomy constraint, preserve weighted sum geometric product and synergy terms]
+forbidden_behavior: [invent_community_evaluation_formula, silently_renormalize_source_weights, invent_simplex_solver, invent_autonomy_policy, invent_weight_minimum]
+error_codes: [CommunityEvaluationUnavailable, SourceWeightSumConstraintViolation, SourceWeightMinimumViolation, MentorMinimumConstraintViolation, AggregationDomainInvalid]

@@ -1,0 +1,42 @@
+schema_version: 1
+domain: evaluation
+module_id: TLC-DOMAIN-18-EVALUATION
+status: implementation_handoff_ready
+purpose: Expose source-faithful multidimensional and multi-source Evaluation expressions with explicit provider and unresolved-science guards.
+scientific_authority: maths/18-evaluation/evaluation.md
+published_scientific_dependencies: []
+downstream_scientific_consumers:
+  - {domain_index: 19, domain: regulation, relation: uses Evaluation results}
+runtime_domain_dependencies: []
+shared_contract_dependencies: [TLC-HC-FEATURE-ID, TLC-HC-SCIENTIFIC-REFERENCE, TLC-HC-REFERENCE-COLLECTION, TLC-HC-UNRESOLVED-ITEM, TLC-HC-OPAQUE-VALUE, TLC-HC-STRUCTURED-ERROR, TLC-HC-TRACEABILITY, TLC-HC-DESCRIPTOR-ENVELOPE]
+features:
+  - {feature_id: TLC-FC-18-EVALUATION-001, operation: assess_evaluation_admissibility, execution: conditionally_executable}
+  - {feature_id: TLC-FC-18-EVALUATION-002, operation: evaluate_technical_progression_metrics, execution: conditionally_executable}
+  - {feature_id: TLC-FC-18-EVALUATION-003, operation: evaluate_contextual_progression_metrics, execution: conditionally_executable}
+  - {feature_id: TLC-FC-18-EVALUATION-004, operation: evaluate_ethical_progression_metrics, execution: conditionally_executable}
+  - {feature_id: TLC-FC-18-EVALUATION-005, operation: evaluate_integrated_progression_index, execution: conditionally_executable}
+  - {feature_id: TLC-FC-18-EVALUATION-006, operation: evaluate_progression_weight_rhs, execution: conditionally_executable}
+  - {feature_id: TLC-FC-18-EVALUATION-007, operation: evaluate_zone_thresholds_and_classify, execution: conditionally_executable}
+  - {feature_id: TLC-FC-18-EVALUATION-008, operation: evaluate_transition_probability_expression, execution: conditionally_executable}
+  - {feature_id: TLC-FC-18-EVALUATION-009, operation: evaluate_mentor_expression, execution: conditionally_executable}
+  - {feature_id: TLC-FC-18-EVALUATION-010, operation: evaluate_mentor_weight_rhs, execution: conditionally_executable}
+  - {feature_id: TLC-FC-18-EVALUATION-011, operation: evaluate_peer_population_and_expression, execution: conditionally_executable}
+  - {feature_id: TLC-FC-18-EVALUATION-012, operation: evaluate_self_expression_and_bias, execution: conditionally_executable}
+  - {feature_id: TLC-FC-18-EVALUATION-013, operation: evaluate_multisource_aggregation, execution: conditionally_executable}
+  - {feature_id: TLC-FC-18-EVALUATION-014, operation: evaluate_aggregation_weight_rhs, execution: conditionally_executable}
+  - {feature_id: TLC-FC-18-EVALUATION-015, operation: evaluate_efficiency_metric, execution: conditionally_executable}
+  - {feature_id: TLC-FC-18-EVALUATION-016, operation: evaluate_health_metric, execution: executable}
+  - {feature_id: TLC-FC-18-EVALUATION-017, operation: evaluate_procedural_fairness_metric, execution: conditionally_executable}
+  - {feature_id: TLC-FC-18-EVALUATION-018, operation: evaluate_type_conditional_bias, execution: conditionally_executable}
+  - {feature_id: TLC-FC-18-EVALUATION-019, operation: guard_missing_community_evaluation, execution: structural_only}
+  - {feature_id: TLC-FC-18-EVALUATION-020, operation: guard_missing_reflexive_metric_family, execution: structural_only}
+module_invariants:
+  - No threshold or coefficient is calibrated locally.
+  - Undefined norms sigma projections gradients derivatives integrals expectations distributions normalizers references and statistics remain provider-backed.
+  - M_r remains present in integrated progression and no m_r_j family is invented.
+  - E_community remains source-undefined unless an external value is supplied.
+  - Empty peer population is a structured error with no numeric fallback.
+  - Source weights are never silently renormalized or projected.
+  - Fairness-specific distributive mechanisms and Regulation behavior remain outside Evaluation runtime.
+  - No numerical solver integrator optimizer or state machine is part of this handoff.
+non_goals: [runtime implementation, C++ implementation, Python binding, numerical integration, numerical differentiation, optimizer, simplex solver, Markov process, promotion engine, distributive justice engine, Regulation implementation]

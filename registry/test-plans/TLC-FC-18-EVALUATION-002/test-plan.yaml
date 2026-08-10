@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-002
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-002/contract.yaml
+tests:
+  - {id: EVA002-T01, category: preservation, verifies: m_t1 keeps elementwise competence-weight composition before the supplied norm}
+  - {id: EVA002-T02, category: preservation, verifies: m_t2 keeps the temporal integral and second-derivative stability indicator}
+  - {id: EVA002-T03, category: preservation, verifies: m_t3 keeps cosine similarity multiplied by the contextual exponential factor}
+  - {id: EVA002-T04, category: error, verifies: missing integral or derivative provider is rejected with no numerical fallback}
+  - {id: EVA002-T05, category: error, verifies: zero cosine denominator T<=0 or tau=0 is rejected with no clamp}

@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-005
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-18-EVALUATION-005/ir.yaml
+operation: evaluate_integrated_progression_index
+required_behavior: [require t c e r components, require supplied N_i and metric references, validate every metric range, preserve source weighted normalized sum and Psi interactions, require external M_r metric provider]
+forbidden_behavior: [invent_reflexive_metrics, drop_r_component, invent_normalizer, invent_metric_reference, clamp_undefined_metric]
+error_codes: [ReflexiveMetricProviderRequired, NormalizerProviderRequired, MetricRangeInvalid, InteractionProviderRequired, InvalidMetricDenominator]

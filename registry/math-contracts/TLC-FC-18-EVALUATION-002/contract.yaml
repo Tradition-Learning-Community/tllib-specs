@@ -1,0 +1,24 @@
+contract_id: TLC-MC-TLC-FC-18-EVALUATION-002
+feature_id: TLC-FC-18-EVALUATION-002
+title: Technical progression metrics
+domain_id: evaluation
+contract_kind: source_expression_bundle
+scientific_status: external_provider_required
+scientific_authority: maths/18-evaluation/evaluation.md
+source_sections: ['2.1 Espace technique']
+formulae:
+  m_t1: '||C_technical o W_technical||'
+  m_t2: '(1/T) integral_0^T sigma(||dC/dt||) 1_{||d2C/dt2||<epsilon} dt'
+  m_t3: '(C dot C_reference)/(||C|| ||C_reference||) * exp(-||E_context-E_optimal||^2/(2 tau^2))'
+inputs: [C_technical, W_technical, C, C_reference, E_context, E_optimal, T, epsilon, tau]
+providers: [norm_provider, derivative_provider, second_derivative_provider, temporal_integral_provider, sigma_provider, dot_product_provider]
+outputs: [m_t1, m_t2, m_t3]
+preconditions: [T > 0, tau != 0, norm(C) != 0 for m_t3, norm(C_reference) != 0 for m_t3, all requested calculus and geometry providers are supplied]
+postconditions: [each result equals its source expression under supplied providers]
+invariants: [sigma remains opaque, the indicator condition keeps strict less-than epsilon, no quadrature or differentiation scheme is selected]
+errors: [NormProviderRequired, CalculusProviderRequired, SigmaProviderRequired, InvalidMetricDenominator]
+opaque_parameters: [sigma, epsilon, tau, norm semantics]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-EVALUATION-007, TLC-UR-EVALUATION-008, TLC-UR-EVALUATION-009, TLC-UR-EVALUATION-019]
+forbidden_behaviors: [invent_numerical_integrator, invent_derivative_scheme, invent_norm, clamp_undefined_metric, invent_sigma]
+traceability: {source: maths/18-evaluation/evaluation.md, inventory: registry/domain-progress/evaluation/feature-inventory.yaml}

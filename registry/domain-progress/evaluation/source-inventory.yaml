@@ -1,0 +1,42 @@
+schema_version: 1
+domain_index: 18
+domain: evaluation
+title: Évaluation
+status: frozen
+source_authority:
+  path: maths/18-evaluation/evaluation.md
+  blob_sha: b0cbc649d391ee574c26a3a8430b7375d74c4578
+  modified: false
+analysis_companion:
+  domain_index: 19
+  domain: regulation
+  path: maths/19-regulation/regulation.md
+  blob_sha: 198377f05ad085c2fae940d9a7d78767d01e0537
+  role: downstream boundary evidence only
+  creates_runtime_dependency: false
+sections:
+  - {id: perimeter, heading: '1. Périmètre et architecture', role: ER structure validity domain reliability constraints}
+  - {id: technical, heading: '2.1 Espace technique', role: m_t1 m_t2 m_t3 source expressions}
+  - {id: contextual, heading: '2.2 Espace contextuel', role: m_c1 m_c2 m_c3 source expressions}
+  - {id: ethical, heading: '2.3 Espace éthique', role: m_e1 m_e2 m_e3 source expressions}
+  - {id: integrated, heading: '2.4 Indice intégré', role: I_progression Psi and progression-weight RHS}
+  - {id: zones, heading: '3. Zones et transitions', role: zone thresholds and transition probability}
+  - {id: mentor, heading: '4.1 Mentor', role: mentor evaluation and mentor-weight RHS}
+  - {id: peers, heading: '4.2 Pairs', role: peer population filter and peer evaluation}
+  - {id: self, heading: '4.3 Auto-évaluation', role: self evaluation and explicit bias expression}
+  - {id: aggregation, heading: '5. Agrégation', role: multi-source fusion and aggregation-weight RHS constraints}
+  - {id: systemic, heading: '6. Métriques systémiques', role: efficiency health procedural fairness and type-conditional bias}
+  - {id: unresolved, heading: '7. Limites et points scientifiques non résolus', role: preserved scientific gaps and interpretation limits}
+scientific_boundary:
+  source_formulae_preserved: true
+  no_threshold_calibration: true
+  no_numerical_integrator: true
+  no_derivative_scheme: true
+  no_projection_geometry: true
+  no_normalizer_invention: true
+  no_peer_empty_set_fallback: true
+  no_community_formula_invention: true
+  no_reflexive_metric_family_invention: true
+  no_truth_signal_invention: true
+  regulation_is_downstream_only: true
+  fairness_specific_mechanisms_out_of_scope: true

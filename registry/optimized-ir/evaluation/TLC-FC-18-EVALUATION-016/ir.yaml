@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-016
+status: finalized
+execution: executable
+source_ir: registry/ir/TLC-FC-18-EVALUATION-016/ir.yaml
+operation: evaluate_health_metric
+required_behavior: [accept all ten supplied scalar operands, form five weighted source components, sum and return I_health]
+forbidden_behavior: [drop_health_component, normalize_health_weights_without_source, clamp_health_metric]
+error_codes: [HealthMetricOperandRequired, CompatibleHealthArithmeticRequired]

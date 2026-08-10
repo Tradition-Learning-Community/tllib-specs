@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-014
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-014/contract.yaml
+source_candidate_ir: ir/TLC-FC-18-EVALUATION-014/ir.candidate.json
+nature: dynamical
+inputs: [alpha_i, kappa_i, precision_i, avg_precision, lambda_i, confidence_i, mu_i, partial_J_system_partial_alpha_i]
+outputs: [d_alpha_i_dt_rhs]
+steps: [require gradient provider, form precision term, form confidence term, form objective-gradient term, sum and return RHS]
+errors: [SystemObjectiveGradientProviderRequired, AggregationWeightOperandRequired]

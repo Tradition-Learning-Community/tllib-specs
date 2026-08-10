@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-016
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-016/contract.yaml
+source_candidate_ir: ir/TLC-FC-18-EVALUATION-016/ir.candidate.json
+nature: transform
+inputs: [alpha, Cohesion, beta, Diversity, gamma, Resilience, delta, Adaptability, epsilon, Synergy]
+outputs: [I_health]
+steps: [form five weighted source terms, sum all terms, return I_health]
+errors: [HealthMetricOperandRequired, CompatibleHealthArithmeticRequired]

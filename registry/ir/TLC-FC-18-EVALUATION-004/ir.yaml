@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-004
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-004/contract.yaml
+source_candidate_ir: ir/TLC-FC-18-EVALUATION-004/ir.candidate.json
+nature: transform
+inputs: [Actions, Val, Decisions, V_t, V_t_plus_delta, T, sigma, alpha, eta, pi_Val_projection, weighted_norm_W, norm_provider, grad_V_provider, grad_E_provider, dVal_dt_provider, temporal_integral_provider, dot_product_provider]
+outputs: [m_e1, m_e2, m_e3]
+steps: [require projection geometry and calculus providers, validate denominators, evaluate m_e1, evaluate m_e2, evaluate m_e3, return metrics]
+errors: [ProjectionProviderRequired, NormProviderRequired, GradientProviderRequired, CalculusProviderRequired, InvalidMetricDenominator]

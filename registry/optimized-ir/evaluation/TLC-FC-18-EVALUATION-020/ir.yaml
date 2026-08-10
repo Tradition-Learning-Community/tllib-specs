@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-020
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-18-EVALUATION-020/ir.yaml
+operation: guard_missing_reflexive_metric_family
+required_behavior: [describe M_r as structurally required but source-undefined at metric-family level, block complete I_progression unless external reflexive metric family is supplied]
+forbidden_behavior: [invent_reflexive_metrics, drop_r_component, substitute_zero_for_r, infer_reflexive_metrics_from_other_domains]
+error_codes: [ReflexiveMetricProviderRequired]

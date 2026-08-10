@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-015
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-18-EVALUATION-015/ir.yaml
+operation: evaluate_efficiency_metric
+required_behavior: [require norm provider, validate initial-distance t and tau denominators, preserve source distance ratio reciprocal-time and negative exponential expression, return raw value without orientation label]
+forbidden_behavior: [invent_norm, clamp_undefined_metric, assert_high_is_better, assert_low_is_better, invert_efficiency_orientation]
+error_codes: [NormProviderRequired, InvalidMetricDenominator, EfficiencyInterpretationUnavailable]

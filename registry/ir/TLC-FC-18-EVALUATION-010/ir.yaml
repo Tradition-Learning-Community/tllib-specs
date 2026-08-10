@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-010
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-010/contract.yaml
+source_candidate_ir: ir/TLC-FC-18-EVALUATION-010/ir.candidate.json
+nature: dynamical
+inputs: [eta_m, E_truth, E_mentor, Phi_m_evaluated, lambda_m, W_m_opt, W_m]
+outputs: [dW_m_dt_rhs]
+steps: [require truth and mentor-feature providers, form truth-error learning term, form optimum-attraction term, sum and return RHS]
+errors: [TruthSignalProviderRequired, MentorFeatureProviderRequired, CompatibleMentorArithmeticRequired]

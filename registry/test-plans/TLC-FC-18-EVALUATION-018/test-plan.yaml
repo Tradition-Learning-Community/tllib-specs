@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-018
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-018/contract.yaml
+tests:
+  - {id: EVA018-T01, category: preservation, verifies: bias equals conditional mean Evaluation-minus-Metric plus conditional Evaluation variance}
+  - {id: EVA018-T02, category: error, verifies: missing conditional expectation or variance provider is rejected}
+  - {id: EVA018-T03, category: invalid_input, verifies: statistics conditioned on different type populations are rejected}
+  - {id: EVA018-T04, category: invariant, verifies: no estimator or distribution is invented}

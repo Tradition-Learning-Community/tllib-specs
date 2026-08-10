@@ -1,0 +1,3 @@
+# TLC-FC-18-EVALUATION-014 — Aggregation weight right-hand side
+
+This package exposes the source right-hand side for aggregation-source weights. It combines the precision-difference term, confidence-relaxation term and externally supplied system-objective gradient term exactly as written. The feature does not integrate `alpha_i`, compute the objective gradient, project weights onto a simplex or renormalize them. Those actions would add an unsourced policy. A missing system-gradient provider is a structured error. The output is only the derivative RHS for a future runtime implementation to consume under separate integration semantics.

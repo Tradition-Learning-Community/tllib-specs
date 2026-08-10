@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-18-EVALUATION-017
+feature_id: TLC-FC-18-EVALUATION-017
+title: Procedural fairness metric expression
+domain_id: evaluation
+contract_kind: guarded_source_expression
+scientific_status: external_provider_required
+scientific_authority: maths/18-evaluation/evaluation.md
+source_sections: ['6. Métriques systémiques', '7. Limites et points scientifiques non résolus']
+formula: 'I_fairness = 1 - sigma(E_individual)/mu(E_individual) + alpha corr(E_individual,M_real) - beta ||bias|| + gamma V_justice'
+inputs: [evaluation_stddev, evaluation_mean, evaluation_metric_correlation, alpha, beta, bias, gamma, V_justice]
+providers: [evaluation_statistics_provider, correlation_provider, norm_provider]
+outputs: [I_fairness]
+preconditions: [evaluation mean is nonzero, statistics correlation and bias norm values are supplied]
+postconditions: [result equals the Evaluation procedural formula only]
+invariants: [minus standard-deviation/mean sign is preserved, minus bias-norm sign is preserved, no distributive-justice mechanism is imported]
+errors: [FairnessStatisticsProviderRequired, CorrelationProviderRequired, NormProviderRequired, InvalidMetricDenominator]
+opaque_parameters: [statistical estimation semantics, norm semantics, alpha, beta, gamma]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-EVALUATION-014, TLC-UR-EVALUATION-016, TLC-UR-EVALUATION-019]
+forbidden_behaviors: [invent_statistics_estimator, invent_norm, import_fairness_runtime, define_distributive_justice, clamp_undefined_metric]
+traceability: {source: maths/18-evaluation/evaluation.md, inventory: registry/domain-progress/evaluation/feature-inventory.yaml}

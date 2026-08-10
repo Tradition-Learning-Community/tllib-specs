@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-005
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-005/contract.yaml
+tests:
+  - {id: EVA005-T01, category: preservation, verifies: the integrated sum retains all t c e r components}
+  - {id: EVA005-T02, category: error, verifies: absent M_r provider yields ReflexiveMetricProviderRequired rather than dropping r}
+  - {id: EVA005-T03, category: error, verifies: absent N_i provider yields NormalizerProviderRequired rather than an invented normalizer}
+  - {id: EVA005-T04, category: error, verifies: equal metric min and max references are rejected without clamp}
+  - {id: EVA005-T05, category: preservation, verifies: Psi preserves product and Gaussian interaction expression}

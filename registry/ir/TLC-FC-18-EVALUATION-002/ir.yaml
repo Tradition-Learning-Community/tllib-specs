@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-002
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-002/contract.yaml
+source_candidate_ir: ir/TLC-FC-18-EVALUATION-002/ir.candidate.json
+nature: transform
+inputs: [C_technical, W_technical, C, C_reference, E_context, E_optimal, T, epsilon, tau, norm_provider, derivative_provider, second_derivative_provider, temporal_integral_provider, sigma_provider, dot_product_provider]
+outputs: [m_t1, m_t2, m_t3]
+steps: [validate denominators and providers, evaluate m_t1, evaluate m_t2 through supplied calculus values, evaluate m_t3, return raw metrics]
+errors: [NormProviderRequired, CalculusProviderRequired, SigmaProviderRequired, InvalidMetricDenominator]

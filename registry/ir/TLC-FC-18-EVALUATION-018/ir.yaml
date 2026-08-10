@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-018
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-018/contract.yaml
+source_candidate_ir: ir/TLC-FC-18-EVALUATION-018/ir.candidate.json
+nature: transform
+inputs: [type_tau, conditional_mean_difference, conditional_evaluation_variance]
+outputs: [bias_t]
+steps: [require matched conditional statistics, add source expectation and variance terms, return bias_t]
+errors: [ConditionalExpectationProviderRequired, ConditionalVarianceProviderRequired, ConditionalPopulationMismatch]

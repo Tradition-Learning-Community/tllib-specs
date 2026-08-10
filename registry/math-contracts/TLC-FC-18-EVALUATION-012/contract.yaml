@@ -1,0 +1,23 @@
+contract_id: TLC-MC-TLC-FC-18-EVALUATION-012
+feature_id: TLC-FC-18-EVALUATION-012
+title: Self evaluation and explicit self-bias
+domain_id: evaluation
+contract_kind: source_expression_bundle
+scientific_status: external_provider_required
+scientific_authority: maths/18-evaluation/evaluation.md
+source_sections: ['4.3 Auto-évaluation']
+formulae:
+  E_self: 'W_a(d,t) dot Gamma_a(X_perceived,X_real,M_awareness) + b_a(t) + epsilon_a(d,t)'
+  epsilon_a: 'alpha overconfidence + beta excessive_modesty + gamma cognitive_blindness + delta E_affective'
+inputs: [W_a, Gamma_a_evaluated, b_a, alpha, overconfidence, beta, excessive_modesty, gamma, cognitive_blindness, delta, E_affective]
+providers: [Gamma_a_provider, compatible_dot_product]
+outputs: [epsilon_a, E_self]
+preconditions: [Gamma_a evaluated value is supplied]
+postconditions: [epsilon_a preserves all four named source terms and E_self preserves the source affine expression]
+invariants: [no overconfidence modesty blindness affective or Gamma_a estimator is invented]
+errors: [SelfFeatureProviderRequired, SelfBiasOperandRequired, CompatibleSelfArithmeticRequired]
+opaque_parameters: [Gamma_a realization, alpha, beta, gamma, delta]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-EVALUATION-018]
+forbidden_behaviors: [invent_self_feature_map, invent_bias_estimator, omit_self_bias_term, rename_excessive_modesty_semantics]
+traceability: {source: maths/18-evaluation/evaluation.md, inventory: registry/domain-progress/evaluation/feature-inventory.yaml}

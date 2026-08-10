@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-008
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-008/contract.yaml
+source_candidate_ir: ir/TLC-FC-18-EVALUATION-008/ir.candidate.json
+nature: transform
+inputs: [metric_norm, theta_i_t, metric_norm_derivative, V_preparation_t, beta_i, alpha_i, gamma_i, sigma_provider]
+outputs: [transition_probability_expression_value]
+steps: [require providers, form threshold-gap term, form derivative term, form preparation term, apply supplied sigma, return expression value]
+errors: [SigmaProviderRequired, MetricDerivativeProviderRequired, TransitionOperandRequired]

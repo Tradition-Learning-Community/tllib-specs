@@ -1,0 +1,3 @@
+# TLC-FC-18-EVALUATION-001 — Evaluation validity and admissibility assessment
+
+This Feature Handoff Package specifies the source-backed admissibility gate for Evaluation. It compares supplied confidence, transparency and benevolence values against opaque source thresholds, checks Values membership in the supplied admissible set, and checks source reliability predicates. Threshold calibration, inferred reliability, Regulation runtime behavior and weakened inequalities are explicitly non-conforming. The package is conditionally executable only when all required providers are available and preserves the scientific limits recorded for domain 18.

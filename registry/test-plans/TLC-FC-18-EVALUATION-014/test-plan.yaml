@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-014
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-014/contract.yaml
+tests:
+  - {id: EVA014-T01, category: preservation, verifies: all three aggregation-weight RHS terms and signs are preserved}
+  - {id: EVA014-T02, category: error, verifies: missing system objective-gradient provider is rejected}
+  - {id: EVA014-T03, category: invariant, verifies: operation never integrates projects or renormalizes alpha_i}

@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-18-EVALUATION-018
+feature_id: TLC-FC-18-EVALUATION-018
+title: Type-conditional bias metric expression
+domain_id: evaluation
+contract_kind: source_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/18-evaluation/evaluation.md
+source_sections: ['6. Métriques systémiques', '7. Limites et points scientifiques non résolus']
+formula: 'bias(t)=E[E(d,t)-M(d,t) | type(d)=tau] + Var[E(d,t) | type(d)=tau]'
+inputs: [type_tau, conditional_mean_difference, conditional_evaluation_variance]
+providers: [conditional_expectation_provider, conditional_variance_provider]
+outputs: [bias_t]
+preconditions: [both conditional statistics are supplied for the same type predicate and time semantics]
+postconditions: [result equals source conditional expectation plus conditional variance]
+invariants: [no distribution or estimator is synthesized, conditioning on type(d)=tau is preserved]
+errors: [ConditionalExpectationProviderRequired, ConditionalVarianceProviderRequired, ConditionalPopulationMismatch]
+opaque_parameters: [conditional distribution and estimation semantics]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-EVALUATION-016]
+forbidden_behaviors: [invent_distribution, invent_bias_estimator, merge_incompatible_conditioning_populations]
+traceability: {source: maths/18-evaluation/evaluation.md, inventory: registry/domain-progress/evaluation/feature-inventory.yaml}

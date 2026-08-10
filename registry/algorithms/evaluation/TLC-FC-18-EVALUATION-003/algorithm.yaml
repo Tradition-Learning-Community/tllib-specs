@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-003
+algorithm_kind: conditional_source_expression_bundle
+execution: conditionally_executable
+steps: [require expectation C_optimal w(E) norm dot-product and sigma providers, evaluate provider-backed contextual expectation for m_c1, reject zero cosine denominators and evaluate m_c2, reject zero weighted-complexity denominator and evaluate m_c3, return raw metrics]
+forbidden: [invent_distribution, monte_carlo_fallback, invent_context_optimal, invent_weight, invent_norm, clamp_undefined_metric]

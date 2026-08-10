@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-020
+algorithm_kind: structural_guard
+execution: structural_only
+steps: [expose source fact that M_r is required while m_r_j is absent, inspect whether complete I_progression is requested, if external M_r family is absent return ReflexiveMetricProviderRequired, otherwise preserve provider provenance]
+forbidden: [invent_reflexive_metrics, drop_r_component, zero_fallback, import_reflexive_metrics_from_other_domain]

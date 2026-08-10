@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-004
+algorithm_kind: conditional_source_expression_bundle
+execution: conditionally_executable
+steps: [require pi_Val weighted-norm norm gradients derivative integral and dot-product providers, validate T sigma and source norm denominators, evaluate m_e1 with supplied projection and grad V, evaluate m_e2 with supplied contextual gradient, evaluate m_e3 with supplied derivative indicator and integral, return raw metrics]
+forbidden: [invent_projection, invent_geometry, finite_difference_fallback, invent_numerical_integrator, clamp_undefined_metric]

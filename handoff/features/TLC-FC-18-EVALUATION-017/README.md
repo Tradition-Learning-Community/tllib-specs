@@ -1,0 +1,3 @@
+# TLC-FC-18-EVALUATION-017 — Procedural fairness metric expression
+
+This package exposes the Evaluation chapter's procedural fairness metric only. Standard deviation, mean, correlation and bias norm are supplied as provider-backed statistics; a zero mean is a structured denominator error. The source expression preserves the negative variability ratio, positive correlation contribution, negative bias contribution and justice-value contribution. This feature does not import domain 21 Fairness at runtime and does not claim to implement distributive justice. Statistical estimators, norm geometry and Fairness-specific mechanisms remain external to Evaluation.

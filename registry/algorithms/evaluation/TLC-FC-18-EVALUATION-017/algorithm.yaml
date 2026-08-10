@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-017
+algorithm_kind: conditional_procedural_metric
+execution: conditionally_executable
+steps: [require provider-backed evaluation standard deviation mean correlation and bias norm, reject zero evaluation mean, form 1 - stddev/mean, add alpha correlation, subtract beta bias norm, add gamma V_justice, return I_fairness]
+forbidden: [invent_statistics_estimator, import_fairness_runtime, define_distributive_justice, clamp_undefined_metric]

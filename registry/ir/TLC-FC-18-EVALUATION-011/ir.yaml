@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-011
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-011/contract.yaml
+source_candidate_ir: ir/TLC-FC-18-EVALUATION-011/ir.candidate.json
+nature: transform
+inputs: [candidate_peers, affinity_values, exposure_values, competence_values, theta_aff, theta_exp, theta_comp, W_p, Psi_p_evaluated_by_peer, b_p, epsilon_p]
+outputs: [P_d, E_peers]
+steps: [require filter inputs, construct strict source peer population, reject empty population, require peer feature values, compute source mean expression, add source bias and error terms, return result]
+errors: [PeerFilterProviderRequired, PeerThresholdProviderRequired, PeerPopulationEmpty, PeerFeatureProviderRequired]

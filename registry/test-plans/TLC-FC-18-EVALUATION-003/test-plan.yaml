@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-003
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-003/contract.yaml
+tests:
+  - {id: EVA003-T01, category: preservation, verifies: m_c1 remains an externally defined expectation over contexts}
+  - {id: EVA003-T02, category: error, verifies: missing expectation distribution C_optimal or w(E) semantics is rejected rather than synthesized}
+  - {id: EVA003-T03, category: preservation, verifies: m_c2 preserves prudence-analysis cosine times sigma(wisdom)}
+  - {id: EVA003-T04, category: preservation, verifies: m_c3 preserves weighted resolution over weighted complexity times tanh innovation}
+  - {id: EVA003-T05, category: error, verifies: zero cosine or complexity denominator is rejected without clamp}

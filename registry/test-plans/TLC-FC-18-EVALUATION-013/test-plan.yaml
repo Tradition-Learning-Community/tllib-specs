@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-013
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-013/contract.yaml
+tests:
+  - {id: EVA013-T01, category: preservation, verifies: E_total preserves weighted sum geometric product and synergy terms}
+  - {id: EVA013-T02, category: error, verifies: missing E_community yields CommunityEvaluationUnavailable with no invented formula}
+  - {id: EVA013-T03, category: invalid_input, verifies: weights not summing to one are rejected without hidden renormalization}
+  - {id: EVA013-T04, category: invalid_input, verifies: alpha minimum or mentor-before-autonomy violations are structured errors}
+  - {id: EVA013-T05, category: invariant, verifies: no simplex solver projection or autonomy policy is introduced}

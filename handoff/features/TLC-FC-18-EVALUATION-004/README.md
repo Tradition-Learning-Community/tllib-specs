@@ -1,0 +1,3 @@
+# TLC-FC-18-EVALUATION-004 — Ethical progression metrics
+
+This package specifies the three source ethical metrics while preserving their dependence on scientific providers. `pi_Val`, weighted and ordinary norm geometry, gradients, derivatives and temporal integration are not defined by the Evaluation source and therefore remain external. The contract preserves the projection residual, Values–Decisions coherence and temporal consistency formulae exactly. Implementations must reject missing providers or invalid denominators and may not invent a projection, gradient scheme, quadrature rule or metric clamp.

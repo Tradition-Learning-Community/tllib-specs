@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-18-EVALUATION-009
+feature_id: TLC-FC-18-EVALUATION-009
+title: Mentor evaluation expression
+domain_id: evaluation
+contract_kind: source_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/18-evaluation/evaluation.md
+source_sections: ['4.1 Mentor']
+formula: 'E_mentor(d,t)=W_m(d,t) dot Phi_m(X(d,t),E_context(t)) + b_m(t) + epsilon_m(d,t)'
+inputs: [W_m, Phi_m_evaluated, b_m, epsilon_m]
+providers: [Phi_m_provider, compatible_dot_product]
+outputs: [E_mentor]
+preconditions: [Phi_m evaluated value is supplied for the source-described competency distance Virtues/Values alignment longitudinal perspective and evolution-potential dimensions]
+postconditions: [mentor evaluation equals the literal affine source expression]
+invariants: [Phi_m realization is not invented, no E_truth is needed to evaluate E_mentor itself]
+errors: [MentorFeatureProviderRequired, CompatibleMentorArithmeticRequired]
+opaque_parameters: [Phi_m realization]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-EVALUATION-017]
+forbidden_behaviors: [invent_mentor_feature_map, invent_truth_signal, import_regulation_runtime]
+traceability: {source: maths/18-evaluation/evaluation.md, inventory: registry/domain-progress/evaluation/feature-inventory.yaml}

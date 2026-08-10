@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-020
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-020/contract.yaml
+tests:
+  - {id: EVA020-T01, category: preservation, verifies: M_r remains a required integrated-index component}
+  - {id: EVA020-T02, category: error, verifies: complete I_progression without external M_r yields ReflexiveMetricProviderRequired}
+  - {id: EVA020-T03, category: invariant, verifies: no m_r_j family zero substitution or dropped r component is introduced}

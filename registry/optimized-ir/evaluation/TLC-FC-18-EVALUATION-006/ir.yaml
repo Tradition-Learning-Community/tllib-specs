@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-006
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-18-EVALUATION-006/ir.yaml
+operation: evaluate_progression_weight_rhs
+required_behavior: [require external objective-gradient value, preserve all three source RHS terms, return RHS only]
+forbidden_behavior: [invent_gradient, invent_optimizer, invent_numerical_integrator, mutate_weight_state]
+error_codes: [ObjectiveGradientProviderRequired, ProgressionWeightOperandRequired]

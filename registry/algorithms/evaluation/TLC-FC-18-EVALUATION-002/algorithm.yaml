@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-002
+algorithm_kind: conditional_source_expression_bundle
+execution: conditionally_executable
+steps: [require norm derivative second-derivative integral sigma and dot-product providers, reject T<=0 tau=0 or zero cosine denominators, evaluate m_t1 using supplied norm, evaluate m_t2 using supplied calculus values and strict stability indicator, evaluate m_t3 with source cosine and exponential context factor, return raw metrics]
+forbidden: [invent_numerical_integrator, finite_difference_fallback, invent_norm, invent_sigma, clamp_undefined_metric]

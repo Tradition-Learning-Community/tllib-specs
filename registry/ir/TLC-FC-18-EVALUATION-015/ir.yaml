@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-015
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-015/contract.yaml
+source_candidate_ir: ir/TLC-FC-18-EVALUATION-015/ir.candidate.json
+nature: transform
+inputs: [X_real, X_ideal, X_initial, t, sigma_E_squared, bias, tau, norm_provider]
+outputs: [I_efficiency]
+steps: [require norm provider, validate denominators, form distance ratio, apply reciprocal time, apply source exponential, return raw metric]
+errors: [NormProviderRequired, InvalidMetricDenominator, EfficiencyInterpretationUnavailable]

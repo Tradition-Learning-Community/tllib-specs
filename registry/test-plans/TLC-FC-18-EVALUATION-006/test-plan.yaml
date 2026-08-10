@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-006
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-006/contract.yaml
+tests:
+  - {id: EVA006-T01, category: preservation, verifies: all three source RHS terms and signs are preserved}
+  - {id: EVA006-T02, category: error, verifies: missing partial_J_partial_w_i provider is rejected}
+  - {id: EVA006-T03, category: invariant, verifies: operation returns a RHS and never integrates w_i}
+  - {id: EVA006-T04, category: preservation, verifies: no optimizer or locally computed gradient is introduced}

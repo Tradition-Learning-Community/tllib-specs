@@ -1,0 +1,3 @@
+# TLC-FC-18-EVALUATION-019 — Missing community evaluation structural guard
+
+This structural-only package preserves a deliberate scientific gap. The Evaluation source declares four sources—mentor, peers, self and community—but does not define an autonomous formula for `E_community`. This package therefore does not compute community evaluation. It records the gap and blocks complete four-source aggregation with `CommunityEvaluationUnavailable` unless a caller supplies an external community evaluation value with provenance. It must not substitute zero, mentor evaluation or another domain's runtime operation, and it creates no runtime dependency on the Community domain.

@@ -1,0 +1,31 @@
+schema_version: 1
+domain: evaluation
+status: future_runtime_tasks_only
+runtime_implementation_in_this_change: false
+tasks:
+  - {task_id: EVA-IMPL-001, feature_id: TLC-FC-18-EVALUATION-001, instruction: 'Implement provider-backed validity predicates with strict source thresholds; never calibrate thresholds or call Regulation.'}
+  - {task_id: EVA-IMPL-002, feature_id: TLC-FC-18-EVALUATION-002, instruction: 'Implement raw m_t1 m_t2 m_t3 evaluation only with supplied norm sigma derivative second-derivative integral and reference providers; no numerical methods.'}
+  - {task_id: EVA-IMPL-003, feature_id: TLC-FC-18-EVALUATION-003, instruction: 'Implement raw m_c1 m_c2 m_c3 with supplied expectation C_optimal weight norm and sigma providers; no distribution or Monte Carlo synthesis.'}
+  - {task_id: EVA-IMPL-004, feature_id: TLC-FC-18-EVALUATION-004, instruction: 'Implement raw m_e1 m_e2 m_e3 with supplied projection geometry gradients derivatives and integration; never invent pi_Val or calculus schemes.'}
+  - {task_id: EVA-IMPL-005, feature_id: TLC-FC-18-EVALUATION-005, instruction: 'Implement I_progression only when t c e r metric families normalizers references and interactions are supplied; missing M_r must fail structurally.'}
+  - {task_id: EVA-IMPL-006, feature_id: TLC-FC-18-EVALUATION-006, instruction: 'Implement the exact progression-weight RHS from supplied objective gradient and operands; no time integration or optimizer.'}
+  - {task_id: EVA-IMPL-007, feature_id: TLC-FC-18-EVALUATION-007, instruction: 'Implement source threshold expressions and zone classification only; thresholds remain provider-backed and are never sorted or calibrated silently.'}
+  - {task_id: EVA-IMPL-008, feature_id: TLC-FC-18-EVALUATION-008, instruction: 'Implement the transition probability expression only from supplied derivative sigma and coefficients; no Markov state or promotion policy.'}
+  - {task_id: EVA-IMPL-009, feature_id: TLC-FC-18-EVALUATION-009, instruction: 'Implement E_mentor from supplied Phi_m output; do not construct Phi_m or E_truth.'}
+  - {task_id: EVA-IMPL-010, feature_id: TLC-FC-18-EVALUATION-010, instruction: 'Implement raw mentor-weight RHS only with explicit E_truth and Phi_m providers; no truth fallback or integration.'}
+  - {task_id: EVA-IMPL-011, feature_id: TLC-FC-18-EVALUATION-011, instruction: 'Implement strict peer filtering and source peer mean; P_d empty must return PeerPopulationEmpty and never zero NaN or mentor fallback.'}
+  - {task_id: EVA-IMPL-012, feature_id: TLC-FC-18-EVALUATION-012, instruction: 'Implement E_self and the four-term epsilon_a exactly; Gamma_a and bias component observations remain supplied inputs.'}
+  - {task_id: EVA-IMPL-013, feature_id: TLC-FC-18-EVALUATION-013, instruction: 'Implement E_total only with all four source values and already-valid supplied weight constraints; no hidden renormalization simplex solver or community formula.'}
+  - {task_id: EVA-IMPL-014, feature_id: TLC-FC-18-EVALUATION-014, instruction: 'Implement the exact aggregation-weight RHS from supplied system gradient; do not integrate project or renormalize weights.'}
+  - {task_id: EVA-IMPL-015, feature_id: TLC-FC-18-EVALUATION-015, instruction: 'Implement the raw efficiency formula with denominator guards; never impose a higher/lower-is-better interpretation.'}
+  - {task_id: EVA-IMPL-016, feature_id: TLC-FC-18-EVALUATION-016, instruction: 'Implement the exact five-term system-health weighted sum from supplied scalars without normalization.'}
+  - {task_id: EVA-IMPL-017, feature_id: TLC-FC-18-EVALUATION-017, instruction: 'Implement the procedural fairness formula with provider-backed statistics; keep distributive-justice mechanisms and domain 21 runtime out.'}
+  - {task_id: EVA-IMPL-018, feature_id: TLC-FC-18-EVALUATION-018, instruction: 'Implement bias(t) from matched conditional expectation and variance provider outputs; no estimator or distribution construction.'}
+  - {task_id: EVA-IMPL-019, feature_id: TLC-FC-18-EVALUATION-019, instruction: 'Implement a structural guard exposing missing E_community formula and requiring external community value for complete aggregation.'}
+  - {task_id: EVA-IMPL-020, feature_id: TLC-FC-18-EVALUATION-020, instruction: 'Implement a structural guard exposing missing m_r_j family and requiring external M_r metrics for complete I_progression.'}
+common_acceptance:
+  - source expressions and signs remain recognizable
+  - structured errors replace invented defaults
+  - runtime domain dependencies remain empty
+  - Regulation remains downstream of Evaluation
+  - no solver integrator optimizer estimator projection or hidden renormalization is introduced

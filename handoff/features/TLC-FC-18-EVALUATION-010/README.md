@@ -1,0 +1,3 @@
+# TLC-FC-18-EVALUATION-010 — Mentor weight right-hand side
+
+This package preserves the mentor-weight learning right-hand side while keeping its unresolved truth signal explicit. `E_truth` is used by the source but not defined there, so a truth provider is mandatory. `Phi_m` is also provider-backed. The operation returns `dW_m/dt` only; it does not integrate the trajectory, mutate mentor weights or infer truth from mentor evaluation. The exact truth-error learning term and optimum-attraction term are preserved with their source signs, and all missing scientific inputs produce structured errors.

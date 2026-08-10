@@ -1,0 +1,38 @@
+schema_version: 1
+domain_index: 18
+domain: evaluation
+policy:
+  scientific_dependency_is_not_runtime_dependency: true
+  downstream_consumer_is_not_upstream_dependency: true
+  thematic_reference_is_not_dependency: true
+confirmed_domain_dependencies: []
+runtime_domain_dependencies: []
+shared_contract_domain_dependencies: []
+downstream_scientific_consumers:
+  - {domain_index: 19, domain: regulation, evidence: maths/19-regulation/regulation.md, relation: '19 Regulation -> 18 Evaluation', runtime_dependency_from_evaluation: false}
+referenced_but_not_confirmed_dependencies:
+  - {domain_index: 21, domain: fairness, reason: source refers to Fairness for distributive-justice mechanisms but Evaluation defines only a procedural metric and imports no Fairness runtime operation}
+  - {domain_index: 2, domain: community, reason: community is named as an evaluation source but its Evaluation formula is absent rather than imported from Community}
+  - {domain_index: 16, domain: cohort, reason: cohort context is named but no Cohort contract is reused}
+  - {domain_index: 24, domain: context, reason: context operands are supplied externally and no Context operation is required by the Evaluation formulas}
+feature_dependencies:
+  TLC-FC-18-EVALUATION-001: {scientific: [], runtime: []}
+  TLC-FC-18-EVALUATION-002: {scientific: [], runtime: []}
+  TLC-FC-18-EVALUATION-003: {scientific: [], runtime: []}
+  TLC-FC-18-EVALUATION-004: {scientific: [], runtime: []}
+  TLC-FC-18-EVALUATION-005: {scientific: [TLC-FC-18-EVALUATION-020], runtime: []}
+  TLC-FC-18-EVALUATION-006: {scientific: [], runtime: []}
+  TLC-FC-18-EVALUATION-007: {scientific: [], runtime: []}
+  TLC-FC-18-EVALUATION-008: {scientific: [TLC-FC-18-EVALUATION-007], runtime: []}
+  TLC-FC-18-EVALUATION-009: {scientific: [], runtime: []}
+  TLC-FC-18-EVALUATION-010: {scientific: [TLC-FC-18-EVALUATION-009], runtime: []}
+  TLC-FC-18-EVALUATION-011: {scientific: [], runtime: []}
+  TLC-FC-18-EVALUATION-012: {scientific: [], runtime: []}
+  TLC-FC-18-EVALUATION-013: {scientific: [TLC-FC-18-EVALUATION-019], runtime: []}
+  TLC-FC-18-EVALUATION-014: {scientific: [TLC-FC-18-EVALUATION-013], runtime: []}
+  TLC-FC-18-EVALUATION-015: {scientific: [], runtime: []}
+  TLC-FC-18-EVALUATION-016: {scientific: [], runtime: []}
+  TLC-FC-18-EVALUATION-017: {scientific: [], runtime: []}
+  TLC-FC-18-EVALUATION-018: {scientific: [], runtime: []}
+  TLC-FC-18-EVALUATION-019: {scientific: [], runtime: []}
+  TLC-FC-18-EVALUATION-020: {scientific: [], runtime: []}

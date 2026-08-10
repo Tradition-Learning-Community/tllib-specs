@@ -1,0 +1,38 @@
+schema_version: 1
+domain: evaluation
+status: candidate_frozen
+source: maths/18-evaluation/evaluation.md
+relation_count: 32
+relations:
+  - {id: EVA-REL-001, from: M, relation: product_of, to: '[M_t,M_c,M_e,M_r]'}
+  - {id: EVA-REL-002, from: E, relation: product_of, to: '[E_mentor,E_peers,E_self,E_community]'}
+  - {id: EVA-REL-003, from: U_ER, relation: gated_by, to: '[confidence,T_transparency,B,V_admissible]'}
+  - {id: EVA-REL-004, from: evaluation_sources, relation: require, to: theta_reliability}
+  - {id: EVA-REL-005, from: m_t1, relation: uses, to: '[technical competency,technical weights,norm_provider]'}
+  - {id: EVA-REL-006, from: m_t2, relation: uses, to: '[temporal_integral_provider,derivative_provider,second_derivative_provider,sigma]'}
+  - {id: EVA-REL-007, from: m_t3, relation: uses, to: '[C_reference,norm_provider,E_context,E_optimal]'}
+  - {id: EVA-REL-008, from: m_c1, relation: uses, to: '[expectation_over_E,C_optimal_of_E,w_of_E,norm_provider]'}
+  - {id: EVA-REL-009, from: m_c2, relation: uses, to: '[V_prudence,C_analysis,Val_wisdom,sigma,norm_provider]'}
+  - {id: EVA-REL-010, from: m_c3, relation: uses, to: '[resolution_complexity_terms,P_innovation]'}
+  - {id: EVA-REL-011, from: m_e1, relation: uses, to: '[pi_Val,weighted_norm_W,grad_V,norm_provider]'}
+  - {id: EVA-REL-012, from: m_e2, relation: uses, to: '[Val,Decisions,grad_E_Val_dot_Decisions,norm_provider]'}
+  - {id: EVA-REL-013, from: m_e3, relation: uses, to: '[temporal_integral_provider,dVal_dt,norm_provider]'}
+  - {id: EVA-REL-014, from: I_progression, relation: requires_components, to: '[t,c,e,r]'}
+  - {id: EVA-REL-015, from: I_progression, relation: uses, to: '[N_i,metric_min_max_references,w_i,gamma_ij,Psi]'}
+  - {id: EVA-REL-016, from: progression_weight_rhs, relation: evolves, to: w_i}
+  - {id: EVA-REL-017, from: progression_zone, relation: determined_by, to: '[theta_1,theta_2,theta_3,norm(M)]'}
+  - {id: EVA-REL-018, from: transition_probability, relation: uses, to: '[norm(M)-theta_i,d norm(M)/dt,V_preparation,sigma]'}
+  - {id: EVA-REL-019, from: E_mentor, relation: uses, to: '[W_m,Phi_m,b_m,epsilon_m]'}
+  - {id: EVA-REL-020, from: mentor_weight_rhs, relation: uses, to: '[E_truth,E_mentor,Phi_m,W_m_opt]'}
+  - {id: EVA-REL-021, from: P_d, relation: filters_by, to: '[affinity,exposure,competence]'}
+  - {id: EVA-REL-022, from: E_peers, relation: averages_over, to: P_d}
+  - {id: EVA-REL-023, from: E_peers, relation: undefined_when, to: 'P_d=empty'}
+  - {id: EVA-REL-024, from: E_self, relation: uses, to: '[Gamma_a,b_a,epsilon_a]'}
+  - {id: EVA-REL-025, from: epsilon_a, relation: equals_weighted_sum_of, to: '[overconfidence,excessive_modesty,cognitive_blindness,E_affective]'}
+  - {id: EVA-REL-026, from: E_total, relation: aggregates, to: '[E_i,geometric_product,E_synergy]'}
+  - {id: EVA-REL-027, from: aggregation_alpha_i, relation: constrained_by, to: '[sum=1,alpha_min_i,mentor_minimum_before_t_autonomy]'}
+  - {id: EVA-REL-028, from: aggregation_weight_rhs, relation: evolves, to: aggregation_alpha_i}
+  - {id: EVA-REL-029, from: I_efficiency, relation: uses, to: '[distance_ratio,time,evaluation_variance,bias,tau]'}
+  - {id: EVA-REL-030, from: I_fairness, relation: procedural_only_reference_to, to: 'domain 21 Fairness'}
+  - {id: EVA-REL-031, from: bias_t, relation: conditioned_on, to: 'type(d)=tau'}
+  - {id: EVA-REL-032, from: 'domain 19 Regulation', relation: consumes_results_of, to: 'domain 18 Evaluation'}

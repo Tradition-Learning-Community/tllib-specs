@@ -1,0 +1,3 @@
+# TLC-FC-18-EVALUATION-009 — Mentor evaluation expression
+
+This package specifies the mentor evaluation as the source affine expression over `W_m`, the externally evaluated `Phi_m`, `b_m`, and `epsilon_m`. The source describes the role of `Phi_m` but does not construct its feature-map realization, so the value is provider-backed. Direct mentor evaluation does not require `E_truth`; that unresolved truth signal belongs only to mentor-weight learning. The package therefore rejects missing `Phi_m` and forbids constructing the mentor feature map, fabricating truth, or introducing a runtime call to Regulation.

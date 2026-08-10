@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-007
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-007/contract.yaml
+source_candidate_ir: ir/TLC-FC-18-EVALUATION-007/ir.candidate.json
+nature: validation
+inputs: [metric_norm, alpha, E_stimulant_t, P_fluid_t, V_coherence_t, novice_norm_expectation, competent_norm_expectation, advanced_norm_expectation, sigma_provider]
+outputs: [theta_1, theta_2, theta_3, progression_zone]
+steps: [require providers, evaluate theta_1, evaluate theta_2, evaluate theta_3, validate interval ordering, classify source zone]
+errors: [ZoneExpectationProviderRequired, SigmaProviderRequired, ThresholdOrderingInvalid]

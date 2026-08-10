@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-009
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-009/contract.yaml
+tests:
+  - {id: EVA009-T01, category: preservation, verifies: E_mentor equals W_m dot Phi_m plus b_m plus epsilon_m}
+  - {id: EVA009-T02, category: error, verifies: absent Phi_m provider is rejected rather than synthesized}
+  - {id: EVA009-T03, category: invariant, verifies: mentor evaluation does not require or fabricate E_truth}

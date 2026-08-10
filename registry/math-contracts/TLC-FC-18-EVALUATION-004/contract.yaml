@@ -1,0 +1,24 @@
+contract_id: TLC-MC-TLC-FC-18-EVALUATION-004
+feature_id: TLC-FC-18-EVALUATION-004
+title: Ethical progression metrics
+domain_id: evaluation
+contract_kind: source_expression_bundle
+scientific_status: external_provider_required
+scientific_authority: maths/18-evaluation/evaluation.md
+source_sections: ['2.3 Espace éthique']
+formulae:
+  m_e1: '1 - (||Actions-pi_Val(Actions)||_W / ||Actions||) * exp(-||grad V||^2/(2 sigma^2))'
+  m_e2: '(Val dot Decisions)/(||Val|| ||Decisions||) + alpha ||grad_E(Val dot Decisions)||'
+  m_e3: '(1/T) integral_0^T exp(-||V(t)-V(t+Delta t)||^2/(2 sigma^2)) 1_{||dVal/dt||<eta} dt'
+inputs: [Actions, Val, Decisions, V_t, V_t_plus_delta, T, sigma, alpha, eta]
+providers: [pi_Val_projection, weighted_norm_W, norm_provider, grad_V_provider, grad_E_provider, dVal_dt_provider, temporal_integral_provider, dot_product_provider]
+outputs: [m_e1, m_e2, m_e3]
+preconditions: [projection and geometry providers are supplied, T > 0, sigma != 0 where present, norm(Actions) != 0, norm(Val) != 0, norm(Decisions) != 0]
+postconditions: [projection gradient integral and indicator structure remain source-faithful]
+invariants: [pi_Val is never synthesized, no geometry gradient differentiation or quadrature is invented]
+errors: [ProjectionProviderRequired, NormProviderRequired, GradientProviderRequired, CalculusProviderRequired, InvalidMetricDenominator]
+opaque_parameters: [pi_Val geometry, weighted norm, gradient semantics, integration semantics, sigma]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-EVALUATION-008, TLC-UR-EVALUATION-009, TLC-UR-EVALUATION-019]
+forbidden_behaviors: [invent_projection, invent_norm, invent_gradient, invent_numerical_integrator, invent_derivative_scheme, clamp_undefined_metric]
+traceability: {source: maths/18-evaluation/evaluation.md, inventory: registry/domain-progress/evaluation/feature-inventory.yaml}

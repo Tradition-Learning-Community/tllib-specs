@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-020
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-020/contract.yaml
+source_candidate_ir: ir/TLC-FC-18-EVALUATION-020/ir.candidate.json
+nature: validation
+inputs: [requested_operation, optional_external_M_r_metric_family]
+outputs: [reflexive_metric_availability_descriptor]
+steps: [expose missing reflexive family, inspect complete-index request, require external M_r provider when needed, otherwise return unresolved descriptor]
+errors: [ReflexiveMetricProviderRequired]

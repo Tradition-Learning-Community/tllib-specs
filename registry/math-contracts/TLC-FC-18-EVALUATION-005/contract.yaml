@@ -1,0 +1,22 @@
+contract_id: TLC-MC-TLC-FC-18-EVALUATION-005
+feature_id: TLC-FC-18-EVALUATION-005
+title: Integrated progression index
+domain_id: evaluation
+contract_kind: guarded_source_expression
+scientific_status: preserved_unresolved
+scientific_authority: maths/18-evaluation/evaluation.md
+source_sections: ['2.4 Indice intégré', '7. Limites et points scientifiques non résolus']
+formula: 'I_progression(d,t) = sum_{i in {t,c,e,r}} w_i(d,t) N_i((1/k_i) sum_{j=1}^{k_i} (m_i,j-m_i,j,min)/(m_i,j,max-m_i,j,min)) + sum_{(i,j) in I} gamma_i,j(d,t) Psi(m_i,m_j)'
+psi_formula: 'Psi(m_i,m_j)=m_i m_j exp(-((m_i-mu_i)^2+(m_j-mu_j)^2)/(2 sigma_i,j^2))'
+inputs: [metric_families_t_c_e_r, metric_min_max_references, k_i, w_i, normalizer_outputs_or_providers, interaction_pairs, gamma_ij, mu_i, sigma_ij]
+providers: [N_i_normalizers, M_r_or_reflexive_metric_family]
+outputs: [I_progression]
+preconditions: [all four components t c e r are supplied, each requested metric range denominator is nonzero, all normalizers interaction coefficients and Psi parameters are supplied, sigma_ij is nonzero for each evaluated interaction]
+postconditions: [the r component remains present, source normalization and interaction sums are preserved]
+invariants: [M_r is never dropped, no m_r_j family is invented, normalizers and real/optimal references remain provider-backed]
+errors: [ReflexiveMetricProviderRequired, NormalizerProviderRequired, MetricRangeInvalid, InteractionProviderRequired, InvalidMetricDenominator]
+opaque_parameters: [M_r metric family, N_i, metric_min_max_references, gamma_ij, mu_i, sigma_ij]
+dependencies: {scientific: [TLC-FC-18-EVALUATION-020], runtime: []}
+unresolved_items: [TLC-UR-EVALUATION-002, TLC-UR-EVALUATION-005, TLC-UR-EVALUATION-006, TLC-UR-EVALUATION-012, TLC-UR-EVALUATION-019]
+forbidden_behaviors: [invent_reflexive_metrics, invent_normalizer, invent_metric_reference, drop_r_component, clamp_undefined_metric]
+traceability: {source: maths/18-evaluation/evaluation.md, inventory: registry/domain-progress/evaluation/feature-inventory.yaml}

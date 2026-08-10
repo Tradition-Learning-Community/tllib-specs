@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-010
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-18-EVALUATION-010/ir.yaml
+operation: evaluate_mentor_weight_rhs
+required_behavior: [require E_truth and Phi_m providers, preserve truth-error learning term and optimum-attraction term, return RHS only]
+forbidden_behavior: [invent_truth_signal, invent_mentor_feature_map, invent_numerical_integrator, mutate_mentor_weights]
+error_codes: [TruthSignalProviderRequired, MentorFeatureProviderRequired, CompatibleMentorArithmeticRequired]
