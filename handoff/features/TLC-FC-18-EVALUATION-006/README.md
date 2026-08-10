@@ -1,0 +1,3 @@
+# TLC-FC-18-EVALUATION-006 — Progression weight right-hand side
+
+This package exposes the source right-hand side for the progression-weight dynamics without implementing a trajectory solver. The importance-relaxation, externally supplied objective-gradient and context-weighted optimum-attraction terms are retained with their source signs. `partial_J/partial_w_i` is an input/provider value, not a request to differentiate an objective locally. Time integration, optimization and mutation of weight state are non-conforming. The feature is conditionally executable only when every source operand is explicitly supplied.

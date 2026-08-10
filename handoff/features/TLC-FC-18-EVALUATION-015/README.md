@@ -1,0 +1,3 @@
+# TLC-FC-18-EVALUATION-015 — Efficiency metric expression
+
+This package evaluates the raw source efficiency metric from a supplied norm provider, real/ideal/initial states, time, evaluation variance, bias and `tau`. The initial-distance denominator, time and `tau` must satisfy their source-domain validity conditions; undefined cases return structured errors and are never clamped. The source metric decreases through its explicit distance and exponential structure, but the chapter does not establish an interpretation convention. This package therefore does not label a larger value as better or worse and never inverts the formula to impose such an interpretation.

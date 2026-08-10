@@ -1,0 +1,3 @@
+# TLC-FC-18-EVALUATION-012 — Self evaluation and explicit self-bias
+
+This package preserves the source self-evaluation and its explicit four-term bias model. `epsilon_a` is exactly `alpha overconfidence + beta excessive_modesty + gamma cognitive_blindness + delta E_affective`; no term is omitted or estimated implicitly. The source `Gamma_a(X_perceived,X_real,M_awareness)` feature map is qualitatively described but not constructed, so its evaluated value is an external provider. The feature returns the explicit bias and `E_self` expression without inventing estimators, corrective heuristics or hidden bias normalization.

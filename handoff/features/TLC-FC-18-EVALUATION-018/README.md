@@ -1,0 +1,3 @@
+# TLC-FC-18-EVALUATION-018 — Type-conditional bias metric expression
+
+This package evaluates the source `bias(t)` expression from two externally evaluated conditional statistics: the expectation of `E(d,t)-M(d,t)` and the variance of `E(d,t)`, both conditioned on the same `type(d)=tau` population. The source does not define an estimator or a probability distribution, so neither may be synthesized. Population/type/time semantics must match across the two inputs, otherwise the operation returns a structured mismatch error. The result is the direct sum of the supplied conditional expectation and variance values with no additional correction.

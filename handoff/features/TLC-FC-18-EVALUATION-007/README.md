@@ -1,0 +1,3 @@
+# TLC-FC-18-EVALUATION-007 — Progression zone thresholds and classification
+
+This package preserves the source threshold expressions `theta_1(t)`, `theta_2(t)` and `theta_3(t)` and the four labels emergence, structuration, integration and mastery. Expectations and `sigma` are provider-backed, and calibration remains opaque. Classification is permitted only when the supplied thresholds support the source interval semantics; incompatible ordering is a structured error rather than a reason to silently sort values. The package defines no promotion engine, state machine or learned threshold policy.

@@ -1,0 +1,3 @@
+# TLC-FC-18-EVALUATION-008 — Zone transition probability expression
+
+This package exposes only the source sigmoid transition-probability expression. The supplied metric norm, threshold, derivative, preparation value and coefficients are combined with the exact source signs before applying the supplied opaque `sigma`. A derivative method is not inferred, and the result is not interpreted as a Markov process, automatic promotion command or state transition. Missing derivative or `sigma` providers produce structured errors. The feature intentionally stops at expression evaluation because the source defines no complete transition engine.

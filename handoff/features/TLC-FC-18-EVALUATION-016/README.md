@@ -1,0 +1,3 @@
+# TLC-FC-18-EVALUATION-016 — System health metric expression
+
+This package contains the one directly executable Evaluation feature in the frozen population. The source gives `I_health` as a five-term weighted sum of Cohesion, Diversity, Resilience, Adaptability and Synergy. When those five values and their five coefficients are supplied with compatible scalar arithmetic, no unresolved scientific provider is needed to evaluate the expression itself. The implementation must preserve every component and coefficient exactly and may not normalize the coefficients, omit a component, clamp the result or introduce an additional health factor not present in the source.

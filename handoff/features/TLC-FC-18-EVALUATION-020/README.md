@@ -1,0 +1,3 @@
+# TLC-FC-18-EVALUATION-020 — Missing reflexive metric structural guard
+
+This structural-only package protects the reflexive gap in the integrated progression model. The source defines `M = M_t × M_c × M_e × M_r` and includes `r` in `I_progression`, but it constructs no reflexive metric family `m_r,j`. The guard therefore requires an external `M_r` metric family whenever complete integrated evaluation is requested. It never drops `r`, substitutes zero, invents reflexive metrics, or infers them from another domain. The gap remains visible as `ReflexiveMetricProviderRequired` until scientifically supplied.
