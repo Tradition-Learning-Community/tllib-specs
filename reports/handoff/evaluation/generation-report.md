@@ -2,9 +2,9 @@
 
 ## Status
 
-**BLOCKED BEFORE MERGE — global catalog materialization is the remaining mechanical gate.**
+**READY FOR FINAL GLOBAL CATALOG MATERIALIZATION — NOT YET MERGED.**
 
-This report records the repository state produced entirely through the connected GitHub capability. No merge is authorized while `handoff/catalog.json` is stale relative to the Evaluation publication state.
+The Evaluation domain artifacts and canonical domain catalog are finalized on `pipeline/domain-18-evaluation`. The remaining mechanical publication step is to materialize the deterministic global `handoff/catalog.json` with the permanent generator, then observe the permanent CI gate on the resulting exact PR HEAD.
 
 ## Scientific authority
 
@@ -135,8 +135,11 @@ Domain finalization files:
 Domain handoff catalog:
 
 - `handoff/domains/evaluation/catalog.json`
+- canonical Feature Handoff Domain Catalog v1.0 shape
 - population: `complete`
-- validation: `pending` while the permanent CI gate cannot complete against the stale global catalog
+- validation: `validated`
+- exactly 20 finalized feature-package entries
+- exactly the existing 8 shared dependencies
 
 ## Shared contracts
 
@@ -155,7 +158,7 @@ No ninth shared contract is introduced.
 
 ## Global registry changes
 
-`registry/domain-progress/extension-16-35.yaml` now encodes Evaluation 18 with:
+`registry/domain-progress/extension-16-35.yaml` encodes Evaluation 18 with:
 
 - `feature_count: 20`
 - `handoff_publication: true`
@@ -190,39 +193,22 @@ Confirmed by construction and PR scope:
 
 ## Pull request and review state
 
-- Pull request: **#37**
+- Pull request: **#150**
 - Base: `main`
 - Head branch: `pipeline/domain-18-evaluation`
 - Title: `Finalize domain 18 Evaluation to implementation-ready handoffs`
-- Reviews and review threads were inspected before treating any CI run as final.
+- Sourcery reported that the diff exceeded its automated review size limit; no actionable review thread was created.
+- Review threads: none at the time of this report update.
 - No merge has been attempted.
 
-A final immutable PR HEAD SHA, final successful workflow run IDs, merge result, squash SHA, and post-merge `main` SHA do not exist in this report because the merge gate has not been reached. Recording fabricated or predecessor values would violate the publication protocol.
+Final workflow run IDs, exact validated final HEAD and squash-merge SHA are deliberately not embedded in this versioned report because those values only exist after the commit that contains this report. Embedding them would change the HEAD and invalidate the very gate they purport to describe. Those final immutable publication proofs belong in the PR description and GitHub merge history.
 
-## Remaining mechanical blocker
+## Remaining mechanical step
 
 The authoritative global catalog is `handoff/catalog.json`, generated solely by:
 
 `tools/handoff/generate_catalog.py`
 
-The connected GitHub capability available in this chat can create/update Git objects and inspect Actions, but it cannot execute repository code. Repository inspection found no permanent workflow-dispatch/materialization path that runs `generate_catalog.py --write`; the permanent handoff workflow performs only `generate_catalog.py --check`. The generator's `--check` path reports staleness but intentionally does not emit the generated catalog. The catalog contains SHA-256 package digests, so reconstructing it from Git blob SHA-1 identifiers would be incorrect.
+The connected GitHub capability can create/update Git objects and inspect Actions, but it cannot execute repository code. The permanent handoff workflow performs `generate_catalog.py --check`, not `--write`. No helper, temporary workflow, permission escalation, or generator instrumentation is authorized.
 
-Therefore the only remaining operation that cannot be performed through the available @GitHub primitives is the deterministic materialization of `handoff/catalog.json` from the already-produced Evaluation tree.
-
-Minimal mechanical command, if executed in a checkout of this exact PR branch, is:
-
-```text
-python tools/handoff/generate_catalog.py --write
-```
-
-After that generated file is present on the branch, the required permanent checks still must be observed on the new exact HEAD before any merge:
-
-```text
-python tools/handoff/generate_catalog.py --check
-python tools/handoff/validate_handoff.py
-python tools/handoff/validate_handoff.py --self-test
-python tools/domain-progress/validate_extension_16_35.py
-python tools/handoff/export_bundle.py --all --check --verify-determinism
-```
-
-No CI bypass, workflow write permission, generator diagnostic, helper script, or premature merge is acceptable.
+Therefore the only remaining non-connector operation is deterministic materialization of `handoff/catalog.json` from this already-finalized Evaluation tree. After that file is committed to this exact PR branch, the permanent Feature handoff and Global finalization workflows must both complete successfully on the same unchanged final PR HEAD before any merge.
