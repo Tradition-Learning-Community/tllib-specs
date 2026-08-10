@@ -1,0 +1,22 @@
+schema_version: 1
+domain: fairness
+task_count: 18
+tasks:
+  - {task_id: FAIR-IMPL-001, feature_id: TLC-FC-21-FAIRNESS-001, objective: implement the provider-backed exact R_proc evaluator with unclamped output and provider failures, non_goals: [category construction, score construction, expectation estimation, clamping]}
+  - {task_id: FAIR-IMPL-002, feature_id: TLC-FC-21-FAIRNESS-002, objective: expose the five-component bias-space descriptor, non_goals: [bias component implementation]}
+  - {task_id: FAIR-IMPL-003, feature_id: TLC-FC-21-FAIRNESS-003, objective: implement raw aggregate-bias arithmetic from complete supplied operands, non_goals: [correlation estimation, distance estimation, weight inference]}
+  - {task_id: FAIR-IMPL-004, feature_id: TLC-FC-21-FAIRNESS-004, objective: implement exact decision correction with CorrectionDenominatorZero, non_goals: [epsilon regularization, expectation estimation]}
+  - {task_id: FAIR-IMPL-005, feature_id: TLC-FC-21-FAIRNESS-005, objective: expose the constrained optimization problem descriptor, non_goals: [optimizer, solver, threshold calibration]}
+  - {task_id: FAIR-IMPL-006, feature_id: TLC-FC-21-FAIRNESS-006, objective: implement raw Lagrangian arithmetic while preserving source signs and dual ambiguity, non_goals: [KKT derivation, sign repair]}
+  - {task_id: FAIR-IMPL-007, feature_id: TLC-FC-21-FAIRNESS-007, objective: implement raw proportional master-weight factor evaluation, non_goals: [automatic normalization, softmax, KL implementation]}
+  - {task_id: FAIR-IMPL-008, feature_id: TLC-FC-21-FAIRNESS-008, objective: expose the exact plurality argmax objective descriptor and ambiguity guard, non_goals: [argmax search, entropy policy]}
+  - {task_id: FAIR-IMPL-009, feature_id: TLC-FC-21-FAIRNESS-009, objective: implement cognitive diversity from provider pairwise values with k less than two guard, non_goals: [KL implementation, distance construction]}
+  - {task_id: FAIR-IMPL-010, feature_id: TLC-FC-21-FAIRNESS-010, objective: implement complementarity with zero sum-performance guard, non_goals: [normalization, sign change]}
+  - {task_id: FAIR-IMPL-011, feature_id: TLC-FC-21-FAIRNESS-011, objective: implement alignment-loss arithmetic from provider terms, non_goals: [violation construction, ethical-robustness construction]}
+  - {task_id: FAIR-IMPL-012, feature_id: TLC-FC-21-FAIRNESS-012, objective: implement dynamic-constraint evaluation from supplied derivative and tradition-gradient values, non_goals: [numerical derivative, gradient construction, integrator]}
+  - {task_id: FAIR-IMPL-013, feature_id: TLC-FC-21-FAIRNESS-013, objective: implement alignment-efficiency arithmetic with m zero guard and supplied calculus values, non_goals: [calculus synthesis]}
+  - {task_id: FAIR-IMPL-014, feature_id: TLC-FC-21-FAIRNESS-014, objective: implement responsibility scaling from an externally supplied exact-integrand integral with T zero guard, non_goals: [quadrature, differentiation, discretization]}
+  - {task_id: FAIR-IMPL-015, feature_id: TLC-FC-21-FAIRNESS-015, objective: expose the bias-decay inequality descriptor, non_goals: [legitimacy classifier, residual-bias estimator, convergence proof]}
+  - {task_id: FAIR-IMPL-016, feature_id: TLC-FC-21-FAIRNESS-016, objective: implement contextual-fairness arithmetic from provider extrema and minimum with three zero-denominator guards, non_goals: [context search, calibration]}
+  - {task_id: FAIR-IMPL-017, feature_id: TLC-FC-21-FAIRNESS-017, objective: implement exact strict predicate E_ctx_T greater than 0.6, non_goals: [threshold generalization, calibration claim]}
+  - {task_id: FAIR-IMPL-018, feature_id: TLC-FC-21-FAIRNESS-018, objective: implement conformance checks for all Fairness non-invention and dependency-direction invariants, non_goals: [runtime framework, policy synthesis, publication of domains 20 32 35]}
