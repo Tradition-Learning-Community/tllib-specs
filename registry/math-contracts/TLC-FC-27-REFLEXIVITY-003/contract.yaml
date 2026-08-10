@@ -1,0 +1,20 @@
+contract_id: TLC-MC-TLC-FC-27-REFLEXIVITY-003
+feature_id: TLC-FC-27-REFLEXIVITY-003
+title: Adaptive self-correction right-hand side
+domain_id: reflexivity
+contract_kind: conditional_rhs_contract
+scientific_status: partially_defined
+scientific_authority: maths/27-reflexivity/reflexivity.md
+source_sections: ['3. Autocorrection adaptative', '6. Limites et points scientifiques non résolus']
+formula: 'dR/dt = -grad_R Phi_id(X,R) + eta(t) + zeta(t)(R*-R)'
+inputs: [{name: grad_R_Phi_id, type: external_identity_gradient_value}, {name: eta_t, type: opaque_fluctuation_value}, {name: zeta_t, type: scalar}, {name: R_star, type: external_ideal_state}, {name: R, type: identity_state_component}]
+outputs: [{name: adaptive_correction_rhs, type: raw_rhs_value}]
+preconditions: [all source terms are supplied by compatible providers]
+postconditions: [result equals the literal negative-gradient source RHS]
+invariants: ['gradient sign remains -', eta distribution remains unspecified, R_star is not constructed locally]
+errors: [IdentityGradientProviderRequired, FluctuationValueRequired, IdealStateProviderRequired]
+opaque_parameters: [eta_t, R_star, gradient_realization]
+scientific_reservations: [TLC-UR-REFLEXIVITY-003, TLC-UR-REFLEXIVITY-007, TLC-UR-REFLEXIVITY-008, TLC-UR-REFLEXIVITY-013]
+dependencies: {scientific: [26], identity_features: [TLC-FC-26-IDENTITY-001, TLC-FC-26-IDENTITY-002], runtime: []}
+forbidden_behaviors: [assuming Gaussian eta, assuming white noise, constructing R_star from Master data, integrating the RHS, changing the negative gradient sign]
+traceability: {source: maths/27-reflexivity/reflexivity.md, inventory: registry/domain-progress/reflexivity/feature-inventory.yaml}

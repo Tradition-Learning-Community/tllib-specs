@@ -1,0 +1,60 @@
+schema_version: 1
+manifest_id: TLC-REFLEXIVITY-DOMAIN-FINALIZATION-001
+domain: reflexivity
+phase: 4
+status: selected_for_implementation_handoff
+base_branch: main
+base_commit: 6f989e75aba0f4795e8d5cc42ab83107c7767d57
+population:
+  - TLC-FC-27-REFLEXIVITY-001
+  - TLC-FC-27-REFLEXIVITY-002
+  - TLC-FC-27-REFLEXIVITY-003
+  - TLC-FC-27-REFLEXIVITY-004
+  - TLC-FC-27-REFLEXIVITY-005
+  - TLC-FC-27-REFLEXIVITY-006
+  - TLC-FC-27-REFLEXIVITY-007
+  - TLC-FC-27-REFLEXIVITY-008
+  - TLC-FC-27-REFLEXIVITY-009
+source_authority:
+  scientific_source: {path: maths/27-reflexivity/reflexivity.md, blob_sha: dc33dd515b7728f7f9f23f84081cd40b637a4a3d, modified: false}
+  published_dependency: {domain: identity, domain_index: 26, publication_status: published, feature_refs: [TLC-FC-26-IDENTITY-001, TLC-FC-26-IDENTITY-002, TLC-FC-26-IDENTITY-003], modified_in_this_pr: false}
+  inventories:
+    - registry/domain-progress/reflexivity/source-inventory.yaml
+    - registry/domain-progress/reflexivity/feature-inventory.yaml
+    - registry/domain-progress/reflexivity/feature-dependencies.yaml
+    - registry/scientific-objects/reflexivity/scientific-objects.candidate.yaml
+    - registry/scientific-objects/reflexivity/scientific-relations.candidate.yaml
+    - registry/scientific-objects/reflexivity/unresolved-terms.yaml
+source_artifact_patterns:
+  contract: registry/math-contracts/<FEATURE_ID>/contract.yaml
+  candidate_ir: ir/<FEATURE_ID>/ir.candidate.json
+  source_ir: registry/ir/<FEATURE_ID>/ir.yaml
+  test_plan: registry/test-plans/<FEATURE_ID>/test-plan.yaml
+finalized_artifact_patterns:
+  optimized_ir: registry/optimized-ir/reflexivity/<FEATURE_ID>/ir.yaml
+  algorithm: registry/algorithms/reflexivity/<FEATURE_ID>/algorithm.yaml
+  oracle: registry/oracles/reflexivity/<FEATURE_ID>/oracle.yaml
+  implementation_tasks: registry/domain-finalization/reflexivity/implementation-tasks.yaml
+feature_artifacts:
+  TLC-FC-27-REFLEXIVITY-001: {contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-001/contract.yaml, candidate_ir: ir/TLC-FC-27-REFLEXIVITY-001/ir.candidate.json, source_ir: registry/ir/TLC-FC-27-REFLEXIVITY-001/ir.yaml, test_plan: registry/test-plans/TLC-FC-27-REFLEXIVITY-001/test-plan.yaml, optimized_ir: registry/optimized-ir/reflexivity/TLC-FC-27-REFLEXIVITY-001/ir.yaml, algorithm: registry/algorithms/reflexivity/TLC-FC-27-REFLEXIVITY-001/algorithm.yaml, oracle: registry/oracles/reflexivity/TLC-FC-27-REFLEXIVITY-001/oracle.yaml}
+  TLC-FC-27-REFLEXIVITY-002: {contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-002/contract.yaml, candidate_ir: ir/TLC-FC-27-REFLEXIVITY-002/ir.candidate.json, source_ir: registry/ir/TLC-FC-27-REFLEXIVITY-002/ir.yaml, test_plan: registry/test-plans/TLC-FC-27-REFLEXIVITY-002/test-plan.yaml, optimized_ir: registry/optimized-ir/reflexivity/TLC-FC-27-REFLEXIVITY-002/ir.yaml, algorithm: registry/algorithms/reflexivity/TLC-FC-27-REFLEXIVITY-002/algorithm.yaml, oracle: registry/oracles/reflexivity/TLC-FC-27-REFLEXIVITY-002/oracle.yaml}
+  TLC-FC-27-REFLEXIVITY-003: {contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-003/contract.yaml, candidate_ir: ir/TLC-FC-27-REFLEXIVITY-003/ir.candidate.json, source_ir: registry/ir/TLC-FC-27-REFLEXIVITY-003/ir.yaml, test_plan: registry/test-plans/TLC-FC-27-REFLEXIVITY-003/test-plan.yaml, optimized_ir: registry/optimized-ir/reflexivity/TLC-FC-27-REFLEXIVITY-003/ir.yaml, algorithm: registry/algorithms/reflexivity/TLC-FC-27-REFLEXIVITY-003/algorithm.yaml, oracle: registry/oracles/reflexivity/TLC-FC-27-REFLEXIVITY-003/oracle.yaml}
+  TLC-FC-27-REFLEXIVITY-004: {contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-004/contract.yaml, candidate_ir: ir/TLC-FC-27-REFLEXIVITY-004/ir.candidate.json, source_ir: registry/ir/TLC-FC-27-REFLEXIVITY-004/ir.yaml, test_plan: registry/test-plans/TLC-FC-27-REFLEXIVITY-004/test-plan.yaml, optimized_ir: registry/optimized-ir/reflexivity/TLC-FC-27-REFLEXIVITY-004/ir.yaml, algorithm: registry/algorithms/reflexivity/TLC-FC-27-REFLEXIVITY-004/algorithm.yaml, oracle: registry/oracles/reflexivity/TLC-FC-27-REFLEXIVITY-004/oracle.yaml}
+  TLC-FC-27-REFLEXIVITY-005: {contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-005/contract.yaml, candidate_ir: ir/TLC-FC-27-REFLEXIVITY-005/ir.candidate.json, source_ir: registry/ir/TLC-FC-27-REFLEXIVITY-005/ir.yaml, test_plan: registry/test-plans/TLC-FC-27-REFLEXIVITY-005/test-plan.yaml, optimized_ir: registry/optimized-ir/reflexivity/TLC-FC-27-REFLEXIVITY-005/ir.yaml, algorithm: registry/algorithms/reflexivity/TLC-FC-27-REFLEXIVITY-005/algorithm.yaml, oracle: registry/oracles/reflexivity/TLC-FC-27-REFLEXIVITY-005/oracle.yaml}
+  TLC-FC-27-REFLEXIVITY-006: {contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-006/contract.yaml, candidate_ir: ir/TLC-FC-27-REFLEXIVITY-006/ir.candidate.json, source_ir: registry/ir/TLC-FC-27-REFLEXIVITY-006/ir.yaml, test_plan: registry/test-plans/TLC-FC-27-REFLEXIVITY-006/test-plan.yaml, optimized_ir: registry/optimized-ir/reflexivity/TLC-FC-27-REFLEXIVITY-006/ir.yaml, algorithm: registry/algorithms/reflexivity/TLC-FC-27-REFLEXIVITY-006/algorithm.yaml, oracle: registry/oracles/reflexivity/TLC-FC-27-REFLEXIVITY-006/oracle.yaml}
+  TLC-FC-27-REFLEXIVITY-007: {contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-007/contract.yaml, candidate_ir: ir/TLC-FC-27-REFLEXIVITY-007/ir.candidate.json, source_ir: registry/ir/TLC-FC-27-REFLEXIVITY-007/ir.yaml, test_plan: registry/test-plans/TLC-FC-27-REFLEXIVITY-007/test-plan.yaml, optimized_ir: registry/optimized-ir/reflexivity/TLC-FC-27-REFLEXIVITY-007/ir.yaml, algorithm: registry/algorithms/reflexivity/TLC-FC-27-REFLEXIVITY-007/algorithm.yaml, oracle: registry/oracles/reflexivity/TLC-FC-27-REFLEXIVITY-007/oracle.yaml}
+  TLC-FC-27-REFLEXIVITY-008: {contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-008/contract.yaml, candidate_ir: ir/TLC-FC-27-REFLEXIVITY-008/ir.candidate.json, source_ir: registry/ir/TLC-FC-27-REFLEXIVITY-008/ir.yaml, test_plan: registry/test-plans/TLC-FC-27-REFLEXIVITY-008/test-plan.yaml, optimized_ir: registry/optimized-ir/reflexivity/TLC-FC-27-REFLEXIVITY-008/ir.yaml, algorithm: registry/algorithms/reflexivity/TLC-FC-27-REFLEXIVITY-008/algorithm.yaml, oracle: registry/oracles/reflexivity/TLC-FC-27-REFLEXIVITY-008/oracle.yaml}
+  TLC-FC-27-REFLEXIVITY-009: {contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-009/contract.yaml, candidate_ir: ir/TLC-FC-27-REFLEXIVITY-009/ir.candidate.json, source_ir: registry/ir/TLC-FC-27-REFLEXIVITY-009/ir.yaml, test_plan: registry/test-plans/TLC-FC-27-REFLEXIVITY-009/test-plan.yaml, optimized_ir: registry/optimized-ir/reflexivity/TLC-FC-27-REFLEXIVITY-009/ir.yaml, algorithm: registry/algorithms/reflexivity/TLC-FC-27-REFLEXIVITY-009/algorithm.yaml, oracle: registry/oracles/reflexivity/TLC-FC-27-REFLEXIVITY-009/oracle.yaml}
+preservation:
+  scientific_source_modified: false
+  identity_artifacts_modified: false
+  historical_handoffs_modified: false
+  other_future_domains_published: false
+  unresolved_science_preserved: true
+  new_shared_contracts: []
+completion_scope:
+  structural_implementation_specification_ready: true
+  semantic_execution_is_feature_specific: true
+  runtime_implementation_produced: false
+  cpp_produced: false
+  python_bindings_produced: false

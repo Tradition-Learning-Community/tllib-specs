@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-005
+oracle_kind: rhs_and_preservation
+acceptance:
+  - output retains +alpha_i(R_i-X_i) exactly
+  - output retains +beta_i grad_Ri Phi_id exactly
+  - social coupling and ideal-attraction terms remain present
+  - no actor-domain runtime dependency or trajectory integration appears
+rejections: [positive-term sign changes, suppressed coupling, invented G_i, invented Master Cohort Community runtime calls, numerical solver]

@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-27-REFLEXIVITY-008
+feature_id: TLC-FC-27-REFLEXIVITY-008
+title: Narrative value-practice and contextual preservation guard
+domain_id: reflexivity
+contract_kind: guard_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/27-reflexivity/reflexivity.md
+source_sections: ['5. Conditions et résultats attendus']
+inputs: [{name: narrative_continuity_assessment, type: optional_external_evidence}, {name: values_practices_congruence_assessment, type: optional_external_evidence}, {name: contextual_stability_assessment, type: optional_external_evidence}]
+outputs: [{name: preservation_availability_assessment, type: guarded_assessment}]
+preconditions: [source qualitative preservation conditions are available]
+postconditions: [no preservation metric is synthesized; missing evidence remains explicit]
+invariants: [Values Practices and Context are referenced qualitatively without importing domain runtime operations]
+errors: [PreservationAssessmentProviderRequired]
+opaque_parameters: [narrative_continuity_assessment, values_practices_congruence_assessment, contextual_stability_assessment]
+scientific_reservations: [TLC-UR-REFLEXIVITY-012]
+dependencies: {scientific: [], runtime: []}
+forbidden_behaviors: [inventing narrative metric, inventing Values-Practices metric, inventing contextual-stability metric, creating automatic Context dependency]
+traceability: {source: maths/27-reflexivity/reflexivity.md, inventory: registry/domain-progress/reflexivity/feature-inventory.yaml}

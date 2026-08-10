@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-27-REFLEXIVITY-009
+feature_id: TLC-FC-27-REFLEXIVITY-009
+title: Reflexive semantic ambiguity and crisis-lifecycle guard
+domain_id: reflexivity
+contract_kind: guard_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/27-reflexivity/reflexivity.md
+source_sections: ['2. Opérateur d’identité cohérente', '3. Autocorrection adaptative', '4. Réflexivité sociale', '6. Limites et points scientifiques non résolus']
+inputs: [{name: requested_semantics, type: request_descriptor}, {name: explicit_semantic_mode_or_provider, type: optional_external_choice}, {name: crisis_lifecycle_provider, type: optional_external_provider_reference}]
+outputs: [{name: reflexivity_semantic_guard_assessment, type: guarded_assessment}]
+preconditions: [source contradictory formulas are preserved]
+postconditions: [raw source-expression requests may reference their exact formula; semantic correction or crisis-lifecycle requests are rejected unless an explicit external mode/provider is supplied]
+invariants: [positive alpha and beta-gradient formulas remain visible, negative adaptive gradient remains visible, no formula wins silently]
+errors: [ReflexivitySignConventionAmbiguous, CrisisLifecycleProviderRequired]
+opaque_parameters: [explicit_semantic_mode_or_provider, crisis_lifecycle_provider]
+scientific_reservations: [TLC-UR-REFLEXIVITY-001, TLC-UR-REFLEXIVITY-002, TLC-UR-REFLEXIVITY-003, TLC-UR-REFLEXIVITY-004, TLC-UR-REFLEXIVITY-006]
+dependencies: {scientific: [26], identity_features: [TLC-FC-26-IDENTITY-002, TLC-FC-26-IDENTITY-003], runtime: []}
+forbidden_behaviors: [silently choosing positive signs as corrective, silently choosing negative gradient as universal operator, inventing crisis state machine, inventing crisis duration or termination]
+traceability: {source: maths/27-reflexivity/reflexivity.md, inventory: registry/domain-progress/reflexivity/feature-inventory.yaml}

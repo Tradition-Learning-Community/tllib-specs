@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-009
+oracle_kind: ambiguity_and_non_execution
+acceptance:
+  - positive alpha and beta-gradient source terms remain visible
+  - negative adaptive-gradient source term remains visible
+  - semantic correction without explicit mode yields ReflexivitySignConventionAmbiguous
+  - crisis lifecycle without provider yields CrisisLifecycleProviderRequired
+rejections: [silent sign resolution, silent source repair, invented crisis state machine, invented lifecycle timing]

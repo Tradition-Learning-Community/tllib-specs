@@ -1,0 +1,19 @@
+contract_id: TLC-MC-TLC-FC-27-REFLEXIVITY-004
+feature_id: TLC-FC-27-REFLEXIVITY-004
+title: Dissonance and crisis-threshold assessment
+domain_id: reflexivity
+contract_kind: conditional_validation_contract
+scientific_status: external_provider_required
+scientific_authority: maths/27-reflexivity/reflexivity.md
+source_sections: ['1. Définition', '3. Autocorrection adaptative']
+inputs: [{name: Phi_id_value, type: external_identity_cost_value, authority: TLC-FC-26-IDENTITY-002}, {name: Phi_seuil, type: opaque_identity_threshold, authority: TLC-FC-26-IDENTITY-003}]
+outputs: [{name: threshold_assessment, type: guarded_assessment}]
+preconditions: [Identity cost value and threshold are supplied under published Identity semantics]
+postconditions: [assessment reports below/equal/above relation only; above-threshold may indicate the source crisis trigger condition but not a lifecycle]
+invariants: [no default threshold, no crisis duration or termination rule]
+errors: [IdentityDissonanceValueRequired, IdentityThresholdRequired]
+opaque_parameters: [Phi_seuil]
+scientific_reservations: [TLC-UR-REFLEXIVITY-006, TLC-UR-REFLEXIVITY-013]
+dependencies: {scientific: [26], identity_features: [TLC-FC-26-IDENTITY-002, TLC-FC-26-IDENTITY-003], runtime: []}
+forbidden_behaviors: [inventing Phi_seuil, inventing crisis duration, inventing crisis termination, inventing realignment procedure]
+traceability: {source: maths/27-reflexivity/reflexivity.md, inventory: registry/domain-progress/reflexivity/feature-inventory.yaml}

@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-005
+algorithm_kind: conditional_source_rhs
+execution: conditionally_executable
+steps:
+  - require G_i value Identity gradient peer coupling values and ideal state provider
+  - add G_i(R_i,X_i)
+  - add +alpha_i(R_i-X_i) exactly as sourced
+  - add +beta_i grad_Ri Phi_id exactly as sourced
+  - add the supplied social coupling sum and ideal-attraction term
+  - return the raw RHS without integration
+forbidden: [alpha_i sign flip, beta_i-gradient sign flip, term suppression, actor-domain runtime invention, integrator]

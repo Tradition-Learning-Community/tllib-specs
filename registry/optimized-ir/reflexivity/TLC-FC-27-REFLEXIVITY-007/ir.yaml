@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-007
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-27-REFLEXIVITY-007/ir.yaml
+operation: assess_recovery_time_evidence
+required_behavior: [require Identity threshold, require externally supplied crossing evidence, validate candidate recovery time, leave source infimum unsolved]
+forbidden_behavior: [integration, root search, invented finite bound, generic finite-return claim]
+error_codes: [IdentityThresholdRequired, RecoveryTrajectoryEvidenceRequired]

@@ -1,0 +1,30 @@
+schema_version: 1
+domain: reflexivity
+module_id: TLC-DOMAIN-27-REFLEXIVITY
+status: implementation_handoff_ready
+purpose: Expose source-faithful reflexive identity expressions and guarded assessments without resolving scientific contradictions.
+scientific_authority: maths/27-reflexivity/reflexivity.md
+published_scientific_dependencies:
+  - {domain_index: 26, domain: identity, feature_refs: [TLC-FC-26-IDENTITY-001, TLC-FC-26-IDENTITY-002, TLC-FC-26-IDENTITY-003]}
+runtime_domain_dependencies: []
+shared_contract_dependencies: [TLC-HC-FEATURE-ID, TLC-HC-SCIENTIFIC-REFERENCE, TLC-HC-REFERENCE-COLLECTION, TLC-HC-UNRESOLVED-ITEM, TLC-HC-OPAQUE-VALUE, TLC-HC-STRUCTURED-ERROR, TLC-HC-TRACEABILITY, TLC-HC-DESCRIPTOR-ENVELOPE]
+features:
+  - {feature_id: TLC-FC-27-REFLEXIVITY-001, operation: describe_reflexive_process, execution: structural_only}
+  - {feature_id: TLC-FC-27-REFLEXIVITY-002, operation: evaluate_raw_coherent_identity_operator, execution: conditionally_executable}
+  - {feature_id: TLC-FC-27-REFLEXIVITY-003, operation: evaluate_adaptive_self_correction_rhs, execution: conditionally_executable}
+  - {feature_id: TLC-FC-27-REFLEXIVITY-004, operation: assess_dissonance_threshold, execution: conditionally_executable}
+  - {feature_id: TLC-FC-27-REFLEXIVITY-005, operation: evaluate_social_reflexivity_rhs, execution: conditionally_executable}
+  - {feature_id: TLC-FC-27-REFLEXIVITY-006, operation: assess_ordinary_reflexive_functionality, execution: conditionally_executable}
+  - {feature_id: TLC-FC-27-REFLEXIVITY-007, operation: assess_recovery_time_evidence, execution: conditionally_executable}
+  - {feature_id: TLC-FC-27-REFLEXIVITY-008, operation: guard_preservation_metrics, execution: structural_only}
+  - {feature_id: TLC-FC-27-REFLEXIVITY-009, operation: guard_semantic_correction_and_crisis_lifecycle, execution: structural_only}
+module_invariants:
+  - Identity semantics are delegated and never redefined.
+  - Positive alpha and beta-gradient source terms remain positive wherever written.
+  - Negative adaptive-gradient source term remains negative wherever written.
+  - No semantic sign convention is selected implicitly.
+  - No numerical dynamics solver is part of this domain handoff.
+  - Eta has no assumed distribution.
+  - R-star is externally supplied where needed.
+  - Crisis lifecycle and preservation metrics remain external when requested.
+non_goals: [runtime implementation, C++ implementation, Python binding, numerical solver, convergence proof, crisis state machine, stochastic process model]

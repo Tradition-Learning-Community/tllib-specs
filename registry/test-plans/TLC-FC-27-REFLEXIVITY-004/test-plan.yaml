@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-004
+source_contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-004/contract.yaml
+tests:
+  - {id: R004-T01, category: preservation, verifies: Phi_id value is delegated to published Identity semantics}
+  - {id: R004-T02, category: error, verifies: missing Phi_seuil returns IdentityThresholdRequired}
+  - {id: R004-T03, category: preservation, verifies: no default threshold is synthesized}
+  - {id: R004-T04, category: unsupported_operation, verifies: above-threshold assessment does not invent crisis duration termination or realignment}

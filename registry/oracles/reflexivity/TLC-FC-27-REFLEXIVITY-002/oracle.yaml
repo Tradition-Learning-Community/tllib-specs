@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-002
+oracle_kind: expression_and_preservation
+acceptance:
+  - output retains +alpha(R-X) exactly
+  - output retains +beta grad_R Phi_id exactly
+  - missing Identity gradient yields IdentityGradientProviderRequired
+  - no minimization claim accompanies raw evaluation
+rejections: [negative alpha substitution, negative beta-gradient substitution, implicit optimizer, invented Identity gradient]

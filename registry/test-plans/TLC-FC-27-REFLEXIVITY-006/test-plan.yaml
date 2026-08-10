@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-006
+source_contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-006/contract.yaml
+tests:
+  - {id: R006-T01, category: error, verifies: missing trajectory evidence is rejected}
+  - {id: R006-T02, category: preservation, verifies: Phi descent is never asserted without supplied observation or certificate}
+  - {id: R006-T03, category: preservation, verifies: boundedness and convergence claims remain evidence-backed and separate}
+  - {id: R006-T04, category: unsupported_operation, verifies: no solver proof or realism conditions are invented}

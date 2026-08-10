@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-009
+source_contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-009/contract.yaml
+tests:
+  - {id: R009-T01, category: preservation, verifies: positive operator signs and negative adaptive-gradient sign remain simultaneously visible}
+  - {id: R009-T02, category: error, verifies: semantic correction request without explicit mode/provider returns ReflexivitySignConventionAmbiguous}
+  - {id: R009-T03, category: error, verifies: crisis lifecycle request without provider returns CrisisLifecycleProviderRequired}
+  - {id: R009-T04, category: preservation, verifies: no sign convention or crisis state machine is selected silently}

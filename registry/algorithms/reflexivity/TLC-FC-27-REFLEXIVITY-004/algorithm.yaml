@@ -1,0 +1,11 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-004
+algorithm_kind: conditional_threshold_assessment
+execution: conditionally_executable
+steps:
+  - require an externally obtained Phi_id value under Identity semantics
+  - require the opaque Identity Phi_seuil value
+  - compare Phi_id with Phi_seuil
+  - report below equal or above and expose the source above-threshold crisis predicate only
+  - do not enter or manage a crisis lifecycle
+forbidden: [threshold default, crisis state machine, crisis duration, crisis termination, realignment procedure]

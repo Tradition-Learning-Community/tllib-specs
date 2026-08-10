@@ -1,0 +1,20 @@
+contract_id: TLC-MC-TLC-FC-27-REFLEXIVITY-005
+feature_id: TLC-FC-27-REFLEXIVITY-005
+title: Social reflexivity right-hand side
+domain_id: reflexivity
+contract_kind: conditional_rhs_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/27-reflexivity/reflexivity.md
+source_sections: ['4. Réflexivité sociale', '6. Limites et points scientifiques non résolus']
+formula: 'dR_i/dt = G_i(R_i,X_i) + alpha_i(R_i-X_i) + beta_i grad_Ri Phi_id + sum_{j!=i} delta_ij(R_j-R_i) + zeta_i(t)(R_i*-R_i)'
+inputs: [{name: G_i_value, type: external_rhs_value}, {name: R_i, type: identity_state_component}, {name: X_i, type: identity_state_component}, {name: alpha_i, type: scalar}, {name: beta_i, type: scalar}, {name: grad_Ri_Phi_id, type: external_identity_gradient_value}, {name: social_coupling_terms, type: collection}, {name: zeta_i_t, type: scalar}, {name: R_i_star, type: external_ideal_state}]
+outputs: [{name: social_reflexivity_rhs, type: raw_rhs_value}]
+preconditions: [all source terms and peer-state contributions are supplied]
+postconditions: [result equals the literal five-term source RHS]
+invariants: ['alpha_i term sign remains +', 'beta_i gradient sign remains +', no social actor domain contract is imported]
+errors: [SocialRhsProviderRequired, IdentityGradientProviderRequired, IdealStateProviderRequired]
+opaque_parameters: [G_i_value, grad_Ri_Phi_id, R_i_star]
+scientific_reservations: [TLC-UR-REFLEXIVITY-002, TLC-UR-REFLEXIVITY-004, TLC-UR-REFLEXIVITY-008, TLC-UR-REFLEXIVITY-013]
+dependencies: {scientific: [26], identity_features: [TLC-FC-26-IDENTITY-001, TLC-FC-26-IDENTITY-002], runtime: []}
+forbidden_behaviors: [flipping positive signs, removing social coupling, inventing G_i, inventing Master Cohort or Community runtime dependencies, integrating the RHS]
+traceability: {source: maths/27-reflexivity/reflexivity.md, inventory: registry/domain-progress/reflexivity/feature-inventory.yaml}

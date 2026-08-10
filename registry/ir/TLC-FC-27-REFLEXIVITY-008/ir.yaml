@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-008
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-008/contract.yaml
+source_candidate_ir: ir/TLC-FC-27-REFLEXIVITY-008/ir.candidate.json
+nature: validation
+inputs: [narrative_continuity_assessment, values_practices_congruence_assessment, contextual_stability_assessment]
+outputs: [preservation_availability_assessment]
+steps: [inspect supplied external assessments, preserve missing qualitative metrics as unresolved, emit guarded availability assessment]
+errors: [PreservationAssessmentProviderRequired]

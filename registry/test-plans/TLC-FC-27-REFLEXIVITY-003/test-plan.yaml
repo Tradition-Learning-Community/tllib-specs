@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-003
+source_contract: registry/math-contracts/TLC-FC-27-REFLEXIVITY-003/contract.yaml
+tests:
+  - {id: R003-T01, category: preservation, verifies: -grad_R Phi_id sign is preserved exactly}
+  - {id: R003-T02, category: preservation, verifies: eta remains an opaque supplied fluctuation without an invented distribution}
+  - {id: R003-T03, category: error, verifies: missing R-star provider is rejected}
+  - {id: R003-T04, category: unsupported_operation, verifies: no trajectory solver or integrator is selected}

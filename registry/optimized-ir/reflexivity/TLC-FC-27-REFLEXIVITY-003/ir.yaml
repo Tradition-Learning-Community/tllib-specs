@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-003
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-27-REFLEXIVITY-003/ir.yaml
+operation: evaluate_adaptive_self_correction_rhs
+required_behavior: [require gradient eta zeta R-star and R inputs, preserve -grad_R Phi_id, preserve eta as opaque input, return raw RHS]
+forbidden_behavior: [eta distribution invention, R-star construction, sign change, numerical integration]
+error_codes: [IdentityGradientProviderRequired, FluctuationValueRequired, IdealStateProviderRequired]

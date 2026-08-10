@@ -1,0 +1,11 @@
+schema_version: 1
+feature_id: TLC-FC-27-REFLEXIVITY-003
+algorithm_kind: conditional_source_rhs
+execution: conditionally_executable
+steps:
+  - require supplied Identity gradient value eta_t zeta_t R_star and R
+  - negate the supplied gradient exactly once
+  - add opaque eta_t without sampling or distribution assumptions
+  - add zeta_t times (R_star-R)
+  - return the raw RHS without advancing time
+forbidden: [eta distribution assumption, R_star construction, gradient sign change, numerical integrator]

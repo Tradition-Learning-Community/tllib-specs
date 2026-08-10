@@ -1,0 +1,36 @@
+schema_version: 1
+domain_index: 27
+domain: reflexivity
+policy:
+  scientific_dependency_is_not_runtime_dependency: true
+  scientific_dependency_is_not_shared_contract_dependency: true
+  thematic_reference_is_not_dependency: true
+confirmed_domain_dependencies:
+  - domain_index: 26
+    domain: identity
+    kind: scientific
+    evidence: maths/27-reflexivity/reflexivity.md
+    rationale: Reflexivity is explicitly a process over Identity state and reuses Phi_id and Phi_seuil semantics.
+    feature_refs:
+      - {feature_id: TLC-FC-26-IDENTITY-001, purpose: authoritative identity state and product-space primitives}
+      - {feature_id: TLC-FC-26-IDENTITY-002, purpose: authoritative Phi_id dissonance cost semantics}
+      - {feature_id: TLC-FC-26-IDENTITY-003, purpose: authoritative opaque threshold and dissonance-threshold assessment semantics}
+runtime_domain_dependencies: []
+shared_contract_domain_dependencies: []
+referenced_but_not_confirmed_dependencies:
+  - {domain_index: 0, domain: master, reason: source names the Master's gaze and ideal model but imports no Master contract or runtime operation}
+  - {domain_index: 2, domain: community, reason: source names Community social influence but the RHS accepts external peer/coupling inputs}
+  - {domain_index: 16, domain: cohort, reason: source names Cohort social influence but imports no Cohort scientific object definition}
+  - {domain_index: 9, domain: values, reason: Values-Practices congruence is a qualitative preservation condition with no reused metric}
+  - {domain_index: 13, domain: practice, reason: Values-Practices congruence is a qualitative preservation condition with no reused metric}
+  - {domain_index: 24, domain: context, reason: contextual stability can be supplied as an external assessment and no Context operation is required}
+feature_dependencies:
+  TLC-FC-27-REFLEXIVITY-001: {scientific: [TLC-FC-26-IDENTITY-001], runtime: []}
+  TLC-FC-27-REFLEXIVITY-002: {scientific: [TLC-FC-26-IDENTITY-001, TLC-FC-26-IDENTITY-002], runtime: []}
+  TLC-FC-27-REFLEXIVITY-003: {scientific: [TLC-FC-26-IDENTITY-001, TLC-FC-26-IDENTITY-002], runtime: []}
+  TLC-FC-27-REFLEXIVITY-004: {scientific: [TLC-FC-26-IDENTITY-002, TLC-FC-26-IDENTITY-003], runtime: []}
+  TLC-FC-27-REFLEXIVITY-005: {scientific: [TLC-FC-26-IDENTITY-001, TLC-FC-26-IDENTITY-002], runtime: []}
+  TLC-FC-27-REFLEXIVITY-006: {scientific: [TLC-FC-26-IDENTITY-001, TLC-FC-26-IDENTITY-002], runtime: []}
+  TLC-FC-27-REFLEXIVITY-007: {scientific: [TLC-FC-26-IDENTITY-002, TLC-FC-26-IDENTITY-003], runtime: []}
+  TLC-FC-27-REFLEXIVITY-008: {scientific: [], runtime: []}
+  TLC-FC-27-REFLEXIVITY-009: {scientific: [TLC-FC-26-IDENTITY-002, TLC-FC-26-IDENTITY-003], runtime: []}

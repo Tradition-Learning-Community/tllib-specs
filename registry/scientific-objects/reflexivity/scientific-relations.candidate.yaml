@@ -1,0 +1,32 @@
+schema_version: 1
+domain: reflexivity
+status: candidate_frozen
+source: maths/27-reflexivity/reflexivity.md
+relation_count: 26
+relations:
+  - {id: RFX-REL-001, from: reflexivity, relation: process_over, to: '(X,R)', provenance: section-1}
+  - {id: RFX-REL-002, from: reflexivity, relation: accesses, to: 'grad_R Phi_id', provenance: section-1}
+  - {id: RFX-REL-003, from: Phi_id, relation: defined_by, to: identity_domain, provenance: explicit-link-section-1}
+  - {id: RFX-REL-004, from: I, relation: preserves_first_component, to: X, provenance: section-2}
+  - {id: RFX-REL-005, from: I, relation: adds_positive, to: 'alpha(t)(R-X)', provenance: section-2}
+  - {id: RFX-REL-006, from: I, relation: adds_positive, to: 'beta(t) grad_R Phi_id', provenance: section-2}
+  - {id: RFX-REL-007, from: alpha, relation: constrained_to, to: '[0,1]', provenance: section-2}
+  - {id: RFX-REL-008, from: beta, relation: constrained_to, to: '>0', provenance: section-2}
+  - {id: RFX-REL-009, from: adaptive_correction_rhs, relation: adds, to: '-grad_R Phi_id', provenance: section-3}
+  - {id: RFX-REL-010, from: adaptive_correction_rhs, relation: adds, to: eta(t), provenance: section-3}
+  - {id: RFX-REL-011, from: adaptive_correction_rhs, relation: adds, to: 'zeta(t)(R*-R)', provenance: section-3}
+  - {id: RFX-REL-012, from: R*, relation: associated_with, to: Master_or_traditional_aspiration, provenance: section-3}
+  - {id: RFX-REL-013, from: crisis_realignement, relation: threshold_condition, to: 'Phi_id > Phi_seuil', provenance: section-3}
+  - {id: RFX-REL-014, from: social_reflexivity_rhs, relation: includes, to: G_i, provenance: section-4}
+  - {id: RFX-REL-015, from: social_reflexivity_rhs, relation: adds_positive, to: 'alpha_i(R_i-X_i)', provenance: section-4}
+  - {id: RFX-REL-016, from: social_reflexivity_rhs, relation: adds_positive, to: 'beta_i grad_Ri Phi_id', provenance: section-4}
+  - {id: RFX-REL-017, from: social_reflexivity_rhs, relation: includes, to: 'sum_{j!=i} delta_ij(R_j-R_i)', provenance: section-4}
+  - {id: RFX-REL-018, from: social_reflexivity_rhs, relation: includes, to: 'zeta_i(t)(R_i*-R_i)', provenance: section-4}
+  - {id: RFX-REL-019, from: Master_Cohort_Community, relation: contributes_to, to: subjective_representation, provenance: section-4, dependency_status: referenced_not_imported}
+  - {id: RFX-REL-020, from: ordinary_functionality, relation: expects, to: Phi_id_decrease, provenance: section-5}
+  - {id: RFX-REL-021, from: ordinary_functionality, relation: expects, to: bounded_convergent_identity_gap, provenance: section-5}
+  - {id: RFX-REL-022, from: recovery_time_infimum, relation: crosses_below, to: Phi_seuil, provenance: section-5}
+  - {id: RFX-REL-023, from: correction, relation: preserves, to: narrative_continuity, provenance: section-5}
+  - {id: RFX-REL-024, from: correction, relation: preserves, to: values_practices_congruence, provenance: section-5}
+  - {id: RFX-REL-025, from: correction, relation: preserves, to: contextual_stability, provenance: section-5}
+  - {id: RFX-REL-026, from: positive_operator_signs, relation: contradict, to: negative_gradient_correction_semantics, provenance: sections-2-3-4-6}

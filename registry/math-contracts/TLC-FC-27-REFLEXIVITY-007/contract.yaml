@@ -1,0 +1,20 @@
+contract_id: TLC-MC-TLC-FC-27-REFLEXIVITY-007
+feature_id: TLC-FC-27-REFLEXIVITY-007
+title: Recovery-time conditional evaluator
+domain_id: reflexivity
+contract_kind: conditional_validation_contract
+scientific_status: external_provider_required
+scientific_authority: maths/27-reflexivity/reflexivity.md
+source_sections: ['5. Conditions et résultats attendus']
+formula: 'inf{tau: Phi_id(t+tau)<Phi_seuil | Phi_id(t)>Phi_seuil}'
+inputs: [{name: initial_above_threshold_evidence, type: external_evidence}, {name: candidate_recovery_time, type: external_time_value}, {name: candidate_below_threshold_evidence, type: external_evidence}, {name: Phi_seuil, type: opaque_identity_threshold, authority: TLC-FC-26-IDENTITY-003}]
+outputs: [{name: recovery_evidence_assessment, type: guarded_assessment}]
+preconditions: [threshold and recovery evidence are supplied]
+postconditions: [a supplied candidate can be validated against threshold-crossing semantics but the infimum is not solved locally]
+invariants: [no integration, no root search, no finite-return theorem]
+errors: [IdentityThresholdRequired, RecoveryTrajectoryEvidenceRequired]
+opaque_parameters: [Phi_seuil, candidate_recovery_time]
+scientific_reservations: [TLC-UR-REFLEXIVITY-011, TLC-UR-REFLEXIVITY-013]
+dependencies: {scientific: [26], identity_features: [TLC-FC-26-IDENTITY-002, TLC-FC-26-IDENTITY-003], runtime: []}
+forbidden_behaviors: [inventing a return-time bound, numerical integration, root finding, claiming finiteness without evidence]
+traceability: {source: maths/27-reflexivity/reflexivity.md, inventory: registry/domain-progress/reflexivity/feature-inventory.yaml}
