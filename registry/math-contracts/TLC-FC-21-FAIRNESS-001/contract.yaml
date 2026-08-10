@@ -1,0 +1,26 @@
+contract_id: TLC-MC-TLC-FC-21-FAIRNESS-001
+feature_id: TLC-FC-21-FAIRNESS-001
+title: Procedural robustness expression
+domain_id: fairness
+contract_kind: guarded_expression_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/21-fairness/fairness.md
+source_sections: ['1. Définition et portée', '7. Limites et points scientifiques non résolus']
+expression: 'R_proc = 1 - max_{j in J} |E_d[S(d,j)] - E_d[S(d)]| C_trans V_just'
+inputs:
+  - {name: category_set_J, type: opaque_provider_value}
+  - {name: category_score_expectations, type: opaque_provider_value}
+  - {name: overall_score_expectation, type: opaque_provider_value}
+  - {name: C_trans, type: opaque_provider_value}
+  - {name: V_just, type: opaque_provider_value}
+outputs: [{name: R_proc, type: scalar_unbounded_by_contract}]
+opaque_providers: [category_set_J, score_S, expectation, C_trans, V_just]
+preconditions: [all source operands and expectation results are supplied]
+postconditions: [return the exact source expression value without clamping or normalization]
+invariants: [R_proc is not guaranteed in the interval 0 to 1, justice is not replaced by uniformity]
+constraints: [no bound on the output is inferred]
+structured_errors: [ProceduralRobustnessProviderRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FAIRNESS-002, TLC-UR-FAIRNESS-003]
+forbidden_behaviors: [invent_category, invent_score, invent_expectation_estimator, invent_transparency, invent_justice, clamp_procedural_robustness, normalize_procedural_robustness]
+traceability: {source: maths/21-fairness/fairness.md, inventory: registry/domain-progress/fairness/feature-inventory.yaml}

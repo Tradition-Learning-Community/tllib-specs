@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-007
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-007/contract.yaml
+tests:
+  - {id: FAIR007-T01, category: preservation, verifies: proportional raw-weight expression is preserved exactly}
+  - {id: FAIR007-T02, category: preservation, verifies: raw weights are not normalized and are not assumed to sum to one}
+  - {id: FAIR007-T03, category: error, verifies: normalized output request requires explicit normalization provider}
+  - {id: FAIR007-T04, category: invariant, verifies: no softmax partition function or KL implementation is invented}

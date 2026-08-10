@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-005
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-005/contract.yaml
+tests:
+  - {id: FAIR005-T01, category: preservation, verifies: exact objective and all five source constraints are retained}
+  - {id: FAIR005-T02, category: invariant, verifies: no optimizer gradient solver dual method or search is introduced}
+  - {id: FAIR005-T03, category: preservation, verifies: epsilon_i theta_min and phi_min remain uncalibrated provider thresholds}

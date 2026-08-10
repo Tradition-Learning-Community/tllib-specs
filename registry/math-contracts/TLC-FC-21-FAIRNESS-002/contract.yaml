@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-21-FAIRNESS-002
+feature_id: TLC-FC-21-FAIRNESS-002
+title: Bias space descriptor
+domain_id: fairness
+contract_kind: structural_descriptor_contract
+scientific_status: partially_defined
+scientific_authority: maths/21-fairness/fairness.md
+source_sections: ['2. Espace et mesure des biais', '7. Limites et points scientifiques non résolus']
+expression: 'B_T = B_stat x B_algo x B_cult x B_cog x B_trad subset R^5'
+inputs: []
+outputs: [{name: bias_space_descriptor, type: structural_descriptor}]
+opaque_providers: []
+preconditions: []
+postconditions: [preserve the five named components and Cartesian-product structure]
+invariants: [none of the five bias components is operationalized or synthesized]
+constraints: [descriptor only]
+structured_errors: []
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FAIRNESS-001]
+forbidden_behaviors: [invent_bias_component, assign_bias_component_metric, collapse_bias_space]
+traceability: {source: maths/21-fairness/fairness.md, inventory: registry/domain-progress/fairness/feature-inventory.yaml}

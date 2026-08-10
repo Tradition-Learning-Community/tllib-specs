@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-009
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-009/contract.yaml
+tests:
+  - {id: FAIR009-T01, category: preservation, verifies: exact cognitive diversity expression and binomial denominator are preserved}
+  - {id: FAIR009-T02, category: error, verifies: k less than two yields InsufficientMasterPopulation}
+  - {id: FAIR009-T03, category: error, verifies: absent KL or distance provider is rejected}
+  - {id: FAIR009-T04, category: invariant, verifies: no zero-denominator fallback is introduced}

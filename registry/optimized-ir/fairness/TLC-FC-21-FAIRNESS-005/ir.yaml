@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-005
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-21-FAIRNESS-005/ir.yaml
+operation: describe_fair_optimization_problem
+required_behavior: [preserve objective, preserve all constraints, preserve uncalibrated thresholds]
+forbidden_behavior: [invent_optimizer, invent_KKT_solver, calibrate_epsilon, invent_search]
+error_codes: []

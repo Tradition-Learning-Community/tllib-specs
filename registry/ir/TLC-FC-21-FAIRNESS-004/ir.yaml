@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-004
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-004/contract.yaml
+source_candidate_ir: ir/TLC-FC-21-FAIRNESS-004/ir.candidate.json
+nature: singularity_guarded_expression
+inputs: [y, alpha_z, conditional_expectation, expectation, fidelity, alignment]
+outputs: [corrected_decision_value]
+steps: [require providers, compute exact denominator, reject zero, evaluate exact source expression]
+errors: [CorrectionDenominatorZero, DecisionCorrectionProviderRequired]

@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-009
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-009/contract.yaml
+source_candidate_ir: ir/TLC-FC-21-FAIRNESS-009/ir.candidate.json
+nature: denominator_guarded_expression
+inputs: [k, pairwise_KL, pairwise_perspective_distance, pairwise_traditional_distance, alpha, beta]
+outputs: [D_cog_T]
+steps: [reject k below two, require pairwise providers, evaluate exact source expression]
+errors: [InsufficientMasterPopulation, CognitiveDiversityProviderRequired]

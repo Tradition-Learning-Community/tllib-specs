@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-001
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-001/contract.yaml
+source_candidate_ir: ir/TLC-FC-21-FAIRNESS-001/ir.candidate.json
+nature: guarded_expression
+inputs: [category_set_J, category_score_expectations, overall_score_expectation, C_trans, V_just]
+outputs: [R_proc]
+steps: [require providers, evaluate exact source expression, return unclamped result]
+errors: [ProceduralRobustnessProviderRequired]

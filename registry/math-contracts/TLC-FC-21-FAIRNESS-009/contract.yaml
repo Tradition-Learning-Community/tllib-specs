@@ -1,0 +1,27 @@
+contract_id: TLC-MC-TLC-FC-21-FAIRNESS-009
+feature_id: TLC-FC-21-FAIRNESS-009
+title: Cognitive diversity expression
+domain_id: fairness
+contract_kind: denominator_guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/21-fairness/fairness.md
+source_sections: ['4. Pluralité des Maîtres']
+expression: 'D_cog^T = 1/C(k,2) sum_{i<j} [D_KL(P(y|M_i)||P(y|M_j)) + alpha d_persp(M_i,M_j) + beta D_trad(M_i,M_j)]'
+inputs:
+  - {name: k, type: integer}
+  - {name: pairwise_KL, type: supplied_provider_values}
+  - {name: pairwise_perspective_distance, type: supplied_provider_values}
+  - {name: pairwise_traditional_distance, type: supplied_provider_values}
+  - {name: alpha, type: scalar}
+  - {name: beta, type: scalar}
+outputs: [{name: D_cog_T, type: scalar}]
+opaque_providers: [KL_divergence, perspective_distance, traditional_distance]
+preconditions: [k >= 2, all pairwise provider values are supplied]
+postconditions: [evaluate exact pairwise average expression]
+invariants: [binomial denominator is not silently replaced for k less than two]
+constraints: [no KL or distance implementation is invented]
+structured_errors: [InsufficientMasterPopulation, CognitiveDiversityProviderRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FAIRNESS-010, TLC-UR-FAIRNESS-011]
+forbidden_behaviors: [invent_KL_estimator, invent_perspective_distance, invent_traditional_distance, fallback_small_master_population]
+traceability: {source: maths/21-fairness/fairness.md, inventory: registry/domain-progress/fairness/feature-inventory.yaml}

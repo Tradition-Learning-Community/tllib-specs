@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-001
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-001/contract.yaml
+tests:
+  - {id: FAIR001-T01, category: preservation, verifies: exact procedural robustness expression is preserved}
+  - {id: FAIR001-T02, category: error, verifies: absent category score or expectation provider yields a structured provider error}
+  - {id: FAIR001-T03, category: preservation, verifies: an R_proc result outside [0,1] remains outside [0,1] without clamping}
+  - {id: FAIR001-T04, category: invariant, verifies: justice is not replaced by strict uniformity}

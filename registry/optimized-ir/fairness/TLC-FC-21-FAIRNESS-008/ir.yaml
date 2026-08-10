@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-008
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-21-FAIRNESS-008/ir.yaml
+operation: describe_plurality_aggregation_objective
+required_behavior: [preserve argmax objective, preserve entropy sign, expose unresolved search mechanics]
+forbidden_behavior: [choose_entropy_sign, invent_argmax_search, invent_candidate_space]
+error_codes: [EntropyInterpretationUnresolved]

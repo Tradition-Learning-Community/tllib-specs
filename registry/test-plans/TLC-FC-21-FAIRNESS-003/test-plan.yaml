@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-003
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-003/contract.yaml
+tests:
+  - {id: FAIR003-T01, category: preservation, verifies: exact aggregate bias expression including i != j correlation sum is preserved}
+  - {id: FAIR003-T02, category: error, verifies: missing correlation provider is rejected}
+  - {id: FAIR003-T03, category: invariant, verifies: no bias weights correlation or traditional distance are estimated implicitly}

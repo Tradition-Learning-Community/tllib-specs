@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-008
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-008/contract.yaml
+tests:
+  - {id: FAIR008-T01, category: preservation, verifies: exact plurality objective and plus entropy term are retained}
+  - {id: FAIR008-T02, category: invariant, verifies: entropy sign is not repaired or normatively interpreted}
+  - {id: FAIR008-T03, category: unsupported_operation, verifies: no argmax search runs without explicit candidate-space and search providers}
+  - {id: FAIR008-T04, category: invariant, verifies: no candidate space is fabricated}

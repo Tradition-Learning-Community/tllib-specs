@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-006
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-006/contract.yaml
+tests:
+  - {id: FAIR006-T01, category: preservation, verifies: raw Lagrangian signs are identical to source value-minus-minimum terms}
+  - {id: FAIR006-T02, category: invariant, verifies: mu and nu sign restrictions are not invented}
+  - {id: FAIR006-T03, category: unsupported_operation, verifies: KKT or dual conclusions are rejected without a convention provider}
+  - {id: FAIR006-T04, category: preservation, verifies: no sign repair converts lower-bound terms to minimum-minus-value}

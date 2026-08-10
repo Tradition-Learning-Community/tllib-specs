@@ -1,0 +1,27 @@
+contract_id: TLC-MC-TLC-FC-21-FAIRNESS-003
+feature_id: TLC-FC-21-FAIRNESS-003
+title: Aggregate bias expression
+domain_id: fairness
+contract_kind: provider_backed_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/21-fairness/fairness.md
+source_sections: ['2. Espace et mesure des biais']
+expression: 'beta_T = sum_{i=1}^5 w_i beta_i + lambda sum_{i != j} Corr(beta_i,beta_j) + mu D_trad(beta)'
+inputs:
+  - {name: beta_i, type: supplied_vector_length_5}
+  - {name: w_i, type: supplied_vector_length_5}
+  - {name: correlations, type: supplied_provider_values}
+  - {name: D_trad_beta, type: supplied_provider_value}
+  - {name: lambda, type: scalar}
+  - {name: mu, type: scalar}
+outputs: [{name: beta_T, type: scalar}]
+opaque_providers: [beta_components, weights, correlation, traditional_distance]
+preconditions: [all five bias values weights pairwise correlation values and traditional-distance value are supplied]
+postconditions: [evaluate the exact additive source expression]
+invariants: [no correlation or traditional-distance estimator is constructed]
+constraints: [sum over i != j is preserved as written]
+structured_errors: [AggregateBiasProviderRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FAIRNESS-001, TLC-UR-FAIRNESS-010]
+forbidden_behaviors: [invent_bias_component, invent_weight, invent_correlation_estimator, invent_traditional_distance]
+traceability: {source: maths/21-fairness/fairness.md, inventory: registry/domain-progress/fairness/feature-inventory.yaml}

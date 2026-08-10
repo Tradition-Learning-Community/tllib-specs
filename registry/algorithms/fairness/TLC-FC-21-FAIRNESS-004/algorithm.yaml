@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-004
+algorithm_kind: singularity_guarded_source_expression_evaluator
+execution: conditionally_executable
+steps: [require supplied providers, compute denominator exactly, return CorrectionDenominatorZero if zero, otherwise evaluate exact correction]
+forbidden: [regularize_zero_denominator, add_epsilon, replace_zero_with_one, return_nan_as_policy]

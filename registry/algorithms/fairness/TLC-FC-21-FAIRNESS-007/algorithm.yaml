@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-007
+algorithm_kind: provider_backed_raw_expression_evaluator
+execution: conditionally_executable
+steps: [require probability KL diversity and alignment providers, evaluate proportional factor, return without normalization]
+forbidden: [invent_KL_estimator, invent_weight_normalization, softmax, partition_function, assume_sum_one]
