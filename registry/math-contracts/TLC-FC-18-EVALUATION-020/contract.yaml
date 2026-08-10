@@ -1,0 +1,20 @@
+contract_id: TLC-MC-TLC-FC-18-EVALUATION-020
+feature_id: TLC-FC-18-EVALUATION-020
+title: Missing reflexive metric structural guard
+domain_id: evaluation
+contract_kind: structural_guard_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/18-evaluation/evaluation.md
+source_sections: ['1. Périmètre et architecture', '2.4 Indice intégré', '7. Limites et points scientifiques non résolus']
+source_fact: 'M=M_t x M_c x M_e x M_r and I_progression sums over {t,c,e,r}, but no m_r,j metric family is constructed.'
+inputs: [requested_operation, optional_external_M_r_metric_family]
+outputs: [reflexive_metric_availability_descriptor]
+preconditions: []
+postconditions: [the missing r family remains explicit, complete I_progression is blocked without an external provider]
+invariants: [r is never dropped and no reflexive metric family is fabricated]
+errors: [ReflexiveMetricProviderRequired]
+opaque_parameters: [external M_r metric family semantics]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-EVALUATION-002]
+forbidden_behaviors: [invent_reflexive_metrics, drop_r_component, substitute_zero_for_r, infer_reflexive_metrics_from_other_domains]
+traceability: {source: maths/18-evaluation/evaluation.md, inventory: registry/domain-progress/evaluation/feature-inventory.yaml}

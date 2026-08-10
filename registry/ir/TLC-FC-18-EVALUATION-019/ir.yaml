@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-019
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-019/contract.yaml
+source_candidate_ir: ir/TLC-FC-18-EVALUATION-019/ir.candidate.json
+nature: validation
+inputs: [requested_operation, optional_external_E_community]
+outputs: [community_source_availability_descriptor]
+steps: [expose source absence, inspect whether complete aggregation is requested, require external community value when needed, otherwise return unresolved descriptor]
+errors: [CommunityEvaluationUnavailable]

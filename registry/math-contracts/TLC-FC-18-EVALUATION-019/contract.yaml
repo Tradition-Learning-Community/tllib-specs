@@ -1,0 +1,20 @@
+contract_id: TLC-MC-TLC-FC-18-EVALUATION-019
+feature_id: TLC-FC-18-EVALUATION-019
+title: Missing community evaluation structural guard
+domain_id: evaluation
+contract_kind: structural_guard_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/18-evaluation/evaluation.md
+source_sections: ['1. Périmètre et architecture', '5. Agrégation', '7. Limites et points scientifiques non résolus']
+source_fact: 'E includes E_community as a fourth source, but the chapter gives no autonomous E_community formula.'
+inputs: [requested_operation, optional_external_E_community]
+outputs: [community_source_availability_descriptor]
+preconditions: []
+postconditions: [source absence is explicit, complete four-source aggregation is blocked unless an external E_community value/provider is supplied]
+invariants: [no formula no estimator and no Community-domain runtime dependency is invented]
+errors: [CommunityEvaluationUnavailable]
+opaque_parameters: [external E_community semantics]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-EVALUATION-003]
+forbidden_behaviors: [invent_community_evaluation_formula, substitute_mentor_for_community, substitute_zero_for_community, import_community_runtime]
+traceability: {source: maths/18-evaluation/evaluation.md, inventory: registry/domain-progress/evaluation/feature-inventory.yaml}

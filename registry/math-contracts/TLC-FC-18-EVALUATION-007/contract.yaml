@@ -1,0 +1,25 @@
+contract_id: TLC-MC-TLC-FC-18-EVALUATION-007
+feature_id: TLC-FC-18-EVALUATION-007
+title: Progression zone thresholds and classification
+domain_id: evaluation
+contract_kind: guarded_threshold_expression
+scientific_status: external_provider_required
+scientific_authority: maths/18-evaluation/evaluation.md
+source_sections: ['3. Zones et transitions']
+formulae:
+  theta_1: 'E[||M_novice(t)||] (1 + alpha E_stimulant(t))'
+  theta_2: 'E[||M_competent(t)||] sigma(P_fluid(t))'
+  theta_3: 'E[||M_advanced(t)||] tanh(V_coherence(t))'
+zone_semantics: [emergence below theta_1, structuration between theta_1 and theta_2, integration between theta_2 and theta_3, mastery above theta_3]
+inputs: [metric_norm, alpha, E_stimulant_t, P_fluid_t, V_coherence_t]
+providers: [novice_norm_expectation, competent_norm_expectation, advanced_norm_expectation, sigma_provider]
+outputs: [theta_1, theta_2, theta_3, progression_zone]
+preconditions: [expectation and sigma providers are supplied, thresholds admit an ordering compatible with the source interval semantics]
+postconditions: [zone labels and threshold expressions remain source-faithful]
+invariants: [no calibration values are invented, no promotion policy or state machine is added]
+errors: [ZoneExpectationProviderRequired, SigmaProviderRequired, ThresholdOrderingInvalid]
+opaque_parameters: [alpha, expectation semantics, sigma]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-EVALUATION-007, TLC-UR-EVALUATION-012, TLC-UR-EVALUATION-020]
+forbidden_behaviors: [invent_threshold, invent_expectation, invent_sigma, invent_state_machine, clamp_undefined_metric]
+traceability: {source: maths/18-evaluation/evaluation.md, inventory: registry/domain-progress/evaluation/feature-inventory.yaml}

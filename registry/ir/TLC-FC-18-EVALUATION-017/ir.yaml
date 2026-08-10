@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-017
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-017/contract.yaml
+source_candidate_ir: ir/TLC-FC-18-EVALUATION-017/ir.candidate.json
+nature: transform
+inputs: [evaluation_stddev, evaluation_mean, evaluation_metric_correlation, alpha, beta, bias, gamma, V_justice, norm_provider]
+outputs: [I_fairness]
+steps: [require providers, validate mean denominator, form variability ratio term, add correlation term, subtract bias term, add justice term, return procedural metric]
+errors: [FairnessStatisticsProviderRequired, CorrelationProviderRequired, NormProviderRequired, InvalidMetricDenominator]

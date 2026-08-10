@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-015
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-015/contract.yaml
+tests:
+  - {id: EVA015-T01, category: preservation, verifies: efficiency metric preserves distance ratio reciprocal time and negative exponential factor}
+  - {id: EVA015-T02, category: error, verifies: zero initial-distance denominator t<=0 or tau=0 is rejected without clamp}
+  - {id: EVA015-T03, category: preservation, verifies: raw metric is not labeled higher-is-better or lower-is-better}
+  - {id: EVA015-T04, category: error, verifies: absent norm provider is rejected}

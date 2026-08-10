@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-006
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-006/contract.yaml
+source_candidate_ir: ir/TLC-FC-18-EVALUATION-006/ir.candidate.json
+nature: dynamical
+inputs: [w_i, kappa_i, importance_i_t, lambda_i, partial_J_partial_w_i, mu_i, E_context_t, w_i_opt]
+outputs: [dw_i_dt_rhs]
+steps: [require operands, form importance-relaxation term, form objective-gradient term, form contextual optimum term, sum and return RHS]
+errors: [ObjectiveGradientProviderRequired, ProgressionWeightOperandRequired]

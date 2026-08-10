@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-001
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-001/contract.yaml
+tests:
+  - {id: EVA001-T01, category: valid_input, verifies: all source predicates true yields an admissible assessment}
+  - {id: EVA001-T02, category: preservation, verifies: confidence transparency and benevolence use strict greater-than comparisons}
+  - {id: EVA001-T03, category: invalid_input, verifies: one source reliability at or below theta_reliability prevents validity}
+  - {id: EVA001-T04, category: error, verifies: a missing threshold provider is rejected rather than calibrated}
+  - {id: EVA001-T05, category: preservation, verifies: Regulation is not queried or imported}

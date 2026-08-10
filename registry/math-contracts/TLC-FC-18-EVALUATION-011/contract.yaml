@@ -1,0 +1,22 @@
+contract_id: TLC-MC-TLC-FC-18-EVALUATION-011
+feature_id: TLC-FC-18-EVALUATION-011
+title: Peer population and peer evaluation
+domain_id: evaluation
+contract_kind: guarded_source_expression
+scientific_status: preserved_unresolved
+scientific_authority: maths/18-evaluation/evaluation.md
+source_sections: ['4.2 Pairs', '7. Limites et points scientifiques non résolus']
+population_formula: 'P_d(t)={p in D | affinity(d,p,t)>theta_aff, exposure(d,p,t)>theta_exp, competence(p,t)>theta_comp}'
+evaluation_formula: 'E_peers(d,t)=(1/|P_d(t)|) sum_{p in P_d(t)} W_p(d,p,t) dot Psi_p(X(d,t),Interactions(d,p,t),E_context(t)) + b_p(t) + epsilon_p(d,t)'
+inputs: [candidate_peers, affinity_values, exposure_values, competence_values, theta_aff, theta_exp, theta_comp, W_p, Psi_p_evaluated_by_peer, b_p, epsilon_p]
+providers: [affinity_provider, exposure_provider, competence_provider, Psi_p_provider]
+outputs: [P_d, E_peers]
+preconditions: [all three thresholds and peer predicates are supplied, Psi_p values exist for retained peers, P_d is nonempty before evaluation]
+postconditions: [filter uses strict source thresholds, peer mean denominator equals retained population cardinality, b_p and epsilon_p retain source placement]
+invariants: [empty peer population has no numeric fallback, no threshold calibration, Psi_p realization is not invented]
+errors: [PeerFilterProviderRequired, PeerThresholdProviderRequired, PeerPopulationEmpty, PeerFeatureProviderRequired]
+opaque_parameters: [theta_aff, theta_exp, theta_comp, Psi_p realization]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-EVALUATION-011, TLC-UR-EVALUATION-012, TLC-UR-EVALUATION-017]
+forbidden_behaviors: [invent_threshold, invent_peer_empty_set_fallback, return_zero_for_empty_peers, return_nan_for_empty_peers, fallback_to_mentor, invent_peer_feature_map]
+traceability: {source: maths/18-evaluation/evaluation.md, inventory: registry/domain-progress/evaluation/feature-inventory.yaml}

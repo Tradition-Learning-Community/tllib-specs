@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-012
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-012/contract.yaml
+source_candidate_ir: ir/TLC-FC-18-EVALUATION-012/ir.candidate.json
+nature: transform
+inputs: [W_a, Gamma_a_evaluated, b_a, alpha, overconfidence, beta, excessive_modesty, gamma, cognitive_blindness, delta, E_affective]
+outputs: [epsilon_a, E_self]
+steps: [require Gamma_a provider, compute four explicit bias terms, sum epsilon_a, evaluate weighted self-feature term, add b_a and epsilon_a, return results]
+errors: [SelfFeatureProviderRequired, SelfBiasOperandRequired, CompatibleSelfArithmeticRequired]

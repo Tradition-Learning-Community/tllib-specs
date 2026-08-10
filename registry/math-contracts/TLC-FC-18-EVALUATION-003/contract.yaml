@@ -1,0 +1,24 @@
+contract_id: TLC-MC-TLC-FC-18-EVALUATION-003
+feature_id: TLC-FC-18-EVALUATION-003
+title: Contextual progression metrics
+domain_id: evaluation
+contract_kind: source_expression_bundle
+scientific_status: external_provider_required
+scientific_authority: maths/18-evaluation/evaluation.md
+source_sections: ['2.2 Espace contextuel']
+formulae:
+  m_c1: 'E_E[||C(E)-C_optimal(E)|| w(E)]'
+  m_c2: '(V_prudence dot C_analysis)/(||V_prudence|| ||C_analysis||) * sigma(Val_wisdom)'
+  m_c3: '(sum_i w_i resolution_i)/(sum_i w_i complexity_i) * tanh(P_innovation)'
+inputs: [C_of_E, V_prudence, C_analysis, Val_wisdom, weighted_resolution_terms, weighted_complexity_terms, P_innovation]
+providers: [expectation_over_E, C_optimal_of_E, w_of_E, norm_provider, dot_product_provider, sigma_provider]
+outputs: [m_c1, m_c2, m_c3]
+preconditions: [expectation semantics are supplied externally, C_optimal and w(E) providers are supplied, cosine norms are nonzero, sum_i w_i complexity_i is nonzero]
+postconditions: [source expectation cosine and weighted-ratio expressions are preserved]
+invariants: [no distribution over E is constructed, no Monte Carlo estimator is constructed, no norm C_optimal or weight function is invented]
+errors: [ExpectationProviderRequired, ContextOptimalProviderRequired, ContextWeightProviderRequired, NormProviderRequired, SigmaProviderRequired, InvalidMetricDenominator]
+opaque_parameters: [distribution_or_expectation_semantics, C_optimal, w(E), norm, sigma]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-EVALUATION-007, TLC-UR-EVALUATION-009, TLC-UR-EVALUATION-010, TLC-UR-EVALUATION-019]
+forbidden_behaviors: [invent_distribution, invent_monte_carlo_estimator, invent_norm, invent_context_optimal, invent_weight, clamp_undefined_metric]
+traceability: {source: maths/18-evaluation/evaluation.md, inventory: registry/domain-progress/evaluation/feature-inventory.yaml}

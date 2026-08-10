@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-18-EVALUATION-010
+feature_id: TLC-FC-18-EVALUATION-010
+title: Mentor weight right-hand side
+domain_id: evaluation
+contract_kind: guarded_dynamical_rhs_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/18-evaluation/evaluation.md
+source_sections: ['4.1 Mentor', '7. Limites et points scientifiques non résolus']
+formula: 'dW_m/dt = eta_m(E_truth-E_mentor) Phi_m^T + lambda_m(W_m,opt-W_m)'
+inputs: [eta_m, E_truth, E_mentor, Phi_m_evaluated, lambda_m, W_m_opt, W_m]
+providers: [E_truth_provider, Phi_m_provider]
+outputs: [dW_m_dt_rhs]
+preconditions: [E_truth and Phi_m are explicitly supplied, compatible transpose and arithmetic semantics are available]
+postconditions: [output equals exact source RHS and does not update W_m]
+invariants: [E_truth is never fabricated, no trajectory integration or learning optimizer is introduced]
+errors: [TruthSignalProviderRequired, MentorFeatureProviderRequired, CompatibleMentorArithmeticRequired]
+opaque_parameters: [E_truth, eta_m, lambda_m, W_m_opt]
+dependencies: {scientific: [TLC-FC-18-EVALUATION-009], runtime: []}
+unresolved_items: [TLC-UR-EVALUATION-004, TLC-UR-EVALUATION-017]
+forbidden_behaviors: [invent_truth_signal, invent_mentor_feature_map, invent_numerical_integrator, mutate_mentor_weights]
+traceability: {source: maths/18-evaluation/evaluation.md, inventory: registry/domain-progress/evaluation/feature-inventory.yaml}

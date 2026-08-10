@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-019
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-019/contract.yaml
+tests:
+  - {id: EVA019-T01, category: preservation, verifies: E_community remains explicitly source-undefined}
+  - {id: EVA019-T02, category: error, verifies: complete aggregation without external E_community yields CommunityEvaluationUnavailable}
+  - {id: EVA019-T03, category: invariant, verifies: no formula zero mentor fallback or Community runtime dependency is invented}

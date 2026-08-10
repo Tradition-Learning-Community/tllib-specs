@@ -1,0 +1,20 @@
+contract_id: TLC-MC-TLC-FC-18-EVALUATION-006
+feature_id: TLC-FC-18-EVALUATION-006
+title: Progression weight right-hand side
+domain_id: evaluation
+contract_kind: dynamical_rhs_contract
+scientific_status: external_provider_required
+scientific_authority: maths/18-evaluation/evaluation.md
+source_sections: ['2.4 Indice intégré']
+formula: 'dw_i/dt = kappa_i(importance_i(t)-w_i) + lambda_i partial_J/partial_w_i + mu_i E_context(t)(w_i,opt-w_i)'
+inputs: [w_i, kappa_i, importance_i_t, lambda_i, partial_J_partial_w_i, mu_i, E_context_t, w_i_opt]
+outputs: [dw_i_dt_rhs]
+preconditions: [all source operands including externally evaluated objective gradient are supplied]
+postconditions: [output equals the literal source RHS and is not a trajectory update]
+invariants: [no time integration, no objective differentiation, no optimizer]
+errors: [ObjectiveGradientProviderRequired, ProgressionWeightOperandRequired]
+opaque_parameters: [kappa_i, lambda_i, mu_i, partial_J_partial_w_i, w_i_opt]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-EVALUATION-008, TLC-UR-EVALUATION-012]
+forbidden_behaviors: [invent_gradient, invent_numerical_integrator, invent_optimizer, mutate_weight_state]
+traceability: {source: maths/18-evaluation/evaluation.md, inventory: registry/domain-progress/evaluation/feature-inventory.yaml}

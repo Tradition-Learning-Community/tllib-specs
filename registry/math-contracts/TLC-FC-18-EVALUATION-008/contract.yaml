@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-18-EVALUATION-008
+feature_id: TLC-FC-18-EVALUATION-008
+title: Zone transition probability expression
+domain_id: evaluation
+contract_kind: source_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/18-evaluation/evaluation.md
+source_sections: ['3. Zones et transitions']
+formula: 'P(i->i+1|t)=sigma(beta_i(||M(d,t)||-theta_i(t)) + alpha_i d||M||/dt + gamma_i V_preparation(t))'
+inputs: [metric_norm, theta_i_t, metric_norm_derivative, V_preparation_t, beta_i, alpha_i, gamma_i]
+providers: [sigma_provider, metric_norm_derivative_provider]
+outputs: [transition_probability_expression_value]
+preconditions: [sigma and derivative values are supplied by their providers]
+postconditions: [output is only the source sigmoid expression value]
+invariants: [no Markov semantics, no automatic promotion, no transition state mutation]
+errors: [SigmaProviderRequired, MetricDerivativeProviderRequired, TransitionOperandRequired]
+opaque_parameters: [sigma, beta_i, alpha_i, gamma_i, theta_i]
+dependencies: {scientific: [TLC-FC-18-EVALUATION-007], runtime: []}
+unresolved_items: [TLC-UR-EVALUATION-008, TLC-UR-EVALUATION-012, TLC-UR-EVALUATION-020]
+forbidden_behaviors: [invent_sigma, invent_derivative_scheme, invent_state_machine, invent_markov_process, auto_promote_zone]
+traceability: {source: maths/18-evaluation/evaluation.md, inventory: registry/domain-progress/evaluation/feature-inventory.yaml}

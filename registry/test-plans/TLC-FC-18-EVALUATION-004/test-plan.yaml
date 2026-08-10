@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-004
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-004/contract.yaml
+tests:
+  - {id: EVA004-T01, category: preservation, verifies: m_e1 preserves pi_Val projection weighted norm and negative gradient exponential}
+  - {id: EVA004-T02, category: error, verifies: absent projection geometry is rejected with no invented projection}
+  - {id: EVA004-T03, category: preservation, verifies: m_e2 preserves cosine plus positive alpha gradient-norm term}
+  - {id: EVA004-T04, category: preservation, verifies: m_e3 preserves temporal integral and strict derivative indicator}
+  - {id: EVA004-T05, category: error, verifies: missing gradient integral or derivative provider is rejected with no numerical method}

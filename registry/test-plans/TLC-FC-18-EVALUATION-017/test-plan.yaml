@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-017
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-017/contract.yaml
+tests:
+  - {id: EVA017-T01, category: preservation, verifies: procedural fairness formula retains variability correlation bias and justice terms with source signs}
+  - {id: EVA017-T02, category: error, verifies: zero evaluation mean is rejected without clamp}
+  - {id: EVA017-T03, category: error, verifies: absent statistics correlation or norm provider is rejected}
+  - {id: EVA017-T04, category: invariant, verifies: no distributive-justice mechanism or Fairness runtime dependency is introduced}

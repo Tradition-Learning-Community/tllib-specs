@@ -1,0 +1,20 @@
+contract_id: TLC-MC-TLC-FC-18-EVALUATION-016
+feature_id: TLC-FC-18-EVALUATION-016
+title: System health metric expression
+domain_id: evaluation
+contract_kind: source_expression_contract
+scientific_status: defined
+scientific_authority: maths/18-evaluation/evaluation.md
+source_sections: ['6. Métriques systémiques']
+formula: 'I_health = alpha Cohesion + beta Diversity + gamma Resilience + delta Adaptability + epsilon Synergy'
+inputs: [alpha, Cohesion, beta, Diversity, gamma, Resilience, delta, Adaptability, epsilon, Synergy]
+outputs: [I_health]
+preconditions: [all scalar operands and compatible addition/multiplication are supplied]
+postconditions: [result equals the exact five-term source weighted sum]
+invariants: [all five terms and source signs are preserved]
+errors: [HealthMetricOperandRequired, CompatibleHealthArithmeticRequired]
+opaque_parameters: []
+dependencies: {scientific: [], runtime: []}
+unresolved_items: []
+forbidden_behaviors: [drop_health_component, normalize_health_weights_without_source, clamp_health_metric]
+traceability: {source: maths/18-evaluation/evaluation.md, inventory: registry/domain-progress/evaluation/feature-inventory.yaml}

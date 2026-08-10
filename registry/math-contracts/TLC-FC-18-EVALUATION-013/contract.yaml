@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-18-EVALUATION-013
+feature_id: TLC-FC-18-EVALUATION-013
+title: Multi-source aggregation and source-weight constraints
+domain_id: evaluation
+contract_kind: guarded_source_expression
+scientific_status: preserved_unresolved
+scientific_authority: maths/18-evaluation/evaluation.md
+source_sections: ['5. Agrégation', '7. Limites et points scientifiques non résolus']
+formula: 'E_total(d,t)=sum_{i in I} alpha_i E_i + beta product_i E_i^{gamma_i} + delta E_synergy'
+constraints: ['sum_i alpha_i = 1', 'alpha_i >= alpha_min_i(t)', 'mentor weight satisfies its source-stated minimum before t_autonomy(d)']
+inputs: [E_mentor, E_peers, E_self, E_community, alpha_i, beta, gamma_i, delta, E_synergy, alpha_min_i, t, t_autonomy_d, mentor_minimum]
+outputs: [E_total]
+preconditions: [all requested evaluation sources including community are supplied, source-weight constraints already hold, powers/product are defined for supplied domain]
+postconditions: [weighted sum geometric-product term and synergy term are preserved exactly]
+invariants: [weights are never silently renormalized or projected, community source is never synthesized, autonomy policy/minima are never invented]
+errors: [CommunityEvaluationUnavailable, SourceWeightSumConstraintViolation, SourceWeightMinimumViolation, MentorMinimumConstraintViolation, AggregationDomainInvalid]
+opaque_parameters: [E_community, alpha_min_i, t_autonomy_d, mentor_minimum, beta, gamma_i, delta]
+dependencies: {scientific: [TLC-FC-18-EVALUATION-019], runtime: []}
+unresolved_items: [TLC-UR-EVALUATION-003, TLC-UR-EVALUATION-012, TLC-UR-EVALUATION-013]
+forbidden_behaviors: [invent_community_evaluation_formula, silently_renormalize_source_weights, invent_simplex_solver, invent_autonomy_policy, invent_weight_minimum, clamp_undefined_metric]
+traceability: {source: maths/18-evaluation/evaluation.md, inventory: registry/domain-progress/evaluation/feature-inventory.yaml}

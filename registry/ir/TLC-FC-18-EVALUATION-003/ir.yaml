@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-003
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-003/contract.yaml
+source_candidate_ir: ir/TLC-FC-18-EVALUATION-003/ir.candidate.json
+nature: transform
+inputs: [C_of_E, V_prudence, C_analysis, Val_wisdom, weighted_resolution_terms, weighted_complexity_terms, P_innovation, expectation_over_E, C_optimal_of_E, w_of_E, norm_provider, dot_product_provider, sigma_provider]
+outputs: [m_c1, m_c2, m_c3]
+steps: [require providers, evaluate m_c1 expectation, evaluate m_c2 cosine-sigma expression, validate weighted complexity denominator, evaluate m_c3, return metrics]
+errors: [ExpectationProviderRequired, ContextOptimalProviderRequired, ContextWeightProviderRequired, NormProviderRequired, SigmaProviderRequired, InvalidMetricDenominator]

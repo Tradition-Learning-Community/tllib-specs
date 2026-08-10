@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-011
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-011/contract.yaml
+tests:
+  - {id: EVA011-T01, category: preservation, verifies: affinity exposure competence filters retain strict greater-than source predicates}
+  - {id: EVA011-T02, category: error, verifies: P_d empty yields PeerPopulationEmpty before any division}
+  - {id: EVA011-T03, category: preservation, verifies: empty P_d never returns zero NaN mentor value or another fallback}
+  - {id: EVA011-T04, category: preservation, verifies: peer mean uses exactly |P_d| and source sum expression}
+  - {id: EVA011-T05, category: error, verifies: missing Psi_p provider is rejected without feature-map invention}

@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-010
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-010/contract.yaml
+tests:
+  - {id: EVA010-T01, category: preservation, verifies: mentor-weight RHS preserves truth-error and optimum-attraction terms}
+  - {id: EVA010-T02, category: error, verifies: absent E_truth yields TruthSignalProviderRequired with no fabricated truth}
+  - {id: EVA010-T03, category: error, verifies: absent Phi_m provider is rejected}
+  - {id: EVA010-T04, category: invariant, verifies: operation returns RHS only and does not integrate W_m}

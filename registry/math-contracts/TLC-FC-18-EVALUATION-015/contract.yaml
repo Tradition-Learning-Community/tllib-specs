@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-18-EVALUATION-015
+feature_id: TLC-FC-18-EVALUATION-015
+title: Efficiency metric expression
+domain_id: evaluation
+contract_kind: guarded_source_expression
+scientific_status: preserved_unresolved
+scientific_authority: maths/18-evaluation/evaluation.md
+source_sections: ['6. Métriques systémiques', '7. Limites et points scientifiques non résolus']
+formula: 'I_efficiency(t)=(||X_real-X_ideal||/||X_initial-X_ideal||)(1/t) exp(-(sigma_E^2+||bias||^2)/(2 tau^2))'
+inputs: [X_real, X_ideal, X_initial, t, sigma_E_squared, bias, tau]
+providers: [norm_provider]
+outputs: [I_efficiency]
+preconditions: [norm(X_initial-X_ideal) != 0, t > 0, tau != 0, norm provider is supplied]
+postconditions: [raw source metric value is returned without an interpretation label]
+invariants: [orientation is not relabeled as higher-is-better or lower-is-better, source negative exponential sign is preserved]
+errors: [NormProviderRequired, InvalidMetricDenominator, EfficiencyInterpretationUnavailable]
+opaque_parameters: [norm semantics, tau, orientation semantics]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-EVALUATION-009, TLC-UR-EVALUATION-015, TLC-UR-EVALUATION-019]
+forbidden_behaviors: [invent_norm, clamp_undefined_metric, assert_high_is_better, assert_low_is_better, invert_efficiency_orientation]
+traceability: {source: maths/18-evaluation/evaluation.md, inventory: registry/domain-progress/evaluation/feature-inventory.yaml}

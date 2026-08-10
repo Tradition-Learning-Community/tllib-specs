@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-001
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-001/contract.yaml
+source_candidate_ir: ir/TLC-FC-18-EVALUATION-001/ir.candidate.json
+nature: validation
+inputs: [confidence_d_t, transparency_c_t, benevolence_c_t, value_state_c, admissible_values, source_reliabilities, average_confidence, average_transparency, average_benevolence, theta_c, theta_t, theta_b, theta_reliability]
+outputs: [admissibility_assessment]
+steps: [require providers, evaluate strict validity predicates, evaluate source reliabilities, evaluate average constraints, return structured assessment]
+errors: [ValidityThresholdProviderRequired, ReliabilityProviderRequired, AdmissibilityProviderRequired]

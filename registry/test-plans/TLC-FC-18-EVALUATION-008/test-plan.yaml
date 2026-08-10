@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-008
+source_contract: registry/math-contracts/TLC-FC-18-EVALUATION-008/contract.yaml
+tests:
+  - {id: EVA008-T01, category: preservation, verifies: beta threshold-gap alpha derivative and gamma preparation terms keep source signs}
+  - {id: EVA008-T02, category: error, verifies: absent sigma provider is rejected}
+  - {id: EVA008-T03, category: error, verifies: absent metric derivative provider is rejected with no finite-difference fallback}
+  - {id: EVA008-T04, category: invariant, verifies: output is an expression value and does not mutate a zone or create a Markov transition}
