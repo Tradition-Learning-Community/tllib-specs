@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-019
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-18-EVALUATION-019/ir.yaml
+operation: guard_missing_community_evaluation
+required_behavior: [describe E_community as declared but source-undefined, block complete four-source aggregation unless external value is supplied]
+forbidden_behavior: [invent_community_evaluation_formula, substitute_zero_for_community, substitute_mentor_for_community, import_community_runtime]
+error_codes: [CommunityEvaluationUnavailable]

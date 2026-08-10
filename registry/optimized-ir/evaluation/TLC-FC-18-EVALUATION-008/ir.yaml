@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-008
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-18-EVALUATION-008/ir.yaml
+operation: evaluate_transition_probability_expression
+required_behavior: [require sigma and metric-derivative providers, preserve beta threshold-gap alpha derivative and gamma preparation terms, return expression value only]
+forbidden_behavior: [invent_sigma, invent_derivative_scheme, invent_markov_process, invent_state_machine, auto_promote_zone]
+error_codes: [SigmaProviderRequired, MetricDerivativeProviderRequired, TransitionOperandRequired]

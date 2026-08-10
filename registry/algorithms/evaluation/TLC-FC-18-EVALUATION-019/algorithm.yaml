@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-019
+algorithm_kind: structural_guard
+execution: structural_only
+steps: [expose source fact that E_community has no formula, inspect whether complete aggregation is requested, if required value is absent return CommunityEvaluationUnavailable, otherwise preserve external value provenance]
+forbidden: [invent_community_evaluation_formula, zero_fallback, mentor_fallback, import_community_runtime]

@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-011
+algorithm_kind: guarded_population_and_mean
+execution: conditionally_executable
+steps: [require peer predicate values and opaque thresholds, retain peers satisfying affinity>theta_aff exposure>theta_exp competence>theta_comp, if population is empty return PeerPopulationEmpty, require Psi_p values for retained peers, compute source weighted peer sum divided by retained cardinality, add source b_p and epsilon_p terms, return P_d and E_peers]
+forbidden: [invent_threshold, empty_set_zero, empty_set_nan, mentor_fallback, invent_peer_feature_map]

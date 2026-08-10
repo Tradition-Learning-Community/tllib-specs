@@ -1,0 +1,77 @@
+schema_version: 1
+manifest_id: TLC-EVALUATION-DOMAIN-FINALIZATION-001
+domain: evaluation
+phase: 4
+status: selected_for_implementation_handoff
+base_branch: main
+base_commit: b93b2720338dc4327f565cc2c0ce33b072d122b2
+population:
+  - TLC-FC-18-EVALUATION-001
+  - TLC-FC-18-EVALUATION-002
+  - TLC-FC-18-EVALUATION-003
+  - TLC-FC-18-EVALUATION-004
+  - TLC-FC-18-EVALUATION-005
+  - TLC-FC-18-EVALUATION-006
+  - TLC-FC-18-EVALUATION-007
+  - TLC-FC-18-EVALUATION-008
+  - TLC-FC-18-EVALUATION-009
+  - TLC-FC-18-EVALUATION-010
+  - TLC-FC-18-EVALUATION-011
+  - TLC-FC-18-EVALUATION-012
+  - TLC-FC-18-EVALUATION-013
+  - TLC-FC-18-EVALUATION-014
+  - TLC-FC-18-EVALUATION-015
+  - TLC-FC-18-EVALUATION-016
+  - TLC-FC-18-EVALUATION-017
+  - TLC-FC-18-EVALUATION-018
+  - TLC-FC-18-EVALUATION-019
+  - TLC-FC-18-EVALUATION-020
+source_authority:
+  scientific_source: {path: maths/18-evaluation/evaluation.md, blob_sha: b0cbc649d391ee574c26a3a8430b7375d74c4578, modified: false}
+  analysis_companion: {domain: regulation, domain_index: 19, path: maths/19-regulation/regulation.md, blob_sha: 198377f05ad085c2fae940d9a7d78767d01e0537, role: downstream-boundary-only, modified_in_this_pr: false}
+  inventories: [registry/domain-progress/evaluation/source-inventory.yaml, registry/domain-progress/evaluation/feature-inventory.yaml, registry/domain-progress/evaluation/feature-dependencies.yaml, registry/scientific-objects/evaluation/scientific-objects.candidate.yaml, registry/scientific-objects/evaluation/scientific-relations.candidate.yaml, registry/scientific-objects/evaluation/unresolved-terms.yaml]
+source_artifact_patterns:
+  contract: registry/math-contracts/<FEATURE_ID>/contract.yaml
+  candidate_ir: ir/<FEATURE_ID>/ir.candidate.json
+  source_ir: registry/ir/<FEATURE_ID>/ir.yaml
+  test_plan: registry/test-plans/<FEATURE_ID>/test-plan.yaml
+finalized_artifact_patterns:
+  optimized_ir: registry/optimized-ir/evaluation/<FEATURE_ID>/ir.yaml
+  algorithm: registry/algorithms/evaluation/<FEATURE_ID>/algorithm.yaml
+  oracle: registry/oracles/evaluation/<FEATURE_ID>/oracle.yaml
+  implementation_tasks: registry/domain-finalization/evaluation/implementation-tasks.yaml
+feature_artifacts:
+  TLC-FC-18-EVALUATION-001: {contract: registry/math-contracts/TLC-FC-18-EVALUATION-001/contract.yaml, candidate_ir: ir/TLC-FC-18-EVALUATION-001/ir.candidate.json, source_ir: registry/ir/TLC-FC-18-EVALUATION-001/ir.yaml, test_plan: registry/test-plans/TLC-FC-18-EVALUATION-001/test-plan.yaml, optimized_ir: registry/optimized-ir/evaluation/TLC-FC-18-EVALUATION-001/ir.yaml, algorithm: registry/algorithms/evaluation/TLC-FC-18-EVALUATION-001/algorithm.yaml, oracle: registry/oracles/evaluation/TLC-FC-18-EVALUATION-001/oracle.yaml}
+  TLC-FC-18-EVALUATION-002: {contract: registry/math-contracts/TLC-FC-18-EVALUATION-002/contract.yaml, candidate_ir: ir/TLC-FC-18-EVALUATION-002/ir.candidate.json, source_ir: registry/ir/TLC-FC-18-EVALUATION-002/ir.yaml, test_plan: registry/test-plans/TLC-FC-18-EVALUATION-002/test-plan.yaml, optimized_ir: registry/optimized-ir/evaluation/TLC-FC-18-EVALUATION-002/ir.yaml, algorithm: registry/algorithms/evaluation/TLC-FC-18-EVALUATION-002/algorithm.yaml, oracle: registry/oracles/evaluation/TLC-FC-18-EVALUATION-002/oracle.yaml}
+  TLC-FC-18-EVALUATION-003: {contract: registry/math-contracts/TLC-FC-18-EVALUATION-003/contract.yaml, candidate_ir: ir/TLC-FC-18-EVALUATION-003/ir.candidate.json, source_ir: registry/ir/TLC-FC-18-EVALUATION-003/ir.yaml, test_plan: registry/test-plans/TLC-FC-18-EVALUATION-003/test-plan.yaml, optimized_ir: registry/optimized-ir/evaluation/TLC-FC-18-EVALUATION-003/ir.yaml, algorithm: registry/algorithms/evaluation/TLC-FC-18-EVALUATION-003/algorithm.yaml, oracle: registry/oracles/evaluation/TLC-FC-18-EVALUATION-003/oracle.yaml}
+  TLC-FC-18-EVALUATION-004: {contract: registry/math-contracts/TLC-FC-18-EVALUATION-004/contract.yaml, candidate_ir: ir/TLC-FC-18-EVALUATION-004/ir.candidate.json, source_ir: registry/ir/TLC-FC-18-EVALUATION-004/ir.yaml, test_plan: registry/test-plans/TLC-FC-18-EVALUATION-004/test-plan.yaml, optimized_ir: registry/optimized-ir/evaluation/TLC-FC-18-EVALUATION-004/ir.yaml, algorithm: registry/algorithms/evaluation/TLC-FC-18-EVALUATION-004/algorithm.yaml, oracle: registry/oracles/evaluation/TLC-FC-18-EVALUATION-004/oracle.yaml}
+  TLC-FC-18-EVALUATION-005: {contract: registry/math-contracts/TLC-FC-18-EVALUATION-005/contract.yaml, candidate_ir: ir/TLC-FC-18-EVALUATION-005/ir.candidate.json, source_ir: registry/ir/TLC-FC-18-EVALUATION-005/ir.yaml, test_plan: registry/test-plans/TLC-FC-18-EVALUATION-005/test-plan.yaml, optimized_ir: registry/optimized-ir/evaluation/TLC-FC-18-EVALUATION-005/ir.yaml, algorithm: registry/algorithms/evaluation/TLC-FC-18-EVALUATION-005/algorithm.yaml, oracle: registry/oracles/evaluation/TLC-FC-18-EVALUATION-005/oracle.yaml}
+  TLC-FC-18-EVALUATION-006: {contract: registry/math-contracts/TLC-FC-18-EVALUATION-006/contract.yaml, candidate_ir: ir/TLC-FC-18-EVALUATION-006/ir.candidate.json, source_ir: registry/ir/TLC-FC-18-EVALUATION-006/ir.yaml, test_plan: registry/test-plans/TLC-FC-18-EVALUATION-006/test-plan.yaml, optimized_ir: registry/optimized-ir/evaluation/TLC-FC-18-EVALUATION-006/ir.yaml, algorithm: registry/algorithms/evaluation/TLC-FC-18-EVALUATION-006/algorithm.yaml, oracle: registry/oracles/evaluation/TLC-FC-18-EVALUATION-006/oracle.yaml}
+  TLC-FC-18-EVALUATION-007: {contract: registry/math-contracts/TLC-FC-18-EVALUATION-007/contract.yaml, candidate_ir: ir/TLC-FC-18-EVALUATION-007/ir.candidate.json, source_ir: registry/ir/TLC-FC-18-EVALUATION-007/ir.yaml, test_plan: registry/test-plans/TLC-FC-18-EVALUATION-007/test-plan.yaml, optimized_ir: registry/optimized-ir/evaluation/TLC-FC-18-EVALUATION-007/ir.yaml, algorithm: registry/algorithms/evaluation/TLC-FC-18-EVALUATION-007/algorithm.yaml, oracle: registry/oracles/evaluation/TLC-FC-18-EVALUATION-007/oracle.yaml}
+  TLC-FC-18-EVALUATION-008: {contract: registry/math-contracts/TLC-FC-18-EVALUATION-008/contract.yaml, candidate_ir: ir/TLC-FC-18-EVALUATION-008/ir.candidate.json, source_ir: registry/ir/TLC-FC-18-EVALUATION-008/ir.yaml, test_plan: registry/test-plans/TLC-FC-18-EVALUATION-008/test-plan.yaml, optimized_ir: registry/optimized-ir/evaluation/TLC-FC-18-EVALUATION-008/ir.yaml, algorithm: registry/algorithms/evaluation/TLC-FC-18-EVALUATION-008/algorithm.yaml, oracle: registry/oracles/evaluation/TLC-FC-18-EVALUATION-008/oracle.yaml}
+  TLC-FC-18-EVALUATION-009: {contract: registry/math-contracts/TLC-FC-18-EVALUATION-009/contract.yaml, candidate_ir: ir/TLC-FC-18-EVALUATION-009/ir.candidate.json, source_ir: registry/ir/TLC-FC-18-EVALUATION-009/ir.yaml, test_plan: registry/test-plans/TLC-FC-18-EVALUATION-009/test-plan.yaml, optimized_ir: registry/optimized-ir/evaluation/TLC-FC-18-EVALUATION-009/ir.yaml, algorithm: registry/algorithms/evaluation/TLC-FC-18-EVALUATION-009/algorithm.yaml, oracle: registry/oracles/evaluation/TLC-FC-18-EVALUATION-009/oracle.yaml}
+  TLC-FC-18-EVALUATION-010: {contract: registry/math-contracts/TLC-FC-18-EVALUATION-010/contract.yaml, candidate_ir: ir/TLC-FC-18-EVALUATION-010/ir.candidate.json, source_ir: registry/ir/TLC-FC-18-EVALUATION-010/ir.yaml, test_plan: registry/test-plans/TLC-FC-18-EVALUATION-010/test-plan.yaml, optimized_ir: registry/optimized-ir/evaluation/TLC-FC-18-EVALUATION-010/ir.yaml, algorithm: registry/algorithms/evaluation/TLC-FC-18-EVALUATION-010/algorithm.yaml, oracle: registry/oracles/evaluation/TLC-FC-18-EVALUATION-010/oracle.yaml}
+  TLC-FC-18-EVALUATION-011: {contract: registry/math-contracts/TLC-FC-18-EVALUATION-011/contract.yaml, candidate_ir: ir/TLC-FC-18-EVALUATION-011/ir.candidate.json, source_ir: registry/ir/TLC-FC-18-EVALUATION-011/ir.yaml, test_plan: registry/test-plans/TLC-FC-18-EVALUATION-011/test-plan.yaml, optimized_ir: registry/optimized-ir/evaluation/TLC-FC-18-EVALUATION-011/ir.yaml, algorithm: registry/algorithms/evaluation/TLC-FC-18-EVALUATION-011/algorithm.yaml, oracle: registry/oracles/evaluation/TLC-FC-18-EVALUATION-011/oracle.yaml}
+  TLC-FC-18-EVALUATION-012: {contract: registry/math-contracts/TLC-FC-18-EVALUATION-012/contract.yaml, candidate_ir: ir/TLC-FC-18-EVALUATION-012/ir.candidate.json, source_ir: registry/ir/TLC-FC-18-EVALUATION-012/ir.yaml, test_plan: registry/test-plans/TLC-FC-18-EVALUATION-012/test-plan.yaml, optimized_ir: registry/optimized-ir/evaluation/TLC-FC-18-EVALUATION-012/ir.yaml, algorithm: registry/algorithms/evaluation/TLC-FC-18-EVALUATION-012/algorithm.yaml, oracle: registry/oracles/evaluation/TLC-FC-18-EVALUATION-012/oracle.yaml}
+  TLC-FC-18-EVALUATION-013: {contract: registry/math-contracts/TLC-FC-18-EVALUATION-013/contract.yaml, candidate_ir: ir/TLC-FC-18-EVALUATION-013/ir.candidate.json, source_ir: registry/ir/TLC-FC-18-EVALUATION-013/ir.yaml, test_plan: registry/test-plans/TLC-FC-18-EVALUATION-013/test-plan.yaml, optimized_ir: registry/optimized-ir/evaluation/TLC-FC-18-EVALUATION-013/ir.yaml, algorithm: registry/algorithms/evaluation/TLC-FC-18-EVALUATION-013/algorithm.yaml, oracle: registry/oracles/evaluation/TLC-FC-18-EVALUATION-013/oracle.yaml}
+  TLC-FC-18-EVALUATION-014: {contract: registry/math-contracts/TLC-FC-18-EVALUATION-014/contract.yaml, candidate_ir: ir/TLC-FC-18-EVALUATION-014/ir.candidate.json, source_ir: registry/ir/TLC-FC-18-EVALUATION-014/ir.yaml, test_plan: registry/test-plans/TLC-FC-18-EVALUATION-014/test-plan.yaml, optimized_ir: registry/optimized-ir/evaluation/TLC-FC-18-EVALUATION-014/ir.yaml, algorithm: registry/algorithms/evaluation/TLC-FC-18-EVALUATION-014/algorithm.yaml, oracle: registry/oracles/evaluation/TLC-FC-18-EVALUATION-014/oracle.yaml}
+  TLC-FC-18-EVALUATION-015: {contract: registry/math-contracts/TLC-FC-18-EVALUATION-015/contract.yaml, candidate_ir: ir/TLC-FC-18-EVALUATION-015/ir.candidate.json, source_ir: registry/ir/TLC-FC-18-EVALUATION-015/ir.yaml, test_plan: registry/test-plans/TLC-FC-18-EVALUATION-015/test-plan.yaml, optimized_ir: registry/optimized-ir/evaluation/TLC-FC-18-EVALUATION-015/ir.yaml, algorithm: registry/algorithms/evaluation/TLC-FC-18-EVALUATION-015/algorithm.yaml, oracle: registry/oracles/evaluation/TLC-FC-18-EVALUATION-015/oracle.yaml}
+  TLC-FC-18-EVALUATION-016: {contract: registry/math-contracts/TLC-FC-18-EVALUATION-016/contract.yaml, candidate_ir: ir/TLC-FC-18-EVALUATION-016/ir.candidate.json, source_ir: registry/ir/TLC-FC-18-EVALUATION-016/ir.yaml, test_plan: registry/test-plans/TLC-FC-18-EVALUATION-016/test-plan.yaml, optimized_ir: registry/optimized-ir/evaluation/TLC-FC-18-EVALUATION-016/ir.yaml, algorithm: registry/algorithms/evaluation/TLC-FC-18-EVALUATION-016/algorithm.yaml, oracle: registry/oracles/evaluation/TLC-FC-18-EVALUATION-016/oracle.yaml}
+  TLC-FC-18-EVALUATION-017: {contract: registry/math-contracts/TLC-FC-18-EVALUATION-017/contract.yaml, candidate_ir: ir/TLC-FC-18-EVALUATION-017/ir.candidate.json, source_ir: registry/ir/TLC-FC-18-EVALUATION-017/ir.yaml, test_plan: registry/test-plans/TLC-FC-18-EVALUATION-017/test-plan.yaml, optimized_ir: registry/optimized-ir/evaluation/TLC-FC-18-EVALUATION-017/ir.yaml, algorithm: registry/algorithms/evaluation/TLC-FC-18-EVALUATION-017/algorithm.yaml, oracle: registry/oracles/evaluation/TLC-FC-18-EVALUATION-017/oracle.yaml}
+  TLC-FC-18-EVALUATION-018: {contract: registry/math-contracts/TLC-FC-18-EVALUATION-018/contract.yaml, candidate_ir: ir/TLC-FC-18-EVALUATION-018/ir.candidate.json, source_ir: registry/ir/TLC-FC-18-EVALUATION-018/ir.yaml, test_plan: registry/test-plans/TLC-FC-18-EVALUATION-018/test-plan.yaml, optimized_ir: registry/optimized-ir/evaluation/TLC-FC-18-EVALUATION-018/ir.yaml, algorithm: registry/algorithms/evaluation/TLC-FC-18-EVALUATION-018/algorithm.yaml, oracle: registry/oracles/evaluation/TLC-FC-18-EVALUATION-018/oracle.yaml}
+  TLC-FC-18-EVALUATION-019: {contract: registry/math-contracts/TLC-FC-18-EVALUATION-019/contract.yaml, candidate_ir: ir/TLC-FC-18-EVALUATION-019/ir.candidate.json, source_ir: registry/ir/TLC-FC-18-EVALUATION-019/ir.yaml, test_plan: registry/test-plans/TLC-FC-18-EVALUATION-019/test-plan.yaml, optimized_ir: registry/optimized-ir/evaluation/TLC-FC-18-EVALUATION-019/ir.yaml, algorithm: registry/algorithms/evaluation/TLC-FC-18-EVALUATION-019/algorithm.yaml, oracle: registry/oracles/evaluation/TLC-FC-18-EVALUATION-019/oracle.yaml}
+  TLC-FC-18-EVALUATION-020: {contract: registry/math-contracts/TLC-FC-18-EVALUATION-020/contract.yaml, candidate_ir: ir/TLC-FC-18-EVALUATION-020/ir.candidate.json, source_ir: registry/ir/TLC-FC-18-EVALUATION-020/ir.yaml, test_plan: registry/test-plans/TLC-FC-18-EVALUATION-020/test-plan.yaml, optimized_ir: registry/optimized-ir/evaluation/TLC-FC-18-EVALUATION-020/ir.yaml, algorithm: registry/algorithms/evaluation/TLC-FC-18-EVALUATION-020/algorithm.yaml, oracle: registry/oracles/evaluation/TLC-FC-18-EVALUATION-020/oracle.yaml}
+preservation:
+  scientific_source_modified: false
+  regulation_artifacts_modified: false
+  fairness_artifacts_modified: false
+  historical_handoffs_modified: false
+  other_wave2_domains_published: false
+  unresolved_science_preserved: true
+  new_shared_contracts: []
+completion_scope:
+  structural_implementation_specification_ready: true
+  semantic_execution_is_feature_specific: true
+  runtime_implementation_produced: false
+  cpp_produced: false
+  python_bindings_produced: false

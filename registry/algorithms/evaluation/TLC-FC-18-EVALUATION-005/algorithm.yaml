@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-005
+algorithm_kind: guarded_integrated_expression
+execution: conditionally_executable
+steps: [require metric families t c e r, reject missing external reflexive family, require normalizers min/max references weights and interactions, reject zero metric ranges and invalid sigma_ij, normalize through supplied providers, form weighted four-component sum, evaluate source Psi for supplied interaction pairs, return I_progression]
+forbidden: [invent_reflexive_metrics, omit_r, invent_normalizer, infer_metric_ranges, clamp_undefined_metric]

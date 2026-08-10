@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-008
+algorithm_kind: conditional_probability_expression
+execution: conditionally_executable
+steps: [require supplied sigma and d_normM_dt, form beta_i(metric_norm-theta_i) term, form alpha_i derivative term, form gamma_i V_preparation term, sum and apply supplied sigma, return expression value]
+forbidden: [finite_difference_fallback, invent_sigma, sample_transition, mutate_zone, create_markov_process]

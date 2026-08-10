@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-006
+algorithm_kind: conditional_rhs_evaluator
+execution: conditionally_executable
+steps: [require source operands and supplied partial_J_partial_w_i, form kappa importance-relaxation term, form lambda objective-gradient term, form mu context optimum-attraction term, sum and return dw_i_dt_rhs]
+forbidden: [invent_gradient, optimize_objective, integrate_weight_trajectory, mutate_weight_state]

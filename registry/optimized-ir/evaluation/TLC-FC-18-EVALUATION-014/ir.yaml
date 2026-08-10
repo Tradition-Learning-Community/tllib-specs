@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-014
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-18-EVALUATION-014/ir.yaml
+operation: evaluate_aggregation_weight_rhs
+required_behavior: [require system objective-gradient provider, preserve precision confidence and gradient terms, return RHS only]
+forbidden_behavior: [invent_gradient, invent_numerical_integrator, silently_renormalize_source_weights, invent_simplex_solver, mutate_source_weights]
+error_codes: [SystemObjectiveGradientProviderRequired, AggregationWeightOperandRequired]

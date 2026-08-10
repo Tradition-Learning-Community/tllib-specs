@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-014
+algorithm_kind: conditional_rhs_evaluator
+execution: conditionally_executable
+steps: [require supplied partial_J_system_partial_alpha_i, form kappa_i precision difference term, form lambda_i confidence relaxation term, form mu_i objective-gradient term, sum and return d_alpha_i_dt_rhs]
+forbidden: [invent_gradient, integrate_weights, project_to_simplex, silently_renormalize_source_weights]

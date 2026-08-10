@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-010
+algorithm_kind: guarded_rhs_evaluator
+execution: conditionally_executable
+steps: [require E_truth and Phi_m values, form eta_m(E_truth-E_mentor)Phi_m^T, form lambda_m(W_m_opt-W_m), sum terms, return dW_m_dt_rhs]
+forbidden: [invent_truth_signal, infer_truth_from_mentor, integrate_weights, mutate_mentor_weights]

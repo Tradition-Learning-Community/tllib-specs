@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-002
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-18-EVALUATION-002/ir.yaml
+operation: evaluate_technical_progression_metrics
+required_behavior: [require geometry calculus and sigma providers, preserve m_t1 elementwise composition, preserve m_t2 integral and stability indicator, preserve m_t3 cosine-context factor, reject invalid denominators]
+forbidden_behavior: [invent_numerical_integrator, invent_derivative_scheme, invent_norm, invent_sigma, clamp_undefined_metric]
+error_codes: [NormProviderRequired, CalculusProviderRequired, SigmaProviderRequired, InvalidMetricDenominator]

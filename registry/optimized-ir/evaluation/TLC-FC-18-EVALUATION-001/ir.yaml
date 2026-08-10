@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-001
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-18-EVALUATION-001/ir.yaml
+operation: assess_evaluation_admissibility
+required_behavior: [require opaque validity and reliability thresholds, preserve strict source predicates, assess admissible Values membership, return structured predicate evidence]
+forbidden_behavior: [invent_threshold, infer_missing_reliability, weaken_source_predicate, import_regulation_runtime]
+error_codes: [ValidityThresholdProviderRequired, ReliabilityProviderRequired, AdmissibilityProviderRequired]

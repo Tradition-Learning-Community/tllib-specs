@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-001
+algorithm_kind: conditional_guarded_predicate
+execution: conditionally_executable
+steps: [require all opaque thresholds and providers, evaluate confidence > theta_c, evaluate transparency > theta_t, evaluate benevolence > theta_b, evaluate V(c) membership in V_admissible, evaluate every source reliability > theta_reliability, evaluate source-stated average constraints, return structured assessment]
+forbidden: [invent_threshold, default_missing_reliability, import_regulation_runtime]

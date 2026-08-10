@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-018
+algorithm_kind: conditional_statistics_expression
+execution: conditionally_executable
+steps: [require externally evaluated conditional mean of E-M and conditional variance of E, verify same type tau and time population semantics, add the two source terms, return bias_t]
+forbidden: [invent_distribution, monte_carlo_fallback, invent_bias_estimator, merge_population_semantics]

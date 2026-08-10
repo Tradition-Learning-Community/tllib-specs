@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-003
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-18-EVALUATION-003/ir.yaml
+operation: evaluate_contextual_progression_metrics
+required_behavior: [use supplied expectation C_optimal weights norm and sigma providers, preserve m_c1 expectation, preserve m_c2 cosine-sigma structure, preserve m_c3 weighted ratio-tanh structure]
+forbidden_behavior: [invent_distribution, invent_monte_carlo_estimator, invent_context_optimal, invent_weight, invent_norm, clamp_undefined_metric]
+error_codes: [ExpectationProviderRequired, ContextOptimalProviderRequired, ContextWeightProviderRequired, NormProviderRequired, SigmaProviderRequired, InvalidMetricDenominator]

@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-18-EVALUATION-015
+algorithm_kind: guarded_source_metric
+execution: conditionally_executable
+steps: [require norm provider, reject zero initial ideal-distance denominator, reject t<=0, reject tau=0, compute real-to-ideal distance ratio, multiply by reciprocal time, compute source negative variance-plus-bias exponential, multiply and return raw metric]
+forbidden: [clamp_undefined_metric, infer_orientation, invert_metric, invent_norm]
