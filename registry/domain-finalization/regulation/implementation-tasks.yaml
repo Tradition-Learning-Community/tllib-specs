@@ -1,0 +1,31 @@
+schema_version: 1
+domain: regulation
+status: future_runtime_tasks_only
+runtime_implementation_in_this_change: false
+tasks:
+  - {task_id: REG-IMPL-001, feature_id: TLC-FC-19-REGULATION-001, instruction: 'Implement strict reactivity and supplied Evaluation-compatible validity predicates; never calibrate thresholds or invoke Evaluation at runtime.'}
+  - {task_id: REG-IMPL-002, feature_id: TLC-FC-19-REGULATION-002, instruction: 'Implement the exact collective self-correction RHS from supplied operands and context gradient; no time integration.'}
+  - {task_id: REG-IMPL-003, feature_id: TLC-FC-19-REGULATION-003, instruction: 'Implement exact collective solution aggregation with explicit nonempty D, sigma and norm/provider guards; synthesize no solution or weight function.'}
+  - {task_id: REG-IMPL-004, feature_id: TLC-FC-19-REGULATION-004, instruction: 'Implement F_ij from supplied W_f, Theta output and bias; do not construct Theta or infer shapes.'}
+  - {task_id: REG-IMPL-005, feature_id: TLC-FC-19-REGULATION-005, instruction: 'Implement the exact guided correction delta for N > 1 with supplied softmax X_ideal and grad J; return delta only.'}
+  - {task_id: REG-IMPL-006, feature_id: TLC-FC-19-REGULATION-006, instruction: 'Implement the raw W_f RHS only when an authoritative scalar-matrix compatibility rule is supplied; never broadcast or repair the sign.'}
+  - {task_id: REG-IMPL-007, feature_id: TLC-FC-19-REGULATION-007, instruction: 'Implement a structural guard exposing the W_f scalar-matrix ambiguity and blocking silent numerical combination.'}
+  - {task_id: REG-IMPL-008, feature_id: TLC-FC-19-REGULATION-008, instruction: 'Implement the exact coupled X RHS from supplied operators gradient and perturbation; no ODE solver or noise model.'}
+  - {task_id: REG-IMPL-009, feature_id: TLC-FC-19-REGULATION-009, instruction: 'Implement the exact coupled F RHS with supplied dX/dt and grad V values; no derivative construction or integration.'}
+  - {task_id: REG-IMPL-010, feature_id: TLC-FC-19-REGULATION-010, instruction: 'Implement the exact coupled R RHS with provider-backed tensions solutions and context gradient; construct none of them.'}
+  - {task_id: REG-IMPL-011, feature_id: TLC-FC-19-REGULATION-011, instruction: 'Implement the exact adaptive A RHS with supplied transpose and A_opt; no stability projection learning solver or integration.'}
+  - {task_id: REG-IMPL-012, feature_id: TLC-FC-19-REGULATION-012, instruction: 'Implement a structural mastery-convergence condition descriptor accepting external evidence only; never prove or estimate convergence.'}
+  - {task_id: REG-IMPL-013, feature_id: TLC-FC-19-REGULATION-013, instruction: 'Implement the raw resilience inequality from supplied probability norm and condition evidence; no probability model or Monte Carlo.'}
+  - {task_id: REG-IMPL-014, feature_id: TLC-FC-19-REGULATION-014, instruction: 'Implement a coupled-convergence descriptor preserving negative-A contradiction and missing regularity Lyapunov and big-O evidence.'}
+  - {task_id: REG-IMPL-015, feature_id: TLC-FC-19-REGULATION-015, instruction: 'Implement only the exact Lyapunov candidate value from supplied norms/references; make no dV/dt or stability claim.'}
+  - {task_id: REG-IMPL-016, feature_id: TLC-FC-19-REGULATION-016, instruction: 'Implement a structural guard preserving the negative-A convergence contradiction; never change either source sign.'}
+  - {task_id: REG-IMPL-017, feature_id: TLC-FC-19-REGULATION-017, instruction: 'Implement B_plus from supplied lambda_max derivative confidence and thresholds; no Jacobian eigen solver derivative or calibration.'}
+  - {task_id: REG-IMPL-018, feature_id: TLC-FC-19-REGULATION-018, instruction: 'Implement B_minus from supplied lambda_min tension norm transparency and thresholds; no Jacobian eigen solver norm or calibration.'}
+  - {task_id: REG-IMPL-019, feature_id: TLC-FC-19-REGULATION-019, instruction: 'Implement the operational constraints risks and safeguards as a non-prescriptive descriptor; no governance automation.'}
+  - {task_id: REG-IMPL-020, feature_id: TLC-FC-19-REGULATION-020, instruction: 'Implement a central scientific non-certification guard that blocks invented providers solvers proofs broadcasts sign repairs and convergence overclaims.'}
+common_acceptance:
+  - source expressions signs denominators and boolean grouping remain recognizable
+  - structured errors replace invented defaults and hidden repairs
+  - runtime domain dependencies remain empty
+  - Evaluation reuse is scientific only and limited to published validity semantics where applicable
+  - no ODE solver integrator optimizer eigen solver Monte Carlo Lyapunov proof or convergence certificate is introduced

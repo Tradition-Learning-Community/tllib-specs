@@ -1,0 +1,41 @@
+schema_version: 1
+domain: regulation
+module_id: TLC-DOMAIN-19-REGULATION
+status: implementation_handoff_ready
+purpose: Expose source-faithful Regulation predicates, expressions, right-hand sides and structural non-certification guards without silently completing unresolved science.
+scientific_authority: maths/19-regulation/regulation.md
+published_scientific_dependencies:
+  - {domain_index: 18, domain: evaluation, relation: Regulation uses Evaluation results and validity semantics}
+runtime_domain_dependencies: []
+shared_contract_dependencies: [TLC-HC-FEATURE-ID, TLC-HC-SCIENTIFIC-REFERENCE, TLC-HC-REFERENCE-COLLECTION, TLC-HC-UNRESOLVED-ITEM, TLC-HC-OPAQUE-VALUE, TLC-HC-STRUCTURED-ERROR, TLC-HC-TRACEABILITY, TLC-HC-DESCRIPTOR-ENVELOPE]
+features:
+  - {feature_id: TLC-FC-19-REGULATION-001, operation: assess_regulation_validity_and_reactivity, execution: conditionally_executable}
+  - {feature_id: TLC-FC-19-REGULATION-002, operation: evaluate_collective_self_correction_rhs, execution: conditionally_executable}
+  - {feature_id: TLC-FC-19-REGULATION-003, operation: evaluate_collective_solution_aggregation, execution: conditionally_executable}
+  - {feature_id: TLC-FC-19-REGULATION-004, operation: evaluate_feedback_entry, execution: conditionally_executable}
+  - {feature_id: TLC-FC-19-REGULATION-005, operation: evaluate_guided_correction_delta, execution: conditionally_executable}
+  - {feature_id: TLC-FC-19-REGULATION-006, operation: evaluate_feedback_weight_raw_rhs, execution: conditionally_executable}
+  - {feature_id: TLC-FC-19-REGULATION-007, operation: guard_feedback_weight_dimensional_ambiguity, execution: structural_only}
+  - {feature_id: TLC-FC-19-REGULATION-008, operation: evaluate_coupled_X_rhs, execution: conditionally_executable}
+  - {feature_id: TLC-FC-19-REGULATION-009, operation: evaluate_coupled_F_rhs, execution: conditionally_executable}
+  - {feature_id: TLC-FC-19-REGULATION-010, operation: evaluate_coupled_R_rhs, execution: conditionally_executable}
+  - {feature_id: TLC-FC-19-REGULATION-011, operation: evaluate_adaptive_A_rhs, execution: conditionally_executable}
+  - {feature_id: TLC-FC-19-REGULATION-012, operation: describe_mastery_convergence_conditions, execution: structural_only}
+  - {feature_id: TLC-FC-19-REGULATION-013, operation: assess_collective_resilience_inequality, execution: conditionally_executable}
+  - {feature_id: TLC-FC-19-REGULATION-014, operation: describe_coupled_system_convergence_conditions, execution: structural_only}
+  - {feature_id: TLC-FC-19-REGULATION-015, operation: evaluate_lyapunov_candidate, execution: conditionally_executable}
+  - {feature_id: TLC-FC-19-REGULATION-016, operation: guard_negative_A_convergence_contradiction, execution: structural_only}
+  - {feature_id: TLC-FC-19-REGULATION-017, operation: assess_innovation_bifurcation, execution: conditionally_executable}
+  - {feature_id: TLC-FC-19-REGULATION-018, operation: assess_systemic_crisis, execution: conditionally_executable}
+  - {feature_id: TLC-FC-19-REGULATION-019, operation: describe_operational_safeguards, execution: structural_only}
+  - {feature_id: TLC-FC-19-REGULATION-020, operation: guard_scientific_noncertification, execution: structural_only}
+module_invariants:
+  - Source signs expressions boolean grouping and denominators remain recognizable and unchanged.
+  - No threshold matrix shape norm gradient derivative Jacobian eigenvalue distribution or reference state is invented.
+  - The W_f scalar-plus-matrix ambiguity is never broadcast or repaired silently.
+  - The negative-definite A condition and its convergence contradiction remain explicitly unresolved.
+  - RHS features do not integrate time and the guided correction feature returns a delta rather than mutating state.
+  - Theorem statements are descriptors and never runtime convergence stability or Lyapunov certificates.
+  - Evaluation is a scientific provider relation only; runtime domain dependencies remain empty.
+  - Operational safeguards remain qualitative descriptors and are not algorithmized.
+non_goals: [runtime implementation, C++ implementation, Python binding, ODE solver, numerical integrator, optimizer, Jacobian construction, eigenvalue solver, Monte Carlo model, Lyapunov proof, convergence certificate, governance engine]
