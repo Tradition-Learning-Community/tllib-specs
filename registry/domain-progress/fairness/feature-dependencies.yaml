@@ -1,9 +1,10 @@
 schema_version: 1
 domain: fairness
+edge_semantics: from_domain_depends_on_to_domain
 domain_scientific_dependencies: []
 domain_runtime_dependencies: []
 downstream_scientific_consumers:
-  - {domain_index: 20, domain: robustness, relation: '20 -> 21', evidence: maths/20-robustness/robustness.md}
+  - {domain_index: 20, domain: robustness, relation: scientifically_depends_on_fairness, scientific_edge: '20 -> 21', evidence: maths/20-robustness/robustness.md}
 features:
   TLC-FC-21-FAIRNESS-001: {scientific: [], runtime: [], providers: [expectation, category_set, score, transparency, justice]}
   TLC-FC-21-FAIRNESS-002: {scientific: [], runtime: [], providers: []}
@@ -26,4 +27,5 @@ features:
 invariants:
   - fairness_has_no_scientific_dependency_on_robustness
   - robustness_remains_downstream_consumer_of_fairness
+  - scientific_edge_20_to_21_means_robustness_depends_on_fairness
   - no_domain_runtime_dependency_is_introduced
