@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-004
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-19-REGULATION-004/ir.yaml
+operation: evaluate_feedback_entry
+required_behavior: [require Theta output, use supplied contraction compatibility, preserve W_f dot Theta plus b_f]
+forbidden_behavior: [invent_feedback_feature_map, invent_matrix_shape, hidden_reshape]
+error_codes: [ThetaProviderRequired, FeedbackShapeCompatibilityRequired]

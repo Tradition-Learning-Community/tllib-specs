@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-19-REGULATION-005
+feature_id: TLC-FC-19-REGULATION-005
+title: Guided correction delta
+domain_id: regulation
+contract_kind: guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/19-regulation/regulation.md
+source_sections: ['3. Retour à 360 degrés']
+expression: 'Delta X_i = eta[(1/(N-1)) sum_{j != i} softmax(F_ji)(X_j-X_i)] + lambda(X_ideal-X_i) + mu grad J_collective'
+inputs: [{name: N, type: integer}, {name: eta, type: scalar}, {name: peer_states, type: collection}, {name: X_i, type: opaque_value}, {name: softmax_weights, type: provider_values}, {name: lambda, type: scalar}, {name: X_ideal, type: opaque_value}, {name: mu, type: scalar}, {name: grad_J_collective, type: opaque_gradient}]
+outputs: [{name: Delta_X_i, type: opaque_delta}]
+preconditions: [N is greater than 1, peer states and softmax weights are supplied for j not equal i, X_ideal and grad J_collective are supplied]
+postconditions: [exact source delta is returned without selecting or mutating a new state]
+invariants: [1/(N-1) is never clamped, softmax semantics remain provider-backed]
+errors: [InvalidGuidedCorrectionPopulation, SoftmaxProviderRequired, IdealStateProviderRequired, CollectiveGradientProviderRequired]
+opaque_parameters: [softmax_weights, X_ideal, grad_J_collective]
+providers: [softmax_provider, ideal_state_provider, collective_gradient_provider]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-REGULATION-005, TLC-UR-REGULATION-010]
+forbidden_behaviors: [silently_clamp_denominator, invent_softmax, invent_gradient, invent_state_mutation_policy, normalize_delta]
+traceability: {source: maths/19-regulation/regulation.md, inventory: registry/domain-progress/regulation/feature-inventory.yaml}

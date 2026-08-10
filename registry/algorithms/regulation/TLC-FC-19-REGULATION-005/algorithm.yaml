@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-005
+algorithm_kind: guarded_source_expression_evaluator
+execution: conditionally_executable
+steps: [require N > 1, require softmax weights and state providers, sum softmax(F_ji)(X_j-X_i) for j != i, divide by N-1, multiply by eta, add lambda(X_ideal-X_i), add mu grad J_collective, return Delta X_i]
+forbidden: [denominator_clamp, construct_softmax, construct_gradient, mutate_X_i]

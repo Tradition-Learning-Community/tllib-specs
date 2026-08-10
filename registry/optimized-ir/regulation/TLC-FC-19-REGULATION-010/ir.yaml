@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-010
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-19-REGULATION-010/ir.yaml
+operation: evaluate_coupled_R_rhs
+required_behavior: [require tension solution and gradient providers, preserve all four terms, return RHS only]
+forbidden_behavior: [invent_tension_function, invent_solution_function, invent_gradient, invent_matrix_shape, invent_ode_solver]
+error_codes: [TensionProviderRequired, SolutionProviderRequired, ContextGradientProviderRequired, CoupledOperandCompatibilityRequired]

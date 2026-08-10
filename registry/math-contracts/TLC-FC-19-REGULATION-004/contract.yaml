@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-19-REGULATION-004
+feature_id: TLC-FC-19-REGULATION-004
+title: 360-degree feedback expression
+domain_id: regulation
+contract_kind: provider_backed_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/19-regulation/regulation.md
+source_sections: ['3. Retour à 360 degrés']
+expression: 'F_ij = W_f · Theta(X_i, X_j, Interactions_ij) + b_f'
+inputs: [{name: W_f, type: opaque_weight}, {name: theta_output, type: opaque_provider_value}, {name: b_f, type: opaque_bias}, {name: X_i, type: opaque_value}, {name: X_j, type: opaque_value}, {name: Interactions_ij, type: opaque_value}]
+outputs: [{name: F_ij, type: opaque_value}]
+preconditions: [Theta evaluated output is supplied with compatible W_f contraction semantics]
+postconditions: [affine source expression is preserved]
+invariants: [Theta is never constructed inside the feature]
+errors: [ThetaProviderRequired, FeedbackShapeCompatibilityRequired]
+opaque_parameters: [Theta, W_f]
+providers: [Theta_output, contraction_compatibility]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-REGULATION-004, TLC-UR-REGULATION-001]
+forbidden_behaviors: [invent_feedback_feature_map, invent_matrix_shape, silently_change_source_formula]
+traceability: {source: maths/19-regulation/regulation.md, inventory: registry/domain-progress/regulation/feature-inventory.yaml}

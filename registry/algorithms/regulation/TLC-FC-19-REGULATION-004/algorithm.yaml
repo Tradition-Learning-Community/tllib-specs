@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-004
+algorithm_kind: source_expression_evaluator
+execution: conditionally_executable
+steps: [require provider-evaluated Theta value, verify supplied contraction compatibility, compute W_f dot theta_output, add b_f, return F_ij]
+forbidden: [construct_Theta, infer_shape, normalize_feedback]

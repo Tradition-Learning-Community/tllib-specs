@@ -1,0 +1,5 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-005
+oracle_kind: exact_delta_and_denominator_guard
+acceptance: [N-1 denominator preserved, j equals i excluded, three source terms preserved, result remains a delta]
+rejections: [N <= 1 accepted, denominator clamp, invented provider, automatic new-state selection]

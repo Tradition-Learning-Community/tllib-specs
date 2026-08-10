@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-001
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-001/contract.yaml
+source_candidate_ir: ir/TLC-FC-19-REGULATION-001/ir.candidate.json
+nature: validation
+inputs: [tau_R, tau_critical, confidence_evidence, transparency_evidence, benevolence_evidence, admissible_values_evidence]
+outputs: [regulation_validity_assessment]
+steps: [require providers, evaluate strict reactivity predicate, preserve Evaluation-compatible validity predicates, return structured assessment]
+errors: [ReactivityThresholdProviderRequired, EvaluationValidityEvidenceRequired]

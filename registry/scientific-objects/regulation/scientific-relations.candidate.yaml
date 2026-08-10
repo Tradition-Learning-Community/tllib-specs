@@ -1,0 +1,44 @@
+schema_version: 1
+domain: regulation
+status: candidate_frozen
+source: maths/19-regulation/regulation.md
+relation_count: 38
+relations:
+  - {id: REG-REL-001, kind: factorization, from: R, to: [R_correction, R_adaptation, R_reconciliation], status: source_defined}
+  - {id: REG-REL-002, kind: factorization, from: D, to: [D_diagnosis, D_intervention, D_adjustment], status: source_defined}
+  - {id: REG-REL-003, kind: scientific_dependency, from: regulation, to: evaluation, status: confirmed}
+  - {id: REG-REL-004, kind: strict_inequality, from: tau_R, to: tau_critical, status: source_defined}
+  - {id: REG-REL-005, kind: validity_condition, from: regulation, to: [confidence, transparency, benevolence, admissible_values], status: evaluation_semantics_provider}
+  - {id: REG-REL-006, kind: tuple_definition, from: R_collective, to: [C_dialogue, F_feedback, R_reconciliation, R_adaptation], status: source_defined}
+  - {id: REG-REL-007, kind: rhs_equation, from: I_collective, to: [I_collective, S_sharing, R_solutions, R_listening, grad_E_context], status: source_defined_provider_backed}
+  - {id: REG-REL-008, kind: weighted_aggregation, from: R_solutions, to: [D_set, solutions_d_t, w_d_t, X_d_t, X_optimal, norm_provider, sigma], status: source_defined_provider_backed}
+  - {id: REG-REL-009, kind: matrix_definition, from: F_matrix, to: F_ij, status: source_defined}
+  - {id: REG-REL-010, kind: affine_feedback_expression, from: F_ij, to: [W_f, Theta, X_i, X_j, Interactions_ij, b_f], status: source_defined_provider_backed}
+  - {id: REG-REL-011, kind: guided_delta_expression, from: Delta_X_i, to: [eta, softmax_F_ji, X_i, X_j, X_ideal, grad_J_collective], status: source_defined_provider_backed}
+  - {id: REG-REL-012, kind: rhs_equation, from: W_f_rhs, to: [F_ij, F_ij_consensus, W_f_opt, W_f], status: source_defined_dimensionally_unresolved}
+  - {id: REG-REL-013, kind: dimensional_contradiction, from: W_f_rhs, to: W_f_dimensional_ambiguity, status: preserved_unresolved}
+  - {id: REG-REL-014, kind: rhs_equation, from: X_rhs, to: [A_t, X_ideal, X, B_t, F_matrix, C_t, R, D_t, grad_E_context, Sigma_t, epsilon_t], status: source_defined_provider_backed}
+  - {id: REG-REL-015, kind: rhs_equation, from: F_rhs, to: [E_t, X, F_t_operator, I_collective, G_t, X_rhs, H_t, grad_V], status: source_defined_provider_backed}
+  - {id: REG-REL-016, kind: rhs_equation, from: R_rhs, to: [I_t, T_tensions, J_t, S_solutions, K_t, F_matrix, L_t, grad_E_context], status: source_defined_provider_backed}
+  - {id: REG-REL-017, kind: rhs_equation, from: A_rhs, to: [eta_A, X_ideal, X, lambda_A, A_t, mu_A, A_opt], status: source_defined_provider_backed}
+  - {id: REG-REL-018, kind: theorem_condition, from: mastery_conditions, to: X_mastery, status: source_declared_uncertified}
+  - {id: REG-REL-019, kind: rate_dependency_claim, from: convergence_rate_claim, to: [feedback_quality, feedback_frequency], status: source_declared_uncertified}
+  - {id: REG-REL-020, kind: probability_inequality, from: resilience_probability, to: [X, X_ideal, perturbation_norm], status: source_defined_provider_backed}
+  - {id: REG-REL-021, kind: theorem_condition, from: resilience_probability, to: feedback_graph_density, status: source_declared_threshold_opaque}
+  - {id: REG-REL-022, kind: theorem_condition, from: resilience_probability, to: tau_R, status: source_declared_threshold_opaque}
+  - {id: REG-REL-023, kind: theorem_condition, from: resilience_probability, to: source_diversity, status: source_declared_threshold_opaque}
+  - {id: REG-REL-024, kind: convergence_condition, from: coupled_convergence_claim, to: negative_A_condition, status: source_defined_contradictory}
+  - {id: REG-REL-025, kind: convergence_condition, from: coupled_convergence_claim, to: [B_t, C_t], status: source_declared_uncertified}
+  - {id: REG-REL-026, kind: convergence_condition, from: coupled_convergence_claim, to: [confidence, transparency, benevolence], status: source_declared_threshold_opaque}
+  - {id: REG-REL-027, kind: asymptotic_claim, from: coupled_convergence_claim, to: [X_ideal, epsilon_t, grad_E_context], status: source_declared_uncertified}
+  - {id: REG-REL-028, kind: candidate_function_definition, from: Lyapunov_V, to: [X, X_ideal, F_matrix, F_opt, R, R_opt, norm_provider], status: source_defined_not_certified}
+  - {id: REG-REL-029, kind: sign_contradiction, from: negative_A_condition, to: X_rhs, status: preserved_unresolved}
+  - {id: REG-REL-030, kind: conjunction_predicate, from: B_plus, to: [lambda_max_J_collective, dE_cohort_dt, theta_breakthrough, V_confidence, theta_confidence], status: source_defined_provider_backed}
+  - {id: REG-REL-031, kind: crisis_predicate, from: B_minus, to: [lambda_min_J_confidence, T_tensions, theta_crisis, T_transparency, theta_transparency], status: source_defined_provider_backed}
+  - {id: REG-REL-032, kind: operational_constraint, from: regulation, to: technical_contextual_ethical_separation, status: source_defined}
+  - {id: REG-REL-033, kind: operational_constraint, from: regulation, to: source_plurality, status: source_defined}
+  - {id: REG-REL-034, kind: operational_constraint, from: regulation, to: threshold_adaptation, status: source_defined}
+  - {id: REG-REL-035, kind: operational_constraint, from: regulation, to: [transparency, benevolence], status: source_defined}
+  - {id: REG-REL-036, kind: safeguard_relation, from: operational_risks, to: operational_safeguards, status: source_defined_qualitative}
+  - {id: REG-REL-037, kind: proof_gap, from: coupled_convergence_claim, to: [regularity_assumptions, lyapunov_decay_proof], status: preserved_unresolved}
+  - {id: REG-REL-038, kind: dimensional_gap, from: coupled_dynamics, to: state_spaces_and_matrix_dimensions, status: preserved_unresolved}

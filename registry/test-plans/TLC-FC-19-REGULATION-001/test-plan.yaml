@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-001
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-001/contract.yaml
+tests:
+  - {id: REG001-T01, category: valid_input, verifies: supplied evidence with tau_R below tau_critical yields satisfied reactivity predicate}
+  - {id: REG001-T02, category: preservation, verifies: tau_R uses strict less-than semantics}
+  - {id: REG001-T03, category: error, verifies: missing threshold is rejected rather than calibrated}
+  - {id: REG001-T04, category: preservation, verifies: Evaluation scientific semantics are reused without runtime invocation}

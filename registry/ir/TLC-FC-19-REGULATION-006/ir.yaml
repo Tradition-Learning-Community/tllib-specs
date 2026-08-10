@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-006
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-006/contract.yaml
+source_candidate_ir: ir/TLC-FC-19-REGULATION-006/ir.candidate.json
+nature: dynamical
+inputs: [N, gamma, pairwise_feedback_errors, delta, W_f_opt, W_f, dimensional_compatibility]
+outputs: [dW_f_dt_raw_rhs]
+steps: [validate N, evaluate scalar source term, evaluate matrix source term, require compatibility evidence, combine only if supplied rule authorizes it, return raw RHS]
+errors: [InvalidFeedbackPopulation, FeedbackWeightDimensionalAmbiguity, ConsensusProviderRequired]

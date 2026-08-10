@@ -1,0 +1,37 @@
+schema_version: 1
+domain_index: 19
+domain: regulation
+policy:
+  scientific_dependency_is_not_runtime_dependency: true
+  thematic_reference_is_not_dependency: true
+  provider_backed_operand_is_not_runtime_domain_call: true
+confirmed_domain_dependencies:
+  - {domain_index: 18, domain: evaluation, evidence: maths/19-regulation/regulation.md, relation: '19 Regulation -> 18 Evaluation'}
+runtime_domain_dependencies: []
+shared_contract_domain_dependencies: []
+evaluation_reuse:
+  - {feature_id: TLC-FC-18-EVALUATION-001, used_by: TLC-FC-19-REGULATION-001, role: scientific semantics for confidence transparency benevolence and admissible-Values validity predicates, runtime_dependency: false}
+referenced_but_not_runtime_dependencies:
+  - {domain_index: 16, domain: cohort, reason: E_cohort derivative is an opaque supplied operand in bifurcation assessment rather than a Cohort runtime call}
+  - {domain_index: 24, domain: context, reason: grad E_context is supplied as an operand/provider and Regulation does not invoke a Context operation}
+feature_dependencies:
+  TLC-FC-19-REGULATION-001: {scientific: [TLC-FC-18-EVALUATION-001], runtime: []}
+  TLC-FC-19-REGULATION-002: {scientific: [], runtime: []}
+  TLC-FC-19-REGULATION-003: {scientific: [], runtime: []}
+  TLC-FC-19-REGULATION-004: {scientific: [], runtime: []}
+  TLC-FC-19-REGULATION-005: {scientific: [], runtime: []}
+  TLC-FC-19-REGULATION-006: {scientific: [TLC-FC-19-REGULATION-007], runtime: []}
+  TLC-FC-19-REGULATION-007: {scientific: [], runtime: []}
+  TLC-FC-19-REGULATION-008: {scientific: [], runtime: []}
+  TLC-FC-19-REGULATION-009: {scientific: [TLC-FC-19-REGULATION-008], runtime: []}
+  TLC-FC-19-REGULATION-010: {scientific: [], runtime: []}
+  TLC-FC-19-REGULATION-011: {scientific: [], runtime: []}
+  TLC-FC-19-REGULATION-012: {scientific: [], runtime: []}
+  TLC-FC-19-REGULATION-013: {scientific: [], runtime: []}
+  TLC-FC-19-REGULATION-014: {scientific: [TLC-FC-19-REGULATION-015, TLC-FC-19-REGULATION-016], runtime: []}
+  TLC-FC-19-REGULATION-015: {scientific: [], runtime: []}
+  TLC-FC-19-REGULATION-016: {scientific: [], runtime: []}
+  TLC-FC-19-REGULATION-017: {scientific: [], runtime: []}
+  TLC-FC-19-REGULATION-018: {scientific: [], runtime: []}
+  TLC-FC-19-REGULATION-019: {scientific: [], runtime: []}
+  TLC-FC-19-REGULATION-020: {scientific: [TLC-FC-19-REGULATION-007, TLC-FC-19-REGULATION-016], runtime: []}

@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-010
+algorithm_kind: source_rhs_evaluator
+execution: conditionally_executable
+steps: [require provider outputs, compute I_t T_tensions, add J_t S_solutions, add K_t F, add L_t grad E_context, return RHS]
+forbidden: [construct_tensions, construct_solutions, construct_gradient, infer_dimensions, integrate_ode]

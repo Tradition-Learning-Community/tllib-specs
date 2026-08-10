@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-006
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-006/contract.yaml
+tests:
+  - {id: REG006-T01, category: preservation, verifies: scalar squared-error and matrix relaxation terms remain exact source expressions}
+  - {id: REG006-T02, category: error, verifies: N <= 1 rejects N(N-1) denominator}
+  - {id: REG006-T03, category: error, verifies: missing dimensional compatibility yields FeedbackWeightDimensionalAmbiguity}
+  - {id: REG006-T04, category: preservation, verifies: no broadcast identity sign change gradient substitution or integration occurs}

@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-19-REGULATION-007
+feature_id: TLC-FC-19-REGULATION-007
+title: Feedback-weight dimensional ambiguity guard
+domain_id: regulation
+contract_kind: structural_nonexecution_guard
+scientific_status: preserved_unresolved
+scientific_authority: maths/19-regulation/regulation.md
+source_sections: ['3. Retour à 360 degrés', '8. Limites et points scientifiques non résolus']
+expression: 'source explicitly leaves scalar squared-error term plus matrix relaxation term without a diffusion rule or reducing sign'
+inputs: [{name: requested_operation, type: opaque_value}, {name: dimensional_compatibility_evidence, type: optional_provider_evidence}]
+outputs: [{name: dimensional_ambiguity_descriptor, type: structured_guard_result}]
+preconditions: []
+postconditions: [source contradiction remains explicit]
+invariants: [no numerical dW_f/dt combination without authoritative compatibility evidence]
+errors: [FeedbackWeightDimensionalAmbiguity]
+opaque_parameters: [dimensional_compatibility_evidence]
+providers: [optional_authoritative_compatibility]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-REGULATION-006]
+forbidden_behaviors: [broadcast_scalar_feedback_error, invent_identity_broadcast, fix_feedback_learning_sign, transform_square_to_gradient, claim_error_reduction]
+traceability: {source: maths/19-regulation/regulation.md, inventory: registry/domain-progress/regulation/feature-inventory.yaml}

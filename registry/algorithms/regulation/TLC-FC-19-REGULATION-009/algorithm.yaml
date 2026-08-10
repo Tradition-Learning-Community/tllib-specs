@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-009
+algorithm_kind: source_rhs_evaluator
+execution: conditionally_executable
+steps: [require dX_dt and grad V values, compute E_t X, add F_t I_collective, add G_t dX_dt, add H_t grad V, return RHS]
+forbidden: [differentiate_X, construct_grad_V, infer_dimensions, integrate_ode]

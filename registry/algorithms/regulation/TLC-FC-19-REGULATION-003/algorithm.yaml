@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-003
+algorithm_kind: source_expression_evaluator
+execution: conditionally_executable
+steps: [require nonempty D, require supplied values for each d, require nonzero sigma, compute each supplied norm-squared exponential factor, multiply solution by weight and factor, sum, divide by |D|]
+forbidden: [invent_provider_values, infer_norm, infer_sigma, denominator_fallback]

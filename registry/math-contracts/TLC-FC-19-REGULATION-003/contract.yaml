@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-19-REGULATION-003
+feature_id: TLC-FC-19-REGULATION-003
+title: Collective solution aggregation
+domain_id: regulation
+contract_kind: provider_backed_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/19-regulation/regulation.md
+source_sections: ['2. Autocorrection collective']
+expression: 'R_solutions(t) = (1/|D|) sum_d solutions(d,t) w(d,t) exp(-||X(d,t)-X_optimal||^2/(2 sigma^2))'
+inputs: [{name: D, type: finite_collection}, {name: solutions, type: provider_values}, {name: weights, type: provider_values}, {name: X_d_t, type: provider_values}, {name: X_optimal, type: opaque_value}, {name: norm_values, type: provider_values}, {name: sigma, type: opaque_scalar}]
+outputs: [{name: R_solutions_t, type: opaque_value}]
+preconditions: [D is nonempty, sigma is supplied and nonzero, solutions weights norm values and states are supplied for every d]
+postconditions: [source weighted exponential aggregation is preserved exactly]
+invariants: [no solution weight optimum norm or sigma is synthesized]
+errors: [SolutionDomainEmpty, SigmaInvalid, SolutionProviderRequired, NormProviderRequired]
+opaque_parameters: [solutions, weights, X_optimal, norm_values, sigma]
+providers: [solutions_provider, weight_provider, state_provider, norm_provider]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-REGULATION-003]
+forbidden_behaviors: [invent_solution_function, invent_weight_function, invent_norm, invent_sigma, silently_clamp_denominator]
+traceability: {source: maths/19-regulation/regulation.md, inventory: registry/domain-progress/regulation/feature-inventory.yaml}

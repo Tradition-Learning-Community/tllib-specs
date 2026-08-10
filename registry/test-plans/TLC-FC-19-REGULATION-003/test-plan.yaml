@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-003
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-003/contract.yaml
+tests:
+  - {id: REG003-T01, category: valid_input, verifies: exact weighted exponential aggregation from supplied operands}
+  - {id: REG003-T02, category: error, verifies: empty D is rejected without denominator fallback}
+  - {id: REG003-T03, category: error, verifies: missing norm or sigma provider is rejected}
+  - {id: REG003-T04, category: preservation, verifies: no solutions weights X_optimal norm or sigma are constructed}

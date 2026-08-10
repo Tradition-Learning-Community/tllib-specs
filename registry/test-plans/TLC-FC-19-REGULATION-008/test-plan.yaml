@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-008
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-008/contract.yaml
+tests:
+  - {id: REG008-T01, category: valid_input, verifies: exact five-term dX/dt RHS equality}
+  - {id: REG008-T02, category: preservation, verifies: A multiplies X_ideal minus X with unchanged sign}
+  - {id: REG008-T03, category: error, verifies: missing gradient or perturbation provider is rejected}
+  - {id: REG008-T04, category: preservation, verifies: no ODE solver integrator dimension or noise distribution is introduced}

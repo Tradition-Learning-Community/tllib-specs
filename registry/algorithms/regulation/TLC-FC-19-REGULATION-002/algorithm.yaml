@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-002
+algorithm_kind: source_rhs_evaluator
+execution: conditionally_executable
+steps: [validate supplied operands, compute -lambda I_collective, add mu S_sharing, add nu R_solutions, add xi R_listening I_collective, add pi grad E_context, return RHS]
+forbidden: [invent_gradient, integrate_time, mutate_state]

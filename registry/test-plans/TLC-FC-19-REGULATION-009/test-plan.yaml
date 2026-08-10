@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-009
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-009/contract.yaml
+tests:
+  - {id: REG009-T01, category: valid_input, verifies: exact four-term dF/dt RHS equality}
+  - {id: REG009-T02, category: error, verifies: missing supplied dX/dt is rejected rather than differentiated}
+  - {id: REG009-T03, category: error, verifies: missing grad V is rejected rather than constructed}
+  - {id: REG009-T04, category: preservation, verifies: no ODE solver integrator or inferred matrix space appears}
