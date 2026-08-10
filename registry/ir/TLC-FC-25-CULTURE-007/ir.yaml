@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-25-CULTURE-007
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-25-CULTURE-007/contract.yaml
+source_candidate_ir: ir/TLC-FC-25-CULTURE-007/ir.candidate.json
+nature: conditional_validation
+inputs: [receivability_evidence, common_source_connection_evidence, core_neighborhood_preservation_evidence, failure_avoidance_evidence]
+outputs: [cultural_fidelity_assessment]
+steps: [require all four evidence categories, evaluate conjunction of external attestations, preserve unquantified core-neighborhood reservation]
+errors: [CultureFidelityEvidenceRequired, CultureCorePreservationQuantificationUnavailable]

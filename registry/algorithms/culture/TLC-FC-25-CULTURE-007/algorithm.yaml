@@ -1,0 +1,11 @@
+schema_version: 1
+feature_id: TLC-FC-25-CULTURE-007
+algorithm_kind: external_evidence_conjunction
+execution: conditionally_executable
+steps:
+  - require receivability evidence
+  - require common-source connection evidence
+  - require invariant-core neighborhood preservation evidence
+  - require failure-avoidance evidence
+  - return conformant only when all four external attestations are affirmative
+forbidden: [neighborhood-radius inference, minimum-penalty inference, quantitative preservation guarantee]

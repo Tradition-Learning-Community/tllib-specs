@@ -1,0 +1,20 @@
+contract_id: TLC-MC-TLC-FC-25-CULTURE-006
+feature_id: TLC-FC-25-CULTURE-006
+title: Cultural adaptation delegation to Context
+domain_id: culture
+contract_kind: provider_delegation_contract
+scientific_status: external_provider_required
+scientific_authority: maths/25-culture/culture.md
+source_sections: ['3. Plasticité culturelle et noyau identitaire']
+inputs: [{name: context_adaptation_inputs, type: opaque_map}, {name: plasticity_evidence, type: scientific_reference}, {name: robust_element_references, type: reference_collection}, {name: context_adaptation_provider, type: provider_reference}]
+outputs: [{name: delegated_cultural_adaptation_result, type: descriptor}]
+preconditions: [provider attests conformance to TLC-FC-24-CONTEXT-007, external evidence identifies eligible sensitive forms, robust elements are identified by external authority]
+postconditions: [result delegates to A_contexte and records robust-element preservation obligations]
+invariants: [A_contexte is the sole adaptation operator, no A_culture, no local optimizer or differentiator, no robust element modified by Culture specification]
+errors: [CultureContextAdaptationProviderRequired, CulturePlasticityEvidenceRequired, CultureRobustPreservationEvidenceRequired]
+opaque_parameters: [A_contexte, sensitive_forms, robust_elements]
+scientific_reservations: [TLC-UR-CULTURE-003]
+dependencies: {scientific: [24], runtime: []}
+provider_requirements: [TLC-FC-24-CONTEXT-007 conformant adaptation provider, external plasticity evidence, external robust-element preservation evidence]
+forbidden_behaviors: [constructing A_culture, adapting an element without eligibility evidence, locally solving Context optimization]
+traceability: {source: maths/25-culture/culture.md, context_authority: registry/math-contracts/TLC-FC-24-CONTEXT-007/contract.yaml}

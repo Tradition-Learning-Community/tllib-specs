@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-25-CULTURE-008
+algorithm_kind: structural_only_non_execution_guard
+execution: structural_only
+steps:
+  - preserve ignorance of the milieu as a named failure
+  - preserve dissolution in the milieu as the opposite named failure
+  - require external scientific failure evidence before returning a concrete label
+  - otherwise return CultureFailureDetectionEvidenceRequired
+forbidden: [local detector, score synthesis, threshold selection, auto-labeling]

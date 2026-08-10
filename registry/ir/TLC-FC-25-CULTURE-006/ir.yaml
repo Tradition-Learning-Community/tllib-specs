@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-25-CULTURE-006
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-25-CULTURE-006/contract.yaml
+source_candidate_ir: ir/TLC-FC-25-CULTURE-006/ir.candidate.json
+nature: provider_delegation
+inputs: [context_adaptation_inputs, plasticity_evidence, robust_element_references, context_adaptation_provider]
+outputs: [delegated_cultural_adaptation_result]
+steps: [require TLC-FC-24-CONTEXT-007 provider conformance, require sensitive-form evidence, require robust-preservation evidence, delegate to A_contexte, return delegated result]
+errors: [CultureContextAdaptationProviderRequired, CulturePlasticityEvidenceRequired, CultureRobustPreservationEvidenceRequired]

@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-25-CULTURE-008
+source_contract: registry/math-contracts/TLC-FC-25-CULTURE-008/contract.yaml
+tests:
+  - {id: CU008-T01, category: invariant, verifies: exact ignorance and dissolution failure labels are preserved}
+  - {id: CU008-T02, category: error, verifies: automatic detection without external evidence is rejected}
+  - {id: CU008-T03, category: preservation, verifies: no score or threshold is introduced}
+  - {id: CU008-T04, category: preservation, verifies: no failure label is inferred from incomplete evidence}

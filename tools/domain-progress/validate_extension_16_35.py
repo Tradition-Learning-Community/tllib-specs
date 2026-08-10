@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[2]
 MANIFEST_PATH = ROOT / "registry/domain-progress/extension-16-35.yaml"
 CATALOG_PATH = ROOT / "handoff/catalog.json"
 EXPECTED_INDICES = set(range(16, 36))
-ALLOWED_PUBLISHED_EXTENSION_INDICES = {16, 22, 23, 24, 26, 27}
+ALLOWED_PUBLISHED_EXTENSION_INDICES = {16, 22, 23, 24, 25, 26}
 BASELINE_DOMAIN_COUNT = 16
 BASELINE_FEATURE_COUNT = 166
 EXPECTED_WAVES = {
@@ -312,7 +312,7 @@ def main() -> int:
         errors.append("baseline must be a mapping")
     else:
         if baseline.get("completed_domain_range") != "00-15":
-            errors.append("Baseline completed domain range must be 00-15")
+            errors.append("Baseline completed domain range must remain 00-15")
         if baseline.get("published_domain_count") != BASELINE_DOMAIN_COUNT:
             errors.append("Baseline published domain count must remain 16")
         if baseline.get("published_feature_count") != BASELINE_FEATURE_COUNT:

@@ -1,0 +1,20 @@
+contract_id: TLC-MC-TLC-FC-25-CULTURE-007
+feature_id: TLC-FC-25-CULTURE-007
+title: Cultural fidelity evidence assessment
+domain_id: culture
+contract_kind: conditional_validation_contract
+scientific_status: external_provider_required
+scientific_authority: maths/25-culture/culture.md
+source_sections: ['4. Conditions de fidélité culturelle', '5. Limites et points scientifiques non résolus']
+inputs: [{name: receivability_evidence, type: scientific_reference}, {name: common_source_connection_evidence, type: scientific_reference}, {name: core_neighborhood_preservation_evidence, type: scientific_reference}, {name: failure_avoidance_evidence, type: scientific_reference}]
+outputs: [{name: cultural_fidelity_assessment, type: descriptor}]
+preconditions: [all four evidence categories are externally supplied]
+postconditions: [assessment is conformant only when all four source conditions are externally attested]
+invariants: [conditions are conjunctive, no neighborhood radius, no minimum penalty coefficient, no quantitative preservation guarantee]
+errors: [CultureFidelityEvidenceRequired, CultureCorePreservationQuantificationUnavailable]
+opaque_parameters: [receivable_forms, common_source, X_star, invariant_core, J]
+scientific_reservations: [TLC-UR-CULTURE-004, TLC-UR-CULTURE-006]
+dependencies: {scientific: [24], runtime: []}
+provider_requirements: [receivability evidence, common-source evidence, core-neighborhood preservation evidence, failure-avoidance evidence]
+forbidden_behaviors: [inventing a core radius, inventing a penalty threshold, inferring fidelity from partial evidence]
+traceability: {source: maths/25-culture/culture.md, inventory: registry/domain-progress/culture/feature-inventory.yaml}

@@ -1,0 +1,38 @@
+domain_id: culture
+status: resolved_for_frozen_population
+scientific_dependencies:
+  external_confirmed:
+    - domain_index: 24
+      slug: context
+      evidence: maths/25-culture/culture.md
+      rationale: Culture explicitly reuses C_cultural times C_symbolic as a subset of C, S_contexte, and A_contexte from Context.
+  external_provisional: []
+  unknown: false
+runtime_dependencies: []
+context_provider_authorities:
+  - feature_id: TLC-FC-25-CULTURE-004
+    authority_feature: TLC-FC-24-CONTEXT-004
+    requirement: caller_supplied_conformant_provider
+    runtime_dependency_promoted: false
+  - feature_id: TLC-FC-25-CULTURE-005
+    authority_feature: TLC-FC-24-CONTEXT-006
+    requirement: contextual_sensitivity_reference_or_external_classification_evidence
+    runtime_dependency_promoted: false
+  - feature_id: TLC-FC-25-CULTURE-006
+    authority_feature: TLC-FC-24-CONTEXT-007
+    requirement: caller_supplied_conformant_provider
+    runtime_dependency_promoted: false
+intra_domain:
+  - {from: TLC-FC-25-CULTURE-001, to: TLC-FC-25-CULTURE-003, kind: component_structure_for_context_participation}
+  - {from: TLC-FC-25-CULTURE-003, to: TLC-FC-25-CULTURE-004, kind: contextual_weight_participation_for_delegation}
+  - {from: TLC-FC-25-CULTURE-005, to: TLC-FC-25-CULTURE-006, kind: external_plasticity_evidence_gates_adaptation}
+  - {from: TLC-FC-25-CULTURE-006, to: TLC-FC-25-CULTURE-007, kind: adaptation_result_may_supply_fidelity_evidence}
+  - {from: TLC-FC-25-CULTURE-008, to: TLC-FC-25-CULTURE-007, kind: externally_established_failure_avoidance_evidence}
+mention_policy:
+  non_promoted_mentions: [Message, Principle, Values, Competencies, Practices, invariants]
+  rationale: These are transmission targets or qualitative references in the Culture chapter; the chapter does not require their domain implementations as providers.
+policies:
+  scientific_dependency_is_not_runtime_dependency: true
+  provider_conformance_is_not_direct_package_import: true
+  no_dependency_inferred_from_prose_mention: true
+  no_circular_context_dependency: true

@@ -1,0 +1,20 @@
+contract_id: TLC-MC-TLC-FC-25-CULTURE-003
+feature_id: TLC-FC-25-CULTURE-003
+title: Cultural participation in contextual weighting descriptor
+domain_id: culture
+contract_kind: structural_contract
+scientific_status: partially_defined
+scientific_authority: maths/25-culture/culture.md
+source_sections: ['2. Fonction structurante']
+inputs: [{name: context_weight_reference, type: opaque_reference}, {name: context_coupling_reference, type: opaque_reference}, {name: contextual_tensor_reference, type: opaque_reference}, {name: event_references, type: reference_collection}]
+outputs: [{name: cultural_context_participation_descriptor, type: descriptor}]
+preconditions: [Context metric and weight-dynamics authorities are referenced]
+postconditions: [descriptor records Culture participation in w_i and gamma_ij and preserves the general Context weight law as external authority]
+invariants: [g_c remains Context-owned, no separate cultural weight equation, drivers remain qualitative]
+errors: [CultureAutonomousMetricForbidden, CultureAutonomousWeightDynamicsForbidden]
+opaque_parameters: [w_i, gamma_ij, g_c, events, crises, innovations, social_transformations]
+scientific_reservations: [TLC-UR-CULTURE-001, TLC-UR-CULTURE-005]
+dependencies: {scientific: [24], runtime: []}
+provider_requirements: []
+forbidden_behaviors: [creating g_culture, duplicating Context weight dynamics as Culture dynamics]
+traceability: {source: maths/25-culture/culture.md, inventory: registry/domain-progress/culture/feature-inventory.yaml}

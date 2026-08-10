@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-25-CULTURE-001
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-25-CULTURE-001/contract.yaml
+source_candidate_ir: ir/TLC-FC-25-CULTURE-001/ir.candidate.json
+nature: declarative
+inputs: [context_reference, cultural_component_reference, symbolic_component_reference, symbolic_metric_carrier_reference]
+outputs: [culture_component_descriptor]
+steps: [validate Context authority reference, preserve subset relation, enumerate only source cultural and symbolic classes, attach autonomous-structure reservations]
+errors: [CultureAutonomousStructureUnavailable, CultureCoordinateConstructionForbidden]

@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-25-CULTURE-004
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-25-CULTURE-004/ir.yaml
+operation: delegate_cultural_context_weight_rhs
+required_behavior: [require TLC-FC-24-CONTEXT-004 conformant provider, forward opaque source inputs, return delegated provider result with provenance]
+forbidden_behavior: [reimplement Context RHS, select ODE solver, default coefficients]
+error_codes: [CultureContextWeightProviderRequired, CultureContextWeightProviderNonConformant]

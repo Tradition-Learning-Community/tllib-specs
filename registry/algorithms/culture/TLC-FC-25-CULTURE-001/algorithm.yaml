@@ -1,0 +1,11 @@
+schema_version: 1
+feature_id: TLC-FC-25-CULTURE-001
+algorithm_kind: structural_source_descriptor
+execution: structural_only
+steps:
+  - require Context scientific reference
+  - preserve C_cultural times C_symbolic as a subset of C
+  - enumerate only source-listed cultural and symbolic element classes
+  - preserve M as a metric carrier not necessarily vectorial
+  - return descriptor with autonomous-structure reservations
+forbidden: [C_culture construction, A_culture construction, g_culture construction, vectorization]
