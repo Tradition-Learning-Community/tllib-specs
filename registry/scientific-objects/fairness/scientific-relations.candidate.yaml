@@ -2,6 +2,7 @@ schema_version: 1
 domain: fairness
 source: maths/21-fairness/fairness.md
 relation_count: 31
+edge_semantics: from_object_depends_on_to_object
 relations:
   - {id: FREL-001, from: fairness, to: access, relation: distributes_justly}
   - {id: FREL-002, from: fairness, to: recognition, relation: distributes_justly}
@@ -33,4 +34,4 @@ relations:
   - {id: FREL-028, from: beta_infinity_T, to: legitimate_differences, relation: attributed_but_not_operationalized}
   - {id: FREL-029, from: E_ctx_T, to: contextual_ratios, relation: minimum_of_product}
   - {id: FREL-030, from: E_ctx_T, to: '0.6', relation: declared_strict_threshold}
-  - {id: FREL-031, from: robustness_20, to: fairness_21, relation: downstream_scientific_dependency, evidence: maths/20-robustness/robustness.md}
+  - {id: FREL-031, from: robustness_20, to: fairness_21, relation: scientifically_depends_on, evidence: maths/20-robustness/robustness.md}
