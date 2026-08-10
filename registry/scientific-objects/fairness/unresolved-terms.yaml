@@ -1,0 +1,19 @@
+schema_version: 1
+domain: fairness
+source: maths/21-fairness/fairness.md
+unresolved_count: 14
+unresolved:
+  - {id: TLC-UR-FAIRNESS-001, term: bias_components, status: preserved_unresolved, statement: 'The five bias components are named but not operationalized.'}
+  - {id: TLC-UR-FAIRNESS-002, term: categories_scores_transparency_justice, status: preserved_unresolved, statement: 'J, S(d,j), S(d), C_trans and V_just lack complete operational definitions.'}
+  - {id: TLC-UR-FAIRNESS-003, term: procedural_robustness_bounds, status: preserved_unresolved, statement: 'R_proc is explicitly not guaranteed in [0,1]; no clamp or normalization is authorized.'}
+  - {id: TLC-UR-FAIRNESS-004, term: correction_denominator, status: preserved_unresolved, statement: 'The denominator 1+alpha(z)(E[y|z]-E[y]) may be zero; no existence condition is supplied.'}
+  - {id: TLC-UR-FAIRNESS-005, term: optimization_procedure, status: preserved_unresolved, statement: 'The constrained problem is specified without an optimizer or epsilon calibration procedure.'}
+  - {id: TLC-UR-FAIRNESS-006, term: lagrangian_dual_sign, status: preserved_unresolved, statement: 'Multiplier signs and dual convention for >= constraints are unspecified; source signs must not be repaired.'}
+  - {id: TLC-UR-FAIRNESS-007, term: master_weight_normalization, status: preserved_unresolved, statement: 'w_i^T is proportional to a raw factor; the normalization constant is absent.'}
+  - {id: TLC-UR-FAIRNESS-008, term: entropy_interpretation, status: preserved_unresolved, statement: 'Entropy is added in the argmax but the normative direction of diversity is unspecified.'}
+  - {id: TLC-UR-FAIRNESS-009, term: argmax_search_space, status: preserved_unresolved, statement: 'Candidate y space and search/argmax mechanism are not supplied.'}
+  - {id: TLC-UR-FAIRNESS-010, term: divergence_distance_providers, status: preserved_unresolved, statement: 'KL divergence, perspective distance and traditional distance are not operationalized here.'}
+  - {id: TLC-UR-FAIRNESS-011, term: calculus_and_population_guards, status: preserved_unresolved, statement: 'Derivatives, gradients, integral and sampling remain providers; k<2, m=0 and T=0 require explicit guards.'}
+  - {id: TLC-UR-FAIRNESS-012, term: residual_legitimate_bias, status: preserved_unresolved, statement: 'beta_infinity^T is attributed to legitimate differences without a legitimacy classifier, estimator or universal convergence proof.'}
+  - {id: TLC-UR-FAIRNESS-013, term: contextual_denominators, status: preserved_unresolved, statement: 'max P(c), F_fid^max and Alig_max may be zero; no fallback is specified.'}
+  - {id: TLC-UR-FAIRNESS-014, term: thresholds_and_calibration, status: preserved_unresolved, statement: '0.6 is a declared contextual threshold but not derived/calibrated; epsilon_i, theta_min and phi_min have no numeric calibration.'}

@@ -1,0 +1,36 @@
+schema_version: 1
+domain: fairness
+domain_index: 21
+title: Équité
+source:
+  path: maths/21-fairness/fairness.md
+  blob: bbe983d3f74063072c97059e8ff7346b28d28158
+  modified: false
+analysis_companion:
+  path: maths/20-robustness/robustness.md
+  blob: 71b575f114d1710b6b9556de06b17d103cb38c1e
+  relation: downstream_consumer
+  scientific_edge: '20 -> 21'
+sections:
+  - '1. Définition et portée'
+  - '2. Espace et mesure des biais'
+  - '3. Optimisation sous contraintes d’équité'
+  - '4. Pluralité des Maîtres'
+  - '5. Responsabilité et alignement éthique'
+  - '6. Propriété asymptotique et mesure contextuelle'
+  - '7. Limites et points scientifiques non résolus'
+source_formulas: [procedural_robustness, bias_space, aggregate_bias, decision_correction, fair_optimization_problem, raw_fair_lagrangian, raw_master_weight, plurality_aggregation_argmax, cognitive_diversity, complementarity, alignment_loss, dynamic_constraint, alignment_efficiency, temporal_responsibility, bias_decay_inequality, contextual_fairness]
+source_predicates: [contextual_fairness_gt_0_6]
+explicit_scientific_limits:
+  - bias_components_not_operationalized
+  - categories_scores_transparency_justice_not_operationalized
+  - procedural_robustness_not_bounded_0_1
+  - correction_denominator_may_be_zero
+  - lagrangian_dual_sign_convention_unspecified
+  - entropy_diversity_sign_unspecified
+  - master_weight_normalization_absent
+  - residual_legitimate_bias_not_operationalized
+  - thresholds_not_derived_or_calibrated
+publication_scope:
+  publish_domain: 21
+  do_not_publish: [20, 32, 35]
