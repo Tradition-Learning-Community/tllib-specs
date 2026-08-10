@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-25-CULTURE-005
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-25-CULTURE-005/contract.yaml
+source_candidate_ir: ir/TLC-FC-25-CULTURE-005/ir.candidate.json
+nature: structural_guard
+inputs: [element_reference, contextual_sensitivity_reference, external_classification_evidence]
+outputs: [plasticity_classification_availability]
+steps: [preserve qualitative categories, check for external classification evidence, refuse local threshold classification when absent]
+errors: [CulturePlasticityThresholdUnavailable, CulturePlasticityEvidenceRequired]

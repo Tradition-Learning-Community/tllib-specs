@@ -1,0 +1,20 @@
+contract_id: TLC-MC-TLC-FC-25-CULTURE-005
+feature_id: TLC-FC-25-CULTURE-005
+title: Relative cultural plasticity classification guard
+domain_id: culture
+contract_kind: structural_guard_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/25-culture/culture.md
+source_sections: ['3. Plasticité culturelle et noyau identitaire', '5. Limites et points scientifiques non résolus']
+inputs: [{name: element_reference, type: opaque_reference}, {name: contextual_sensitivity_reference, type: opaque_reference}, {name: external_classification_evidence, type: optional_scientific_reference}]
+outputs: [{name: plasticity_classification_availability, type: descriptor}]
+preconditions: [source qualitative distinction is available]
+postconditions: [without external evidence the result reports classification unavailable rather than choosing robust or plastic]
+invariants: [no threshold, S_contexte remains Context-owned, source examples stay qualitative and mainly-qualified]
+errors: [CulturePlasticityThresholdUnavailable, CulturePlasticityEvidenceRequired]
+opaque_parameters: [S_contexte, cultural_element]
+scientific_reservations: [TLC-UR-CULTURE-003]
+dependencies: {scientific: [24], runtime: []}
+provider_requirements: [external scientific classification evidence when a concrete label is requested]
+forbidden_behaviors: [inventing a sensitivity threshold, automatically classifying an element, redefining S_contexte]
+traceability: {source: maths/25-culture/culture.md, context_authority: registry/math-contracts/TLC-FC-24-CONTEXT-006/contract.yaml}

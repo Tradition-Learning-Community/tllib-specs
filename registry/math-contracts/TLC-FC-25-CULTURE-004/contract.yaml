@@ -1,0 +1,20 @@
+contract_id: TLC-MC-TLC-FC-25-CULTURE-004
+feature_id: TLC-FC-25-CULTURE-004
+title: Context weight evolution delegation for cultural factors
+domain_id: culture
+contract_kind: provider_delegation_contract
+scientific_status: external_provider_required
+scientific_authority: maths/25-culture/culture.md
+source_sections: ['2. Fonction structurante']
+inputs: [{name: cultural_weight_inputs, type: opaque_map}, {name: context_weight_rhs_provider, type: provider_reference}]
+outputs: [{name: delegated_dw_i_dt, type: opaque_value}]
+preconditions: [provider attests conformance to TLC-FC-24-CONTEXT-004, caller supplies all Context-required weight inputs]
+postconditions: [output is the provider result with delegation provenance attached]
+invariants: [Context feature 004 remains formula authority, no local cultural ODE, no solver, no default coefficients]
+errors: [CultureContextWeightProviderRequired, CultureContextWeightProviderNonConformant]
+opaque_parameters: [w_i, alpha_i, beta_i, gamma_i, E_contexte, contracted_derivative_term]
+scientific_reservations: []
+dependencies: {scientific: [24], runtime: []}
+provider_requirements: [TLC-FC-24-CONTEXT-004 conformant weight RHS provider]
+forbidden_behaviors: [reimplementing the Context formula as autonomous Culture dynamics, selecting an ODE solver, defaulting coefficients]
+traceability: {source: maths/25-culture/culture.md, context_authority: registry/math-contracts/TLC-FC-24-CONTEXT-004/contract.yaml}

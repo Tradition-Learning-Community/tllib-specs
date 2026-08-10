@@ -1,0 +1,20 @@
+contract_id: TLC-MC-TLC-FC-25-CULTURE-002
+feature_id: TLC-FC-25-CULTURE-002
+title: Cultural transmission influence descriptor
+domain_id: culture
+contract_kind: structural_contract
+scientific_status: partially_defined
+scientific_authority: maths/25-culture/culture.md
+source_sections: ['2. Fonction structurante', '5. Limites et points scientifiques non résolus']
+inputs: [{name: message_reference, type: opaque_reference}, {name: principle_reference, type: opaque_reference}, {name: values_reference, type: opaque_reference}, {name: competencies_reference, type: opaque_reference}]
+outputs: [{name: cultural_influence_descriptor, type: descriptor}]
+preconditions: [references are supplied without assuming their domain implementations]
+postconditions: [descriptor contains exactly reception Message, application Principles, incarnation Values, practice Competencies]
+invariants: [no effect magnitude, no transfer function, no dependency inferred from mention alone]
+errors: [CultureInfluenceQuantificationUnavailable]
+opaque_parameters: [Message, Principles, Values, Competencies]
+scientific_reservations: [TLC-UR-CULTURE-005]
+dependencies: {scientific: [24], runtime: []}
+provider_requirements: []
+forbidden_behaviors: [inventing influence coefficients, inventing transfer functions, promoting prose mentions to runtime dependencies]
+traceability: {source: maths/25-culture/culture.md, inventory: registry/domain-progress/culture/feature-inventory.yaml}

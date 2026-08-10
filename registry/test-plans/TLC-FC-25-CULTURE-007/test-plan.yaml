@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-25-CULTURE-007
+source_contract: registry/math-contracts/TLC-FC-25-CULTURE-007/contract.yaml
+tests:
+  - {id: CU007-T01, category: invariant, verifies: all four source fidelity evidence categories are conjunctive}
+  - {id: CU007-T02, category: error, verifies: missing evidence yields CultureFidelityEvidenceRequired}
+  - {id: CU007-T03, category: preservation, verifies: no invariant-core neighborhood radius is invented}
+  - {id: CU007-T04, category: preservation, verifies: no minimum J penalty or quantitative preservation guarantee is invented}

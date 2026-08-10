@@ -1,0 +1,49 @@
+domain_id: culture
+status: preparation_complete_with_reservations
+authority: main@6f989e75aba0f4795e8d5cc42ab83107c7767d57
+working_base_commit: 6f989e75aba0f4795e8d5cc42ab83107c7767d57
+scope: vertical_domain_25_production
+source_file: maths/25-culture/culture.md
+source_blob_sha: 947ba8bb3b3a2d7c9243522bb376923b45c68d01
+scientific_dependency:
+  domain_index: 24
+  slug: context
+  source: maths/24-context/context.md
+objects_count: 51
+relations_count: 38
+unresolved_count: 6
+features_total: 8
+feature_ids:
+  - TLC-FC-25-CULTURE-001
+  - TLC-FC-25-CULTURE-002
+  - TLC-FC-25-CULTURE-003
+  - TLC-FC-25-CULTURE-004
+  - TLC-FC-25-CULTURE-005
+  - TLC-FC-25-CULTURE-006
+  - TLC-FC-25-CULTURE-007
+  - TLC-FC-25-CULTURE-008
+input_artifacts:
+  - registry/scientific-objects/culture/scientific-objects.candidate.yaml
+  - registry/scientific-objects/culture/scientific-relations.candidate.yaml
+  - registry/scientific-objects/culture/unresolved-terms.yaml
+inventory_status: complete_with_reservations
+scientific_boundaries:
+  autonomous_cultural_state_space: unavailable
+  autonomous_cultural_operator: unavailable
+  autonomous_cultural_metric: unavailable
+  cultural_object_coordinates: unavailable
+  robust_plastic_threshold: unavailable
+  quantitative_core_preservation_bound: unavailable
+  quantitative_influence_map: unavailable
+  failure_detection_thresholds: unavailable
+external_scientific_dependencies:
+  confirmed: [24]
+  provisional: []
+  runtime: []
+context_authority_policy:
+  contextual_space: TLC-FC-24-CONTEXT-001
+  contextual_weight_rhs: TLC-FC-24-CONTEXT-004
+  contextual_sensitivity: TLC-FC-24-CONTEXT-006
+  contextual_adaptation: TLC-FC-24-CONTEXT-007
+  direct_runtime_dependency_promoted: false
+  rationale: Culture reuses Context scientifically and requires caller-supplied Context-conformant providers for executable delegation; no Context package is imported or invoked directly by the specification.

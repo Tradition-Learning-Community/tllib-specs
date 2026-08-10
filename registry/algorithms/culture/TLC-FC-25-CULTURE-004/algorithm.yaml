@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-25-CULTURE-004
+algorithm_kind: provider_delegation
+execution: conditionally_executable
+steps:
+  - verify provider attests conformance to TLC-FC-24-CONTEXT-004
+  - verify all provider-required Context weight inputs are present
+  - forward inputs without reinterpretation
+  - return provider result with Context delegation provenance
+forbidden: [local Context RHS implementation, autonomous cultural ODE, solver selection, coefficient defaults]

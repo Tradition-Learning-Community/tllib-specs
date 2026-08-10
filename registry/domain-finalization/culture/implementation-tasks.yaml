@@ -1,0 +1,36 @@
+schema_version: 1
+domain: culture
+status: ready_for_future_developer_assignment
+rules:
+  - use culture.md as scientific authority and Context 24 as the mathematical dependency authority
+  - preserve all unresolved cultural coordinates thresholds mappings bounds and detectors
+  - use caller-supplied Context-conformant providers where delegation is specified; do not create a direct runtime package dependency
+  - do not produce runtime code in this specification repository
+shared_tasks:
+  - task_id: CULTURE-TASK-SHARED-001
+    title: Build Culture descriptor opaque-reference and evidence carriers
+    acceptance: [feature identity and traceability are lossless, Context authority remains explicit, unresolved items remain enumerable]
+  - task_id: CULTURE-TASK-SHARED-002
+    title: Build Context-provider conformance and structured-error handling
+    depends_on: [CULTURE-TASK-SHARED-001]
+    acceptance: [missing providers or evidence return structured errors, failures emit no fabricated scientific result, provider delegation records Context feature authority]
+feature_tasks:
+  - {task_id: CULTURE-TASK-001, feature_id: TLC-FC-25-CULTURE-001, title: Implement cultural and symbolic Context component descriptor, contract: registry/math-contracts/TLC-FC-25-CULTURE-001/contract.yaml, ir: registry/optimized-ir/culture/TLC-FC-25-CULTURE-001/ir.yaml, algorithm: registry/algorithms/culture/TLC-FC-25-CULTURE-001/algorithm.yaml, oracle: registry/oracles/culture/TLC-FC-25-CULTURE-001/oracle.yaml, context_provider_required: false, acceptance: ['preserve Context subset relation and source lists', 'construct no autonomous Culture geometry'], depends_on: [CULTURE-TASK-SHARED-001]}
+  - {task_id: CULTURE-TASK-002, feature_id: TLC-FC-25-CULTURE-002, title: Implement cultural transmission influence descriptor, contract: registry/math-contracts/TLC-FC-25-CULTURE-002/contract.yaml, ir: registry/optimized-ir/culture/TLC-FC-25-CULTURE-002/ir.yaml, algorithm: registry/algorithms/culture/TLC-FC-25-CULTURE-002/algorithm.yaml, oracle: registry/oracles/culture/TLC-FC-25-CULTURE-002/oracle.yaml, context_provider_required: false, acceptance: ['preserve exact four influence surfaces', 'invent no influence measure or runtime dependency'], depends_on: [CULTURE-TASK-SHARED-001]}
+  - {task_id: CULTURE-TASK-003, feature_id: TLC-FC-25-CULTURE-003, title: Implement contextual-weighting participation descriptor, contract: registry/math-contracts/TLC-FC-25-CULTURE-003/contract.yaml, ir: registry/optimized-ir/culture/TLC-FC-25-CULTURE-003/ir.yaml, algorithm: registry/algorithms/culture/TLC-FC-25-CULTURE-003/algorithm.yaml, oracle: registry/oracles/culture/TLC-FC-25-CULTURE-003/oracle.yaml, context_provider_required: false, acceptance: ['preserve participation in w_i and gamma_ij', 'keep g_c and general weight dynamics Context-owned'], depends_on: [CULTURE-TASK-SHARED-001]}
+  - {task_id: CULTURE-TASK-004, feature_id: TLC-FC-25-CULTURE-004, title: Implement Culture-to-Context weight RHS delegation, contract: registry/math-contracts/TLC-FC-25-CULTURE-004/contract.yaml, ir: registry/optimized-ir/culture/TLC-FC-25-CULTURE-004/ir.yaml, algorithm: registry/algorithms/culture/TLC-FC-25-CULTURE-004/algorithm.yaml, oracle: registry/oracles/culture/TLC-FC-25-CULTURE-004/oracle.yaml, context_provider_required: true, context_authority: TLC-FC-24-CONTEXT-004, acceptance: ['delegate only to a conformant provider', 'do not copy the Context formula or select a solver'], depends_on: [CULTURE-TASK-SHARED-002]}
+  - {task_id: CULTURE-TASK-005, feature_id: TLC-FC-25-CULTURE-005, title: Implement robust-plastic non-execution guard, contract: registry/math-contracts/TLC-FC-25-CULTURE-005/contract.yaml, ir: registry/optimized-ir/culture/TLC-FC-25-CULTURE-005/ir.yaml, algorithm: registry/algorithms/culture/TLC-FC-25-CULTURE-005/algorithm.yaml, oracle: registry/oracles/culture/TLC-FC-25-CULTURE-005/oracle.yaml, context_provider_required: false, acceptance: ['require external evidence for concrete classification', 'introduce no threshold and preserve Context sensitivity authority'], depends_on: [CULTURE-TASK-SHARED-002]}
+  - {task_id: CULTURE-TASK-006, feature_id: TLC-FC-25-CULTURE-006, title: Implement cultural adaptation delegation to Context, contract: registry/math-contracts/TLC-FC-25-CULTURE-006/contract.yaml, ir: registry/optimized-ir/culture/TLC-FC-25-CULTURE-006/ir.yaml, algorithm: registry/algorithms/culture/TLC-FC-25-CULTURE-006/algorithm.yaml, oracle: registry/oracles/culture/TLC-FC-25-CULTURE-006/oracle.yaml, context_provider_required: true, context_authority: TLC-FC-24-CONTEXT-007, acceptance: ['delegate only with sensitive-form and robust-preservation evidence', 'construct no A_culture or optimizer'], depends_on: [CULTURE-TASK-SHARED-002]}
+  - {task_id: CULTURE-TASK-007, feature_id: TLC-FC-25-CULTURE-007, title: Implement cultural fidelity evidence assessment, contract: registry/math-contracts/TLC-FC-25-CULTURE-007/contract.yaml, ir: registry/optimized-ir/culture/TLC-FC-25-CULTURE-007/ir.yaml, algorithm: registry/algorithms/culture/TLC-FC-25-CULTURE-007/algorithm.yaml, oracle: registry/oracles/culture/TLC-FC-25-CULTURE-007/oracle.yaml, context_provider_required: false, acceptance: ['require all four evidence categories', 'invent no core radius penalty floor or quantitative guarantee'], depends_on: [CULTURE-TASK-SHARED-002]}
+  - {task_id: CULTURE-TASK-008, feature_id: TLC-FC-25-CULTURE-008, title: Implement cultural failure-mode non-execution guard, contract: registry/math-contracts/TLC-FC-25-CULTURE-008/contract.yaml, ir: registry/optimized-ir/culture/TLC-FC-25-CULTURE-008/ir.yaml, algorithm: registry/algorithms/culture/TLC-FC-25-CULTURE-008/algorithm.yaml, oracle: registry/oracles/culture/TLC-FC-25-CULTURE-008/oracle.yaml, context_provider_required: false, acceptance: ['preserve exact failure labels', 'invent no detector score or threshold'], depends_on: [CULTURE-TASK-SHARED-002]}
+integration_tasks:
+  - task_id: CULTURE-TASK-INTEGRATION-001
+    title: Dispatch exactly the eight Culture feature identities
+    acceptance: [no ghost Culture feature identity is accepted, structural-only features retain declared guards]
+  - task_id: CULTURE-TASK-INTEGRATION-002
+    title: Run every Culture oracle and handoff acceptance suite
+    depends_on: [CULTURE-TASK-INTEGRATION-001]
+    acceptance: [all mandatory oracle and handoff acceptance cases pass]
+scientific_follow_up:
+  - {subject: TLC-UR-CULTURE-001..003, classification: preserved_structure_and_plasticity_boundaries, blocks_structural_implementation: false, blocks_unconditional_quantitative_execution: true}
+  - {subject: TLC-UR-CULTURE-004..006, classification: external_fidelity_and_failure_evidence_required, blocks_structural_implementation: false, blocks_unconditional_fidelity_or_detection: true}

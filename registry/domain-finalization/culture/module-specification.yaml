@@ -1,0 +1,74 @@
+schema_version: 1
+module_id: TLC-MODULE-CULTURE-001
+module_name: Culture
+status: selected_for_culture_implementation_specification
+purpose: >-
+  Provide source-faithful Culture descriptors and guards plus provider-based delegation to the published Context authority,
+  while preserving the absence of autonomous cultural geometry, thresholds, quantitative fidelity guarantees, and failure detectors.
+active_features:
+  - TLC-FC-25-CULTURE-001
+  - TLC-FC-25-CULTURE-002
+  - TLC-FC-25-CULTURE-003
+  - TLC-FC-25-CULTURE-004
+  - TLC-FC-25-CULTURE-005
+  - TLC-FC-25-CULTURE-006
+  - TLC-FC-25-CULTURE-007
+  - TLC-FC-25-CULTURE-008
+public_operations:
+  - {operation: describe_cultural_context_components, features: [TLC-FC-25-CULTURE-001], semantic_evaluation: structural_only}
+  - {operation: describe_cultural_transmission_influences, features: [TLC-FC-25-CULTURE-002], semantic_evaluation: structural_only}
+  - {operation: describe_cultural_context_weighting_participation, features: [TLC-FC-25-CULTURE-003], semantic_evaluation: structural_only}
+  - {operation: delegate_cultural_context_weight_rhs, features: [TLC-FC-25-CULTURE-004], semantic_evaluation: conditional_on_context_provider}
+  - {operation: assess_cultural_plasticity_classification_availability, features: [TLC-FC-25-CULTURE-005], semantic_evaluation: false_without_external_evidence}
+  - {operation: delegate_cultural_adaptation_to_context, features: [TLC-FC-25-CULTURE-006], semantic_evaluation: conditional_on_context_provider_and_external_eligibility}
+  - {operation: assess_cultural_fidelity_evidence, features: [TLC-FC-25-CULTURE-007], semantic_evaluation: conditional_on_external_evidence}
+  - {operation: assess_cultural_failure_detection_availability, features: [TLC-FC-25-CULTURE-008], semantic_evaluation: false_without_external_evidence}
+shared_types:
+  CultureOpaqueScientificValue:
+    purpose: caller-supplied cultural symbolic Context or evidence value that Culture must not construct
+  CultureStructuralDescriptor:
+    fields: [feature_id, source_reference, context_authority, preserved_payload, unresolved_items, scientific_status]
+  CultureStructuredError:
+    fields: [code, category, condition]
+scientific_dependencies:
+  - {domain: context, domain_index: 24, mode: confirmed}
+runtime_dependencies: []
+provider_authorities:
+  - {culture_feature: TLC-FC-25-CULTURE-004, context_feature: TLC-FC-24-CONTEXT-004, mode: caller_supplied_conformant_provider}
+  - {culture_feature: TLC-FC-25-CULTURE-005, context_feature: TLC-FC-24-CONTEXT-006, mode: reference_or_external_evidence_only}
+  - {culture_feature: TLC-FC-25-CULTURE-006, context_feature: TLC-FC-24-CONTEXT-007, mode: caller_supplied_conformant_provider}
+shared_contract_dependencies:
+  - TLC-HC-FEATURE-ID@1.0.0
+  - TLC-HC-SCIENTIFIC-REFERENCE@1.0.0
+  - TLC-HC-REFERENCE-COLLECTION@1.0.0
+  - TLC-HC-UNRESOLVED-ITEM@1.0.0
+  - TLC-HC-OPAQUE-VALUE@1.0.0
+  - TLC-HC-STRUCTURED-ERROR@1.0.0
+  - TLC-HC-TRACEABILITY@1.0.0
+  - TLC-HC-DESCRIPTOR-ENVELOPE@1.0.0
+non_execution_guards:
+  TLC-FC-25-CULTURE-005: CulturePlasticityEvidenceRequired
+  TLC-FC-25-CULTURE-008: CultureFailureDetectionEvidenceRequired
+unresolved_policy:
+  preserve: true
+  propagate: true
+  resolve_automatically: false
+  promote_to_defaults: false
+out_of_scope:
+  - constructing C_culture A_culture or g_culture
+  - embedding or vectorizing cultural or symbolic objects
+  - inventing influence measures or transfer functions
+  - inventing a robust-plastic threshold
+  - redefining S_contexte or A_contexte
+  - inventing a neighborhood radius or minimum J penalty
+  - inventing failure detectors scores or thresholds
+  - selecting runtime frameworks or solvers
+  - C++ implementation
+  - Python bindings
+implementation_readiness:
+  handoff_population_structurally_ready: true
+  semantic_evaluation_is_feature_specific: true
+  executable_features: []
+  conditionally_executable_features: [TLC-FC-25-CULTURE-004, TLC-FC-25-CULTURE-006, TLC-FC-25-CULTURE-007]
+  structural_only_features: [TLC-FC-25-CULTURE-001, TLC-FC-25-CULTURE-002, TLC-FC-25-CULTURE-003, TLC-FC-25-CULTURE-005, TLC-FC-25-CULTURE-008]
+future_implementation_tasks: registry/domain-finalization/culture/implementation-tasks.yaml

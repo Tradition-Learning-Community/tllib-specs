@@ -1,0 +1,11 @@
+schema_version: 1
+feature_id: TLC-FC-25-CULTURE-006
+algorithm_kind: provider_delegation
+execution: conditionally_executable
+steps:
+  - verify provider attests conformance to TLC-FC-24-CONTEXT-007
+  - require external evidence identifying sensitive forms eligible for adaptation
+  - require external preservation evidence for robust elements
+  - delegate Context adaptation inputs to the provider
+  - return delegated result with robust-preservation obligations
+forbidden: [A_culture synthesis, local optimization, local differentiation, adaptation without eligibility evidence]

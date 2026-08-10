@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-25-CULTURE-004
+oracle_kind: provider_and_error
+acceptance:
+  - conformant TLC-FC-24-CONTEXT-004 provider result is forwarded unchanged
+  - delegation provenance names Context feature 004
+  - missing provider yields CultureContextWeightProviderRequired
+  - no local ODE or formula copy is introduced
+rejections: [provider-free evaluation, local solver, default coefficients]

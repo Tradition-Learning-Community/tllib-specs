@@ -1,0 +1,20 @@
+contract_id: TLC-MC-TLC-FC-25-CULTURE-008
+feature_id: TLC-FC-25-CULTURE-008
+title: Cultural failure-mode detection guard
+domain_id: culture
+contract_kind: structural_guard_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/25-culture/culture.md
+source_sections: ['4. Conditions de fidélité culturelle', '5. Limites et points scientifiques non résolus']
+inputs: [{name: transmission_reference, type: opaque_reference}, {name: external_failure_evidence, type: optional_scientific_reference}]
+outputs: [{name: failure_mode_detection_availability, type: descriptor}]
+preconditions: [the two source failure modes are available]
+postconditions: [without external evidence no failure label is selected]
+invariants: [ignorance of the milieu and dissolution in the milieu remain the exact opposite source failures, no detector score or threshold]
+errors: [CultureFailureDetectionEvidenceRequired]
+opaque_parameters: [transmission_state]
+scientific_reservations: [TLC-UR-CULTURE-006]
+dependencies: {scientific: [24], runtime: []}
+provider_requirements: [external failure evidence when a concrete failure label is requested]
+forbidden_behaviors: [inventing failure thresholds, computing an unsourced failure score, auto-labeling a transmission]
+traceability: {source: maths/25-culture/culture.md, inventory: registry/domain-progress/culture/feature-inventory.yaml}

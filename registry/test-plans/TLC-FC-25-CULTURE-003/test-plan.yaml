@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-25-CULTURE-003
+source_contract: registry/math-contracts/TLC-FC-25-CULTURE-003/contract.yaml
+tests:
+  - {id: CU003-T01, category: invariant, verifies: Culture participation in w_i and gamma_ij is preserved}
+  - {id: CU003-T02, category: preservation, verifies: g_c remains a Context authority reference}
+  - {id: CU003-T03, category: preservation, verifies: weight law remains general Context dynamics rather than autonomous Culture dynamics}
+  - {id: CU003-T04, category: error, verifies: g_culture request is rejected}
