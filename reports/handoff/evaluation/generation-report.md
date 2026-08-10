@@ -1,10 +1,10 @@
 # Evaluation 18 — Generation report
 
-## Status
+## Publication record
 
-**READY FOR FINAL GLOBAL CATALOG MATERIALIZATION — NOT YET MERGED.**
+Domain **18 — Evaluation / Évaluation** is finalized as an implementation-ready Feature Handoff domain on the dedicated publication branch. The deterministic global catalog has been materialized with the permanent generator for the combined publication state of **24 domains / 264 features / 8 shared contracts**.
 
-The Evaluation domain artifacts and canonical domain catalog are finalized on `pipeline/domain-18-evaluation`. The remaining mechanical publication step is to materialize the deterministic global `handoff/catalog.json` with the permanent generator, then observe the permanent CI gate on the resulting exact PR HEAD.
+This versioned report intentionally does not embed the final PR HEAD, GitHub Actions run IDs, or squash-merge SHA. Those values exist only after the commit containing this report and are therefore recorded in PR #150 and GitHub merge history, avoiding a self-referential commit/CI loop.
 
 ## Scientific authority
 
@@ -17,19 +17,19 @@ The Evaluation domain artifacts and canonical domain catalog are finalized on `p
 - Scientific dependency direction preserved: **19 Regulation → 18 Evaluation**
 - Evaluation runtime dependency on Regulation: **none**
 
-## Baseline and target
+## Baseline and published target
 
 Initial `main` SHA observed at mission start:
 
 `b93b2720338dc4327f565cc2c0ce33b072d122b2`
 
-Observed initial global model:
+Initial global model:
 
 - domains: 23
 - features: 244
 - shared contracts: 8
 
-Evaluation target encoded on `pipeline/domain-18-evaluation`:
+Evaluation publication model:
 
 - domains: 24
 - features: 264
@@ -113,7 +113,7 @@ The finalized contracts and algorithms explicitly preserve, among others:
 
 ## Produced artifact families
 
-For each of the 20 features, the branch contains:
+For each of the 20 features, the publication contains:
 
 - mathematical contract: `registry/math-contracts/<FEATURE_ID>/contract.yaml`
 - candidate IR: `ir/<FEATURE_ID>/ir.candidate.json`
@@ -156,7 +156,7 @@ Exactly the existing eight shared contracts are reused:
 
 No ninth shared contract is introduced.
 
-## Global registry changes
+## Global publication state
 
 `registry/domain-progress/extension-16-35.yaml` encodes Evaluation 18 with:
 
@@ -165,7 +165,7 @@ No ninth shared contract is introduced.
 - no confirmed Evaluation dependency on Regulation
 - complete pipeline states for the Evaluation publication
 
-`tools/domain-progress/validate_extension_16_35.py` permits the actual published extension set conceptually as:
+`tools/domain-progress/validate_extension_16_35.py` permits the published extension set:
 
 `{16, 18, 22, 23, 24, 25, 26, 27}`
 
@@ -176,39 +176,31 @@ No ninth shared contract is introduced.
 - `EXPECTED_SHARED_CONTRACT_COUNT = 8`
 - `evaluation` appended to `DOMAIN_ORDER`
 
+The global `handoff/catalog.json` is the deterministic output of the permanent `tools/handoff/generate_catalog.py` for this exact 24-domain / 264-feature model. It is not reconstructed from Git blob hashes and no generator instrumentation is used.
+
+## Validation evidence policy
+
+Before the final merge, the exact unchanged PR HEAD must have both permanent GitHub workflows in `completed/success` state:
+
+- **Feature handoff validation**;
+- **Global finalization validation**.
+
+Reviews and review threads must also be clear, and `main` must remain unchanged from the reconciled base. The immutable final HEAD, run IDs, review state, squash SHA and final `main` SHA are recorded in PR #150 and GitHub history rather than embedded here.
+
 ## Repository hygiene
 
-Confirmed by construction and PR scope:
+- `maths/18-evaluation/evaluation.md` is unchanged;
+- no `TLC-FC-19-*` artifact is created;
+- no Regulation 19 implementation is created;
+- no Fairness 21, Robustness 20, Drift 32, or Fidelity 35 publication artifact is created;
+- `tools/handoff/generate_catalog.py` is not modified or instrumented;
+- no `tools/handoff/materialize_catalog.py` or equivalent helper is created;
+- no temporary workflow is created;
+- `.github/workflows/handoff.yml` is unchanged and remains read-only (`contents: read`);
+- no runtime C++, Python binding, solver, optimizer, integrator, estimator framework, state machine, or promotion engine is added.
 
-- `maths/18-evaluation/evaluation.md` was not modified;
-- no `TLC-FC-19-*` artifact was created;
-- no Regulation 19 implementation was created;
-- no Fairness 21, Robustness 20, Drift 32, or Fidelity 35 publication artifact was created;
-- `tools/handoff/generate_catalog.py` was not modified or instrumented;
-- no `tools/handoff/materialize_catalog.py` or equivalent helper was created;
-- no temporary workflow was created;
-- `.github/workflows/handoff.yml` was not modified;
-- permanent workflow permissions remain `contents: read` on the base repository state;
-- no runtime C++, Python binding, solver, optimizer, integrator, estimator framework, state machine, or promotion engine was added.
+## Pull request
 
-## Pull request and review state
+Publication PR: **#150 — Finalize domain 18 Evaluation to implementation-ready handoffs**.
 
-- Pull request: **#150**
-- Base: `main`
-- Head branch: `pipeline/domain-18-evaluation`
-- Title: `Finalize domain 18 Evaluation to implementation-ready handoffs`
-- Sourcery reported that the diff exceeded its automated review size limit; no actionable review thread was created.
-- Review threads: none at the time of this report update.
-- No merge has been attempted.
-
-Final workflow run IDs, exact validated final HEAD and squash-merge SHA are deliberately not embedded in this versioned report because those values only exist after the commit that contains this report. Embedding them would change the HEAD and invalidate the very gate they purport to describe. Those final immutable publication proofs belong in the PR description and GitHub merge history.
-
-## Remaining mechanical step
-
-The authoritative global catalog is `handoff/catalog.json`, generated solely by:
-
-`tools/handoff/generate_catalog.py`
-
-The connected GitHub capability can create/update Git objects and inspect Actions, but it cannot execute repository code. The permanent handoff workflow performs `generate_catalog.py --check`, not `--write`. No helper, temporary workflow, permission escalation, or generator instrumentation is authorized.
-
-Therefore the only remaining non-connector operation is deterministic materialization of `handoff/catalog.json` from this already-finalized Evaluation tree. After that file is committed to this exact PR branch, the permanent Feature handoff and Global finalization workflows must both complete successfully on the same unchanged final PR HEAD before any merge.
+Sourcery reported that the diff exceeded its automated review size limit and created no actionable review thread. Final immutable CI and merge evidence belongs to the PR conversation/description and repository history.
