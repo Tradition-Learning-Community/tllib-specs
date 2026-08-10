@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-19-REGULATION-017
+feature_id: TLC-FC-19-REGULATION-017
+title: Innovation bifurcation condition
+domain_id: regulation
+contract_kind: provider_backed_predicate_contract
+scientific_status: external_provider_required
+scientific_authority: maths/19-regulation/regulation.md
+source_sections: ['6. Bifurcations']
+expression: 'B_plus: lambda_max(J_collective) > 0 AND dE_cohort/dt > theta_breakthrough AND V_confidence > theta_confidence'
+inputs: [{name: lambda_max_J_collective, type: provider_scalar}, {name: dE_cohort_dt, type: provider_scalar}, {name: theta_breakthrough, type: opaque_threshold}, {name: V_confidence, type: scalar}, {name: theta_confidence, type: opaque_threshold}]
+outputs: [{name: B_plus_assessment, type: structured_predicate_result}]
+preconditions: [eigenvalue derivative and threshold values are supplied]
+postconditions: [exact three-way conjunction is evaluated]
+invariants: [all comparisons are strict greater-than, no Jacobian eigenvalue derivative or threshold is constructed]
+errors: [EigenvalueProviderRequired, CohortDerivativeProviderRequired, BifurcationThresholdProviderRequired]
+opaque_parameters: [lambda_max_J_collective, dE_cohort_dt, theta_breakthrough, theta_confidence]
+providers: [eigenvalue_value, derivative_value, thresholds]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-REGULATION-008, TLC-UR-REGULATION-010]
+forbidden_behaviors: [invent_jacobian, invent_eigen_solver, invent_derivative, invent_threshold, weaken_strict_inequality]
+traceability: {source: maths/19-regulation/regulation.md, inventory: registry/domain-progress/regulation/feature-inventory.yaml}

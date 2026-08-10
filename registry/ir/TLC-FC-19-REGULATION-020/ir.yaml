@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-020
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-020/contract.yaml
+source_candidate_ir: ir/TLC-FC-19-REGULATION-020/ir.candidate.json
+nature: validation
+inputs: [requested_operation_or_claim, provider_evidence]
+outputs: [scientific_noncertification_descriptor]
+steps: [map request to unresolved prerequisites, inspect external evidence, permit only source-backed expression evaluation, reject unsupported certification]
+errors: [ScientificProviderRequired, ScientificCertificationUnsupported]

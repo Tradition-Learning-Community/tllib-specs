@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-19-REGULATION-013
+feature_id: TLC-FC-19-REGULATION-013
+title: Collective resilience inequality assessment
+domain_id: regulation
+contract_kind: provider_backed_predicate_contract
+scientific_status: external_provider_required
+scientific_authority: maths/19-regulation/regulation.md
+source_sections: ['5. Convergence et résilience']
+expression: 'P(||X(t+Delta t)-X_ideal|| < delta | ||X(t)-X_ideal|| < epsilon) > 1 - alpha exp(-beta t) - gamma ||E_perturbation||'
+inputs: [{name: conditional_probability_value, type: provider_scalar}, {name: alpha, type: scalar}, {name: beta, type: scalar}, {name: t, type: scalar}, {name: gamma, type: scalar}, {name: perturbation_norm, type: provider_scalar}, {name: feedback_graph_density_evidence, type: provider_evidence}, {name: response_time_evidence, type: provider_evidence}, {name: source_diversity_evidence, type: provider_evidence}, {name: threshold_evidence, type: provider_evidence}]
+outputs: [{name: resilience_inequality_assessment, type: structured_predicate_result}]
+preconditions: [conditional probability perturbation norm and source condition evidence are supplied]
+postconditions: [raw strict probability inequality is assessed without constructing a probabilistic model]
+invariants: [strict greater-than sign and all RHS terms are preserved]
+errors: [ProbabilityProviderRequired, PerturbationNormProviderRequired, ResilienceConditionEvidenceRequired]
+opaque_parameters: [probability_model, perturbation_norm, thresholds]
+providers: [conditional_probability, norm_value, condition_evidence]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-REGULATION-008, TLC-UR-REGULATION-009, TLC-UR-REGULATION-010]
+forbidden_behaviors: [invent_probability_model, invent_noise_distribution, invent_norm, invent_threshold, invent_monte_carlo, weaken_strict_inequality]
+traceability: {source: maths/19-regulation/regulation.md, inventory: registry/domain-progress/regulation/feature-inventory.yaml}

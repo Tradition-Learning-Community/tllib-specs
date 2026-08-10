@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-19-REGULATION-014
+feature_id: TLC-FC-19-REGULATION-014
+title: Coupled-system convergence-condition descriptor
+domain_id: regulation
+contract_kind: structural_theorem_descriptor
+scientific_status: preserved_unresolved
+scientific_authority: maths/19-regulation/regulation.md
+source_sections: ['5. Convergence et résilience', '8. Limites et points scientifiques non résolus']
+expression: 'source claims lim X(t) = X_ideal + O(||epsilon|| + ||grad E_context||) under uniformly negative-definite A, bounded exponentially decaying B and C, and confidence transparency benevolence above thresholds'
+inputs: [{name: A_condition_evidence, type: optional_provider_evidence}, {name: B_C_decay_evidence, type: optional_provider_evidence}, {name: validity_evidence, type: optional_provider_evidence}, {name: regularity_evidence, type: optional_provider_evidence}, {name: big_O_bound_evidence, type: optional_provider_evidence}, {name: lyapunov_evidence, type: optional_provider_evidence}]
+outputs: [{name: coupled_convergence_descriptor, type: theorem_condition_descriptor}]
+preconditions: []
+postconditions: [source convergence conditions and asymptotic claim are recorded without certification]
+invariants: [negative-A condition remains verbatim despite contradiction, no explicit O bound or Lyapunov decay is invented]
+errors: [CoupledConvergenceEvidenceIncomplete, NegativeAContradictionPreserved]
+opaque_parameters: [regularity, big_O_bound, lyapunov_decay, thresholds]
+providers: [external_condition_evidence, external_proof_evidence]
+dependencies: {scientific: [TLC-FC-19-REGULATION-015, TLC-FC-19-REGULATION-016], runtime: []}
+unresolved_items: [TLC-UR-REGULATION-007, TLC-UR-REGULATION-008, TLC-UR-REGULATION-011, TLC-UR-REGULATION-012]
+forbidden_behaviors: [fix_negative_A_sign, invent_big_O_bound, invent_lyapunov_proof, invent_convergence_certificate, invent_regularity_assumptions, claim_asymptotic_stability]
+traceability: {source: maths/19-regulation/regulation.md, inventory: registry/domain-progress/regulation/feature-inventory.yaml}

@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-19-REGULATION-019
+feature_id: TLC-FC-19-REGULATION-019
+title: Operational safeguards descriptor
+domain_id: regulation
+contract_kind: structural_descriptor_contract
+scientific_status: defined
+scientific_authority: maths/19-regulation/regulation.md
+source_sections: ['7. Contraintes opérationnelles et échecs']
+expression: 'qualitative source constraints: technical/contextual/ethical separation, source plurality, threshold adaptation, transparency and benevolent purpose; six risks and eight safeguards'
+inputs: [{name: evidence, type: optional_provider_evidence}]
+outputs: [{name: operational_safeguards_descriptor, type: structured_descriptor}]
+preconditions: []
+postconditions: [source constraints risks and safeguards are emitted as descriptive evidence categories]
+invariants: [qualitative material is not transformed into an automated governance policy]
+errors: []
+opaque_parameters: []
+providers: [optional_external_evidence]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-REGULATION-014]
+forbidden_behaviors: [invent_governance_algorithm, invent_threshold, automate_evaluator_rotation, infer_compliance_without_evidence]
+traceability: {source: maths/19-regulation/regulation.md, inventory: registry/domain-progress/regulation/feature-inventory.yaml}

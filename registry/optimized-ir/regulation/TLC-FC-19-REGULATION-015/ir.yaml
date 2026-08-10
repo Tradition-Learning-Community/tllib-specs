@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-015
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-19-REGULATION-015/ir.yaml
+operation: evaluate_lyapunov_candidate
+required_behavior: [require supplied norm values and references, preserve three one-half squared-norm terms, label result candidate]
+forbidden_behavior: [invent_norm, compute_or_claim_dV_negative, invent_lyapunov_proof, certify_convergence]
+error_codes: [LyapunovNormProviderRequired, LyapunovReferenceProviderRequired]

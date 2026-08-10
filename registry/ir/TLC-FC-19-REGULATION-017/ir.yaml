@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-017
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-017/contract.yaml
+source_candidate_ir: ir/TLC-FC-19-REGULATION-017/ir.candidate.json
+nature: validation
+inputs: [lambda_max_J_collective, dE_cohort_dt, theta_breakthrough, V_confidence, theta_confidence]
+outputs: [B_plus_assessment]
+steps: [require providers, evaluate three strict predicates, combine with AND, return assessment]
+errors: [EigenvalueProviderRequired, CohortDerivativeProviderRequired, BifurcationThresholdProviderRequired]

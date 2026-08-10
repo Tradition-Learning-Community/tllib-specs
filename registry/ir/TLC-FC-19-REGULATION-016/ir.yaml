@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-016
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-016/contract.yaml
+source_candidate_ir: ir/TLC-FC-19-REGULATION-016/ir.candidate.json
+nature: validation
+inputs: [requested_claim, sign_condition_evidence]
+outputs: [negative_A_contradiction_descriptor]
+steps: [preserve source signs, expose e-dynamics implication, report contradiction, block unsupported convergence claim]
+errors: [NegativeAConvergenceContradiction]

@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-018
+algorithm_kind: predicate_evaluator
+execution: conditionally_executable
+steps: [require supplied lambda_min tension norm thresholds and transparency, evaluate lambda_min < 0, evaluate tension_norm > theta_crisis, evaluate transparency < theta_transparency, OR latter predicates, AND with lambda predicate]
+forbidden: [construct_jacobian, solve_eigenvalue, infer_norm, calibrate_threshold]

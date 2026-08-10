@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-020
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-19-REGULATION-020/ir.yaml
+operation: guard_scientific_noncertification
+required_behavior: [expose unresolved prerequisites, preserve source contradictions, require explicit providers, block unsupported theorem and solver claims]
+forbidden_behavior: [invent_science, repair_source, add_solver, certify_stability_or_convergence]
+error_codes: [ScientificProviderRequired, ScientificCertificationUnsupported]

@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-017
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-017/contract.yaml
+tests:
+  - {id: REG017-T01, category: valid_input, verifies: exact B_plus three-way conjunction from supplied values}
+  - {id: REG017-T02, category: preservation, verifies: all source comparisons remain strict greater-than}
+  - {id: REG017-T03, category: error, verifies: missing eigenvalue derivative or threshold provider is rejected}
+  - {id: REG017-T04, category: preservation, verifies: no Jacobian eigen solver derivative or calibration is invented}

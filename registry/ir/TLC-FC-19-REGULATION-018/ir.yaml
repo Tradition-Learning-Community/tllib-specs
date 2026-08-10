@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-018
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-018/contract.yaml
+source_candidate_ir: ir/TLC-FC-19-REGULATION-018/ir.candidate.json
+nature: validation
+inputs: [lambda_min_J_confidence, tension_norm, theta_crisis, T_transparency, theta_transparency]
+outputs: [B_minus_assessment]
+steps: [require providers, evaluate lambda predicate, evaluate tension and transparency predicates, OR crisis predicates, AND with lambda predicate]
+errors: [EigenvalueProviderRequired, TensionNormProviderRequired, CrisisThresholdProviderRequired]

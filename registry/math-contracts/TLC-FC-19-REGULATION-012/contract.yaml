@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-19-REGULATION-012
+feature_id: TLC-FC-19-REGULATION-012
+title: Mastery convergence-condition descriptor
+domain_id: regulation
+contract_kind: structural_theorem_descriptor
+scientific_status: preserved_unresolved
+scientific_authority: maths/19-regulation/regulation.md
+source_sections: ['5. Convergence et résilience']
+expression: 'source claims lim_{t->infinity} E[X(t)] = X_mastery when cumulative evaluation and disciplined practice exceed their thresholds, the Master is close to ideal, and context becomes optimal; rate depends on feedback quality and frequency'
+inputs: [{name: cumulative_evaluation_evidence, type: optional_provider_evidence}, {name: disciplined_practice_evidence, type: optional_provider_evidence}, {name: master_proximity_evidence, type: optional_provider_evidence}, {name: context_optimality_evidence, type: optional_provider_evidence}, {name: threshold_evidence, type: optional_provider_evidence}, {name: proof_evidence, type: optional_provider_evidence}]
+outputs: [{name: mastery_convergence_descriptor, type: theorem_condition_descriptor}]
+preconditions: []
+postconditions: [source conditions and claim are recorded without promotion to a runtime guarantee]
+invariants: [no proof threshold value expectation estimator or rate estimator is invented]
+errors: [MasteryConvergenceEvidenceIncomplete]
+opaque_parameters: [thresholds, proof_evidence, feedback_quality, feedback_frequency]
+providers: [external_condition_evidence, external_proof_evidence]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-REGULATION-008, TLC-UR-REGULATION-011, TLC-UR-REGULATION-013]
+forbidden_behaviors: [invent_threshold, invent_expectation_estimator, invent_convergence_certificate, invent_rate_estimator, invent_proof, claim_universal_convergence]
+traceability: {source: maths/19-regulation/regulation.md, inventory: registry/domain-progress/regulation/feature-inventory.yaml}

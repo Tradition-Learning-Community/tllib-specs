@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-012
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-012/contract.yaml
+tests:
+  - {id: REG012-T01, category: preservation, verifies: all four source convergence conditions are retained}
+  - {id: REG012-T02, category: preservation, verifies: expectation-limit claim is labeled source theorem claim not runtime guarantee}
+  - {id: REG012-T03, category: error, verifies: missing evidence produces non-certifiable structured outcome}
+  - {id: REG012-T04, category: preservation, verifies: no proof threshold calibration expectation estimator or rate estimator is invented}

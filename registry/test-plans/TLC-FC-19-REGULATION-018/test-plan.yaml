@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-018
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-018/contract.yaml
+tests:
+  - {id: REG018-T01, category: valid_input, verifies: exact lambda AND tension-OR-transparency crisis predicate}
+  - {id: REG018-T02, category: preservation, verifies: strict signs and AND/OR grouping are preserved}
+  - {id: REG018-T03, category: error, verifies: missing eigenvalue norm or threshold provider is rejected}
+  - {id: REG018-T04, category: preservation, verifies: no Jacobian eigen solver norm or calibration is invented}

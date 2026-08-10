@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-018
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-19-REGULATION-018/ir.yaml
+operation: assess_systemic_crisis
+required_behavior: [require lambda_min tension norm and thresholds, preserve strict source predicates, preserve AND with nested OR]
+forbidden_behavior: [invent_jacobian, invent_eigen_solver, invent_norm, invent_threshold]
+error_codes: [EigenvalueProviderRequired, TensionNormProviderRequired, CrisisThresholdProviderRequired]

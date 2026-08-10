@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-016
+algorithm_kind: nonexecution_guard
+execution: structural_only
+steps: [record source dX term A(X_ideal-X), record e equals X-X_ideal, record homogeneous e term minus A e, record contradiction with negative-definite A, reject unsupported convergence certification]
+forbidden: [change_A_sign, change_definiteness, change_error_orientation, prove_stability]

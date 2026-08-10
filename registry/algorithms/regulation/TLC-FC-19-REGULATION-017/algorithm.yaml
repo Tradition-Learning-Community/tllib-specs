@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-017
+algorithm_kind: predicate_evaluator
+execution: conditionally_executable
+steps: [require supplied lambda_max dE_cohort_dt thresholds and confidence, evaluate lambda_max > 0, evaluate dE_cohort_dt > theta_breakthrough, evaluate confidence > theta_confidence, AND results]
+forbidden: [construct_jacobian, solve_eigenvalue, differentiate, calibrate_threshold]

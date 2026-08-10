@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-19-REGULATION-016
+feature_id: TLC-FC-19-REGULATION-016
+title: Negative-A convergence contradiction guard
+domain_id: regulation
+contract_kind: structural_nonexecution_guard
+scientific_status: preserved_unresolved
+scientific_authority: maths/19-regulation/regulation.md
+source_sections: ['5. Convergence et résilience', '8. Limites et points scientifiques non résolus']
+expression: 'with e = X-X_ideal and source dX/dt = A(X_ideal-X)+..., homogeneous de/dt = -A e; source negative-definite A makes -A positive and therefore repulsive rather than attractive'
+inputs: [{name: requested_claim, type: opaque_value}, {name: sign_condition_evidence, type: optional_provider_evidence}]
+outputs: [{name: negative_A_contradiction_descriptor, type: structured_guard_result}]
+preconditions: []
+postconditions: [both source sign convention and negative-definite condition remain visible]
+invariants: [no replacement by positive definite A and no reversal of X_ideal-X]
+errors: [NegativeAConvergenceContradiction]
+opaque_parameters: [stability_proof]
+providers: [optional_external_resolution_evidence]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-REGULATION-007]
+forbidden_behaviors: [fix_negative_A_sign, replace_negative_with_positive_definite, reverse_error_orientation, invent_convergence_certificate, claim_asymptotic_stability]
+traceability: {source: maths/19-regulation/regulation.md, inventory: registry/domain-progress/regulation/feature-inventory.yaml}

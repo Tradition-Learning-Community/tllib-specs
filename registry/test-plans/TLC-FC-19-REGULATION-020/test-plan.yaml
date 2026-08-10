@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-020
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-020/contract.yaml
+tests:
+  - {id: REG020-T01, category: preservation, verifies: undefined spaces dimensions providers thresholds and proof gaps remain explicit}
+  - {id: REG020-T02, category: unsupported_operation, verifies: ODE solver integrator Lyapunov certificate or universal convergence request is blocked}
+  - {id: REG020-T03, category: preservation, verifies: negative-A and W_f contradictions remain unresolved}
+  - {id: REG020-T04, category: invariant, verifies: raw source expressions remain conditionally evaluable only when explicit operands/providers are supplied}

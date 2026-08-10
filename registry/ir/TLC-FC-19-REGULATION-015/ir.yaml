@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-015
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-015/contract.yaml
+source_candidate_ir: ir/TLC-FC-19-REGULATION-015/ir.candidate.json
+nature: transform
+inputs: [X_distance_norm, F_distance_norm, R_distance_norm, X_ideal, F_opt, R_opt]
+outputs: [V_candidate]
+steps: [require norm and reference providers, evaluate exact three half-squared-norm terms, sum, return candidate]
+errors: [LyapunovNormProviderRequired, LyapunovReferenceProviderRequired]

@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-015
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-015/contract.yaml
+tests:
+  - {id: REG015-T01, category: valid_input, verifies: exact three-term one-half squared-norm candidate expression}
+  - {id: REG015-T02, category: error, verifies: missing norm provider is rejected}
+  - {id: REG015-T03, category: preservation, verifies: X F R reference terms are all retained}
+  - {id: REG015-T04, category: preservation, verifies: no dV/dt negativity Lyapunov proof or convergence guarantee is emitted}

@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-013
+algorithm_kind: conditional_predicate_evaluator
+execution: conditionally_executable
+steps: [require supplied conditional probability and perturbation norm, require condition evidence, compute 1-alpha exp(-beta t)-gamma perturbation_norm, compare probability strictly greater than bound, return structured assessment]
+forbidden: [construct_distribution, monte_carlo, infer_norm, calibrate_threshold]

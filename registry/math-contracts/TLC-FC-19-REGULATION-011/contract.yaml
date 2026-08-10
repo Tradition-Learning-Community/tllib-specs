@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-19-REGULATION-011
+feature_id: TLC-FC-19-REGULATION-011
+title: Adaptive A right-hand side
+domain_id: regulation
+contract_kind: provider_backed_rhs_contract
+scientific_status: external_provider_required
+scientific_authority: maths/19-regulation/regulation.md
+source_sections: ['4. Système dynamique couplé']
+expression: 'dA/dt = eta_A (X_ideal-X) X^T - lambda_A A + mu_A(A_opt-A)'
+inputs: [{name: eta_A, type: scalar}, {name: X_ideal, type: opaque_value}, {name: X, type: opaque_value}, {name: X_transpose, type: provider_value}, {name: lambda_A, type: scalar}, {name: A, type: opaque_matrix}, {name: mu_A, type: scalar}, {name: A_opt, type: opaque_matrix}]
+outputs: [{name: dA_dt_rhs, type: opaque_matrix_expression}]
+preconditions: [X transpose realization A_opt and provider-declared shape compatibility are supplied]
+postconditions: [exact three-term source RHS is returned without integrating A]
+invariants: [X_ideal minus X orientation and both minus signs are preserved, no stability projection occurs]
+errors: [TransposeProviderRequired, AOptimalProviderRequired, AdaptiveAShapeCompatibilityRequired]
+opaque_parameters: [X_transpose, A_opt, matrix_dimensions]
+providers: [transpose_value, A_optimal, operand_compatibility]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-REGULATION-001, TLC-UR-REGULATION-007]
+forbidden_behaviors: [invent_matrix_shape, invent_transpose_semantics, invent_integrator, invent_stability_projection, fix_negative_A_sign, silently_change_source_formula]
+traceability: {source: maths/19-regulation/regulation.md, inventory: registry/domain-progress/regulation/feature-inventory.yaml}

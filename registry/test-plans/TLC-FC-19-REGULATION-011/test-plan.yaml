@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-011
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-011/contract.yaml
+tests:
+  - {id: REG011-T01, category: valid_input, verifies: exact adaptive-A three-term RHS equality}
+  - {id: REG011-T02, category: preservation, verifies: X_ideal minus X and negative lambda_A A are unchanged}
+  - {id: REG011-T03, category: error, verifies: missing A_opt or transpose provider yields structured error}
+  - {id: REG011-T04, category: preservation, verifies: no matrix shape stability projection learning strategy or integrator is invented}
