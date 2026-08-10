@@ -1,0 +1,25 @@
+schema_version: 1
+domain: evaluation
+status: frozen
+unresolved_count: 20
+items:
+  - {id: TLC-UR-EVALUATION-001, term: global_dimension_condition, issue: dimensions are undefined and V versus Val has no explicit convention, required_behavior: never certify the equality}
+  - {id: TLC-UR-EVALUATION-002, term: M_r, issue: integrated index includes r but no m_r_j family is constructed, required_behavior: require an external reflexive metric provider or return structured non-execution}
+  - {id: TLC-UR-EVALUATION-003, term: E_community, issue: fourth evaluation source is announced without its own formula, required_behavior: never invent a community evaluation formula}
+  - {id: TLC-UR-EVALUATION-004, term: E_truth, issue: mentor learning uses an undefined truth signal, required_behavior: require a truth provider}
+  - {id: TLC-UR-EVALUATION-005, term: N_i, issue: normalization functions are not constructed, required_behavior: require normalizer providers}
+  - {id: TLC-UR-EVALUATION-006, term: metric_min_max_references, issue: real minimum and maximum references are not constructed, required_behavior: require explicit references and reject zero ranges}
+  - {id: TLC-UR-EVALUATION-007, term: sigma, issue: several sigma uses have no source-defined functional form, required_behavior: treat sigma as an opaque supplied function/value provider}
+  - {id: TLC-UR-EVALUATION-008, term: calculus_realization, issue: integrals derivatives and gradients have no numerical method, required_behavior: never invent integration differentiation or gradient schemes}
+  - {id: TLC-UR-EVALUATION-009, term: geometry, issue: several norms and projection geometry are not defined, required_behavior: require norm/projection providers}
+  - {id: TLC-UR-EVALUATION-010, term: contextual_expectation, issue: distribution over E estimator C_optimal and w(E) are absent, required_behavior: require providers and never synthesize Monte Carlo or a distribution}
+  - {id: TLC-UR-EVALUATION-011, term: peer_empty_set, issue: peer mean is undefined when P_d(t) is empty, required_behavior: return PeerPopulationEmpty and never choose zero NaN mentor or another fallback}
+  - {id: TLC-UR-EVALUATION-012, term: thresholds_and_coefficients, issue: validity zone peer and aggregation thresholds/coefficients require calibration, required_behavior: keep all such values opaque}
+  - {id: TLC-UR-EVALUATION-013, term: aggregation_minima_and_autonomy, issue: alpha_min_i(t) and t_autonomy(d) values/policy are absent, required_behavior: require supplied values and never project or renormalize}
+  - {id: TLC-UR-EVALUATION-014, term: fairness_scope, issue: procedural metric is not a complete definition of distributive justice, required_behavior: keep Fairness-specific mechanisms out of Evaluation runtime}
+  - {id: TLC-UR-EVALUATION-015, term: efficiency_orientation, issue: interpretation direction of I_efficiency is not explicitly established, required_behavior: preserve raw orientation and avoid better/worse relabeling}
+  - {id: TLC-UR-EVALUATION-016, term: bias_estimation, issue: conditional expectation and variance estimation methods are not defined, required_behavior: require provider-backed statistics}
+  - {id: TLC-UR-EVALUATION-017, term: Phi_m_and_Psi_p_realization, issue: mentor and peer feature maps are described qualitatively but not constructed, required_behavior: treat their evaluated values as provider-backed operands}
+  - {id: TLC-UR-EVALUATION-018, term: Gamma_a_realization, issue: self feature map is described qualitatively but no estimator is defined, required_behavior: require provider-backed Gamma_a output}
+  - {id: TLC-UR-EVALUATION-019, term: denominator_domains, issue: cosine means weighted ratios efficiency ratio and fairness ratio require nonzero denominators not fully specified, required_behavior: reject invalid denominators with structured errors and never clamp}
+  - {id: TLC-UR-EVALUATION-020, term: transition_semantics, issue: source gives a sigmoid transition probability but no Markov process promotion engine or policy, required_behavior: expose the expression only and never invent a state machine}
