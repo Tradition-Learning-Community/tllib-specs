@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-016
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-016/contract.yaml
+tests:
+  - {id: REG016-T01, category: preservation, verifies: A(X_ideal-X) source sign is unchanged}
+  - {id: REG016-T02, category: preservation, verifies: negative-definite A requirement remains verbatim}
+  - {id: REG016-T03, category: unsupported_operation, verifies: convergence certification without authoritative resolution is blocked}
+  - {id: REG016-T04, category: preservation, verifies: no positive-definite substitution or error-orientation reversal is introduced}

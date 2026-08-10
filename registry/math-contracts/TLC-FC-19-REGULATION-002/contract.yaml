@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-19-REGULATION-002
+feature_id: TLC-FC-19-REGULATION-002
+title: Collective self-correction right-hand side
+domain_id: regulation
+contract_kind: provider_backed_rhs_contract
+scientific_status: external_provider_required
+scientific_authority: maths/19-regulation/regulation.md
+source_sections: ['2. Autocorrection collective']
+expression: 'dI_collective/dt = -lambda I_collective + mu S_sharing + nu R_solutions + xi R_listening I_collective + pi grad E_context'
+inputs: [{name: I_collective, type: opaque_value}, {name: lambda, type: scalar}, {name: mu, type: scalar}, {name: S_sharing, type: opaque_value}, {name: nu, type: scalar}, {name: R_solutions, type: opaque_value}, {name: xi, type: scalar}, {name: R_listening, type: opaque_operator_value}, {name: pi, type: scalar}, {name: grad_E_context, type: opaque_gradient}]
+outputs: [{name: dI_collective_dt_rhs, type: opaque_value}]
+preconditions: [all operands are supplied with compatible provider-declared types]
+postconditions: [returned value is only the source RHS, no time integration occurs]
+invariants: [all five source terms and their signs are preserved]
+errors: [ContextGradientProviderRequired, OperandCompatibilityRequired]
+opaque_parameters: [grad_E_context]
+providers: [context_gradient, operand_type_compatibility]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-REGULATION-001, TLC-UR-REGULATION-010]
+forbidden_behaviors: [invent_gradient, invent_integrator, invent_matrix_shape, silently_change_source_formula]
+traceability: {source: maths/19-regulation/regulation.md, inventory: registry/domain-progress/regulation/feature-inventory.yaml}

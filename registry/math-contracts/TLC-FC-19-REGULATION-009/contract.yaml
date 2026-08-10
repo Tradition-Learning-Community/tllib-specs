@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-19-REGULATION-009
+feature_id: TLC-FC-19-REGULATION-009
+title: Coupled F right-hand side
+domain_id: regulation
+contract_kind: provider_backed_rhs_contract
+scientific_status: external_provider_required
+scientific_authority: maths/19-regulation/regulation.md
+source_sections: ['4. Système dynamique couplé']
+expression: 'dF/dt = E(t)X + F(t) I_collective + G(t) dX/dt + H(t) grad V'
+inputs: [{name: E_t, type: opaque_operator}, {name: X, type: opaque_value}, {name: F_t, type: opaque_operator}, {name: I_collective, type: opaque_value}, {name: G_t, type: opaque_operator}, {name: dX_dt, type: supplied_rhs_value}, {name: H_t, type: opaque_operator}, {name: grad_V, type: opaque_gradient}]
+outputs: [{name: dF_dt_rhs, type: opaque_value}]
+preconditions: [all operands including dX_dt and grad V are supplied]
+postconditions: [exact four-term RHS is returned without derivative or integration construction]
+invariants: [dX_dt is consumed as supplied value, grad V is provider-backed]
+errors: [XDerivativeProviderRequired, VGradientProviderRequired, CoupledOperandCompatibilityRequired]
+opaque_parameters: [dX_dt, grad_V, matrix_dimensions]
+providers: [X_rhs_value, V_gradient, operand_compatibility]
+dependencies: {scientific: [TLC-FC-19-REGULATION-008], runtime: []}
+unresolved_items: [TLC-UR-REGULATION-001, TLC-UR-REGULATION-010]
+forbidden_behaviors: [invent_derivative, invent_gradient, invent_matrix_shape, invent_ode_solver, invent_integrator]
+traceability: {source: maths/19-regulation/regulation.md, inventory: registry/domain-progress/regulation/feature-inventory.yaml}

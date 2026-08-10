@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-011
+algorithm_kind: source_rhs_evaluator
+execution: conditionally_executable
+steps: [require X transpose A_opt and compatibility providers, compute eta_A times (X_ideal-X) times X_transpose, subtract lambda_A A, add mu_A(A_opt-A), return RHS]
+forbidden: [infer_dimensions, construct_A_opt, project_stability, integrate_time, repair_sign]

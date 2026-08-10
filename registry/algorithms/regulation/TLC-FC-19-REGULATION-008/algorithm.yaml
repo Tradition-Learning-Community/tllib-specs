@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-008
+algorithm_kind: source_rhs_evaluator
+execution: conditionally_executable
+steps: [require provider-declared compatibility, compute A_t(X_ideal-X), add B_t F, add C_t R, add D_t grad E_context, add Sigma_t epsilon_t, return RHS]
+forbidden: [infer_dimensions, construct_gradient, sample_noise, integrate_ode, repair_A_sign]

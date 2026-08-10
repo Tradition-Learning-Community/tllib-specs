@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-005
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-005/contract.yaml
+tests:
+  - {id: REG005-T01, category: valid_input, verifies: exact three-part Delta X_i source expression}
+  - {id: REG005-T02, category: error, verifies: N <= 1 yields InvalidGuidedCorrectionPopulation}
+  - {id: REG005-T03, category: error, verifies: missing softmax X_ideal or grad J provider is rejected}
+  - {id: REG005-T04, category: preservation, verifies: no clipping normalization solver or state mutation is introduced}

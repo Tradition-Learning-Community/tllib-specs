@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-010
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-010/contract.yaml
+source_candidate_ir: ir/TLC-FC-19-REGULATION-010/ir.candidate.json
+nature: dynamical
+inputs: [I_t, T_tensions, J_t, S_solutions, K_t, F, L_t, grad_E_context]
+outputs: [dR_dt_rhs]
+steps: [require tension solution gradient providers, evaluate four source terms, return RHS]
+errors: [TensionProviderRequired, SolutionProviderRequired, ContextGradientProviderRequired, CoupledOperandCompatibilityRequired]

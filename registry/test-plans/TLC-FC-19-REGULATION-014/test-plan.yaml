@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-014
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-014/contract.yaml
+tests:
+  - {id: REG014-T01, category: preservation, verifies: negative-definite A and bounded decaying B/C source conditions are retained}
+  - {id: REG014-T02, category: preservation, verifies: asymptotic X_ideal plus O perturbation/context-gradient claim remains a claim not a guarantee}
+  - {id: REG014-T03, category: error, verifies: incomplete regularity Lyapunov or big-O evidence prevents certification}
+  - {id: REG014-T04, category: preservation, verifies: no sign repair stability proof explicit bound or convergence certificate is generated}

@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-002
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-002/contract.yaml
+tests:
+  - {id: REG002-T01, category: valid_input, verifies: exact five-term RHS equality from supplied operands}
+  - {id: REG002-T02, category: preservation, verifies: negative lambda term and positive remaining source terms are preserved}
+  - {id: REG002-T03, category: error, verifies: missing grad E_context yields structured provider error}
+  - {id: REG002-T04, category: preservation, verifies: no time integrator or state update is introduced}

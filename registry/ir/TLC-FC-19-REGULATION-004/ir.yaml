@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-004
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-004/contract.yaml
+source_candidate_ir: ir/TLC-FC-19-REGULATION-004/ir.candidate.json
+nature: transform
+inputs: [W_f, theta_output, b_f, X_i, X_j, Interactions_ij]
+outputs: [F_ij]
+steps: [require Theta output and shape compatibility, evaluate W_f dot theta_output, add b_f]
+errors: [ThetaProviderRequired, FeedbackShapeCompatibilityRequired]

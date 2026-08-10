@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-016
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-19-REGULATION-016/ir.yaml
+operation: guard_negative_A_convergence_contradiction
+required_behavior: [preserve source A sign, preserve source negative-definite condition, expose repulsive error implication, block unsupported convergence certification]
+forbidden_behavior: [repair_A_sign, substitute_positive_definite, reverse_error_orientation, certify_stability]
+error_codes: [NegativeAConvergenceContradiction]

@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-011
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-011/contract.yaml
+source_candidate_ir: ir/TLC-FC-19-REGULATION-011/ir.candidate.json
+nature: dynamical
+inputs: [eta_A, X_ideal, X, X_transpose, lambda_A, A, mu_A, A_opt]
+outputs: [dA_dt_rhs]
+steps: [require provider values and compatibility, evaluate exact three-term source RHS, return RHS]
+errors: [TransposeProviderRequired, AOptimalProviderRequired, AdaptiveAShapeCompatibilityRequired]

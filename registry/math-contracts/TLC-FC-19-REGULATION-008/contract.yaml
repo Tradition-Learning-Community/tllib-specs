@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-19-REGULATION-008
+feature_id: TLC-FC-19-REGULATION-008
+title: Coupled X right-hand side
+domain_id: regulation
+contract_kind: provider_backed_rhs_contract
+scientific_status: external_provider_required
+scientific_authority: maths/19-regulation/regulation.md
+source_sections: ['4. Système dynamique couplé']
+expression: 'dX/dt = A(t)(X_ideal-X) + B(t)F + C(t)R + D(t) grad E_context + Sigma(t) epsilon(t)'
+inputs: [{name: A_t, type: opaque_operator}, {name: X_ideal, type: opaque_value}, {name: X, type: opaque_value}, {name: B_t, type: opaque_operator}, {name: F, type: opaque_value}, {name: C_t, type: opaque_operator}, {name: R, type: opaque_value}, {name: D_t, type: opaque_operator}, {name: grad_E_context, type: opaque_gradient}, {name: Sigma_t, type: opaque_operator}, {name: epsilon_t, type: opaque_value}]
+outputs: [{name: dX_dt_rhs, type: opaque_value}]
+preconditions: [all operands and provider-declared compatibility evidence are supplied]
+postconditions: [exact five-term RHS is returned without ODE integration]
+invariants: [X_ideal minus X sign is preserved, epsilon distribution is not constructed]
+errors: [CoupledOperandCompatibilityRequired, ContextGradientProviderRequired, PerturbationProviderRequired]
+opaque_parameters: [matrix_dimensions, grad_E_context, epsilon_t]
+providers: [operand_compatibility, context_gradient, perturbation_value]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-REGULATION-001, TLC-UR-REGULATION-009, TLC-UR-REGULATION-010]
+forbidden_behaviors: [invent_matrix_shape, invent_context_gradient, invent_noise_distribution, invent_ode_solver, invent_integrator, fix_negative_A_sign]
+traceability: {source: maths/19-regulation/regulation.md, inventory: registry/domain-progress/regulation/feature-inventory.yaml}

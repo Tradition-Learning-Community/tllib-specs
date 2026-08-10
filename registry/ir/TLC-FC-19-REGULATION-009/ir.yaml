@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-009
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-009/contract.yaml
+source_candidate_ir: ir/TLC-FC-19-REGULATION-009/ir.candidate.json
+nature: dynamical
+inputs: [E_t, X, F_t, I_collective, G_t, dX_dt, H_t, grad_V]
+outputs: [dF_dt_rhs]
+steps: [require dX_dt and grad V providers, evaluate four source terms, return RHS]
+errors: [XDerivativeProviderRequired, VGradientProviderRequired, CoupledOperandCompatibilityRequired]

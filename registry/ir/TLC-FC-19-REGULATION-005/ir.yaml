@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-005
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-005/contract.yaml
+source_candidate_ir: ir/TLC-FC-19-REGULATION-005/ir.candidate.json
+nature: transform
+inputs: [N, eta, peer_states, X_i, softmax_weights, lambda, X_ideal, mu, grad_J_collective]
+outputs: [Delta_X_i]
+steps: [validate N greater than 1, require providers, evaluate peer term, add ideal term, add gradient term, return delta]
+errors: [InvalidGuidedCorrectionPopulation, SoftmaxProviderRequired, IdealStateProviderRequired, CollectiveGradientProviderRequired]

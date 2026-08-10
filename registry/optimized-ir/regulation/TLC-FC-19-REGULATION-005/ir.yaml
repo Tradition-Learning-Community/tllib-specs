@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-005
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-19-REGULATION-005/ir.yaml
+operation: evaluate_guided_correction_delta
+required_behavior: [reject N <= 1, require supplied softmax X_ideal and grad J providers, preserve denominator N-1, return delta only]
+forbidden_behavior: [clamp_denominator, invent_softmax, invent_gradient, mutate_state, clip_or_normalize_delta]
+error_codes: [InvalidGuidedCorrectionPopulation, SoftmaxProviderRequired, IdealStateProviderRequired, CollectiveGradientProviderRequired]

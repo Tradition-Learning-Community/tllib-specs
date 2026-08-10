@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-014
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-014/contract.yaml
+source_candidate_ir: ir/TLC-FC-19-REGULATION-014/ir.candidate.json
+nature: theorem
+inputs: [A_condition_evidence, B_C_decay_evidence, validity_evidence, regularity_evidence, big_O_bound_evidence, lyapunov_evidence]
+outputs: [coupled_convergence_descriptor]
+steps: [record source conditions, preserve negative-A contradiction, record asymptotic claim, assess external evidence completeness, return non-certifying descriptor]
+errors: [CoupledConvergenceEvidenceIncomplete, NegativeAContradictionPreserved]

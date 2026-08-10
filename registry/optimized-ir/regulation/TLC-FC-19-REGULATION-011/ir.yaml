@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-011
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-19-REGULATION-011/ir.yaml
+operation: evaluate_adaptive_A_rhs
+required_behavior: [require transpose and A_opt providers, preserve all source signs and terms, return RHS only]
+forbidden_behavior: [invent_matrix_shape, invent_stability_projection, integrate_A, repair_A_sign]
+error_codes: [TransposeProviderRequired, AOptimalProviderRequired, AdaptiveAShapeCompatibilityRequired]

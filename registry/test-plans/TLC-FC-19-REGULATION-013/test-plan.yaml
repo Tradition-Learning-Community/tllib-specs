@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-013
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-013/contract.yaml
+tests:
+  - {id: REG013-T01, category: valid_input, verifies: exact source lower-bound RHS and strict comparison are evaluated from supplied values}
+  - {id: REG013-T02, category: error, verifies: missing conditional probability or perturbation norm is rejected}
+  - {id: REG013-T03, category: error, verifies: missing density response-time diversity or threshold evidence prevents complete assessment}
+  - {id: REG013-T04, category: preservation, verifies: no probability distribution Monte Carlo norm or threshold is invented}

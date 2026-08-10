@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-19-REGULATION-018
+feature_id: TLC-FC-19-REGULATION-018
+title: Systemic-crisis condition
+domain_id: regulation
+contract_kind: provider_backed_predicate_contract
+scientific_status: external_provider_required
+scientific_authority: maths/19-regulation/regulation.md
+source_sections: ['6. Bifurcations']
+expression: 'B_minus: lambda_min(J_confidence) < 0 AND (||T_tensions|| > theta_crisis OR T_transparency < theta_transparency)'
+inputs: [{name: lambda_min_J_confidence, type: provider_scalar}, {name: tension_norm, type: provider_scalar}, {name: theta_crisis, type: opaque_threshold}, {name: T_transparency, type: scalar}, {name: theta_transparency, type: opaque_threshold}]
+outputs: [{name: B_minus_assessment, type: structured_predicate_result}]
+preconditions: [eigenvalue tension norm and threshold values are supplied]
+postconditions: [exact AND with nested OR source predicate is evaluated]
+invariants: [lambda_min and transparency comparisons remain strict less-than and tension comparison strict greater-than]
+errors: [EigenvalueProviderRequired, TensionNormProviderRequired, CrisisThresholdProviderRequired]
+opaque_parameters: [lambda_min_J_confidence, tension_norm, theta_crisis, theta_transparency]
+providers: [eigenvalue_value, norm_value, thresholds]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-REGULATION-008, TLC-UR-REGULATION-010]
+forbidden_behaviors: [invent_jacobian, invent_eigen_solver, invent_norm, invent_threshold, weaken_strict_inequality]
+traceability: {source: maths/19-regulation/regulation.md, inventory: registry/domain-progress/regulation/feature-inventory.yaml}

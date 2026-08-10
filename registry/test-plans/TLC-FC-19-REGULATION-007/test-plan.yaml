@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-007
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-007/contract.yaml
+tests:
+  - {id: REG007-T01, category: preservation, verifies: source scalar-plus-matrix ambiguity is reported verbatim in semantics}
+  - {id: REG007-T02, category: unsupported_operation, verifies: numerical combination without compatibility evidence is blocked}
+  - {id: REG007-T03, category: preservation, verifies: no identity broadcast or sign repair is introduced}
+  - {id: REG007-T04, category: preservation, verifies: no claim that the source term necessarily reduces error is emitted}

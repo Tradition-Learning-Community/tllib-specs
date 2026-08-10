@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-19-REGULATION-015
+feature_id: TLC-FC-19-REGULATION-015
+title: Lyapunov candidate expression
+domain_id: regulation
+contract_kind: provider_backed_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/19-regulation/regulation.md
+source_sections: ['5. Convergence et résilience']
+expression: 'V(t) = 1/2 ||X-X_ideal||^2 + 1/2 ||F-F_opt||^2 + 1/2 ||R-R_opt||^2'
+inputs: [{name: X_distance_norm, type: provider_scalar}, {name: F_distance_norm, type: provider_scalar}, {name: R_distance_norm, type: provider_scalar}, {name: X_ideal, type: opaque_reference}, {name: F_opt, type: opaque_reference}, {name: R_opt, type: opaque_reference}]
+outputs: [{name: V_candidate, type: scalar_expression}]
+preconditions: [all three source norm values are supplied by a compatible norm provider]
+postconditions: [exact nonnegative quadratic candidate expression is returned]
+invariants: [feature does not compute dV/dt or assert decrease]
+errors: [LyapunovNormProviderRequired, LyapunovReferenceProviderRequired]
+opaque_parameters: [norms, X_ideal, F_opt, R_opt]
+providers: [norm_values, reference_values]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-REGULATION-010, TLC-UR-REGULATION-012]
+forbidden_behaviors: [invent_norm, invent_lyapunov_proof, certify_dV_negative, invent_convergence_certificate]
+traceability: {source: maths/19-regulation/regulation.md, inventory: registry/domain-progress/regulation/feature-inventory.yaml}

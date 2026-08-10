@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-19-REGULATION-006
+feature_id: TLC-FC-19-REGULATION-006
+title: Feedback-weight raw right-hand side
+domain_id: regulation
+contract_kind: unresolved_guarded_rhs_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/19-regulation/regulation.md
+source_sections: ['3. Retour à 360 degrés']
+expression: 'dW_f/dt = gamma[(1/(N(N-1))) sum_{i != j}(F_ij-F_ij_consensus)^2] + delta(W_f_opt-W_f)'
+inputs: [{name: N, type: integer}, {name: gamma, type: scalar}, {name: pairwise_feedback_errors, type: scalar_collection}, {name: delta, type: scalar}, {name: W_f_opt, type: opaque_matrix}, {name: W_f, type: opaque_matrix}, {name: dimensional_compatibility, type: external_provider_evidence}]
+outputs: [{name: dW_f_dt_raw_rhs, type: opaque_source_expression}]
+preconditions: [N is greater than 1, pairwise errors are supplied, an explicit source-authoritative dimensional compatibility rule is supplied before numerical evaluation]
+postconditions: [raw scalar-error term and matrix relaxation term remain separately traceable]
+invariants: [no scalar broadcast, identity embedding, sign change, gradient substitution or time integration]
+errors: [InvalidFeedbackPopulation, FeedbackWeightDimensionalAmbiguity, ConsensusProviderRequired]
+opaque_parameters: [F_ij_consensus, dimensional_compatibility]
+providers: [consensus_values, dimensional_compatibility]
+dependencies: {scientific: [TLC-FC-19-REGULATION-007], runtime: []}
+unresolved_items: [TLC-UR-REGULATION-002, TLC-UR-REGULATION-006]
+forbidden_behaviors: [broadcast_scalar_feedback_error, fix_feedback_learning_sign, invent_identity_broadcast, transform_square_to_gradient, invent_integrator, silently_change_source_formula]
+traceability: {source: maths/19-regulation/regulation.md, inventory: registry/domain-progress/regulation/feature-inventory.yaml}

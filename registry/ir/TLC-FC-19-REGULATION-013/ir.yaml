@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-013
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-013/contract.yaml
+source_candidate_ir: ir/TLC-FC-19-REGULATION-013/ir.candidate.json
+nature: validation
+inputs: [conditional_probability_value, alpha, beta, t, gamma, perturbation_norm, feedback_graph_density_evidence, response_time_evidence, source_diversity_evidence, threshold_evidence]
+outputs: [resilience_inequality_assessment]
+steps: [require providers, compute source right-hand bound, compare strict greater-than, attach supplied condition evidence]
+errors: [ProbabilityProviderRequired, PerturbationNormProviderRequired, ResilienceConditionEvidenceRequired]

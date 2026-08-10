@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-002
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-002/contract.yaml
+source_candidate_ir: ir/TLC-FC-19-REGULATION-002/ir.candidate.json
+nature: dynamical
+inputs: [I_collective, lambda, mu, S_sharing, nu, R_solutions, xi, R_listening, pi, grad_E_context]
+outputs: [dI_collective_dt_rhs]
+steps: [require providers, evaluate exact source RHS, return RHS]
+errors: [ContextGradientProviderRequired, OperandCompatibilityRequired]

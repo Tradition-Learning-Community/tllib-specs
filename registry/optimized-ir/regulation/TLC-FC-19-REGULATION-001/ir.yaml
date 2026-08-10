@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-001
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-19-REGULATION-001/ir.yaml
+operation: assess_regulation_validity_and_reactivity
+required_behavior: [require tau_critical, preserve tau_R < tau_critical, require Evaluation-compatible validity evidence, return structured predicate evidence]
+forbidden_behavior: [invent_threshold, weaken_strict_inequality, import_evaluation_runtime]
+error_codes: [ReactivityThresholdProviderRequired, EvaluationValidityEvidenceRequired]

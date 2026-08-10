@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-017
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-19-REGULATION-017/ir.yaml
+operation: assess_innovation_bifurcation
+required_behavior: [require lambda_max derivative and threshold providers, preserve three strict predicates, combine with AND]
+forbidden_behavior: [invent_jacobian, invent_eigen_solver, invent_derivative, invent_threshold]
+error_codes: [EigenvalueProviderRequired, CohortDerivativeProviderRequired, BifurcationThresholdProviderRequired]

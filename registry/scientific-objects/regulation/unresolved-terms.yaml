@@ -1,0 +1,19 @@
+schema_version: 1
+domain: regulation
+status: frozen
+unresolved_count: 14
+items:
+  - {id: TLC-UR-REGULATION-001, term: state_spaces_and_matrix_dimensions, issue: spaces of X F R and matrix dimensions are not defined, required_behavior: never invent vector spaces dimensions broadcasting or matrix shapes}
+  - {id: TLC-UR-REGULATION-002, term: tensions_solutions_consensus, issue: T_tensions S_solutions and F_consensus are not completely constructed, required_behavior: require supplied provider outputs}
+  - {id: TLC-UR-REGULATION-003, term: collective_solution_operands, issue: solutions(d,t) w(d,t) X_optimal norm sigma and provider evolution are unspecified, required_behavior: treat all as explicit operands/providers and never synthesize them}
+  - {id: TLC-UR-REGULATION-004, term: Theta, issue: the 360-degree feedback feature map is not constructed, required_behavior: require provider-backed Theta output}
+  - {id: TLC-UR-REGULATION-005, term: softmax_semantics, issue: source applies softmax(F_ji) without defining realization or axis semantics, required_behavior: require supplied softmax result/provider semantics and never normalize silently}
+  - {id: TLC-UR-REGULATION-006, term: feedback_weight_scalar_matrix_ambiguity, issue: dW_f/dt adds a scalar squared-error term to a matrix relaxation term without a diffusion rule or error-reducing sign, required_behavior: preserve raw expression and require explicit dimensional compatibility; never broadcast change sign or substitute a gradient}
+  - {id: TLC-UR-REGULATION-007, term: negative_A_convergence_contradiction, issue: source requires A negative definite while dX/dt=A(X_ideal-X)+... makes -A repulsive for e=X-X_ideal, required_behavior: preserve both source statements and never repair the sign}
+  - {id: TLC-UR-REGULATION-008, term: thresholds, issue: critical reactivity validity mastery resilience bifurcation and crisis thresholds are uncalibrated, required_behavior: keep thresholds opaque and provider-backed}
+  - {id: TLC-UR-REGULATION-009, term: perturbation_semantics, issue: epsilon distribution perturbation norm and probabilistic model are not supplied, required_behavior: require external probability and norm quantities; never invent distributions or Monte Carlo}
+  - {id: TLC-UR-REGULATION-010, term: calculus_and_spectral_providers, issue: gradients derivatives Jacobians eigenvalues and norms lack construction methods, required_behavior: require evaluated providers and never invent calculus spectral or geometry algorithms}
+  - {id: TLC-UR-REGULATION-011, term: regularity_assumptions, issue: complete regularity hypotheses for the coupled dynamics are absent, required_behavior: never certify existence uniqueness stability or convergence from incomplete assumptions}
+  - {id: TLC-UR-REGULATION-012, term: lyapunov_decay_and_big_O_bound, issue: no proof of dV/dt decrease and no explicit O(.) bound is given, required_behavior: expose V only as a candidate expression and the asymptotic claim only as a source descriptor}
+  - {id: TLC-UR-REGULATION-013, term: mastery_convergence_proof_and_rate, issue: the mastery theorem lacks a complete exploitable proof calibrated thresholds and rate estimator, required_behavior: accept external evidence only and never emit a universal convergence certificate or rate}
+  - {id: TLC-UR-REGULATION-014, term: governance_operationalization, issue: qualitative safeguards are not specified as an executable governance policy, required_behavior: preserve them as descriptors constraints and evidence-backed assessments only}

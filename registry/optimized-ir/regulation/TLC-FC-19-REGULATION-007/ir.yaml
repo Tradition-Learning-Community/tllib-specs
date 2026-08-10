@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-007
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-19-REGULATION-007/ir.yaml
+operation: guard_feedback_weight_dimensional_ambiguity
+required_behavior: [expose scalar matrix incompatibility, expose missing diffusion rule, expose unresolved sign meaning, block unsupported numerical combination]
+forbidden_behavior: [broadcast_scalar_feedback_error, invent_identity_broadcast, fix_feedback_learning_sign, claim_error_reduction]
+error_codes: [FeedbackWeightDimensionalAmbiguity]

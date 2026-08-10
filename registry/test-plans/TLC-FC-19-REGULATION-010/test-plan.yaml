@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-010
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-010/contract.yaml
+tests:
+  - {id: REG010-T01, category: valid_input, verifies: exact four-term dR/dt RHS equality}
+  - {id: REG010-T02, category: error, verifies: missing tensions or solutions provider is rejected}
+  - {id: REG010-T03, category: error, verifies: missing grad E_context is rejected}
+  - {id: REG010-T04, category: preservation, verifies: no tension function solution function gradient solver or integrator is invented}

@@ -1,0 +1,27 @@
+contract_id: TLC-MC-TLC-FC-19-REGULATION-001
+feature_id: TLC-FC-19-REGULATION-001
+title: Regulation validity and reactivity assessment
+domain_id: regulation
+contract_kind: guarded_predicate_contract
+scientific_status: external_provider_required
+scientific_authority: maths/19-regulation/regulation.md
+source_sections: ['1. Périmètre']
+expression: 'tau_R < tau_critical and Regulation remains conditioned by confidence transparency benevolence and admissible Values under Evaluation-compatible semantics'
+inputs:
+  - {name: tau_R, type: scalar}
+  - {name: tau_critical, type: opaque_threshold}
+  - {name: confidence_evidence, type: opaque_value}
+  - {name: transparency_evidence, type: opaque_value}
+  - {name: benevolence_evidence, type: opaque_value}
+  - {name: admissible_values_evidence, type: opaque_value}
+outputs: [{name: regulation_validity_assessment, type: structured_predicate_result}]
+preconditions: [reactivity threshold and Evaluation-compatible validity evidence are supplied]
+postconditions: [strict tau_R less-than tau_critical is preserved, no validity threshold is calibrated locally]
+invariants: [scientific dependency direction remains Regulation to Evaluation, no Evaluation runtime call is implied]
+errors: [ReactivityThresholdProviderRequired, EvaluationValidityEvidenceRequired]
+opaque_parameters: [tau_critical, evaluation_validity_evidence]
+providers: [evaluation_validity_evidence]
+dependencies: {scientific: [TLC-FC-18-EVALUATION-001], runtime: []}
+unresolved_items: [TLC-UR-REGULATION-008]
+forbidden_behaviors: [invent_threshold, weaken_strict_inequality, import_evaluation_runtime, invent_admissibility_semantics]
+traceability: {source: maths/19-regulation/regulation.md, inventory: registry/domain-progress/regulation/feature-inventory.yaml}

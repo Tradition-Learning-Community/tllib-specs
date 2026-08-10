@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-003
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-003/contract.yaml
+source_candidate_ir: ir/TLC-FC-19-REGULATION-003/ir.candidate.json
+nature: transform
+inputs: [D, solutions, weights, X_d_t, X_optimal, norm_values, sigma]
+outputs: [R_solutions_t]
+steps: [validate D and sigma, require provider values, evaluate source exponential factors, aggregate, divide by cardinality]
+errors: [SolutionDomainEmpty, SigmaInvalid, SolutionProviderRequired, NormProviderRequired]

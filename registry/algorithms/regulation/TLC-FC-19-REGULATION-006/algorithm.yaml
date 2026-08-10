@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-006
+algorithm_kind: unresolved_guarded_source_rhs_evaluator
+execution: conditionally_executable
+steps: [reject N <= 1, compute gamma times exact scalar pairwise squared-error average, compute delta times W_f_opt minus W_f, keep terms separately typed, require external dimensional compatibility rule before any combination, return raw RHS]
+forbidden: [broadcast_scalar, identity_embedding, sign_repair, gradient_substitution, time_integration]

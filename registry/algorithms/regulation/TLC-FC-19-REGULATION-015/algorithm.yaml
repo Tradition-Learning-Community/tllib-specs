@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-015
+algorithm_kind: source_expression_evaluator
+execution: conditionally_executable
+steps: [require supplied X F R distance norms, square each, multiply each by one half, sum, return V candidate]
+forbidden: [infer_norm, differentiate_V, prove_decay, certify_stability]

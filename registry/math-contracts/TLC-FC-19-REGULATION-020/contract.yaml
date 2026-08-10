@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-19-REGULATION-020
+feature_id: TLC-FC-19-REGULATION-020
+title: Scientific non-certification guard
+domain_id: regulation
+contract_kind: structural_noncertification_guard
+scientific_status: preserved_unresolved
+scientific_authority: maths/19-regulation/regulation.md
+source_sections: ['8. Limites et points scientifiques non résolus']
+expression: 'central guard for undefined X/F/R spaces and dimensions, incomplete tensions/solutions/consensus/Theta, uncalibrated thresholds, perturbation semantics, incomplete regularity, absent Lyapunov decay proof, W_f dimensional ambiguity and negative-A contradiction'
+inputs: [{name: requested_operation_or_claim, type: opaque_value}, {name: provider_evidence, type: optional_provider_evidence}]
+outputs: [{name: scientific_noncertification_descriptor, type: structured_guard_result}]
+preconditions: []
+postconditions: [missing scientific authority remains explicit and unsupported runtime guarantees are blocked]
+invariants: [raw source expressions remain available where their operands are supplied, but theorem and solver overclaims remain forbidden]
+errors: [ScientificProviderRequired, ScientificCertificationUnsupported]
+opaque_parameters: [all_unresolved_science]
+providers: [external_scientific_evidence]
+dependencies: {scientific: [TLC-FC-19-REGULATION-007, TLC-FC-19-REGULATION-016], runtime: []}
+unresolved_items: [TLC-UR-REGULATION-001, TLC-UR-REGULATION-002, TLC-UR-REGULATION-004, TLC-UR-REGULATION-006, TLC-UR-REGULATION-007, TLC-UR-REGULATION-008, TLC-UR-REGULATION-009, TLC-UR-REGULATION-010, TLC-UR-REGULATION-011, TLC-UR-REGULATION-012, TLC-UR-REGULATION-013]
+forbidden_behaviors: [invent_matrix_shape, invent_norm, invent_gradient, invent_threshold, invent_jacobian, invent_eigen_solver, invent_noise_distribution, invent_ode_solver, invent_integrator, invent_lyapunov_proof, invent_convergence_certificate, fix_negative_A_sign, broadcast_scalar_feedback_error, silently_change_source_formula]
+traceability: {source: maths/19-regulation/regulation.md, inventory: registry/domain-progress/regulation/feature-inventory.yaml}

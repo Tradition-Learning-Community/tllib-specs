@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-19-REGULATION-004
+source_contract: registry/math-contracts/TLC-FC-19-REGULATION-004/contract.yaml
+tests:
+  - {id: REG004-T01, category: valid_input, verifies: F_ij equals supplied W_f dot Theta output plus b_f}
+  - {id: REG004-T02, category: error, verifies: missing Theta output yields ThetaProviderRequired}
+  - {id: REG004-T03, category: preservation, verifies: Theta is not synthesized from X_i X_j or interactions}
+  - {id: REG004-T04, category: invalid_input, verifies: incompatible provider-declared shapes yield structured error without reshape}
