@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-21-FAIRNESS-008
+feature_id: TLC-FC-21-FAIRNESS-008
+title: Plurality aggregation objective
+domain_id: fairness
+contract_kind: ambiguity_preserving_objective_descriptor_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/21-fairness/fairness.md
+source_sections: ['4. Pluralité des Maîtres', '7. Limites et points scientifiques non résolus']
+expression: 'y_hat_T = argmax_y (sum_i w_i^T P(y|M_i,x) + alpha Entropy({P(y|M_i,x)}) + beta Alig(y,T))'
+inputs: []
+outputs: [{name: plurality_aggregation_objective, type: structural_descriptor}]
+opaque_providers: [candidate_y_space, probabilities, entropy, alignment, argmax_strategy]
+preconditions: []
+postconditions: [preserve objective and positive source entropy term]
+invariants: [the source does not specify whether diversity should be rewarded or penalized, no candidate search algorithm is implied]
+constraints: [argmax result is executable only with explicit candidate/search provider outside this structural feature]
+structured_errors: [PluralityCandidateSpaceRequired, PluralityArgmaxStrategyRequired, EntropyInterpretationUnresolved]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FAIRNESS-008, TLC-UR-FAIRNESS-009]
+forbidden_behaviors: [choose_entropy_sign, negate_entropy_term, invent_argmax_search, invent_candidate_space, invent_entropy_policy]
+traceability: {source: maths/21-fairness/fairness.md, inventory: registry/domain-progress/fairness/feature-inventory.yaml}

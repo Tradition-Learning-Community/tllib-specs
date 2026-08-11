@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-016
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-016/contract.yaml
+source_candidate_ir: ir/TLC-FC-21-FAIRNESS-016/ir.candidate.json
+nature: denominator_guarded_minimum_expression
+inputs: [context_products, max_context_performance, F_fid_max, Alig_max, minimum_provider_value]
+outputs: [E_ctx_T]
+steps: [require providers, reject each zero denominator, preserve ratios, consume supplied minimum]
+errors: [ContextPerformanceMaximumZero, ContextFidelityMaximumZero, ContextAlignmentMaximumZero, ContextualFairnessProviderRequired]

@@ -1,0 +1,28 @@
+contract_id: TLC-MC-TLC-FC-21-FAIRNESS-012
+feature_id: TLC-FC-21-FAIRNESS-012
+title: Dynamic ethical-constraint expression
+domain_id: fairness
+contract_kind: provider_backed_predicate_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/21-fairness/fairness.md
+source_sections: ['5. Responsabilité et alignement éthique']
+expression: 'g_j^T(theta,t) = g_j^0(theta) + alpha_j(t) dg_j/dt + beta_j(t) grad_T g_j <= 0'
+inputs:
+  - {name: g_j_0, type: supplied_provider_value}
+  - {name: alpha_j_t, type: supplied_scalar}
+  - {name: dg_j_dt, type: supplied_provider_value}
+  - {name: beta_j_t, type: supplied_scalar}
+  - {name: grad_T_g_j, type: supplied_provider_value}
+outputs:
+  - {name: g_j_T_lhs, type: scalar}
+  - {name: constraint_satisfied, type: boolean}
+opaque_providers: [base_constraint, derivative, tradition_gradient]
+preconditions: [base constraint derivative and tradition-gradient values are supplied]
+postconditions: [evaluate the exact left-hand side and source <= 0 predicate]
+invariants: [no numerical derivative gradient integrator or constraint policy is created]
+constraints: [provider-backed evaluation only]
+structured_errors: [DynamicConstraintProviderRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FAIRNESS-011]
+forbidden_behaviors: [invent_derivative, invent_gradient, invent_integrator, invent_constraint_policy, numerical_differentiate]
+traceability: {source: maths/21-fairness/fairness.md, inventory: registry/domain-progress/fairness/feature-inventory.yaml}

@@ -1,0 +1,23 @@
+schema_version: 1
+domain: fairness
+domain_index: 21
+title: Équité
+purpose: preserve source-backed fairness expressions and scientific limits as implementation-ready contracts without inventing policy estimators solvers or calibration
+source: maths/21-fairness/fairness.md
+source_blob: bbe983d3f74063072c97059e8ff7346b28d28158
+analysis_companion: {domain: robustness, index: 20, source: maths/20-robustness/robustness.md, source_blob: 71b575f114d1710b6b9556de06b17d103cb38c1e, direction: '20 -> 21', role: downstream_consumer}
+scientific_dependencies: []
+runtime_dependencies: []
+shared_contracts: [TLC-HC-FEATURE-ID, TLC-HC-SCIENTIFIC-REFERENCE, TLC-HC-REFERENCE-COLLECTION, TLC-HC-UNRESOLVED-ITEM, TLC-HC-OPAQUE-VALUE, TLC-HC-STRUCTURED-ERROR, TLC-HC-TRACEABILITY, TLC-HC-DESCRIPTOR-ENVELOPE]
+feature_population: [TLC-FC-21-FAIRNESS-001, TLC-FC-21-FAIRNESS-002, TLC-FC-21-FAIRNESS-003, TLC-FC-21-FAIRNESS-004, TLC-FC-21-FAIRNESS-005, TLC-FC-21-FAIRNESS-006, TLC-FC-21-FAIRNESS-007, TLC-FC-21-FAIRNESS-008, TLC-FC-21-FAIRNESS-009, TLC-FC-21-FAIRNESS-010, TLC-FC-21-FAIRNESS-011, TLC-FC-21-FAIRNESS-012, TLC-FC-21-FAIRNESS-013, TLC-FC-21-FAIRNESS-014, TLC-FC-21-FAIRNESS-015, TLC-FC-21-FAIRNESS-016, TLC-FC-21-FAIRNESS-017, TLC-FC-21-FAIRNESS-018]
+public_semantics:
+  fairness_definition: distribute access recognition and transmission benefits justly without equating justice with uniformity
+  procedural_robustness: unbounded_by_contract
+  correction_zero_denominator: structured_error
+  constrained_optimization: descriptor_only
+  lagrangian_dual_sign: preserved_unresolved
+  master_weights: raw_proportional_not_normalized
+  plurality_entropy_sign: preserved_source_sign_with_normative_ambiguity
+  calculus: external_provider_required
+  contextual_threshold: {predicate: 'E_ctx_T > 0.6', status: declared_operational_not_calibrated, scope: contextual_fairness_only}
+publication_exclusions: [robustness_20, drift_and_correction_32, fidelity_to_invariant_core_35]

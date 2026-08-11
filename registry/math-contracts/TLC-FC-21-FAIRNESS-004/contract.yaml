@@ -1,0 +1,27 @@
+contract_id: TLC-MC-TLC-FC-21-FAIRNESS-004
+feature_id: TLC-FC-21-FAIRNESS-004
+title: Decision correction expression
+domain_id: fairness
+contract_kind: singularity_guarded_expression_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/21-fairness/fairness.md
+source_sections: ['2. Espace et mesure des biais', '7. Limites et points scientifiques non résolus']
+expression: 'f_corr^T(y,z) = y [1 + alpha(z)(E[y|z]-E[y])]^-1 F_fid(z) Alig(z,T)'
+inputs:
+  - {name: y, type: supplied_value}
+  - {name: alpha_z, type: supplied_scalar}
+  - {name: conditional_expectation, type: supplied_provider_value}
+  - {name: expectation, type: supplied_provider_value}
+  - {name: fidelity, type: supplied_provider_value}
+  - {name: alignment, type: supplied_provider_value}
+outputs: [{name: corrected_decision_value, type: source_expression_value}]
+opaque_providers: [conditional_expectation, expectation, fidelity, alignment]
+preconditions: ['denominator = 1 + alpha_z * (conditional_expectation - expectation) is nonzero']
+postconditions: [evaluate exact reciprocal expression]
+invariants: [zero denominator is never regularized or repaired]
+constraints: [no epsilon addition no clamp no NaN policy]
+structured_errors: [CorrectionDenominatorZero, DecisionCorrectionProviderRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FAIRNESS-004]
+forbidden_behaviors: [invent_expectation_estimator, regularize_zero_denominator, add_epsilon, clamp_correction, substitute_denominator_one, return_nan_as_policy]
+traceability: {source: maths/21-fairness/fairness.md, inventory: registry/domain-progress/fairness/feature-inventory.yaml}

@@ -1,0 +1,26 @@
+contract_id: TLC-MC-TLC-FC-21-FAIRNESS-007
+feature_id: TLC-FC-21-FAIRNESS-007
+title: Master weight raw expression
+domain_id: fairness
+contract_kind: proportional_expression_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/21-fairness/fairness.md
+source_sections: ['4. Pluralité des Maîtres', '7. Limites et points scientifiques non résolus']
+expression: 'w_i^T proportional_to P(M_i|D) exp(-lambda D_KL(P(D|M_i)||P(D|M_pool))) D_div(M_i) Alig(M_i,T)'
+inputs:
+  - {name: posterior_master_probability, type: supplied_provider_value}
+  - {name: KL_divergence, type: supplied_provider_value}
+  - {name: diversity, type: supplied_provider_value}
+  - {name: alignment, type: supplied_provider_value}
+  - {name: lambda, type: scalar}
+outputs: [{name: raw_master_weight_factor, type: nonnormalized_scalar}]
+opaque_providers: [probabilities, KL_divergence, diversity, alignment, optional_normalization]
+preconditions: [all raw proportional-factor operands are supplied]
+postconditions: [produce the unnormalized proportional factor]
+invariants: [proportionality is never rewritten as normalized equality, sum of weights is not assumed one]
+constraints: [normalization requires an explicit external provider if requested]
+structured_errors: [MasterWeightProviderRequired, MasterWeightNormalizationProviderRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FAIRNESS-007, TLC-UR-FAIRNESS-010]
+forbidden_behaviors: [invent_KL_estimator, invent_weight_normalization, assume_weight_sum_one, apply_softmax, invent_partition_function]
+traceability: {source: maths/21-fairness/fairness.md, inventory: registry/domain-progress/fairness/feature-inventory.yaml}

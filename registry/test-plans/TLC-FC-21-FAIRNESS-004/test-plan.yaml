@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-004
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-004/contract.yaml
+tests:
+  - {id: FAIR004-T01, category: preservation, verifies: exact source correction formula is preserved}
+  - {id: FAIR004-T02, category: error, verifies: zero denominator yields CorrectionDenominatorZero}
+  - {id: FAIR004-T03, category: invariant, verifies: zero denominator is not epsilon-regularized clamped replaced or converted to implicit NaN policy}
+  - {id: FAIR004-T04, category: error, verifies: expectation providers are required rather than estimated}

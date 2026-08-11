@@ -1,0 +1,37 @@
+schema_version: 1
+domain: fairness
+source: maths/21-fairness/fairness.md
+relation_count: 31
+edge_semantics: from_object_depends_on_to_object
+relations:
+  - {id: FREL-001, from: fairness, to: access, relation: distributes_justly}
+  - {id: FREL-002, from: fairness, to: recognition, relation: distributes_justly}
+  - {id: FREL-003, from: fairness, to: transmission_benefits, relation: distributes_justly}
+  - {id: FREL-004, from: fairness, to: uniformity, relation: explicitly_not_equivalent}
+  - {id: FREL-005, from: R_proc, to: 'max_j |E[S(d,j)]-E[S(d)]| C_trans V_just', relation: exact_expression}
+  - {id: FREL-006, from: R_proc, to: '[0,1]', relation: not_guaranteed_bounded}
+  - {id: FREL-007, from: B_T, to: 'B_stat x B_algo x B_cult x B_cog x B_trad', relation: cartesian_product}
+  - {id: FREL-008, from: beta_T, to: 'sum_i w_i beta_i + lambda sum_i!=j Corr + mu D_trad', relation: exact_expression}
+  - {id: FREL-009, from: f_corr_T, to: '1+alpha(z)(E[y|z]-E[y])', relation: denominator}
+  - {id: FREL-010, from: f_corr_T, to: zero_denominator, relation: singular_when}
+  - {id: FREL-011, from: fair_optimization, to: beta_constraints, relation: constrained_by}
+  - {id: FREL-012, from: fair_optimization, to: performance_fidelity_lower_bounds, relation: constrained_by}
+  - {id: FREL-013, from: L_fair_T, to: source_sign_convention, relation: preserves_exactly}
+  - {id: FREL-014, from: L_fair_T, to: dual_multiplier_signs, relation: unspecified}
+  - {id: FREL-015, from: w_i_T, to: raw_proportional_factor, relation: proportional_to}
+  - {id: FREL-016, from: w_i_T, to: normalization_constant, relation: unspecified}
+  - {id: FREL-017, from: y_hat_T, to: plurality_objective, relation: argmax_of}
+  - {id: FREL-018, from: plurality_objective, to: entropy_term, relation: adds_with_source_sign}
+  - {id: FREL-019, from: entropy_term, to: diversity_normative_direction, relation: unspecified}
+  - {id: FREL-020, from: D_cog_T, to: binomial_k_2, relation: divides_by}
+  - {id: FREL-021, from: D_cog_T, to: k_less_than_2, relation: undefined_for}
+  - {id: FREL-022, from: C_comp_T, to: sum_i_P_i, relation: divides_by}
+  - {id: FREL-023, from: L_align_T, to: provider_terms, relation: aggregates_without_constructing}
+  - {id: FREL-024, from: g_j_T, to: derivative_and_tradition_gradient, relation: uses_supplied}
+  - {id: FREL-025, from: E_align_T, to: m, relation: divides_by}
+  - {id: FREL-026, from: R_resp_T, to: T_horizon, relation: divides_by}
+  - {id: FREL-027, from: beta_T_t, to: beta_infinity_T, relation: upper_bound_contains}
+  - {id: FREL-028, from: beta_infinity_T, to: legitimate_differences, relation: attributed_but_not_operationalized}
+  - {id: FREL-029, from: E_ctx_T, to: contextual_ratios, relation: minimum_of_product}
+  - {id: FREL-030, from: E_ctx_T, to: '0.6', relation: declared_strict_threshold}
+  - {id: FREL-031, from: robustness_20, to: fairness_21, relation: scientifically_depends_on, evidence: maths/20-robustness/robustness.md}

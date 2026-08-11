@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-016
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-016/contract.yaml
+tests:
+  - {id: FAIR016-T01, category: preservation, verifies: exact contextual fairness product of three ratios and minimum is preserved}
+  - {id: FAIR016-T02, category: error, verifies: zero max context performance yields ContextPerformanceMaximumZero}
+  - {id: FAIR016-T03, category: error, verifies: zero F_fid_max or Alig_max yields its structured denominator error}
+  - {id: FAIR016-T04, category: invariant, verifies: no context search minimum maximum or denominator clamp is invented}

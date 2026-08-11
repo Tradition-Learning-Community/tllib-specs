@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-017
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-017/contract.yaml
+tests:
+  - {id: FAIR017-T01, category: preservation, verifies: exact threshold 0.6 and strict greater-than are preserved}
+  - {id: FAIR017-T02, category: valid_input, verifies: E_ctx_T greater than 0.6 returns true}
+  - {id: FAIR017-T03, category: valid_input, verifies: E_ctx_T equal to 0.6 returns false}
+  - {id: FAIR017-T04, category: invariant, verifies: 0.6 is not generalized calibrated or claimed scientifically derived}

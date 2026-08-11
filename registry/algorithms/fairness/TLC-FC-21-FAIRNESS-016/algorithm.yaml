@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-016
+algorithm_kind: provider_and_denominator_guarded_expression_evaluator
+execution: conditionally_executable
+steps: [require supplied context ratios and extrema providers, reject zero denominators, consume supplied minimum, return E_ctx_T]
+forbidden: [clamp_denominator, invent_context_search, invent_minimum_provider, invent_maximum_provider]

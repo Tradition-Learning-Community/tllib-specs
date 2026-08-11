@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-014
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-014/contract.yaml
+source_candidate_ir: ir/TLC-FC-21-FAIRNESS-014/ir.candidate.json
+nature: horizon_guarded_provider_expression
+inputs: [T, supplied_integral_value]
+outputs: [R_resp_T]
+steps: [reject zero horizon, require exact-integrand integral provider, divide by T]
+errors: [ResponsibilityHorizonZero, TemporalResponsibilityProviderRequired]

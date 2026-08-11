@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-015
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-015/contract.yaml
+tests:
+  - {id: FAIR015-T01, category: preservation, verifies: exact bias-decay inequality is preserved}
+  - {id: FAIR015-T02, category: invariant, verifies: residual legitimate bias is not classified or estimated}
+  - {id: FAIR015-T03, category: unsupported_operation, verifies: no universal convergence certificate or proof is synthesized}

@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-010
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-010/contract.yaml
+source_candidate_ir: ir/TLC-FC-21-FAIRNESS-010/ir.candidate.json
+nature: denominator_guarded_expression
+inputs: [P_collect, individual_performances, D_cog_T, Alig_collect]
+outputs: [C_comp_T]
+steps: [require providers, reject zero sum_i P_i, preserve numerator sign, evaluate source expression]
+errors: [ComplementarityDenominatorZero, ComplementarityProviderRequired]

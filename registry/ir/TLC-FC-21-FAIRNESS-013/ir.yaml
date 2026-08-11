@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-013
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-013/contract.yaml
+source_candidate_ir: ir/TLC-FC-21-FAIRNESS-013/ir.candidate.json
+nature: population_guarded_expression
+inputs: [m, constraint_values, dv_dtheta, dL_task_dtheta, constraint_norms, alignment, lambda]
+outputs: [E_align_T]
+steps: [reject zero m, require providers, evaluate exact source average]
+errors: [AlignmentConstraintCountZero, AlignmentEfficiencyProviderRequired]

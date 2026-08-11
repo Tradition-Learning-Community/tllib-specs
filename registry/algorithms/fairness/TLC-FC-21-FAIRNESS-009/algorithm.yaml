@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-009
+algorithm_kind: denominator_guarded_source_expression_evaluator
+execution: conditionally_executable
+steps: [require k >= 2, require pairwise provider values, evaluate exact source average]
+forbidden: [invent_KL_estimator, invent_perspective_distance, invent_traditional_distance, fallback_small_master_population]

@@ -1,0 +1,28 @@
+contract_id: TLC-MC-TLC-FC-21-FAIRNESS-013
+feature_id: TLC-FC-21-FAIRNESS-013
+title: Alignment efficiency expression
+domain_id: fairness
+contract_kind: population_guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/21-fairness/fairness.md
+source_sections: ['5. Responsabilité et alignement éthique']
+expression: 'E_align^T = (1/m) sum_{j=1}^m 1_{g_j^T(theta)<=0} (dv/dtheta dot dL_task/dtheta) exp(-lambda ||g_j^T(theta)||) Alig(theta,T)'
+inputs:
+  - {name: m, type: integer}
+  - {name: constraint_values, type: supplied_values}
+  - {name: dv_dtheta, type: supplied_provider_value}
+  - {name: dL_task_dtheta, type: supplied_provider_value}
+  - {name: constraint_norms, type: supplied_provider_values}
+  - {name: alignment, type: supplied_provider_value}
+  - {name: lambda, type: scalar}
+outputs: [{name: E_align_T, type: scalar}]
+opaque_providers: [constraint_values, derivatives, norms, alignment]
+preconditions: [m > 0, all derivative norm and alignment values are supplied]
+postconditions: [evaluate exact indicator-weighted source average]
+invariants: [no derivative gradient norm or constraint value is constructed]
+constraints: [m zero is an explicit error]
+structured_errors: [AlignmentConstraintCountZero, AlignmentEfficiencyProviderRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FAIRNESS-011]
+forbidden_behaviors: [invent_derivative, invent_gradient, invent_norm, invent_constraint_value, fallback_zero_constraint_count]
+traceability: {source: maths/21-fairness/fairness.md, inventory: registry/domain-progress/fairness/feature-inventory.yaml}

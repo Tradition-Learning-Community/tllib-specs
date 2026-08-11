@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-006
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-006/contract.yaml
+source_candidate_ir: ir/TLC-FC-21-FAIRNESS-006/ir.candidate.json
+nature: ambiguity_preserving_expression
+inputs: [loss, bias_terms, lambda_i, performance, fidelity, thresholds, mu, nu]
+outputs: [raw_lagrangian_value]
+steps: [require operands, preserve source signs, evaluate raw expression only]
+errors: [FairLagrangianProviderRequired, FairLagrangianDualConventionUnresolved]

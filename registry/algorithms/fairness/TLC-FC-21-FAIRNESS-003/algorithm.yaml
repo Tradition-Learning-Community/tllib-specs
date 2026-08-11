@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-003
+algorithm_kind: source_expression_evaluator
+execution: conditionally_executable
+steps: [require all supplied terms, compute source aggregation, return beta_T]
+forbidden: [invent_bias_component, invent_weight, invent_correlation_estimator, invent_traditional_distance]

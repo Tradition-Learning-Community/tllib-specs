@@ -1,0 +1,3 @@
+# TLC-FC-21-FAIRNESS-018 — Fairness scientific non-invention guard
+
+Central conformance guard for Fairness. It preserves all fourteen unresolved scientific items: bias components, categories and scores, unbounded procedural robustness, correction singularity, optimizer absence, dual-sign ambiguity, weight normalization absence, entropy interpretation, argmax search space, provider divergences/distances, calculus guards, residual legitimate bias, contextual denominators, and threshold calibration. It also preserves the scientific direction `20 Robustness -> 21 Fairness`: Fairness has no reverse or runtime dependency, and Robustness 20 plus domains 32 and 35 remain unpublished.

@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-014
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-014/contract.yaml
+tests:
+  - {id: FAIR014-T01, category: preservation, verifies: exact 1/T integral expression and strict indicator are preserved}
+  - {id: FAIR014-T02, category: error, verifies: T equal zero yields ResponsibilityHorizonZero}
+  - {id: FAIR014-T03, category: invariant, verifies: no differentiation quadrature discretization interpolation or time-series policy is invented}

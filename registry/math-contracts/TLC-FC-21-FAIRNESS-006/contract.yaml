@@ -1,0 +1,29 @@
+contract_id: TLC-MC-TLC-FC-21-FAIRNESS-006
+feature_id: TLC-FC-21-FAIRNESS-006
+title: Raw Fairness Lagrangian
+domain_id: fairness
+contract_kind: ambiguity_preserving_expression_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/21-fairness/fairness.md
+source_sections: ['3. Optimisation sous contraintes d’équité', '7. Limites et points scientifiques non résolus']
+expression: 'L_fair^T(theta,lambda) = L(theta) + sum_i lambda_i(beta_i(theta)-epsilon_i) + mu(R_perf(theta)-theta_min) + nu(F_fid(theta)-phi_min)'
+inputs:
+  - {name: loss, type: supplied_value}
+  - {name: bias_terms, type: supplied_values}
+  - {name: lambda_i, type: supplied_multipliers}
+  - {name: performance, type: supplied_value}
+  - {name: fidelity, type: supplied_value}
+  - {name: thresholds, type: supplied_values}
+  - {name: mu, type: supplied_multiplier}
+  - {name: nu, type: supplied_multiplier}
+outputs: [{name: raw_lagrangian_value, type: scalar}]
+opaque_providers: [loss, bias_terms, performance, fidelity, thresholds, multipliers]
+preconditions: [all raw source operands are supplied for numeric evaluation]
+postconditions: [preserve value-minus-minimum signs exactly]
+invariants: [no sign restriction on mu or nu is inferred, no KKT correctness is claimed]
+constraints: [dual convention remains unresolved]
+structured_errors: [FairLagrangianProviderRequired, FairLagrangianDualConventionUnresolved]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FAIRNESS-006]
+forbidden_behaviors: [repair_lagrangian_sign, reverse_minimum_terms, impose_multiplier_sign, derive_KKT, invent_dual_convention]
+traceability: {source: maths/21-fairness/fairness.md, inventory: registry/domain-progress/fairness/feature-inventory.yaml}

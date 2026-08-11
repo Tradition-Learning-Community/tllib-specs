@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-012
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-012/contract.yaml
+source_candidate_ir: ir/TLC-FC-21-FAIRNESS-012/ir.candidate.json
+nature: provider_backed_predicate_expression
+inputs: [g_j_0, alpha_j_t, dg_j_dt, beta_j_t, grad_T_g_j]
+outputs: [g_j_T_lhs, constraint_satisfied]
+steps: [require providers, evaluate exact left-hand side, evaluate <= 0]
+errors: [DynamicConstraintProviderRequired]

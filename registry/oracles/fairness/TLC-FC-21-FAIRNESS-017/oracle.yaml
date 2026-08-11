@@ -1,0 +1,5 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-017
+oracle_kind: exact_threshold_preservation
+acceptance: [0.6 exact, strict greater-than exact, equality to 0.6 is false, threshold remains contextual and declared]
+rejections: [different threshold, >= comparison, universal fairness threshold claim, calibration claim]

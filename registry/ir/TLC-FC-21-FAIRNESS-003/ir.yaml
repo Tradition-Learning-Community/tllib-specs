@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-003
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-003/contract.yaml
+source_candidate_ir: ir/TLC-FC-21-FAIRNESS-003/ir.candidate.json
+nature: provider_backed_expression
+inputs: [beta_i, w_i, correlations, D_trad_beta, lambda, mu]
+outputs: [beta_T]
+steps: [require providers, evaluate exact source sum]
+errors: [AggregateBiasProviderRequired]

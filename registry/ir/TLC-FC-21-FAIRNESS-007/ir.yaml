@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-007
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-007/contract.yaml
+source_candidate_ir: ir/TLC-FC-21-FAIRNESS-007/ir.candidate.json
+nature: proportional_expression
+inputs: [posterior_master_probability, KL_divergence, diversity, alignment, lambda]
+outputs: [raw_master_weight_factor]
+steps: [require providers, evaluate raw proportional factor, do not normalize]
+errors: [MasterWeightProviderRequired, MasterWeightNormalizationProviderRequired]

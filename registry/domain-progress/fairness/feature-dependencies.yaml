@@ -1,0 +1,31 @@
+schema_version: 1
+domain: fairness
+edge_semantics: from_domain_depends_on_to_domain
+domain_scientific_dependencies: []
+domain_runtime_dependencies: []
+downstream_scientific_consumers:
+  - {domain_index: 20, domain: robustness, relation: scientifically_depends_on_fairness, scientific_edge: '20 -> 21', evidence: maths/20-robustness/robustness.md}
+features:
+  TLC-FC-21-FAIRNESS-001: {scientific: [], runtime: [], providers: [expectation, category_set, score, transparency, justice]}
+  TLC-FC-21-FAIRNESS-002: {scientific: [], runtime: [], providers: []}
+  TLC-FC-21-FAIRNESS-003: {scientific: [], runtime: [], providers: [bias_components, weights, correlation, traditional_distance]}
+  TLC-FC-21-FAIRNESS-004: {scientific: [], runtime: [], providers: [conditional_expectation, expectation, fidelity, alignment]}
+  TLC-FC-21-FAIRNESS-005: {scientific: [], runtime: [], providers: [loss_expectation, traditional_distance, bias_constraints, performance, fidelity, thresholds]}
+  TLC-FC-21-FAIRNESS-006: {scientific: [], runtime: [], providers: [loss, bias_terms, performance, fidelity, multipliers, thresholds]}
+  TLC-FC-21-FAIRNESS-007: {scientific: [], runtime: [], providers: [probabilities, KL_divergence, diversity, alignment]}
+  TLC-FC-21-FAIRNESS-008: {scientific: [], runtime: [], providers: [candidate_space, probabilities, entropy, alignment, argmax_strategy]}
+  TLC-FC-21-FAIRNESS-009: {scientific: [], runtime: [], providers: [KL_divergence, perspective_distance, traditional_distance]}
+  TLC-FC-21-FAIRNESS-010: {scientific: [], runtime: [], providers: [performances, cognitive_diversity, alignment]}
+  TLC-FC-21-FAIRNESS-011: {scientific: [], runtime: [], providers: [task_loss, violations, constraints, ethical_robustness, traditional_distance]}
+  TLC-FC-21-FAIRNESS-012: {scientific: [], runtime: [], providers: [base_constraint, derivative, tradition_gradient]}
+  TLC-FC-21-FAIRNESS-013: {scientific: [], runtime: [], providers: [constraint_values, derivatives, gradients, alignment]}
+  TLC-FC-21-FAIRNESS-014: {scientific: [], runtime: [], providers: [alignment_efficiency_derivative, indicator, fidelity, integral]}
+  TLC-FC-21-FAIRNESS-015: {scientific: [], runtime: [], providers: [bias_trajectory, residual_legitimate_bias]}
+  TLC-FC-21-FAIRNESS-016: {scientific: [], runtime: [], providers: [context_set, performance, fidelity, alignment, minimum]}
+  TLC-FC-21-FAIRNESS-017: {scientific: [TLC-FC-21-FAIRNESS-016], runtime: [], providers: []}
+  TLC-FC-21-FAIRNESS-018: {scientific: [], runtime: [], providers: []}
+invariants:
+  - fairness_has_no_scientific_dependency_on_robustness
+  - robustness_remains_downstream_consumer_of_fairness
+  - scientific_edge_20_to_21_means_robustness_depends_on_fairness
+  - no_domain_runtime_dependency_is_introduced

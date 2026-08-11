@@ -1,0 +1,18 @@
+schema_version: 1
+domain: fairness
+patterns:
+  provider_backed_expression:
+    applies_to: [TLC-FC-21-FAIRNESS-001, TLC-FC-21-FAIRNESS-003, TLC-FC-21-FAIRNESS-004, TLC-FC-21-FAIRNESS-006, TLC-FC-21-FAIRNESS-007, TLC-FC-21-FAIRNESS-009, TLC-FC-21-FAIRNESS-010, TLC-FC-21-FAIRNESS-011, TLC-FC-21-FAIRNESS-012, TLC-FC-21-FAIRNESS-013, TLC-FC-21-FAIRNESS-014, TLC-FC-21-FAIRNESS-016]
+    rule: supplied scientific operands are evaluated but never inferred or estimated
+  explicit_singularity_guard:
+    applies_to: [TLC-FC-21-FAIRNESS-004, TLC-FC-21-FAIRNESS-009, TLC-FC-21-FAIRNESS-010, TLC-FC-21-FAIRNESS-013, TLC-FC-21-FAIRNESS-014, TLC-FC-21-FAIRNESS-016]
+    rule: zero or invalid source denominators produce structured errors without regularization
+  ambiguity_preservation:
+    applies_to: [TLC-FC-21-FAIRNESS-001, TLC-FC-21-FAIRNESS-006, TLC-FC-21-FAIRNESS-007, TLC-FC-21-FAIRNESS-008, TLC-FC-21-FAIRNESS-015, TLC-FC-21-FAIRNESS-018]
+    rule: source ambiguity is surfaced rather than resolved by implementation policy
+  exact_declared_threshold:
+    applies_to: [TLC-FC-21-FAIRNESS-017]
+    rule: preserve strict E_ctx_T > 0.6 as declared operational and uncalibrated
+  downstream_dependency_direction:
+    applies_to: [TLC-FC-21-FAIRNESS-018]
+    rule: Robustness 20 consumes Fairness 21 scientifically; Fairness does not depend on Robustness

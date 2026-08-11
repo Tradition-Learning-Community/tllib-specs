@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-012
+source_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-012/contract.yaml
+tests:
+  - {id: FAIR012-T01, category: preservation, verifies: exact dynamic constraint left-hand side and <= 0 predicate are preserved}
+  - {id: FAIR012-T02, category: error, verifies: missing derivative or tradition-gradient provider is rejected}
+  - {id: FAIR012-T03, category: invariant, verifies: no numerical derivative gradient integrator or policy is invented}

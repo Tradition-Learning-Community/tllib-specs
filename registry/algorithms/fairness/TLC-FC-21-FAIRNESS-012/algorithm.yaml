@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-21-FAIRNESS-012
+algorithm_kind: provider_backed_predicate_evaluator
+execution: conditionally_executable
+steps: [require base derivative and gradient providers, evaluate exact left-hand side, evaluate <= 0]
+forbidden: [invent_derivative, numerical_differentiate, invent_gradient, invent_integrator, invent_constraint_policy]

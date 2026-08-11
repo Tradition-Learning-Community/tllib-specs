@@ -1,0 +1,26 @@
+contract_id: TLC-MC-TLC-FC-21-FAIRNESS-016
+feature_id: TLC-FC-21-FAIRNESS-016
+title: Contextual fairness expression
+domain_id: fairness
+contract_kind: denominator_guarded_minimum_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/21-fairness/fairness.md
+source_sections: ['6. Propriété asymptotique et mesure contextuelle']
+expression: 'E_ctx^T = min_{c in C} [P(c)/max_{c prime} P(c prime)] [F_fid(c)/F_fid^max] [Alig(c,T)/Alig_max]'
+inputs:
+  - {name: context_products, type: supplied_provider_values}
+  - {name: max_context_performance, type: supplied_provider_value}
+  - {name: F_fid_max, type: supplied_provider_value}
+  - {name: Alig_max, type: supplied_provider_value}
+  - {name: minimum_provider_value, type: supplied_provider_value}
+outputs: [{name: E_ctx_T, type: scalar}]
+opaque_providers: [context_set, performances, maximum, fidelity, alignment, minimum]
+preconditions: [max_context_performance is nonzero, F_fid_max is nonzero, Alig_max is nonzero, exact-context product minimum is supplied or externally computed]
+postconditions: [preserve all three source ratios and minimum semantics]
+invariants: [no denominator clamp and no hidden search over contexts]
+constraints: [minimum and maximum operations remain externally supplied where not directly provided]
+structured_errors: [ContextPerformanceMaximumZero, ContextFidelityMaximumZero, ContextAlignmentMaximumZero, ContextualFairnessProviderRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FAIRNESS-013]
+forbidden_behaviors: [clamp_context_denominator, invent_context_search, invent_minimum_provider, invent_maximum_provider, normalize_contextual_fairness]
+traceability: {source: maths/21-fairness/fairness.md, inventory: registry/domain-progress/fairness/feature-inventory.yaml}

@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-21-FAIRNESS-005
+feature_id: TLC-FC-21-FAIRNESS-005
+title: Fair optimization problem descriptor
+domain_id: fairness
+contract_kind: structural_problem_descriptor_contract
+scientific_status: partially_defined
+scientific_authority: maths/21-fairness/fairness.md
+source_sections: ['3. Optimisation sous contraintes d’équité']
+expression: 'min_theta E[L(theta)] + lambda D_trad(theta), subject to beta_dem<=epsilon_1, beta_opp<=epsilon_2, beta_indiv<=epsilon_3, R_perf>=theta_min, F_fid>=phi_min'
+inputs: []
+outputs: [{name: optimization_problem_descriptor, type: structural_descriptor}]
+opaque_providers: [loss_expectation, traditional_distance, bias_constraints, performance, fidelity, thresholds]
+preconditions: []
+postconditions: [preserve objective and five source constraints exactly]
+invariants: [the source specifies a problem not a solution procedure]
+constraints: [no optimization algorithm and no epsilon calibration]
+structured_errors: []
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FAIRNESS-005, TLC-UR-FAIRNESS-014]
+forbidden_behaviors: [invent_optimizer, invent_gradient_descent, invent_SQP, invent_KKT_solver, invent_dual_ascent, invent_search, calibrate_epsilon]
+traceability: {source: maths/21-fairness/fairness.md, inventory: registry/domain-progress/fairness/feature-inventory.yaml}
