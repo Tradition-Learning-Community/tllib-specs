@@ -300,6 +300,13 @@
       "catalog_path": "handoff/domains/regulation/catalog.json",
       "feature_count": 20,
       "catalog_sha256": "56c392c749c5d99e74aabcfee4d8a8f70817282ce1c739fb1fe1b2a108f1a12b"
+    },
+    {
+      "domain": "fairness",
+      "domain_index": 21,
+      "catalog_path": "handoff/domains/fairness/catalog.json",
+      "feature_count": 18,
+      "catalog_sha256": "b48542b6888a20919496378d802dfcd0a20624f91eb4b9e45f0fa9242c91a4da"
     }
   ],
   "features": [
@@ -14786,29 +14793,947 @@
       "descriptor_sha256": "e9feafb3b6f7c749784772643bc2022f250647e6d7ec9c4dcb33cfc77e488952",
       "deprecation": null,
       "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-21-FAIRNESS-001",
+      "domain": "fairness",
+      "path": "handoff/features/TLC-FC-21-FAIRNESS-001",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "preserved_unresolved",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "20f8eff9ac3661530e868d4138adbba9fed4f63e7ad381dfdfca3aa9b5e03a3c",
+      "manifest_path": "handoff/features/TLC-FC-21-FAIRNESS-001/manifest.json",
+      "descriptor_sha256": "b038c9ea1d8bd2a24ba7817eb468347e03ce6a2d66c5386de796fb76f8d3c062",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-21-FAIRNESS-002",
+      "domain": "fairness",
+      "path": "handoff/features/TLC-FC-21-FAIRNESS-002",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "partially_defined",
+        "execution": "structural_only"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "b4342505d3401513bc6b131975bca64ca3f53c591930cb97ffadeb9dafbae2a8",
+      "manifest_path": "handoff/features/TLC-FC-21-FAIRNESS-002/manifest.json",
+      "descriptor_sha256": "b2943b912c88f9e28f427a826fb1cf73a95c9dc4b05725330b5e7dc7168bf941",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-21-FAIRNESS-003",
+      "domain": "fairness",
+      "path": "handoff/features/TLC-FC-21-FAIRNESS-003",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "acac09b85d94cdf5ae1e02899069bf8fc86c5022fc939b8d15398cbf3d07d673",
+      "manifest_path": "handoff/features/TLC-FC-21-FAIRNESS-003/manifest.json",
+      "descriptor_sha256": "b13fc9c472e25ea54b3cb55e17661fb24d99d0f2828b4ec922f2cd434b757496",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-21-FAIRNESS-004",
+      "domain": "fairness",
+      "path": "handoff/features/TLC-FC-21-FAIRNESS-004",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "preserved_unresolved",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "39305c283326d23cdb8cdea31060eb8fdf10e489d4dcecb4b230a49ca5530a6f",
+      "manifest_path": "handoff/features/TLC-FC-21-FAIRNESS-004/manifest.json",
+      "descriptor_sha256": "662362ffc76d49cf57be05c928ac88f909eef2f73a7d9c08514ec6056a2cf006",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-21-FAIRNESS-005",
+      "domain": "fairness",
+      "path": "handoff/features/TLC-FC-21-FAIRNESS-005",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "partially_defined",
+        "execution": "structural_only"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "01205c29d4a7c3441c59ce63bca4b0802fea5c5bd38c450b67fc188d84d907d3",
+      "manifest_path": "handoff/features/TLC-FC-21-FAIRNESS-005/manifest.json",
+      "descriptor_sha256": "1f9678c985ca038ecf38c8f5df8f506892b1b932059c31c716ecb95a5da93833",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-21-FAIRNESS-006",
+      "domain": "fairness",
+      "path": "handoff/features/TLC-FC-21-FAIRNESS-006",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "preserved_unresolved",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "b6c9dc35ad1527d531469bdda757a97e9cce3f4cc9905cdd118162ca57f66bec",
+      "manifest_path": "handoff/features/TLC-FC-21-FAIRNESS-006/manifest.json",
+      "descriptor_sha256": "d35d3e6ec3f57ec287e1a07da96031d17d3f568b3d687c66dad89ff482b0cad3",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-21-FAIRNESS-007",
+      "domain": "fairness",
+      "path": "handoff/features/TLC-FC-21-FAIRNESS-007",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "preserved_unresolved",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "bbd78d07e038f3df9e9665bb266a5051eeb4d59bc51140e98393836bac6f6d90",
+      "manifest_path": "handoff/features/TLC-FC-21-FAIRNESS-007/manifest.json",
+      "descriptor_sha256": "7f29e9cebefc9697611ebab53b7e933bc70647d64032ffef1f9c380aa869df86",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-21-FAIRNESS-008",
+      "domain": "fairness",
+      "path": "handoff/features/TLC-FC-21-FAIRNESS-008",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "preserved_unresolved",
+        "execution": "structural_only"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "6d9ec7db8c94f0343410a291ee2953dc5934225ef50d4180a03f9d722f001da0",
+      "manifest_path": "handoff/features/TLC-FC-21-FAIRNESS-008/manifest.json",
+      "descriptor_sha256": "b17791604af26b473e7ea02dd4527873a95174deaf52b5a6e4f217a45fb2a187",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-21-FAIRNESS-009",
+      "domain": "fairness",
+      "path": "handoff/features/TLC-FC-21-FAIRNESS-009",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "892e15e93fc6704fa9f91d38e7bbc030bc3e83eb16a9e8666b8d585e36cc2a11",
+      "manifest_path": "handoff/features/TLC-FC-21-FAIRNESS-009/manifest.json",
+      "descriptor_sha256": "7bcefbd9cd0bb9378da6322ad5017b15c4d3f9cc902e663cbcd8295b23b2e488",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-21-FAIRNESS-010",
+      "domain": "fairness",
+      "path": "handoff/features/TLC-FC-21-FAIRNESS-010",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "2fd9c962e4ebcba3f40165adc01b06691bf4a9b5b4506781a2368ee57b38d0c6",
+      "manifest_path": "handoff/features/TLC-FC-21-FAIRNESS-010/manifest.json",
+      "descriptor_sha256": "43fce6ed9ffee4f949c7cc26883f42eeef4cff8930a21eabfbb3732c6ce30b0c",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-21-FAIRNESS-011",
+      "domain": "fairness",
+      "path": "handoff/features/TLC-FC-21-FAIRNESS-011",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "0b88e29275c93db2dab9d7d821ec232d319f92ad121d3897befee8f81a476b00",
+      "manifest_path": "handoff/features/TLC-FC-21-FAIRNESS-011/manifest.json",
+      "descriptor_sha256": "254c57f855d4bf354b426236a37d4a0c5460844ee2ae86dde167f14614bbe0b0",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-21-FAIRNESS-012",
+      "domain": "fairness",
+      "path": "handoff/features/TLC-FC-21-FAIRNESS-012",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "12ec8cf15cb798fe504d75cb2eefd86b043365df805e6f4423659cba187db5fc",
+      "manifest_path": "handoff/features/TLC-FC-21-FAIRNESS-012/manifest.json",
+      "descriptor_sha256": "8bc0f81637e0540f9d54f0542b21225dc15105df282839cdcb1ef2cc273e762c",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-21-FAIRNESS-013",
+      "domain": "fairness",
+      "path": "handoff/features/TLC-FC-21-FAIRNESS-013",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "6c619beec4407296d527f1ea4d86b37707396624c90da6416d425b77eb011ac4",
+      "manifest_path": "handoff/features/TLC-FC-21-FAIRNESS-013/manifest.json",
+      "descriptor_sha256": "511b791b23571c3a2c7ce448e4c757a6fb73097e81bfac8640fdb950d5253487",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-21-FAIRNESS-014",
+      "domain": "fairness",
+      "path": "handoff/features/TLC-FC-21-FAIRNESS-014",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "b01e521228ce14ce1c99f2933346d3f2b4ba9fa1abe3daf5e79fdf17de8cc1be",
+      "manifest_path": "handoff/features/TLC-FC-21-FAIRNESS-014/manifest.json",
+      "descriptor_sha256": "b8aba45ce91a020963b172ba172244a09c29ef34cea7482e5a129a35e6a43f30",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-21-FAIRNESS-015",
+      "domain": "fairness",
+      "path": "handoff/features/TLC-FC-21-FAIRNESS-015",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "preserved_unresolved",
+        "execution": "structural_only"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "8106392b270bc730fbe9c4a2bb07318c78b91a8d8c7fa8f9de4b28e69b62bc59",
+      "manifest_path": "handoff/features/TLC-FC-21-FAIRNESS-015/manifest.json",
+      "descriptor_sha256": "33d341f3a810b66e96b3320844b71c5525dce300b76ead1e8ff5addffb6f7aae",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-21-FAIRNESS-016",
+      "domain": "fairness",
+      "path": "handoff/features/TLC-FC-21-FAIRNESS-016",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "02e379e19f1132dd19f279a50d8f75ddd5e7b89e8a737b61c83376eaf7828a26",
+      "manifest_path": "handoff/features/TLC-FC-21-FAIRNESS-016/manifest.json",
+      "descriptor_sha256": "e771037a64e9bcdb8f2921d46426606627a34d2c2528d152d51d964a4df25e0b",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-21-FAIRNESS-017",
+      "domain": "fairness",
+      "path": "handoff/features/TLC-FC-21-FAIRNESS-017",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "defined",
+        "execution": "executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "fa0203fc4bc86145073bbfb50c7ab275452f25fa12beaa777cb6b1d41411b2bd",
+      "manifest_path": "handoff/features/TLC-FC-21-FAIRNESS-017/manifest.json",
+      "descriptor_sha256": "233d6ddcd0e9fa528bc6581543939f62d72cac4129648dd06892355e2152acc6",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-21-FAIRNESS-018",
+      "domain": "fairness",
+      "path": "handoff/features/TLC-FC-21-FAIRNESS-018",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "preserved_unresolved",
+        "execution": "structural_only"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "ae0657362c4a6108ca7ad4e7c99cfdd6a8ac2038ad515600de30503fbb3dc6ac",
+      "manifest_path": "handoff/features/TLC-FC-21-FAIRNESS-018/manifest.json",
+      "descriptor_sha256": "0a3d5578c08dd2ef4cc088337b38090044be672ec2392a3eeb9e11ffe6c089e3",
+      "deprecation": null,
+      "substitution": null
     }
   ],
   "summary": {
-    "domain_count": 25,
-    "feature_count": 284,
+    "domain_count": 26,
+    "feature_count": 302,
     "shared_contract_count": 8,
     "package_statuses": {
-      "finalized": 283,
+      "finalized": 301,
       "pilot": 1
     },
     "scientific_statuses": {
-      "defined": 8,
-      "external_provider_required": 65,
-      "partially_defined": 64,
-      "preserved_unresolved": 147
+      "defined": 9,
+      "external_provider_required": 73,
+      "partially_defined": 66,
+      "preserved_unresolved": 154
     },
     "execution_statuses": {
-      "conditionally_executable": 96,
-      "executable": 10,
-      "structural_only": 178
+      "conditionally_executable": 108,
+      "executable": 11,
+      "structural_only": 183
     },
     "examples_present": 1,
-    "examples_absent": 283,
+    "examples_absent": 301,
     "promoted_shared_contract_candidates": 0
   }
 }
