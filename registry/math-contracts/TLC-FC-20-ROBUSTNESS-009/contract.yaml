@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-009
+feature_id: TLC-FC-20-ROBUSTNESS-009
+title: Transferable principles descriptor
+domain_id: robustness
+contract_kind: quantified_set_descriptor
+scientific_status: preserved_unresolved
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['3. Principes transférables']
+expression: 'P_trans = {P in P : forall c in C, exists alpha(c): ||T(P,c)-T(P,c0)||<=epsilon and F_fid(P,c)>=phi}'
+inputs: [{name: quantified_evidence, type: opaque_provider_value}]
+outputs: [{name: transferable_principles_descriptor, type: descriptor_envelope}]
+opaque_providers: [P, C, alpha, T, norm, F_fid]
+preconditions: [none]
+postconditions: [preserve forall/exists structure]
+invariants: [no universal enumeration or existential search]
+constraints: [descriptor or externally evidenced assessment only]
+structured_errors: [TransferablePrinciplesEvidenceRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-009]
+forbidden_behaviors: [invent_enumerator, invent_alpha_search, invent_proof_engine, invent_solver]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-012
+feature_id: TLC-FC-20-ROBUSTNESS-012
+title: Contextual transfer expression
+domain_id: robustness
+contract_kind: guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['3. Principes transférables']
+expression: 'T(P,c)=T0(P)+alpha(c)(T0(P)-T_adapt(P,c))+beta(c) grad_P F_fid'
+inputs: [{name: T0_value, type: opaque_provider_value}, {name: Tadapt_value, type: opaque_provider_value}, {name: alpha, type: scalar}, {name: beta, type: scalar}, {name: fidelity_gradient, type: opaque_provider_value}]
+outputs: [{name: transferred_value, type: opaque_provider_value}]
+opaque_providers: [T0, T_adapt, alpha, beta, grad_P_F_fid]
+preconditions: [all final source operands are supplied]
+postconditions: [evaluate with T0 minus Tadapt exactly]
+invariants: [source sign is immutable]
+constraints: [no gradient estimator]
+structured_errors: [ContextualTransferProviderRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-007, TLC-UR-ROBUSTNESS-015]
+forbidden_behaviors: [repair_transfer_sign, invent_gradient, invent_adaptation]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

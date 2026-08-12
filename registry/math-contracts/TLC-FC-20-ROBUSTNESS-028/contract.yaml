@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-028
+feature_id: TLC-FC-20-ROBUSTNESS-028
+title: Normalized contextual robustness expression
+domain_id: robustness
+contract_kind: guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['6. Adaptabilité fidèle']
+expression: 'R_ctx^T = min_{c in C} [P(c)/P_max][F_fid(c)/F_fid^max][Alig(c,T)/Alig_max]'
+inputs: [{name: contextual_minimum_product, type: opaque_provider_value}, {name: P_max, type: scalar}, {name: Ffid_max, type: scalar}, {name: Alig_max, type: scalar}]
+outputs: [{name: R_ctx_T, type: scalar}]
+opaque_providers: [C, P, F_fid, Alig, minimum, maxima]
+preconditions: [P_max != 0, Ffid_max != 0, Alig_max != 0, final minimum product is supplied]
+postconditions: [evaluate exact normalized-ratio product]
+invariants: [reference maxima are not fabricated]
+constraints: [no context search]
+structured_errors: [NormalizedContextualRobustnessProviderRequired, ContextPerformanceMaximumZero, ContextFidelityMaximumZero, ContextAlignmentMaximumZero]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-005]
+forbidden_behaviors: [invent_reference_maximum, invent_context_search, clamp_contextual_robustness, regularize_denominator]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

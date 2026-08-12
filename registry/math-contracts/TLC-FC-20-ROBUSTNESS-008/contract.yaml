@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-008
+feature_id: TLC-FC-20-ROBUSTNESS-008
+title: Robustness weight right-hand side
+domain_id: robustness
+contract_kind: rhs_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['2. Robustesse intégrée']
+expression: 'dw_i/dt = f_i(E(t), P_pres(t))'
+inputs: [{name: supplied_f_i_value, type: opaque_provider_value}]
+outputs: [{name: weight_rhs, type: scalar}]
+opaque_providers: [f_i, E_t, P_pres_t]
+preconditions: [f_i result is externally supplied]
+postconditions: [return the supplied source RHS value]
+invariants: [no trajectory or weight evolution is generated]
+constraints: [RHS evaluator only]
+structured_errors: [WeightRhsProviderRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-008]
+forbidden_behaviors: [invent_f_i, invent_weight_solver, invent_trajectory, normalize_weights]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

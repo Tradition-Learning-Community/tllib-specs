@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-022
+feature_id: TLC-FC-20-ROBUSTNESS-022
+title: Structural coherence expression
+domain_id: robustness
+contract_kind: guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['5. Connaissance structurée robuste']
+expression: 'S_coh = [sum_{r in R} s(r)w(r)/|R|] * [1/density(G)] * C_trans(G) F_fid(G)'
+inputs: [{name: weighted_relation_sum, type: opaque_provider_value}, {name: relation_count, type: integer}, {name: density, type: scalar}, {name: transmission_coherence, type: opaque_provider_value}, {name: fidelity, type: opaque_provider_value}]
+outputs: [{name: S_coh, type: scalar}]
+opaque_providers: [R, s, w, density, C_trans, F_fid]
+preconditions: [relation_count != 0, density != 0]
+postconditions: [evaluate exact source expression]
+invariants: [no clamp or graph-density construction]
+constraints: [provider-backed]
+structured_errors: [StructuralCoherenceProviderRequired, RelationSetEmpty, GraphDensityZero]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-005]
+forbidden_behaviors: [invent_relation_scores, invent_relation_weights, invent_density, regularize_denominator, clamp_coherence]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

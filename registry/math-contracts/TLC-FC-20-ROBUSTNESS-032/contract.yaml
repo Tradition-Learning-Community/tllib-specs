@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-032
+feature_id: TLC-FC-20-ROBUSTNESS-032
+title: Fixed-point stability assessment descriptor
+domain_id: robustness
+contract_kind: conditional_stability_assessment
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['7. Théorèmes et dynamique']
+expression: 'fixed point stable if Re(sigma(J))<0 and all four components exceed their thresholds'
+inputs: [{name: supplied_eigenvalue_real_parts, type: opaque_provider_value}, {name: component_values, type: opaque_provider_value}, {name: thresholds, type: opaque_provider_value}]
+outputs: [{name: source_stability_conditions_satisfied, type: boolean}]
+opaque_providers: [J, eigenvalues, fixed_point, thresholds]
+preconditions: [eigenvalue real parts fixed point values and thresholds are externally supplied]
+postconditions: [assess source conjunction only]
+invariants: [not a stability proof or fixed-point certificate]
+constraints: [no Jacobian builder eigen solver or fixed-point finder]
+structured_errors: [StabilityEvidenceRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-017, TLC-UR-ROBUSTNESS-019]
+forbidden_behaviors: [invent_jacobian, invent_eigen_solver, invent_fixed_point_finder, invent_stability_certificate, invent_stability_proof]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-002
+feature_id: TLC-FC-20-ROBUSTNESS-002
+title: Structural perturbation robustness expression
+domain_id: robustness
+contract_kind: structural_mathematical_descriptor
+scientific_status: preserved_unresolved
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['1. Définition']
+expression: 'R_struct = min_{f in F_ess} inf_{p in P} {||p|| : Perf(f,p)>=theta_crit and F_fid(f,p)>=phi_min}'
+inputs: [{name: F_ess, type: opaque_provider_value}, {name: P, type: opaque_provider_value}, {name: norm, type: opaque_provider_value}, {name: Perf, type: opaque_provider_value}, {name: F_fid, type: opaque_provider_value}, {name: theta_crit, type: opaque_provider_value}, {name: phi_min, type: opaque_provider_value}]
+outputs: [{name: structural_robustness_descriptor, type: descriptor_envelope}]
+opaque_providers: [F_ess, P, norm, Perf, F_fid, theta_crit, phi_min]
+preconditions: [source spaces and operators are externally defined before any assessment]
+postconditions: [preserve min and inf expression exactly as a descriptor]
+invariants: [no optimizer search discretization or norm construction]
+constraints: [no empty-domain semantics are invented]
+structured_errors: [StructuralRobustnessProviderRequired, StructuralRobustnessDomainUndefined]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-001, TLC-UR-ROBUSTNESS-005]
+forbidden_behaviors: [invent_norm, invent_optimizer, invent_search, invent_discretization, merge_structural_robustness_definitions]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-011
+feature_id: TLC-FC-20-ROBUSTNESS-011
+title: Traditional principle distance expression
+domain_id: robustness
+contract_kind: guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['3. Principes transférables']
+expression: 'D_trad(P) = ||P-P_trad||^2 + nu C_coh(P)'
+inputs: [{name: squared_distance, type: opaque_provider_value}, {name: coherence, type: opaque_provider_value}, {name: nu, type: scalar}]
+outputs: [{name: D_trad, type: scalar}]
+opaque_providers: [P_trad, norm, C_coh]
+preconditions: [squared norm term and coherence are supplied]
+postconditions: [evaluate exact source sum]
+invariants: [no norm or coherence construction]
+constraints: [provider-backed]
+structured_errors: [TraditionalDistanceProviderRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-005]
+forbidden_behaviors: [invent_norm, invent_traditional_reference, invent_coherence]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

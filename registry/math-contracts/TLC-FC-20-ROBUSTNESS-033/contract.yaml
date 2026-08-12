@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-033
+feature_id: TLC-FC-20-ROBUSTNESS-033
+title: Robustness health index expression
+domain_id: robustness
+contract_kind: guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['8. Indices finaux']
+expression: 'Q_rob^T = R_syst E_align^T A_adapt^T F_fid exp(-sum_{i=1}^4 Cov(R_i,E_i) - lambda ||grad_T Q||^2)'
+inputs: [{name: R_syst, type: scalar}, {name: E_align_T, type: scalar}, {name: A_adapt_T, type: scalar}, {name: F_fid, type: scalar}, {name: covariance_sum, type: scalar}, {name: gradient_norm_squared, type: scalar}, {name: lambda, type: scalar}]
+outputs: [{name: Q_rob_T, type: scalar}]
+opaque_providers: [R_syst, E_align_T, A_adapt_T, F_fid, Cov, grad_T_Q]
+preconditions: [all final source factors penalties and gradient norm are supplied]
+postconditions: [evaluate exact source expression]
+invariants: [no covariance estimator or gradient construction]
+constraints: [provider-backed]
+structured_errors: [RobustnessHealthIndexProviderRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-015]
+forbidden_behaviors: [invent_covariance_estimator, invent_gradient, invent_normalization, invent_threshold]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

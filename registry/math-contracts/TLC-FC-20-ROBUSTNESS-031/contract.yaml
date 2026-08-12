@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-031
+feature_id: TLC-FC-20-ROBUSTNESS-031
+title: Integrated dynamics right-hand side
+domain_id: robustness
+contract_kind: coupled_rhs_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['7. Théorèmes et dynamique']
+expression: 'source RHS system for dot R, dot E, dot A, dot F preserved exactly'
+inputs: [{name: states_parameters_and_supplied_gradients, type: opaque_provider_value}]
+outputs: [{name: dot_R, type: opaque_provider_value}, {name: dot_E, type: opaque_provider_value}, {name: dot_A, type: opaque_provider_value}, {name: dot_F, type: opaque_provider_value}]
+opaque_providers: [grad_E, grad_C, grad_T_R, grad_T_E, grad_T_A, grad_T_F, dot_T]
+preconditions: [all source state values parameters gradients and dot_T are supplied]
+postconditions: [return the four exact source RHS values]
+invariants: [R and F overloads retain local dynamic meaning]
+constraints: [RHS evaluator only]
+structured_errors: [IntegratedDynamicsProviderRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-003, TLC-UR-ROBUSTNESS-004, TLC-UR-ROBUSTNESS-015]
+forbidden_behaviors: [invent_ode_solver, invent_time_step, invent_gradient, invent_trajectory, invent_integrator]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

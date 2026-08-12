@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-029
+feature_id: TLC-FC-20-ROBUSTNESS-029
+title: Global robustness theorem assessment
+domain_id: robustness
+contract_kind: conditional_theorem_assessment
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['7. Théorèmes et dynamique']
+expression: '(epsilon,delta,gamma,phi)-robust if P(|P-P_exp|>epsilon)<delta and F_fid(t)>=gamma and Alig(t)>=phi'
+inputs: [{name: tail_probability, type: scalar}, {name: epsilon, type: scalar}, {name: delta, type: scalar}, {name: fidelity, type: scalar}, {name: gamma, type: scalar}, {name: alignment, type: scalar}, {name: phi, type: scalar}]
+outputs: [{name: conditions_satisfied, type: boolean}]
+opaque_providers: [probability, P_exp, F_fid, Alig]
+preconditions: [tail probability and all compared values are supplied]
+postconditions: [assess source conditions only]
+invariants: [not a distribution estimator or robustness proof]
+constraints: [conditional assessment]
+structured_errors: [GlobalRobustnessEvidenceRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-016, TLC-UR-ROBUSTNESS-019]
+forbidden_behaviors: [invent_distribution, invent_probability_estimator, invent_robustness_certificate, invent_threshold]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

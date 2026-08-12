@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-017
+feature_id: TLC-FC-20-ROBUSTNESS-017
+title: Guidance proportional posterior descriptor
+domain_id: robustness
+contract_kind: proportional_expression_descriptor
+scientific_status: preserved_unresolved
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['4. Guidage robuste']
+expression: 'P(P|O,G,T) proportional_to P(O|P) P(P|G) exp(-lambda D_KL(P(P|G)||P(P)) + mu Alig(P,T))'
+inputs: [{name: proportional_factors, type: opaque_provider_value}]
+outputs: [{name: proportional_posterior_descriptor, type: descriptor_envelope}]
+opaque_providers: [P_O_given_P, P_P_given_G, D_KL, Alig]
+preconditions: [none]
+postconditions: [preserve proportionality without partition function]
+invariants: [normalization is absent from source]
+constraints: [descriptor only]
+structured_errors: [GuidancePosteriorProvidersRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-012, TLC-UR-ROBUSTNESS-013]
+forbidden_behaviors: [normalize_proportional_posterior, invent_partition_function, invent_Bayes_completion, invent_KL_estimator]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

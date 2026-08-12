@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-024
+feature_id: TLC-FC-20-ROBUSTNESS-024
+title: Dual structural robustness ambiguity guard
+domain_id: robustness
+contract_kind: ambiguity_guard_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['1. Définition', '5. Connaissance structurée robuste', '9. Limites et points scientifiques non résolus']
+expression: 'R_struct has two source definitions with unknown relation'
+inputs: [{name: implementation_claim, type: descriptor_envelope}]
+outputs: [{name: conformance, type: boolean}]
+opaque_providers: []
+preconditions: [none]
+postconditions: [reject equality selection averaging or conversion absent source evidence]
+invariants: [both definitions remain separately addressable]
+constraints: [ambiguity preserved]
+structured_errors: [StructuralRobustnessDefinitionsMerged]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-001]
+forbidden_behaviors: [merge_structural_robustness_definitions, select_canonical_R_struct, average_R_struct_definitions, invent_conversion]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/scientific-objects/robustness/unresolved-terms.yaml}
