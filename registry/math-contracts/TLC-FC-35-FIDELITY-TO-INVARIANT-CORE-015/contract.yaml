@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-015
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-015
+title: Faithful-innovation predicate
+domain_id: fidelity-to-invariant-core
+contract_kind: guarded_exact_predicate_contract
+scientific_status: external_provider_required
+scientific_authority: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md
+source_sections: ['5. Innovation fidèle', '7. Limites et points scientifiques non résolus']
+expression: '||pi_N(X + delta X) - pi_N(X)|| <= epsilon_innov'
+inputs: [{name: projected_innovated_state, type: supplied_projection_value}, {name: projected_base_state, type: supplied_projection_value}, {name: projection_difference_norm, type: supplied_numeric_or_norm_result}, {name: epsilon_innov, type: supplied_threshold}]
+outputs: [{name: faithful_by_source_predicate, type: boolean}]
+opaque_providers: [pi_N, norm]
+preconditions: [required projection/norm outputs and epsilon_innov are supplied]
+postconditions: [return true iff the supplied norm is less than or equal to epsilon_innov]
+invariants: [comparator remains <= exactly]
+constraints: [epsilon_innov is not calibrated by this feature]
+structured_errors: [{code: ProjectionProviderUnavailable, when: required projection values are absent}, {code: NormProviderUnavailable, when: required norm result is absent}, {code: InnovationThresholdUnavailable, when: epsilon_innov is absent}]
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-FIDELITY-002, TLC-UR-FIDELITY-009]
+forbidden_behaviors: [invent_core_projection, invent_norm, calibrate_epsilon_innov, replace_less_than_or_equal_with_less_than, auto_accept_innovation]
+traceability: {source: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md, inventory: registry/domain-progress/fidelity-to-invariant-core/feature-inventory.yaml}

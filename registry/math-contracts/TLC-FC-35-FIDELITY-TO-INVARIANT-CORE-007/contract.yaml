@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-007
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-007
+title: Empty validated-artifact set guard
+domain_id: fidelity-to-invariant-core
+contract_kind: empty_set_guard
+scientific_status: defined
+scientific_authority: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md
+source_sections: ['7. Limites et points scientifiques non résolus']
+expression: 'A_validated = empty => R_art undefined'
+inputs: [{name: artifact_count, type: nonnegative_integer}]
+outputs: [{name: guard_result, type: descriptor_or_structured_error}]
+opaque_providers: []
+preconditions: [artifact_count is supplied]
+postconditions: [emit EmptyValidatedArtifactSet exactly when artifact_count equals zero]
+invariants: [no numeric fallback is emitted]
+constraints: []
+structured_errors: [{code: EmptyValidatedArtifactSet, when: artifact_count equals zero}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FIDELITY-005]
+forbidden_behaviors: [return_zero_for_empty_set, return_infinity_for_empty_set, return_nan_for_empty_set, silently_skip_guard]
+traceability: {source: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md, inventory: registry/domain-progress/fidelity-to-invariant-core/feature-inventory.yaml}

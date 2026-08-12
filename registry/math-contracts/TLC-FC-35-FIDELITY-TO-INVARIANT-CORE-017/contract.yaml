@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-017
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-017
+title: Relay-master eligibility descriptor
+domain_id: fidelity-to-invariant-core
+contract_kind: conditional_eligibility_descriptor
+scientific_status: external_provider_required
+scientific_authority: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md
+source_sections: ['6. Contraintes de fidélité du transmetteur']
+expression: 'capacity above its supplied threshold AND community validation AND at least one aspirant available AND explicit original-master agreement'
+inputs: [{name: capacity_above_threshold_evidence, type: supplied_boolean_evidence}, {name: community_validation_evidence, type: supplied_boolean_evidence}, {name: aspirant_available, type: supplied_boolean_evidence}, {name: original_master_agreement, type: supplied_boolean_evidence}]
+outputs: [{name: relay_eligibility_assessment, type: boolean_or_descriptor}]
+opaque_providers: [transmission_capacity_threshold, community_validation_evidence]
+preconditions: [all four source-required evidences are supplied for boolean assessment]
+postconditions: [true only when all four supplied evidences are true]
+invariants: [no threshold value or approval workflow is invented]
+constraints: [conditions are cumulative]
+structured_errors: [{code: RelayEligibilityEvidenceUnavailable, when: one or more required evidences are absent}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FIDELITY-009]
+forbidden_behaviors: [invent_transmission_threshold, invent_approval_workflow, infer_community_validation, infer_master_agreement, infer_aspirant_availability]
+traceability: {source: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md, inventory: registry/domain-progress/fidelity-to-invariant-core/feature-inventory.yaml}

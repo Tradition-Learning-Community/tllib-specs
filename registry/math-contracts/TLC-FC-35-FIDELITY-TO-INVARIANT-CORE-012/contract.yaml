@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-012
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-012
+title: Four-control correction raw expression
+domain_id: fidelity-to-invariant-core
+contract_kind: unresolved_expression_descriptor
+scientific_status: preserved_unresolved
+scientific_authority: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md
+source_sections: ['4. Contrôle de la variation', '7. Limites et points scientifiques non résolus']
+expression: 'C_n = eta_1 R_art + eta_2 C_cons + eta_3 F_comm + eta_4 A_self; sum_i eta_i = 1'
+inputs: [{name: eta_1_to_eta_4, type: supplied_weights}, {name: four_control_values, type: heterogeneous_supplied_values}]
+outputs: [{name: raw_correction_expression, type: descriptor}]
+opaque_providers: []
+preconditions: [preserve the four source terms and weights exactly]
+postconditions: [return a symbolic/raw weighted-expression descriptor only]
+invariants: [distances and scores remain heterogeneous, no common state space is invented]
+constraints: [sum_i eta_i equals 1 is the only source weight constraint]
+structured_errors: [{code: HeterogeneousControlSpace, when: executable application as a state correction is requested without a source-backed common space}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FIDELITY-007, TLC-UR-FIDELITY-008]
+forbidden_behaviors: [broadcast_control_scores_into_state, invent_common_control_embedding, multiply_by_identity, normalize_control_terms, assume_eta_nonnegative, renormalize_eta]
+traceability: {source: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md, inventory: registry/domain-progress/fidelity-to-invariant-core/feature-inventory.yaml}

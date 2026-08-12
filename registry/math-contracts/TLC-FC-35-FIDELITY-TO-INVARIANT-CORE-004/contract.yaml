@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-004
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-004
+title: Generational variation expression
+domain_id: fidelity-to-invariant-core
+contract_kind: exact_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md
+source_sections: ['3. Variation générationnelle']
+expression: 'X_{n+1} = X_n + epsilon_n + C_n (X_n - pi_N(X_n))'
+inputs: [{name: X_n, type: opaque_state}, {name: epsilon_n, type: supplied_variation_term}, {name: C_n, type: supplied_correction_operator_or_compatible_value}, {name: pi_N_X_n, type: supplied_projection_value}]
+outputs: [{name: X_n_plus_1, type: opaque_state_expression_result}]
+opaque_providers: [pi_N]
+preconditions: [epsilon_n is supplied and never sampled internally, pi_N_X_n is supplied, C_n is supplied in a compatible form]
+postconditions: [preserve exactly the residual sign X_n - pi_N(X_n)]
+invariants: [no source term is reordered into the opposite residual]
+constraints: []
+structured_errors: [{code: ProjectionProviderUnavailable, when: pi_N_X_n is absent}, {code: VariationSampleUnavailable, when: epsilon_n is absent}, {code: CorrectionCompatibilityUnavailable, when: C_n cannot act on the residual without invented broadcasting}]
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-FIDELITY-002, TLC-UR-FIDELITY-007]
+forbidden_behaviors: [invent_rng_sampler, invent_covariance_estimator, invert_generational_residual_sign, invent_projection, broadcast_control_scores_into_state]
+traceability: {source: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md, inventory: registry/domain-progress/fidelity-to-invariant-core/feature-inventory.yaml}

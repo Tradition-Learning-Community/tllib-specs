@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-001
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-001
+title: Invariant-core reference descriptor
+domain_id: fidelity-to-invariant-core
+contract_kind: source_reference_descriptor
+scientific_status: partially_defined
+scientific_authority: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md
+source_sections: ['1. Périmètre', '2. Noyau rappelé par la source', '7. Limites et points scientifiques non résolus']
+expression: 'N_inv(t) is a recalled set definition; Fidelity does not redefine domain 04 invariants'
+inputs: []
+outputs: [{name: invariant_core_reference, type: descriptor}]
+opaque_providers: [N_inv, pi_N, d_D, x_v_tau, epsilon_ess, V_x, theta_V]
+preconditions: []
+postconditions: [return a provenance-preserving reference to the recalled invariant-core definition]
+invariants: [scientific domain dependency is 35 -> 04, domain 04 remains normative authority]
+constraints: [no executable invariant-core calculator is implied]
+structured_errors: []
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-FIDELITY-002, TLC-UR-FIDELITY-003, TLC-UR-FIDELITY-004]
+forbidden_behaviors: [redefine_invariant_core, invent_core_projection, invent_doctrinal_distance, invent_essentiality_threshold, invent_value_threshold]
+traceability: {source: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md, inventory: registry/domain-progress/fidelity-to-invariant-core/feature-inventory.yaml}

@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-003
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-003
+title: Temporal-core ambiguity guard
+domain_id: fidelity-to-invariant-core
+contract_kind: ambiguity_guard
+scientific_status: preserved_unresolved
+scientific_authority: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md
+source_sections: ['7. Limites et points scientifiques non résolus']
+expression: 'temporal status of x is unspecified'
+inputs: [{name: proposed_membership_interpretation, type: descriptor}]
+outputs: [{name: ambiguity_preserved, type: boolean}]
+opaque_providers: []
+preconditions: []
+postconditions: [reject interpretations that silently rewrite x as x(t), x(tau), or x_v(t)]
+invariants: [un-timestamped x remains source-exact]
+constraints: []
+structured_errors: [{code: TemporalCoreReferenceAmbiguity, when: an implementation requires a temporal interpretation of x}]
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-FIDELITY-001]
+forbidden_behaviors: [rewrite_x_as_x_t, rewrite_x_as_x_tau, rewrite_x_as_x_v_t, resolve_temporal_ambiguity]
+traceability: {source: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md, inventory: registry/domain-progress/fidelity-to-invariant-core/feature-inventory.yaml}

@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-016
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-016
+title: Community-validation procedure unavailable guard
+domain_id: fidelity-to-invariant-core
+contract_kind: unavailable_procedure_guard
+scientific_status: preserved_unresolved
+scientific_authority: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md
+source_sections: ['5. Innovation fidèle', '7. Limites et points scientifiques non résolus']
+expression: 'faithful innovation may be integrated after community validation, but no validation procedure is defined'
+inputs: [{name: faithful_innovation_result, type: boolean}]
+outputs: [{name: validation_procedure_status, type: descriptor}]
+opaque_providers: [community_validation_procedure]
+preconditions: []
+postconditions: [faithful predicate alone never authorizes integration]
+invariants: [community validation remains external and unspecified]
+constraints: []
+structured_errors: [{code: CommunityValidationProcedureUnavailable, when: automatic validation or integration is requested}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FIDELITY-009]
+forbidden_behaviors: [invent_community_validation, invent_vote, invent_quorum, invent_consensus_algorithm, auto_accept_innovation, invent_governance_engine]
+traceability: {source: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md, inventory: registry/domain-progress/fidelity-to-invariant-core/feature-inventory.yaml}

@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-009
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-009
+title: Empty elder-council guard
+domain_id: fidelity-to-invariant-core
+contract_kind: denominator_guard
+scientific_status: defined
+scientific_authority: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md
+source_sections: ['7. Limites et points scientifiques non résolus']
+expression: '|C_elders| = 0 => C_cons divides by zero'
+inputs: [{name: elder_count, type: nonnegative_integer}]
+outputs: [{name: guard_result, type: descriptor_or_structured_error}]
+opaque_providers: []
+preconditions: [elder_count is supplied]
+postconditions: [emit EmptyElderCouncil exactly when elder_count equals zero]
+invariants: [no denominator regularization]
+constraints: []
+structured_errors: [{code: EmptyElderCouncil, when: elder_count equals zero}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FIDELITY-006]
+forbidden_behaviors: [regularize_denominator, epsilon_repair, silent_fallback]
+traceability: {source: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md, inventory: registry/domain-progress/fidelity-to-invariant-core/feature-inventory.yaml}

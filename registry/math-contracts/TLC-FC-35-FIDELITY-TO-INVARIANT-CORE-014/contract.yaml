@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-014
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-014
+title: Eta-sum constraint
+domain_id: fidelity-to-invariant-core
+contract_kind: exact_constraint_contract
+scientific_status: defined
+scientific_authority: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md
+source_sections: ['4. Contrôle de la variation', '7. Limites et points scientifiques non résolus']
+expression: 'eta_1 + eta_2 + eta_3 + eta_4 = 1'
+inputs: [{name: eta_1, type: scalar}, {name: eta_2, type: scalar}, {name: eta_3, type: scalar}, {name: eta_4, type: scalar}]
+outputs: [{name: satisfies_source_constraint, type: boolean}]
+opaque_providers: []
+preconditions: [four comparable supplied weights]
+postconditions: [true iff their supplied sum equals 1 under the caller's declared numeric equality semantics]
+invariants: [negative eta values are not rejected solely for negativity]
+constraints: [only the sum equals 1 requirement is source-backed]
+structured_errors: [{code: EtaSumConstraintViolation, when: supplied weights do not sum to 1}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FIDELITY-008]
+forbidden_behaviors: [assume_eta_nonnegative, project_to_simplex, renormalize_eta, clamp_eta]
+traceability: {source: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md, inventory: registry/domain-progress/fidelity-to-invariant-core/feature-inventory.yaml}

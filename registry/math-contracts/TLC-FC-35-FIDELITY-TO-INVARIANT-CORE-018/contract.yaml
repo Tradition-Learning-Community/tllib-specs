@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-018
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-018
+title: Fidelity scope and invariant non-redefinition guard
+domain_id: fidelity-to-invariant-core
+contract_kind: scope_guard
+scientific_status: defined
+scientific_authority: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md
+source_sections: ['1. Périmètre', '7. Limites et points scientifiques non résolus']
+expression: 'Fidelity-only scope; domain 35 does not redefine invariants specified by domain 04'
+inputs: [{name: proposed_scope_or_dependency, type: descriptor}]
+outputs: [{name: scope_conformance, type: boolean_or_structured_guard}]
+opaque_providers: []
+preconditions: []
+postconditions: [reject invariant redefinition, secondary-transmission lifecycle expansion, and unsupported 35 -> 32 promotion]
+invariants: [confirmed scientific dependency remains 35 -> 04 only]
+constraints: [domain 32 remains analysis companion only]
+structured_errors: [{code: FidelityScopeViolation, when: proposal imports lifecycle orchestration or redefines 04 invariants}]
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-FIDELITY-010]
+forbidden_behaviors: [redefine_invariant_core, promote_35_to_32_dependency_without_evidence, publish_drift_32, reintroduce_secondary_transmission_lifecycle, invent_initiation_or_empowerment_orchestration]
+traceability: {source: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md, inventory: registry/domain-progress/fidelity-to-invariant-core/feature-inventory.yaml}

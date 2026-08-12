@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-005
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-005
+title: Stochastic variation distribution descriptor
+domain_id: fidelity-to-invariant-core
+contract_kind: stochastic_descriptor
+scientific_status: external_provider_required
+scientific_authority: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md
+source_sections: ['3. Variation générationnelle']
+expression: 'epsilon_n ~ Normal(0, Sigma)'
+inputs: [{name: Sigma, type: supplied_covariance_parameter}]
+outputs: [{name: variation_distribution, type: descriptor}]
+opaque_providers: [random_sampler_if_requested]
+preconditions: []
+postconditions: [describe the source distribution without sampling]
+invariants: [mean remains exactly zero, covariance parameter remains exactly Sigma]
+constraints: []
+structured_errors: [{code: RandomSamplerProviderRequired, when: a sample is requested rather than a descriptor}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: []
+forbidden_behaviors: [invent_rng_sampler, invent_covariance_estimator, auto_sample_epsilon_n, alter_distribution]
+traceability: {source: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md, inventory: registry/domain-progress/fidelity-to-invariant-core/feature-inventory.yaml}

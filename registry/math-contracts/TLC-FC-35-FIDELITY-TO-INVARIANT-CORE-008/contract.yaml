@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-008
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-008
+title: Elder-consultation metric
+domain_id: fidelity-to-invariant-core
+contract_kind: guarded_exact_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md
+source_sections: ['4. Contrôle de la variation', '7. Limites et points scientifiques non résolus']
+expression: 'C_cons(X) = (1 / |C_elders|) sum_{c in C_elders} ||X - X_c||'
+inputs: [{name: elder_distance_values, type: supplied_nonempty_collection}, {name: elder_count, type: positive_integer}]
+outputs: [{name: C_cons, type: scalar_or_provider_numeric}]
+opaque_providers: [C_elders, elder_selection, norm]
+preconditions: [elder_count is greater than zero, one supplied distance value exists per elder]
+postconditions: [return arithmetic mean of supplied elder distances]
+invariants: [no elder is selected or constructed by this feature]
+constraints: []
+structured_errors: [{code: EmptyElderCouncil, when: elder_count equals zero}, {code: ElderDistanceProviderUnavailable, when: required distance values are absent}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FIDELITY-006]
+forbidden_behaviors: [invent_elder_selection, invent_norm, fallback_for_empty_council, regularize_denominator]
+traceability: {source: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md, inventory: registry/domain-progress/fidelity-to-invariant-core/feature-inventory.yaml}
