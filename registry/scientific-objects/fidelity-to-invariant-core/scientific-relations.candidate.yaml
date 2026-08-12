@@ -1,0 +1,32 @@
+schema_version: 1
+domain: fidelity-to-invariant-core
+relation_count: 28
+relations:
+  - {id: TLC-SR-FIDELITY-001, from: fidelity_domain, relation: depends_scientifically_on, to: invariants_domain_04}
+  - {id: TLC-SR-FIDELITY-002, from: fidelity_domain, relation: does_not_redefine, to: invariants_domain_04}
+  - {id: TLC-SR-FIDELITY-003, from: N_inv_t, relation: subset_of, to: X_doctrinal}
+  - {id: TLC-SR-FIDELITY-004, from: invariant_membership_condition, relation: quantifies_over, to: tau_in_0_t}
+  - {id: TLC-SR-FIDELITY-005, from: invariant_membership_condition, relation: quantifies_over, to: V_L}
+  - {id: TLC-SR-FIDELITY-006, from: invariant_membership_condition, relation: uses, to: d_D}
+  - {id: TLC-SR-FIDELITY-007, from: invariant_membership_condition, relation: uses, to: pi_N}
+  - {id: TLC-SR-FIDELITY-008, from: invariant_membership_condition, relation: compares_below, to: epsilon_ess_tau}
+  - {id: TLC-SR-FIDELITY-009, from: invariant_membership_condition, relation: compares_above, to: theta_V}
+  - {id: TLC-SR-FIDELITY-010, from: temporal_status_of_x, relation: ambiguously_participates_in, to: invariant_membership_condition}
+  - {id: TLC-SR-FIDELITY-011, from: X_n, relation: evolves_by_exact_source_expression_to, to: X_n_plus_1}
+  - {id: TLC-SR-FIDELITY-012, from: epsilon_n, relation: distributed_as, to: Normal_0_Sigma}
+  - {id: TLC-SR-FIDELITY-013, from: C_n, relation: multiplies_exact_residual, to: X_n_minus_pi_N_X_n}
+  - {id: TLC-SR-FIDELITY-014, from: R_art_X, relation: minimum_over, to: A_validated}
+  - {id: TLC-SR-FIDELITY-015, from: R_art_X, relation: uses, to: pi_N}
+  - {id: TLC-SR-FIDELITY-016, from: R_art_X, relation: undefined_when_empty, to: A_validated}
+  - {id: TLC-SR-FIDELITY-017, from: C_cons_X, relation: averages_over, to: C_elders}
+  - {id: TLC-SR-FIDELITY-018, from: C_cons_X, relation: undefined_when_empty, to: C_elders}
+  - {id: TLC-SR-FIDELITY-019, from: F_comm_X, relation: equals_provider_value, to: M_X_t}
+  - {id: TLC-SR-FIDELITY-020, from: A_self_X, relation: equals_provider_value, to: E_self_X_t}
+  - {id: TLC-SR-FIDELITY-021, from: C_n, relation: written_as_weighted_sum_of, to: four_controls}
+  - {id: TLC-SR-FIDELITY-022, from: eta_sum_constraint, relation: equals, to: one}
+  - {id: TLC-SR-FIDELITY-023, from: four_controls, relation: lacks_common_space_for, to: C_n}
+  - {id: TLC-SR-FIDELITY-024, from: faithful_innovation_predicate, relation: compares_projection_difference, to: epsilon_innov}
+  - {id: TLC-SR-FIDELITY-025, from: faithful_innovation_predicate, relation: uses_exact_comparator, to: less_than_or_equal}
+  - {id: TLC-SR-FIDELITY-026, from: faithful_innovation_predicate, relation: does_not_construct, to: community_validation_procedure}
+  - {id: TLC-SR-FIDELITY-027, from: relay_master_eligibility, relation: requires_cumulative_evidence, to: transmission_validation_aspirant_agreement}
+  - {id: TLC-SR-FIDELITY-028, from: documentary_title_scope_ambiguity, relation: restricts_domain_to, to: fidelity_section_only}
