@@ -1,0 +1,3 @@
+# Fairness procedural robustness provider descriptor
+
+`TLC-FC-20-ROBUSTNESS-003` records the source-level delegation of procedural robustness to published Fairness feature `TLC-FC-21-FAIRNESS-001`. Robustness depends scientifically on Fairness through `20 -> 21`, using dependent-to-provider edge semantics. This package does not duplicate the Fairness equation, does not clamp or normalize `R_proc`, and does not create a runtime dependency merely from scientific reuse.
