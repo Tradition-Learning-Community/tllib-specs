@@ -307,6 +307,13 @@
       "catalog_path": "handoff/domains/fairness/catalog.json",
       "feature_count": 18,
       "catalog_sha256": "b48542b6888a20919496378d802dfcd0a20624f91eb4b9e45f0fa9242c91a4da"
+    },
+    {
+      "domain": "robustness",
+      "domain_index": 20,
+      "catalog_path": "handoff/domains/robustness/catalog.json",
+      "feature_count": 35,
+      "catalog_sha256": "332c31b4af25aa83e7a06cd5d502848dc511a9597312105bf705fb7dc3244448"
     }
   ],
   "features": [
@@ -15711,29 +15718,1814 @@
       "descriptor_sha256": "0a3d5578c08dd2ef4cc088337b38090044be672ec2392a3eeb9e11ffe6c089e3",
       "deprecation": null,
       "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-001",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-001",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "partially_defined",
+        "execution": "structural_only"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "c5b8d09f7c4a2308ab88ae4a5dd3fbe3cbfe63eb29d2b829e5caf88d664d47cc",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-001/manifest.json",
+      "descriptor_sha256": "064bb39279e11ef2c1a564843ba5fd18c582eb9d7cd81baa0b3ba82eb141264d",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-002",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-002",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "preserved_unresolved",
+        "execution": "structural_only"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "0b304a37c6954b409f8b29a60d37e421fa66180891e43c7541c58a121d7da9c1",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-002/manifest.json",
+      "descriptor_sha256": "74c8ba3065d40c56eba0030fddc2a2f73a2f01f23f693bf933212745eed48fd6",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-003",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-003",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "structural_only"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "a061b65af91d22282f47f4f28fdf233efa6546911d366d6533b09dcb1d708f5c",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-003/manifest.json",
+      "descriptor_sha256": "b949a63ffbcb3a8fea5752338402b9424ac6ee6e4ca98d5855482f93f78415a6",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-004",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-004",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "4cda505837aec11a629b1e916cffbb9fc8204e53219d6841b588c632a3521e50",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-004/manifest.json",
+      "descriptor_sha256": "2d5f82313cbc379e4be8d9855b7df25014ba6d9af5a9dfb7aab9cfdd401abc66",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-005",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-005",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "6b75d25dbbb163f8021f137e47d7d122f7473324b06a8d04865b5e98e48bf79a",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-005/manifest.json",
+      "descriptor_sha256": "0d10c0e3fd3c626f82bcbc9d05667e88e9e2fe2a1e89d5e2d5e275acb41b4964",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-006",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-006",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "preserved_unresolved",
+        "execution": "structural_only"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "396b6a00170bec34dba54ce418ad644398c2d82a653ecea508babf4c260a8d62",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-006/manifest.json",
+      "descriptor_sha256": "786b871ab3a2448a5096da930f4fcb1222425222318b7c0685efa05892081bc5",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-007",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-007",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "57aba0dae0f825900cc836baf5b6129dc0cd7a5809d87ae93bb14ed1b4038505",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-007/manifest.json",
+      "descriptor_sha256": "650a68325e632e3545a03f35f8f8cf96b61e84bf885a91c93bd40b5c6b0b685c",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-008",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-008",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "c901d604c93b8702faccf00e8a09ba8fdfe8666d5a5207ba5855390868c7b08c",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-008/manifest.json",
+      "descriptor_sha256": "9846d4e39f1644de84c79e93025b7b556affcb683ae5f438df8dd966dcfd4d9a",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-009",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-009",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "preserved_unresolved",
+        "execution": "structural_only"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "16f6fe4c23d9f169490e275ae8355ede5ea979be827e797caab77e575e67240b",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-009/manifest.json",
+      "descriptor_sha256": "a3ebbc7a7dab4f229fbfbc3935a8dda951c8193a1c89ec5c3c42886dc0a02c48",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-010",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-010",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "preserved_unresolved",
+        "execution": "structural_only"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "6ef2ec3560553518025a229727932fea91ba0d138d38b953ad7ebbaae2e82cdc",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-010/manifest.json",
+      "descriptor_sha256": "278ac9bcfd0ee3155980cafc8e97dcfe79f15ac3f385deab8d57dd384326d7cc",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-011",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-011",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "d56c16991e0f72298d2eaf3642f16e08f084d2de697c8a43dbfbd5b452516d33",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-011/manifest.json",
+      "descriptor_sha256": "2f6a63ab805a3a658ebf96429c76cc9a0ce47e110b8940b490989f652c2ffbda",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-012",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-012",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "d97e498fc8e0981bb392a10ac02181247a1a5e3964735166ef7f4b611705290f",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-012/manifest.json",
+      "descriptor_sha256": "1f2dfafc41d629e72e1060d930e73d478b1fd5899fde073a9845870f29c96dbc",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-013",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-013",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "preserved_unresolved",
+        "execution": "structural_only"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "61693774c843dae1a6f555da51c839ac60b82ffe10d00b6bae722fc9434e3de3",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-013/manifest.json",
+      "descriptor_sha256": "5bf43a3b6f844781615b6b8ef47cd76b6aac7aa272e2e81b0032266289a04cd0",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-014",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-014",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "preserved_unresolved",
+        "execution": "structural_only"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "d75c23778ce0558f33bc8f8f292fb0f27fddbb43528b5e8a7a883791a6a12d24",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-014/manifest.json",
+      "descriptor_sha256": "cdbeccfdc49aeb500772ce47c1e65c1b389b4fdc865f890dd0d6d2098ad1987b",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-015",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-015",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "c3d7f4d3ee9111a1b87bd0b916386a999013ad1c6e63d16c5a534e52ecca3d2a",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-015/manifest.json",
+      "descriptor_sha256": "8f4f2fafc042acbcc1313c765ee8ba26efc2ce9718bb3fee989194b29436fb4f",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-016",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-016",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "e365d443c8ddab5d8a3751f6316eacf86cd9b5f1d7416f0f0ccc11c68ab38809",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-016/manifest.json",
+      "descriptor_sha256": "66ffb7fde290bf21b18776ce679e2607fe1898f928b59cc706d296c6c54e8d2d",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-017",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-017",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "preserved_unresolved",
+        "execution": "structural_only"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "6cc659a9231284a1518c7781541dd57b91377db447ef2dc7a00cac9477f744a6",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-017/manifest.json",
+      "descriptor_sha256": "c22352be01c9640250c65b98eac9894cf607bc4d41d8ddb0766548c7363833fb",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-018",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-018",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "8822a1d0c443c4998f02a223d9b27b77be179105c7e1798ab66e619e3bd67222",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-018/manifest.json",
+      "descriptor_sha256": "af4be3e17b9945d4a0bc0a62bd7e484eaff7290a179e6dfd3ab956f5e768a5d9",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-019",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-019",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "preserved_unresolved",
+        "execution": "structural_only"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "c6a7deabb484bca06c89193efdae8196e2fe9af11f3c4ea7f0af43f07b848dd3",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-019/manifest.json",
+      "descriptor_sha256": "a63dddcf6066a746b9d2653c48f99c9a2122d09193ed18eee55cda0be92e1ebe",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-020",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-020",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "8bff8d7a408ba768fa96a41922c03b08932a69cf5079939a5442d5327f1e9486",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-020/manifest.json",
+      "descriptor_sha256": "8e5e998efc35f365450f8a8cd069de50f97e5775cddb0c3a64c6ae2a8e7a7975",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-021",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-021",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "preserved_unresolved",
+        "execution": "structural_only"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "c4430bf6b1e1a4d0acb50d362d33498c0c25f1828e590ac5eb270c60f67511a8",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-021/manifest.json",
+      "descriptor_sha256": "226f5c172e8cd34115872acd521f309502fe180c97920466ecaa707527d8c835",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-022",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-022",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "5e8902a86997b815489d0f44b695081a32d71599d77c4b8f59f826a65904828e",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-022/manifest.json",
+      "descriptor_sha256": "5c5ff03f742a6460f90e1687abffb1cb36a099c732d2b47fc5a500dbf3a30c43",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-023",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-023",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "97f9e89f9a064bf98b5b89f7212311e1c74f14a7093b7047e95416297896239d",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-023/manifest.json",
+      "descriptor_sha256": "d27f8b98bb89f7dbb6021d43f2a894088a859a2aad1283c0a55d1fa27b759af0",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-024",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-024",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "preserved_unresolved",
+        "execution": "structural_only"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "e46c319585371d1835c8b119d3467b30270c22116a29a34fe8df4c47289e7c08",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-024/manifest.json",
+      "descriptor_sha256": "a4502f3405d1552b2cf2556950152c0a3adf8a2cf462b644d684dbbeffbb1e80",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-025",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-025",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "78af70635795f2e3d07ec902d4c5956fe5f15136e1d4dd0eeeb52609756c3513",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-025/manifest.json",
+      "descriptor_sha256": "9ce1d7ced62debffeaf6936260e9c568293ec5c295454c8eb82e4612dc0d8a74",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-026",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-026",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "5a54410c1bb17d169f43eb214044b6bae9482977d00ec14dee906af25e4586bf",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-026/manifest.json",
+      "descriptor_sha256": "5eb92f8772d6e3f88abc1277042d2b5e995f1f5841719ff7e0e10538b0d316d7",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-027",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-027",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "0c86eee5bcfa896e0e4d1d2686af978ac1260447e841f85455e0f1aa5f35c947",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-027/manifest.json",
+      "descriptor_sha256": "b142d7eadf086026a0d07a4a2cf913caacf0a283105f2f59680f4732cd40c492",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-028",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-028",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "a746bffe71d7a37ebfbefba6151f5aefca27d77dbdff0542550f9950c7566415",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-028/manifest.json",
+      "descriptor_sha256": "5a43b277b495b0e386128042d5cb2120cf4591381576370002a414860e8790f4",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-029",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-029",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "c8fe0d507cd2138631ce8454fd643e70bd1aa9376bcd2c3d272d4faf41316b1b",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-029/manifest.json",
+      "descriptor_sha256": "72f9d040bc17313c689f7c1063812706ea55848dc3b4fe31b79edf0c3fcb40b0",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-030",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-030",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "ff889305a5b8c2b4a2d8b4ddd80e43c825e549072465ed0b58e115b71f690ebc",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-030/manifest.json",
+      "descriptor_sha256": "2c3e1aab412a6f136009b7e089d08c6b40bfbf9bbd97174e4ff4a78dfb9704a3",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-031",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-031",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "1e951336e63ad8609b2e829e147f8d7d5fe5d43f323088417bbf8978e21ed156",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-031/manifest.json",
+      "descriptor_sha256": "8ad13e05e2ba56f3b167b7844d2737fbc91816164262c64b5d7eb48f717c9e6a",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-032",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-032",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "32cda68fcb949f26f53db1b23dfd49c3a4b51893efe9bf85abbb80f16e02ede0",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-032/manifest.json",
+      "descriptor_sha256": "6ee86b1af081efdd6b2a9203eeef4ed982d3f3f6c341c88e1f4bb5714c50cb12",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-033",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-033",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "a0944ea2c39643e410b19d026b55a0a0c66207dde62ff6f95114113d802bbbfe",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-033/manifest.json",
+      "descriptor_sha256": "a7fdd74866f18cb7ac8fe891c8643e16de8561a32a9a059c5d9baff1ed7d0f6a",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-034",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-034",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "defined",
+        "execution": "executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "9e08d078136700e772bfd763aa68ffbc094896624304e3bc2bbe5e901b3b7aa5",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-034/manifest.json",
+      "descriptor_sha256": "e279140b4a61f8163535e52c8645e71ec92628968d1bfd319ee1ce0ea67e6f6e",
+      "deprecation": null,
+      "substitution": null
+    },
+    {
+      "feature_id": "TLC-FC-20-ROBUSTNESS-035",
+      "domain": "robustness",
+      "path": "handoff/features/TLC-FC-20-ROBUSTNESS-035",
+      "package_version": "1.0.0",
+      "statuses": {
+        "package": "finalized",
+        "scientific": "external_provider_required",
+        "execution": "conditionally_executable"
+      },
+      "examples_present": false,
+      "shared_dependencies": [
+        {
+          "shared_contract_id": "TLC-HC-DESCRIPTOR-ENVELOPE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-FEATURE-ID",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-OPAQUE-VALUE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-REFERENCE-COLLECTION",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-SCIENTIFIC-REFERENCE",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-STRUCTURED-ERROR",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-TRACEABILITY",
+          "version": "1.0.0"
+        },
+        {
+          "shared_contract_id": "TLC-HC-UNRESOLVED-ITEM",
+          "version": "1.0.0"
+        }
+      ],
+      "package_sha256": "b4a5ca5164451a5874e6c8ebdc6b3b854c413a5c39d253c758fc77da914ec4d4",
+      "manifest_path": "handoff/features/TLC-FC-20-ROBUSTNESS-035/manifest.json",
+      "descriptor_sha256": "b4d887491be09597d49c68fc00031e24c5dbff10baac967fc6a6896e15bfe15a",
+      "deprecation": null,
+      "substitution": null
     }
   ],
   "summary": {
-    "domain_count": 26,
-    "feature_count": 302,
+    "domain_count": 27,
+    "feature_count": 337,
     "shared_contract_count": 8,
     "package_statuses": {
-      "finalized": 301,
+      "finalized": 336,
       "pilot": 1
     },
     "scientific_statuses": {
-      "defined": 9,
-      "external_provider_required": 73,
-      "partially_defined": 66,
-      "preserved_unresolved": 154
+      "defined": 10,
+      "external_provider_required": 96,
+      "partially_defined": 67,
+      "preserved_unresolved": 164
     },
     "execution_statuses": {
-      "conditionally_executable": 108,
-      "executable": 11,
-      "structural_only": 183
+      "conditionally_executable": 130,
+      "executable": 12,
+      "structural_only": 195
     },
     "examples_present": 1,
-    "examples_absent": 301,
+    "examples_absent": 336,
     "promoted_shared_contract_candidates": 0
   }
 }
