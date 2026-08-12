@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-031
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-031/contract.yaml
+source_candidate_ir: ir/TLC-FC-20-ROBUSTNESS-031/ir.candidate.json
+nature: coupled_rhs_expression
+steps: [require all source state/parameter/gradient inputs, evaluate four RHS expressions exactly, return RHS tuple without integration]
+errors: [IntegratedDynamicsProviderRequired]

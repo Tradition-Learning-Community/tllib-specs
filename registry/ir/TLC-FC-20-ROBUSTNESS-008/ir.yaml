@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-008
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-008/contract.yaml
+source_candidate_ir: ir/TLC-FC-20-ROBUSTNESS-008/ir.candidate.json
+nature: rhs_expression
+steps: [require externally supplied f_i evaluation, return source RHS value, do not evolve weights]
+errors: [WeightRhsProviderRequired]

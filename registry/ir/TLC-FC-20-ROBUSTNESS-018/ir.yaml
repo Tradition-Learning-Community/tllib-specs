@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-018
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-018/contract.yaml
+source_candidate_ir: ir/TLC-FC-20-ROBUSTNESS-018/ir.candidate.json
+nature: guarded_expression
+steps: [require provider information quantities, reject H(P) zero, evaluate exact source product]
+errors: [GuidanceInformationProviderRequired, GuidanceEntropyZero]

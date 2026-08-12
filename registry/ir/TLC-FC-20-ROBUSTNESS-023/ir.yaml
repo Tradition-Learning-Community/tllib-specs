@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-023
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-023/contract.yaml
+source_candidate_ir: ir/TLC-FC-20-ROBUSTNESS-023/ir.candidate.json
+nature: guarded_expression
+steps: [require provider minimum and lambda2, reject empty V, reject zero average degree, evaluate source product]
+errors: [GraphStructuralRobustnessProviderRequired, GraphVertexSetEmpty, AverageDegreeZero]

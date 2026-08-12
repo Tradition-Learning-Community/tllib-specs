@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-013
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-013/contract.yaml
+source_candidate_ir: ir/TLC-FC-20-ROBUSTNESS-013/ir.candidate.json
+nature: sign_preservation_guard
+steps: [inspect signed transfer term, accept T0 minus Tadapt, reject any reversal or repair]
+errors: [TransferSignRepaired]

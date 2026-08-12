@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-035
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-035/contract.yaml
+source_candidate_ir: ir/TLC-FC-20-ROBUSTNESS-035/ir.candidate.json
+nature: guarded_expression
+steps: [require provider dispersion/min-derivative/gradient norms, reject zero sigma, reject zero E norm, reject zero R norm, evaluate exact source expression]
+errors: [ResilienceProviderRequired, SystemicRobustnessDispersionZero, EthicalStateNormZero, RobustnessStateNormZero]
