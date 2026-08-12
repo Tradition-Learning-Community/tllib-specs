@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-034
+feature_id: TLC-FC-20-ROBUSTNESS-034
+title: Robustness health threshold predicate
+domain_id: robustness
+contract_kind: exact_predicate_contract
+scientific_status: defined
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['8. Indices finaux', '9. Limites et points scientifiques non résolus']
+expression: 'Q_rob^T > 0.75'
+inputs: [{name: Q_rob_T, type: scalar}]
+outputs: [{name: healthy_by_source_threshold, type: boolean}]
+opaque_providers: []
+preconditions: [Q_rob_T is supplied]
+postconditions: [return true iff Q_rob_T is strictly greater than 0.75]
+invariants: [0.75 is source-declared operational not derived not calibrated not universal]
+constraints: [strict greater-than only]
+structured_errors: []
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-018]
+forbidden_behaviors: [invent_threshold, calibrate_0_75, generalize_0_75, replace_strict_greater_than]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

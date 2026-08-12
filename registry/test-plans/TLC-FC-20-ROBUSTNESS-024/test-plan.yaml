@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-024
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-024/contract.yaml
+tests:
+  - {id: ROB024-T01, category: ambiguity, verifies: both R_struct definitions are retained separately}
+  - {id: ROB024-T02, category: rejection, verifies: equality between definitions is rejected}
+  - {id: ROB024-T03, category: rejection, verifies: silent canonical selection or averaging is rejected}
+  - {id: ROB024-T04, category: non_invention, verifies: no conversion between definitions is created}

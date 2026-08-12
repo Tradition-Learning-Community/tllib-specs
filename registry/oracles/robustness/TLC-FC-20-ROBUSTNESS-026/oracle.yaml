@@ -1,0 +1,5 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-026
+oracle_kind: prediction_sign_and_provider_boundary
+acceptance: [f_adapt-f0 exact, constraints explicit, gradient provider-owned]
+rejections: [sign reversal, learned f_adapt, local gradient estimation]

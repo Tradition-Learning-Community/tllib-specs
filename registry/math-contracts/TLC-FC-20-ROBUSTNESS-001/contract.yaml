@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-001
+feature_id: TLC-FC-20-ROBUSTNESS-001
+title: Robustness four-component decomposition descriptor
+domain_id: robustness
+contract_kind: structural_descriptor_contract
+scientific_status: partially_defined
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['1. Définition', '9. Limites et points scientifiques non résolus']
+expression: 'Robustness = R_struct x R_proc x R_ctx x R_eth subset R_+^4'
+inputs: [{name: component_references, type: scientific_reference_collection}]
+outputs: [{name: decomposition_descriptor, type: descriptor_envelope}]
+opaque_providers: [R_struct, R_proc, R_ctx, R_eth]
+preconditions: [component references preserve their local source meanings]
+postconditions: [return the four-component decomposition without constructing a four-to-eight mapping]
+invariants: [R_proc is scientifically provided by Fairness, overloaded R symbols retain local context]
+constraints: [descriptor only]
+structured_errors: [RobustnessComponentReferenceRequired]
+dependencies: {scientific: [21], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-002, TLC-UR-ROBUSTNESS-003]
+forbidden_behaviors: [invent_four_to_eight_mapping, merge_structural_robustness_definitions, invent_component_values]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

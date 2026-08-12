@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-016
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-20-ROBUSTNESS-016/ir.yaml
+operation: evaluate_guidance_likelihood_expression
+required_behavior: [require nonempty support, compute supplied softmax-like ratio, multiply fidelity, return raw result]
+forbidden_behavior: [normalize_guidance_probability, invent_outcome_space, invent_alignment, invent_fidelity]
+error_codes: [GuidanceProviderRequired, GuidanceOutcomeDomainEmpty]

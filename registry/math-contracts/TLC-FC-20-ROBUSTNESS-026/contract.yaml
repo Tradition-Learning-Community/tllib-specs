@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-026
+feature_id: TLC-FC-20-ROBUSTNESS-026
+title: Adaptive prediction expression
+domain_id: robustness
+contract_kind: guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['6. Adaptabilité fidèle']
+expression: 'y_hat_T = f0(x) + beta(c)(f_adapt(x,c)-f0(x)) + gamma(c) grad_T f, with ||beta(c)||<=beta_max and F_fid(y_hat_T)>=phi'
+inputs: [{name: f0_value, type: opaque_provider_value}, {name: f_adapt_value, type: opaque_provider_value}, {name: beta_c, type: opaque_provider_value}, {name: gamma_c, type: scalar}, {name: grad_T_f, type: opaque_provider_value}, {name: beta_norm, type: opaque_provider_value}, {name: fidelity, type: opaque_provider_value}]
+outputs: [{name: y_hat_T, type: opaque_provider_value}, {name: constraints_satisfied, type: boolean}]
+opaque_providers: [f0, f_adapt, beta, gamma, grad_T_f, norm, F_fid]
+preconditions: [all final values are supplied]
+postconditions: [preserve f_adapt minus f0 sign and source constraints]
+invariants: [no learner or gradient estimator]
+constraints: [provider-backed]
+structured_errors: [AdaptivePredictionProviderRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-015, TLC-UR-ROBUSTNESS-019]
+forbidden_behaviors: [invent_learner, invent_gradient, invent_norm, invent_threshold, repair_prediction_sign]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

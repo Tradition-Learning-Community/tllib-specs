@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-035
+feature_id: TLC-FC-20-ROBUSTNESS-035
+title: Resilience index expression
+domain_id: robustness
+contract_kind: guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['8. Indices finaux']
+expression: 'R_res^T = 1/sigma(R_syst) * min dR_syst/dt * E_align^T F_fid * (1 + ||grad E||/||E|| + ||grad_T R||/||R||)^-1'
+inputs: [{name: sigma_R_syst, type: scalar}, {name: min_dR_syst_dt, type: scalar}, {name: E_align_T, type: scalar}, {name: F_fid, type: scalar}, {name: grad_E_norm, type: scalar}, {name: E_norm, type: scalar}, {name: grad_T_R_norm, type: scalar}, {name: R_norm, type: scalar}]
+outputs: [{name: R_res_T, type: scalar}]
+opaque_providers: [sigma, min_dR_syst_dt, gradients, norms]
+preconditions: [sigma_R_syst != 0, E_norm != 0, R_norm != 0, min derivative value is provider supplied]
+postconditions: [evaluate exact source expression]
+invariants: [no numerical derivative or trajectory minimum is constructed]
+constraints: [provider-backed]
+structured_errors: [ResilienceProviderRequired, SystemicRobustnessDispersionZero, EthicalStateNormZero, RobustnessStateNormZero]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-015, TLC-UR-ROBUSTNESS-020]
+forbidden_behaviors: [invent_derivative, invent_trajectory, invent_gradient, invent_norm, regularize_denominator]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-021
+feature_id: TLC-FC-20-ROBUSTNESS-021
+title: Structural learning objective descriptor
+domain_id: robustness
+contract_kind: optimization_problem_descriptor
+scientific_status: preserved_unresolved
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['5. Connaissance structurée robuste']
+expression: 'maximize I(G;D)-lambda C(G)+mu S_coh(G)+nu Alig(G,T), subject to S_compl(G)>=theta_compl and F_fid(G)>=phi_min'
+inputs: [{name: objective_and_constraint_terms, type: opaque_provider_value}]
+outputs: [{name: structural_learning_problem, type: descriptor_envelope}]
+opaque_providers: [I, C, S_coh, Alig, S_compl, F_fid]
+preconditions: [none]
+postconditions: [preserve objective and constraints as a problem descriptor]
+invariants: [no graph learner or optimizer]
+constraints: [descriptor only]
+structured_errors: [StructuralLearningProcedureNotSpecified]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-014]
+forbidden_behaviors: [invent_optimizer, invent_graph_learner, invent_mutual_information_estimator, invent_threshold]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

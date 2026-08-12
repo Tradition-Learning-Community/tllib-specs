@@ -1,0 +1,16 @@
+schema_version: 1
+domain: robustness
+edge_semantics: from_domain_depends_on_to_domain
+scientific_dependencies:
+  - {from_domain: 20, to_domain: 21, status: confirmed, evidence: maths/20-robustness/robustness.md, provider_feature: TLC-FC-21-FAIRNESS-001, rationale: procedural robustness is explicitly assigned to Fairness}
+runtime_dependencies: []
+shared_contract_dependencies: [TLC-HC-FEATURE-ID, TLC-HC-SCIENTIFIC-REFERENCE, TLC-HC-REFERENCE-COLLECTION, TLC-HC-UNRESOLVED-ITEM, TLC-HC-OPAQUE-VALUE, TLC-HC-STRUCTURED-ERROR, TLC-HC-TRACEABILITY, TLC-HC-DESCRIPTOR-ENVELOPE]
+feature_dependencies:
+  TLC-FC-20-ROBUSTNESS-003: {scientific: [TLC-FC-21-FAIRNESS-001], runtime: []}
+  TLC-FC-20-ROBUSTNESS-006: {scientific: [], runtime: []}
+  TLC-FC-20-ROBUSTNESS-024: {scientific: [], runtime: []}
+invariants:
+  - robustness_has_confirmed_scientific_dependency_on_fairness
+  - fairness_has_no_reverse_dependency_introduced_here
+  - fairness_provider_signature_is_referenced_but_not_duplicated
+  - no_runtime_dependency_is_inferred_from_scientific_reuse

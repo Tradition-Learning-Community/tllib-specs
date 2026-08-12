@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-001
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-20-ROBUSTNESS-001/ir.yaml
+operation: describe_four_component_robustness
+required_behavior: [preserve four components, reference Fairness provider, preserve overloads]
+forbidden_behavior: [invent_four_to_eight_mapping, merge_structural_robustness_definitions]
+error_codes: [RobustnessComponentReferenceRequired]

@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-019
+feature_id: TLC-FC-20-ROBUSTNESS-019
+title: Guidance convergence claim descriptor
+domain_id: robustness
+contract_kind: theorem_descriptor_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['4. Guidage robuste']
+expression: '||theta(t)-theta*|| <= C exp(-lambda t) ||theta(0)-theta*|| F_fid(t) under regularity and competent guidance'
+inputs: [{name: theorem_evidence, type: opaque_provider_value}]
+outputs: [{name: convergence_claim_descriptor, type: descriptor_envelope}]
+opaque_providers: [theta_trajectory, theta_star, C, lambda, F_fid, regularity_evidence, competent_guidance_evidence]
+preconditions: [none]
+postconditions: [preserve source claim and stated hypotheses]
+invariants: [not a runtime convergence certificate]
+constraints: [descriptor only]
+structured_errors: [ConvergenceEvidenceRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-016]
+forbidden_behaviors: [invent_convergence_proof, invent_convergence_certificate, invent_C_estimator, invent_lambda_estimator, invent_solver]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

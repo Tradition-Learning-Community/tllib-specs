@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-005
+feature_id: TLC-FC-20-ROBUSTNESS-005
+title: Ethical robustness expression
+domain_id: robustness
+contract_kind: guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['1. Définition']
+expression: 'R_eth = min_{E in Ethique} [Alig(TLS,E)/Alig_max] C_coh(E) R_resp(E)'
+inputs: [{name: provider_operands, type: opaque_provider_value}]
+outputs: [{name: R_eth, type: scalar}]
+opaque_providers: [Ethique, Alig, Alig_max, C_coh, R_resp, ethical_minimum]
+preconditions: [Alig_max != 0, final provider values needed for the source minimum are supplied]
+postconditions: [evaluate exact source expression]
+invariants: [ethical space and minimum are provider-owned]
+constraints: [no ethical-space construction]
+structured_errors: [EthicalRobustnessProviderRequired, EthicalAlignmentMaximumZero]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-006]
+forbidden_behaviors: [invent_ethical_space, invent_alignment, invent_coherence, invent_responsibility, clamp_ethical_robustness]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

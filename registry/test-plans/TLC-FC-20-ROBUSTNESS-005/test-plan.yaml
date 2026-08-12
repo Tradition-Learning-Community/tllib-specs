@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-005
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-005/contract.yaml
+tests:
+  - {id: ROB005-T01, category: preservation, verifies: exact ethical robustness product is preserved}
+  - {id: ROB005-T02, category: error, verifies: Alig_max=0 yields EthicalAlignmentMaximumZero}
+  - {id: ROB005-T03, category: provider, verifies: ethical space alignment coherence responsibility and minimum remain providers}
+  - {id: ROB005-T04, category: non_invention, verifies: no ethical-space construction or clamp}

@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-022
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-022/contract.yaml
+tests:
+  - {id: ROB022-T01, category: preservation, verifies: structural coherence product is exact}
+  - {id: ROB022-T02, category: error, verifies: |R|=0 yields RelationSetEmpty}
+  - {id: ROB022-T03, category: error, verifies: density(G)=0 yields GraphDensityZero}
+  - {id: ROB022-T04, category: non_invention, verifies: no denominator regularization or clamp is introduced}

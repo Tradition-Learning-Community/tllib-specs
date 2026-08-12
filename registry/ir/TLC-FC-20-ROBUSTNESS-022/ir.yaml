@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-022
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-022/contract.yaml
+source_candidate_ir: ir/TLC-FC-20-ROBUSTNESS-022/ir.candidate.json
+nature: guarded_expression
+steps: [require supplied terms, reject empty relation set, reject zero density, evaluate exact source product]
+errors: [StructuralCoherenceProviderRequired, RelationSetEmpty, GraphDensityZero]

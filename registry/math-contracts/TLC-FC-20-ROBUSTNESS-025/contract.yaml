@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-025
+feature_id: TLC-FC-20-ROBUSTNESS-025
+title: Faithful context expression
+domain_id: robustness
+contract_kind: guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['6. Adaptabilité fidèle']
+expression: 'c_T = c_inv + alpha(env)c_spec + beta(env) grad_T c, with ||c_inv||>=theta_inv and F_fid(c_T)>=phi_min'
+inputs: [{name: c_inv, type: opaque_provider_value}, {name: c_spec, type: opaque_provider_value}, {name: alpha_env, type: scalar}, {name: beta_env, type: scalar}, {name: grad_T_c, type: opaque_provider_value}, {name: invariant_norm, type: opaque_provider_value}, {name: fidelity, type: opaque_provider_value}]
+outputs: [{name: c_T, type: opaque_provider_value}, {name: constraints_satisfied, type: boolean}]
+opaque_providers: [grad_T_c, norm, F_fid, thresholds]
+preconditions: [all operands and constraint values are supplied]
+postconditions: [evaluate exact expression and supplied constraints]
+invariants: [no gradient norm or threshold construction]
+constraints: [provider-backed]
+structured_errors: [FaithfulContextProviderRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-015, TLC-UR-ROBUSTNESS-019]
+forbidden_behaviors: [invent_gradient, invent_norm, invent_threshold, invent_fidelity]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

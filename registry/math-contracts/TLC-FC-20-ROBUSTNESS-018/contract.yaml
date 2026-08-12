@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-018
+feature_id: TLC-FC-20-ROBUSTNESS-018
+title: Guidance efficiency expression
+domain_id: robustness
+contract_kind: guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['4. Guidage robuste']
+expression: 'eta = I(P;O|G)/H(P) * (1-H(G)/H(P)) * F_fid(G) Alig(G,T)'
+inputs: [{name: mutual_information, type: opaque_provider_value}, {name: H_P, type: opaque_provider_value}, {name: H_G, type: opaque_provider_value}, {name: fidelity, type: opaque_provider_value}, {name: alignment, type: opaque_provider_value}]
+outputs: [{name: eta, type: scalar}]
+opaque_providers: [I, H, F_fid, Alig]
+preconditions: [H_P != 0, final information/entropy values are supplied]
+postconditions: [evaluate exact source expression]
+invariants: [no entropy or mutual information estimator]
+constraints: [provider-backed]
+structured_errors: [GuidanceInformationProviderRequired, GuidanceEntropyZero]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-013]
+forbidden_behaviors: [invent_entropy_estimator, invent_mutual_information_estimator, regularize_entropy_denominator]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

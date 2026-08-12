@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-035
+algorithm_kind: source_expression_evaluator
+execution: conditionally_executable
+steps: [reject zero sigma, reject zero E norm, reject zero R norm, use supplied min derivative and gradient norms, evaluate exact reciprocal expression]
+forbidden: [invent_derivative, invent_trajectory, invent_gradient, regularize_denominator]

@@ -284,10 +284,18 @@ domains:
     scientific_sources: [maths/20-robustness/robustness.md]
     wave: wave-2
     analysis_companions: [21]
-    feature_count: null
-    handoff_publication: false
-    dependencies: {confirmed: [21], provisional: [], unknown: true}
-    pipeline: *unstarted_pipeline
+    feature_count: 35
+    handoff_publication: true
+    dependencies: {confirmed: [21], provisional: [], unknown: false}
+    pipeline:
+      scientific_source: complete
+      functional_decomposition: complete
+      registries: complete
+      ir: complete
+      contracts: complete
+      algorithms: complete_or_not_applicable
+      oracles: complete
+      handoff_packages: complete
 
   - index: 21
     slug: fairness

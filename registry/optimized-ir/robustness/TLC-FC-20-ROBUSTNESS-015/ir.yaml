@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-015
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-20-ROBUSTNESS-015/ir.yaml
+operation: assess_principle_preservation_bound
+required_behavior: [require provider bound terms, preserve delta exponential expression, assess exact inequality]
+forbidden_behavior: [invent_projection, invent_distance, invent_similarity, invent_norm]
+error_codes: [PrinciplePreservationProviderRequired]

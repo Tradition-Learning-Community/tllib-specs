@@ -1,0 +1,42 @@
+schema_version: 1
+domain: robustness
+domain_index: 20
+status: frozen
+source:
+  path: maths/20-robustness/robustness.md
+  blob_sha: 71b575f114d1710b6b9556de06b17d103cb38c1e
+  modified: false
+provider:
+  domain: fairness
+  domain_index: 21
+  source: maths/21-fairness/fairness.md
+  source_blob_sha: bbe983d3f74063072c97059e8ff7346b28d28158
+  published_feature: TLC-FC-21-FAIRNESS-001
+  role: procedural_robustness_scientific_provider
+  scientific_edge: '20 -> 21'
+  edge_semantics: from_domain_depends_on_to_domain
+sections:
+  - definition
+  - integrated_robustness
+  - transferable_principles
+  - robust_guidance
+  - structured_knowledge
+  - faithful_adaptability
+  - theorems_and_dynamics
+  - final_indices
+  - unresolved_limits
+counts:
+  scientific_objects: 120
+  scientific_relations: 46
+  unresolved_items: 20
+  frozen_features: 35
+invariants:
+  - preserve_local_overloads_of_R_and_F
+  - robustness_depends_scientifically_on_fairness
+  - no_reverse_fairness_dependency
+  - dual_R_struct_definitions_remain_unmerged
+  - four_to_eight_mapping_remains_unconstructed
+  - transfer_sign_T0_minus_Tadapt_is_exact
+  - guidance_likelihood_is_not_assumed_normalized
+  - proportional_posterior_remains_unnormalized
+  - source_threshold_0_75_is_not_calibrated

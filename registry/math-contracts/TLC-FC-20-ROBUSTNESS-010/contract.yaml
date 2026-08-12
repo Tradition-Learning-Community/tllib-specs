@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-010
+feature_id: TLC-FC-20-ROBUSTNESS-010
+title: Abstraction objective descriptor
+domain_id: robustness
+contract_kind: optimization_problem_descriptor
+scientific_status: preserved_unresolved
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['3. Principes transférables']
+expression: 'A(x) = argmin_{P in P} (||x-pi_P(x)|| + lambda Omega(P) + mu D_trad(P))'
+inputs: [{name: objective_components, type: opaque_provider_value}]
+outputs: [{name: abstraction_problem, type: descriptor_envelope}]
+opaque_providers: [P, norm, pi_P, Omega, D_trad]
+preconditions: [none]
+postconditions: [return objective/argmin descriptor only]
+invariants: [no chosen minimizer is fabricated]
+constraints: [no optimizer]
+structured_errors: [AbstractionOptimizationNotOperationalized]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-010]
+forbidden_behaviors: [invent_optimizer, invent_projection, invent_regularizer, invent_search, invent_principle_space]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

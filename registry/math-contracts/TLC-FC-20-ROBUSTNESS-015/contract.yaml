@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-015
+feature_id: TLC-FC-20-ROBUSTNESS-015
+title: Principle preservation bound expression
+domain_id: robustness
+contract_kind: guarded_inequality_contract
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['3. Principes transférables']
+expression: 'd_P(A(x),A(pi_P(x))) <= delta(c)||x-pi_P(x)|| exp(-lambda F_fid(c)); delta(c)=delta0 exp(-lambda Sim(c,c0))'
+inputs: [{name: supplied_bound_terms, type: opaque_provider_value}]
+outputs: [{name: bound_satisfied, type: boolean}]
+opaque_providers: [d_P, A, pi_P, norm, F_fid, Sim]
+preconditions: [all final left and right bound terms are supplied]
+postconditions: [assess exact inequality and exact delta(c) expression]
+invariants: [projection distance and similarity are not constructed]
+constraints: [provider-backed assessment]
+structured_errors: [PrinciplePreservationProviderRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-005]
+forbidden_behaviors: [invent_projection, invent_distance, invent_similarity, invent_norm]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

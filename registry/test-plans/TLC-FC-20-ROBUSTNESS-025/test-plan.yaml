@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-025
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-025/contract.yaml
+tests:
+  - {id: ROB025-T01, category: preservation, verifies: faithful-context additive expression is exact}
+  - {id: ROB025-T02, category: constraints, verifies: invariant norm and fidelity constraints remain source-backed}
+  - {id: ROB025-T03, category: provider, verifies: gradient norm fidelity and thresholds remain external}
+  - {id: ROB025-T04, category: non_invention, verifies: no threshold or gradient estimator is introduced}

@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-012
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-012/contract.yaml
+tests:
+  - {id: ROB012-T01, category: sign, verifies: T0 minus Tadapt sign is exact}
+  - {id: ROB012-T02, category: provider, verifies: gradient and transfer operands remain external}
+  - {id: ROB012-T03, category: rejection, verifies: Tadapt minus T0 is rejected}
+  - {id: ROB012-T04, category: non_invention, verifies: no gradient estimator is introduced}

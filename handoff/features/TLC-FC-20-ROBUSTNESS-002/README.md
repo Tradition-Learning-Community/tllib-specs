@@ -1,0 +1,3 @@
+# Structural perturbation robustness expression
+
+`TLC-FC-20-ROBUSTNESS-002` preserves the first source definition of structural robustness: the minimum/infimum perturbation-radius condition over externally defined function and perturbation spaces, norms, performance and fidelity. It is structural-only: no optimizer, search, discretization, norm construction or canonical selection is licensed, and the graph-based `R_struct` definition remains separate and unresolved.

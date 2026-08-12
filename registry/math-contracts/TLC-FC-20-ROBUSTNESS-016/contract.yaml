@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-016
+feature_id: TLC-FC-20-ROBUSTNESS-016
+title: Robust guidance likelihood expression
+domain_id: robustness
+contract_kind: guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['4. Guidage robuste']
+expression: 'P(O|P,G,T) = exp(beta Alig(O,P,G,T))/sum_Oprime exp(beta Alig(Oprime,P,G,T)) * F_fid(O,P)'
+inputs: [{name: numerator_alignment, type: opaque_provider_value}, {name: denominator_terms, type: opaque_provider_value}, {name: beta, type: scalar}, {name: fidelity, type: opaque_provider_value}]
+outputs: [{name: guidance_likelihood_value, type: scalar_not_guaranteed_normalized}]
+opaque_providers: [O_domain, Alig, F_fid]
+preconditions: [outcome support used for denominator is nonempty, final alignment and fidelity values are supplied]
+postconditions: [multiply the softmax-like ratio by fidelity exactly and do not renormalize]
+invariants: [output is not guaranteed to form a normalized probability distribution]
+constraints: [no outcome-space invention]
+structured_errors: [GuidanceProviderRequired, GuidanceOutcomeDomainEmpty]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-011]
+forbidden_behaviors: [normalize_guidance_probability, invent_outcome_space, invent_alignment, invent_fidelity]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

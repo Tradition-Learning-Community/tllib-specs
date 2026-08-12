@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-004
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-004/contract.yaml
+source_candidate_ir: ir/TLC-FC-20-ROBUSTNESS-004/ir.candidate.json
+nature: guarded_expression
+steps: [require provider minimum and operands, reject zero reference performance, evaluate exact product]
+errors: [ContextualRobustnessProviderRequired, ContextualReferencePerformanceZero]

@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-002
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-002/contract.yaml
+tests:
+  - {id: ROB002-T01, category: preservation, verifies: exact min-inf perturbation expression is preserved}
+  - {id: ROB002-T02, category: non_execution, verifies: no optimizer search or discretization is selected}
+  - {id: ROB002-T03, category: provider, verifies: norms performance fidelity and spaces remain external}
+  - {id: ROB002-T04, category: ambiguity, verifies: graph R_struct is not merged with perturbation R_struct}

@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-027
+algorithm_kind: source_expression_evaluator
+execution: conditionally_executable
+steps: [reject zero training expectation, reject zero training-context norm, evaluate ratios and one-minus term exactly, multiply fidelity and alignment]
+forbidden: [clamp_negative_adaptability, regularize_denominator, invent_expectation_estimator]

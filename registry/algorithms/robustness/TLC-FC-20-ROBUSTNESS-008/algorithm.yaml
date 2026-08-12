@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-008
+algorithm_kind: rhs_evaluator
+execution: conditionally_executable
+steps: [accept externally evaluated f_i, expose it as dw_i/dt RHS, stop before integration]
+forbidden: [invent_f_i, invent_time_step, invent_integrator, normalize_weights]

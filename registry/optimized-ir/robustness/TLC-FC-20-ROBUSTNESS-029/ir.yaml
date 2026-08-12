@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-029
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-20-ROBUSTNESS-029/ir.yaml
+operation: assess_global_robustness_conditions
+required_behavior: [require supplied probability/fidelity/alignment values, preserve strict tail inequality and threshold directions]
+forbidden_behavior: [invent_distribution, invent_probability_estimator, invent_robustness_certificate, invent_threshold]
+error_codes: [GlobalRobustnessEvidenceRequired]

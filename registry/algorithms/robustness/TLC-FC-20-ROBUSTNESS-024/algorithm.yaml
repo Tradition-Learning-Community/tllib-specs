@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-024
+algorithm_kind: ambiguity_guard
+execution: structural_only
+steps: [verify both source definitions remain independently represented, reject equality selection averaging or conversion]
+forbidden: [merge_structural_robustness_definitions, select_canonical_R_struct, average_R_struct_definitions, invent_conversion]

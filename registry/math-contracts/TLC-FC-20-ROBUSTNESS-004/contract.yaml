@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-004
+feature_id: TLC-FC-20-ROBUSTNESS-004
+title: Contextual robustness expression
+domain_id: robustness
+contract_kind: guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['1. Définition']
+expression: 'R_ctx = min_{c in C} [Perf(TLS,c)/Perf(TLS,c0)] Sim(I(c),I(c0)) F_fid(c) P_pres(c)'
+inputs: [{name: provider_operands, type: opaque_provider_value}]
+outputs: [{name: R_ctx, type: scalar}]
+opaque_providers: [C, c0, Perf, Sim, I, F_fid, P_pres, contextual_minimum]
+preconditions: [Perf(TLS,c0) != 0, final provider values needed for the source minimum are supplied]
+postconditions: [evaluate the exact source product without clamping]
+invariants: [reference context is not chosen locally]
+constraints: [no context search or performance construction]
+structured_errors: [ContextualRobustnessProviderRequired, ContextualReferencePerformanceZero]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-005, TLC-UR-ROBUSTNESS-006]
+forbidden_behaviors: [invent_context, invent_performance, invent_similarity, invent_fidelity, invent_presence, clamp_contextual_robustness]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-027
+feature_id: TLC-FC-20-ROBUSTNESS-027
+title: Adaptability index expression
+domain_id: robustness
+contract_kind: guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['6. Adaptabilité fidèle']
+expression: 'A_adapt^T = E[P|c_new]/E[P|c_train] * F_fid * (1-||c_new-c_train||/||c_train||) * Alig(c_new,T)'
+inputs: [{name: expected_new, type: scalar}, {name: expected_train, type: scalar}, {name: fidelity, type: scalar}, {name: context_distance, type: scalar}, {name: train_context_norm, type: scalar}, {name: alignment, type: scalar}]
+outputs: [{name: A_adapt_T, type: scalar_unbounded_by_contract}]
+opaque_providers: [expectation, norm, F_fid, Alig]
+preconditions: [expected_train != 0, train_context_norm != 0]
+postconditions: [evaluate exact expression including potentially negative one-minus-ratio factor]
+invariants: [negative adaptability factor is not clamped]
+constraints: [provider-backed]
+structured_errors: [AdaptabilityProviderRequired, TrainingPerformanceExpectationZero, TrainingContextNormZero]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-005]
+forbidden_behaviors: [invent_expectation_estimator, invent_norm, clamp_negative_adaptability, regularize_denominator]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

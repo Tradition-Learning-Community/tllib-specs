@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-027
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-027/contract.yaml
+source_candidate_ir: ir/TLC-FC-20-ROBUSTNESS-027/ir.candidate.json
+nature: guarded_expression
+steps: [require provider expectations/norm/alignment, reject zero expected_train, reject zero train_context_norm, evaluate exact unclamped expression]
+errors: [AdaptabilityProviderRequired, TrainingPerformanceExpectationZero, TrainingContextNormZero]

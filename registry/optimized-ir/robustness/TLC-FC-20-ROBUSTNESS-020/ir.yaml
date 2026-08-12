@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-020
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-20-ROBUSTNESS-020/ir.yaml
+operation: evaluate_knowledge_complexity
+required_behavior: [require graph complexity terms, evaluate exact sum, compare supplied C_max]
+forbidden_behavior: [invent_graph, invent_complexity_measure, invent_traditional_distance]
+error_codes: [KnowledgeComplexityProviderRequired]

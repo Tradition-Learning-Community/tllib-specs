@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-016
+algorithm_kind: source_expression_evaluator
+execution: conditionally_executable
+steps: [reject empty outcome support, compute exponential ratio from supplied alignments, multiply by supplied fidelity, return without renormalization]
+forbidden: [normalize_guidance_probability, invent_outcome_space, invent_alignment]

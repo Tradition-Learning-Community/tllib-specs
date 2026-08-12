@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-017
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-20-ROBUSTNESS-017/ir.yaml
+operation: describe_guidance_proportional_posterior
+required_behavior: [preserve proportional factors, preserve KL direction, omit normalization]
+forbidden_behavior: [normalize_proportional_posterior, invent_partition_function, invent_Bayes_completion, invent_KL_estimator]
+error_codes: [GuidancePosteriorProvidersRequired]

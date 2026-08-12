@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-001
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-001/contract.yaml
+tests:
+  - {id: ROB001-T01, category: preservation, verifies: exact four-component product-space decomposition is preserved}
+  - {id: ROB001-T02, category: dependency, verifies: R_proc references published Fairness science with edge 20 to 21}
+  - {id: ROB001-T03, category: invariant, verifies: no four-to-eight mapping is invented}
+  - {id: ROB001-T04, category: invariant, verifies: local R overloads are not collapsed}

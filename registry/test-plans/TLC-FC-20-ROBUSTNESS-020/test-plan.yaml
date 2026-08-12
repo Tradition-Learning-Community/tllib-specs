@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-020
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-020/contract.yaml
+tests:
+  - {id: ROB020-T01, category: preservation, verifies: G_T tuple and complexity sum are exact}
+  - {id: ROB020-T02, category: bound, verifies: comparison to supplied C_max is preserved}
+  - {id: ROB020-T03, category: provider, verifies: graph and complexity functions remain external}
+  - {id: ROB020-T04, category: non_invention, verifies: no graph construction or complexity metric is synthesized}

@@ -1,0 +1,25 @@
+schema_version: 1
+domain: robustness
+domain_index: 20
+title: Robustesse
+purpose: preserve source-backed robustness expressions dependencies and theoretical boundaries as implementation-ready contracts without inventing solvers estimators mappings or calibration
+source: maths/20-robustness/robustness.md
+source_blob: 71b575f114d1710b6b9556de06b17d103cb38c1e
+scientific_provider: {domain: fairness, index: 21, source: maths/21-fairness/fairness.md, source_blob: bbe983d3f74063072c97059e8ff7346b28d28158, published_feature: TLC-FC-21-FAIRNESS-001, direction: '20 -> 21', edge_semantics: from_domain_depends_on_to_domain}
+scientific_dependencies: [21]
+runtime_dependencies: []
+shared_contracts: [TLC-HC-FEATURE-ID, TLC-HC-SCIENTIFIC-REFERENCE, TLC-HC-REFERENCE-COLLECTION, TLC-HC-UNRESOLVED-ITEM, TLC-HC-OPAQUE-VALUE, TLC-HC-STRUCTURED-ERROR, TLC-HC-TRACEABILITY, TLC-HC-DESCRIPTOR-ENVELOPE]
+feature_population: [TLC-FC-20-ROBUSTNESS-001, TLC-FC-20-ROBUSTNESS-002, TLC-FC-20-ROBUSTNESS-003, TLC-FC-20-ROBUSTNESS-004, TLC-FC-20-ROBUSTNESS-005, TLC-FC-20-ROBUSTNESS-006, TLC-FC-20-ROBUSTNESS-007, TLC-FC-20-ROBUSTNESS-008, TLC-FC-20-ROBUSTNESS-009, TLC-FC-20-ROBUSTNESS-010, TLC-FC-20-ROBUSTNESS-011, TLC-FC-20-ROBUSTNESS-012, TLC-FC-20-ROBUSTNESS-013, TLC-FC-20-ROBUSTNESS-014, TLC-FC-20-ROBUSTNESS-015, TLC-FC-20-ROBUSTNESS-016, TLC-FC-20-ROBUSTNESS-017, TLC-FC-20-ROBUSTNESS-018, TLC-FC-20-ROBUSTNESS-019, TLC-FC-20-ROBUSTNESS-020, TLC-FC-20-ROBUSTNESS-021, TLC-FC-20-ROBUSTNESS-022, TLC-FC-20-ROBUSTNESS-023, TLC-FC-20-ROBUSTNESS-024, TLC-FC-20-ROBUSTNESS-025, TLC-FC-20-ROBUSTNESS-026, TLC-FC-20-ROBUSTNESS-027, TLC-FC-20-ROBUSTNESS-028, TLC-FC-20-ROBUSTNESS-029, TLC-FC-20-ROBUSTNESS-030, TLC-FC-20-ROBUSTNESS-031, TLC-FC-20-ROBUSTNESS-032, TLC-FC-20-ROBUSTNESS-033, TLC-FC-20-ROBUSTNESS-034, TLC-FC-20-ROBUSTNESS-035]
+public_semantics:
+  structural_robustness: two_source_definitions_unmerged
+  decomposition_mapping: four_to_eight_unresolved
+  procedural_robustness: published_fairness_provider
+  contextual_transfer_sign: T0_minus_Tadapt_exact
+  guidance_likelihood: not_guaranteed_normalized
+  guidance_posterior: proportional_only_not_normalized
+  optimizations: descriptors_only
+  calculus_and_spectral_values: external_provider_required
+  dynamics: rhs_only_no_ode_solver
+  theorem_claims: conditional_or_structural_not_runtime_certificates
+  health_threshold: {predicate: 'Q_rob_T > 0.75', status: source_declared_operational_not_derived_not_calibrated_not_universal}
+publication_exclusions: [drift_and_correction_32, fidelity_to_invariant_core_35]

@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-003
+feature_id: TLC-FC-20-ROBUSTNESS-003
+title: Fairness procedural robustness provider descriptor
+domain_id: robustness
+contract_kind: scientific_provider_contract
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['1. Définition']
+expression: 'R_proc is assigned by the source to Fairness'
+inputs: [{name: fairness_procedural_robustness, type: opaque_provider_value}]
+outputs: [{name: R_proc, type: scalar_unbounded_by_contract}]
+opaque_providers: [TLC-FC-21-FAIRNESS-001]
+preconditions: [provider semantics conform to the published Fairness procedural robustness feature]
+postconditions: [return or reference the supplied R_proc without redefining Fairness science]
+invariants: [scientific edge is 20 to 21, no reverse dependency, no runtime dependency is implied]
+constraints: [Fairness formula is not duplicated in Robustness]
+structured_errors: [FairnessProceduralRobustnessProviderRequired]
+dependencies: {scientific: [21], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-006]
+forbidden_behaviors: [duplicate_fairness_science, invent_procedural_robustness, clamp_procedural_robustness, invent_runtime_dependency]
+traceability: {source: maths/20-robustness/robustness.md, provider_contract: registry/math-contracts/TLC-FC-21-FAIRNESS-001/contract.yaml}

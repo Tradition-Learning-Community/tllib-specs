@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-007
+algorithm_kind: source_expression_evaluator
+execution: conditionally_executable
+steps: [require final eight-factor values and weights, verify source weight constraint, apply supplied covariance and gradient penalties, evaluate exact expression]
+forbidden: [invent_covariance_estimator, invent_gradient, invent_weight_solver, normalize_weights]

@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-013
+algorithm_kind: sign_preservation_guard
+execution: structural_only
+steps: [inspect transfer signed term, accept exact source order, reject reversed subtraction]
+forbidden: [repair_transfer_sign, call_source_sign_typo]

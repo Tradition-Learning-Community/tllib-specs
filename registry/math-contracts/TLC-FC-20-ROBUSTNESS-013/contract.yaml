@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-013
+feature_id: TLC-FC-20-ROBUSTNESS-013
+title: Contextual transfer sign ambiguity guard
+domain_id: robustness
+contract_kind: sign_preservation_guard
+scientific_status: preserved_unresolved
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['3. Principes transférables', '9. Limites et points scientifiques non résolus']
+expression: 'required signed term: T0(P) - T_adapt(P,c)'
+inputs: [{name: implementation_expression, type: descriptor_envelope}]
+outputs: [{name: conformance, type: boolean}]
+opaque_providers: []
+preconditions: [none]
+postconditions: [reject sign reversal]
+invariants: [do not call source sign a typo]
+constraints: [exact source preservation]
+structured_errors: [TransferSignRepaired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-007]
+forbidden_behaviors: [repair_transfer_sign, replace_T0_minus_Tadapt_with_Tadapt_minus_T0]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/scientific-objects/robustness/unresolved-terms.yaml}

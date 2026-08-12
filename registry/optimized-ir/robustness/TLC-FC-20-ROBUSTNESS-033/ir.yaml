@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-033
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-20-ROBUSTNESS-033/ir.yaml
+operation: evaluate_robustness_health_index
+required_behavior: [require supplied factors/covariance/gradient norm, evaluate exact product and exponential penalty]
+forbidden_behavior: [invent_covariance_estimator, invent_gradient, invent_normalization, invent_threshold]
+error_codes: [RobustnessHealthIndexProviderRequired]

@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-018
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-018/contract.yaml
+tests:
+  - {id: ROB018-T01, category: preservation, verifies: guidance efficiency expression is exact}
+  - {id: ROB018-T02, category: error, verifies: H(P)=0 yields GuidanceEntropyZero}
+  - {id: ROB018-T03, category: provider, verifies: entropy and mutual information are supplied}
+  - {id: ROB018-T04, category: non_invention, verifies: no entropy or mutual-information estimator is introduced}

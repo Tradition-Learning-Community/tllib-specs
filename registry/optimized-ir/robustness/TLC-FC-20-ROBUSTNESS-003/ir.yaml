@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-003
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-20-ROBUSTNESS-003/ir.yaml
+operation: enforce_fairness_procedural_provider
+required_behavior: [reference published Fairness feature, preserve scientific edge 20 to 21, keep runtime dependency empty]
+forbidden_behavior: [duplicate_fairness_science, invent_runtime_dependency, invert_dependency]
+error_codes: [FairnessProceduralRobustnessProviderRequired]

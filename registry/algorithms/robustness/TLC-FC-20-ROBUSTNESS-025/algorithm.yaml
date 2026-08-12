@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-025
+algorithm_kind: source_expression_evaluator
+execution: conditionally_executable
+steps: [combine c_inv alpha*c_spec and beta*supplied_grad_T_c exactly, compare supplied invariant norm and fidelity with source thresholds]
+forbidden: [invent_gradient, invent_norm, invent_threshold]

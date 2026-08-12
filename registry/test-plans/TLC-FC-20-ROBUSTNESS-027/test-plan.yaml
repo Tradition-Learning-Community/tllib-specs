@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-027
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-027/contract.yaml
+tests:
+  - {id: ROB027-T01, category: preservation, verifies: exact adaptability-index expression is preserved}
+  - {id: ROB027-T02, category: error, verifies: E[P|c_train]=0 yields TrainingPerformanceExpectationZero}
+  - {id: ROB027-T03, category: error, verifies: ||c_train||=0 yields TrainingContextNormZero}
+  - {id: ROB027-T04, category: sign, verifies: negative one-minus-ratio factor is not clamped}

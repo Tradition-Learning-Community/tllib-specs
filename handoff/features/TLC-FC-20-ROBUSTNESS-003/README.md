@@ -1,0 +1,3 @@
+# TLC-FC-20-ROBUSTNESS-003 — Fairness procedural provider descriptor
+
+This finalized Feature Handoff Package preserves the source statement that procedural robustness belongs to Fairness. Robustness depends scientifically on published Fairness feature `TLC-FC-21-FAIRNESS-001`, while this package introduces no reverse dependency and no runtime dependency. The package does not duplicate the Fairness formula, invent a replacement definition, clamp the value, or normalize it. Implementations may accept a provider-conformant procedural robustness value or reference the published Fairness semantics, but the scientific direction remains `20 Robustness -> 21 Fairness`.

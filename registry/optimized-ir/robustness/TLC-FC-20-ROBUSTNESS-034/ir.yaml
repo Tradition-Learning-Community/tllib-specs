@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-034
+status: finalized
+execution: executable
+source_ir: registry/ir/TLC-FC-20-ROBUSTNESS-034/ir.yaml
+operation: evaluate_robustness_health_threshold
+required_behavior: [compare strictly with literal 0.75, preserve source provenance]
+forbidden_behavior: [invent_threshold, calibrate_0_75, generalize_0_75, replace_strict_greater_than]
+error_codes: []

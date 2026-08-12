@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-003
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-003/contract.yaml
+tests:
+  - {id: ROB003-T01, category: dependency, verifies: published Fairness feature TLC-FC-21-FAIRNESS-001 is the procedural science provider}
+  - {id: ROB003-T02, category: direction, verifies: dependency remains 20 to 21 under dependent-to-provider semantics}
+  - {id: ROB003-T03, category: runtime, verifies: no runtime dependency is invented}
+  - {id: ROB003-T04, category: non_invention, verifies: Fairness procedural formula is not duplicated in Robustness}

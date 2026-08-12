@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-030
+feature_id: TLC-FC-20-ROBUSTNESS-030
+title: Preserving adaptation inequality assessment
+domain_id: robustness
+contract_kind: guarded_inequality_contract
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['7. Théorèmes et dynamique']
+expression: 'F_fid(t) >= F_min exp(-integral_0^t alpha(tau)||grad c(tau)|| d tau) Alig(t)'
+inputs: [{name: fidelity, type: scalar}, {name: F_min, type: scalar}, {name: supplied_integral, type: scalar}, {name: alignment, type: scalar}]
+outputs: [{name: inequality_satisfied, type: boolean}]
+opaque_providers: [integral, gradient_norm, F_fid, Alig]
+preconditions: [integral and gradient-dependent quantity are externally supplied]
+postconditions: [assess exact lower bound]
+invariants: [no numerical quadrature or gradient estimation]
+constraints: [provider-backed]
+structured_errors: [PreservingAdaptationProviderRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-015]
+forbidden_behaviors: [invent_integrator, invent_gradient, invent_continuous_solver, invent_quadrature]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

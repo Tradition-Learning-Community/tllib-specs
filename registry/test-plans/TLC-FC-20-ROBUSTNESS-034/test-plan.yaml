@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-034
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-034/contract.yaml
+tests:
+  - {id: ROB034-T01, category: threshold, verifies: Q_rob_T=0.7500001 returns true}
+  - {id: ROB034-T02, category: threshold, verifies: Q_rob_T=0.75 returns false because predicate is strict}
+  - {id: ROB034-T03, category: provenance, verifies: literal 0.75 is source-declared operational}
+  - {id: ROB034-T04, category: non_invention, verifies: 0.75 is not described as derived calibrated or universal}

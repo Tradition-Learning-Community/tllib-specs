@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-019
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-20-ROBUSTNESS-019/ir.yaml
+operation: describe_guidance_convergence_claim
+required_behavior: [preserve inequality, preserve hypotheses, retain theorem-only status]
+forbidden_behavior: [invent_convergence_proof, invent_convergence_certificate, invent_C_estimator, invent_lambda_estimator]
+error_codes: [ConvergenceEvidenceRequired]

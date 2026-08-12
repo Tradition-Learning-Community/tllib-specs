@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-023
+feature_id: TLC-FC-20-ROBUSTNESS-023
+title: Graph structural robustness expression
+domain_id: robustness
+contract_kind: guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['5. Connaissance structurée robuste']
+expression: 'R_struct_graph = min_{v in V} [deg(v)/deg_avg] lambda_2(L_G) S_conn(G) Alig(G,T)'
+inputs: [{name: minimum_degree_ratio, type: opaque_provider_value}, {name: deg_avg, type: scalar}, {name: lambda2_LG, type: opaque_provider_value}, {name: S_conn, type: opaque_provider_value}, {name: alignment, type: opaque_provider_value}]
+outputs: [{name: R_struct_graph, type: scalar}]
+opaque_providers: [V, deg, deg_avg, lambda2_LG, S_conn, Alig, minimum]
+preconditions: [V is nonempty, deg_avg != 0, final minimum and spectral values are supplied]
+postconditions: [evaluate exact source product]
+invariants: [this definition remains distinct from perturbation-radius R_struct]
+constraints: [no eigen solver or vertex search]
+structured_errors: [GraphStructuralRobustnessProviderRequired, GraphVertexSetEmpty, AverageDegreeZero]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-001, TLC-UR-ROBUSTNESS-015]
+forbidden_behaviors: [invent_eigen_solver, invent_graph_search, invent_degree_measure, merge_structural_robustness_definitions]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-020
+feature_id: TLC-FC-20-ROBUSTNESS-020
+title: Structured knowledge complexity expression
+domain_id: robustness
+contract_kind: guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['5. Connaissance structurée robuste']
+expression: 'G_T=(V,E,W,T); C(G_T)=sum_v C(v)+sum_e C(e)+lambda D_trad(G_T) <= C_max'
+inputs: [{name: vertex_complexity_sum, type: opaque_provider_value}, {name: edge_complexity_sum, type: opaque_provider_value}, {name: traditional_distance, type: opaque_provider_value}, {name: lambda, type: scalar}, {name: C_max, type: opaque_provider_value}]
+outputs: [{name: complexity_value, type: scalar}, {name: within_bound, type: boolean}]
+opaque_providers: [graph, C_v, C_e, D_trad, C_max]
+preconditions: [graph and final complexity terms are supplied]
+postconditions: [evaluate exact source complexity and bound]
+invariants: [no graph or complexity construction]
+constraints: [provider-backed]
+structured_errors: [KnowledgeComplexityProviderRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-005]
+forbidden_behaviors: [invent_graph, invent_complexity_measure, invent_traditional_distance]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-033
+algorithm_kind: source_expression_evaluator
+execution: conditionally_executable
+steps: [multiply supplied R_syst E_align A_adapt and fidelity, apply supplied covariance and gradient penalties, return raw Q_rob_T]
+forbidden: [invent_covariance_estimator, invent_gradient, invent_threshold]

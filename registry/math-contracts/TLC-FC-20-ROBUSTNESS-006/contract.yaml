@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-006
+feature_id: TLC-FC-20-ROBUSTNESS-006
+title: Four-versus-eight decomposition guard
+domain_id: robustness
+contract_kind: ambiguity_guard_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['2. Robustesse intégrée', '9. Limites et points scientifiques non résolus']
+expression: 'four-component decomposition and eight-factor decomposition coexist without a complete source mapping'
+inputs: [{name: decomposition_claim, type: descriptor_envelope}]
+outputs: [{name: conformance, type: boolean}]
+opaque_providers: []
+preconditions: [none]
+postconditions: [reject any invented complete mapping]
+invariants: [four factors are not silently expanded into eight]
+constraints: [ambiguity is durable]
+structured_errors: [FourToEightMappingInvented]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-002]
+forbidden_behaviors: [invent_four_to_eight_mapping, equate_four_and_eight_decompositions]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/scientific-objects/robustness/unresolved-terms.yaml}

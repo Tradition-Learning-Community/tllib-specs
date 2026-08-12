@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-007
+feature_id: TLC-FC-20-ROBUSTNESS-007
+title: Integrated systemic robustness expression
+domain_id: robustness
+contract_kind: guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['2. Robustesse intégrée']
+expression: 'R_syst = (prod_{i=1}^8 R_i^{w_i(t)}) exp(-sum_{i<j} Cov(R_i,R_j) - lambda ||grad_Dim R||^2), with sum_i w_i(t)=1'
+inputs: [{name: eight_factors, type: opaque_provider_value}, {name: weights, type: opaque_provider_value}, {name: covariances, type: opaque_provider_value}, {name: gradient_norm_squared, type: opaque_provider_value}, {name: lambda, type: scalar}]
+outputs: [{name: R_syst, type: scalar}]
+opaque_providers: [R_i, w_i, Cov, grad_Dim_R]
+preconditions: [exactly eight final factor values are supplied, weights are supplied and satisfy the source sum constraint, covariance sum and gradient norm are supplied]
+postconditions: [evaluate exact source expression]
+invariants: [eight factors are not synthesized from the four-component decomposition]
+constraints: [no covariance estimator gradient estimator weight solver or normalization]
+structured_errors: [SystemicRobustnessProviderRequired, SystemicRobustnessWeightConstraintViolation]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-002, TLC-UR-ROBUSTNESS-008, TLC-UR-ROBUSTNESS-015]
+forbidden_behaviors: [invent_covariance_estimator, invent_gradient, invent_weight_solver, invent_four_to_eight_mapping, normalize_weights]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}

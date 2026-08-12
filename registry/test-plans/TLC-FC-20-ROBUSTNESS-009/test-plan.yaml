@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-009
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-009/contract.yaml
+tests:
+  - {id: ROB009-T01, category: preservation, verifies: forall contexts and exists alpha quantifiers are exact}
+  - {id: ROB009-T02, category: non_execution, verifies: no universal context enumerator is created}
+  - {id: ROB009-T03, category: non_execution, verifies: no alpha search or existential solver is created}
+  - {id: ROB009-T04, category: provider, verifies: evidence can be externally supplied without local proof engine}

@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-20-ROBUSTNESS-014
+feature_id: TLC-FC-20-ROBUSTNESS-014
+title: Contextual generalization bound descriptor
+domain_id: robustness
+contract_kind: theorem_descriptor_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/20-robustness/robustness.md
+source_sections: ['3. Principes transférables']
+expression: 'E_C[L(T(A(x),c),y)] <= E_Ctrain[L(T(A(x),c),y)] + beta d_H(C_train,C) + gamma Omega(A) + delta D_trad(A)'
+inputs: [{name: bound_terms, type: opaque_provider_value}]
+outputs: [{name: inequality_descriptor, type: descriptor_envelope}]
+opaque_providers: [expectation, L, d_H, Omega, D_trad]
+preconditions: [none]
+postconditions: [preserve theorem inequality without proof or estimator]
+invariants: [no learner or distribution estimator]
+constraints: [descriptor only]
+structured_errors: [GeneralizationBoundEvidenceRequired]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-ROBUSTNESS-005]
+forbidden_behaviors: [invent_distribution, invent_expectation_estimator, invent_domain_distance, invent_proof, invent_learner]
+traceability: {source: maths/20-robustness/robustness.md, inventory: registry/domain-progress/robustness/feature-inventory.yaml}
