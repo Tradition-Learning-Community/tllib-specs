@@ -506,7 +506,7 @@ domains:
     analysis_companions: [35]
     feature_count: null
     handoff_publication: false
-    dependencies: {confirmed: [4], provisional: [35], unknown: true}
+    dependencies: {confirmed: [4], provisional: [], unknown: true}
     pipeline: *unstarted_pipeline
 
   - index: 33
@@ -551,7 +551,15 @@ domains:
     scientific_sources: [maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md]
     wave: wave-2
     analysis_companions: [32]
-    feature_count: null
-    handoff_publication: false
-    dependencies: {confirmed: [4], provisional: [32], unknown: true}
-    pipeline: *unstarted_pipeline
+    feature_count: 18
+    handoff_publication: true
+    dependencies: {confirmed: [4], provisional: [], unknown: false}
+    pipeline:
+      scientific_source: complete
+      functional_decomposition: complete
+      registries: complete
+      ir: complete
+      contracts: complete
+      algorithms: complete_or_not_applicable
+      oracles: complete
+      handoff_packages: complete
