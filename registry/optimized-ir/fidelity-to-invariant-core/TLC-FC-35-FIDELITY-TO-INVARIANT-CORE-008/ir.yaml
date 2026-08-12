@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-008
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-008/ir.yaml
+operation: evaluate_elder_consultation_metric
+required_behavior: [guard positive elder count, average supplied distances exactly]
+forbidden_behavior: [invent_elder_selection, invent_norm, regularize_denominator]
+error_codes: [EmptyElderCouncil, ElderDistanceProviderUnavailable]

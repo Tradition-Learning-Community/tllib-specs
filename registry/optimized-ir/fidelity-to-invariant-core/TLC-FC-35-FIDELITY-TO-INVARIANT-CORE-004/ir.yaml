@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-004
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-004/ir.yaml
+operation: evaluate_supplied_generational_variation
+required_behavior: [use supplied epsilon_n and projection, preserve X_n minus pi_N_X_n sign, apply only compatible supplied C_n]
+forbidden_behavior: [sample_epsilon_n, invert_residual_sign, invent_projection, broadcast_control_scores]
+error_codes: [ProjectionProviderUnavailable, VariationSampleUnavailable, CorrectionCompatibilityUnavailable]

@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-018
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-018/ir.yaml
+operation: guard_fidelity_scope_and_non_redefinition
+required_behavior: [retain fidelity-only scope, retain 35 to 04 only, keep 32 analysis-only and unpublished]
+forbidden_behavior: [redefine_invariant_core, promote_35_to_32_without_evidence, publish_32, lifecycle_orchestration]
+error_codes: [FidelityScopeViolation]

@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-015
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-015/ir.yaml
+operation: evaluate_faithful_innovation_predicate
+required_behavior: [consume supplied projection and norm results, compare with supplied epsilon_innov using <= exactly]
+forbidden_behavior: [invent_projection, invent_norm, calibrate_epsilon_innov, replace_le_with_lt, auto_validate_community]
+error_codes: [ProjectionProviderUnavailable, NormProviderUnavailable, InnovationThresholdUnavailable]

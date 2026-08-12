@@ -1,0 +1,27 @@
+schema_version: 1
+domain: fidelity-to-invariant-core
+patterns:
+  invariants_provider_boundary:
+    applies_to: [TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-001, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-002, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-004, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-006, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-015, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-018]
+    rule: depend scientifically on domain 04 but never claim pi_N d_D or N_inv evaluation as a published executable 04 feature
+  temporal_ambiguity:
+    applies_to: [TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-002, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-003]
+    rule: preserve un-timestamped x exactly
+  singularity_guards:
+    applies_to: [TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-006, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-007, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-008, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-009]
+    rule: empty artifacts and empty elder council produce structured errors with no numeric fallback or denominator regularization
+  stochastic_non_construction:
+    applies_to: [TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-004, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-005]
+    rule: epsilon_n must be supplied for evaluation; no RNG sampler or covariance estimator is created
+  heterogeneous_control_guard:
+    applies_to: [TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-012, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-013]
+    rule: distances and scores remain heterogeneous; no embedding broadcast or automatic correction-state operator is invented
+  eta_constraint:
+    applies_to: [TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-012, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-014]
+    rule: enforce only sum eta_i equals 1; do not impose eta_i nonnegative and do not renormalize
+  innovation_boundary:
+    applies_to: [TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-015, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-016]
+    rule: preserve <= epsilon_innov exactly and never infer community validation from the fidelity predicate
+  drift_companion_boundary:
+    applies_to: [TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-018]
+    rule: domain 32 is analysis companion only; no confirmed 35 to 32 or 32 to 35 edge is promoted and 32 remains unpublished

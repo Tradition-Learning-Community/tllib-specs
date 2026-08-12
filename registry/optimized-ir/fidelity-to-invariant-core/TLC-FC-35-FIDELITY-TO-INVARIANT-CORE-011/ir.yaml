@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-011
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-011/ir.yaml
+operation: describe_self_evaluation_provider
+required_behavior: [preserve A_self equals E_self_X_t alias, keep E_self opaque, do not bind Evaluation 18 without signature evidence]
+forbidden_behavior: [redefine_E_self, assume_evaluation_18_match, invent_self_evaluation]
+error_codes: [SelfEvaluationProviderUnavailable]

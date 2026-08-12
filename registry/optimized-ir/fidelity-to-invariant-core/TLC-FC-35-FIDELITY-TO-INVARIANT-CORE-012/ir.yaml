@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-012
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-012/ir.yaml
+operation: describe_raw_four_control_correction_expression
+required_behavior: [preserve exact weighted expression, preserve eta sum equals one, keep heterogeneous terms uncoerced]
+forbidden_behavior: [broadcast_control_scores_into_state, invent_common_control_embedding, normalize_terms, assume_eta_nonnegative, renormalize_eta]
+error_codes: [HeterogeneousControlSpace]

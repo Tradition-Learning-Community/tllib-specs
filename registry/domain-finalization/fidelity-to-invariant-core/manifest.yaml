@@ -1,0 +1,23 @@
+schema_version: 1
+manifest_id: TLC-FIDELITY-TO-INVARIANT-CORE-DOMAIN-FINALIZATION-001
+domain: fidelity-to-invariant-core
+phase: 4
+status: selected_for_implementation_handoff
+base_branch: main
+base_commit: 8a64da9ce489104ba1a012c27de1b2ee330a6b0c
+feature_count: 18
+population: [TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-001, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-002, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-003, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-004, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-005, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-006, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-007, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-008, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-009, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-010, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-011, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-012, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-013, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-014, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-015, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-016, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-017, TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-018]
+source_authority:
+  scientific_source: {path: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md, blob_sha: 5a6e0dcdcbc66bd74bb7d6816d34f2bcd0e73817, modified: false}
+  invariants_provider: {domain: invariants, domain_index: 4, path: maths/04-invariants/invariants.md, blob_sha: 5bddc38b4a74465c2bc3b1d2e9f8aac004e86800, relation: '35 -> 04', feature_binding: none, runtime_dependency: false}
+  drift_analysis_companion: {domain: drift-and-correction, domain_index: 32, path: maths/32-drift-and-correction/stability-drift-and-correction.md, blob_sha: c43d581fcbd33d086c1acb84ec43ac6d48ed95a3, confirmed_dependency: false, publication: false}
+artifact_patterns:
+  contract: registry/math-contracts/<FEATURE_ID>/contract.yaml
+  candidate_ir: ir/<FEATURE_ID>/ir.candidate.json
+  registered_ir: registry/ir/<FEATURE_ID>/ir.yaml
+  test_plan: registry/test-plans/<FEATURE_ID>/test-plan.yaml
+  optimized_ir: registry/optimized-ir/fidelity-to-invariant-core/<FEATURE_ID>/ir.yaml
+  algorithm: registry/algorithms/fidelity-to-invariant-core/<FEATURE_ID>/algorithm.yaml
+  oracle: registry/oracles/fidelity-to-invariant-core/<FEATURE_ID>/oracle.yaml
+implementation_tasks: registry/domain-finalization/fidelity-to-invariant-core/implementation-tasks.yaml
+shared_contract_count: 8
