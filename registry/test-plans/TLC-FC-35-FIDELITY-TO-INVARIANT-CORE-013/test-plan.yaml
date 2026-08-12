@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-013
+source_contract: registry/math-contracts/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-013/contract.yaml
+tests:
+  - {id: FID013-T01, category: guard, verifies: absent common-space operator yields HeterogeneousControlSpace}
+  - {id: FID013-T02, category: rejection, verifies: identity broadcast proposal is rejected}
+  - {id: FID013-T03, category: rejection, verifies: arbitrary embedding or vector shape inference is rejected}

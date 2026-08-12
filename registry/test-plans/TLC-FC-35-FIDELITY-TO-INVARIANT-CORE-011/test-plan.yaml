@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-011
+source_contract: registry/math-contracts/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-011/contract.yaml
+tests:
+  - {id: FID011-T01, category: formula, verifies: A_self equals supplied E_self_X_t exactly}
+  - {id: FID011-T02, category: provider, verifies: missing E_self_X_t emits provider unavailable}
+  - {id: FID011-T03, category: dependency, verifies: Evaluation 18 is not linked without signature evidence}

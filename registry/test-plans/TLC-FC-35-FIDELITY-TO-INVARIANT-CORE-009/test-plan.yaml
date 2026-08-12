@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-009
+source_contract: registry/math-contracts/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-009/contract.yaml
+tests:
+  - {id: FID009-T01, category: guard, verifies: zero elders emits EmptyElderCouncil}
+  - {id: FID009-T02, category: guard, verifies: positive elder count passes}
+  - {id: FID009-T03, category: non_invention, verifies: no epsilon denominator or fallback is introduced}

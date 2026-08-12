@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-012
+source_contract: registry/math-contracts/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-012/contract.yaml
+tests:
+  - {id: FID012-T01, category: formula, verifies: exact four-term weighted expression is preserved}
+  - {id: FID012-T02, category: compatibility, verifies: heterogeneous terms are not silently combined into a state correction}
+  - {id: FID012-T03, category: non_invention, verifies: no embedding identity broadcast or normalization is created}

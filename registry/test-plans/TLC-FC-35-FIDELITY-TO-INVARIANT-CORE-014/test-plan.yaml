@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-014
+source_contract: registry/math-contracts/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-014/contract.yaml
+tests:
+  - {id: FID014-T01, category: constraint, verifies: weights summing to one pass}
+  - {id: FID014-T02, category: constraint, verifies: weights not summing to one emit EtaSumConstraintViolation}
+  - {id: FID014-T03, category: non_invention, verifies: negative eta can pass when total sum is one and no other caller constraint forbids it}

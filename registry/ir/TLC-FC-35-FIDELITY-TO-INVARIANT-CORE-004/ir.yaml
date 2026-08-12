@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-004
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-004/contract.yaml
+source_candidate_ir: ir/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-004/ir.candidate.json
+nature: guarded_exact_expression
+steps: [read supplied X_n epsilon_n C_n and pi_N_X_n, form X_n minus pi_N_X_n, apply compatible supplied C_n, add X_n and epsilon_n]
+errors: [ProjectionProviderUnavailable, VariationSampleUnavailable, CorrectionCompatibilityUnavailable]

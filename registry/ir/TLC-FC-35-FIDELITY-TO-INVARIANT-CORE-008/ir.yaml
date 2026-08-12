@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-008
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-008/contract.yaml
+source_candidate_ir: ir/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-008/ir.candidate.json
+nature: guarded_exact_expression
+steps: [reject zero elders, require one supplied distance per elder, average supplied distances]
+errors: [EmptyElderCouncil, ElderDistanceProviderUnavailable]

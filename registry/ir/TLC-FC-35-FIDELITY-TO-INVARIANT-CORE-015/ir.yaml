@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-015
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-015/contract.yaml
+source_candidate_ir: ir/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-015/ir.candidate.json
+nature: guarded_exact_predicate
+steps: [require supplied projection and norm results, require supplied epsilon_innov, return supplied norm less than or equal to epsilon_innov]
+errors: [ProjectionProviderUnavailable, NormProviderUnavailable, InnovationThresholdUnavailable]

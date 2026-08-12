@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-009
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-009/contract.yaml
+source_candidate_ir: ir/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-009/ir.candidate.json
+nature: denominator_guard
+steps: [read elder_count, emit EmptyElderCouncil if zero, otherwise pass]
+errors: [EmptyElderCouncil]
