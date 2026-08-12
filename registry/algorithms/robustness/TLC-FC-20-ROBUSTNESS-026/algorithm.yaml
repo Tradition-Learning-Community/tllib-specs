@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-026
+algorithm_kind: source_expression_evaluator
+execution: conditionally_executable
+steps: [compute supplied f_adapt minus f0 exactly, scale by beta, add f0 and supplied gamma-gradient term, assess supplied constraints]
+forbidden: [invent_learner, invent_gradient, repair_prediction_sign]

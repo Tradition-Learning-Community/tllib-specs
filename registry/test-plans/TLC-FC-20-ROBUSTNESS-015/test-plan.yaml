@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-015
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-015/contract.yaml
+tests:
+  - {id: ROB015-T01, category: preservation, verifies: principle-preservation inequality is exact}
+  - {id: ROB015-T02, category: preservation, verifies: delta(c)=delta0 exp(-lambda Sim(c,c0)) is exact}
+  - {id: ROB015-T03, category: provider, verifies: projection distance similarity and norm remain providers}
+  - {id: ROB015-T04, category: non_invention, verifies: no projection or distance construction is introduced}

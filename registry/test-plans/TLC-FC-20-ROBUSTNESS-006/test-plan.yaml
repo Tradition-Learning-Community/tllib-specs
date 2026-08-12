@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-006
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-006/contract.yaml
+tests:
+  - {id: ROB006-T01, category: ambiguity, verifies: four-component and eight-factor forms coexist}
+  - {id: ROB006-T02, category: rejection, verifies: asserted complete four-to-eight mapping is rejected}
+  - {id: ROB006-T03, category: non_invention, verifies: no expansion or correspondence table is synthesized}
+  - {id: ROB006-T04, category: preservation, verifies: source eight-factor names remain exact}

@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-023
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-20-ROBUSTNESS-023/ir.yaml
+operation: evaluate_graph_structural_robustness
+required_behavior: [guard V and deg_avg, require supplied minimum and lambda2, preserve graph expression]
+forbidden_behavior: [invent_eigen_solver, invent_graph_search, merge_structural_robustness_definitions]
+error_codes: [GraphStructuralRobustnessProviderRequired, GraphVertexSetEmpty, AverageDegreeZero]

@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-018
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-20-ROBUSTNESS-018/ir.yaml
+operation: evaluate_guidance_efficiency
+required_behavior: [require provider information quantities, guard H(P), evaluate exact product]
+forbidden_behavior: [invent_entropy_estimator, invent_mutual_information_estimator, regularize_entropy_denominator]
+error_codes: [GuidanceInformationProviderRequired, GuidanceEntropyZero]

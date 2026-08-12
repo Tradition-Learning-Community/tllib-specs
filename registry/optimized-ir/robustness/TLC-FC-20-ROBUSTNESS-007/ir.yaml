@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-007
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-20-ROBUSTNESS-007/ir.yaml
+operation: evaluate_integrated_systemic_robustness
+required_behavior: [require eight factors, validate supplied weight sum, use supplied covariance and gradient terms, preserve exponential penalty]
+forbidden_behavior: [invent_covariance_estimator, invent_gradient, invent_weight_solver, invent_four_to_eight_mapping]
+error_codes: [SystemicRobustnessProviderRequired, SystemicRobustnessWeightConstraintViolation]

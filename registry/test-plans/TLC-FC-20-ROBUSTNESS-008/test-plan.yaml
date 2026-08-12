@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-008
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-008/contract.yaml
+tests:
+  - {id: ROB008-T01, category: preservation, verifies: dw_i/dt=f_i(E(t),P_pres(t)) is exact}
+  - {id: ROB008-T02, category: provider, verifies: f_i remains externally supplied}
+  - {id: ROB008-T03, category: non_execution, verifies: no trajectory integration or time step is introduced}
+  - {id: ROB008-T04, category: non_invention, verifies: no weight normalization policy is added}

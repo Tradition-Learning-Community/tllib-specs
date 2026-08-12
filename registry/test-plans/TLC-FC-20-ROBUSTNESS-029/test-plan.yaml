@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-029
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-029/contract.yaml
+tests:
+  - {id: ROB029-T01, category: preservation, verifies: tail probability condition and fidelity/alignment thresholds are exact}
+  - {id: ROB029-T02, category: provider, verifies: tail probability is supplied rather than estimated}
+  - {id: ROB029-T03, category: boundary, verifies: result is condition assessment not robustness certificate}
+  - {id: ROB029-T04, category: non_invention, verifies: no distribution or threshold is invented}

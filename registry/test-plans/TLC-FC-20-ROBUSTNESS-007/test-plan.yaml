@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-007
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-007/contract.yaml
+tests:
+  - {id: ROB007-T01, category: preservation, verifies: weighted geometric-exponential expression is exact}
+  - {id: ROB007-T02, category: constraint, verifies: supplied weights must satisfy sum_i w_i(t)=1}
+  - {id: ROB007-T03, category: provider, verifies: covariance and gradient norm are externally supplied}
+  - {id: ROB007-T04, category: non_invention, verifies: eight factors are not generated from four components}

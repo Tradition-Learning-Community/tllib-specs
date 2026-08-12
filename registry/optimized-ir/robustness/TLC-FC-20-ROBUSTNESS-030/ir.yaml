@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-030
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-20-ROBUSTNESS-030/ir.yaml
+operation: assess_preserving_adaptation_bound
+required_behavior: [consume supplied integral, preserve negative exponential, compare exact lower bound]
+forbidden_behavior: [invent_integrator, invent_gradient, invent_continuous_solver, invent_quadrature]
+error_codes: [PreservingAdaptationProviderRequired]

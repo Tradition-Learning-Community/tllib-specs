@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-017
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-017/contract.yaml
+tests:
+  - {id: ROB017-T01, category: preservation, verifies: proportionality symbol remains proportionality}
+  - {id: ROB017-T02, category: normalization, verifies: no partition function is invented}
+  - {id: ROB017-T03, category: provider, verifies: KL remains externally supplied}
+  - {id: ROB017-T04, category: rejection, verifies: Bayes completion or normalized posterior is nonconforming}

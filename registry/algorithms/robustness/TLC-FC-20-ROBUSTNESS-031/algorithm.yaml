@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-031
+algorithm_kind: coupled_rhs_evaluator
+execution: conditionally_executable
+steps: [evaluate dot_R source RHS, evaluate dot_E source RHS, evaluate dot_A source RHS, evaluate dot_F source RHS, return tuple]
+forbidden: [invent_ode_solver, invent_time_step, invent_gradient, invent_integrator]

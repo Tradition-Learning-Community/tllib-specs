@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-014
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-20-ROBUSTNESS-014/ir.yaml
+operation: describe_contextual_generalization_bound
+required_behavior: [preserve inequality and all terms, expose provider requirements]
+forbidden_behavior: [invent_distribution, invent_expectation_estimator, invent_domain_distance, invent_proof, invent_learner]
+error_codes: [GeneralizationBoundEvidenceRequired]

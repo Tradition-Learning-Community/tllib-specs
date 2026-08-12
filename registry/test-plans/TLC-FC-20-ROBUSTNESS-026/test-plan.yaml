@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-026
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-026/contract.yaml
+tests:
+  - {id: ROB026-T01, category: sign, verifies: f_adapt minus f0 sign is exact}
+  - {id: ROB026-T02, category: constraints, verifies: beta norm and fidelity constraints are preserved}
+  - {id: ROB026-T03, category: provider, verifies: gradient and learner functions remain supplied}
+  - {id: ROB026-T04, category: non_invention, verifies: no learner or gradient estimator is created}

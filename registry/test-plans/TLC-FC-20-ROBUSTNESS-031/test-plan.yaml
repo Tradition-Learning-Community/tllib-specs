@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-031
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-031/contract.yaml
+tests:
+  - {id: ROB031-T01, category: preservation, verifies: all four source RHS expressions are preserved}
+  - {id: ROB031-T02, category: provider, verifies: gradients and dot T remain supplied}
+  - {id: ROB031-T03, category: non_execution, verifies: no ODE solver timestep or trajectory is created}
+  - {id: ROB031-T04, category: notation, verifies: dynamic R and F overloads remain locally scoped}

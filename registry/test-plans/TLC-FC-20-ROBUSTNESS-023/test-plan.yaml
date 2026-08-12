@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-023
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-023/contract.yaml
+tests:
+  - {id: ROB023-T01, category: preservation, verifies: graph R_struct formula is exact}
+  - {id: ROB023-T02, category: error, verifies: empty V yields GraphVertexSetEmpty}
+  - {id: ROB023-T03, category: error, verifies: deg_avg=0 yields AverageDegreeZero}
+  - {id: ROB023-T04, category: provider, verifies: lambda_2 is supplied and no eigen solver is invoked}

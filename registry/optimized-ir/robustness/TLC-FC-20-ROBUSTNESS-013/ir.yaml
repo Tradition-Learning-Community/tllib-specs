@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-013
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-20-ROBUSTNESS-013/ir.yaml
+operation: guard_contextual_transfer_sign
+required_behavior: [accept T0 minus Tadapt, preserve ambiguity]
+forbidden_behavior: [repair_transfer_sign, replace_T0_minus_Tadapt_with_Tadapt_minus_T0]
+error_codes: [TransferSignRepaired]

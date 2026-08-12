@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-032
+algorithm_kind: conditional_stability_assessment
+execution: conditionally_executable
+steps: [verify every supplied eigenvalue real part is negative, verify four supplied component thresholds, return conjunction only]
+forbidden: [invent_jacobian, invent_eigen_solver, invent_fixed_point_finder, invent_stability_certificate]

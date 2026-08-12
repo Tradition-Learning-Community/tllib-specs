@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-028
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-028/contract.yaml
+tests:
+  - {id: ROB028-T01, category: preservation, verifies: three normalized ratios and source minimum are exact}
+  - {id: ROB028-T02, category: error, verifies: P_max=0 is rejected}
+  - {id: ROB028-T03, category: error, verifies: F_fid^max=0 and Alig_max=0 are rejected}
+  - {id: ROB028-T04, category: provider, verifies: reference maxima and minimum remain provider-owned}

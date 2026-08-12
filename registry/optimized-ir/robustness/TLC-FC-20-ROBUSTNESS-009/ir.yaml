@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-009
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-20-ROBUSTNESS-009/ir.yaml
+operation: describe_transferable_principles
+required_behavior: [preserve forall/exists quantifiers, preserve inequality and fidelity condition]
+forbidden_behavior: [invent_enumerator, invent_alpha_search, invent_proof_engine, invent_solver]
+error_codes: [TransferablePrinciplesEvidenceRequired]

@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-019
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-019/contract.yaml
+tests:
+  - {id: ROB019-T01, category: preservation, verifies: exponential convergence inequality is exact}
+  - {id: ROB019-T02, category: hypothesis, verifies: regularity and competent-guidance hypotheses remain explicit}
+  - {id: ROB019-T03, category: boundary, verifies: theorem claim is not a runtime convergence certificate}
+  - {id: ROB019-T04, category: non_invention, verifies: no C/lambda estimator proof or solver is introduced}

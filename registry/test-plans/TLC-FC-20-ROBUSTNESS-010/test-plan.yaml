@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-010
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-010/contract.yaml
+tests:
+  - {id: ROB010-T01, category: preservation, verifies: exact argmin objective terms are preserved}
+  - {id: ROB010-T02, category: non_execution, verifies: no optimizer or search is selected}
+  - {id: ROB010-T03, category: provider, verifies: projection regularizer distance and principle space remain external}
+  - {id: ROB010-T04, category: rejection, verifies: fabricated minimizer is nonconforming}

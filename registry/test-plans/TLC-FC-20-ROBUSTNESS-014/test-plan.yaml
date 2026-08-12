@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-014
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-014/contract.yaml
+tests:
+  - {id: ROB014-T01, category: preservation, verifies: all four right-hand generalization terms and inequality direction are exact}
+  - {id: ROB014-T02, category: non_execution, verifies: no expectation or distribution estimator is created}
+  - {id: ROB014-T03, category: non_execution, verifies: no proof or learner is created}
+  - {id: ROB014-T04, category: provider, verifies: d_H Omega and D_trad remain externally supplied}

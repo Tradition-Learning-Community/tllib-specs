@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-024
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-20-ROBUSTNESS-024/ir.yaml
+operation: guard_dual_structural_robustness_definitions
+required_behavior: [retain perturbation definition, retain graph definition, preserve unknown relation]
+forbidden_behavior: [merge_structural_robustness_definitions, select_canonical_R_struct, average_R_struct_definitions, invent_conversion]
+error_codes: [StructuralRobustnessDefinitionsMerged]

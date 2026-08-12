@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-021
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-021/contract.yaml
+tests:
+  - {id: ROB021-T01, category: preservation, verifies: structural-learning objective signs and terms are exact}
+  - {id: ROB021-T02, category: constraints, verifies: completeness and fidelity constraints are preserved}
+  - {id: ROB021-T03, category: non_execution, verifies: no graph learner or optimizer is created}
+  - {id: ROB021-T04, category: non_invention, verifies: no information estimator or threshold calibration is introduced}

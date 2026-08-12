@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-032
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-032/contract.yaml
+tests:
+  - {id: ROB032-T01, category: preservation, verifies: Re(sigma(J))<0 condition is exact}
+  - {id: ROB032-T02, category: preservation, verifies: all four component-threshold conditions remain required}
+  - {id: ROB032-T03, category: provider, verifies: Jacobian eigenvalues fixed point and thresholds are supplied}
+  - {id: ROB032-T04, category: boundary, verifies: no stability proof certificate eigensolver or fixed-point finder is created}

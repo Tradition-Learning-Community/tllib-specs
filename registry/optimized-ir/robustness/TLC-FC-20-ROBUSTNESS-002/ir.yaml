@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-002
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-20-ROBUSTNESS-002/ir.yaml
+operation: describe_structural_perturbation_robustness
+required_behavior: [preserve min-inf formula, keep spaces and operators external]
+forbidden_behavior: [invent_optimizer, invent_search, invent_norm, invent_discretization]
+error_codes: [StructuralRobustnessProviderRequired, StructuralRobustnessDomainUndefined]

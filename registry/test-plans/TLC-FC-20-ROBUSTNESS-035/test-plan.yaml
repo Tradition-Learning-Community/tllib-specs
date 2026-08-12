@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-035
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-035/contract.yaml
+tests:
+  - {id: ROB035-T01, category: preservation, verifies: resilience-index expression is exact}
+  - {id: ROB035-T02, category: error, verifies: sigma(R_syst)=0 yields SystemicRobustnessDispersionZero}
+  - {id: ROB035-T03, category: error, verifies: ||E||=0 and ||R||=0 are rejected}
+  - {id: ROB035-T04, category: provider, verifies: min dR_syst/dt and gradients are supplied with no numerical derivative}

@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-013
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-013/contract.yaml
+tests:
+  - {id: ROB013-T01, category: preservation, verifies: source signed term is T0-Tadapt}
+  - {id: ROB013-T02, category: rejection, verifies: reversed sign is rejected}
+  - {id: ROB013-T03, category: ambiguity, verifies: counter-intuitive sign remains explicitly unresolved}
+  - {id: ROB013-T04, category: language, verifies: implementation does not label source sign as typo}

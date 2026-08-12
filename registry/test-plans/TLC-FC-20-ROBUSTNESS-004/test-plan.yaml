@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-20-ROBUSTNESS-004
+source_contract: registry/math-contracts/TLC-FC-20-ROBUSTNESS-004/contract.yaml
+tests:
+  - {id: ROB004-T01, category: preservation, verifies: exact contextual robustness product is preserved}
+  - {id: ROB004-T02, category: error, verifies: Perf(TLS,c0)=0 yields ContextualReferencePerformanceZero}
+  - {id: ROB004-T03, category: provider, verifies: context minimum performance similarity fidelity and presence remain provider-owned}
+  - {id: ROB004-T04, category: non_invention, verifies: no clamp or arbitrary reference context is introduced}
