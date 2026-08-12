@@ -1,0 +1,3 @@
+# Robustness four-component decomposition descriptor
+
+`TLC-FC-20-ROBUSTNESS-001` exposes the source-backed four-component Robustness decomposition without manufacturing component values or a four-to-eight correspondence. Procedural robustness is scientifically provided by published Fairness feature `TLC-FC-21-FAIRNESS-001`; the dependency is `20 -> 21` under dependent-to-provider semantics and no runtime coupling is implied. Implementations must preserve local symbol overloads, keep both structural-robustness definitions separate, and surface unresolved scientific boundaries rather than repairing them.
