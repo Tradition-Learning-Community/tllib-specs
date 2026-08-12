@@ -1,0 +1,51 @@
+schema_version: 1
+domain: robustness
+relation_count: 46
+edge_semantics: from_domain_depends_on_to_domain
+relations:
+  - {id: RREL-001, from: robustness_product_space, to: R_struct_perturbation, relation: component}
+  - {id: RREL-002, from: robustness_product_space, to: R_proc, relation: component}
+  - {id: RREL-003, from: robustness_product_space, to: R_ctx, relation: component}
+  - {id: RREL-004, from: robustness_product_space, to: R_eth, relation: component}
+  - {id: RREL-005, from: R_proc, to: fairness_21, relation: scientifically_provided_by, scientific_edge: '20 -> 21'}
+  - {id: RREL-006, from: R_syst, to: R_i, relation: weighted_geometric_product}
+  - {id: RREL-007, from: R_syst, to: Cov, relation: exponential_penalty}
+  - {id: RREL-008, from: R_syst, to: grad_Dim_R, relation: exponential_penalty}
+  - {id: RREL-009, from: w_i, to: f_i, relation: derivative_rhs}
+  - {id: RREL-010, from: R_syst, to: R_trans, relation: eight_factor_product}
+  - {id: RREL-011, from: R_syst, to: R_guid, relation: eight_factor_product}
+  - {id: RREL-012, from: R_syst, to: R_sav, relation: eight_factor_product}
+  - {id: RREL-013, from: R_syst, to: R_auto, relation: eight_factor_product}
+  - {id: RREL-014, from: R_syst, to: R_biais, relation: eight_factor_product}
+  - {id: RREL-015, from: R_syst, to: R_plu, relation: eight_factor_product}
+  - {id: RREL-016, from: R_syst, to: R_ctx, relation: eight_factor_product}
+  - {id: RREL-017, from: R_syst, to: R_align, relation: eight_factor_product}
+  - {id: RREL-018, from: P_trans, to: T_P_c, relation: universal_existential_constraint}
+  - {id: RREL-019, from: A_x, to: pi_P, relation: objective_term}
+  - {id: RREL-020, from: A_x, to: Omega, relation: objective_term}
+  - {id: RREL-021, from: A_x, to: D_trad, relation: objective_term}
+  - {id: RREL-022, from: D_trad, to: P_trad, relation: squared_distance_term}
+  - {id: RREL-023, from: T_P_c, to: T0, relation: source_signed_term}
+  - {id: RREL-024, from: T_P_c, to: T_adapt, relation: source_subtracted_term}
+  - {id: RREL-025, from: T_P_c, to: grad_P_Ffid, relation: additive_gradient_term}
+  - {id: RREL-026, from: guidance_likelihood, to: F_fid, relation: post_softmax_multiplier}
+  - {id: RREL-027, from: guidance_likelihood, to: O_outcome, relation: denominator_support}
+  - {id: RREL-028, from: eta_guidance, to: H_P, relation: denominator}
+  - {id: RREL-029, from: eta_guidance, to: mutual_information, relation: numerator}
+  - {id: RREL-030, from: C_graph, to: D_trad, relation: additive_penalty}
+  - {id: RREL-031, from: S_coh, to: density_G, relation: reciprocal_factor}
+  - {id: RREL-032, from: R_struct_graph, to: lambda2_LG, relation: spectral_factor}
+  - {id: RREL-033, from: c_T, to: grad_T_c, relation: additive_gradient_term}
+  - {id: RREL-034, from: y_hat_T, to: f_adapt, relation: signed_adaptation_difference}
+  - {id: RREL-035, from: A_adapt_T, to: c_train, relation: denominator_and_norm_reference}
+  - {id: RREL-036, from: R_ctx_T, to: P_max, relation: denominator_reference}
+  - {id: RREL-037, from: R_ctx_T, to: Ffid_max, relation: denominator_reference}
+  - {id: RREL-038, from: R_ctx_T, to: Alig_max, relation: denominator_reference}
+  - {id: RREL-039, from: global_robustness_condition, to: P_expected, relation: probability_tail_condition}
+  - {id: RREL-040, from: adaptation_integral, to: F_fid, relation: exponential_lower_bound}
+  - {id: RREL-041, from: R_dynamic, to: I_rob, relation: rhs_input}
+  - {id: RREL-042, from: thresholds_fixed_point, to: J, relation: joint_stability_condition}
+  - {id: RREL-043, from: Q_rob_T, to: R_syst, relation: multiplicative_factor}
+  - {id: RREL-044, from: Q_rob_T, to: grad_T_Q, relation: exponential_penalty}
+  - {id: RREL-045, from: R_res_T, to: sigma_Rsyst, relation: denominator}
+  - {id: RREL-046, from: R_res_T, to: min_dRsyst_dt, relation: provider_extremum_factor}
