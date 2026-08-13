@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-007
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-007
+title: Finalized-objective aggregation expression
+domain_id: finality-and-evolutionary-teleology
+contract_kind: provider_composed_expression
+scientific_status: external_provider_required
+scientific_authority: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+source_sections: ['4. Optimisation finalisée']
+expression: 'J(X,u,t)=integral_0^T L(X(s),u(s),s,G(s)) ds + Phi(X(T),G(T)) + Psi(P_pres)'
+inputs: [{name: integral_L, type: scalar}, {name: Phi_terminal, type: scalar}, {name: Psi_P_pres, type: scalar}]
+outputs: [{name: J, type: scalar}]
+opaque_providers: [integral_L, Phi, Psi, P_pres]
+preconditions: [caller supplies the final integral terminal and preservation terms]
+postconditions: [sum the three source terms with exact plus signs]
+invariants: [no quadrature trajectory generation or optimization is implied]
+constraints: [Psi direction ambiguity is not resolved here]
+structured_errors: [{code: FinalizedObjectiveProviderMissing, when: a required final term is absent}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FINALITY-006]
+forbidden_behaviors: [invent_integrator, invent_quadrature, invent_trajectory_generator, invent_optimizer, repair_Psi_sign]
+traceability: {source: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md, inventory: registry/domain-progress/finality-and-evolutionary-teleology/feature-inventory.yaml}

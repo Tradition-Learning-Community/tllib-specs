@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-001
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-001
+title: Goal-space structural descriptor
+domain_id: finality-and-evolutionary-teleology
+contract_kind: structural_descriptor
+scientific_status: partially_defined
+scientific_authority: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+source_sections: ['1. Espace des buts', '8. Limites et points scientifiques non résolus']
+expression: 'F = {G subset TLS | G regular submanifold of dimension d} x R+_priority x C_evolution'
+inputs: [{name: source_goal_space_declaration, type: descriptor}]
+outputs: [{name: goal_space_descriptor, type: descriptor}]
+opaque_providers: []
+preconditions: []
+postconditions: [preserve the declared product structure and regular-submanifold condition]
+invariants: [no operational manifold construction is implied]
+constraints: [atlas metric tensor topology and sampling semantics are unavailable]
+structured_errors: [{code: GoalSpaceConstructionUnavailable, when: operational manifold construction is requested}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FINALITY-001]
+forbidden_behaviors: [invent_goal_manifold_metric, invent_goal_atlas, invent_metric_tensor, invent_topology_engine, invent_goal_space_sampler]
+traceability: {source: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md, inventory: registry/domain-progress/finality-and-evolutionary-teleology/feature-inventory.yaml}

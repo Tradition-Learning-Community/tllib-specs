@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-013
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-013
+title: Emergent-goal provider guard
+domain_id: finality-and-evolutionary-teleology
+contract_kind: provider_guard
+scientific_status: external_provider_required
+scientific_authority: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+source_sections: ['5. Auto-finalisation']
+expression: 'G_em is proposed as the center of gravity of the current attractor'
+inputs: [{name: emergent_goal_request, type: descriptor}]
+outputs: [{name: emergent_goal_status, type: descriptor}]
+opaque_providers: [G_em]
+preconditions: []
+postconditions: [require externally supplied G_em for downstream expressions]
+invariants: [no center-of-gravity construction is synthesized]
+constraints: [measure metric existence and uniqueness are unspecified]
+structured_errors: [{code: EmergentGoalProviderUnavailable, when: centroid construction is requested}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FINALITY-008]
+forbidden_behaviors: [invent_emergent_goal_centroid, invent_attractor_measure, invent_goal_metric, invent_centroid_algorithm]
+traceability: {source: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md, inventory: registry/domain-progress/finality-and-evolutionary-teleology/feature-inventory.yaml}

@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-015
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-015
+title: Teleological convergence theorem descriptor
+domain_id: finality-and-evolutionary-teleology
+contract_kind: conditional_theorem_descriptor
+scientific_status: partially_defined
+scientific_authority: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+source_sections: ['6. Théorèmes formulés par la source']
+expression: 'strict convexity + unique global minimum + exponential state contraction + U contraction => exponential convergence of (X,G) to (X*,G*)'
+inputs: [{name: theorem_hypothesis_evidence, type: descriptor}]
+outputs: [{name: convergence_theorem_descriptor, type: descriptor}]
+opaque_providers: [convexity_evidence, unique_minimum_evidence, contraction_evidence]
+preconditions: []
+postconditions: [report the source theorem conditionally]
+invariants: [no runtime convergence guarantee is issued]
+constraints: [no proof engine or certificate]
+structured_errors: [{code: ConvergenceCertificateUnavailable, when: unconditional or runtime-certified convergence is requested}]
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-FINALITY-011]
+forbidden_behaviors: [invent_convergence_proof, invent_convergence_certificate, invent_Lyapunov_proof, invent_runtime_guarantee]
+traceability: {source: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md, inventory: registry/domain-progress/finality-and-evolutionary-teleology/feature-inventory.yaml}

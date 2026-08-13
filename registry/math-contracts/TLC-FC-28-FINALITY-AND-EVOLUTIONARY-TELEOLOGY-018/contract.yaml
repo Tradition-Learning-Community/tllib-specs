@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-018
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-018
+title: Contextual-convergence theorem descriptor
+domain_id: finality-and-evolutionary-teleology
+contract_kind: conditional_theorem_descriptor
+scientific_status: partially_defined
+scientific_authority: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+source_sections: ['6. Théorèmes formulés par la source']
+expression: 'under adaptive convexity of J and regularity of F: lim_{t->infinity} d_real(X(t),G*) = 0'
+inputs: [{name: contextual_convergence_evidence, type: descriptor}]
+outputs: [{name: contextual_convergence_descriptor, type: descriptor}]
+opaque_providers: [adaptive_convexity_evidence, F_regularity_evidence, limit_evidence]
+preconditions: []
+postconditions: [preserve the conditional asymptotic claim]
+invariants: [no universal numerical convergence test is implied]
+constraints: [no solver proof or trajectory generator]
+structured_errors: [{code: ContextualConvergenceCertificateUnavailable, when: universal runtime convergence is requested}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FINALITY-011]
+forbidden_behaviors: [invent_convergence_proof, invent_numerical_convergence_test, invent_trajectory_solver, invent_limit_solver]
+traceability: {source: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md, inventory: registry/domain-progress/finality-and-evolutionary-teleology/feature-inventory.yaml}

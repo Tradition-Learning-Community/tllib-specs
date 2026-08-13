@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-012
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-012
+title: Auto-finalization RHS evaluator
+domain_id: finality-and-evolutionary-teleology
+contract_kind: provider_composed_rhs
+scientific_status: external_provider_required
+scientific_authority: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+source_sections: ['5. Auto-finalisation']
+expression: 'dG/dt = alpha_G(G_em-G) + beta_G grad_X J dot G + gamma_G grad_c G dot dc/dt'
+inputs: [{name: attraction_term, type: opaque}, {name: cost_gradient_term, type: opaque}, {name: context_gradient_term, type: opaque}, {name: alpha_G, type: scalar}, {name: beta_G, type: scalar}, {name: gamma_G, type: scalar}]
+outputs: [{name: goal_rhs, type: opaque}]
+opaque_providers: [G_em, grad_X_J, grad_c_G, dc_dt]
+preconditions: [all final provider terms are supplied in compatible representation]
+postconditions: [combine exactly the three source terms]
+invariants: [no integration or gradient computation is performed]
+constraints: [RHS evaluation only]
+structured_errors: [{code: AutoFinalizationProviderMissing, when: a required provider term is absent}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FINALITY-008, TLC-UR-FINALITY-010, TLC-UR-FINALITY-014]
+forbidden_behaviors: [invent_ODE_solver, invent_integrator, invent_gradient, invent_goal_update_solver, invent_context_derivative]
+traceability: {source: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md, inventory: registry/domain-progress/finality-and-evolutionary-teleology/feature-inventory.yaml}

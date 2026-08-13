@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-004
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-004
+title: Dynamic final-attractor descriptor
+domain_id: finality-and-evolutionary-teleology
+contract_kind: conditional_set_descriptor
+scientific_status: external_provider_required
+scientific_authority: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+source_sections: ['2. Réalisation et attracteurs', '3. Axiomes']
+expression: 'A_fin(t)={X in TLS | lim_{tau->infinity} phi(tau,X) in G(t), P_pres(X) > theta}'
+inputs: [{name: asymptotic_membership_evidence, type: opaque}, {name: P_pres, type: scalar}, {name: theta, type: scalar}]
+outputs: [{name: final_attractor_membership_descriptor, type: descriptor}]
+opaque_providers: [flow_phi, asymptotic_limit_evidence, P_pres]
+preconditions: [caller supplies asymptotic membership evidence and preservation value]
+postconditions: [preserve strict P_pres > theta]
+invariants: [equality P_pres = theta does not satisfy the source predicate]
+constraints: [no flow integration basin solver or universal convergence checker]
+structured_errors: [{code: AttractorEvidenceMissing, when: limit or preservation evidence is unavailable}]
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-FINALITY-014]
+forbidden_behaviors: [invent_flow_integrator, invent_asymptotic_simulator, invent_basin_solver, invent_convergence_checker, invent_P_pres, invent_threshold]
+traceability: {source: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md, inventory: registry/domain-progress/finality-and-evolutionary-teleology/feature-inventory.yaml}

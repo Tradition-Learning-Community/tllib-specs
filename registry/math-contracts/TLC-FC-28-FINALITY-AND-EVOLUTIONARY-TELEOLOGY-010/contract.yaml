@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-010
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-010
+title: Hamiltonian preservation-sign ambiguity guard
+domain_id: finality-and-evolutionary-teleology
+contract_kind: scientific_ambiguity_guard
+scientific_status: preserved_unresolved
+scientific_authority: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+source_sections: ['4. Optimisation finalisée', '8. Limites et points scientifiques non résolus']
+expression: 'H = ... - L + lambda P_pres; optimization convention is insufficient to infer preservation direction'
+inputs: [{name: Hamiltonian_semantics_request, type: descriptor}]
+outputs: [{name: preservation_sign_status, type: descriptor}]
+opaque_providers: []
+preconditions: []
+postconditions: [preserve +lambda P_pres exactly]
+invariants: [lambda nonnegativity is not assumed unless externally supplied as evidence]
+constraints: [no equivalent objective is synthesized]
+structured_errors: [{code: HamiltonianPreservationSignUnresolved, when: resolved preservation optimization direction is requested}]
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-FINALITY-007]
+forbidden_behaviors: [repair_Hamiltonian_sign, invert_preservation_term, impose_lambda_nonnegative, invent_equivalent_objective]
+traceability: {source: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md, inventory: registry/domain-progress/finality-and-evolutionary-teleology/feature-inventory.yaml}

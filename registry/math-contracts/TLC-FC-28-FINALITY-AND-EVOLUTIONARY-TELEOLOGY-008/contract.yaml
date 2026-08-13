@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-008
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-008
+title: Preservation-penalty direction ambiguity guard
+domain_id: finality-and-evolutionary-teleology
+contract_kind: scientific_ambiguity_guard
+scientific_status: preserved_unresolved
+scientific_authority: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+source_sections: ['4. Optimisation finalisée', '8. Limites et points scientifiques non résolus']
+expression: '+ Psi(P_pres), described as a penalty of loss of the essential; monotonicity and sign are unspecified'
+inputs: [{name: objective_semantics_request, type: descriptor}]
+outputs: [{name: Psi_direction_status, type: descriptor}]
+opaque_providers: [Psi]
+preconditions: []
+postconditions: [preserve the exact plus sign and unresolved direction]
+invariants: [Psi is not replaced by Psi(1-P_pres) or -Psi(P_pres)]
+constraints: [no monotonicity or sign convention is invented]
+structured_errors: [{code: PreservationPenaltyDirectionUnresolved, when: resolved optimization direction is requested}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FINALITY-006]
+forbidden_behaviors: [repair_Psi_sign, replace_Psi_argument, impose_Psi_monotonicity, invent_equivalent_objective]
+traceability: {source: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md, inventory: registry/domain-progress/finality-and-evolutionary-teleology/feature-inventory.yaml}

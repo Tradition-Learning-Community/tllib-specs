@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-014
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-014
+title: State-goal-control structural descriptor
+domain_id: finality-and-evolutionary-teleology
+contract_kind: non_execution_system_descriptor
+scientific_status: external_provider_required
+scientific_authority: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+source_sections: ['5. Auto-finalisation']
+expression: 'Xdot=F(X,u,t); Gdot=three-term auto-finalization RHS; u(t)=argmin_u[L+lambda||X-X*(G)||^2]'
+inputs: [{name: system_statement, type: descriptor}]
+outputs: [{name: state_goal_control_descriptor, type: descriptor}]
+opaque_providers: [F, G_em, gradients, X_star_of_G, argmin]
+preconditions: []
+postconditions: [preserve the three equations without converting them to an executable controller]
+invariants: [argmin remains a scientific formulation]
+constraints: [no trajectory optimizer MPC gradient descent or control solver]
+structured_errors: [{code: StateGoalControlSolverUnavailable, when: an executable control or argmin solver is requested}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FINALITY-008, TLC-UR-FINALITY-010]
+forbidden_behaviors: [invent_argmin_solver, invent_control_solver, invent_trajectory_optimizer, invent_MPC, invent_gradient_descent, invent_ODE_solver]
+traceability: {source: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md, inventory: registry/domain-progress/finality-and-evolutionary-teleology/feature-inventory.yaml}

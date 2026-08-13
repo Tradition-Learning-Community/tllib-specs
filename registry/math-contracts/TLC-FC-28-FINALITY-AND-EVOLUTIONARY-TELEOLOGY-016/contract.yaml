@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-016
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-016
+title: Essential-preservation theorem descriptor
+domain_id: finality-and-evolutionary-teleology
+contract_kind: conditional_theorem_descriptor
+scientific_status: partially_defined
+scientific_authority: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+source_sections: ['6. Théorèmes formulés par la source']
+expression: 'if P_pres > theta on the attractor and U preserves the core, every admissible trajectory remains in the region'
+inputs: [{name: preservation_hypothesis_evidence, type: descriptor}]
+outputs: [{name: preservation_theorem_descriptor, type: descriptor}]
+opaque_providers: [P_pres_evidence, U_core_preservation_evidence]
+preconditions: []
+postconditions: [preserve strict P_pres > theta and conditional theorem status]
+invariants: [no safety or invariance certificate is implied]
+constraints: [repulsive-boundary proof is separated and unavailable]
+structured_errors: [{code: PreservationCertificateUnavailable, when: runtime safety or invariance certification is requested}]
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-FINALITY-011, TLC-UR-FINALITY-012]
+forbidden_behaviors: [invent_safety_certificate, invent_invariance_proof, invent_barrier_certificate, invent_threshold]
+traceability: {source: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md, inventory: registry/domain-progress/finality-and-evolutionary-teleology/feature-inventory.yaml}
