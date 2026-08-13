@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-022
+source_contract: registry/math-contracts/TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-022/contract.yaml
+tests:
+  - {id: FIN022-T01, category: formula, verifies: R_tel equals exp of negative supplied d_real}
+  - {id: FIN022-T02, category: preservation, verifies: no automatic [0,1] claim without d_real nonnegativity evidence}
+  - {id: FIN022-T03, category: non_invention, verifies: no clamp or realization-distance engine}

@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-021
+source_contract: registry/math-contracts/TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-021/contract.yaml
+tests:
+  - {id: FIN021-T01, category: formula, verifies: eta_tel equals supplied discounted integral divided by T}
+  - {id: FIN021-T02, category: error, verifies: T equals zero returns TeleologicalEfficiencyZeroHorizon}
+  - {id: FIN021-T03, category: non_invention, verifies: no quadrature trajectory generation or calibration}

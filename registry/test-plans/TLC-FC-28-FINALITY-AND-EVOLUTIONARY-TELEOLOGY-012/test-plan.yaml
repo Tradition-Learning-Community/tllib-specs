@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-012
+source_contract: registry/math-contracts/TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-012/contract.yaml
+tests:
+  - {id: FIN012-T01, category: formula, verifies: exact three-term auto-finalization RHS}
+  - {id: FIN012-T02, category: provider, verifies: G_em gradients and context derivative are externally supplied}
+  - {id: FIN012-T03, category: non_invention, verifies: no gradient computation ODE integration or goal-update solver}

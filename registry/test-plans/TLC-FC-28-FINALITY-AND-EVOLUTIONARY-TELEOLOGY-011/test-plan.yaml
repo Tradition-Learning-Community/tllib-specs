@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-011
+source_contract: registry/math-contracts/TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-011/contract.yaml
+tests:
+  - {id: FIN011-T01, category: formula, verifies: HJB source equation preserved}
+  - {id: FIN011-T02, category: provider, verifies: gradients F and minimization remain provider-backed}
+  - {id: FIN011-T03, category: non_invention, verifies: no HJB PDE minimizer value-iteration or policy-iteration solver}

@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-005
+source_contract: registry/math-contracts/TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-005/contract.yaml
+tests:
+  - {id: FIN005-T01, category: formula, verifies: G(t+1)=U(G(t),c(t)) and U typing preserved}
+  - {id: FIN005-T02, category: provider, verifies: U remains external}
+  - {id: FIN005-T03, category: dependency, verifies: 28 to 04 preserved and no 28 to 29 30 31}
+  - {id: FIN005-T04, category: non_invention, verifies: no goal update policy planner or optimizer}

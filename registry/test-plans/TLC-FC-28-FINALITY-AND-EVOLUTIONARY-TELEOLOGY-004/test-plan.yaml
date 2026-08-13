@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-004
+source_contract: registry/math-contracts/TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-004/contract.yaml
+tests:
+  - {id: FIN004-T01, category: formula, verifies: final-attractor conditions are conjunctive}
+  - {id: FIN004-T02, category: boundary, verifies: P_pres greater-than theta is strict and equality fails}
+  - {id: FIN004-T03, category: dependency, verifies: scientific dependency 28 to 04 and runtime none}
+  - {id: FIN004-T04, category: non_invention, verifies: no flow integrator basin solver or threshold calibration}
