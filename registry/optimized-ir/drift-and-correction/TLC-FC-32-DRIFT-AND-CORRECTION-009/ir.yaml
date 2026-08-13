@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-009
+status: finalized
+execution: executable
+source_ir: registry/ir/TLC-FC-32-DRIFT-AND-CORRECTION-009/ir.yaml
+operation: evaluate_institutional_rigidity
+required_behavior: [guard N_rules_0 and tau_decision_0, compute exact two ratios times one minus A_adapt, leave output unbounded]
+forbidden_behavior: [epsilon_regularization, clamp, normalization, probability_conversion]
+error_codes: [RulesBaselineZero, DecisionBaselineZero]

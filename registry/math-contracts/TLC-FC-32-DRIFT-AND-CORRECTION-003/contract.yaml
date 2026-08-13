@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-32-DRIFT-AND-CORRECTION-003
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-003
+title: Core-periphery classification
+domain_id: drift-and-correction
+contract_kind: strict_predicate_contract
+scientific_status: external_provider_required
+scientific_authority: maths/32-drift-and-correction/stability-drift-and-correction.md
+source_sections: ['1. Identification du noyau et de la périphérie']
+expression: 'core iff kappa(e) > kappa_min; otherwise periphery'
+inputs: [{name: kappa, type: scalar}, {name: kappa_min, type: scalar}]
+outputs: [{name: classification, type: enum_core_periphery}]
+opaque_providers: [kappa_min calibration]
+preconditions: [kappa and supplied kappa_min are comparable]
+postconditions: [core exactly when strict greater-than is true; equality is periphery]
+invariants: [diagnostic classification does not replace domain 04 invariants]
+constraints: [strict comparator must remain >]
+structured_errors: [{code: KappaThresholdUnavailable, when: kappa_min is not supplied}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-DRIFT-004]
+forbidden_behaviors: [replace_greater_than_with_greater_or_equal, invent_threshold, calibrate_kappa_min, replace_invariants_04]
+traceability: {source: maths/32-drift-and-correction/stability-drift-and-correction.md, inventory: registry/domain-progress/drift-and-correction/feature-inventory.yaml}

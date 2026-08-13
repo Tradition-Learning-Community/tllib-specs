@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-32-DRIFT-AND-CORRECTION-017
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-017
+title: Invalid mnemonic metric exclusion guard
+domain_id: drift-and-correction
+contract_kind: scientific_exclusion_guard
+scientific_status: defined
+scientific_authority: maths/32-drift-and-correction/stability-drift-and-correction.md
+source_sections: ['6. Limites et points scientifiques non résolus']
+expression: 'historical mnemonic ritual efficiency expression divides by ||X-X|| = 0 and is explicitly not retained as a valid metric'
+inputs: [{name: mnemonic_metric_request, type: descriptor}]
+outputs: [{name: exclusion_status, type: descriptor}]
+opaque_providers: []
+preconditions: []
+postconditions: [the invalid metric is never exposed as a valid executable calculation]
+invariants: [the missing historical numerator or full formula is not reconstructed]
+constraints: [scientific exclusion only]
+structured_errors: [{code: InvalidMnemonicMetricExcluded, when: calculation reconstruction repair or execution is requested}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-DRIFT-014]
+forbidden_behaviors: [resurrect_invalid_mnemonic_metric, repair_invalid_mnemonic_formula, replace_zero_denominator, invent_historical_formula, publish_invalid_metric_as_executable]
+traceability: {source: maths/32-drift-and-correction/stability-drift-and-correction.md, inventory: registry/domain-progress/drift-and-correction/feature-inventory.yaml}

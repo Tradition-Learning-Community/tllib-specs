@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-009
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-009/contract.yaml
+tests:
+  - {id: DRI009-T01, category: formula, verifies: exact rigidity product and one-minus-adapt factor}
+  - {id: DRI009-T02, category: error, verifies: zero rules or decision baselines emit structured errors}
+  - {id: DRI009-T03, category: limitation, verifies: I_rig is unclamped and not asserted bounded}

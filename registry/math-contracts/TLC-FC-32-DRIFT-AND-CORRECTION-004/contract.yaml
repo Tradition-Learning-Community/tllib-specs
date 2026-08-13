@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-32-DRIFT-AND-CORRECTION-004
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-004
+title: Suppression-test unavailable guard
+domain_id: drift-and-correction
+contract_kind: unresolved_provider_guard
+scientific_status: preserved_unresolved
+scientific_authority: maths/32-drift-and-correction/stability-drift-and-correction.md
+source_sections: ['1. Identification du noyau et de la périphérie', '6. Limites et points scientifiques non résolus']
+expression: 'kappa_supp is described as simulated-removal effect; the simulated-suppression test is undefined'
+inputs: [{name: request, type: descriptor}]
+outputs: [{name: suppression_component_status, type: descriptor}]
+opaque_providers: [kappa_supp]
+preconditions: []
+postconditions: [requests to construct the suppression test are rejected as scientifically unavailable]
+invariants: [no simulation semantics are synthesized]
+constraints: [structural descriptor only]
+structured_errors: [{code: SuppressionTestUnavailable, when: executable simulated-suppression semantics are requested}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-DRIFT-002]
+forbidden_behaviors: [invent_suppression_simulation, invent_intervention_algorithm, invent_causal_estimator, invent_graph_deletion_experiment]
+traceability: {source: maths/32-drift-and-correction/stability-drift-and-correction.md, inventory: registry/domain-progress/drift-and-correction/feature-inventory.yaml}

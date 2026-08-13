@@ -1,0 +1,33 @@
+schema_version: 1
+domain: drift-and-correction
+patterns:
+  invariants_provider_boundary:
+    applies_to: [TLC-FC-32-DRIFT-AND-CORRECTION-011, TLC-FC-32-DRIFT-AND-CORRECTION-018]
+    rule: depend scientifically on domain 04 while keeping N_inv d_D pi_N norms and thresholds opaque where 04 exposes no executable signature
+  fidelity_companion_boundary:
+    applies_to: [TLC-FC-32-DRIFT-AND-CORRECTION-011, TLC-FC-32-DRIFT-AND-CORRECTION-014, TLC-FC-32-DRIFT-AND-CORRECTION-015, TLC-FC-32-DRIFT-AND-CORRECTION-018]
+    rule: domain 35 is analysis companion only; never promote 32 to 35 or 35 to 32 dependency
+  kappa_normalization_boundary:
+    applies_to: [TLC-FC-32-DRIFT-AND-CORRECTION-001, TLC-FC-32-DRIFT-AND-CORRECTION-003]
+    rule: exact one-fifth mean is preserved without assuming components or kappa are in [0,1]
+  zero_denominator_guards:
+    applies_to: [TLC-FC-32-DRIFT-AND-CORRECTION-002, TLC-FC-32-DRIFT-AND-CORRECTION-008, TLC-FC-32-DRIFT-AND-CORRECTION-009, TLC-FC-32-DRIFT-AND-CORRECTION-010, TLC-FC-32-DRIFT-AND-CORRECTION-015, TLC-FC-32-DRIFT-AND-CORRECTION-016]
+    rule: source denominators equal to zero produce structured errors with no epsilon repair or silent NaN
+  writing_pressure_provider_boundary:
+    applies_to: [TLC-FC-32-DRIFT-AND-CORRECTION-006, TLC-FC-32-DRIFT-AND-CORRECTION-007]
+    rule: preserve sigma as opaque source function and preserve absent units calibration and commensurability
+  unbounded_indices:
+    applies_to: [TLC-FC-32-DRIFT-AND-CORRECTION-008, TLC-FC-32-DRIFT-AND-CORRECTION-009]
+    rule: Delta_dog and I_rig are not clamped normalized or interpreted as probabilities
+  rupture_conjunction:
+    applies_to: [TLC-FC-32-DRIFT-AND-CORRECTION-011, TLC-FC-32-DRIFT-AND-CORRECTION-012]
+    rule: preserve exact simultaneous four-way AND while keeping conceptual schism paths unresolved and equation-free
+  reform_non_construction:
+    applies_to: [TLC-FC-32-DRIFT-AND-CORRECTION-013]
+    rule: reform phases are descriptive only; no state machine workflow transition probabilities or orchestrator
+  reset_admissibility_boundary:
+    applies_to: [TLC-FC-32-DRIFT-AND-CORRECTION-014, TLC-FC-32-DRIFT-AND-CORRECTION-015, TLC-FC-32-DRIFT-AND-CORRECTION-016]
+    rule: reset features test supplied candidate/provider outputs and never generate X_prime or construct pi_N
+  invalid_mnemonic_metric_exclusion:
+    applies_to: [TLC-FC-32-DRIFT-AND-CORRECTION-017, TLC-FC-32-DRIFT-AND-CORRECTION-018]
+    rule: denominator norm(X-X)=0 makes the historical metric invalid; never reconstruct repair or publish it as executable

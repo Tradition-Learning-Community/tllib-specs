@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-003
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-32-DRIFT-AND-CORRECTION-003/ir.yaml
+operation: classify_core_periphery
+required_behavior: [use supplied kappa_min, classify core only for strict kappa greater than kappa_min, classify equality as periphery]
+forbidden_behavior: [greater_or_equal, threshold_invention, invariant_replacement]
+error_codes: [KappaThresholdUnavailable]

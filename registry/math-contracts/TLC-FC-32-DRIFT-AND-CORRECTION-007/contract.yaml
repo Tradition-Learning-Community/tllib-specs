@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-32-DRIFT-AND-CORRECTION-007
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-007
+title: Writing-pressure calibration guard
+domain_id: drift-and-correction
+contract_kind: scientific_ambiguity_guard
+scientific_status: preserved_unresolved
+scientific_authority: maths/32-drift-and-correction/stability-drift-and-correction.md
+source_sections: ['6. Limites et points scientifiques non résolus']
+expression: 'writing-pressure variables are assumed commensurable after weighting; units and calibrations are not provided'
+inputs: [{name: calibration_request, type: descriptor}]
+outputs: [{name: calibration_status, type: descriptor}]
+opaque_providers: [units, alpha calibration, commensurability contract]
+preconditions: []
+postconditions: [missing calibration remains explicit and no repair is synthesized]
+invariants: [raw source variables remain unnormalized]
+constraints: [structural-only guard]
+structured_errors: [{code: WritingPressureCalibrationUnavailable, when: automatic units normalization or alpha calibration is requested}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-DRIFT-006]
+forbidden_behaviors: [invent_calibration, invent_units, normalize_inputs, standardize_inputs, infer_commensurability]
+traceability: {source: maths/32-drift-and-correction/stability-drift-and-correction.md, inventory: registry/domain-progress/drift-and-correction/feature-inventory.yaml}

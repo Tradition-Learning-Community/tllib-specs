@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-008
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-008/contract.yaml
+source_candidate_ir: ir/TLC-FC-32-DRIFT-AND-CORRECTION-008/ir.candidate.json
+nature: exact_expression_with_guards
+steps: [require provider-final norm values, reject zero epsilon_norm_0 or A_adapt_0, compute exact product of ratios, subtract from one without clamping]
+errors: [NormProviderUnavailable, DogmatizationBaselineNormZero, DogmatizationAdaptabilityBaselineZero]

@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-015
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-015/contract.yaml
+tests:
+  - {id: DRI015-T01, category: formula, verifies: exact one-minus reset continuity ratio}
+  - {id: DRI015-T02, category: boundary, verifies: strict C_cont greater than C_min and vitality increase are both required}
+  - {id: DRI015-T03, category: error, verifies: zero projection norm is explicit and never epsilon-regularized}

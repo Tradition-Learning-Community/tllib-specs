@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-016
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-016/contract.yaml
+source_candidate_ir: ir/TLC-FC-32-DRIFT-AND-CORRECTION-016/ir.candidate.json
+nature: zero_denominator_guard
+steps: [inspect supplied projection_X_norm, reject exact zero, pass nonzero without alteration]
+errors: [ResetContinuityDenominatorZero]

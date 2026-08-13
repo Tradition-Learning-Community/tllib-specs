@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-014
+algorithm_kind: predicate_evaluator
+execution: conditionally_executable
+steps: [require provider-final inputs, compare projection distance strictly less than epsilon_reset, compare vitality strictly greater, compare burden strictly less, logical AND]
+forbidden: [candidate_generation, optimizer, projection_construction, dependency_on_fidelity_35]

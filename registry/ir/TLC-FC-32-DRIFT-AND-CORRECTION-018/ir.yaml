@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-018
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-018/contract.yaml
+source_candidate_ir: ir/TLC-FC-32-DRIFT-AND-CORRECTION-018/ir.candidate.json
+nature: scope_dependency_guard
+steps: [preserve scientific dependency 32 to 04, keep runtime dependencies empty, reject 32 to 35 and 35 to 32 promotion, reject invariant replacement and invalid metric resurrection]
+errors: [DriftScopeViolation]

@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-016
+algorithm_kind: zero_denominator_guard
+execution: executable
+steps: [compare supplied denominator with zero, emit structured error if zero]
+forbidden: [regularization, replacement, silent_nan]

@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-009
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-009/contract.yaml
+source_candidate_ir: ir/TLC-FC-32-DRIFT-AND-CORRECTION-009/ir.candidate.json
+nature: exact_expression_with_guards
+steps: [reject zero N_rules_0, reject zero tau_decision_0, evaluate exact product with one minus A_adapt, do not clamp]
+errors: [RulesBaselineZero, DecisionBaselineZero]

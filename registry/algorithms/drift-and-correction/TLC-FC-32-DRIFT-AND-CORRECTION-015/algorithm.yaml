@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-015
+algorithm_kind: exact_expression_evaluator_with_zero_guard
+execution: conditionally_executable
+steps: [require provider-final norms, reject zero denominator, divide projection-change norm by projection-X norm, subtract from one, require strict threshold and vitality increase]
+forbidden: [projection_construction, norm_construction, regularization, clamp]

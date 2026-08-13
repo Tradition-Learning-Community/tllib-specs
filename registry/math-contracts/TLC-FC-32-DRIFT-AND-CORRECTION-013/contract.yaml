@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-32-DRIFT-AND-CORRECTION-013
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-013
+title: Reform-cycle unavailable-model guard
+domain_id: drift-and-correction
+contract_kind: unavailable_model_guard
+scientific_status: preserved_unresolved
+scientific_authority: maths/32-drift-and-correction/stability-drift-and-correction.md
+source_sections: ['5. Réforme et réinitialisation de mission', '6. Limites et points scientifiques non résolus']
+expression: 'reform cycle lists diagnosis, proclamation, resistance, expansion, institutionalization; detailed model is explicitly out of scope'
+inputs: [{name: reform_model_request, type: descriptor}]
+outputs: [{name: reform_model_status, type: descriptor}]
+opaque_providers: []
+preconditions: []
+postconditions: [return structural phase descriptor or ReformModelUnavailable for executable orchestration]
+invariants: [phase list is descriptive only]
+constraints: [no transition semantics exist in the source]
+structured_errors: [{code: ReformModelUnavailable, when: state-machine workflow transition-probability or orchestration semantics are requested}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-DRIFT-012]
+forbidden_behaviors: [invent_reform_state_machine, invent_reform_workflow, invent_transition_probabilities, invent_reform_orchestrator]
+traceability: {source: maths/32-drift-and-correction/stability-drift-and-correction.md, inventory: registry/domain-progress/drift-and-correction/feature-inventory.yaml}

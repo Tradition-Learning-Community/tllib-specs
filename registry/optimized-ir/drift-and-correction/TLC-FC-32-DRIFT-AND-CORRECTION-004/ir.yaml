@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-004
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-32-DRIFT-AND-CORRECTION-004/ir.yaml
+operation: guard_suppression_test_unavailable
+required_behavior: [preserve kappa_supp as unavailable provider, expose structured unavailability for executable requests]
+forbidden_behavior: [simulation, intervention_algorithm, causal_estimator, graph_deletion_experiment]
+error_codes: [SuppressionTestUnavailable]

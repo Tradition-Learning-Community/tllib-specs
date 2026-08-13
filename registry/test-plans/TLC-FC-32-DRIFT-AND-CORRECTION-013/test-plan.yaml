@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-013
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-013/contract.yaml
+tests:
+  - {id: DRI013-T01, category: preservation, verifies: exact five reform phase labels remain descriptive}
+  - {id: DRI013-T02, category: non_invention, verifies: no state machine workflow probabilities or orchestrator}
+  - {id: DRI013-T03, category: error, verifies: executable reform request emits ReformModelUnavailable}

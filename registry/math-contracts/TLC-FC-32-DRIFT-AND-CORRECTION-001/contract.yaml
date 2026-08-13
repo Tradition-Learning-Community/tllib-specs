@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-32-DRIFT-AND-CORRECTION-001
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-001
+title: Core diagnostic aggregate score
+domain_id: drift-and-correction
+contract_kind: exact_expression_contract
+scientific_status: partially_defined
+scientific_authority: maths/32-drift-and-correction/stability-drift-and-correction.md
+source_sections: ['1. Identification du noyau et de la périphérie', '6. Limites et points scientifiques non résolus']
+expression: 'kappa(e) = (1/5)(kappa_uni(e)+kappa_fond(e)+kappa_res(e)+kappa_rec(e)+kappa_supp(e))'
+inputs: [{name: kappa_uni, type: scalar}, {name: kappa_fond, type: scalar}, {name: kappa_res, type: scalar}, {name: kappa_rec, type: scalar}, {name: kappa_supp, type: scalar}]
+outputs: [{name: kappa, type: scalar}]
+opaque_providers: [kappa_supp source component]
+preconditions: [all five component values are supplied]
+postconditions: [return the exact unweighted one-fifth mean of the five supplied components]
+invariants: [the factor is exactly 1/5, component order and equal weighting are preserved, no [0,1] bound is asserted]
+constraints: [do not normalize clamp or reweight components]
+structured_errors: [{code: KappaComponentUnavailable, when: one or more source components are unavailable}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-DRIFT-001, TLC-UR-DRIFT-002]
+forbidden_behaviors: [replace_with_weighted_mean, normalize_kappa_components, clamp_kappa, assume_kappa_components_normalized, claim_kappa_in_unit_interval, invent_suppression_simulation]
+traceability: {source: maths/32-drift-and-correction/stability-drift-and-correction.md, inventory: registry/domain-progress/drift-and-correction/feature-inventory.yaml}

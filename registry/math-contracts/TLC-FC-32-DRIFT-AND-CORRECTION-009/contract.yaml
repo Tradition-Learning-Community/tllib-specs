@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-32-DRIFT-AND-CORRECTION-009
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-009
+title: Institutional rigidity index
+domain_id: drift-and-correction
+contract_kind: exact_expression_with_guards
+scientific_status: defined
+scientific_authority: maths/32-drift-and-correction/stability-drift-and-correction.md
+source_sections: ['3.2 Rigidité institutionnelle', '6. Limites et points scientifiques non résolus']
+expression: 'I_rig = (N_rules/N_rules^0)(tau_decision/tau_decision^0)(1-A_adapt)'
+inputs: [{name: N_rules, type: scalar}, {name: N_rules_0, type: scalar}, {name: tau_decision, type: scalar}, {name: tau_decision_0, type: scalar}, {name: A_adapt, type: scalar}]
+outputs: [{name: I_rig, type: scalar}]
+opaque_providers: []
+preconditions: [N_rules_0 nonzero, tau_decision_0 nonzero]
+postconditions: [evaluate exact source product]
+invariants: [I_rig is not asserted bounded]
+constraints: [no normalization or clamping]
+structured_errors: [{code: RulesBaselineZero, when: N_rules_0 equals zero}, {code: DecisionBaselineZero, when: tau_decision_0 equals zero}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-DRIFT-008]
+forbidden_behaviors: [regularize_zero_denominator, clamp_rigidity, normalize_rigidity, convert_to_probability]
+traceability: {source: maths/32-drift-and-correction/stability-drift-and-correction.md, inventory: registry/domain-progress/drift-and-correction/feature-inventory.yaml}

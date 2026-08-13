@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-003
+algorithm_kind: strict_predicate_evaluator
+execution: conditionally_executable
+steps: [require supplied threshold, compare kappa strictly greater than kappa_min, return core else periphery]
+forbidden: [greater_or_equal, calibrate_threshold, replace_invariants_04]

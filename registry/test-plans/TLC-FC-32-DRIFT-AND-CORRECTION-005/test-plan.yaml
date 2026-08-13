@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-005
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-005/contract.yaml
+tests:
+  - {id: DRI005-T01, category: formula, verifies: exact I_inc_max times one minus exp minus lambda n expression}
+  - {id: DRI005-T02, category: preservation, verifies: exponent sign remains negative}
+  - {id: DRI005-T03, category: non_invention, verifies: no repetition scheduler lambda estimator or calibration}

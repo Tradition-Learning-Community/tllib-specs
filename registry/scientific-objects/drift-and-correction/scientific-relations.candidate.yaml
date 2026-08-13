@@ -1,0 +1,49 @@
+schema_version: 1
+domain: drift-and-correction
+relation_count: 45
+relations:
+  - {id: TLC-SR-DRIFT-001, from: drift_and_correction_domain, relation: depends_scientifically_on, to: invariants_domain_04}
+  - {id: TLC-SR-DRIFT-002, from: drift_and_correction_domain, relation: analysis_companion_only, to: fidelity_domain_35}
+  - {id: TLC-SR-DRIFT-003, from: kappa_e, relation: equals_unweighted_mean_of, to: five_kappa_components}
+  - {id: TLC-SR-DRIFT-004, from: kappa_e, relation: uses_exact_factor, to: one_fifth}
+  - {id: TLC-SR-DRIFT-005, from: kappa_res_e, relation: equals, to: one_minus_delta_e_norm_over_max}
+  - {id: TLC-SR-DRIFT-006, from: kappa_res_e, relation: undefined_when_zero, to: delta_e_norm_max}
+  - {id: TLC-SR-DRIFT-007, from: core_membership, relation: requires_strictly_greater_than, to: kappa_min}
+  - {id: TLC-SR-DRIFT-008, from: periphery_membership, relation: is_else_branch_of, to: core_membership}
+  - {id: TLC-SR-DRIFT-009, from: kappa_supp_e, relation: depends_on_undefined, to: simulated_suppression_test}
+  - {id: TLC-SR-DRIFT-010, from: I_inc_n, relation: follows_exact_expression, to: I_inc_max_times_one_minus_exp_minus_lambda_n}
+  - {id: TLC-SR-DRIFT-011, from: p_ecrit_t, relation: applies_provider, to: sigma}
+  - {id: TLC-SR-DRIFT-012, from: p_ecrit_t, relation: aggregates, to: five_weighted_pressure_terms}
+  - {id: TLC-SR-DRIFT-013, from: p_ecrit_t, relation: lacks_calibration_for, to: weighted_input_commensurability}
+  - {id: TLC-SR-DRIFT-014, from: Delta_dog, relation: equals, to: one_minus_product_of_two_ratios}
+  - {id: TLC-SR-DRIFT-015, from: Delta_dog, relation: undefined_when_zero, to: epsilon_norm_0}
+  - {id: TLC-SR-DRIFT-016, from: Delta_dog, relation: undefined_when_zero, to: A_adapt_0}
+  - {id: TLC-SR-DRIFT-017, from: Delta_dog, relation: not_guaranteed_bounded_by, to: zero_one_interval}
+  - {id: TLC-SR-DRIFT-018, from: I_rig, relation: equals, to: rule_ratio_times_delay_ratio_times_one_minus_adapt}
+  - {id: TLC-SR-DRIFT-019, from: I_rig, relation: undefined_when_zero, to: N_rules_0}
+  - {id: TLC-SR-DRIFT-020, from: I_rig, relation: undefined_when_zero, to: tau_decision_0}
+  - {id: TLC-SR-DRIFT-021, from: I_rig, relation: not_guaranteed_bounded_by, to: zero_one_interval}
+  - {id: TLC-SR-DRIFT-022, from: I_mis, relation: equals_product_of, to: three_mission_ratios}
+  - {id: TLC-SR-DRIFT-023, from: I_mis, relation: undefined_when_zero, to: V_vit_max}
+  - {id: TLC-SR-DRIFT-024, from: I_mis, relation: undefined_when_zero, to: F_eng_max}
+  - {id: TLC-SR-DRIFT-025, from: I_mis, relation: undefined_when_zero, to: J_joy_max}
+  - {id: TLC-SR-DRIFT-026, from: S_rupture, relation: requires_all_four, to: rupture_conditions}
+  - {id: TLC-SR-DRIFT-027, from: S_rupture, relation: uses, to: d_D}
+  - {id: TLC-SR-DRIFT-028, from: S_rupture, relation: uses, to: N_inv}
+  - {id: TLC-SR-DRIFT-029, from: schism_paths, relation: conceptually_distinguishes, to: doctrinal_institutional_cultural_personal}
+  - {id: TLC-SR-DRIFT-030, from: schism_paths, relation: not_equationally_articulated_with, to: S_rupture}
+  - {id: TLC-SR-DRIFT-031, from: reform_cycle, relation: lists_phases, to: diagnosis_proclamation_resistance_expansion_institutionalization}
+  - {id: TLC-SR-DRIFT-032, from: reform_cycle, relation: lacks_detailed_model, to: reform_dynamics}
+  - {id: TLC-SR-DRIFT-033, from: R_reset, relation: maps, to: X_to_X_prime}
+  - {id: TLC-SR-DRIFT-034, from: R_reset, relation: requires_strict_projection_closeness_to, to: X_orig}
+  - {id: TLC-SR-DRIFT-035, from: R_reset, relation: requires_increase_of, to: V_vit}
+  - {id: TLC-SR-DRIFT-036, from: R_reset, relation: requires_decrease_of, to: B}
+  - {id: TLC-SR-DRIFT-037, from: C_cont, relation: equals, to: one_minus_projection_change_ratio}
+  - {id: TLC-SR-DRIFT-038, from: C_cont, relation: undefined_when_zero, to: projection_X_norm}
+  - {id: TLC-SR-DRIFT-039, from: C_cont, relation: requires_strictly_greater_than, to: C_min}
+  - {id: TLC-SR-DRIFT-040, from: invalid_mnemonic_metric, relation: divides_by_zero, to: invalid_mnemonic_denominator}
+  - {id: TLC-SR-DRIFT-041, from: invalid_mnemonic_metric, relation: excluded_from, to: valid_metrics}
+  - {id: TLC-SR-DRIFT-042, from: pi_N, relation: is_opaque_provider_for, to: reset_expressions}
+  - {id: TLC-SR-DRIFT-043, from: d_D, relation: is_opaque_provider_for, to: rupture_predicate}
+  - {id: TLC-SR-DRIFT-044, from: N_inv, relation: is_normative_provider_from, to: invariants_domain_04}
+  - {id: TLC-SR-DRIFT-045, from: drift_and_correction_domain, relation: does_not_depend_scientifically_on, to: fidelity_domain_35}

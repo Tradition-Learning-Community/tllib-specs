@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-017
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-017/contract.yaml
+tests:
+  - {id: DRI017-T01, category: exclusion, verifies: invalid mnemonic metric is never published as executable}
+  - {id: DRI017-T02, category: source_invalidity, verifies: denominator norm(X-X) equals zero is preserved as rejection basis}
+  - {id: DRI017-T03, category: non_invention, verifies: historical formula is not reconstructed repaired or given a replacement denominator}

@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-003
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-003/contract.yaml
+tests:
+  - {id: DRI003-T01, category: comparator, verifies: strict kappa greater than kappa_min yields core}
+  - {id: DRI003-T02, category: boundary, verifies: kappa equal kappa_min yields periphery}
+  - {id: DRI003-T03, category: non_invention, verifies: threshold is supplied and classification does not replace domain 04 invariants}

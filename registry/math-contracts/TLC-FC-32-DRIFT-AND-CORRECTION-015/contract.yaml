@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-32-DRIFT-AND-CORRECTION-015
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-015
+title: Reset continuity expression
+domain_id: drift-and-correction
+contract_kind: exact_expression_with_guard
+scientific_status: external_provider_required
+scientific_authority: maths/32-drift-and-correction/stability-drift-and-correction.md
+source_sections: ['5. Réforme et réinitialisation de mission']
+expression: 'C_cont = 1 - ||pi_N(X_prime)-pi_N(X)|| / ||pi_N(X)||; require C_cont > C_min and vitality increase'
+inputs: [{name: projection_change_norm, type: scalar}, {name: projection_X_norm, type: scalar}, {name: C_min, type: scalar}, {name: vitality_increased, type: boolean}]
+outputs: [{name: C_cont, type: scalar}, {name: continuity_admissible, type: boolean}]
+opaque_providers: [pi_N projection, norm, C_min]
+preconditions: [provider-final norms supplied, projection_X_norm nonzero]
+postconditions: [compute exact continuity expression and require strict C_cont > C_min plus vitality increase]
+invariants: [no epsilon regularization and no clamp]
+constraints: [zero denominator is explicit]
+structured_errors: [{code: ResetContinuityProviderUnavailable, when: projection or norm provider output is unavailable}, {code: ResetContinuityDenominatorZero, when: projection_X_norm equals zero}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-DRIFT-013]
+forbidden_behaviors: [invent_core_projection, invent_norm, add_epsilon, regularize_zero_denominator, clamp_continuity, replace_greater_than_with_greater_or_equal]
+traceability: {source: maths/32-drift-and-correction/stability-drift-and-correction.md, inventory: registry/domain-progress/drift-and-correction/feature-inventory.yaml}

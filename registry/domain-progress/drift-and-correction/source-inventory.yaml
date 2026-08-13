@@ -1,0 +1,28 @@
+schema_version: 1
+domain: drift-and-correction
+domain_index: 32
+status: frozen
+baseline_commit: 15caf75756e49d43689cb14a7a4db3d2394f461d
+scientific_source: {path: maths/32-drift-and-correction/stability-drift-and-correction.md, blob_sha: c43d581fcbd33d086c1acb84ec43ac6d48ed95a3, modified: false}
+provider_source: {domain: invariants, domain_index: 4, path: maths/04-invariants/invariants.md, blob_sha: 5bddc38b4a74465c2bc3b1d2e9f8aac004e86800, relation: '32 -> 04', semantics: scientific_domain_dependency_only}
+analysis_companion: {domain: fidelity-to-invariant-core, domain_index: 35, path: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md, blob_sha: 5a6e0dcdcbc66bd74bb7d6816d34f2bcd0e73817, confirmed_dependency: false, rationale: analysis companion is not a normative scientific dependency}
+cross_analysis:
+  drift_to_fidelity_confirmed: false
+  fidelity_to_drift_confirmed: false
+  drift_confirmed_dependencies: [4]
+  drift_provisional_dependencies: []
+  drift_unknown: false
+  runtime_dependencies: []
+provider_boundary:
+  invariants_feature_population: 10
+  scientifically_executable_features: 0
+  invariant_core_calculator_provided: false
+  projection_pi_N_provided: false
+  doctrinal_distance_d_D_provided: false
+  norm_provider_provided: false
+  threshold_calibration_provided: false
+scientific_exclusions:
+  invalid_mnemonic_metric: source expression divides by norm(X-X)=0 and is not retained as a valid metric
+  suppression_simulation: kappa_supp simulation is not defined
+  reform_dynamics: detailed reform model explicitly exceeds chapter synthesis
+counts: {scientific_objects: 76, scientific_relations: 45, unresolved_items: 14, features: 18}
