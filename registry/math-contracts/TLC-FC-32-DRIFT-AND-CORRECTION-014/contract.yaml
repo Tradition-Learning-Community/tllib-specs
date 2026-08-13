@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-32-DRIFT-AND-CORRECTION-014
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-014
+title: Reset admissibility predicate
+domain_id: drift-and-correction
+contract_kind: conjunctive_predicate_contract
+scientific_status: external_provider_required
+scientific_authority: maths/32-drift-and-correction/stability-drift-and-correction.md
+source_sections: ['5. Réforme et réinitialisation de mission']
+expression: '||pi_N(X_prime)-pi_N(X_orig)|| < epsilon_reset AND V_vit_prime > V_vit AND B_prime < B'
+inputs: [{name: projection_distance_to_origin, type: scalar}, {name: epsilon_reset, type: scalar}, {name: V_vit_prime, type: scalar}, {name: V_vit, type: scalar}, {name: B_prime, type: scalar}, {name: B, type: scalar}]
+outputs: [{name: reset_admissible, type: boolean}]
+opaque_providers: [pi_N projection, norm, epsilon_reset, vitality and burden measurements]
+preconditions: [provider-final projection distance and all comparison values are supplied]
+postconditions: [true iff all three source conditions hold with strict comparators]
+invariants: [projection condition uses strict <, vitality strict >, burden strict <]
+constraints: [this is an admissibility test, not a generator for X_prime]
+structured_errors: [{code: ResetProviderUnavailable, when: any provider-final input is unavailable}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-DRIFT-013]
+forbidden_behaviors: [invent_reset_optimizer, invent_reset_algorithm, invent_search, invent_mutation_policy, invent_core_projection, replace_strict_comparators]
+traceability: {source: maths/32-drift-and-correction/stability-drift-and-correction.md, inventory: registry/domain-progress/drift-and-correction/feature-inventory.yaml}

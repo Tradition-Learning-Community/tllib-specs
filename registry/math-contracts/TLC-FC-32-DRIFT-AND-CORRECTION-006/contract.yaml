@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-32-DRIFT-AND-CORRECTION-006
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-006
+title: Writing-pressure expression
+domain_id: drift-and-correction
+contract_kind: provider_composed_expression
+scientific_status: external_provider_required
+scientific_authority: maths/32-drift-and-correction/stability-drift-and-correction.md
+source_sections: ['2. Renforcement et cristallisation', '6. Limites et points scientifiques non résolus']
+expression: 'p_ecrit(t) = sigma(alpha_1(N(t)-N_c)+alpha_2 d_max(t)+alpha_3 delta_doct(t)+alpha_4(T_max-T_temoins(t))+alpha_5 P_ext(t))'
+inputs: [{name: alpha_1, type: scalar}, {name: alpha_2, type: scalar}, {name: alpha_3, type: scalar}, {name: alpha_4, type: scalar}, {name: alpha_5, type: scalar}, {name: N_t, type: scalar}, {name: N_c, type: scalar}, {name: d_max_t, type: scalar}, {name: delta_doct_t, type: scalar}, {name: T_max, type: scalar}, {name: T_temoins_t, type: scalar}, {name: P_ext_t, type: scalar}, {name: sigma_provider, type: callable_provider}]
+outputs: [{name: p_ecrit, type: opaque_scalar}]
+opaque_providers: [sigma form]
+preconditions: [all weighted terms and a source-compatible sigma provider are supplied]
+postconditions: [preserve all five signs and terms exactly and apply supplied sigma]
+invariants: [sigma is not assumed logistic, inputs are not normalized or standardized]
+constraints: [units and calibrations remain external]
+structured_errors: [{code: SigmaProviderUnavailable, when: sigma semantics are not supplied}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-DRIFT-005, TLC-UR-DRIFT-006]
+forbidden_behaviors: [invent_sigma, assume_logistic_sigmoid, normalize_writing_pressure_inputs, standardize_inputs, calibrate_alpha, invent_units]
+traceability: {source: maths/32-drift-and-correction/stability-drift-and-correction.md, inventory: registry/domain-progress/drift-and-correction/feature-inventory.yaml}

@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-32-DRIFT-AND-CORRECTION-008
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-008
+title: Dogmatization index
+domain_id: drift-and-correction
+contract_kind: exact_expression_with_guards
+scientific_status: external_provider_required
+scientific_authority: maths/32-drift-and-correction/stability-drift-and-correction.md
+source_sections: ['3.1 Dogmatisation', '6. Limites et points scientifiques non résolus']
+expression: 'Delta_dog = 1 - (||epsilon||/||epsilon||_0)(A_adapt/A_adapt^0)'
+inputs: [{name: epsilon_norm, type: scalar}, {name: epsilon_norm_0, type: scalar}, {name: A_adapt, type: scalar}, {name: A_adapt_0, type: scalar}]
+outputs: [{name: Delta_dog, type: scalar}]
+opaque_providers: [norm semantics and adaptability references]
+preconditions: [provider-final values supplied, epsilon_norm_0 nonzero, A_adapt_0 nonzero]
+postconditions: [evaluate exact product-of-ratios expression]
+invariants: [Delta_dog is not asserted bounded in [0,1]]
+constraints: [zero denominators are structured errors]
+structured_errors: [{code: NormProviderUnavailable, when: required norm values are unavailable}, {code: DogmatizationBaselineNormZero, when: epsilon_norm_0 equals zero}, {code: DogmatizationAdaptabilityBaselineZero, when: A_adapt_0 equals zero}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-DRIFT-007]
+forbidden_behaviors: [invent_norm, regularize_zero_denominator, clamp_dogmatization, normalize_dogmatization, convert_to_probability]
+traceability: {source: maths/32-drift-and-correction/stability-drift-and-correction.md, inventory: registry/domain-progress/drift-and-correction/feature-inventory.yaml}

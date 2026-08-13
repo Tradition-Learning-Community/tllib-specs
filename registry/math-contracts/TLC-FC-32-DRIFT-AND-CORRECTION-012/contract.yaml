@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-32-DRIFT-AND-CORRECTION-012
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-012
+title: Schism-path ambiguity descriptor
+domain_id: drift-and-correction
+contract_kind: unresolved_structure_descriptor
+scientific_status: preserved_unresolved
+scientific_authority: maths/32-drift-and-correction/stability-drift-and-correction.md
+source_sections: ['4. Rupture et schisme', '6. Limites et points scientifiques non résolus']
+expression: 'conceptual paths: doctrinal, institutional, cultural, personal; no separate equations supplied'
+inputs: []
+outputs: [{name: schism_path_descriptor, type: descriptor}]
+opaque_providers: []
+preconditions: []
+postconditions: [preserve conceptual plurality and unresolved articulation with the four-way rupture predicate]
+invariants: [no separate classifiers equations or OR logic are synthesized]
+constraints: [structural-only descriptor]
+structured_errors: [{code: SchismPathModelUnavailable, when: executable path classification is requested}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-DRIFT-011]
+forbidden_behaviors: [invent_schism_equations, invent_four_classifiers, turn_rupture_AND_into_OR, invent_schism_taxonomy_algorithm]
+traceability: {source: maths/32-drift-and-correction/stability-drift-and-correction.md, inventory: registry/domain-progress/drift-and-correction/feature-inventory.yaml}

@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-32-DRIFT-AND-CORRECTION-010
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-010
+title: Mission intensity index
+domain_id: drift-and-correction
+contract_kind: exact_expression_with_guards
+scientific_status: external_provider_required
+scientific_authority: maths/32-drift-and-correction/stability-drift-and-correction.md
+source_sections: ['3.3 Perte d’intensité de mission']
+expression: 'I_mis = (V_vit/V_vit_max)(F_eng/F_eng_max)(J_joy/J_joy_max)'
+inputs: [{name: V_vit, type: scalar}, {name: V_vit_max, type: scalar}, {name: F_eng, type: scalar}, {name: F_eng_max, type: scalar}, {name: J_joy, type: scalar}, {name: J_joy_max, type: scalar}]
+outputs: [{name: I_mis, type: scalar}]
+opaque_providers: [J_joy survey index and all maxima]
+preconditions: [all provider-final values supplied, V_vit_max F_eng_max and J_joy_max nonzero]
+postconditions: [evaluate exact product of three ratios]
+invariants: [no joy-index construction and no maximum inference]
+constraints: [all denominator-zero cases are explicit errors]
+structured_errors: [{code: MissionVitalityMaximumZero, when: V_vit_max equals zero}, {code: MissionEngagementMaximumZero, when: F_eng_max equals zero}, {code: MissionJoyMaximumZero, when: J_joy_max equals zero}, {code: MissionIndexProviderUnavailable, when: J_joy or a maximum is unavailable}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-DRIFT-009]
+forbidden_behaviors: [invent_joy_index, invent_maximum, regularize_zero_denominator, normalize_mission_index]
+traceability: {source: maths/32-drift-and-correction/stability-drift-and-correction.md, inventory: registry/domain-progress/drift-and-correction/feature-inventory.yaml}

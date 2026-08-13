@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-32-DRIFT-AND-CORRECTION-002
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-002
+title: Resistance-to-change expression
+domain_id: drift-and-correction
+contract_kind: exact_expression_with_guard
+scientific_status: external_provider_required
+scientific_authority: maths/32-drift-and-correction/stability-drift-and-correction.md
+source_sections: ['1. Identification du noyau et de la périphérie']
+expression: 'kappa_res(e) = 1 - ||Delta e|| / ||Delta e||_max'
+inputs: [{name: delta_e_norm, type: scalar}, {name: delta_e_norm_max, type: scalar}]
+outputs: [{name: kappa_res, type: scalar}]
+opaque_providers: [norm semantics and provider-final norm values]
+preconditions: [provider-final norm values supplied, delta_e_norm_max is nonzero]
+postconditions: [preserve exact subtraction sign and ratio]
+invariants: [no clamping or regularization]
+constraints: [zero reference norm is an explicit structured error]
+structured_errors: [{code: NormProviderUnavailable, when: required norm value is unavailable}, {code: ResistanceReferenceNormZero, when: delta_e_norm_max equals zero}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-DRIFT-003]
+forbidden_behaviors: [invent_norm, regularize_zero_denominator, add_epsilon, clamp_kappa_res, return_nan_silently]
+traceability: {source: maths/32-drift-and-correction/stability-drift-and-correction.md, inventory: registry/domain-progress/drift-and-correction/feature-inventory.yaml}

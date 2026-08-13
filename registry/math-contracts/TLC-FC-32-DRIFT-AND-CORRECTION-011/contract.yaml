@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-32-DRIFT-AND-CORRECTION-011
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-011
+title: Rupture predicate
+domain_id: drift-and-correction
+contract_kind: conjunctive_predicate_contract
+scientific_status: external_provider_required
+scientific_authority: maths/32-drift-and-correction/stability-drift-and-correction.md
+source_sections: ['4. Rupture et schisme', '6. Limites et points scientifiques non résolus']
+expression: 'd_D(x,N_inv)>delta_rupture AND |{u in V_L | d_D(x_u,x)<epsilon}|>N_crit AND V(x)<theta_V AND E_support(x)>E_min'
+inputs: [{name: doctrinal_divergence_condition, type: boolean}, {name: critical_support_condition, type: boolean}, {name: value_degradation_condition, type: boolean}, {name: environment_support_condition, type: boolean}]
+outputs: [{name: rupture_membership, type: boolean}]
+opaque_providers: [N_inv, d_D, V_L branch states, V(x), E_support(x), all thresholds]
+preconditions: [all four provider-final condition results are supplied]
+postconditions: [true iff all four source conditions are true]
+invariants: [four conditions remain simultaneous and conjunctive]
+constraints: [domain 04 is the scientific authority for invariants; no executable feature binding is invented]
+structured_errors: [{code: RuptureProviderUnavailable, when: any source condition cannot be evaluated by its external provider}]
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-DRIFT-010, TLC-UR-DRIFT-011]
+forbidden_behaviors: [turn_rupture_AND_into_OR, invent_invariant_core, invent_doctrinal_distance, invent_threshold, infer_missing_condition_true, depend_on_fidelity_35]
+traceability: {source: maths/32-drift-and-correction/stability-drift-and-correction.md, inventory: registry/domain-progress/drift-and-correction/feature-inventory.yaml}

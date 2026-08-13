@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-32-DRIFT-AND-CORRECTION-005
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-005
+title: Incorporation-by-repetition expression
+domain_id: drift-and-correction
+contract_kind: exact_expression_contract
+scientific_status: defined
+scientific_authority: maths/32-drift-and-correction/stability-drift-and-correction.md
+source_sections: ['2. Renforcement et cristallisation']
+expression: 'I_inc(n) = I_inc_max(1 - exp(-lambda n))'
+inputs: [{name: n, type: scalar}, {name: I_inc_max, type: scalar}, {name: lambda, type: scalar}]
+outputs: [{name: I_inc, type: scalar}]
+opaque_providers: []
+preconditions: [caller supplies n I_inc_max and lambda]
+postconditions: [evaluate the exact source expression]
+invariants: [negative sign inside exp(-lambda n) is preserved]
+constraints: [no repetition process scheduler or parameter estimator is part of this feature]
+structured_errors: []
+dependencies: {scientific: [], runtime: []}
+unresolved_items: []
+forbidden_behaviors: [invent_repetition_process, invent_scheduler, estimate_lambda, calibrate_lambda]
+traceability: {source: maths/32-drift-and-correction/stability-drift-and-correction.md, inventory: registry/domain-progress/drift-and-correction/feature-inventory.yaml}
