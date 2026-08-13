@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-011
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-011/ir.yaml
+operation: describe_HJB_condition
+required_behavior: [preserve HJB equation and min_u formulation]
+forbidden_behavior: [HJB_solver, PDE_solver, minimizer_search, value_iteration, policy_iteration]
+error_codes: [HJBSolverUnavailable]

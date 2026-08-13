@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-012
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-012/ir.yaml
+operation: evaluate_auto_finalization_rhs
+required_behavior: [combine supplied G_em gradient and context-derivative terms exactly]
+forbidden_behavior: [ODE_solver, integrator, gradient_computation, context_derivative_generation]
+error_codes: [AutoFinalizationProviderMissing]

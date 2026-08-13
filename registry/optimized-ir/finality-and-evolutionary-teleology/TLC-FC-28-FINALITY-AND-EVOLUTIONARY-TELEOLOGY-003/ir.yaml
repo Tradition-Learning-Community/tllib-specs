@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-003
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-003/ir.yaml
+operation: evaluate_realization_distance_from_supplied_terms
+required_behavior: [combine supplied infimum temporal and contextual terms with exact source coefficients]
+forbidden_behavior: [infimum_solver, argmin_solver, geodesic_solver]
+error_codes: [RealizationDistanceProviderMissing]

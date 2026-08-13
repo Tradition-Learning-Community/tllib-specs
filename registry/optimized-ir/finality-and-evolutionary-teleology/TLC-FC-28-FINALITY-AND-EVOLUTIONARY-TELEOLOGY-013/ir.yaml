@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-013
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-013/ir.yaml
+operation: require_emergent_goal_provider
+required_behavior: [require supplied G_em and preserve source centroid proposal as unconstructed]
+forbidden_behavior: [centroid_algorithm, attractor_measure, goal_metric]
+error_codes: [EmergentGoalProviderUnavailable]
