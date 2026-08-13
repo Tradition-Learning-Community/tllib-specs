@@ -4,8 +4,7 @@
 
 - Domain: `32 Drift and Correction / Stabilité, dérive et correction`
 - Production branch: `pipeline/domain-32-drift-and-correction`
-- Pull-request title: `Finalize domain 32 Drift and Correction to implementation-ready handoffs`
-- Pull-request number: assigned immediately after this report is first versioned, then recorded here before review gating
+- Pull request: `#155 — Finalize domain 32 Drift and Correction to implementation-ready handoffs`
 - Baseline `main`: `15caf75756e49d43689cb14a7a4db3d2394f461d`
 
 ## Scientific authority
