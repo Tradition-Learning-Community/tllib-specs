@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-016
+source_contract: registry/math-contracts/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-016/contract.yaml
+tests:
+  - {id: FID016-T01, category: boundary, verifies: faithful innovation true does not imply community validation}
+  - {id: FID016-T02, category: rejection, verifies: vote quorum and consensus workflows are rejected}
+  - {id: FID016-T03, category: error, verifies: automatic integration request emits CommunityValidationProcedureUnavailable}

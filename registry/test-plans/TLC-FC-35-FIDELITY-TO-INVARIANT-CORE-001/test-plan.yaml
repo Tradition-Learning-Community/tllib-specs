@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-001
+source_contract: registry/math-contracts/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-001/contract.yaml
+tests:
+  - {id: FID001-T01, category: dependency, verifies: scientific dependency is 35 to 04}
+  - {id: FID001-T02, category: provider_boundary, verifies: pi_N d_D and N_inv evaluation are not claimed as executable providers}
+  - {id: FID001-T03, category: non_invention, verifies: invariant core is not redefined}

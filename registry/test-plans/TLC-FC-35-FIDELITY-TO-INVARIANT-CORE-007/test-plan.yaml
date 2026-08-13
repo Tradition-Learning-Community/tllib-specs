@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-007
+source_contract: registry/math-contracts/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-007/contract.yaml
+tests:
+  - {id: FID007-T01, category: guard, verifies: zero count emits EmptyValidatedArtifactSet}
+  - {id: FID007-T02, category: guard, verifies: positive count passes guard}
+  - {id: FID007-T03, category: non_invention, verifies: zero infinity and NaN are never returned as silent policies}

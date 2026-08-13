@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-010
+source_contract: registry/math-contracts/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-010/contract.yaml
+tests:
+  - {id: FID010-T01, category: formula, verifies: F_comm equals supplied M_X_t exactly}
+  - {id: FID010-T02, category: provider, verifies: missing M_X_t emits provider unavailable}
+  - {id: FID010-T03, category: non_invention, verifies: no community feedback model or provider domain is inferred}

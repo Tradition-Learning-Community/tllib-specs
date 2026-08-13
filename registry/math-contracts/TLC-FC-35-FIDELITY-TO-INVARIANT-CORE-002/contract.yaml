@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-002
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-002
+title: Invariant-core membership condition descriptor
+domain_id: fidelity-to-invariant-core
+contract_kind: quantified_definition_descriptor
+scientific_status: external_provider_required
+scientific_authority: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md
+source_sections: ['2. Noyau rappelé par la source', '7. Limites et points scientifiques non résolus']
+expression: 'x in X_doctrinal | forall tau in [0,t], forall v in V_L, d_D(pi_N(x_v(tau)),x) < epsilon_ess(tau), V(x) > theta_V'
+inputs: [{name: source_definition, type: descriptor}]
+outputs: [{name: membership_condition, type: quantified_descriptor}]
+opaque_providers: [X_doctrinal, V_L, x_v_tau, pi_N, d_D, epsilon_ess, V_x, theta_V]
+preconditions: [all symbols are preserved as source symbols]
+postconditions: [return the exact quantified condition without evaluation]
+invariants: [the same un-timestamped x is retained across all historical comparisons]
+constraints: [strict less-than for doctrinal distance, strict greater-than for V(x)]
+structured_errors: []
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-FIDELITY-001, TLC-UR-FIDELITY-002, TLC-UR-FIDELITY-003, TLC-UR-FIDELITY-004]
+forbidden_behaviors: [redefine_invariant_core, invent_core_projection, invent_doctrinal_distance, rewrite_x_temporally, enumerate_historical_branches]
+traceability: {source: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md, inventory: registry/domain-progress/fidelity-to-invariant-core/feature-inventory.yaml}

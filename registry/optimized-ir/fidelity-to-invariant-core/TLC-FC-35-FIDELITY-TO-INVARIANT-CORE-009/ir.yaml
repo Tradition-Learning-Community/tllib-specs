@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-009
+status: finalized
+execution: executable
+source_ir: registry/ir/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-009/ir.yaml
+operation: guard_empty_elder_council
+required_behavior: [emit EmptyElderCouncil iff elder_count is zero]
+forbidden_behavior: [regularize_denominator, epsilon_repair, silent_fallback]
+error_codes: [EmptyElderCouncil]

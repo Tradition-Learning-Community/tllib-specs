@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-005
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-005/ir.yaml
+operation: describe_stochastic_variation_distribution
+required_behavior: [emit Normal zero Sigma descriptor, require external sampler for samples]
+forbidden_behavior: [invent_rng_sampler, invent_covariance_estimator, auto_sample_epsilon_n]
+error_codes: [RandomSamplerProviderRequired]

@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-008
+source_contract: registry/math-contracts/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-008/contract.yaml
+tests:
+  - {id: FID008-T01, category: formula, verifies: exact arithmetic mean of supplied elder distances}
+  - {id: FID008-T02, category: denominator, verifies: zero elders emits EmptyElderCouncil}
+  - {id: FID008-T03, category: non_invention, verifies: elder selection and norm are not constructed}

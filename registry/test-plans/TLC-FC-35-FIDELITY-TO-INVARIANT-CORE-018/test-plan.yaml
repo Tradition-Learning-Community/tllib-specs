@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-018
+source_contract: registry/math-contracts/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-018/contract.yaml
+tests:
+  - {id: FID018-T01, category: dependency, verifies: confirmed dependency is 35 to 04 only}
+  - {id: FID018-T02, category: dependency, verifies: no 35 to 32 confirmed promotion is allowed without explicit source evidence}
+  - {id: FID018-T03, category: scope, verifies: secondary-transmission lifecycle orchestration is outside domain 35}

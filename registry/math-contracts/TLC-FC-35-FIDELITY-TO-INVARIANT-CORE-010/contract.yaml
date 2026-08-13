@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-010
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-010
+title: Community-feedback provider descriptor
+domain_id: fidelity-to-invariant-core
+contract_kind: provider_alias_descriptor
+scientific_status: external_provider_required
+scientific_authority: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md
+source_sections: ['4. Contrôle de la variation']
+expression: 'F_comm(X) = M(X,t)'
+inputs: [{name: M_X_t, type: supplied_provider_value}]
+outputs: [{name: F_comm, type: same_as_provider_value}]
+opaque_providers: [M]
+preconditions: [M_X_t is supplied for evaluation]
+postconditions: [return the supplied provider value unchanged]
+invariants: [M is not redefined]
+constraints: []
+structured_errors: [{code: CommunityFeedbackProviderUnavailable, when: M_X_t is required but absent}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: []
+forbidden_behaviors: [redefine_M, invent_community_feedback_model, infer_provider_domain_without_signature_evidence]
+traceability: {source: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md, inventory: registry/domain-progress/fidelity-to-invariant-core/feature-inventory.yaml}

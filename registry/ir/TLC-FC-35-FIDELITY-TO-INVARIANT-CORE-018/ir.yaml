@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-018
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-018/contract.yaml
+source_candidate_ir: ir/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-018/ir.candidate.json
+nature: scope_guard
+steps: [require fidelity-only scope, require invariant non-redefinition, reject unsupported 35 to 32 promotion, reject publication of 32]
+errors: [FidelityScopeViolation]

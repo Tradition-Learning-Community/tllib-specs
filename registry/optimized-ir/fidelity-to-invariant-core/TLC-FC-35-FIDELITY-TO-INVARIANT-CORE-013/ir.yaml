@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-013
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-013/ir.yaml
+operation: guard_heterogeneous_control_space
+required_behavior: [reject executable C_n combination without source-backed common space or operator]
+forbidden_behavior: [broadcast, embedding, identity_matrix_coercion, vector_shape_inference]
+error_codes: [HeterogeneousControlSpace]

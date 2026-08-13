@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-003
+source_contract: registry/math-contracts/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-003/contract.yaml
+tests:
+  - {id: FID003-T01, category: ambiguity, verifies: x temporal status remains unresolved}
+  - {id: FID003-T02, category: rejection, verifies: x(t) rewrite is rejected}
+  - {id: FID003-T03, category: rejection, verifies: x(tau) and x_v(t) rewrites are rejected}

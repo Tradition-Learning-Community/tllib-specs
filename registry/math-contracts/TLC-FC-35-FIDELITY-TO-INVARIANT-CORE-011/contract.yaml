@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-011
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-011
+title: Self-evaluation provider descriptor
+domain_id: fidelity-to-invariant-core
+contract_kind: provider_alias_descriptor
+scientific_status: external_provider_required
+scientific_authority: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md
+source_sections: ['4. Contrôle de la variation']
+expression: 'A_self(X) = E_self(X,t)'
+inputs: [{name: E_self_X_t, type: supplied_provider_value}]
+outputs: [{name: A_self, type: same_as_provider_value}]
+opaque_providers: [E_self]
+preconditions: [E_self_X_t is supplied for evaluation]
+postconditions: [return the supplied provider value unchanged]
+invariants: [no automatic linkage to Evaluation 18 is inferred]
+constraints: []
+structured_errors: [{code: SelfEvaluationProviderUnavailable, when: E_self_X_t is required but absent}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: []
+forbidden_behaviors: [redefine_E_self, assume_evaluation_18_signature_match, invent_self_evaluation_model]
+traceability: {source: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md, inventory: registry/domain-progress/fidelity-to-invariant-core/feature-inventory.yaml}

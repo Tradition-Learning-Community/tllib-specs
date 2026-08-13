@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-013
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-013
+title: Heterogeneous control-space compatibility guard
+domain_id: fidelity-to-invariant-core
+contract_kind: compatibility_guard
+scientific_status: preserved_unresolved
+scientific_authority: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md
+source_sections: ['7. Limites et points scientifiques non résolus']
+expression: 'R_art and C_cons are distances while F_comm and A_self are scores; no common space/operator is supplied'
+inputs: [{name: proposed_common_space_or_operator, type: optional_descriptor}]
+outputs: [{name: compatibility_status, type: structured_guard_result}]
+opaque_providers: []
+preconditions: []
+postconditions: [reject executable combination unless a future source-backed compatibility contract is explicitly supplied]
+invariants: [raw source expression remains documentary]
+constraints: []
+structured_errors: [{code: HeterogeneousControlSpace, when: no source-backed common space/operator exists}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FIDELITY-007]
+forbidden_behaviors: [broadcast_control_scores_into_state, invent_common_control_embedding, identity_matrix_coercion, infer_vector_shape]
+traceability: {source: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md, inventory: registry/domain-progress/fidelity-to-invariant-core/feature-inventory.yaml}

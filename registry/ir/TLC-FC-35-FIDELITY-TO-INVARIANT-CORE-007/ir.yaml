@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-007
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-007/contract.yaml
+source_candidate_ir: ir/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-007/ir.candidate.json
+nature: empty_set_guard
+steps: [read artifact_count, emit EmptyValidatedArtifactSet if zero, otherwise pass]
+errors: [EmptyValidatedArtifactSet]

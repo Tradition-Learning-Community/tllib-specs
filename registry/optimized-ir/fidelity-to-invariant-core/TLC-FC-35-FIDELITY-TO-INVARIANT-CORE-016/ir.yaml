@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-016
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-016/ir.yaml
+operation: guard_unavailable_community_validation_procedure
+required_behavior: [preserve external validation requirement, block automatic integration]
+forbidden_behavior: [invent_vote, invent_quorum, invent_consensus, governance_engine, auto_accept_innovation]
+error_codes: [CommunityValidationProcedureUnavailable]

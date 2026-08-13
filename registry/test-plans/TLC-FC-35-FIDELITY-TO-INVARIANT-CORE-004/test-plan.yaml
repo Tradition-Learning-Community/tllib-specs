@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-004
+source_contract: registry/math-contracts/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-004/contract.yaml
+tests:
+  - {id: FID004-T01, category: formula, verifies: exact generational expression and X_n minus pi_N_X_n sign}
+  - {id: FID004-T02, category: provider, verifies: missing supplied epsilon_n fails rather than sampling}
+  - {id: FID004-T03, category: compatibility, verifies: incompatible C_n application is rejected without broadcasting}

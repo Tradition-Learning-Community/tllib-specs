@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-004
+algorithm_kind: exact_expression_evaluator
+execution: conditionally_executable
+steps: [accept supplied operands, compute residual X_n minus pi_N_X_n, apply supplied compatible C_n, add X_n and supplied epsilon_n]
+forbidden: [rng, residual_sign_reversal, projection_learning, hidden_broadcast]

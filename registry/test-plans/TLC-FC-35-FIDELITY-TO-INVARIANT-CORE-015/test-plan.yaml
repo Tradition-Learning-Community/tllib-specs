@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-015
+source_contract: registry/math-contracts/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-015/contract.yaml
+tests:
+  - {id: FID015-T01, category: predicate, verifies: equality to epsilon_innov passes because comparator is <=}
+  - {id: FID015-T02, category: provider, verifies: missing projection or norm provider output fails}
+  - {id: FID015-T03, category: non_invention, verifies: predicate does not imply community validation or integration}

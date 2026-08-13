@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-006
+algorithm_kind: exact_expression_evaluator
+execution: conditionally_executable
+steps: [guard nonempty A_validated, consume supplied projection and norm results, return exact minimum]
+forbidden: [search_engine, artifact_validator, projection_builder, norm_builder, empty_fallback]

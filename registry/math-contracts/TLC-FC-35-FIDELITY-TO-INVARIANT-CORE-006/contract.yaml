@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-006
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-006
+title: Validated-artifact reference metric
+domain_id: fidelity-to-invariant-core
+contract_kind: guarded_exact_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md
+source_sections: ['4. Contrôle de la variation', '7. Limites et points scientifiques non résolus']
+expression: 'R_art(X) = min_{a in A_validated} ||X - pi_N(a)||'
+inputs: [{name: X, type: opaque_state}, {name: projected_artifacts, type: supplied_collection}, {name: norm_values_or_norm_provider, type: supplied_provider}]
+outputs: [{name: R_art, type: scalar_or_provider_numeric}]
+opaque_providers: [A_validated, pi_N, norm]
+preconditions: [A_validated is nonempty, all projected artifact values and required norm semantics are supplied]
+postconditions: [return the exact minimum across supplied valid candidates]
+invariants: [artifact validation is not performed by this feature]
+constraints: []
+structured_errors: [{code: EmptyValidatedArtifactSet, when: A_validated is empty}, {code: ProjectionProviderUnavailable, when: a required pi_N(a) is absent}, {code: NormProviderUnavailable, when: norm semantics are absent}]
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-FIDELITY-002, TLC-UR-FIDELITY-005]
+forbidden_behaviors: [invent_artifact_validation, invent_core_projection, invent_norm, invent_search_engine, return_zero_for_empty_set, return_infinity_for_empty_set, return_nan_for_empty_set]
+traceability: {source: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md, inventory: registry/domain-progress/fidelity-to-invariant-core/feature-inventory.yaml}

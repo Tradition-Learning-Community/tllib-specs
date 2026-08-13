@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-007
+status: finalized
+execution: executable
+source_ir: registry/ir/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-007/ir.yaml
+operation: guard_empty_validated_artifact_set
+required_behavior: [emit EmptyValidatedArtifactSet iff count is zero]
+forbidden_behavior: [return_zero, return_infinity, return_nan, silent_fallback]
+error_codes: [EmptyValidatedArtifactSet]

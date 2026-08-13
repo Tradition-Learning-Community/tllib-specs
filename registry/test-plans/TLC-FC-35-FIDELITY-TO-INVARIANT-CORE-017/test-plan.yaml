@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-017
+source_contract: registry/math-contracts/TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-017/contract.yaml
+tests:
+  - {id: FID017-T01, category: eligibility, verifies: all four supplied evidences true yields eligible}
+  - {id: FID017-T02, category: eligibility, verifies: any supplied false evidence yields not eligible}
+  - {id: FID017-T03, category: non_invention, verifies: no transmission threshold value approval workflow or community validation is invented}

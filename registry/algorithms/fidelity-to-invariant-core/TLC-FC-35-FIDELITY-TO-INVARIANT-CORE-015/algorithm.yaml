@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-35-FIDELITY-TO-INVARIANT-CORE-015
+algorithm_kind: predicate_evaluator
+execution: conditionally_executable
+steps: [require supplied norm of projection difference, require supplied epsilon_innov, return norm <= epsilon_innov]
+forbidden: [projection_builder, norm_builder, threshold_calibration, strict_less_substitution]
