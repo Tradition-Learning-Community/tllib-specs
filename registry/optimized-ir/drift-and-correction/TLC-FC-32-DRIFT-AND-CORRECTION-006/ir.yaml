@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-006
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-32-DRIFT-AND-CORRECTION-006/ir.yaml
+operation: evaluate_writing_pressure_with_sigma_provider
+required_behavior: [preserve five weighted terms and exact signs, require supplied sigma semantics, apply sigma without choosing its form]
+forbidden_behavior: [logistic_assumption, normalization, standardization, alpha_calibration, unit_invention]
+error_codes: [SigmaProviderUnavailable]

@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-018
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-32-DRIFT-AND-CORRECTION-018/ir.yaml
+operation: guard_drift_scope_and_dependencies
+required_behavior: [retain scientific dependency 32 to 04, keep runtime dependencies empty, keep Fidelity 35 as companion only, preserve invalid-metric exclusion]
+forbidden_behavior: [replace_invariants_04, dependency_32_to_35, dependency_35_to_32, provider_invention, invalid_metric_resurrection]
+error_codes: [DriftScopeViolation]

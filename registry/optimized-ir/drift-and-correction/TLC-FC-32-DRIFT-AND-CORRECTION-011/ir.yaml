@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-011
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-32-DRIFT-AND-CORRECTION-011/ir.yaml
+operation: evaluate_rupture_conjunction
+required_behavior: [require four provider-final condition results, compute logical AND of exactly four, preserve N_inv and d_D provider boundaries]
+forbidden_behavior: [or_conversion, missing_condition_inference, invariant_core_invention, doctrinal_distance_invention, threshold_invention, dependency_on_35]
+error_codes: [RuptureProviderUnavailable]

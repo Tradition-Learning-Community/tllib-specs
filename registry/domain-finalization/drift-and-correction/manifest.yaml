@@ -1,0 +1,23 @@
+schema_version: 1
+manifest_id: TLC-DRIFT-AND-CORRECTION-DOMAIN-FINALIZATION-001
+domain: drift-and-correction
+phase: 4
+status: selected_for_implementation_handoff
+base_branch: main
+base_commit: 15caf75756e49d43689cb14a7a4db3d2394f461d
+feature_count: 18
+population: [TLC-FC-32-DRIFT-AND-CORRECTION-001, TLC-FC-32-DRIFT-AND-CORRECTION-002, TLC-FC-32-DRIFT-AND-CORRECTION-003, TLC-FC-32-DRIFT-AND-CORRECTION-004, TLC-FC-32-DRIFT-AND-CORRECTION-005, TLC-FC-32-DRIFT-AND-CORRECTION-006, TLC-FC-32-DRIFT-AND-CORRECTION-007, TLC-FC-32-DRIFT-AND-CORRECTION-008, TLC-FC-32-DRIFT-AND-CORRECTION-009, TLC-FC-32-DRIFT-AND-CORRECTION-010, TLC-FC-32-DRIFT-AND-CORRECTION-011, TLC-FC-32-DRIFT-AND-CORRECTION-012, TLC-FC-32-DRIFT-AND-CORRECTION-013, TLC-FC-32-DRIFT-AND-CORRECTION-014, TLC-FC-32-DRIFT-AND-CORRECTION-015, TLC-FC-32-DRIFT-AND-CORRECTION-016, TLC-FC-32-DRIFT-AND-CORRECTION-017, TLC-FC-32-DRIFT-AND-CORRECTION-018]
+source_authority:
+  scientific_source: {path: maths/32-drift-and-correction/stability-drift-and-correction.md, blob_sha: c43d581fcbd33d086c1acb84ec43ac6d48ed95a3, modified: false}
+  invariants_provider: {domain: invariants, domain_index: 4, path: maths/04-invariants/invariants.md, blob_sha: 5bddc38b4a74465c2bc3b1d2e9f8aac004e86800, relation: '32 -> 04', feature_binding: none, runtime_dependency: false}
+  fidelity_analysis_companion: {domain: fidelity-to-invariant-core, domain_index: 35, path: maths/35-fidelity-to-invariant-core/fidelity-to-the-invariant-core.md, blob_sha: 5a6e0dcdcbc66bd74bb7d6816d34f2bcd0e73817, confirmed_dependency: false, publication: true}
+artifact_patterns:
+  contract: registry/math-contracts/<FEATURE_ID>/contract.yaml
+  candidate_ir: ir/<FEATURE_ID>/ir.candidate.json
+  registered_ir: registry/ir/<FEATURE_ID>/ir.yaml
+  test_plan: registry/test-plans/<FEATURE_ID>/test-plan.yaml
+  optimized_ir: registry/optimized-ir/drift-and-correction/<FEATURE_ID>/ir.yaml
+  algorithm: registry/algorithms/drift-and-correction/<FEATURE_ID>/algorithm.yaml
+  oracle: registry/oracles/drift-and-correction/<FEATURE_ID>/oracle.yaml
+implementation_tasks: registry/domain-finalization/drift-and-correction/implementation-tasks.yaml
+shared_contract_count: 8

@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-002
+algorithm_kind: exact_expression_evaluator_with_zero_guard
+execution: conditionally_executable
+steps: [require provider-final norms, reject zero delta_e_norm_max, divide delta_e_norm by delta_e_norm_max, subtract from one]
+forbidden: [norm_construction, denominator_regularization, clamp]

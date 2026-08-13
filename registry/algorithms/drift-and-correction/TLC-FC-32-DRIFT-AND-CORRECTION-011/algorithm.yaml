@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-011
+algorithm_kind: predicate_evaluator
+execution: conditionally_executable
+steps: [require all four provider-final booleans, logical AND condition one through four]
+forbidden: [logical_or, infer_missing_true, provider_construction, dependency_on_fidelity_35]

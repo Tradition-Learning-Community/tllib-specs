@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-008
+algorithm_kind: exact_expression_evaluator_with_zero_guards
+execution: conditionally_executable
+steps: [require provider-final norm values, reject two zero denominators, multiply exact ratios, subtract product from one]
+forbidden: [norm_construction, regularization, clamp, probability_conversion]

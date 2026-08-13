@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-017
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-32-DRIFT-AND-CORRECTION-017/ir.yaml
+operation: exclude_invalid_mnemonic_metric
+required_behavior: [preserve source finding that denominator norm(X-X) equals zero, keep metric excluded from valid executable features]
+forbidden_behavior: [formula_reconstruction, denominator_replacement, formula_repair, executable_publication]
+error_codes: [InvalidMnemonicMetricExcluded]

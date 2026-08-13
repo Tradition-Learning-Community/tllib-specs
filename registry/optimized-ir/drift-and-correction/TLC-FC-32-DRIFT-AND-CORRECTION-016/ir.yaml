@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-016
+status: finalized
+execution: executable
+source_ir: registry/ir/TLC-FC-32-DRIFT-AND-CORRECTION-016/ir.yaml
+operation: guard_reset_continuity_denominator
+required_behavior: [reject exact zero projection_X_norm, pass nonzero value unchanged]
+forbidden_behavior: [epsilon_regularization, identity_projection, silent_nan]
+error_codes: [ResetContinuityDenominatorZero]
