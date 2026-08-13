@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-002
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-002/contract.yaml
+source_candidate_ir: ir/TLC-FC-32-DRIFT-AND-CORRECTION-002/ir.candidate.json
+nature: exact_expression_with_guard
+steps: [require provider-final norm values, reject zero delta_e_norm_max, compute one minus exact ratio]
+errors: [NormProviderUnavailable, ResistanceReferenceNormZero]

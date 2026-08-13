@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-008
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-008/contract.yaml
+tests:
+  - {id: DRI008-T01, category: formula, verifies: exact dogmatization product-of-ratios expression}
+  - {id: DRI008-T02, category: error, verifies: each zero denominator emits its structured error}
+  - {id: DRI008-T03, category: limitation, verifies: Delta_dog remains unclamped and is not asserted bounded or probabilistic}

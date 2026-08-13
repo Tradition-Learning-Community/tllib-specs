@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-015
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-015/contract.yaml
+source_candidate_ir: ir/TLC-FC-32-DRIFT-AND-CORRECTION-015/ir.candidate.json
+nature: exact_expression_with_guard
+steps: [require provider-final projection norms, reject zero projection_X_norm, compute one minus exact ratio, compare C_cont strictly greater than C_min, require vitality increase]
+errors: [ResetContinuityProviderUnavailable, ResetContinuityDenominatorZero]

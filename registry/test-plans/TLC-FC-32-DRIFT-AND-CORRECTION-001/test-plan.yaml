@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-001
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-001/contract.yaml
+tests:
+  - {id: DRI001-T01, category: formula, verifies: exact one-fifth mean of five supplied components}
+  - {id: DRI001-T02, category: non_invention, verifies: no normalization weighting or clamping is introduced}
+  - {id: DRI001-T03, category: limitation, verifies: result is not asserted to lie in [0,1] and missing kappa_supp remains external}

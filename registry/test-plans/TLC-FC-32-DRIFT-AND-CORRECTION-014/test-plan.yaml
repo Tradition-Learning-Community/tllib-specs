@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-014
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-014/contract.yaml
+tests:
+  - {id: DRI014-T01, category: predicate, verifies: reset requires all three exact source conditions}
+  - {id: DRI014-T02, category: comparator, verifies: projection uses strict less-than epsilon_reset and other strict signs are preserved}
+  - {id: DRI014-T03, category: non_invention, verifies: no optimizer search mutation policy projection builder or 32-to-35 provider binding}

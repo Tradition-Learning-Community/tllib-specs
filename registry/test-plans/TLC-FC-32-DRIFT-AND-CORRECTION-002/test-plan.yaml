@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-002
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-002/contract.yaml
+tests:
+  - {id: DRI002-T01, category: formula, verifies: exact 1 minus norm ratio sign}
+  - {id: DRI002-T02, category: error, verifies: zero delta_e_norm_max emits ResistanceReferenceNormZero}
+  - {id: DRI002-T03, category: non_invention, verifies: no norm construction epsilon repair or clamp}

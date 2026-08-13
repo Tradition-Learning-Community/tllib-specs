@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-006
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-006/contract.yaml
+tests:
+  - {id: DRI006-T01, category: formula, verifies: exact five writing-pressure terms and signs}
+  - {id: DRI006-T02, category: provider, verifies: sigma remains supplied and is not assumed logistic}
+  - {id: DRI006-T03, category: non_invention, verifies: inputs and alpha values are not normalized standardized or calibrated}

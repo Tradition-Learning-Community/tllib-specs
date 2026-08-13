@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-003
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-003/contract.yaml
+source_candidate_ir: ir/TLC-FC-32-DRIFT-AND-CORRECTION-003/ir.candidate.json
+nature: strict_predicate
+steps: [require supplied kappa_min, compare kappa strictly greater than kappa_min, classify equality and lower values as periphery]
+errors: [KappaThresholdUnavailable]

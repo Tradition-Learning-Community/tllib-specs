@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-007
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-007/contract.yaml
+tests:
+  - {id: DRI007-T01, category: limitation, verifies: writing-pressure units and calibration remain absent}
+  - {id: DRI007-T02, category: non_invention, verifies: no standardization normalization or alpha calibration}
+  - {id: DRI007-T03, category: error, verifies: automatic calibration request emits WritingPressureCalibrationUnavailable}

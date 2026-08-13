@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-018
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-018/contract.yaml
+tests:
+  - {id: DRI018-T01, category: dependency, verifies: confirmed scientific dependencies are [4] and runtime dependencies are empty}
+  - {id: DRI018-T02, category: dependency, verifies: no 32 to 35 or 35 to 32 dependency is promoted from companionship}
+  - {id: DRI018-T03, category: scope, verifies: kappa does not replace invariants and invalid mnemonic metric remains excluded}

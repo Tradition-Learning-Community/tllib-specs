@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-014
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-014/contract.yaml
+source_candidate_ir: ir/TLC-FC-32-DRIFT-AND-CORRECTION-014/ir.candidate.json
+nature: three_way_conjunctive_predicate
+steps: [require provider-final projection distance and threshold, require strict distance less than epsilon_reset, strict vitality increase, strict burden decrease, AND all three]
+errors: [ResetProviderUnavailable]

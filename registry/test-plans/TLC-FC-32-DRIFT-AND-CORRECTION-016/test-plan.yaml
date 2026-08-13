@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-016
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-016/contract.yaml
+tests:
+  - {id: DRI016-T01, category: error, verifies: zero projection_X_norm emits ResetContinuityDenominatorZero}
+  - {id: DRI016-T02, category: valid_input, verifies: nonzero denominator passes unchanged}
+  - {id: DRI016-T03, category: non_invention, verifies: no epsilon regularization identity projection or silent NaN}

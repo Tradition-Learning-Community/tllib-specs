@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-32-DRIFT-AND-CORRECTION-010
+source_contract: registry/math-contracts/TLC-FC-32-DRIFT-AND-CORRECTION-010/contract.yaml
+tests:
+  - {id: DRI010-T01, category: formula, verifies: exact mission-intensity product of three ratios}
+  - {id: DRI010-T02, category: error, verifies: all three zero denominators are guarded}
+  - {id: DRI010-T03, category: non_invention, verifies: J_joy and maxima are not constructed or calibrated}
