@@ -170,12 +170,54 @@ dependency_graph:
       status: confirmed
       evidence: maths/27-reflexivity/reflexivity.md
       rationale: Reflexivity is defined as a process over the identity state and reuses the identity dissonance cost.
+    - id: scientific-28-04
+      from_domain: 28
+      to_domain: 4
+      status: confirmed
+      evidence: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+      rationale: Finality requires invariant-core preservation and pi_N without defining the invariant authority locally.
+    - id: scientific-29-04
+      from_domain: 29
+      to_domain: 4
+      status: confirmed
+      evidence: maths/29-generational-propagation/generational-propagation.md
+      rationale: Generational Propagation uses N_inv, d_D and pi_N while leaving invariant authority external.
+    - id: scientific-30-04
+      from_domain: 30
+      to_domain: 4
+      status: confirmed
+      evidence: maths/30-expansion/expansion.md
+      rationale: Expansion constrains translation, adaptation, grafting and schools by N_inv and pi_N.
+    - id: scientific-30-24
+      from_domain: 30
+      to_domain: 24
+      status: confirmed
+      evidence: maths/30-expansion/expansion.md
+      rationale: Expansion directly reuses contextual distance d_C(C2,C1) defined by Context.
     - id: scientific-30-29
       from_domain: 30
       to_domain: 29
       status: confirmed
       evidence: maths/30-expansion/expansion.md
-      rationale: Expansion explicitly places expansion nodes in the generational graph defined by Generational Propagation.
+      rationale: Expansion explicitly uses the generational graph and does not redefine replication quality or R.
+    - id: scientific-31-04
+      from_domain: 31
+      to_domain: 4
+      status: confirmed
+      evidence: maths/31-institutionalization/institutionalization.md
+      rationale: Institutionalization uses pi_N and N_inv and defines Dog as a subset of N_inv.
+    - id: scientific-31-29
+      from_domain: 31
+      to_domain: 29
+      status: confirmed
+      evidence: maths/31-institutionalization/institutionalization.md
+      rationale: Institutionalization maps V_t to roles and removes excluded transmitters from the transmission graph defined by Generational Propagation.
+    - id: scientific-31-24
+      from_domain: 31
+      to_domain: 24
+      status: unresolved
+      evidence: maths/31-institutionalization/institutionalization.md
+      rationale: Institutionalization explicitly compares tau_adapt with Context but reports a conflicting or unclear convention.
     - id: scientific-32-04
       from_domain: 32
       to_domain: 4
@@ -454,7 +496,7 @@ domains:
     analysis_companions: []
     feature_count: null
     handoff_publication: false
-    dependencies: {confirmed: [], provisional: [], unknown: true}
+    dependencies: {confirmed: [4], provisional: [], unknown: false}
     pipeline: *unstarted_pipeline
 
   - index: 29
@@ -467,7 +509,7 @@ domains:
     analysis_companions: [30, 31]
     feature_count: null
     handoff_publication: false
-    dependencies: {confirmed: [], provisional: [], unknown: true}
+    dependencies: {confirmed: [4], provisional: [], unknown: false}
     pipeline: *unstarted_pipeline
 
   - index: 30
@@ -480,7 +522,7 @@ domains:
     analysis_companions: [29, 31]
     feature_count: null
     handoff_publication: false
-    dependencies: {confirmed: [29], provisional: [], unknown: true}
+    dependencies: {confirmed: [4, 24, 29], provisional: [], unknown: false}
     pipeline: *unstarted_pipeline
 
   - index: 31
@@ -493,7 +535,7 @@ domains:
     analysis_companions: [29, 30]
     feature_count: null
     handoff_publication: false
-    dependencies: {confirmed: [], provisional: [], unknown: true}
+    dependencies: {confirmed: [4, 29], provisional: [], unknown: true}
     pipeline: *unstarted_pipeline
 
   - index: 32
