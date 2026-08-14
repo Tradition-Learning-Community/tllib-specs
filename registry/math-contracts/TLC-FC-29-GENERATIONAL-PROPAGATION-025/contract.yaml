@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-29-GENERATIONAL-PROPAGATION-025
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-025
+title: Extinction-claim non-operational guard
+domain_id: generational-propagation
+contract_kind: theorem_boundary_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/29-generational-propagation/generational-propagation.md
+source_sections: ['5. Taux de reproduction', '7. Limites et points scientifiques non résolus']
+expression: 'strong extinction claims associated with R_c lack branching-process definitions and probabilistic assumptions'
+inputs: []
+outputs: [{name: theorem_boundary, type: structural_descriptor}]
+opaque_providers: []
+preconditions: []
+postconditions: [never emit an extinction probability or certificate]
+invariants: [R_c expression is not a branching-process theorem]
+constraints: []
+structured_errors: [{code: ExtinctionCertificateUnavailable, when: operational extinction proof or probability is requested}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-GENPROP-016]
+forbidden_behaviors: [invent_branching_process, invent_offspring_law, invent_extinction_certificate, assert_irreversible_extinction]
+traceability: {source: maths/29-generational-propagation/generational-propagation.md, inventory: registry/domain-progress/generational-propagation/feature-inventory.yaml}

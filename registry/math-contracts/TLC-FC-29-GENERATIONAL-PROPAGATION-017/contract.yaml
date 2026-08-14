@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-29-GENERATIONAL-PROPAGATION-017
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-017
+title: Corrective algorithm unavailable guard
+domain_id: generational-propagation
+contract_kind: unavailable_procedure_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/29-generational-propagation/generational-propagation.md
+source_sections: ['3. Qualité de réplication']
+expression: 'source constrains successful R_correctif outputs but supplies no construction algorithm'
+inputs: []
+outputs: [{name: correction_boundary, type: structural_descriptor}]
+opaque_providers: [R_correctif]
+preconditions: []
+postconditions: [reject requests to construct or optimize a correction]
+invariants: [success conditions are not an algorithm]
+constraints: []
+structured_errors: [{code: CorrectiveAlgorithmUnavailable, when: generation of a corrected state is requested}]
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-GENPROP-013]
+forbidden_behaviors: [invent_correction_algorithm, invent_repair_optimizer, invent_gradient_correction, invent_search_procedure]
+traceability: {source: maths/29-generational-propagation/generational-propagation.md, inventory: registry/domain-progress/generational-propagation/feature-inventory.yaml}

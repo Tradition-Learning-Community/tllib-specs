@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-29-GENERATIONAL-PROPAGATION-016
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-016
+title: Corrective-success predicate
+domain_id: generational-propagation
+contract_kind: exact_predicate_contract
+scientific_status: external_provider_required
+scientific_authority: maths/29-generational-propagation/generational-propagation.md
+source_sections: ['3. Qualité de réplication']
+expression: '||R_correctif(x)-pi_N(x)|| < ||x-pi_N(x)|| AND V(R_correctif(x)) > V(x)'
+inputs: [{name: before_distance, type: supplied_scalar}, {name: after_distance, type: supplied_scalar}, {name: before_value, type: supplied_scalar}, {name: after_value, type: supplied_scalar}]
+outputs: [{name: correction_success, type: boolean}]
+opaque_providers: [R_correctif_output, pi_N, norm, V]
+preconditions: [all before and after provider measurements are supplied]
+postconditions: [preserve both strict inequalities and conjunction]
+invariants: [this feature validates supplied correction output but never finds one]
+constraints: []
+structured_errors: [{code: CorrectiveProviderUnavailable, when: any required measurement is absent}]
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-GENPROP-013]
+forbidden_behaviors: [invent_correction_algorithm, invent_pi_N, invent_norm, weaken_corrective_inequality]
+traceability: {source: maths/29-generational-propagation/generational-propagation.md, inventory: registry/domain-progress/generational-propagation/feature-inventory.yaml}

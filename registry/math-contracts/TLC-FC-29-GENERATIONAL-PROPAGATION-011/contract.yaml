@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-29-GENERATIONAL-PROPAGATION-011
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-011
+title: Zero delta-x-max guard
+domain_id: generational-propagation
+contract_kind: denominator_guard_contract
+scientific_status: defined
+scientific_authority: maths/29-generational-propagation/generational-propagation.md
+source_sections: ['3. Qualité de réplication']
+expression: 'delta_x^max = 0 => structured error'
+inputs: [{name: delta_x_max, type: scalar}]
+outputs: [{name: guard_result, type: boolean_or_error}]
+opaque_providers: []
+preconditions: []
+postconditions: [emit ZeroMaximumDeviation when denominator is zero]
+invariants: [no epsilon regularization]
+constraints: []
+structured_errors: [{code: ZeroMaximumDeviation, when: delta_x_max equals zero}]
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-GENPROP-010]
+forbidden_behaviors: [epsilon_repair_delta_x_max, silently_skip_component]
+traceability: {source: maths/29-generational-propagation/generational-propagation.md, inventory: registry/domain-progress/generational-propagation/feature-inventory.yaml}

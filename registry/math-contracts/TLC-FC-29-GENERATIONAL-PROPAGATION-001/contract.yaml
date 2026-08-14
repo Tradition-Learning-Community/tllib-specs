@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-29-GENERATIONAL-PROPAGATION-001
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-001
+title: Secondary transmission threshold predicate
+domain_id: generational-propagation
+contract_kind: exact_predicate_contract
+scientific_status: external_provider_required
+scientific_authority: maths/29-generational-propagation/generational-propagation.md
+source_sections: ['1. Seuil de transmission secondaire']
+expression: 'sum_i w_i C_i >= theta_3 AND V_trans >= phi_3 AND ||Val-Val_master|| <= delta_3 AND mu_P(P_ped) >= omega_3 AND F_trans > theta_F'
+inputs: [{name: weighted_competency_sum, type: supplied_scalar}, {name: V_trans, type: supplied_scalar}, {name: value_distance, type: supplied_scalar}, {name: pedagogical_measure, type: supplied_scalar}, {name: F_trans, type: supplied_scalar}, {name: thresholds, type: supplied_threshold_bundle}]
+outputs: [{name: eligible, type: boolean}]
+opaque_providers: [theta_3, phi_3, delta_3, omega_3, theta_F, mu_P]
+preconditions: [all five measurements and all five thresholds are supplied]
+postconditions: [preserve comparators '>= >= <= >= >' exactly, combine all five conditions with AND]
+invariants: [no score aggregation replaces the conjunction]
+constraints: []
+structured_errors: [{code: ThresholdProviderUnavailable, when: any threshold is absent}, {code: MeasurementProviderUnavailable, when: any required measurement is absent}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-GENPROP-001]
+forbidden_behaviors: [invent_threshold, aggregate_threshold_conditions, relax_strict_F_trans_comparator, invent_validation_workflow]
+traceability: {source: maths/29-generational-propagation/generational-propagation.md, inventory: registry/domain-progress/generational-propagation/feature-inventory.yaml}

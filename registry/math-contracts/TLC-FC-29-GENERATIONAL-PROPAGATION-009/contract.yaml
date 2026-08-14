@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-29-GENERATIONAL-PROPAGATION-009
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-009
+title: Replication quality finite-core evaluator
+domain_id: generational-propagation
+contract_kind: guarded_exact_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/29-generational-propagation/generational-propagation.md
+source_sections: ['3. Qualité de réplication']
+expression: 'Q_rep(t)=1/|N_inv| sum_{x in N_inv} omega_x (1-delta_x(t)/delta_x^max) exp(-lambda t)'
+inputs: [{name: finite_core_rows, type: supplied_finite_collection}, {name: lambda_t, type: supplied_scalar}]
+outputs: [{name: Q_rep, type: scalar}]
+opaque_providers: [N_inv_finite_representation, omega_x, delta_x_t, delta_x_max]
+preconditions: [a finite explicitly supplied representation is used, core cardinality is greater than zero, every delta_x_max is nonzero]
+postconditions: [retain exp(-lambda t) exactly]
+invariants: [continuous-core cardinality is not repaired with measure or integration]
+constraints: []
+structured_errors: [{code: EmptyInvariantCore, when: finite core cardinality is zero}, {code: ZeroMaximumDeviation, when: any delta_x_max is zero}, {code: CoreCardinalityRepresentationUnavailable, when: N_inv is not explicitly finite}]
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-GENPROP-008, TLC-UR-GENPROP-009, TLC-UR-GENPROP-010, TLC-UR-GENPROP-011]
+forbidden_behaviors: [replace_core_cardinality_with_measure, use_integral_for_core, use_Monte_Carlo_for_core, remove_replication_time_decay, epsilon_repair_delta_x_max]
+traceability: {source: maths/29-generational-propagation/generational-propagation.md, inventory: registry/domain-progress/generational-propagation/feature-inventory.yaml}

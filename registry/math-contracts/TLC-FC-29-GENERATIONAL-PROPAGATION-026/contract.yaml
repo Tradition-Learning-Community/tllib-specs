@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-29-GENERATIONAL-PROPAGATION-026
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-026
+title: Generational diversification predicate
+domain_id: generational-propagation
+contract_kind: exact_predicate_contract
+scientific_status: external_provider_required
+scientific_authority: maths/29-generational-propagation/generational-propagation.md
+source_sections: ['6. Diversification générationnelle']
+expression: 'max_i d_D(x_i,N_inv) < delta_rupture'
+inputs: [{name: supplied_branch_distances, type: finite_collection_of_scalars}, {name: delta_rupture, type: supplied_scalar}]
+outputs: [{name: diversification_admissible, type: boolean}]
+opaque_providers: [d_D, N_inv, delta_rupture]
+preconditions: [provider distances and threshold are supplied]
+postconditions: [preserve strict less-than comparator]
+invariants: [no doctrinal distance or threshold is constructed]
+constraints: []
+structured_errors: [{code: DiversificationProviderUnavailable, when: required distances or threshold are absent}]
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-GENPROP-007]
+forbidden_behaviors: [invent_d_D, invent_threshold, weaken_diversification_strictness]
+traceability: {source: maths/29-generational-propagation/generational-propagation.md, inventory: registry/domain-progress/generational-propagation/feature-inventory.yaml}

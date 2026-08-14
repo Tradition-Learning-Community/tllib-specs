@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-29-GENERATIONAL-PROPAGATION-027
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-027
+title: School emergence and harmonious-diversity descriptor
+domain_id: generational-propagation
+contract_kind: conceptual_descriptor_contract
+scientific_status: partially_defined
+scientific_authority: maths/29-generational-propagation/generational-propagation.md
+source_sections: ['6. Diversification générationnelle']
+expression: 'school emergence names differentiation, stabilization, recognition, autonomization, inter-school dialogue; harmonious diversity names mutual recognition, common invariant core, exchanges, legitimate arbitration'
+inputs: []
+outputs: [{name: conceptual_descriptor, type: structural_descriptor}]
+opaque_providers: []
+preconditions: []
+postconditions: [preserve named stages and conditions as descriptions only]
+invariants: [no state machine or governance workflow is created]
+constraints: []
+structured_errors: [{code: SchoolLifecycleProcedureUnavailable, when: executable school lifecycle orchestration is requested}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-GENPROP-017]
+forbidden_behaviors: [invent_school_state_machine, invent_school_governance, add_dependency_29_to_31]
+traceability: {source: maths/29-generational-propagation/generational-propagation.md, inventory: registry/domain-progress/generational-propagation/feature-inventory.yaml}
