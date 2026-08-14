@@ -125,4 +125,5 @@ Target after Finality publication:
 
 ## Pull request identity
 
-The pull request identity is recorded after PR creation; no CI run IDs, final validated HEAD, squash SHA, or final `main` SHA are persisted in this durable report.
+- Pull request: **#157** — `Finalize domain 28 Finality and Evolutionary Teleology to implementation-ready handoffs`
+- No CI run IDs, final validated HEAD, squash SHA, or final `main` SHA are persisted in this durable report.
