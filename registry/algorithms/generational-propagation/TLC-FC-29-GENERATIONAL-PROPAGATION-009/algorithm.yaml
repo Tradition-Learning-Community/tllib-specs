@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-009
+algorithm_kind: exact_expression_evaluator
+execution: conditionally_executable
+steps: [require finite rows, guard cardinality and denominators, accumulate exact contributions, divide by cardinality, multiply retained decay factor]
+forbidden: [measure_substitution, integration, sampling_approximation, time_decay_removal, denominator_regularization]

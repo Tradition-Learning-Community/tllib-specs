@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-010
+status: finalized
+execution: executable
+source_ir: registry/ir/TLC-FC-29-GENERATIONAL-PROPAGATION-010/ir.yaml
+operation: guard_empty_invariant_core
+required_behavior: [emit EmptyInvariantCore when finite cardinality is zero]
+forbidden_behavior: [numeric_fallback, infinity_fallback, NaN_fallback]
+error_codes: [EmptyInvariantCore]

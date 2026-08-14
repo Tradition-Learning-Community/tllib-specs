@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-008
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-29-GENERATIONAL-PROPAGATION-008/ir.yaml
+operation: guard_dJdx_identity
+required_behavior: [preserve source-local unresolved meaning, require external provider for numeric value, state not bound to domain 28]
+forbidden_behavior: [bind_dJdx_to_domain_28, differentiate_domain_28_J, invent_J, add_dependency_29_to_28]
+error_codes: [dJdxProviderUnavailable]

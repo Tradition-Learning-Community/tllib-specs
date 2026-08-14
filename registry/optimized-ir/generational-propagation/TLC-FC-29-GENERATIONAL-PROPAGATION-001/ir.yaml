@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-001
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-29-GENERATIONAL-PROPAGATION-001/ir.yaml
+operation: evaluate_secondary_transmission_threshold
+required_behavior: [use supplied measurements and thresholds, preserve comparators '>= >= <= >= >', combine all five with AND]
+forbidden_behavior: [invent_threshold, aggregate_conditions, automatic_status_transition]
+error_codes: [ThresholdProviderUnavailable, MeasurementProviderUnavailable]

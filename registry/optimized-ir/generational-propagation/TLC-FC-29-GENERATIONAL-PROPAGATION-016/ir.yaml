@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-016
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-29-GENERATIONAL-PROPAGATION-016/ir.yaml
+operation: evaluate_corrective_success
+required_behavior: [require supplied after_distance<before_distance, require supplied after_value>before_value, conjunct both]
+forbidden_behavior: [search_correction, invent_pi_N, invent_norm, relax_strict_inequalities]
+error_codes: [CorrectiveProviderUnavailable]

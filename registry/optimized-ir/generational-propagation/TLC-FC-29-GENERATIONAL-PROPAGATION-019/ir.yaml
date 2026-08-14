@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-019
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-29-GENERATIONAL-PROPAGATION-019/ir.yaml
+operation: expose_generational_graph
+required_behavior: [publish G_t=(V_t,E_t,w), directed formation edges, quality w in [0,1], provider ownership for future 30 and 31]
+forbidden_behavior: [graph_analytics_framework, consumer_redefinition, extra_metric_invention]
+error_codes: []

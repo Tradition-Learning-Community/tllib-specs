@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-025
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-29-GENERATIONAL-PROPAGATION-025/ir.yaml
+operation: guard_extinction_claim_non_operational
+required_behavior: [preserve source claim as descriptor with missing branching assumptions]
+forbidden_behavior: [branching_process, offspring_law, extinction_probability, extinction_certificate]
+error_codes: [ExtinctionCertificateUnavailable]

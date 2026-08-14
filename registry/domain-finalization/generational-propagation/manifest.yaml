@@ -1,0 +1,23 @@
+schema_version: 1
+manifest_id: TLC-GENERATIONAL-PROPAGATION-DOMAIN-FINALIZATION-001
+domain: generational-propagation
+phase: 4
+status: selected_for_implementation_handoff
+base_branch: main
+base_commit: b6b5f2a4acb46f04e91f809e8136822e2a77cd12
+feature_count: 28
+population: [TLC-FC-29-GENERATIONAL-PROPAGATION-001, TLC-FC-29-GENERATIONAL-PROPAGATION-002, TLC-FC-29-GENERATIONAL-PROPAGATION-003, TLC-FC-29-GENERATIONAL-PROPAGATION-004, TLC-FC-29-GENERATIONAL-PROPAGATION-005, TLC-FC-29-GENERATIONAL-PROPAGATION-006, TLC-FC-29-GENERATIONAL-PROPAGATION-007, TLC-FC-29-GENERATIONAL-PROPAGATION-008, TLC-FC-29-GENERATIONAL-PROPAGATION-009, TLC-FC-29-GENERATIONAL-PROPAGATION-010, TLC-FC-29-GENERATIONAL-PROPAGATION-011, TLC-FC-29-GENERATIONAL-PROPAGATION-012, TLC-FC-29-GENERATIONAL-PROPAGATION-013, TLC-FC-29-GENERATIONAL-PROPAGATION-014, TLC-FC-29-GENERATIONAL-PROPAGATION-015, TLC-FC-29-GENERATIONAL-PROPAGATION-016, TLC-FC-29-GENERATIONAL-PROPAGATION-017, TLC-FC-29-GENERATIONAL-PROPAGATION-018, TLC-FC-29-GENERATIONAL-PROPAGATION-019, TLC-FC-29-GENERATIONAL-PROPAGATION-020, TLC-FC-29-GENERATIONAL-PROPAGATION-021, TLC-FC-29-GENERATIONAL-PROPAGATION-022, TLC-FC-29-GENERATIONAL-PROPAGATION-023, TLC-FC-29-GENERATIONAL-PROPAGATION-024, TLC-FC-29-GENERATIONAL-PROPAGATION-025, TLC-FC-29-GENERATIONAL-PROPAGATION-026, TLC-FC-29-GENERATIONAL-PROPAGATION-027, TLC-FC-29-GENERATIONAL-PROPAGATION-028]
+source_authority:
+  scientific_source: {path: maths/29-generational-propagation/generational-propagation.md, blob_sha: 19f894e70b5e6898cc0db2fbd8b402e7d843393f, modified: false}
+  invariants_provider: {domain: invariants, domain_index: 4, path: maths/04-invariants/invariants.md, blob_sha: 5bddc38b4a74465c2bc3b1d2e9f8aac004e86800, relation: '29 -> 04', feature_binding: none, runtime_dependency: false}
+  wave3: {order: [28, 29, 30, 31], future_consumers: [30, 31], rejected_dependencies_from_29: [28, 30, 31]}
+artifact_patterns:
+  contract: registry/math-contracts/<FEATURE_ID>/contract.yaml
+  candidate_ir: ir/<FEATURE_ID>/ir.candidate.json
+  registered_ir: registry/ir/<FEATURE_ID>/ir.yaml
+  test_plan: registry/test-plans/<FEATURE_ID>/test-plan.yaml
+  optimized_ir: registry/optimized-ir/generational-propagation/<FEATURE_ID>/ir.yaml
+  algorithm: registry/algorithms/generational-propagation/<FEATURE_ID>/algorithm.yaml
+  oracle: registry/oracles/generational-propagation/<FEATURE_ID>/oracle.yaml
+implementation_tasks: registry/domain-finalization/generational-propagation/implementation-tasks.yaml
+shared_contract_count: 8

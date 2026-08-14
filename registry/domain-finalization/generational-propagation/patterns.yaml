@@ -1,0 +1,30 @@
+schema_version: 1
+domain: generational-propagation
+patterns:
+  threshold_conjunction:
+    applies_to: [TLC-FC-29-GENERATIONAL-PROPAGATION-001, TLC-FC-29-GENERATIONAL-PROPAGATION-002]
+    rule: preserve exact T3 comparator sequence and keep social validation external
+  mixed_stochastic_dynamics:
+    applies_to: [TLC-FC-29-GENERATIONAL-PROPAGATION-003, TLC-FC-29-GENERATIONAL-PROPAGATION-004]
+    rule: preserve derivative/Brownian notation; no RNG SDE ODE solver or integrator
+  mutation_provider_boundary:
+    applies_to: [TLC-FC-29-GENERATIONAL-PROPAGATION-005, TLC-FC-29-GENERATIONAL-PROPAGATION-006, TLC-FC-29-GENERATIONAL-PROPAGATION-007, TLC-FC-29-GENERATIONAL-PROPAGATION-008]
+    rule: preserve exact predicates; dJdx source-local external and never bound to domain 28
+  replication_guards:
+    applies_to: [TLC-FC-29-GENERATIONAL-PROPAGATION-009, TLC-FC-29-GENERATIONAL-PROPAGATION-010, TLC-FC-29-GENERATIONAL-PROPAGATION-011, TLC-FC-29-GENERATIONAL-PROPAGATION-012]
+    rule: finite core only; guard empty cardinality and zero delta_x_max; retain exp(-lambda t); no measure substitution
+  erosion_ambiguity:
+    applies_to: [TLC-FC-29-GENERATIONAL-PROPAGATION-013, TLC-FC-29-GENERATIONAL-PROPAGATION-014, TLC-FC-29-GENERATIONAL-PROPAGATION-015]
+    rule: approximation remains approximate; exact d expression uses supplied providers; time inconsistency is preserved
+  corrective_boundary:
+    applies_to: [TLC-FC-29-GENERATIONAL-PROPAGATION-016, TLC-FC-29-GENERATIONAL-PROPAGATION-017, TLC-FC-29-GENERATIONAL-PROPAGATION-018]
+    rule: validate supplied success only; no repair algorithm; efficiency formula unavailable
+  graph_boundary:
+    applies_to: [TLC-FC-29-GENERATIONAL-PROPAGATION-019, TLC-FC-29-GENERATIONAL-PROPAGATION-020, TLC-FC-29-GENERATIONAL-PROPAGATION-021]
+    rule: 29 owns G_t; density exact with small-graph guard; connectivity convention unresolved; other metrics named only
+  reproduction_boundary:
+    applies_to: [TLC-FC-29-GENERATIONAL-PROPAGATION-022, TLC-FC-29-GENERATIONAL-PROPAGATION-023, TLC-FC-29-GENERATIONAL-PROPAGATION-024, TLC-FC-29-GENERATIONAL-PROPAGATION-025]
+    rule: preserve R and R_c formulas/guards; no branching model or extinction certificate; expansion label creates no 29 to 30 edge
+  diversification_and_ownership:
+    applies_to: [TLC-FC-29-GENERATIONAL-PROPAGATION-026, TLC-FC-29-GENERATIONAL-PROPAGATION-027, TLC-FC-29-GENERATIONAL-PROPAGATION-028]
+    rule: strict diversification predicate; school lifecycle descriptive; dependency exactly 29 to 04 with future consumers 30 and 31
