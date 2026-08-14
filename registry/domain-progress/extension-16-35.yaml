@@ -515,10 +515,18 @@ domains:
     scientific_sources: [maths/29-generational-propagation/generational-propagation.md]
     wave: wave-3
     analysis_companions: [30, 31]
-    feature_count: null
-    handoff_publication: false
+    feature_count: 28
+    handoff_publication: true
     dependencies: {confirmed: [4], provisional: [], unknown: false}
-    pipeline: *unstarted_pipeline
+    pipeline:
+      scientific_source: complete
+      functional_decomposition: complete
+      registries: complete
+      ir: complete
+      contracts: complete
+      algorithms: complete_or_not_applicable
+      oracles: complete
+      handoff_packages: complete
 
   - index: 30
     slug: expansion
