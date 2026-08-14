@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-009
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-009/contract.yaml
+tests:
+  - {id: GEN029009-T01, category: formula, verifies: Q_rep exact summand and exp(-lambda t) are preserved}
+  - {id: GEN029009-T02, category: guard, verifies: empty finite core errors}
+  - {id: GEN029009-T03, category: guard, verifies: zero delta_x_max errors without epsilon repair}
+  - {id: GEN029009-T04, category: non_invention, verifies: continuous cardinality is not replaced by measure integral or Monte Carlo}

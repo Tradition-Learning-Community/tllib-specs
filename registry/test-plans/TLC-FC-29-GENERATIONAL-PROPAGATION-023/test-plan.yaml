@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-023
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-023/contract.yaml
+tests:
+  - {id: GEN029023-T01, category: classifier, verifies: R>1 expansion R=1 fragile stability R<1 decline}
+  - {id: GEN029023-T02, category: dependency, verifies: word expansion does not create 29 to 30 dependency}

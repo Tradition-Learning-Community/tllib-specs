@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-006
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-006/contract.yaml
+source_candidate_ir: ir/TLC-FC-29-GENERATIONAL-PROPAGATION-006/ir.candidate.json
+nature: guarded_exact_predicate
+steps: [verify distance exceeds delta_rupture, verify dJdx is negative, evaluate low-value OR unfavorable-environment, AND the three outer conditions]
+errors: [MutationProviderUnavailable]

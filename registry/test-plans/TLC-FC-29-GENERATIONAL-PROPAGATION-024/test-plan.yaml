@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-024
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-024/contract.yaml
+tests:
+  - {id: GEN029024-T01, category: formula, verifies: exact R_c=1+sigma_R^2/E[R]*f(rho,kappa)}
+  - {id: GEN029024-T02, category: guard, verifies: E[R]=0 emits structured error}
+  - {id: GEN029024-T03, category: non_invention, verifies: no variance expectation or f estimator}

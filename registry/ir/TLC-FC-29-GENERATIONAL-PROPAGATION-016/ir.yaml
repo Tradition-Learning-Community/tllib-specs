@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-016
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-016/contract.yaml
+source_candidate_ir: ir/TLC-FC-29-GENERATIONAL-PROPAGATION-016/ir.candidate.json
+nature: guarded_exact_predicate
+steps: [read supplied before and after doctrinal distances, require after distance strictly lower, read supplied before and after values, require after value strictly greater, AND both conditions]
+errors: [CorrectiveProviderUnavailable]

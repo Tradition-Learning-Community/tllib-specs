@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-016
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-016/contract.yaml
+tests:
+  - {id: GEN029016-T01, category: formula, verifies: both strict correction-success inequalities}
+  - {id: GEN029016-T02, category: non_invention, verifies: predicate validates supplied output and never searches for correction}

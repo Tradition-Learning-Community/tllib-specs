@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-009
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-009/contract.yaml
+source_candidate_ir: ir/TLC-FC-29-GENERATIONAL-PROPAGATION-009/ir.candidate.json
+nature: guarded_exact_expression
+steps: [require explicitly finite supplied core representation, guard nonzero core cardinality, guard every nonzero delta_x_max, sum weighted source contributions, divide by cardinality, retain exp(-lambda t)]
+errors: [EmptyInvariantCore, ZeroMaximumDeviation, CoreCardinalityRepresentationUnavailable]

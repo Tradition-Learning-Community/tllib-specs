@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-012
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-012/contract.yaml
+tests:
+  - {id: GEN029012-T01, category: preservation, verifies: exp(-lambda t) remains even when deviations are zero}
+  - {id: GEN029012-T02, category: non_invention, verifies: unexplained time decay is not repaired}

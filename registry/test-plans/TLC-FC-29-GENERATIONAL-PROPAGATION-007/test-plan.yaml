@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-007
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-007/contract.yaml
+tests:
+  - {id: GEN029007-T01, category: formula, verifies: strict d_D < delta_adapt and dJdx > 0}
+  - {id: GEN029007-T02, category: dependency, verifies: no 29 to 24 or 29 to 28 dependency is inferred}

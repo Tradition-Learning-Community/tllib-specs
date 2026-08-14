@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-024
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-024/contract.yaml
+source_candidate_ir: ir/TLC-FC-29-GENERATIONAL-PROPAGATION-024/ir.candidate.json
+nature: guarded_exact_expression
+steps: [read supplied sigma_R_squared expected_R and f_rho_kappa, guard expected_R nonzero, compute ratio, multiply by supplied f, add one]
+errors: [ZeroExpectedReproduction, CriticalThresholdProviderUnavailable]

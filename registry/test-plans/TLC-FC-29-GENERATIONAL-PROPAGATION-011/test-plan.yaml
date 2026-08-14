@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-011
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-011/contract.yaml
+tests:
+  - {id: GEN029011-T01, category: guard, verifies: zero delta_x_max emits ZeroMaximumDeviation}
+  - {id: GEN029011-T02, category: non_invention, verifies: no epsilon denominator repair}

@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-005
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-005/contract.yaml
+source_candidate_ir: ir/TLC-FC-29-GENERATIONAL-PROPAGATION-005/ir.candidate.json
+nature: guarded_exact_predicate
+steps: [verify doctrinal distance is strictly positive and at most delta_innov, verify supplied dJdx is positive, verify supplied V_x exceeds theta_V, verify supplied environment membership, AND all conditions]
+errors: [MutationProviderUnavailable]

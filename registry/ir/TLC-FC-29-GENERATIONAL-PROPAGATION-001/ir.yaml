@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-001
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-001/contract.yaml
+source_candidate_ir: ir/TLC-FC-29-GENERATIONAL-PROPAGATION-001/ir.candidate.json
+nature: guarded_exact_predicate
+steps: [read five supplied measurements and five thresholds, evaluate comparators in source order, AND all five conditions]
+errors: [ThresholdProviderUnavailable, MeasurementProviderUnavailable]

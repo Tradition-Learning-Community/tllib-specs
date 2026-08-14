@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-011
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-011/contract.yaml
+source_candidate_ir: ir/TLC-FC-29-GENERATIONAL-PROPAGATION-011/ir.candidate.json
+nature: denominator_guard
+steps: [read delta_x_max, emit ZeroMaximumDeviation if zero, otherwise permit division]
+errors: [ZeroMaximumDeviation]

@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-006
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-006/contract.yaml
+tests:
+  - {id: GEN029006-T01, category: logic, verifies: exact A AND B AND (C OR D) structure}
+  - {id: GEN029006-T02, category: comparator, verifies: distance > delta_rupture and dJdx < 0 remain strict}
+  - {id: GEN029006-T03, category: dependency, verifies: no dJdx binding to domain 28}

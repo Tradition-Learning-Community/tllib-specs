@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-028
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-028/contract.yaml
+tests:
+  - {id: GEN029028-T01, category: dependency, verifies: 29 to 04 intact and runtime dependencies empty}
+  - {id: GEN029028-T02, category: dependency, verifies: no 29 to 28 30 or 31 edge}
+  - {id: GEN029028-T03, category: ownership, verifies: 30 to 29 and 31 to 29 remain future consumer relationships}
+  - {id: GEN029028-T04, category: preservation, verifies: 31 to 24 unresolved relation remains untouched}
