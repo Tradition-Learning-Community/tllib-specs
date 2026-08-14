@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-009
+source_contract: registry/math-contracts/TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-009/contract.yaml
+tests:
+  - {id: FIN009-T01, category: formula, verifies: p dot F minus L plus lambda P_pres exact signs}
+  - {id: FIN009-T02, category: preservation, verifies: plus lambda P_pres untouched}
+  - {id: FIN009-T03, category: non_invention, verifies: no Hamiltonian solver costate integration or gradients}

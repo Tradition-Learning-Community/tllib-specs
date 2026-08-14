@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-003
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-003
+title: Realization-distance expression
+domain_id: finality-and-evolutionary-teleology
+contract_kind: provider_composed_expression
+scientific_status: external_provider_required
+scientific_authority: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+source_sections: ['2. Réalisation et attracteurs']
+expression: 'd_real(X,G,t)=inf_{y in G}(||X-y|| + alpha(t)d_temp(t) + beta(t)d_ctx(X,c(t)))'
+inputs: [{name: infimum_value, type: scalar}, {name: alpha_t, type: scalar}, {name: d_temp_t, type: scalar}, {name: beta_t, type: scalar}, {name: d_ctx_value, type: scalar}]
+outputs: [{name: d_real, type: scalar}]
+opaque_providers: [infimum_over_goal_region, d_temp, d_ctx]
+preconditions: [caller supplies final provider values required by the source expression]
+postconditions: [combine supplied final terms with exact source signs and coefficients]
+invariants: [infimum semantics are preserved and no minimizer is synthesized]
+constraints: [no argmin nearest-point projection or geodesic solver]
+structured_errors: [{code: RealizationDistanceProviderMissing, when: a required final provider value is absent}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FINALITY-004, TLC-UR-FINALITY-014]
+forbidden_behaviors: [invent_infimum_solver, invent_argmin_solver, invent_nearest_point_solver, invent_projection_algorithm, invent_geodesic_solver, invent_context_distance_engine]
+traceability: {source: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md, inventory: registry/domain-progress/finality-and-evolutionary-teleology/feature-inventory.yaml}

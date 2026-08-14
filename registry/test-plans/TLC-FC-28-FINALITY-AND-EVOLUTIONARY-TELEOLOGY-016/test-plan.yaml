@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-016
+source_contract: registry/math-contracts/TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-016/contract.yaml
+tests:
+  - {id: FIN016-T01, category: theorem, verifies: strict P_pres greater-than theta and U preservation hypotheses}
+  - {id: FIN016-T02, category: dependency, verifies: invariant-core authority remains domain 04}
+  - {id: FIN016-T03, category: non_invention, verifies: no safety invariance or barrier certificate}

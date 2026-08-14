@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-019
+source_contract: registry/math-contracts/TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-019/contract.yaml
+tests:
+  - {id: FIN019-T01, category: formula, verifies: lambda_tel equals source limit one-over-t log d_real}
+  - {id: FIN019-T02, category: preservation, verifies: source-signed supplied limit is returned unchanged}
+  - {id: FIN019-T03, category: non_invention, verifies: no limit solver negation absolute value or positive-rate rename}

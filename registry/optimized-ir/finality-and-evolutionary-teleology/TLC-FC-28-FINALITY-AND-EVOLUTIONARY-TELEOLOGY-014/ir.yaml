@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-014
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-014/ir.yaml
+operation: describe_state_goal_control_system
+required_behavior: [preserve Xdot Gdot and argmin statements without solver]
+forbidden_behavior: [argmin_solver, control_solver, trajectory_optimizer, MPC, gradient_descent]
+error_codes: [StateGoalControlSolverUnavailable]

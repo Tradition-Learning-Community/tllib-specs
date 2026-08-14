@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-009
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-009
+title: Hamiltonian raw expression
+domain_id: finality-and-evolutionary-teleology
+contract_kind: provider_composed_expression
+scientific_status: external_provider_required
+scientific_authority: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+source_sections: ['4. Optimisation finalisée']
+expression: 'H = p dot F(X,u) - L(X,u,G) + lambda P_pres'
+inputs: [{name: p_dot_F, type: scalar}, {name: L_value, type: scalar}, {name: lambda, type: scalar}, {name: P_pres, type: scalar}]
+outputs: [{name: H, type: scalar}]
+opaque_providers: [F, L, P_pres]
+preconditions: [caller supplies final p dot F L and P_pres values]
+postconditions: [evaluate exact source signs: plus p dot F, minus L, plus lambda P_pres]
+invariants: [preservation term sign is unchanged]
+constraints: [no costate integrator gradients or optimizer]
+structured_errors: [{code: HamiltonianProviderMissing, when: a required supplied term is absent}]
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-FINALITY-007, TLC-UR-FINALITY-014]
+forbidden_behaviors: [repair_Hamiltonian_sign, invent_Hamiltonian_solver, invent_Pontryagin_solver, invent_shooting_method, invent_costate_integrator, invent_gradient]
+traceability: {source: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md, inventory: registry/domain-progress/finality-and-evolutionary-teleology/feature-inventory.yaml}

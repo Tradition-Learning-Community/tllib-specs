@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-021
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-021
+title: Teleological efficiency expression
+domain_id: finality-and-evolutionary-teleology
+contract_kind: provider_composed_expression
+scientific_status: external_provider_required
+scientific_authority: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+source_sections: ['7. Métriques']
+expression: 'eta_tel = (1/T) integral_0^T exp(-rho t) J(X,u,t) dt'
+inputs: [{name: discounted_integral_value, type: scalar}, {name: T, type: scalar}]
+outputs: [{name: eta_tel, type: scalar}]
+opaque_providers: [discounted_integral]
+preconditions: [T != 0, caller supplies the final discounted integral value]
+postconditions: [divide the supplied integral by T exactly]
+invariants: [no quadrature or trajectory generation is implied]
+constraints: [rho and T are supplied and uncalibrated]
+structured_errors: [{code: TeleologicalEfficiencyZeroHorizon, when: T equals 0}, {code: TeleologicalEfficiencyIntegralMissing, when: discounted integral is absent}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FINALITY-014]
+forbidden_behaviors: [invent_integrator, invent_quadrature, invent_trajectory, calibrate_rho, invent_horizon]
+traceability: {source: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md, inventory: registry/domain-progress/finality-and-evolutionary-teleology/feature-inventory.yaml}

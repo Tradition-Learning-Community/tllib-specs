@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-007
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-007/ir.yaml
+operation: aggregate_finalized_objective_terms
+required_behavior: [sum supplied integral L Phi and Psi terms with source plus signs]
+forbidden_behavior: [quadrature, trajectory_generation, optimizer, Psi_sign_repair]
+error_codes: [FinalizedObjectiveProviderMissing]

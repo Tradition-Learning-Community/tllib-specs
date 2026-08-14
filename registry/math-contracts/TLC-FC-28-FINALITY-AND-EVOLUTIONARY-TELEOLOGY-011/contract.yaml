@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-011
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-011
+title: HJB condition descriptor
+domain_id: finality-and-evolutionary-teleology
+contract_kind: non_execution_descriptor
+scientific_status: external_provider_required
+scientific_authority: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+source_sections: ['4. Optimisation finalisée']
+expression: 'partial_t V + min_u[L(X,u,t,G) + grad_X V dot F(X,u)] = 0'
+inputs: [{name: HJB_statement, type: descriptor}]
+outputs: [{name: HJB_condition_descriptor, type: descriptor}]
+opaque_providers: [V, grad_X_V, F, minimization_evidence]
+preconditions: []
+postconditions: [preserve the source HJB equation as a scientific condition]
+invariants: [min_u is not converted into an available algorithm]
+constraints: [no HJB PDE value or policy iteration solver]
+structured_errors: [{code: HJBSolverUnavailable, when: executable HJB minimization or PDE solution is requested}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FINALITY-009]
+forbidden_behaviors: [invent_HJB_solver, invent_PDE_solver, invent_minimizer_search, invent_value_iteration, invent_policy_iteration]
+traceability: {source: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md, inventory: registry/domain-progress/finality-and-evolutionary-teleology/feature-inventory.yaml}

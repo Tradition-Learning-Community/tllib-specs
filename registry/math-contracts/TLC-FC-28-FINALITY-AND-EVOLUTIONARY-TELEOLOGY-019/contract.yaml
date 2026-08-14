@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-019
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-019
+title: Teleological convergence-rate expression
+domain_id: finality-and-evolutionary-teleology
+contract_kind: provider_composed_limit_expression
+scientific_status: preserved_unresolved
+scientific_authority: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+source_sections: ['7. Métriques', '8. Limites et points scientifiques non résolus']
+expression: 'lambda_tel = lim_{t->infinity} (1/t) ln d_real'
+inputs: [{name: supplied_limit_value, type: scalar}]
+outputs: [{name: lambda_tel, type: scalar}]
+opaque_providers: [limit_evaluation]
+preconditions: [caller supplies the final source-defined limit value or evidence]
+postconditions: [return the source-signed value without negation or absolute value]
+invariants: [exponential decay d_real~exp(-k t) yields lambda_tel=-k]
+constraints: [no limit solver and no positive-rate reinterpretation]
+structured_errors: [{code: TeleologicalRateLimitUnavailable, when: the asymptotic limit is not supplied}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FINALITY-013]
+forbidden_behaviors: [negate_lambda_tel, absolute_value_lambda_tel, rename_positive_decay_rate, invent_limit_solver]
+traceability: {source: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md, inventory: registry/domain-progress/finality-and-evolutionary-teleology/feature-inventory.yaml}

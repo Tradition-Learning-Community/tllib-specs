@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-002
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-002
+title: Goal hierarchy and stage ambiguity descriptor
+domain_id: finality-and-evolutionary-teleology
+contract_kind: unresolved_structural_descriptor
+scientific_status: preserved_unresolved
+scientific_authority: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+source_sections: ['1. Espace des buts', '3. Axiomes', '8. Limites et points scientifiques non résolus']
+expression: 'G_imm subset G_int subset G_ult; source also narrates immediate -> intermediate -> ultimate stages'
+inputs: [{name: hierarchy_declaration, type: descriptor}]
+outputs: [{name: hierarchy_descriptor, type: descriptor}]
+opaque_providers: []
+preconditions: []
+postconditions: [preserve set inclusion and separately preserve stage interpretation]
+invariants: [no equivalence between inclusion and temporal/procedural stages is asserted]
+constraints: [no workflow or state machine]
+structured_errors: [{code: GoalStageEquivalenceUnavailable, when: automatic stage-transition semantics are requested}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FINALITY-002]
+forbidden_behaviors: [invent_goal_stage_equivalence, invent_goal_workflow, invent_state_machine, invent_automatic_goal_transition, invent_goal_planner]
+traceability: {source: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md, inventory: registry/domain-progress/finality-and-evolutionary-teleology/feature-inventory.yaml}

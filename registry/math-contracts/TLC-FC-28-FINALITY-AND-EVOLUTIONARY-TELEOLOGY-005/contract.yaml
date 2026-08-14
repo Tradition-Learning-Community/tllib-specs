@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-005
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-005
+title: Teleological update provider descriptor
+domain_id: finality-and-evolutionary-teleology
+contract_kind: external_provider_descriptor
+scientific_status: external_provider_required
+scientific_authority: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+source_sections: ['3. Axiomes']
+expression: 'G(t+1)=U(G(t),c(t)); U:F x C x R+ -> F; U preserves the invariant core'
+inputs: [{name: G, type: opaque}, {name: context, type: opaque}, {name: t, type: scalar}]
+outputs: [{name: updated_goal, type: opaque}]
+opaque_providers: [U]
+preconditions: [U is supplied by an external provider]
+postconditions: [preserve source typing and invariant-core-preservation obligation]
+invariants: [U is not constructed by domain 28]
+constraints: [no goal update policy or optimizer]
+structured_errors: [{code: TeleologicalUpdateProviderMissing, when: executable update is requested without U}]
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-FINALITY-005]
+forbidden_behaviors: [invent_update_operator_U, invent_goal_update_policy, invent_goal_planner, invent_optimizer]
+traceability: {source: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md, inventory: registry/domain-progress/finality-and-evolutionary-teleology/feature-inventory.yaml}

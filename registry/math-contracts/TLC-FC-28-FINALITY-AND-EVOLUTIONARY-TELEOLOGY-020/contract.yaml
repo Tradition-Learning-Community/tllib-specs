@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-020
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-020
+title: Convergence-rate sign ambiguity guard
+domain_id: finality-and-evolutionary-teleology
+contract_kind: scientific_ambiguity_guard
+scientific_status: preserved_unresolved
+scientific_authority: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+source_sections: ['7. Métriques', '8. Limites et points scientifiques non résolus']
+expression: 'source calls lambda_tel a convergence speed although exponential decay produces a negative value'
+inputs: [{name: sign_interpretation_request, type: descriptor}]
+outputs: [{name: sign_convention_status, type: descriptor}]
+opaque_providers: []
+preconditions: []
+postconditions: [preserve the source convention as unresolved]
+invariants: [no negation or absolute-value repair]
+constraints: [descriptor only]
+structured_errors: [{code: TeleologicalRateSignUnresolved, when: a positive decay-rate convention is requested}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-FINALITY-013]
+forbidden_behaviors: [negate_lambda_tel, absolute_value_lambda_tel, rename_positive_decay_rate]
+traceability: {source: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md, inventory: registry/domain-progress/finality-and-evolutionary-teleology/feature-inventory.yaml}

@@ -1,0 +1,23 @@
+schema_version: 1
+manifest_id: TLC-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-DOMAIN-FINALIZATION-001
+domain: finality-and-evolutionary-teleology
+phase: 4
+status: selected_for_implementation_handoff
+base_branch: main
+base_commit: a44e29aa09c006c7cdb441d64422fabf89196bd2
+feature_count: 22
+population: [TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-001, TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-002, TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-003, TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-004, TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-005, TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-006, TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-007, TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-008, TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-009, TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-010, TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-011, TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-012, TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-013, TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-014, TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-015, TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-016, TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-017, TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-018, TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-019, TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-020, TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-021, TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-022]
+source_authority:
+  scientific_source: {path: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md, blob_sha: 4be0b562d872a206725ad4089dc3723d8f7e20ad, modified: false}
+  invariants_provider: {domain: invariants, domain_index: 4, path: maths/04-invariants/invariants.md, blob_sha: 5bddc38b4a74465c2bc3b1d2e9f8aac004e86800, relation: '28 -> 04', feature_binding: none, runtime_dependency: false}
+  wave3_order: [28, 29, 30, 31]
+artifact_patterns:
+  contract: registry/math-contracts/<FEATURE_ID>/contract.yaml
+  candidate_ir: ir/<FEATURE_ID>/ir.candidate.json
+  registered_ir: registry/ir/<FEATURE_ID>/ir.yaml
+  test_plan: registry/test-plans/<FEATURE_ID>/test-plan.yaml
+  optimized_ir: registry/optimized-ir/finality-and-evolutionary-teleology/<FEATURE_ID>/ir.yaml
+  algorithm: registry/algorithms/finality-and-evolutionary-teleology/<FEATURE_ID>/algorithm.yaml
+  oracle: registry/oracles/finality-and-evolutionary-teleology/<FEATURE_ID>/oracle.yaml
+implementation_tasks: registry/domain-finalization/finality-and-evolutionary-teleology/implementation-tasks.yaml
+shared_contract_count: 8

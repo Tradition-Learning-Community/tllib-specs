@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-014
+source_contract: registry/math-contracts/TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-014/contract.yaml
+tests:
+  - {id: FIN014-T01, category: formula, verifies: Xdot Gdot and argmin source statements preserved}
+  - {id: FIN014-T02, category: provider, verifies: X*(G) and argmin remain provider boundaries}
+  - {id: FIN014-T03, category: non_invention, verifies: no control solver MPC trajectory optimizer gradient descent or ODE solver}

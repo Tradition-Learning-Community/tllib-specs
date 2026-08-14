@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-019
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-019/ir.yaml
+operation: return_source_signed_teleological_rate
+required_behavior: [accept supplied limit value, return unchanged source sign]
+forbidden_behavior: [limit_solver, negation, absolute_value, positive_rate_rename]
+error_codes: [TeleologicalRateLimitUnavailable]

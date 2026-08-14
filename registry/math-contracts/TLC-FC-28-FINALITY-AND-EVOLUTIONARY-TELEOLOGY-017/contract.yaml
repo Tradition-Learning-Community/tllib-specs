@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-017
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-017
+title: Repulsive-boundary proof-unavailable guard
+domain_id: finality-and-evolutionary-teleology
+contract_kind: scientific_proof_unavailable_guard
+scientific_status: preserved_unresolved
+scientific_authority: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+source_sections: ['6. Théorèmes formulés par la source', '8. Limites et points scientifiques non résolus']
+expression: 'source attributes repulsive character of P_pres=theta boundary to Psi but does not prove it'
+inputs: [{name: repulsive_boundary_claim_request, type: descriptor}]
+outputs: [{name: proof_status, type: descriptor}]
+opaque_providers: []
+preconditions: []
+postconditions: [state that the repulsive-boundary proof is unavailable]
+invariants: [no barrier or safety certificate is synthesized]
+constraints: [structural guard only]
+structured_errors: [{code: RepulsiveBoundaryProofUnavailable, when: proof or certificate is requested}]
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-FINALITY-012]
+forbidden_behaviors: [invent_repulsive_boundary_certificate, invent_barrier_certificate, invent_safety_certificate, invent_invariance_proof]
+traceability: {source: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md, inventory: registry/domain-progress/finality-and-evolutionary-teleology/feature-inventory.yaml}

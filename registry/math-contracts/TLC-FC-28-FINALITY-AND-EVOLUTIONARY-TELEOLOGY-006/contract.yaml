@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-006
+feature_id: TLC-FC-28-FINALITY-AND-EVOLUTIONARY-TELEOLOGY-006
+title: Invariant-core preservation condition and set-projection guard
+domain_id: finality-and-evolutionary-teleology
+contract_kind: unresolved_provider_guard
+scientific_status: preserved_unresolved
+scientific_authority: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md
+source_sections: ['3. Axiomes', '8. Limites et points scientifiques non résolus']
+expression: 'for all y in G_prime=U(G,c,t): ||pi_N(y)-pi_N(G)|| < epsilon'
+inputs: [{name: preservation_condition_request, type: descriptor}]
+outputs: [{name: preservation_condition_descriptor, type: descriptor}]
+opaque_providers: [pi_N, pi_N_of_G]
+preconditions: []
+postconditions: [preserve strict less-than epsilon and opaque pi_N(G)]
+invariants: [set-level projection semantics remain undefined]
+constraints: [no centroid set image aggregation Hausdorff metric mean projection or representative point]
+structured_errors: [{code: SetProjectionSemanticsUnavailable, when: executable pi_N(G) semantics are requested}]
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-FINALITY-003, TLC-UR-FINALITY-014]
+forbidden_behaviors: [invent_goal_projection, invent_set_projection_semantics, invent_centroid, invent_Hausdorff_distance, invent_mean_projection, invent_nearest_invariant, invent_representative_point, invent_threshold]
+traceability: {source: maths/28-finality-and-evolutionary-teleology/finality-and-evolutionary-teleology.md, inventory: registry/domain-progress/finality-and-evolutionary-teleology/feature-inventory.yaml}
