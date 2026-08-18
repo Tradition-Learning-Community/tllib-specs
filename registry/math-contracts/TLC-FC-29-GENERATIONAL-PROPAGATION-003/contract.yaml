@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-29-GENERATIONAL-PROPAGATION-003
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-003
+title: Generational dynamics expression descriptor
+domain_id: generational-propagation
+contract_kind: preserved_expression_descriptor
+scientific_status: preserved_unresolved
+scientific_authority: maths/29-generational-propagation/generational-propagation.md
+source_sections: ['2. Variations entre générations']
+expression: 'dx_v/dt = eta sum_{u in N(v)} w_uv(x_u-x_v) + xi(v)(x_M(v)-x_v) + sigma dW_v(t) + tau V dot grad(E) dot x_v'
+inputs: [{name: source_terms, type: supplied_symbolic_terms}]
+outputs: [{name: dynamics_descriptor, type: structural_descriptor}]
+opaque_providers: [N_v, dW_v_t, grad_E, V_operator]
+preconditions: []
+postconditions: [preserve all four terms and their signs exactly]
+invariants: [mixed derivative and Brownian notation remains unresolved]
+constraints: []
+structured_errors: [{code: DynamicsExecutionUnavailable, when: numerical integration or time stepping is requested}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-GENPROP-003, TLC-UR-GENPROP-004, TLC-UR-GENPROP-005]
+forbidden_behaviors: [invent_SDE_solver, invent_ODE_solver, invent_integrator, invent_time_step_policy, rewrite_as_Ito_SDE]
+traceability: {source: maths/29-generational-propagation/generational-propagation.md, inventory: registry/domain-progress/generational-propagation/feature-inventory.yaml}

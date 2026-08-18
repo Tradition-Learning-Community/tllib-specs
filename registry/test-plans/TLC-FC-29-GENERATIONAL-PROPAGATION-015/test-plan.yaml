@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-015
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-015/contract.yaml
+tests:
+  - {id: GEN029015-T01, category: ambiguity, verifies: d is not rewritten as d(t)}
+  - {id: GEN029015-T02, category: non_invention, verifies: no integral or generation-product repair}

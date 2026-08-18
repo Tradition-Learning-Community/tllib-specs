@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-003
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-003/contract.yaml
+tests:
+  - {id: GEN029003-T01, category: formula, verifies: all four source terms and signs are preserved}
+  - {id: GEN029003-T02, category: ambiguity, verifies: mixed derivative and Brownian notation is not silently converted to an Ito SDE}
+  - {id: GEN029003-T03, category: non_invention, verifies: no ODE SDE solver integrator or time-step policy}

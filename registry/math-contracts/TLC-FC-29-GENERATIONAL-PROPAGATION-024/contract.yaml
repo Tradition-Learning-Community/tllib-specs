@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-29-GENERATIONAL-PROPAGATION-024
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-024
+title: Critical reproduction-threshold evaluator
+domain_id: generational-propagation
+contract_kind: guarded_exact_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/29-generational-propagation/generational-propagation.md
+source_sections: ['5. Taux de reproduction']
+expression: 'R_c=1+(sigma_R^2/E[R])*f(rho,kappa)'
+inputs: [{name: sigma_R_squared, type: supplied_scalar}, {name: expected_R, type: supplied_scalar}, {name: f_rho_kappa, type: supplied_scalar}]
+outputs: [{name: R_c, type: scalar}]
+opaque_providers: [sigma_R_squared, expected_R, f_rho_kappa]
+preconditions: [expected_R is nonzero, provider statistics and f value are supplied]
+postconditions: [evaluate exact expression only from supplied final quantities]
+invariants: [no expectation variance or f estimator is constructed]
+constraints: []
+structured_errors: [{code: ZeroExpectedReproduction, when: expected_R equals zero}, {code: CriticalThresholdProviderUnavailable, when: any statistic or f value is absent}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-GENPROP-016]
+forbidden_behaviors: [invent_f_rho_kappa, invent_variance_estimator, invent_expectation_estimator, epsilon_repair_expected_R]
+traceability: {source: maths/29-generational-propagation/generational-propagation.md, inventory: registry/domain-progress/generational-propagation/feature-inventory.yaml}

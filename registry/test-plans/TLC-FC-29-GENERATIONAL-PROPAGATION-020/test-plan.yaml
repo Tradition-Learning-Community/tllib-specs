@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-020
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-020/contract.yaml
+tests:
+  - {id: GEN029020-T01, category: formula, verifies: rho_t=|E_t|/(|V_t|(|V_t|-1)) exactly}
+  - {id: GEN029020-T02, category: guard, verifies: |V_t|<2 emits structured error rather than zero}

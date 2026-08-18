@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-29-GENERATIONAL-PROPAGATION-002
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-002
+title: Social validation procedure boundary
+domain_id: generational-propagation
+contract_kind: unavailable_procedure_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/29-generational-propagation/generational-propagation.md
+source_sections: ['1. Seuil de transmission secondaire']
+expression: 'status transition is accompanied by Master and validated by Community; procedure unspecified'
+inputs: [{name: master_accompaniment_evidence, type: opaque_evidence}, {name: community_validation_evidence, type: opaque_evidence}]
+outputs: [{name: validation_descriptor, type: structural_descriptor}]
+opaque_providers: [master_accompaniment_evidence, community_validation_evidence]
+preconditions: []
+postconditions: [do not infer or execute governance mechanics]
+invariants: [evidence may be recorded but procedure remains external]
+constraints: []
+structured_errors: [{code: SocialValidationProcedureUnavailable, when: an executable status transition is requested}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-GENPROP-002]
+forbidden_behaviors: [invent_validation_workflow, invent_vote, invent_quorum, invent_consensus, automatic_status_transition]
+traceability: {source: maths/29-generational-propagation/generational-propagation.md, inventory: registry/domain-progress/generational-propagation/feature-inventory.yaml}

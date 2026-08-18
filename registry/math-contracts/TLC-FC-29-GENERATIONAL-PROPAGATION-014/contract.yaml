@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-29-GENERATIONAL-PROPAGATION-014
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-014
+title: Erosion-rate expression evaluator
+domain_id: generational-propagation
+contract_kind: exact_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/29-generational-propagation/generational-propagation.md
+source_sections: ['3. Qualité de réplication']
+expression: 'd=(1-Q_rep)(1-R_auto)(1+kappa||grad E||)'
+inputs: [{name: Q_rep, type: supplied_scalar}, {name: R_auto, type: supplied_scalar}, {name: kappa, type: supplied_scalar}, {name: grad_E_norm, type: supplied_scalar}]
+outputs: [{name: d, type: scalar}]
+opaque_providers: [R_auto, grad_E_norm]
+preconditions: [all final operands are supplied]
+postconditions: [evaluate the exact multiplicative expression without normalization]
+invariants: [no provider is constructed]
+constraints: []
+structured_errors: [{code: ErosionProviderUnavailable, when: R_auto or grad_E_norm is absent}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-GENPROP-005, TLC-UR-GENPROP-012]
+forbidden_behaviors: [invent_R_auto, invent_gradient, normalize_erosion_terms, repair_erosion_time_dependence]
+traceability: {source: maths/29-generational-propagation/generational-propagation.md, inventory: registry/domain-progress/generational-propagation/feature-inventory.yaml}

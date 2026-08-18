@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-29-GENERATIONAL-PROPAGATION-028
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-028
+title: Wave-3 provider ownership boundary
+domain_id: generational-propagation
+contract_kind: dependency_boundary_contract
+scientific_status: defined
+scientific_authority: reports/handoff/wave-3-dependency-analysis.md
+source_sections: ['Wave 3 dependency analysis']
+expression: '29 depends scientifically on 04 only; 30 and 31 are future consumers of 29; no 29->28/30/31 edge'
+inputs: []
+outputs: [{name: dependency_descriptor, type: structural_descriptor}]
+opaque_providers: [domain_04_invariants]
+preconditions: []
+postconditions: [publish G_t and related 29 semantics as provider-owned without importing consumers]
+invariants: [scientific dependencies are [4], runtime dependencies are empty]
+constraints: []
+structured_errors: []
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: []
+forbidden_behaviors: [add_dependency_29_to_28, add_dependency_29_to_30, add_dependency_29_to_31, redefine_G_t_in_consumer, bind_dJdx_to_domain_28]
+traceability: {source: reports/handoff/wave-3-dependency-analysis.md, inventory: registry/domain-progress/generational-propagation/feature-inventory.yaml}

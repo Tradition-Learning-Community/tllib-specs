@@ -1,0 +1,5 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-019
+oracle_kind: structural_ownership
+acceptance: [G_t V_t E_t w semantics exact, w in [0,1], future consumers 30 and 31]
+rejections: [29 consumes 30 or 31, graph redefinition elsewhere]

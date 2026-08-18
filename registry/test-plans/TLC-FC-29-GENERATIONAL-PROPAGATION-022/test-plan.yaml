@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-022
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-022/contract.yaml
+tests:
+  - {id: GEN029022-T01, category: formula, verifies: exact new-over-current transmitter ratio}
+  - {id: GEN029022-T02, category: guard, verifies: zero current transmitters emits ZeroTransmitterPopulation}

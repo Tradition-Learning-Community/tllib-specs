@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-29-GENERATIONAL-PROPAGATION-020
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-020
+title: Graph density evaluator
+domain_id: generational-propagation
+contract_kind: guarded_exact_expression_contract
+scientific_status: defined
+scientific_authority: maths/29-generational-propagation/generational-propagation.md
+source_sections: ['4. Graphe générationnel']
+expression: 'rho_t=|E_t|/(|V_t|(|V_t|-1))'
+inputs: [{name: vertex_count, type: nonnegative_integer}, {name: edge_count, type: nonnegative_integer}]
+outputs: [{name: rho_t, type: scalar}]
+opaque_providers: []
+preconditions: [vertex_count is at least 2]
+postconditions: [evaluate exact density formula]
+invariants: [no silent zero fallback for small graphs]
+constraints: []
+structured_errors: [{code: InsufficientGraphVertices, when: vertex_count is less than 2}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: []
+forbidden_behaviors: [return_zero_for_small_graph, alter_density_denominator]
+traceability: {source: maths/29-generational-propagation/generational-propagation.md, inventory: registry/domain-progress/generational-propagation/feature-inventory.yaml}

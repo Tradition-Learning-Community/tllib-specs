@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-007
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-007/contract.yaml
+source_candidate_ir: ir/TLC-FC-29-GENERATIONAL-PROPAGATION-007/ir.candidate.json
+nature: guarded_exact_predicate
+steps: [compare supplied d_D with supplied delta_adapt using strict less-than, verify supplied dJdx is positive, AND both conditions]
+errors: [InnovationEnvelopeProviderUnavailable]

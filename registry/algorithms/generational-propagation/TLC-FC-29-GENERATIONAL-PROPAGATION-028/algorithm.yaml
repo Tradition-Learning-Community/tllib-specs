@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-028
+algorithm_kind: dependency_guard
+execution: structural_only
+steps: [emit 29 to 04 dependency and empty runtime set, emit 30 and 31 consumer relationships, reject reverse edges]
+forbidden: [dependency_promotion, consumer_import]

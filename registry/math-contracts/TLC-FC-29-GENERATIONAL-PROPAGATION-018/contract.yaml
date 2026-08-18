@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-29-GENERATIONAL-PROPAGATION-018
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-018
+title: Corrective efficiency provider descriptor
+domain_id: generational-propagation
+contract_kind: provider_boundary_contract
+scientific_status: external_provider_required
+scientific_authority: maths/29-generational-propagation/generational-propagation.md
+source_sections: ['3. Qualité de réplication']
+expression: 'codomain includes [0,1]_efficiency but source supplies no efficiency formula'
+inputs: [{name: efficiency, type: optional_supplied_scalar_in_0_1}]
+outputs: [{name: efficiency_descriptor, type: structural_descriptor}]
+opaque_providers: [correction_efficiency]
+preconditions: []
+postconditions: [do not derive efficiency from the success inequalities]
+invariants: [codomain typing does not define computation]
+constraints: [if supplied efficiency is used it belongs to [0,1]]
+structured_errors: [{code: CorrectiveEfficiencyUnavailable, when: computed efficiency is requested without provider value}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-GENPROP-013]
+forbidden_behaviors: [invent_efficiency_formula, infer_efficiency_from_distance_change]
+traceability: {source: maths/29-generational-propagation/generational-propagation.md, inventory: registry/domain-progress/generational-propagation/feature-inventory.yaml}

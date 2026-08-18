@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-29-GENERATIONAL-PROPAGATION-004
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-004
+title: Stochastic variation provider boundary
+domain_id: generational-propagation
+contract_kind: provider_boundary_contract
+scientific_status: external_provider_required
+scientific_authority: maths/29-generational-propagation/generational-propagation.md
+source_sections: ['2. Variations entre générations']
+expression: 'sigma dW_v(t)'
+inputs: [{name: sigma, type: supplied_scalar}, {name: dW_v_t, type: supplied_stochastic_increment}]
+outputs: [{name: stochastic_term_descriptor, type: structural_descriptor}]
+opaque_providers: [dW_v_t]
+preconditions: [dW_v_t is supplied if an evaluated term is requested]
+postconditions: [never generate dW_v_t internally]
+invariants: [no additional discrete distribution is assumed]
+constraints: []
+structured_errors: [{code: BrownianIncrementUnavailable, when: dW_v_t is required but absent}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-GENPROP-004]
+forbidden_behaviors: [invent_RNG, invent_Brownian_sampler, invent_distribution, calibrate_sigma]
+traceability: {source: maths/29-generational-propagation/generational-propagation.md, inventory: registry/domain-progress/generational-propagation/feature-inventory.yaml}

@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-29-GENERATIONAL-PROPAGATION-005
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-005
+title: Constructive mutation predicate
+domain_id: generational-propagation
+contract_kind: exact_predicate_contract
+scientific_status: external_provider_required
+scientific_authority: maths/29-generational-propagation/generational-propagation.md
+source_sections: ['2. Variations entre générations']
+expression: 'd_D(x,N_inv) in (0,delta_innov] AND dJ/dx > 0 AND V(x) > theta_V AND E(x) in E_fav'
+inputs: [{name: doctrinal_distance, type: supplied_scalar}, {name: dJdx, type: supplied_scalar}, {name: V_x, type: supplied_scalar}, {name: E_membership, type: supplied_boolean}, {name: thresholds, type: supplied_values}]
+outputs: [{name: constructive, type: boolean}]
+opaque_providers: [d_D, N_inv, dJdx, V_x, E_fav]
+preconditions: [all provider results and thresholds are supplied]
+postconditions: [require distance > 0 and <= delta_innov; require all four conditions simultaneously]
+invariants: [dJdx is source-local and not bound to domain 28]
+constraints: []
+structured_errors: [{code: MutationProviderUnavailable, when: any provider value is absent}]
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-GENPROP-006, TLC-UR-GENPROP-007]
+forbidden_behaviors: [invent_d_D, invent_J, bind_dJdx_to_domain_28, invent_threshold, relax_constructive_conjunction]
+traceability: {source: maths/29-generational-propagation/generational-propagation.md, inventory: registry/domain-progress/generational-propagation/feature-inventory.yaml}

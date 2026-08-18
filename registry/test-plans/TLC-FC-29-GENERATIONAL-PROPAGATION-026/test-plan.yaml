@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-026
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-026/contract.yaml
+tests:
+  - {id: GEN029026-T01, category: formula, verifies: strict max_i d_D < delta_rupture}
+  - {id: GEN029026-T02, category: provider, verifies: d_D and threshold are supplied}

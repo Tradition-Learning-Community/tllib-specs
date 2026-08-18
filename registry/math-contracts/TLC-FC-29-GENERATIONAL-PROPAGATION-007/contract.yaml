@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-29-GENERATIONAL-PROPAGATION-007
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-007
+title: Innovation envelope predicate
+domain_id: generational-propagation
+contract_kind: exact_predicate_contract
+scientific_status: external_provider_required
+scientific_authority: maths/29-generational-propagation/generational-propagation.md
+source_sections: ['2. Variations entre générations']
+expression: 'd_D(x,N_inv(t)) < delta_adapt(t,E) AND dJ/dx > 0'
+inputs: [{name: doctrinal_distance, type: supplied_scalar}, {name: adaptive_tolerance, type: supplied_scalar}, {name: dJdx, type: supplied_scalar}]
+outputs: [{name: in_adaptation_envelope, type: boolean}]
+opaque_providers: [d_D, N_inv_t, delta_adapt_t_E, dJdx]
+preconditions: [all provider values are supplied]
+postconditions: [preserve strict distance comparator and positive derivative condition]
+invariants: [no context-domain dependency is inferred from E]
+constraints: []
+structured_errors: [{code: InnovationEnvelopeProviderUnavailable, when: any provider value is absent}]
+dependencies: {scientific: [4], runtime: []}
+unresolved_items: [TLC-UR-GENPROP-005, TLC-UR-GENPROP-006, TLC-UR-GENPROP-007]
+forbidden_behaviors: [invent_d_D, invent_delta_adapt, invent_J, bind_dJdx_to_domain_28, add_context_dependency]
+traceability: {source: maths/29-generational-propagation/generational-propagation.md, inventory: registry/domain-progress/generational-propagation/feature-inventory.yaml}

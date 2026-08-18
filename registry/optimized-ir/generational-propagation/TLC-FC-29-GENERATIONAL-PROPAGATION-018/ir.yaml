@@ -1,0 +1,9 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-018
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-29-GENERATIONAL-PROPAGATION-018/ir.yaml
+operation: expose_corrective_efficiency_provider
+required_behavior: [preserve [0,1] codomain, require external supplied value if efficiency is needed]
+forbidden_behavior: [invent_efficiency_formula, derive_efficiency_from_improvement]
+error_codes: [CorrectiveEfficiencyUnavailable]

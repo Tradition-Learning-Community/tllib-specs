@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-29-GENERATIONAL-PROPAGATION-008
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-008
+title: dJdx identity and non-binding guard
+domain_id: generational-propagation
+contract_kind: ambiguity_guard_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/29-generational-propagation/generational-propagation.md
+source_sections: ['2. Variations entre générations']
+expression: 'dJ/dx is source-local, undefined, external-provider-required, and not identified with domain-28 J'
+inputs: [{name: dJdx, type: optional_supplied_provider_value}]
+outputs: [{name: identity_descriptor, type: structural_descriptor}]
+opaque_providers: [dJdx]
+preconditions: []
+postconditions: [never infer identity with Finality J]
+invariants: [no scientific dependency 29 to 28]
+constraints: []
+structured_errors: [{code: dJdxProviderUnavailable, when: numerical derivative value is requested without a provider}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-GENPROP-006]
+forbidden_behaviors: [bind_dJdx_to_domain_28, differentiate_domain_28_J, invent_J, add_dependency_29_to_28]
+traceability: {source: maths/29-generational-propagation/generational-propagation.md, inventory: registry/domain-progress/generational-propagation/feature-inventory.yaml}

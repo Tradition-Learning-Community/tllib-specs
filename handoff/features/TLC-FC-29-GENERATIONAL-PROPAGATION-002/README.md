@@ -1,0 +1,3 @@
+# Generational Propagation feature handoff
+
+This finalized package documents one domain 29 feature. It is constrained by the authoritative Generational Propagation source, its registered mathematical contract, IR, test plan, algorithm or guard, and oracle. External scientific providers remain external. The package does not invent thresholds, governance procedures, stochastic generators, solvers, graph conventions, correction algorithms, or cross-domain scientific bindings. Implementations must preserve all source-backed formulas, logical operators, guards, unresolved items, and forbidden behaviors.

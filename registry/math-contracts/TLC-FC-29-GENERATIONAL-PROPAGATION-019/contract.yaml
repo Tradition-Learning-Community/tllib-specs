@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-29-GENERATIONAL-PROPAGATION-019
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-019
+title: Generational graph descriptor
+domain_id: generational-propagation
+contract_kind: structural_descriptor_contract
+scientific_status: defined
+scientific_authority: maths/29-generational-propagation/generational-propagation.md
+source_sections: ['4. Graphe générationnel']
+expression: 'G_t=(V_t,E_t,w); V_t recognized transmitters; E_t directed formation edges; w(u->v) in [0,1] quality'
+inputs: [{name: supplied_graph, type: opaque_directed_weighted_graph}]
+outputs: [{name: graph_descriptor, type: structural_descriptor}]
+opaque_providers: [V_t_population, E_t_relations, w_quality]
+preconditions: []
+postconditions: [publish ownership and semantics of G_t without constructing a graph analytics framework]
+invariants: [G_t is a provider object for future domains 30 and 31]
+constraints: [edge quality w belongs to [0,1]]
+structured_errors: []
+dependencies: {scientific: [], runtime: []}
+unresolved_items: [TLC-UR-GENPROP-015]
+forbidden_behaviors: [invent_graph_analytics_framework, redefine_G_t_in_consumer, infer_unlisted_graph_metrics]
+traceability: {source: maths/29-generational-propagation/generational-propagation.md, inventory: registry/domain-progress/generational-propagation/feature-inventory.yaml}

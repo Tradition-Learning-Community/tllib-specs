@@ -1,0 +1,6 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-016
+algorithm_kind: predicate_evaluator
+execution: conditionally_executable
+steps: [read supplied before and after metrics, compare strict distance decrease, compare strict value increase, return conjunction]
+forbidden: [correction_search, projection_construction, optimizer]

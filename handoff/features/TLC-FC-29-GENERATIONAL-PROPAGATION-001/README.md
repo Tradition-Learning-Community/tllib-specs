@@ -1,0 +1,3 @@
+# Generational Propagation feature handoff
+
+This package is a finalized Feature Handoff Package v1.0 for domain 29, Generational Propagation. It exposes only the source-backed behavior and boundaries recorded in the feature manifest, mathematical contract, IR, test plan, algorithm/guard specification, and oracle. Missing scientific providers remain external; no hidden solver, calibration, dependency, governance workflow, stochastic generator, graph convention, or correction procedure is introduced. Implementations must preserve the authoritative source and all declared forbidden behaviors.

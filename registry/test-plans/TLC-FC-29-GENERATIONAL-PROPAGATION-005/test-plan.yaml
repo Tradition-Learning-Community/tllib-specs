@@ -1,0 +1,7 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-005
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-005/contract.yaml
+tests:
+  - {id: GEN029005-T01, category: formula, verifies: distance interval is (0 delta_innov] exactly}
+  - {id: GEN029005-T02, category: logic, verifies: all four constructive conditions are simultaneous}
+  - {id: GEN029005-T03, category: dependency, verifies: dJdx is not bound to Finality 28}

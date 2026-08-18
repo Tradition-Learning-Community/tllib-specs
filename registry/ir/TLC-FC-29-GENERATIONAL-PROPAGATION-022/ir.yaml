@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-022
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-29-GENERATIONAL-PROPAGATION-022/contract.yaml
+source_candidate_ir: ir/TLC-FC-29-GENERATIONAL-PROPAGATION-022/ir.candidate.json
+nature: guarded_exact_expression
+steps: [read new-transmitter count, read current-transmitter count, guard nonzero current count, divide]
+errors: [ZeroTransmitterPopulation]

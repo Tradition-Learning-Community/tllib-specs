@@ -1,0 +1,21 @@
+contract_id: TLC-MC-TLC-FC-29-GENERATIONAL-PROPAGATION-022
+feature_id: TLC-FC-29-GENERATIONAL-PROPAGATION-022
+title: Reproduction-rate evaluator
+domain_id: generational-propagation
+contract_kind: guarded_exact_expression_contract
+scientific_status: defined
+scientific_authority: maths/29-generational-propagation/generational-propagation.md
+source_sections: ['5. Taux de reproduction']
+expression: 'R(t)=new_transmitters_in_[t,t+Delta_t]/transmitters_at_t'
+inputs: [{name: new_transmitters, type: nonnegative_count}, {name: transmitters_at_t, type: nonnegative_count}]
+outputs: [{name: R_t, type: scalar}]
+opaque_providers: []
+preconditions: [transmitters_at_t is nonzero]
+postconditions: [evaluate exact ratio]
+invariants: [zero denominator yields structured error]
+constraints: []
+structured_errors: [{code: ZeroTransmitterPopulation, when: transmitters_at_t equals zero}]
+dependencies: {scientific: [], runtime: []}
+unresolved_items: []
+forbidden_behaviors: [return_zero_for_zero_transmitters, epsilon_repair_reproduction_denominator]
+traceability: {source: maths/29-generational-propagation/generational-propagation.md, inventory: registry/domain-progress/generational-propagation/feature-inventory.yaml}
