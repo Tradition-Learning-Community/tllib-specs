@@ -536,11 +536,18 @@ domains:
     scientific_sources: [maths/30-expansion/expansion.md]
     wave: wave-3
     analysis_companions: [29, 31]
-    feature_count: null
-    handoff_publication: false
+    feature_count: 29
+    handoff_publication: true
     dependencies: {confirmed: [4, 24, 29], provisional: [], unknown: false}
-    pipeline: *unstarted_pipeline
-
+    pipeline:
+      scientific_source: complete
+      functional_decomposition: complete
+      registries: complete
+      ir: complete
+      contracts: complete
+      algorithms: complete_or_not_applicable
+      oracles: complete
+      handoff_packages: complete
   - index: 31
     slug: institutionalization
     title: Institutionnalisation
