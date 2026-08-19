@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-015
+algorithm_kind: ambiguity_guard
+execution: structural_only
+steps:
+- Keep generational R and source-local resistance R semantically distinct.
+forbidden:
+- Do not alias, compare, substitute, or merge the two R meanings.

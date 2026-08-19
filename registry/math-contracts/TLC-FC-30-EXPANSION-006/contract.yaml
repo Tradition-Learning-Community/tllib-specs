@@ -1,0 +1,38 @@
+contract_id: TLC-MC-TLC-FC-30-EXPANSION-006
+feature_id: TLC-FC-30-EXPANSION-006
+title: Wave-front expansion evaluator
+domain_id: expansion
+contract_kind: guarded_expression_contract
+scientific_status: partially_defined
+scientific_authority: maths/30-expansion/expansion.md
+source_sections:
+- 2. Contagion spatiale
+expression: v ≈ 2*sqrt(D*(gamma*Phi-mu)); expansion requires gamma*Phi > mu.
+inputs:
+- name: supplied_inputs
+  type: opaque_source_operands
+outputs:
+- name: result
+  type: opaque_value
+opaque_providers: []
+preconditions:
+- Preserve the approximate wave-front formula and the strict expansion condition gamma*Phi > mu.
+postconditions:
+- Preserve the approximate wave-front formula and the strict expansion condition gamma*Phi > mu.
+invariants:
+- Do not promote the approximation to equality or invent missing validity/regularity assumptions.
+constraints: []
+structured_errors:
+- code: WaveFrontValidityUnavailable
+  when: required source-backed operands or provider semantics are unavailable or violated
+dependencies:
+  scientific: []
+  runtime: []
+unresolved_items:
+- TLC-UR-EXP-005
+- TLC-UR-EXP-006
+forbidden_behaviors:
+- Do_not_promote_the_approximation_to_equality_or_invent_missing_validity/regularity_assumptions.
+traceability:
+  source: maths/30-expansion/expansion.md
+  inventory: registry/domain-progress/expansion/feature-inventory.yaml

@@ -1,0 +1,41 @@
+contract_id: TLC-MC-TLC-FC-30-EXPANSION-017
+feature_id: TLC-FC-30-EXPANSION-017
+title: Cultural-graft compatibility evaluator
+domain_id: expansion
+contract_kind: guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/30-expansion/expansion.md
+source_sections:
+- 4. Résistance et greffe culturelle
+expression: chi(C_target,T) = (1/|N_inv|) * sum_{n in N_inv} max_{c in C_target} sim(n,c).
+inputs:
+- name: supplied_inputs
+  type: opaque_source_operands
+outputs:
+- name: result
+  type: opaque_value
+opaque_providers:
+- domain_04
+preconditions:
+- Evaluate chi only for an explicitly finite nonempty invariant core, a target set supporting maxima, and supplied sim values.
+postconditions:
+- Evaluate chi only for an explicitly finite nonempty invariant core, a target set supporting maxima, and supplied sim values.
+invariants:
+- Do not invent similarity, replace finite cardinality by a measure, or create empty-set fallbacks.
+constraints: []
+structured_errors:
+- code: GraftCompatibilityProviderUnavailable
+  when: required source-backed operands or provider semantics are unavailable or violated
+dependencies:
+  scientific:
+  - 4
+  runtime: []
+unresolved_items:
+- TLC-UR-EXP-015
+- TLC-UR-EXP-016
+- TLC-UR-EXP-017
+forbidden_behaviors:
+- Do_not_invent_similarity,_replace_finite_cardinality_by_a_measure,_or_create_empty-set_fallbacks.
+traceability:
+  source: maths/30-expansion/expansion.md
+  inventory: registry/domain-progress/expansion/feature-inventory.yaml

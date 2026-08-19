@@ -1,0 +1,37 @@
+contract_id: TLC-MC-TLC-FC-30-EXPANSION-020
+feature_id: TLC-FC-30-EXPANSION-020
+title: Local-reinterpretation expression evaluator
+domain_id: expansion
+contract_kind: guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/30-expansion/expansion.md
+source_sections:
+- 4. Résistance et greffe culturelle
+expression: R_interp(Msg,C,H_loc)=Msg+epsilon(C,H_loc).
+inputs:
+- name: supplied_inputs
+  type: opaque_source_operands
+outputs:
+- name: result
+  type: opaque_value
+opaque_providers: []
+preconditions:
+- Evaluate the stated reinterpretation expression only with an externally supplied epsilon term and compatible addition semantics.
+postconditions:
+- Evaluate the stated reinterpretation expression only with an externally supplied epsilon term and compatible addition semantics.
+invariants:
+- Do not construct epsilon or invent a reinterpretation procedure.
+constraints: []
+structured_errors:
+- code: ReinterpretationProviderUnavailable
+  when: required source-backed operands or provider semantics are unavailable or violated
+dependencies:
+  scientific: []
+  runtime: []
+unresolved_items:
+- TLC-UR-EXP-019
+forbidden_behaviors:
+- Do_not_construct_epsilon_or_invent_a_reinterpretation_procedure.
+traceability:
+  source: maths/30-expansion/expansion.md
+  inventory: registry/domain-progress/expansion/feature-inventory.yaml

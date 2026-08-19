@@ -1,0 +1,34 @@
+contract_id: TLC-MC-TLC-FC-30-EXPANSION-003
+feature_id: TLC-FC-30-EXPANSION-003
+title: Base spatial-contagion dynamics descriptor
+domain_id: expansion
+contract_kind: source_backed_descriptor_contract
+scientific_status: defined
+scientific_authority: maths/30-expansion/expansion.md
+source_sections:
+- 2. Contagion spatiale
+expression: ∂rho/∂t = D∇²rho + gamma*rho*Phi(r,t) - mu*rho.
+inputs: []
+outputs:
+- name: descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve the base contagion equation exactly as a mathematical descriptor.
+invariants:
+- Do not invent initial conditions, boundary conditions, discretization, time stepping, or a PDE solver.
+constraints: []
+structured_errors:
+- code: SpatialContagionExecutionUnavailable
+  when: required source-backed operands or provider semantics are unavailable or violated
+dependencies:
+  scientific: []
+  runtime: []
+unresolved_items:
+- TLC-UR-EXP-003
+forbidden_behaviors:
+- Do_not_invent_initial_conditions,_boundary_conditions,_discretization,_time_stepping,_or_a_PDE_solver.
+traceability:
+  source: maths/30-expansion/expansion.md
+  inventory: registry/domain-progress/expansion/feature-inventory.yaml

@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-022
+source_contract: registry/math-contracts/TLC-FC-30-EXPANSION-022/contract.yaml
+tests:
+- id: EXP030022-T01
+  category: source_conformance
+  verifies: Evaluate H_cent from supplied V_t and c values only when the common denominator is defined.
+- id: EXP030022-T02
+  category: non_invention
+  verifies: Do not invent c(v), silently normalize alternate data, or return a zero-denominator fallback.

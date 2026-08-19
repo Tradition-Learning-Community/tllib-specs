@@ -1,0 +1,55 @@
+schema_version: 1
+domain: expansion
+domain_index: 30
+status: frozen
+baseline_commit: 14cd9fd81bbbe7c9301a36748b35cf38a2935275
+scientific_source:
+  path: maths/30-expansion/expansion.md
+  blob_sha: b6dfa12622aca8fe190df90fb91394ba91186cf3
+  modified: false
+provider_sources:
+- domain: invariants
+  domain_index: 4
+  path: maths/04-invariants/invariants.md
+  blob_sha: 5bddc38b4a74465c2bc3b1d2e9f8aac004e86800
+  relation: 30 -> 04
+  semantics: scientific_domain_dependency_only
+- domain: context
+  domain_index: 24
+  path: maths/24-context/context.md
+  blob_sha: c95c233b4f7f09e837dab975dcd7393ccd8edc64
+  relation: 30 -> 24
+  semantics: scientific_domain_dependency_only
+- domain: generational-propagation
+  domain_index: 29
+  path: maths/29-generational-propagation/generational-propagation.md
+  blob_sha: 19f894e70b5e6898cc0db2fbd8b402e7d843393f
+  relation: 30 -> 29
+  semantics: scientific_domain_dependency_only
+wave3:
+  order:
+  - 28
+  - 29
+  - 30
+  - 31
+  published_before:
+  - 28
+  - 29
+  analysis_companions:
+  - 29
+  - 31
+  rejected_dependency_from_30:
+  - 31
+provider_boundary:
+  pi_N_provided_locally: false
+  N_inv_provided_locally: false
+  d_C_provided_locally: false
+  G_t_provided_locally: false
+  R_generational_provided_locally: false
+  runtime_dependencies: []
+  new_shared_contract: false
+counts:
+  scientific_objects: 84
+  scientific_relations: 56
+  unresolved_items: 29
+  features: 29

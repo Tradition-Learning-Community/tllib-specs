@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-016
+source_contract: registry/math-contracts/TLC-FC-30-EXPANSION-016/contract.yaml
+tests:
+- id: EXP030016-T01
+  category: source_conformance
+  verifies: Preserve the two equations without selecting a validity regime or reduction relation.
+- id: EXP030016-T02
+  category: non_invention
+  verifies: Do not choose when one model supersedes the other or derive an unstated limiting equivalence.

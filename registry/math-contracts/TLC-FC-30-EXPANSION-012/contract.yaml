@@ -1,0 +1,41 @@
+contract_id: TLC-MC-TLC-FC-30-EXPANSION-012
+feature_id: TLC-FC-30-EXPANSION-012
+title: Practice-adaptation feasibility predicate
+domain_id: expansion
+contract_kind: guarded_predicate_contract
+scientific_status: external_provider_required
+scientific_authority: maths/30-expansion/expansion.md
+source_sections:
+- 3. Traduction et adaptation
+- 6. Limites et points scientifiques non résolus
+expression: Adaptation is possible iff distance(nucleus(PR), context constraints) < delta_adapt.
+inputs:
+- name: supplied_inputs
+  type: opaque_source_operands
+outputs:
+- name: result
+  type: opaque_value
+opaque_providers:
+- domain_04
+preconditions:
+- Apply the strict iff comparator only when the undefined distance and delta_adapt are externally supplied.
+postconditions:
+- Apply the strict iff comparator only when the undefined distance and delta_adapt are externally supplied.
+invariants:
+- Do not bind the missing distance to d_C, invent a distance, or calibrate delta_adapt.
+constraints: []
+structured_errors:
+- code: AdaptationDistanceUnavailable
+  when: required source-backed operands or provider semantics are unavailable or violated
+dependencies:
+  scientific:
+  - 4
+  runtime: []
+unresolved_items:
+- TLC-UR-EXP-011
+- TLC-UR-EXP-012
+forbidden_behaviors:
+- Do_not_bind_the_missing_distance_to_d_C,_invent_a_distance,_or_calibrate_delta_adapt.
+traceability:
+  source: maths/30-expansion/expansion.md
+  inventory: registry/domain-progress/expansion/feature-inventory.yaml

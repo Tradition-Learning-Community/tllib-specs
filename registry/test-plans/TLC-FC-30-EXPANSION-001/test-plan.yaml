@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-001
+source_contract: registry/math-contracts/TLC-FC-30-EXPANSION-001/contract.yaml
+tests:
+- id: EXP030001-T01
+  category: source_conformance
+  verifies: Preserve the four node classes and five named characterization dimensions without inventing an aggregation rule.
+- id: EXP030001-T02
+  category: non_invention
+  verifies: Do not invent node scores, weights, cutoffs, or a node-selection algorithm.

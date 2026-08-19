@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-019
+source_contract: registry/math-contracts/TLC-FC-30-EXPANSION-019/contract.yaml
+tests:
+- id: EXP030019-T01
+  category: source_conformance
+  verifies: Preserve proportionality of penetration probability and the approximate local-speed relation.
+- id: EXP030019-T02
+  category: non_invention
+  verifies: Do not invent a proportionality constant, probability calibration, clipping rule, or equality claim for v_loc.

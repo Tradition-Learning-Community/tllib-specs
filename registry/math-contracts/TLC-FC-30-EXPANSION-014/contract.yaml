@@ -1,0 +1,36 @@
+contract_id: TLC-MC-TLC-FC-30-EXPANSION-014
+feature_id: TLC-FC-30-EXPANSION-014
+title: Resistance aggregate evaluator
+domain_id: expansion
+contract_kind: guarded_expression_contract
+scientific_status: defined
+scientific_authority: maths/30-expansion/expansion.md
+source_sections:
+- 4. Résistance et greffe culturelle
+expression: R_resistance = R_cult + R_soc + R_pol + R_eco.
+inputs:
+- name: supplied_inputs
+  type: opaque_source_operands
+outputs:
+- name: result
+  type: opaque_value
+opaque_providers: []
+preconditions:
+- Compute the source-local resistance aggregate by exact addition of the four supplied components.
+postconditions:
+- Compute the source-local resistance aggregate by exact addition of the four supplied components.
+invariants:
+- Do not reinterpret the result as the generational reproduction threshold R.
+constraints: []
+structured_errors:
+- code: ResistanceOperandUnavailable
+  when: required source-backed operands or provider semantics are unavailable or violated
+dependencies:
+  scientific: []
+  runtime: []
+unresolved_items: []
+forbidden_behaviors:
+- Do_not_reinterpret_the_result_as_the_generational_reproduction_threshold_R.
+traceability:
+  source: maths/30-expansion/expansion.md
+  inventory: registry/domain-progress/expansion/feature-inventory.yaml

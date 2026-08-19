@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-007
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-30-EXPANSION-007/ir.yaml
+operation: handle_expansion_007
+required_behavior:
+- Validate invariant-projection equality for a supplied translated message using the domain-04 projection provider.
+forbidden_behavior:
+- Do not construct the translation procedure or redefine pi_N.
+error_codes:
+- InvariantProjectionUnavailable

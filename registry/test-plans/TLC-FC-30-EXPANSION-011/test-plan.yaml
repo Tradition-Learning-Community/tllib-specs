@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-011
+source_contract: registry/math-contracts/TLC-FC-30-EXPANSION-011/contract.yaml
+tests:
+- id: EXP030011-T01
+  category: source_conformance
+  verifies: Preserve the exact argmin objective and its two terms as a structural optimization specification.
+- id: EXP030011-T02
+  category: non_invention
+  verifies: Do not invent a search space, optimizer, numerical method, convergence rule, or default PR_C_star.

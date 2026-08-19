@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-008
+source_contract: registry/math-contracts/TLC-FC-30-EXPANSION-008/contract.yaml
+tests:
+- id: EXP030008-T01
+  category: source_conformance
+  verifies: Evaluate Q_trad exactly from supplied norm values, lambda, and the domain-24 contextual distance.
+- id: EXP030008-T02
+  category: non_invention
+  verifies: Do not normalize, clamp, rescale, or replace d_C.

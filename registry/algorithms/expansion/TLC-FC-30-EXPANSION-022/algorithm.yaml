@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-022
+algorithm_kind: provider_backed_evaluator
+execution: conditionally_executable
+steps:
+- Evaluate H_cent from supplied V_t and c values only when the common denominator is defined.
+forbidden:
+- Do not invent c(v), silently normalize alternate data, or return a zero-denominator fallback.

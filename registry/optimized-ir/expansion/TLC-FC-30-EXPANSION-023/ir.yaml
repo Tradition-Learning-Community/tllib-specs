@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-023
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-30-EXPANSION-023/ir.yaml
+operation: handle_expansion_023
+required_behavior:
+- Preserve the strict H_cent < theta_cent classifier using an externally supplied threshold.
+forbidden_behavior:
+- Do not calibrate theta_cent or relax the strict comparator.
+error_codes:
+- PolycentricityThresholdUnavailable

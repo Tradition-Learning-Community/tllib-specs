@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-024
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-30-EXPANSION-024/ir.yaml
+operation: handle_expansion_024
+required_behavior:
+- For a supplied school/community and supplied invariant reference X_N, evaluate d_E using the domain-04 projection provider.
+forbidden_behavior:
+- Do not invent school detection or silently bind source-local X_N to an unstated representation.
+error_codes:
+- SchoolInvariantProviderUnavailable

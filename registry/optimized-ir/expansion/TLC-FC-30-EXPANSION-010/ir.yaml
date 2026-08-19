@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-010
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-30-EXPANSION-010/ir.yaml
+operation: handle_expansion_010
+required_behavior:
+- Require externally supplied evidence for the qualitative eligibility conditions and preserve the strict kappa comparator.
+forbidden_behavior:
+- Do not invent bilingual/cultural competence metrics or calibrate kappa_min.
+error_codes:
+- TranslatorEligibilityProviderUnavailable

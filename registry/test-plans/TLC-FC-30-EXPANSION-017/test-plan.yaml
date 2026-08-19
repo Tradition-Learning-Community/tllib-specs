@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-017
+source_contract: registry/math-contracts/TLC-FC-30-EXPANSION-017/contract.yaml
+tests:
+- id: EXP030017-T01
+  category: source_conformance
+  verifies: Evaluate chi only for an explicitly finite nonempty invariant core, a target set supporting maxima, and supplied sim values.
+- id: EXP030017-T02
+  category: non_invention
+  verifies: Do not invent similarity, replace finite cardinality by a measure, or create empty-set fallbacks.

@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-022
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-30-EXPANSION-022/ir.yaml
+operation: handle_expansion_022
+required_behavior:
+- Evaluate H_cent from supplied V_t and c values only when the common denominator is defined.
+forbidden_behavior:
+- Do not invent c(v), silently normalize alternate data, or return a zero-denominator fallback.
+error_codes:
+- PolycentricityProviderUnavailable

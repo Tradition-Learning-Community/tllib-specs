@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-013
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-30-EXPANSION-013/ir.yaml
+operation: handle_expansion_013
+required_behavior:
+- Preserve the resistance-extended logistic contagion equation exactly as written.
+forbidden_behavior:
+- Do not invent its numerical solver or assert an unstated equivalence/domain relation with the base model.
+error_codes:
+- ResistanceContagionExecutionUnavailable

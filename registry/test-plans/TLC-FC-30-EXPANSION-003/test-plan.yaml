@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-003
+source_contract: registry/math-contracts/TLC-FC-30-EXPANSION-003/contract.yaml
+tests:
+- id: EXP030003-T01
+  category: source_conformance
+  verifies: Preserve the base contagion equation exactly as a mathematical descriptor.
+- id: EXP030003-T02
+  category: non_invention
+  verifies: Do not invent initial conditions, boundary conditions, discretization, time stepping, or a PDE solver.

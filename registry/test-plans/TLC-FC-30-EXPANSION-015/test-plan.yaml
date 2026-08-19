@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-015
+source_contract: registry/math-contracts/TLC-FC-30-EXPANSION-015/contract.yaml
+tests:
+- id: EXP030015-T01
+  category: source_conformance
+  verifies: Keep generational R and source-local resistance R semantically distinct.
+- id: EXP030015-T02
+  category: non_invention
+  verifies: Do not alias, compare, substitute, or merge the two R meanings.

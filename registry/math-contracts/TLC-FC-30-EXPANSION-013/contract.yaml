@@ -1,0 +1,35 @@
+contract_id: TLC-MC-TLC-FC-30-EXPANSION-013
+feature_id: TLC-FC-30-EXPANSION-013
+title: Resistance-extended contagion descriptor
+domain_id: expansion
+contract_kind: source_backed_descriptor_contract
+scientific_status: defined
+scientific_authority: maths/30-expansion/expansion.md
+source_sections:
+- 4. Résistance et greffe culturelle
+expression: ∂rho/∂t = D∇²rho + gamma*rho*Phi*(1-rho/rho_max) - mu*rho - beta*R_resistance*rho.
+inputs: []
+outputs:
+- name: descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve the resistance-extended logistic contagion equation exactly as written.
+invariants:
+- Do not invent its numerical solver or assert an unstated equivalence/domain relation with the base model.
+constraints: []
+structured_errors:
+- code: ResistanceContagionExecutionUnavailable
+  when: required source-backed operands or provider semantics are unavailable or violated
+dependencies:
+  scientific: []
+  runtime: []
+unresolved_items:
+- TLC-UR-EXP-003
+- TLC-UR-EXP-013
+forbidden_behaviors:
+- Do_not_invent_its_numerical_solver_or_assert_an_unstated_equivalence/domain_relation_with_the_base_model.
+traceability:
+  source: maths/30-expansion/expansion.md
+  inventory: registry/domain-progress/expansion/feature-inventory.yaml

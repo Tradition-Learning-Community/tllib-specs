@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-020
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-30-EXPANSION-020/ir.yaml
+operation: handle_expansion_020
+required_behavior:
+- Evaluate the stated reinterpretation expression only with an externally supplied epsilon term and compatible addition semantics.
+forbidden_behavior:
+- Do not construct epsilon or invent a reinterpretation procedure.
+error_codes:
+- ReinterpretationProviderUnavailable

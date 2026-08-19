@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-004
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-30-EXPANSION-004/ir.yaml
+operation: handle_expansion_004
+required_behavior:
+- Evaluate the exact local-radiation mean only from supplied nonempty local-community data.
+forbidden_behavior:
+- Do not invent community membership, E_comm values, or a zero-community fallback.
+error_codes:
+- EmptyLocalCommunity

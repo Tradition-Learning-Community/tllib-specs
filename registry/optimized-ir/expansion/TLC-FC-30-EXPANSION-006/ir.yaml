@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-006
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-30-EXPANSION-006/ir.yaml
+operation: handle_expansion_006
+required_behavior:
+- Preserve the approximate wave-front formula and the strict expansion condition gamma*Phi > mu.
+forbidden_behavior:
+- Do not promote the approximation to equality or invent missing validity/regularity assumptions.
+error_codes:
+- WaveFrontValidityUnavailable

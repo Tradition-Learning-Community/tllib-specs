@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-020
+source_contract: registry/math-contracts/TLC-FC-30-EXPANSION-020/contract.yaml
+tests:
+- id: EXP030020-T01
+  category: source_conformance
+  verifies: Evaluate the stated reinterpretation expression only with an externally supplied epsilon term and compatible addition semantics.
+- id: EXP030020-T02
+  category: non_invention
+  verifies: Do not construct epsilon or invent a reinterpretation procedure.
