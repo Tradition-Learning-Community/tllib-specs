@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-026
+algorithm_kind: provider_backed_evaluator
+execution: conditionally_executable
+steps:
+- Evaluate both non-strict stable-diversification constraints from externally supplied distances, K, and thresholds.
+forbidden:
+- Do not invent d_int, infer K when ambiguous, calibrate thresholds, or weaken either conjunction member.

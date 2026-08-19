@@ -1,0 +1,40 @@
+contract_id: TLC-MC-TLC-FC-30-EXPANSION-010
+feature_id: TLC-FC-30-EXPANSION-010
+title: Translator eligibility boundary
+domain_id: expansion
+contract_kind: guarded_predicate_contract
+scientific_status: external_provider_required
+scientific_authority: maths/30-expansion/expansion.md
+source_sections:
+- 3. Traduction et adaptation
+expression: Translation requires a culturally bilingual transmitter competent relative to the nucleus, with kappa_trad > kappa_min.
+inputs:
+- name: supplied_inputs
+  type: opaque_source_operands
+outputs:
+- name: result
+  type: opaque_value
+opaque_providers:
+- domain_04
+preconditions:
+- Require externally supplied evidence for the qualitative eligibility conditions and preserve the strict kappa comparator.
+postconditions:
+- Require externally supplied evidence for the qualitative eligibility conditions and preserve the strict kappa comparator.
+invariants:
+- Do not invent bilingual/cultural competence metrics or calibrate kappa_min.
+constraints: []
+structured_errors:
+- code: TranslatorEligibilityProviderUnavailable
+  when: required source-backed operands or provider semantics are unavailable or violated
+dependencies:
+  scientific:
+  - 4
+  runtime: []
+unresolved_items:
+- TLC-UR-EXP-008
+- TLC-UR-EXP-009
+forbidden_behaviors:
+- Do_not_invent_bilingual/cultural_competence_metrics_or_calibrate_kappa_min.
+traceability:
+  source: maths/30-expansion/expansion.md
+  inventory: registry/domain-progress/expansion/feature-inventory.yaml

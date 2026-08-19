@@ -1,0 +1,39 @@
+schema_version: 1
+domain: expansion
+scientific_domain_dependencies: [4, 24, 29]
+runtime_domain_dependencies: []
+forbidden_domain_dependencies: [31]
+features:
+  - {feature_id: TLC-FC-30-EXPANSION-001, scientific_domain_dependencies: [], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-002, scientific_domain_dependencies: [29], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-003, scientific_domain_dependencies: [], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-004, scientific_domain_dependencies: [], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-005, scientific_domain_dependencies: [], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-006, scientific_domain_dependencies: [], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-007, scientific_domain_dependencies: [4], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-008, scientific_domain_dependencies: [24], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-009, scientific_domain_dependencies: [], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-010, scientific_domain_dependencies: [4], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-011, scientific_domain_dependencies: [4], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-012, scientific_domain_dependencies: [4], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-013, scientific_domain_dependencies: [], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-014, scientific_domain_dependencies: [], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-015, scientific_domain_dependencies: [29], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-016, scientific_domain_dependencies: [], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-017, scientific_domain_dependencies: [4], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-018, scientific_domain_dependencies: [4], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-019, scientific_domain_dependencies: [], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-020, scientific_domain_dependencies: [], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-021, scientific_domain_dependencies: [4], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-022, scientific_domain_dependencies: [29], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-023, scientific_domain_dependencies: [], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-024, scientific_domain_dependencies: [4, 29], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-025, scientific_domain_dependencies: [29], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-026, scientific_domain_dependencies: [4, 29], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-027, scientific_domain_dependencies: [], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-028, scientific_domain_dependencies: [], runtime_domain_dependencies: []}
+  - {feature_id: TLC-FC-30-EXPANSION-029, scientific_domain_dependencies: [4, 24, 29], runtime_domain_dependencies: []}
+guards:
+  - adaptation feasibility distance is source-undefined and must not be rebound to domain-24 d_C
+  - domain-29 generational R and domain-30 source-local R_resistance are distinct semantic symbols
+  - no dependency on domain 31 is introduced

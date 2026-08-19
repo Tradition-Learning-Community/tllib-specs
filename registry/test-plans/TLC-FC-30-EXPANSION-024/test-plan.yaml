@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-024
+source_contract: registry/math-contracts/TLC-FC-30-EXPANSION-024/contract.yaml
+tests:
+- id: EXP030024-T01
+  category: source_conformance
+  verifies: For a supplied school/community and supplied invariant reference X_N, evaluate d_E using the domain-04 projection provider.
+- id: EXP030024-T02
+  category: non_invention
+  verifies: Do not invent school detection or silently bind source-local X_N to an unstated representation.

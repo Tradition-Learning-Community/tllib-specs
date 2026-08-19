@@ -1,0 +1,35 @@
+contract_id: TLC-MC-TLC-FC-30-EXPANSION-009
+feature_id: TLC-FC-30-EXPANSION-009
+title: Translation-quality range and normalization guard
+domain_id: expansion
+contract_kind: guarded_predicate_contract
+scientific_status: defined
+scientific_authority: maths/30-expansion/expansion.md
+source_sections:
+- 3. Traduction et adaptation
+- 6. Limites et points scientifiques non résolus
+expression: Q_trad is not normalized and is not guaranteed to lie in [0,1].
+inputs: []
+outputs:
+- name: descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve the absence of normalization and range guarantee.
+invariants:
+- Do not clamp Q_trad to [0,1], add scale factors, or claim boundedness.
+constraints: []
+structured_errors:
+- code: TranslationQualityNormalizationUnsupported
+  when: required source-backed operands or provider semantics are unavailable or violated
+dependencies:
+  scientific: []
+  runtime: []
+unresolved_items:
+- TLC-UR-EXP-007
+forbidden_behaviors:
+- Do_not_clamp_Q_trad_to_[0,1],_add_scale_factors,_or_claim_boundedness.
+traceability:
+  source: maths/30-expansion/expansion.md
+  inventory: registry/domain-progress/expansion/feature-inventory.yaml

@@ -1,0 +1,34 @@
+contract_id: TLC-MC-TLC-FC-30-EXPANSION-019
+feature_id: TLC-FC-30-EXPANSION-019
+title: Initial-penetration and local-speed descriptor
+domain_id: expansion
+contract_kind: source_backed_descriptor_contract
+scientific_status: partially_defined
+scientific_authority: maths/30-expansion/expansion.md
+source_sections:
+- 4. Résistance et greffe culturelle
+expression: Initial penetration probability is proportional to chi and v_loc ≈ v_0*chi.
+inputs: []
+outputs:
+- name: descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve proportionality of penetration probability and the approximate local-speed relation.
+invariants:
+- Do not invent a proportionality constant, probability calibration, clipping rule, or equality claim for v_loc.
+constraints: []
+structured_errors:
+- code: PenetrationCalibrationUnavailable
+  when: required source-backed operands or provider semantics are unavailable or violated
+dependencies:
+  scientific: []
+  runtime: []
+unresolved_items:
+- TLC-UR-EXP-018
+forbidden_behaviors:
+- Do_not_invent_a_proportionality_constant,_probability_calibration,_clipping_rule,_or_equality_claim_for_v_loc.
+traceability:
+  source: maths/30-expansion/expansion.md
+  inventory: registry/domain-progress/expansion/feature-inventory.yaml

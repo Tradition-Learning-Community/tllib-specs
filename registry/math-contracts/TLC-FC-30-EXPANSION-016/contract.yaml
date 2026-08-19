@@ -1,0 +1,36 @@
+contract_id: TLC-MC-TLC-FC-30-EXPANSION-016
+feature_id: TLC-FC-30-EXPANSION-016
+title: Contagion-model validity-relation guard
+domain_id: expansion
+contract_kind: guarded_predicate_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/30-expansion/expansion.md
+source_sections:
+- 2. Contagion spatiale
+- 4. Résistance et greffe culturelle
+- 6. Limites et points scientifiques non résolus
+expression: The resistance model is described as a logistic extension of the first contagion model, but their relationship and domains of validity are unspecified.
+inputs: []
+outputs:
+- name: descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve the two equations without selecting a validity regime or reduction relation.
+invariants:
+- Do not choose when one model supersedes the other or derive an unstated limiting equivalence.
+constraints: []
+structured_errors:
+- code: ContagionModelRegimeUnavailable
+  when: required source-backed operands or provider semantics are unavailable or violated
+dependencies:
+  scientific: []
+  runtime: []
+unresolved_items:
+- TLC-UR-EXP-013
+forbidden_behaviors:
+- Do_not_choose_when_one_model_supersedes_the_other_or_derive_an_unstated_limiting_equivalence.
+traceability:
+  source: maths/30-expansion/expansion.md
+  inventory: registry/domain-progress/expansion/feature-inventory.yaml

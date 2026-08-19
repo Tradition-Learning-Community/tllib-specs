@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-005
+source_contract: registry/math-contracts/TLC-FC-30-EXPANSION-005/contract.yaml
+tests:
+- id: EXP030005-T01
+  category: source_conformance
+  verifies: Keep the zero-community convention and required Phi regularity explicit as unresolved.
+- id: EXP030005-T02
+  category: non_invention
+  verifies: Do not divide by zero, fabricate an empty-community value, or assume smoothness/regularity.

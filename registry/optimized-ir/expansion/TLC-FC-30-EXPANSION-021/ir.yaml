@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-021
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-30-EXPANSION-021/ir.yaml
+operation: handle_expansion_021
+required_behavior:
+- Validate the non-strict invariant-distance bound from supplied projections and delta_interp.
+forbidden_behavior:
+- Do not calibrate delta_interp, change <= to <, or redefine pi_N.
+error_codes:
+- ReinterpretationThresholdUnavailable

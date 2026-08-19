@@ -1,0 +1,38 @@
+contract_id: TLC-MC-TLC-FC-30-EXPANSION-007
+feature_id: TLC-FC-30-EXPANSION-007
+title: Translation invariant-preservation validator
+domain_id: expansion
+contract_kind: guarded_predicate_contract
+scientific_status: external_provider_required
+scientific_authority: maths/30-expansion/expansion.md
+source_sections:
+- 3. Traduction et adaptation
+expression: T_trad(Msg,C1,C2)=Msg_prime with pi_N(Msg_prime)=pi_N(Msg).
+inputs:
+- name: supplied_inputs
+  type: opaque_source_operands
+outputs:
+- name: result
+  type: opaque_value
+opaque_providers:
+- domain_04
+preconditions:
+- Validate invariant-projection equality for a supplied translated message using the domain-04 projection provider.
+postconditions:
+- Validate invariant-projection equality for a supplied translated message using the domain-04 projection provider.
+invariants:
+- Do not construct the translation procedure or redefine pi_N.
+constraints: []
+structured_errors:
+- code: InvariantProjectionUnavailable
+  when: required source-backed operands or provider semantics are unavailable or violated
+dependencies:
+  scientific:
+  - 4
+  runtime: []
+unresolved_items: []
+forbidden_behaviors:
+- Do_not_construct_the_translation_procedure_or_redefine_pi_N.
+traceability:
+  source: maths/30-expansion/expansion.md
+  inventory: registry/domain-progress/expansion/feature-inventory.yaml

@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-011
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-30-EXPANSION-011/ir.yaml
+operation: handle_expansion_011
+required_behavior:
+- Preserve the exact argmin objective and its two terms as a structural optimization specification.
+forbidden_behavior:
+- Do not invent a search space, optimizer, numerical method, convergence rule, or default PR_C_star.
+error_codes:
+- AdaptationOptimizerUnavailable

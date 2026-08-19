@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-009
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-30-EXPANSION-009/ir.yaml
+operation: handle_expansion_009
+required_behavior:
+- Preserve the absence of normalization and range guarantee.
+forbidden_behavior:
+- Do not clamp Q_trad to [0,1], add scale factors, or claim boundedness.
+error_codes:
+- TranslationQualityNormalizationUnsupported

@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-026
+source_contract: registry/math-contracts/TLC-FC-30-EXPANSION-026/contract.yaml
+tests:
+- id: EXP030026-T01
+  category: source_conformance
+  verifies: Evaluate both non-strict stable-diversification constraints from externally supplied distances, K, and thresholds.
+- id: EXP030026-T02
+  category: non_invention
+  verifies: Do not invent d_int, infer K when ambiguous, calibrate thresholds, or weaken either conjunction member.

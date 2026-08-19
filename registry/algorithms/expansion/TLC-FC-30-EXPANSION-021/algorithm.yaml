@@ -1,0 +1,8 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-021
+algorithm_kind: provider_backed_evaluator
+execution: conditionally_executable
+steps:
+- Validate the non-strict invariant-distance bound from supplied projections and delta_interp.
+forbidden:
+- Do not calibrate delta_interp, change <= to <, or redefine pi_N.

@@ -1,0 +1,36 @@
+contract_id: TLC-MC-TLC-FC-30-EXPANSION-011
+feature_id: TLC-FC-30-EXPANSION-011
+title: Practice-adaptation objective descriptor
+domain_id: expansion
+contract_kind: source_backed_descriptor_contract
+scientific_status: partially_defined
+scientific_authority: maths/30-expansion/expansion.md
+source_sections:
+- 3. Traduction et adaptation
+expression: A_adapt(PR,C)=argmin_PR' (||pi_N(PR')-pi_N(PR)||^2 + lambda||PR'-PR_C_star||^2).
+inputs: []
+outputs:
+- name: descriptor
+  type: structural_descriptor
+opaque_providers:
+- domain_04
+preconditions: []
+postconditions:
+- Preserve the exact argmin objective and its two terms as a structural optimization specification.
+invariants:
+- Do not invent a search space, optimizer, numerical method, convergence rule, or default PR_C_star.
+constraints: []
+structured_errors:
+- code: AdaptationOptimizerUnavailable
+  when: required source-backed operands or provider semantics are unavailable or violated
+dependencies:
+  scientific:
+  - 4
+  runtime: []
+unresolved_items:
+- TLC-UR-EXP-010
+forbidden_behaviors:
+- Do_not_invent_a_search_space,_optimizer,_numerical_method,_convergence_rule,_or_default_PR_C_star.
+traceability:
+  source: maths/30-expansion/expansion.md
+  inventory: registry/domain-progress/expansion/feature-inventory.yaml

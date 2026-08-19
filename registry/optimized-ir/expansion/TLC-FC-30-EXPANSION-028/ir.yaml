@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-028
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-30-EXPANSION-028/ir.yaml
+operation: handle_expansion_028
+required_behavior:
+- Preserve the absence of a sufficiency proof.
+forbidden_behavior:
+- Do not advertise stable-diversification predicates as a theorem or certificate preventing schism.
+error_codes:
+- SchismSufficiencyUnsupported

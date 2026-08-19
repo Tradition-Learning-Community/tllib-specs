@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-016
+status: finalized
+execution: structural_only
+source_ir: registry/ir/TLC-FC-30-EXPANSION-016/ir.yaml
+operation: handle_expansion_016
+required_behavior:
+- Preserve the two equations without selecting a validity regime or reduction relation.
+forbidden_behavior:
+- Do not choose when one model supersedes the other or derive an unstated limiting equivalence.
+error_codes:
+- ContagionModelRegimeUnavailable

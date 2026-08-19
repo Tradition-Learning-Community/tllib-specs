@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-012
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-30-EXPANSION-012/ir.yaml
+operation: handle_expansion_012
+required_behavior:
+- Apply the strict iff comparator only when the undefined distance and delta_adapt are externally supplied.
+forbidden_behavior:
+- Do not bind the missing distance to d_C, invent a distance, or calibrate delta_adapt.
+error_codes:
+- AdaptationDistanceUnavailable

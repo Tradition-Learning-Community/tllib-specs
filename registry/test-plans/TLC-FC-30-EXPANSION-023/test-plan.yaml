@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-023
+source_contract: registry/math-contracts/TLC-FC-30-EXPANSION-023/contract.yaml
+tests:
+- id: EXP030023-T01
+  category: source_conformance
+  verifies: Preserve the strict H_cent < theta_cent classifier using an externally supplied threshold.
+- id: EXP030023-T02
+  category: non_invention
+  verifies: Do not calibrate theta_cent or relax the strict comparator.

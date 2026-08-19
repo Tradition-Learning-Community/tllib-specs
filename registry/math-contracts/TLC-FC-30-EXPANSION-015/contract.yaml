@@ -1,0 +1,37 @@
+contract_id: TLC-MC-TLC-FC-30-EXPANSION-015
+feature_id: TLC-FC-30-EXPANSION-015
+title: R semantic-namespace collision guard
+domain_id: expansion
+contract_kind: guarded_predicate_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/30-expansion/expansion.md
+source_sections:
+- 1. Nœuds d’expansion
+- 4. Résistance et greffe culturelle
+expression: The source uses R for domain-29 generational reproduction in section 1 and for a local resistance sum in section 4.
+inputs: []
+outputs:
+- name: descriptor
+  type: structural_descriptor
+opaque_providers:
+- domain_29
+preconditions: []
+postconditions:
+- Keep generational R and source-local resistance R semantically distinct.
+invariants:
+- Do not alias, compare, substitute, or merge the two R meanings.
+constraints: []
+structured_errors:
+- code: ResistanceRNamespaceAmbiguous
+  when: required source-backed operands or provider semantics are unavailable or violated
+dependencies:
+  scientific:
+  - 29
+  runtime: []
+unresolved_items:
+- TLC-UR-EXP-014
+forbidden_behaviors:
+- Do_not_alias,_compare,_substitute,_or_merge_the_two_R_meanings.
+traceability:
+  source: maths/30-expansion/expansion.md
+  inventory: registry/domain-progress/expansion/feature-inventory.yaml

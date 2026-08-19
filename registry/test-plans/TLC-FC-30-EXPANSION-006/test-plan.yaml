@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-006
+source_contract: registry/math-contracts/TLC-FC-30-EXPANSION-006/contract.yaml
+tests:
+- id: EXP030006-T01
+  category: source_conformance
+  verifies: Preserve the approximate wave-front formula and the strict expansion condition gamma*Phi > mu.
+- id: EXP030006-T02
+  category: non_invention
+  verifies: Do not promote the approximation to equality or invent missing validity/regularity assumptions.

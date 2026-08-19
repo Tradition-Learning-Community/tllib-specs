@@ -1,0 +1,39 @@
+contract_id: TLC-MC-TLC-FC-30-EXPANSION-018
+feature_id: TLC-FC-30-EXPANSION-018
+title: Graft finite-core and similarity boundary
+domain_id: expansion
+contract_kind: provider_boundary_contract
+scientific_status: external_provider_required
+scientific_authority: maths/30-expansion/expansion.md
+source_sections:
+- 4. Résistance et greffe culturelle
+- 6. Limites et points scientifiques non résolus
+expression: chi assumes a finite invariant nucleus and a similarity between doctrinal and cultural objects; neither measure nor similarity is constructed.
+inputs: []
+outputs:
+- name: descriptor
+  type: structural_descriptor
+opaque_providers:
+- domain_04
+preconditions: []
+postconditions:
+- Expose finite-core representation, target-set maximum semantics, and sim as external requirements.
+invariants:
+- Do not construct sim, a cultural measure, sampling rules, or continuous-core substitutions.
+constraints: []
+structured_errors:
+- code: GraftSimilarityProviderUnavailable
+  when: required source-backed operands or provider semantics are unavailable or violated
+dependencies:
+  scientific:
+  - 4
+  runtime: []
+unresolved_items:
+- TLC-UR-EXP-015
+- TLC-UR-EXP-016
+- TLC-UR-EXP-017
+forbidden_behaviors:
+- Do_not_construct_sim,_a_cultural_measure,_sampling_rules,_or_continuous-core_substitutions.
+traceability:
+  source: maths/30-expansion/expansion.md
+  inventory: registry/domain-progress/expansion/feature-inventory.yaml

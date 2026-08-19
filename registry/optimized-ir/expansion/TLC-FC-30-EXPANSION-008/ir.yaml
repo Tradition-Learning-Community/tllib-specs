@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-008
+status: finalized
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-30-EXPANSION-008/ir.yaml
+operation: handle_expansion_008
+required_behavior:
+- Evaluate Q_trad exactly from supplied norm values, lambda, and the domain-24 contextual distance.
+forbidden_behavior:
+- Do not normalize, clamp, rescale, or replace d_C.
+error_codes:
+- TranslationQualityOperandUnavailable

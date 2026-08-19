@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-014
+source_contract: registry/math-contracts/TLC-FC-30-EXPANSION-014/contract.yaml
+tests:
+- id: EXP030014-T01
+  category: source_conformance
+  verifies: Compute the source-local resistance aggregate by exact addition of the four supplied components.
+- id: EXP030014-T02
+  category: non_invention
+  verifies: Do not reinterpret the result as the generational reproduction threshold R.

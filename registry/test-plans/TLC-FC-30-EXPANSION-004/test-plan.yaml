@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-004
+source_contract: registry/math-contracts/TLC-FC-30-EXPANSION-004/contract.yaml
+tests:
+- id: EXP030004-T01
+  category: source_conformance
+  verifies: Evaluate the exact local-radiation mean only from supplied nonempty local-community data.
+- id: EXP030004-T02
+  category: non_invention
+  verifies: Do not invent community membership, E_comm values, or a zero-community fallback.

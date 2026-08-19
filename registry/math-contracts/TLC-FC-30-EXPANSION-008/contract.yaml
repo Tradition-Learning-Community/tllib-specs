@@ -1,0 +1,39 @@
+contract_id: TLC-MC-TLC-FC-30-EXPANSION-008
+feature_id: TLC-FC-30-EXPANSION-008
+title: Translation-quality evaluator
+domain_id: expansion
+contract_kind: guarded_expression_contract
+scientific_status: external_provider_required
+scientific_authority: maths/30-expansion/expansion.md
+source_sections:
+- 3. Traduction et adaptation
+expression: Q_trad = 1 - ||Msg_prime-Msg||/||Msg|| - lambda*d_C(C2,C1).
+inputs:
+- name: supplied_inputs
+  type: opaque_source_operands
+outputs:
+- name: result
+  type: opaque_value
+opaque_providers:
+- domain_24
+preconditions:
+- Evaluate Q_trad exactly from supplied norm values, lambda, and the domain-24 contextual distance.
+postconditions:
+- Evaluate Q_trad exactly from supplied norm values, lambda, and the domain-24 contextual distance.
+invariants:
+- Do not normalize, clamp, rescale, or replace d_C.
+constraints: []
+structured_errors:
+- code: TranslationQualityOperandUnavailable
+  when: required source-backed operands or provider semantics are unavailable or violated
+dependencies:
+  scientific:
+  - 24
+  runtime: []
+unresolved_items:
+- TLC-UR-EXP-007
+forbidden_behaviors:
+- Do_not_normalize,_clamp,_rescale,_or_replace_d_C.
+traceability:
+  source: maths/30-expansion/expansion.md
+  inventory: registry/domain-progress/expansion/feature-inventory.yaml

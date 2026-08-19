@@ -1,0 +1,10 @@
+schema_version: 1
+feature_id: TLC-FC-30-EXPANSION-012
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-30-EXPANSION-012/contract.yaml
+source_candidate_ir: ir/TLC-FC-30-EXPANSION-012/ir.candidate.json
+nature: provider_backed_predicate
+steps:
+- Apply the strict iff comparator only when the undefined distance and delta_adapt are externally supplied.
+errors:
+- AdaptationDistanceUnavailable

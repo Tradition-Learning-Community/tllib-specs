@@ -1,0 +1,36 @@
+contract_id: TLC-MC-TLC-FC-30-EXPANSION-005
+feature_id: TLC-FC-30-EXPANSION-005
+title: Phi empty-community and regularity boundary
+domain_id: expansion
+contract_kind: guarded_predicate_contract
+scientific_status: preserved_unresolved
+scientific_authority: maths/30-expansion/expansion.md
+source_sections:
+- 2. Contagion spatiale
+- 6. Limites et points scientifiques non résolus
+expression: No rule is supplied for N(r,t)=0, and the regularity of Phi needed for the wave-front approximation is not given.
+inputs: []
+outputs:
+- name: descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Keep the zero-community convention and required Phi regularity explicit as unresolved.
+invariants:
+- Do not divide by zero, fabricate an empty-community value, or assume smoothness/regularity.
+constraints: []
+structured_errors:
+- code: PhiBoundaryUnavailable
+  when: required source-backed operands or provider semantics are unavailable or violated
+dependencies:
+  scientific: []
+  runtime: []
+unresolved_items:
+- TLC-UR-EXP-004
+- TLC-UR-EXP-005
+forbidden_behaviors:
+- Do_not_divide_by_zero,_fabricate_an_empty-community_value,_or_assume_smoothness/regularity.
+traceability:
+  source: maths/30-expansion/expansion.md
+  inventory: registry/domain-progress/expansion/feature-inventory.yaml
