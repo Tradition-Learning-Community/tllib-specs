@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-007
+source_contract: registry/math-contracts/TLC-FC-31-INSTITUTIONALIZATION-007/contract.yaml
+tests:
+- id: INS031007-T01
+  category: source_conformance
+  verifies: Return exactly the writings w in W for which supplied Aut(w) is strictly greater than supplied theta_aut.
+- id: INS031007-T02
+  category: non_invention
+  verifies: Do not construct Aut, calibrate theta_aut, change the strict sign or include equality.
+- id: INS031007-T03
+  category: dependency_boundary
+  verifies: No runtime dependency or domain-30 scientific dependency is introduced; domain 24 remains unresolved where applicable.

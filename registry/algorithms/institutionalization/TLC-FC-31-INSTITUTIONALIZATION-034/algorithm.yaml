@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-034
+algorithm_kind: guarded_expression_evaluator
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Evaluate the exact raw H_inst product for supplied operands in an explicitly declared valid domain, preserving negative
+  outputs.
+provider_requirements: []
+unresolved_domain_relations: []
+forbidden:
+- Do not clamp, truncate, normalize, force [0,1] or define zero-denominator behavior.
+prescription_basis:
+- maths/31-institutionalization/institutionalization.md

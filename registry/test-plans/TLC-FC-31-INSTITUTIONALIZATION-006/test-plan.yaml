@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-006
+source_contract: registry/math-contracts/TLC-FC-31-INSTITUTIONALIZATION-006/contract.yaml
+tests:
+- id: INS031006-T01
+  category: source_conformance
+  verifies: Expose success rate and mean time to mastery as the two named efficacy measures with their missing protocols explicit.
+- id: INS031006-T02
+  category: non_invention
+  verifies: Do not invent denominators, cohorts, windows, censoring, missing-data rules or mastery criteria.
+- id: INS031006-T03
+  category: dependency_boundary
+  verifies: No runtime dependency or domain-30 scientific dependency is introduced; domain 24 remains unresolved where applicable.

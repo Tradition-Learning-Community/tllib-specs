@@ -1,0 +1,20 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-024
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-31-INSTITUTIONALIZATION-024/ir.yaml
+operation: handle_institutionalization_024
+required_behavior:
+- Record 31 -> 24 as unresolved because the two tau_adapt conventions cannot be identified without additional science.
+forbidden_behavior:
+- Do not promote 31 -> 24, select an inverse convention, redefine tau_adapt or add a runtime dependency.
+provider_requirements: []
+unresolved_domain_relations:
+- 24
+unresolved_items:
+- TLC-UR-INS-027
+- TLC-UR-INS-028
+error_codes:
+- ContextAdaptationConventionConflict
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

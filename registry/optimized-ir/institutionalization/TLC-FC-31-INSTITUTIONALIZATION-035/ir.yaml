@@ -1,0 +1,18 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-035
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-31-INSTITUTIONALIZATION-035/ir.yaml
+operation: handle_institutionalization_035
+required_behavior:
+- Expose zero denominators, unspecified input domains, possible negative H_inst and the absence of a validity range or clamp.
+forbidden_behavior:
+- Do not add max(0,...), min/max truncation, implicit admissible ranges or normalized output claims.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-INS-034
+error_codes:
+- InstitutionalHealthRangeUndefined
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

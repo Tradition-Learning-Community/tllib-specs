@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-012
+algorithm_kind: threshold_predicate
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Classify orthodoxy only by the strict source predicate delta_dog < epsilon_dog using supplied compatible values.
+provider_requirements:
+- 4
+unresolved_domain_relations: []
+forbidden:
+- Do not use <=, calibrate epsilon_dog or infer any relation to epsilon_her.
+prescription_basis:
+- maths/31-institutionalization/institutionalization.md

@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-012
+source_contract: registry/math-contracts/TLC-FC-31-INSTITUTIONALIZATION-012/contract.yaml
+tests:
+- id: INS031012-T01
+  category: source_conformance
+  verifies: Classify orthodoxy only by the strict source predicate delta_dog < epsilon_dog using supplied compatible values.
+- id: INS031012-T02
+  category: non_invention
+  verifies: Do not use <=, calibrate epsilon_dog or infer any relation to epsilon_her.
+- id: INS031012-T03
+  category: dependency_boundary
+  verifies: No runtime dependency or domain-30 scientific dependency is introduced; domain 24 remains unresolved where applicable.

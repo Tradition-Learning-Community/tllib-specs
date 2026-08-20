@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-029
+oracle_kind: source_conformance
+acceptance:
+- Validate exactly the two strict supplied-output constraints B_prime < B and G_A_prime < G_A.
+rejections:
+- Do not construct X_prime, weaken either strict sign, combine the inequalities into an objective or infer sufficiency.
+dependency_guards:
+  confirmed: []
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 30

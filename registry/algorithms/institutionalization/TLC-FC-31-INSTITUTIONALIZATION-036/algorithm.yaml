@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-036
+algorithm_kind: threshold_predicate
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Classify institutional health only by the strict predicate H_inst > theta_inst using supplied values.
+provider_requirements: []
+unresolved_domain_relations: []
+forbidden:
+- Do not use >=, calibrate theta_inst, clamp H_inst or infer a default threshold.
+prescription_basis:
+- maths/31-institutionalization/institutionalization.md

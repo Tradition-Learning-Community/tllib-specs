@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-028
+source_contract: registry/math-contracts/TLC-FC-31-INSTITUTIONALIZATION-028/contract.yaml
+tests:
+- id: INS031028-T01
+  category: source_conformance
+  verifies: Preserve R_ref(X)=X_prime as an output constraint system, not as a source-backed construction procedure.
+- id: INS031028-T02
+  category: non_invention
+  verifies: Do not prescribe optimization, search, iteration, convergence, default reform, existence or uniqueness.
+- id: INS031028-T03
+  category: dependency_boundary
+  verifies: No runtime dependency or domain-30 scientific dependency is introduced; domain 24 remains unresolved where applicable.

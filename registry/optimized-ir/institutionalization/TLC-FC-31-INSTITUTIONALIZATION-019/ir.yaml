@@ -1,0 +1,19 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-019
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-31-INSTITUTIONALIZATION-019/ir.yaml
+operation: handle_institutionalization_019
+required_behavior:
+- Expose C(v) >= C_phi(v)_min while preserving the absent vector representation and partial order.
+forbidden_behavior:
+- Do not assume componentwise, lexicographic, Pareto, norm-based or scalarized comparison.
+provider_requirements:
+- 29
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-INS-022
+error_codes:
+- CompetencyOrderUndefined
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

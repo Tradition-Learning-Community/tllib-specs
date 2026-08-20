@@ -1,0 +1,18 @@
+schema_version: 1
+domain: institutionalization
+status: finalized
+module: institutionalization
+scientific_domain_dependencies:
+- 4
+- 29
+unresolved_scientific_domain_dependencies:
+- 24
+runtime_domain_dependencies: []
+constraints:
+- preserve the codification argmin without prescribing a solver
+- preserve Txt_ref optionality as unresolved
+- reuse N_inv and pi_N from domain 04 without copying definitions
+- reuse G_t and V_t from domain 29 without redefining graph semantics
+- preserve tau_adapt conflict with Context as an unresolved relation
+- do not import domain 30
+- preserve formula signs, strictness and no-clamp boundaries

@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-037
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-31-INSTITUTIONALIZATION-037/contract.yaml
+source_candidate_ir: ir/TLC-FC-31-INSTITUTIONALIZATION-037/ir.candidate.json
+nature: dependency
+steps:
+- Freeze confirmed scientific dependencies to 04 and 29, preserve 31 -> 24 as unresolved, reject 31 -> 30, keep runtime dependencies
+  empty and reuse exactly eight shared contracts.
+errors:
+- Domain31DependencyBoundaryViolation
+unresolved_items:
+- TLC-UR-INS-019
+- TLC-UR-INS-027

@@ -1,0 +1,38 @@
+domain_id: institutionalization
+status: finalized_with_preserved_unresolved_boundaries
+authority: maths/31-institutionalization/institutionalization.md
+working_base_commit: 8b11e62a26c2d2a68753525941ce0ad457c31fdc
+scope: domain_31_complete_handoff_publication
+blocking_issues: []
+normative_unresolved_decisions:
+- id: INS-DEC-001
+  subject: 31 -> 24 tau_adapt relation
+  decision: remain_unresolved
+  forbidden_resolution: Do not promote to confirmed or choose an inverse/conversion convention.
+- id: INS-DEC-002
+  subject: Txt_ref absent case
+  decision: remain_unresolved
+  forbidden_resolution: Do not inject null, empty, identity or lambda=0 fallback.
+- id: INS-DEC-003
+  subject: competence vector order
+  decision: remain_unresolved
+  forbidden_resolution: Do not assume componentwise or any other order.
+- id: INS-DEC-004
+  subject: reform construction
+  decision: constraints_only
+  forbidden_resolution: Do not invent a solver.
+- id: INS-DEC-005
+  subject: H_inst range
+  decision: preserve_raw_expression
+  forbidden_resolution: Do not clamp or truncate negative values.
+confirmed_dependencies:
+- 4
+- 29
+unresolved_dependencies:
+- 24
+rejected_dependencies:
+- 30
+runtime_dependencies: []
+shared_contract_count: 8
+recommended_decision: publish_complete_domain_with_unresolved_boundaries_preserved
+verdict: implementation_handoff_ready_with_structural_and_provider_boundaries

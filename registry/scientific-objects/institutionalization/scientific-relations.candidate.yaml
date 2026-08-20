@@ -1,0 +1,537 @@
+schema_version: 1
+domain: institutionalization
+domain_index: 31
+status: frozen
+authoritative_source: maths/31-institutionalization/institutionalization.md
+scientific_relation_count: 54
+relations:
+- relation_id: TLC-SR-INS-001
+  expression: Cod_ecrit(Msg_oral) = argmin_Txt J_cod(Txt)
+  objects:
+  - Cod_ecrit
+  - Msg_oral
+  - Txt
+  - J_cod
+  nature: optimization definition
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  operational_status: partially_operational
+  note: ''
+- relation_id: TLC-SR-INS-002
+  expression: J_cod contains ||pi_N(Txt)-pi_N(Msg_oral)||^2
+  objects:
+  - J_cod
+  - pi_N
+  - Txt
+  - Msg_oral
+  nature: objective term
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-INS-003
+  expression: J_cod contains lambda_codification ||Txt-Txt_ref||^2
+  objects:
+  - J_cod
+  - lambda_codification
+  - Txt
+  - Txt_ref
+  nature: objective term
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  operational_status: unresolved_no_reference_case
+  note: ''
+- relation_id: TLC-SR-INS-004
+  expression: codification decreases ||epsilon||
+  objects:
+  - Cod_ecrit
+  - '||epsilon||'
+  nature: qualitative monotonic statement
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  operational_status: structural_only
+  note: ''
+- relation_id: TLC-SR-INS-005
+  expression: codification increases rigidity
+  objects:
+  - Cod_ecrit
+  - rigidity
+  nature: qualitative monotonic statement
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  operational_status: structural_only
+  note: ''
+- relation_id: TLC-SR-INS-006
+  expression: Practice_codified is an action sequence equipped with a formal grammar
+  objects:
+  - Practice_codified
+  - action_sequence
+  - formal_grammar
+  nature: definition
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  operational_status: partially_operational
+  note: ''
+- relation_id: TLC-SR-INS-007
+  expression: practice_fidelity is distance(action_sequence, canonical_sequence)
+  objects:
+  - practice_fidelity
+  - action_sequence
+  - canonical_sequence
+  nature: definition
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-INS-008
+  expression: curriculum is a directed acyclic graph
+  objects:
+  - curriculum
+  - curriculum_DAG
+  nature: definition
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  operational_status: structural
+  note: ''
+- relation_id: TLC-SR-INS-009
+  expression: curriculum vertices are milestones
+  objects:
+  - curriculum_DAG
+  - curriculum_milestone
+  nature: graph typing
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  operational_status: structural
+  note: ''
+- relation_id: TLC-SR-INS-010
+  expression: milestones carry objectives on the eight dimensions
+  objects:
+  - curriculum_milestone
+  - eight_dimension_objectives
+  nature: attribute relation
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  operational_status: structural_only
+  note: ''
+- relation_id: TLC-SR-INS-011
+  expression: curriculum arcs encode prerequisites
+  objects:
+  - curriculum_DAG
+  - prerequisite_arc
+  nature: graph typing
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  operational_status: structural
+  note: ''
+- relation_id: TLC-SR-INS-012
+  expression: curriculum effectiveness is measured by success rate
+  objects:
+  - curriculum_success_rate
+  nature: measurement relation
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-INS-013
+  expression: curriculum effectiveness is measured by mean time to mastery
+  objects:
+  - mean_time_to_mastery
+  - mastery_criterion
+  nature: measurement relation
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-INS-014
+  expression: K = S(W)
+  objects:
+  - K
+  - S
+  - W
+  nature: definition
+  source_basis: maths/31-institutionalization/institutionalization.md — §2
+  operational_status: partially_operational
+  note: ''
+- relation_id: TLC-SR-INS-015
+  expression: S(W) = {w in W | Aut(w) > theta_aut}
+  objects:
+  - S
+  - W
+  - w
+  - Aut
+  - theta_aut
+  nature: set-builder classification
+  source_basis: maths/31-institutionalization/institutionalization.md — §2
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-INS-016
+  expression: W is the set of writings
+  objects:
+  - W
+  - w
+  nature: definition
+  source_basis: maths/31-institutionalization/institutionalization.md — §2
+  operational_status: defined
+  note: ''
+- relation_id: TLC-SR-INS-017
+  expression: Aut is the authenticity measure of writings
+  objects:
+  - Aut
+  - w
+  nature: definition
+  source_basis: maths/31-institutionalization/institutionalization.md — §2
+  operational_status: provider_required
+  note: ''
+- relation_id: TLC-SR-INS-018
+  expression: Dog ⊂ N_inv
+  objects:
+  - Dog
+  - N_inv
+  nature: subset constraint
+  source_basis: maths/31-institutionalization/institutionalization.md — §2
+  operational_status: external_authority
+  note: ''
+- relation_id: TLC-SR-INS-019
+  expression: delta_dog(X) = max_{d in Dog} ||pi_d(X)-d||
+  objects:
+  - delta_dog
+  - X_interpretation
+  - Dog
+  - d
+  - pi_d
+  - dogmatic_norm
+  nature: metric definition
+  source_basis: maths/31-institutionalization/institutionalization.md — §2
+  operational_status: provider_backed_with_domain_gap
+  note: ''
+- relation_id: TLC-SR-INS-020
+  expression: orthodoxy requires delta_dog < epsilon_dog
+  objects:
+  - orthodoxy
+  - delta_dog
+  - epsilon_dog
+  nature: strict threshold classification
+  source_basis: maths/31-institutionalization/institutionalization.md — §2
+  operational_status: conditionally_operational
+  note: ''
+- relation_id: TLC-SR-INS-021
+  expression: heresy requires delta_dog > epsilon_her
+  objects:
+  - heresy
+  - delta_dog
+  - epsilon_her
+  nature: strict threshold classification
+  source_basis: maths/31-institutionalization/institutionalization.md — §2
+  operational_status: partially_operational
+  note: ''
+- relation_id: TLC-SR-INS-022
+  expression: heresy additionally requires persistence after correction
+  objects:
+  - heresy
+  - correction
+  - persistence_after_correction
+  nature: conjunctive temporal condition
+  source_basis: maths/31-institutionalization/institutionalization.md — §2
+  operational_status: unresolved
+  note: ''
+- relation_id: TLC-SR-INS-023
+  expression: exclusion removes the transmitter from the transmission graph
+  objects:
+  - exclusion
+  - transmitter
+  - G_t
+  nature: graph mutation implication
+  source_basis: maths/31-institutionalization/institutionalization.md — §2
+  operational_status: external_provider_required
+  note: ''
+- relation_id: TLC-SR-INS-024
+  expression: R_roles = {priest, doctor, administrator, ...}
+  objects:
+  - R_roles
+  - named_roles
+  nature: open-set definition
+  source_basis: maths/31-institutionalization/institutionalization.md — §3
+  operational_status: partially_defined
+  note: ''
+- relation_id: TLC-SR-INS-025
+  expression: 'phi: V_t -> R_roles'
+  objects:
+  - phi
+  - V_t
+  - R_roles
+  nature: mapping
+  source_basis: maths/31-institutionalization/institutionalization.md — §3
+  operational_status: structural
+  note: ''
+- relation_id: TLC-SR-INS-026
+  expression: each role carries C_r_min
+  objects:
+  - r
+  - C_r_min
+  nature: attribute relation
+  source_basis: maths/31-institutionalization/institutionalization.md — §3
+  operational_status: structural_only
+  note: ''
+- relation_id: TLC-SR-INS-027
+  expression: each role carries Val_r
+  objects:
+  - r
+  - Val_r
+  nature: attribute relation
+  source_basis: maths/31-institutionalization/institutionalization.md — §3
+  operational_status: structural_only
+  note: ''
+- relation_id: TLC-SR-INS-028
+  expression: each role carries V_r
+  objects:
+  - r
+  - V_r
+  nature: attribute relation
+  source_basis: maths/31-institutionalization/institutionalization.md — §3
+  operational_status: structural_only
+  note: ''
+- relation_id: TLC-SR-INS-029
+  expression: C(v) >= C_phi(v)_min
+  objects:
+  - C(v)
+  - C_r_min
+  - phi
+  - V_t
+  nature: vector inequality constraint
+  source_basis: maths/31-institutionalization/institutionalization.md — §3
+  operational_status: unresolved_comparison
+  note: ''
+- relation_id: TLC-SR-INS-030
+  expression: <Val(v), Val_phi(v)> >= theta_val
+  objects:
+  - Val(v)
+  - Val_r
+  - value_inner_product
+  - theta_val
+  - phi
+  nature: threshold inequality
+  source_basis: maths/31-institutionalization/institutionalization.md — §3
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-INS-031
+  expression: '||V(v)-V_phi(v)|| <= epsilon_vert'
+  objects:
+  - V(v)
+  - V_r
+  - virtue_norm
+  - epsilon_vert
+  - phi
+  nature: threshold inequality
+  source_basis: maths/31-institutionalization/institutionalization.md — §3
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-INS-032
+  expression: priests guard rite
+  objects:
+  - role_responsibility
+  - named_roles
+  nature: qualitative role assignment
+  source_basis: maths/31-institutionalization/institutionalization.md — §3
+  operational_status: structural_only
+  note: ''
+- relation_id: TLC-SR-INS-033
+  expression: doctors guard meaning
+  objects:
+  - role_responsibility
+  - named_roles
+  nature: qualitative role assignment
+  source_basis: maths/31-institutionalization/institutionalization.md — §3
+  operational_status: structural_only
+  note: ''
+- relation_id: TLC-SR-INS-034
+  expression: administrators guard structure
+  objects:
+  - role_responsibility
+  - named_roles
+  nature: qualitative role assignment
+  source_basis: maths/31-institutionalization/institutionalization.md — §3
+  operational_status: structural_only
+  note: ''
+- relation_id: TLC-SR-INS-035
+  expression: role diversity is measured by a Shannon index
+  objects:
+  - H_role
+  - R_roles
+  - phi
+  nature: measurement relation
+  source_basis: maths/31-institutionalization/institutionalization.md — §3
+  operational_status: provider_required
+  note: ''
+- relation_id: TLC-SR-INS-036
+  expression: role diversity must remain balanced
+  objects:
+  - role_balance
+  - H_role
+  nature: qualitative constraint
+  source_basis: maths/31-institutionalization/institutionalization.md — §3
+  operational_status: unresolved
+  note: ''
+- relation_id: TLC-SR-INS-037
+  expression: B = N_rules / tau_adapt
+  objects:
+  - B
+  - N_rules
+  - tau_adapt
+  nature: ratio definition
+  source_basis: maths/31-institutionalization/institutionalization.md — §4
+  operational_status: preserved_unresolved
+  note: ''
+- relation_id: TLC-SR-INS-038
+  expression: N_rules is the number of rules
+  objects:
+  - N_rules
+  nature: definition
+  source_basis: maths/31-institutionalization/institutionalization.md — §4
+  operational_status: defined
+  note: ''
+- relation_id: TLC-SR-INS-039
+  expression: tau_adapt is named an adaptation rate by source 31
+  objects:
+  - tau_adapt
+  nature: source naming
+  source_basis: maths/31-institutionalization/institutionalization.md — §4
+  operational_status: conflicts_with_context
+  note: ''
+- relation_id: TLC-SR-INS-040
+  expression: G_A = sum_{i,j}|A_i-A_j| / (2 n sum_i A_i)
+  objects:
+  - G_A
+  - A_i
+  - n
+  - A_distribution
+  nature: ratio definition
+  source_basis: maths/31-institutionalization/institutionalization.md — §4
+  operational_status: conditionally_operational
+  note: ''
+- relation_id: TLC-SR-INS-041
+  expression: institutional failure may follow rule rigidification
+  objects:
+  - institutional_failure
+  - rule_rigidification
+  nature: qualitative implication
+  source_basis: maths/31-institutionalization/institutionalization.md — §4
+  operational_status: structural_only
+  note: ''
+- relation_id: TLC-SR-INS-042
+  expression: institutional failure may follow power concentration
+  objects:
+  - institutional_failure
+  - power_concentration
+  nature: qualitative implication
+  source_basis: maths/31-institutionalization/institutionalization.md — §4
+  operational_status: structural_only
+  note: ''
+- relation_id: TLC-SR-INS-043
+  expression: institutional failure may follow loss of transmission finality
+  objects:
+  - institutional_failure
+  - transmission_finality_loss
+  nature: qualitative implication
+  source_basis: maths/31-institutionalization/institutionalization.md — §4
+  operational_status: structural_only
+  note: ''
+- relation_id: TLC-SR-INS-044
+  expression: R_ref(X_institution) = X_prime
+  objects:
+  - R_ref
+  - X_institution
+  - X_prime
+  nature: operator specification
+  source_basis: maths/31-institutionalization/institutionalization.md — §5
+  operational_status: structural_only
+  note: ''
+- relation_id: TLC-SR-INS-045
+  expression: B_prime < B
+  objects:
+  - B_prime
+  - B
+  nature: strict postcondition
+  source_basis: maths/31-institutionalization/institutionalization.md — §5
+  operational_status: structural_only
+  note: ''
+- relation_id: TLC-SR-INS-046
+  expression: G_A_prime < G_A
+  objects:
+  - G_A_prime
+  - G_A
+  nature: strict postcondition
+  source_basis: maths/31-institutionalization/institutionalization.md — §5
+  operational_status: structural_only
+  note: ''
+- relation_id: TLC-SR-INS-047
+  expression: '||pi_N(X_prime)-pi_N(X_orig)|| <= epsilon_ref'
+  objects:
+  - pi_N
+  - X_prime
+  - X_orig
+  - epsilon_ref
+  nature: invariant-fidelity postcondition
+  source_basis: maths/31-institutionalization/institutionalization.md — §5
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-INS-048
+  expression: durable B(t) > B_crit implies periodic reform necessity
+  objects:
+  - B(t)
+  - B_crit
+  - durable_exceedance
+  - periodic_reform_requirement
+  nature: temporal implication
+  source_basis: maths/31-institutionalization/institutionalization.md — §5
+  operational_status: partially_defined
+  note: ''
+- relation_id: TLC-SR-INS-049
+  expression: durable G_A(t) > G_crit implies periodic reform necessity
+  objects:
+  - G_A(t)
+  - G_crit
+  - durable_exceedance
+  - periodic_reform_requirement
+  nature: temporal implication
+  source_basis: maths/31-institutionalization/institutionalization.md — §5
+  operational_status: partially_defined
+  note: ''
+- relation_id: TLC-SR-INS-050
+  expression: T_ref = (1/lambda_bureaucracy) ln((B_max-B_min)/(B_seuil-B_min))
+  objects:
+  - T_ref
+  - lambda_bureaucracy
+  - B_max
+  - B_min
+  - B_seuil
+  nature: logarithmic formula
+  source_basis: maths/31-institutionalization/institutionalization.md — §5
+  operational_status: conditionally_operational_with_missing_model
+  note: ''
+- relation_id: TLC-SR-INS-051
+  expression: lambda_bureaucracy is named the growth rate of bureaucracy
+  objects:
+  - lambda_bureaucracy
+  nature: parameter definition
+  source_basis: maths/31-institutionalization/institutionalization.md — §5
+  operational_status: partially_defined
+  note: ''
+- relation_id: TLC-SR-INS-052
+  expression: H_inst = (V_vit/V_vit_max)(1-B/B_max)(1-G_A)
+  objects:
+  - H_inst
+  - V_vit
+  - V_vit_max
+  - B
+  - B_max
+  - G_A
+  nature: multiplicative formula
+  source_basis: maths/31-institutionalization/institutionalization.md — §5
+  operational_status: conditionally_operational
+  note: ''
+- relation_id: TLC-SR-INS-053
+  expression: institutional health requires H_inst > theta_inst
+  objects:
+  - institutional_health
+  - H_inst
+  - theta_inst
+  nature: strict threshold classification
+  source_basis: maths/31-institutionalization/institutionalization.md — §5
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-INS-054
+  expression: tau_adapt semantics conflict with Context
+  objects:
+  - tau_adapt
+  - B
+  nature: cross-domain ambiguity
+  source_basis: maths/31-institutionalization/institutionalization.md — §6
+  operational_status: unresolved_cross_domain
+  note: ''

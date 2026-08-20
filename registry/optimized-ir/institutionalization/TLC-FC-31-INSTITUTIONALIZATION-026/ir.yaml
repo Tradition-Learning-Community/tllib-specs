@@ -1,0 +1,18 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-026
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-31-INSTITUTIONALIZATION-026/ir.yaml
+operation: handle_institutionalization_026
+required_behavior:
+- Expose the unspecified authority-value domain, n=0 case and zero-total-authority denominator.
+forbidden_behavior:
+- Do not return zero, infinity, NaN policy, a clamp or an asserted [0,1] range.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-INS-029
+error_codes:
+- AuthorityConcentrationDomainUndefined
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

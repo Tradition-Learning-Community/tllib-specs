@@ -1,0 +1,56 @@
+contract_id: TLC-MC-TLC-FC-31-INSTITUTIONALIZATION-037
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-037
+title: Domain-31 scientific and runtime ownership boundary
+domain_id: institutionalization
+contract_kind: source_backed_descriptor_contract
+scientific_status: defined
+execution_status: structural_only
+scientific_authority: maths/31-institutionalization/institutionalization.md
+source_sections:
+- §1-§6
+- wave-3 dependency analysis
+objects:
+- TLC-SO-INS-005
+- TLC-SO-INS-029
+- TLC-SO-INS-041
+- TLC-SO-INS-045
+- TLC-SO-INS-062
+relations:
+- TLC-SR-INS-018
+- TLC-SR-INS-023
+- TLC-SR-INS-025
+- TLC-SR-INS-037
+- TLC-SR-INS-054
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- domain_04
+- domain_29
+- domain_24_unresolved
+preconditions: []
+postconditions:
+- Freeze confirmed scientific dependencies to 04 and 29, preserve 31 -> 24 as unresolved, reject 31 -> 30, keep runtime dependencies
+  empty and reuse exactly eight shared contracts.
+invariants:
+- Do not promote 31 -> 24, add 31 -> 30, invent runtime edges, redefine external concepts or create a ninth shared contract.
+constraints: []
+structured_errors:
+- code: Domain31DependencyBoundaryViolation
+  when: The request would violate source ownership, signs, thresholds, or declared structure.
+dependencies:
+  scientific:
+  - 4
+  - 29
+  scientific_unresolved:
+  - 24
+  runtime: []
+unresolved_items:
+- TLC-UR-INS-019
+- TLC-UR-INS-027
+forbidden_behaviors:
+- Do not promote 31 -> 24, add 31 -> 30, invent runtime edges, redefine external concepts or create a ninth shared contract.
+traceability:
+  source: maths/31-institutionalization/institutionalization.md
+  inventory: registry/domain-progress/institutionalization/feature-inventory.yaml

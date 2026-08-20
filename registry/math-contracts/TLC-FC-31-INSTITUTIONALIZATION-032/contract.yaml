@@ -1,0 +1,48 @@
+contract_id: TLC-MC-TLC-FC-31-INSTITUTIONALIZATION-032
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-032
+title: Reform-period expression evaluator
+domain_id: institutionalization
+contract_kind: source_backed_formula_contract
+scientific_status: partially_defined
+execution_status: conditionally_executable
+scientific_authority: maths/31-institutionalization/institutionalization.md
+source_sections:
+- §5
+objects:
+- TLC-SO-INS-083
+- TLC-SO-INS-084
+- TLC-SO-INS-085
+- TLC-SO-INS-086
+- TLC-SO-INS-087
+relations:
+- TLC-SR-INS-050
+- TLC-SR-INS-051
+inputs:
+- name: supplied_inputs
+  type: opaque_source_operands
+outputs:
+- name: result
+  type: opaque_value
+opaque_providers: []
+preconditions:
+- All source-required operands/providers are explicit and compatible.
+postconditions:
+- Evaluate only the displayed logarithmic T_ref expression for supplied operands in an explicitly valid domain.
+invariants:
+- Do not reconstruct an exponential law, infer units, merge thresholds, select singular behavior or identify the two lambdas.
+constraints: []
+structured_errors:
+- code: ReformPeriodDomainUndefined
+  when: The request exceeds the relation or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-INS-032
+- TLC-UR-INS-033
+forbidden_behaviors:
+- Do not reconstruct an exponential law, infer units, merge thresholds, select singular behavior or identify the two lambdas.
+traceability:
+  source: maths/31-institutionalization/institutionalization.md
+  inventory: registry/domain-progress/institutionalization/feature-inventory.yaml

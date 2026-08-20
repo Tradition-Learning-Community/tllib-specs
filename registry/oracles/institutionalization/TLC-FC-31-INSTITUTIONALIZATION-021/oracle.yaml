@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-021
+oracle_kind: source_conformance
+acceptance:
+- Evaluate the source virtue-distance predicate with supplied compatible values, norm and epsilon_vert, preserving <=.
+rejections:
+- Do not choose a norm, normalize vectors, clamp distance or calibrate epsilon_vert.
+dependency_guards:
+  confirmed:
+  - 29
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 30

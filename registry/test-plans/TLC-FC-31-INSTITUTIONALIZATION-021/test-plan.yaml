@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-021
+source_contract: registry/math-contracts/TLC-FC-31-INSTITUTIONALIZATION-021/contract.yaml
+tests:
+- id: INS031021-T01
+  category: source_conformance
+  verifies: Evaluate the source virtue-distance predicate with supplied compatible values, norm and epsilon_vert, preserving
+    <=.
+- id: INS031021-T02
+  category: non_invention
+  verifies: Do not choose a norm, normalize vectors, clamp distance or calibrate epsilon_vert.
+- id: INS031021-T03
+  category: dependency_boundary
+  verifies: No runtime dependency or domain-30 scientific dependency is introduced; domain 24 remains unresolved where applicable.

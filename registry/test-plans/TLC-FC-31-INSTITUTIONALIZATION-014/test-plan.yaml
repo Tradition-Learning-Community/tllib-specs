@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-014
+source_contract: registry/math-contracts/TLC-FC-31-INSTITUTIONALIZATION-014/contract.yaml
+tests:
+- id: INS031014-T01
+  category: source_conformance
+  verifies: Preserve full heresy as threshold exceedance plus persistence after an unspecified correction, with threshold
+    ordering and equality cases unresolved.
+- id: INS031014-T02
+  category: non_invention
+  verifies: Do not invent correction steps, observation windows, iteration counts, threshold ordering, intermediate states
+    or equality policy.
+- id: INS031014-T03
+  category: dependency_boundary
+  verifies: No runtime dependency or domain-30 scientific dependency is introduced; domain 24 remains unresolved where applicable.

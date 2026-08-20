@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-017
+source_contract: registry/math-contracts/TLC-FC-31-INSTITUTIONALIZATION-017/contract.yaml
+tests:
+- id: INS031017-T01
+  category: source_conformance
+  verifies: Preserve phi as a mapping from domain-29 V_t to the domain-31 role set.
+- id: INS031017-T02
+  category: non_invention
+  verifies: Do not redefine V_t or prescribe assignment order, optimization, priorities or tie-breaking.
+- id: INS031017-T03
+  category: dependency_boundary
+  verifies: No runtime dependency or domain-30 scientific dependency is introduced; domain 24 remains unresolved where applicable.

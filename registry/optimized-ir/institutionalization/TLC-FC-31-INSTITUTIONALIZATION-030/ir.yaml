@@ -1,0 +1,19 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-030
+status: finalized
+scientific_status: external_provider_required
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-31-INSTITUTIONALIZATION-030/ir.yaml
+operation: handle_institutionalization_030
+required_behavior:
+- Validate the supplied reform output against ||pi_N(X_prime)-pi_N(X_orig)|| <= epsilon_ref using domain-04 projection authority.
+forbidden_behavior:
+- Do not redefine pi_N, choose a norm, calibrate epsilon_ref, change <= or construct X_prime.
+provider_requirements:
+- 4
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-INS-031
+error_codes:
+- ReformFidelityOperandUnavailable
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-029
+algorithm_kind: constraint_validator
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Validate exactly the two strict supplied-output constraints B_prime < B and G_A_prime < G_A.
+provider_requirements: []
+unresolved_domain_relations: []
+forbidden:
+- Do not construct X_prime, weaken either strict sign, combine the inequalities into an objective or infer sufficiency.
+prescription_basis:
+- maths/31-institutionalization/institutionalization.md

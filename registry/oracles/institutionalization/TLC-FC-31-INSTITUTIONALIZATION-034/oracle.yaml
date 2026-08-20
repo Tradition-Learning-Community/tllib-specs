@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-034
+oracle_kind: source_conformance
+acceptance:
+- Evaluate the exact raw H_inst product for supplied operands in an explicitly declared valid domain, preserving negative
+  outputs.
+rejections:
+- Do not clamp, truncate, normalize, force [0,1] or define zero-denominator behavior.
+dependency_guards:
+  confirmed: []
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 30

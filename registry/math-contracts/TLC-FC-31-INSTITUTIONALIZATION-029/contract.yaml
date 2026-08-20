@@ -1,0 +1,46 @@
+contract_id: TLC-MC-TLC-FC-31-INSTITUTIONALIZATION-029
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-029
+title: Reform improvement-constraint validator
+domain_id: institutionalization
+contract_kind: source_backed_formula_contract
+scientific_status: external_provider_required
+execution_status: conditionally_executable
+scientific_authority: maths/31-institutionalization/institutionalization.md
+source_sections:
+- §5
+objects:
+- TLC-SO-INS-060
+- TLC-SO-INS-063
+- TLC-SO-INS-074
+- TLC-SO-INS-075
+relations:
+- TLC-SR-INS-045
+- TLC-SR-INS-046
+inputs:
+- name: supplied_inputs
+  type: opaque_source_operands
+outputs:
+- name: result
+  type: opaque_value
+opaque_providers: []
+preconditions:
+- All source-required operands/providers are explicit and compatible.
+postconditions:
+- Validate exactly the two strict supplied-output constraints B_prime < B and G_A_prime < G_A.
+invariants:
+- Do not construct X_prime, weaken either strict sign, combine the inequalities into an objective or infer sufficiency.
+constraints: []
+structured_errors:
+- code: ReformImprovementOperandUnavailable
+  when: A source-required external provider or threshold is absent, incompatible, or outside its declared domain.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-INS-031
+forbidden_behaviors:
+- Do not construct X_prime, weaken either strict sign, combine the inequalities into an objective or infer sufficiency.
+traceability:
+  source: maths/31-institutionalization/institutionalization.md
+  inventory: registry/domain-progress/institutionalization/feature-inventory.yaml

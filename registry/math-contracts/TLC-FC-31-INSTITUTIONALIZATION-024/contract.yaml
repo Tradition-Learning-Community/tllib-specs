@@ -1,0 +1,45 @@
+contract_id: TLC-MC-TLC-FC-31-INSTITUTIONALIZATION-024
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-024
+title: tau_adapt Context-convention guard
+domain_id: institutionalization
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/31-institutionalization/institutionalization.md
+source_sections:
+- §4
+- §6
+objects:
+- TLC-SO-INS-060
+- TLC-SO-INS-062
+relations:
+- TLC-SR-INS-039
+- TLC-SR-INS-054
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- domain_24_unresolved
+preconditions: []
+postconditions:
+- Record 31 -> 24 as unresolved because the two tau_adapt conventions cannot be identified without additional science.
+invariants:
+- Do not promote 31 -> 24, select an inverse convention, redefine tau_adapt or add a runtime dependency.
+constraints: []
+structured_errors:
+- code: ContextAdaptationConventionConflict
+  when: The requested result depends on a convention or scientific rule that the source explicitly leaves unresolved.
+dependencies:
+  scientific: []
+  scientific_unresolved:
+  - 24
+  runtime: []
+unresolved_items:
+- TLC-UR-INS-027
+- TLC-UR-INS-028
+forbidden_behaviors:
+- Do not promote 31 -> 24, select an inverse convention, redefine tau_adapt or add a runtime dependency.
+traceability:
+  source: maths/31-institutionalization/institutionalization.md
+  inventory: registry/domain-progress/institutionalization/feature-inventory.yaml

@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-030
+oracle_kind: source_conformance
+acceptance:
+- Validate the supplied reform output against ||pi_N(X_prime)-pi_N(X_orig)|| <= epsilon_ref using domain-04 projection authority.
+rejections:
+- Do not redefine pi_N, choose a norm, calibrate epsilon_ref, change <= or construct X_prime.
+dependency_guards:
+  confirmed:
+  - 4
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 30

@@ -1,0 +1,24 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-001
+status: finalized
+scientific_status: partially_defined
+execution: structural_only
+source_ir: registry/ir/TLC-FC-31-INSTITUTIONALIZATION-001/ir.yaml
+operation: handle_institutionalization_001
+required_behavior:
+- Preserve the displayed codification argmin and its two objective terms exactly as a source-bounded optimization specification.
+forbidden_behavior:
+- Do not invent a text search space, text algebra, norms, optimizer, minimizer selection, default lambda, or absent-reference
+  fallback.
+provider_requirements:
+- 4
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-INS-002
+- TLC-UR-INS-001
+- TLC-UR-INS-005
+- TLC-UR-INS-004
+- TLC-UR-INS-003
+error_codes:
+- CodificationObjectiveUnresolved
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

@@ -1,0 +1,20 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-020
+status: finalized
+scientific_status: external_provider_required
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-31-INSTITUTIONALIZATION-020/ir.yaml
+operation: handle_institutionalization_020
+required_behavior:
+- Evaluate the source inner-product predicate with supplied compatible values and theta_val, preserving >=.
+forbidden_behavior:
+- Do not normalize vectors, choose cosine similarity, invent dimensions or calibrate theta_val.
+provider_requirements:
+- 29
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-INS-022
+- TLC-UR-INS-023
+error_codes:
+- RoleValueAlignmentOperandUnavailable
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

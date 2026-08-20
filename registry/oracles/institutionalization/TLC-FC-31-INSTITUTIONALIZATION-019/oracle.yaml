@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-019
+oracle_kind: source_conformance
+acceptance:
+- Expose C(v) >= C_phi(v)_min while preserving the absent vector representation and partial order.
+rejections:
+- Do not assume componentwise, lexicographic, Pareto, norm-based or scalarized comparison.
+dependency_guards:
+  confirmed:
+  - 29
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 30

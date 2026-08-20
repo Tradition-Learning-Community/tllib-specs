@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-009
+oracle_kind: source_conformance
+acceptance:
+- Preserve Dog as a subset of domain-04 N_inv without copying or redefining invariant authority.
+rejections:
+- Do not redefine N_inv or pi_N, or promote local dogma construction into domain-04 authority.
+dependency_guards:
+  confirmed:
+  - 4
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 30

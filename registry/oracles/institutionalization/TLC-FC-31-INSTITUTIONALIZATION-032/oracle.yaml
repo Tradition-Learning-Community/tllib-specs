@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-032
+oracle_kind: source_conformance
+acceptance:
+- Evaluate only the displayed logarithmic T_ref expression for supplied operands in an explicitly valid domain.
+rejections:
+- Do not reconstruct an exponential law, infer units, merge thresholds, select singular behavior or identify the two lambdas.
+dependency_guards:
+  confirmed: []
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 30

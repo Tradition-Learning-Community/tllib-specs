@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-035
+oracle_kind: source_conformance
+acceptance:
+- Expose zero denominators, unspecified input domains, possible negative H_inst and the absence of a validity range or clamp.
+rejections:
+- Do not add max(0,...), min/max truncation, implicit admissible ranges or normalized output claims.
+dependency_guards:
+  confirmed: []
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 30

@@ -1,0 +1,17 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-037
+oracle_kind: source_conformance
+acceptance:
+- Freeze confirmed scientific dependencies to 04 and 29, preserve 31 -> 24 as unresolved, reject 31 -> 30, keep runtime dependencies
+  empty and reuse exactly eight shared contracts.
+rejections:
+- Do not promote 31 -> 24, add 31 -> 30, invent runtime edges, redefine external concepts or create a ninth shared contract.
+dependency_guards:
+  confirmed:
+  - 4
+  - 29
+  unresolved:
+  - 24
+  runtime: []
+  forbidden:
+  - 30

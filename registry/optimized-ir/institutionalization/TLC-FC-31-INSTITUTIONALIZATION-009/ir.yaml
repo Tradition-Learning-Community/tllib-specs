@@ -1,0 +1,18 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-009
+status: finalized
+scientific_status: defined
+execution: structural_only
+source_ir: registry/ir/TLC-FC-31-INSTITUTIONALIZATION-009/ir.yaml
+operation: handle_institutionalization_009
+required_behavior:
+- Preserve Dog as a subset of domain-04 N_inv without copying or redefining invariant authority.
+forbidden_behavior:
+- Do not redefine N_inv or pi_N, or promote local dogma construction into domain-04 authority.
+provider_requirements:
+- 4
+unresolved_domain_relations: []
+unresolved_items: []
+error_codes:
+- InvariantAuthorityBoundaryViolation
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

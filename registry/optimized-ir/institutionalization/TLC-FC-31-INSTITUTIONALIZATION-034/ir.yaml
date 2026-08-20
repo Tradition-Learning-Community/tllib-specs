@@ -1,0 +1,19 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-034
+status: finalized
+scientific_status: partially_defined
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-31-INSTITUTIONALIZATION-034/ir.yaml
+operation: handle_institutionalization_034
+required_behavior:
+- Evaluate the exact raw H_inst product for supplied operands in an explicitly declared valid domain, preserving negative
+  outputs.
+forbidden_behavior:
+- Do not clamp, truncate, normalize, force [0,1] or define zero-denominator behavior.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-INS-034
+error_codes:
+- InstitutionalHealthOperandUnavailable
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

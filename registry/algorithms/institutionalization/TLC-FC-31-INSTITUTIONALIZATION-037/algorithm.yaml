@@ -1,0 +1,16 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-037
+algorithm_kind: ownership_boundary
+strategy: open
+execution: structural_only
+steps:
+- Freeze confirmed scientific dependencies to 04 and 29, preserve 31 -> 24 as unresolved, reject 31 -> 30, keep runtime dependencies
+  empty and reuse exactly eight shared contracts.
+provider_requirements:
+- 4
+- 29
+unresolved_domain_relations:
+- 24
+forbidden:
+- Do not promote 31 -> 24, add 31 -> 30, invent runtime edges, redefine external concepts or create a ninth shared contract.
+prescription_basis: []

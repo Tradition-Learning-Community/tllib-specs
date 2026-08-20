@@ -1,0 +1,45 @@
+contract_id: TLC-MC-TLC-FC-31-INSTITUTIONALIZATION-005
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-005
+title: Curriculum DAG descriptor
+domain_id: institutionalization
+contract_kind: source_backed_descriptor_contract
+scientific_status: defined
+execution_status: structural_only
+scientific_authority: maths/31-institutionalization/institutionalization.md
+source_sections:
+- §1
+objects:
+- TLC-SO-INS-015
+- TLC-SO-INS-016
+- TLC-SO-INS-017
+- TLC-SO-INS-018
+relations:
+- TLC-SR-INS-008
+- TLC-SR-INS-009
+- TLC-SR-INS-010
+- TLC-SR-INS-011
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve the curriculum as a DAG whose milestone vertices carry eight-dimensional objectives and whose arcs are prerequisites.
+invariants:
+- Do not prescribe curriculum construction, milestone scoring or unproved cross-domain semantics.
+constraints: []
+structured_errors:
+- code: CurriculumStructureBoundary
+  when: The request would violate source ownership, signs, thresholds, or declared structure.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-INS-009
+forbidden_behaviors:
+- Do not prescribe curriculum construction, milestone scoring or unproved cross-domain semantics.
+traceability:
+  source: maths/31-institutionalization/institutionalization.md
+  inventory: registry/domain-progress/institutionalization/feature-inventory.yaml

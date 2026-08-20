@@ -556,10 +556,18 @@ domains:
     scientific_sources: [maths/31-institutionalization/institutionalization.md]
     wave: wave-3
     analysis_companions: [29, 30]
-    feature_count: null
-    handoff_publication: false
+    feature_count: 37
+    handoff_publication: true
     dependencies: {confirmed: [4, 29], provisional: [], unknown: true}
-    pipeline: *unstarted_pipeline
+    pipeline:
+      scientific_source: complete
+      functional_decomposition: complete
+      registries: complete
+      ir: complete
+      contracts: complete
+      algorithms: complete_or_not_applicable
+      oracles: complete
+      handoff_packages: complete
 
   - index: 32
     slug: drift-and-correction

@@ -1,0 +1,51 @@
+contract_id: TLC-MC-TLC-FC-31-INSTITUTIONALIZATION-007
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-007
+title: Canon authenticity-filter evaluator
+domain_id: institutionalization
+contract_kind: source_backed_formula_contract
+scientific_status: external_provider_required
+execution_status: conditionally_executable
+scientific_authority: maths/31-institutionalization/institutionalization.md
+source_sections:
+- §2
+objects:
+- TLC-SO-INS-022
+- TLC-SO-INS-023
+- TLC-SO-INS-024
+- TLC-SO-INS-025
+- TLC-SO-INS-026
+- TLC-SO-INS-027
+relations:
+- TLC-SR-INS-014
+- TLC-SR-INS-015
+- TLC-SR-INS-016
+- TLC-SR-INS-017
+inputs:
+- name: supplied_inputs
+  type: opaque_source_operands
+outputs:
+- name: result
+  type: opaque_value
+opaque_providers: []
+preconditions:
+- All source-required operands/providers are explicit and compatible.
+postconditions:
+- Return exactly the writings w in W for which supplied Aut(w) is strictly greater than supplied theta_aut.
+invariants:
+- Do not construct Aut, calibrate theta_aut, change the strict sign or include equality.
+constraints: []
+structured_errors:
+- code: CanonAuthenticityOperandUnavailable
+  when: A source-required external provider or threshold is absent, incompatible, or outside its declared domain.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-INS-012
+- TLC-UR-INS-013
+forbidden_behaviors:
+- Do not construct Aut, calibrate theta_aut, change the strict sign or include equality.
+traceability:
+  source: maths/31-institutionalization/institutionalization.md
+  inventory: registry/domain-progress/institutionalization/feature-inventory.yaml

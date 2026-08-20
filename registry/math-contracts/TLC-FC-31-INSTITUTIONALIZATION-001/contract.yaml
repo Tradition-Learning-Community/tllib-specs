@@ -1,0 +1,55 @@
+contract_id: TLC-MC-TLC-FC-31-INSTITUTIONALIZATION-001
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-001
+title: Codification objective descriptor
+domain_id: institutionalization
+contract_kind: source_backed_descriptor_contract
+scientific_status: partially_defined
+execution_status: structural_only
+scientific_authority: maths/31-institutionalization/institutionalization.md
+source_sections:
+- §1
+objects:
+- TLC-SO-INS-001
+- TLC-SO-INS-002
+- TLC-SO-INS-003
+- TLC-SO-INS-004
+- TLC-SO-INS-005
+- TLC-SO-INS-006
+- TLC-SO-INS-007
+relations:
+- TLC-SR-INS-001
+- TLC-SR-INS-002
+- TLC-SR-INS-003
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- domain_04
+preconditions: []
+postconditions:
+- Preserve the displayed codification argmin and its two objective terms exactly as a source-bounded optimization specification.
+invariants:
+- Do not invent a text search space, text algebra, norms, optimizer, minimizer selection, default lambda, or absent-reference
+  fallback.
+constraints: []
+structured_errors:
+- code: CodificationObjectiveUnresolved
+  when: The request exceeds the relation or structure actually defined by the source.
+dependencies:
+  scientific:
+  - 4
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-INS-002
+- TLC-UR-INS-001
+- TLC-UR-INS-005
+- TLC-UR-INS-004
+- TLC-UR-INS-003
+forbidden_behaviors:
+- Do not invent a text search space, text algebra, norms, optimizer, minimizer selection, default lambda, or absent-reference
+  fallback.
+traceability:
+  source: maths/31-institutionalization/institutionalization.md
+  inventory: registry/domain-progress/institutionalization/feature-inventory.yaml

@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-023
+oracle_kind: source_conformance
+acceptance:
+- Preserve exactly B = N_rules / tau_adapt and the source-31 naming of tau_adapt without selecting the Context convention.
+rejections:
+- Do not invert tau_adapt, modify the formula, invent conversion, or define zero/sign behavior.
+dependency_guards:
+  confirmed: []
+  unresolved:
+  - 24
+  runtime: []
+  forbidden:
+  - 30

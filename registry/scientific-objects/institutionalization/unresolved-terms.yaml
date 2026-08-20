@@ -1,0 +1,246 @@
+schema_version: 1
+domain: institutionalization
+domain_index: 31
+status: frozen
+authoritative_source: maths/31-institutionalization/institutionalization.md
+unresolved_count: 34
+items:
+- id: TLC-UR-INS-001
+  concept: candidate text space, representation and norms
+  gap: The candidate-text space, text algebra, subtraction and norms needed by the objective are not defined.
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  execution_consequence: The objective cannot be evaluated or optimized without explicit providers.
+  scientific_status: external_provider_required
+  provider_requirement: text-representation and norm provider
+- id: TLC-UR-INS-002
+  concept: Txt_ref optionality contradiction
+  gap: Txt_ref is described as eventual but occurs as a mandatory objective operand; no absent-reference case is defined.
+  source_basis: maths/31-institutionalization/institutionalization.md — §1/§6
+  execution_consequence: Codification must preserve the contradiction rather than select a fallback.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-INS-003
+  concept: lambda_codification domain and calibration
+  gap: Sign, range, units and calibration of the codification weight are absent.
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  execution_consequence: No default regularization weight or interpretation may be supplied.
+  scientific_status: external_provider_required
+  provider_requirement: codification-weight provider
+- id: TLC-UR-INS-004
+  concept: argmin existence, uniqueness and selection
+  gap: Existence, uniqueness, tie handling and set-valued behavior of the minimizer are not specified.
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  execution_consequence: No canonical codified text may be promised.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-INS-005
+  concept: codification solver
+  gap: No symbolic, numerical, discrete or continuous optimization procedure is given.
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  execution_consequence: The argmin remains a structural objective, not a prescribed algorithm.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-INS-006
+  concept: variation and rigidity operational measures
+  gap: The decrease of variation and increase of rigidity are qualitative; no metrics, scales or laws are supplied.
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  execution_consequence: Only the two directional claims may be preserved.
+  scientific_status: partially_defined
+  provider_requirement: null
+- id: TLC-UR-INS-007
+  concept: codified-practice grammar provider
+  gap: The formal grammar of a codified practice is named but not constructed.
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  execution_consequence: No parser, production system or validation procedure may be invented.
+  scientific_status: external_provider_required
+  provider_requirement: formal-grammar provider
+- id: TLC-UR-INS-008
+  concept: canonical sequence and fidelity metric
+  gap: The canonical sequence and the distance used for fidelity are both unspecified.
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  execution_consequence: Practice fidelity remains structural/provider-backed.
+  scientific_status: external_provider_required
+  provider_requirement: canonical-sequence and sequence-distance provider
+- id: TLC-UR-INS-009
+  concept: curriculum objective payload and mastery criterion
+  gap: Representation of eight-dimensional objectives and the event defining mastery are not supplied.
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  execution_consequence: No milestone scoring or mastery classification may be invented.
+  scientific_status: external_provider_required
+  provider_requirement: curriculum-objective and mastery provider
+- id: TLC-UR-INS-010
+  concept: curriculum success-rate protocol
+  gap: Success criterion, denominator, cohort and observation window are absent.
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  execution_consequence: Success rate cannot be computed without supplied protocol semantics.
+  scientific_status: external_provider_required
+  provider_requirement: curriculum outcome provider
+- id: TLC-UR-INS-011
+  concept: mean time-to-mastery protocol
+  gap: Population, censoring, missing-data and averaging conventions are absent.
+  source_basis: maths/31-institutionalization/institutionalization.md — §1
+  execution_consequence: Mean time to mastery cannot be computed locally.
+  scientific_status: external_provider_required
+  provider_requirement: time-to-mastery aggregation provider
+- id: TLC-UR-INS-012
+  concept: authenticity measure Aut
+  gap: The source explicitly states that Aut is not constructed.
+  source_basis: maths/31-institutionalization/institutionalization.md — §2/§6
+  execution_consequence: Canon filtering requires an authenticity provider.
+  scientific_status: external_provider_required
+  provider_requirement: authenticity provider
+- id: TLC-UR-INS-013
+  concept: authenticity threshold theta_aut
+  gap: No calibration, scale or admissible range is provided.
+  source_basis: maths/31-institutionalization/institutionalization.md — §2
+  execution_consequence: Canon filtering requires a supplied threshold.
+  scientific_status: external_provider_required
+  provider_requirement: authenticity-threshold provider
+- id: TLC-UR-INS-014
+  concept: dogma projections pi_d
+  gap: The source explicitly states that the dogma-specific projections are not constructed.
+  source_basis: maths/31-institutionalization/institutionalization.md — §2/§6
+  execution_consequence: Dogmatic distance requires projection providers.
+  scientific_status: external_provider_required
+  provider_requirement: dogma-projection provider
+- id: TLC-UR-INS-015
+  concept: dogmatic maximum domain and norm
+  gap: Dog emptiness/compactness, maximum existence, projection codomain and the norm are unspecified.
+  source_basis: maths/31-institutionalization/institutionalization.md — §2
+  execution_consequence: No empty-set maximum, coercion, topology or norm may be chosen.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-INS-016
+  concept: dogma-threshold ordering and equality cases
+  gap: No relation between epsilon_dog and epsilon_her, intermediate region, or equality policy is defined.
+  source_basis: maths/31-institutionalization/institutionalization.md — §2
+  execution_consequence: Orthodoxy and heresy predicates must remain separate and strict.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-INS-017
+  concept: correction procedure
+  gap: The correction process referenced before persistence assessment is not constructed.
+  source_basis: maths/31-institutionalization/institutionalization.md — §2/§6
+  execution_consequence: No disciplinary or corrective algorithm may be created.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-INS-018
+  concept: persistence-after-correction rule
+  gap: No duration, iteration count, evidence window or decision procedure is supplied.
+  source_basis: maths/31-institutionalization/institutionalization.md — §2/§6
+  execution_consequence: Full heresy classification remains structural.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-INS-019
+  concept: transmission-graph exclusion lifecycle
+  gap: Vertex/edge mutation, timing and resulting graph semantics are not specified and the graph belongs to domain 29.
+  source_basis: maths/31-institutionalization/institutionalization.md — §2
+  execution_consequence: Execution must be delegated to the domain-29 graph provider.
+  scientific_status: external_provider_required
+  provider_requirement: domain-29 graph mutation provider
+- id: TLC-UR-INS-020
+  concept: open institutional role set
+  gap: The ellipsis after priest, doctor and administrator leaves additional roles unspecified.
+  source_basis: maths/31-institutionalization/institutionalization.md — §3
+  execution_consequence: No closed enumeration or default role may be asserted.
+  scientific_status: partially_defined
+  provider_requirement: null
+- id: TLC-UR-INS-021
+  concept: role-assignment procedure
+  gap: Only phi and eligibility constraints are given; no assignment algorithm, optimizer or tie-breaker is supplied.
+  source_basis: maths/31-institutionalization/institutionalization.md — §3
+  execution_consequence: Role assignment remains a structural mapping boundary.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-INS-022
+  concept: competence provider and vector order
+  gap: Competence-vector representation is unspecified and the source explicitly omits the order for C(v) >= C_r_min.
+  source_basis: maths/31-institutionalization/institutionalization.md — §3/§6
+  execution_consequence: No componentwise, lexicographic, scalarized or other order may be selected.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-INS-023
+  concept: value space, inner product and theta_val
+  gap: Vector domains, the inner product, scaling and threshold calibration are absent.
+  source_basis: maths/31-institutionalization/institutionalization.md — §3
+  execution_consequence: Value alignment requires explicit providers.
+  scientific_status: external_provider_required
+  provider_requirement: value-space, inner-product and threshold provider
+- id: TLC-UR-INS-024
+  concept: virtue space, norm and epsilon_vert
+  gap: Vector domains, the norm, scaling and tolerance calibration are absent.
+  source_basis: maths/31-institutionalization/institutionalization.md — §3
+  execution_consequence: Virtue-distance evaluation requires explicit providers.
+  scientific_status: external_provider_required
+  provider_requirement: virtue-space, norm and tolerance provider
+- id: TLC-UR-INS-025
+  concept: Shannon role-diversity convention
+  gap: Probability construction, logarithm base, normalization and absent-role treatment are unspecified.
+  source_basis: maths/31-institutionalization/institutionalization.md — §3
+  execution_consequence: No Shannon formula variant may be selected locally.
+  scientific_status: external_provider_required
+  provider_requirement: role-diversity provider
+- id: TLC-UR-INS-026
+  concept: balanced role-diversity criterion
+  gap: No target distribution, interval, threshold or equilibrium rule defines balanced diversity.
+  source_basis: maths/31-institutionalization/institutionalization.md — §3
+  execution_consequence: Balance remains a qualitative boundary.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-INS-027
+  concept: tau_adapt Context convention conflict
+  gap: Source 31 calls tau_adapt a rate while Context defines a product; no inverse or conversion convention is selected.
+  source_basis: maths/31-institutionalization/institutionalization.md — §4/§6
+  execution_consequence: The 31 -> 24 relation remains unresolved.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-INS-028
+  concept: bureaucratization ratio domain
+  gap: Zero, sign, units and admissible division domain for N_rules/tau_adapt are not specified.
+  source_basis: maths/31-institutionalization/institutionalization.md — §4
+  execution_consequence: B remains structural and no zero/sign convention may be invented.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-INS-029
+  concept: authority-concentration formula domain
+  gap: Authority-value domain, n=0 and zero-total-authority cases are not specified.
+  source_basis: maths/31-institutionalization/institutionalization.md — §4
+  execution_consequence: G_A may be evaluated only for explicitly valid provider-supplied operands.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-INS-030
+  concept: institutional-failure operationalization
+  gap: Rigidification, concentration and loss of finality have no thresholds or classifier.
+  source_basis: maths/31-institutionalization/institutionalization.md — §4
+  execution_consequence: Failure remains a qualitative descriptor.
+  scientific_status: partially_defined
+  provider_requirement: null
+- id: TLC-UR-INS-031
+  concept: reform construction and fidelity domain
+  gap: No construction of X_prime, state space, reform norm, epsilon calibration, or existence claim is supplied.
+  source_basis: maths/31-institutionalization/institutionalization.md — §5
+  execution_consequence: The reform equations are constraints, not a solver.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-INS-032
+  concept: critical thresholds and durable exceedance
+  gap: B_crit, G_crit, their relation to B_seuil, persistence interval and observation cadence are unspecified.
+  source_basis: maths/31-institutionalization/institutionalization.md — §5
+  execution_consequence: Periodic-reform triggering remains structural/provider-backed.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-INS-033
+  concept: T_ref growth model, domain and lambda identity
+  gap: The exponential B law is absent; formula-domain/order/unit conditions are absent; the two source lambdas are not identified.
+  source_basis: maths/31-institutionalization/institutionalization.md — §1/§5/§6
+  execution_consequence: T_ref is only a guarded expression and no growth law or parameter alias may be invented.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-INS-034
+  concept: institutional-health domain, range and threshold
+  gap: Vitality semantics, zero denominators, G_A range, negative H_inst, no-clamp policy, admissible domain and theta_inst
+    calibration are unresolved.
+  source_basis: maths/31-institutionalization/institutionalization.md — §5/§6
+  execution_consequence: The raw expression and strict threshold must be preserved without truncation.
+  scientific_status: preserved_unresolved
+  provider_requirement: null

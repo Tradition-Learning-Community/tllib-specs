@@ -1,0 +1,46 @@
+contract_id: TLC-MC-TLC-FC-31-INSTITUTIONALIZATION-012
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-012
+title: Orthodoxy predicate evaluator
+domain_id: institutionalization
+contract_kind: source_backed_formula_contract
+scientific_status: external_provider_required
+execution_status: conditionally_executable
+scientific_authority: maths/31-institutionalization/institutionalization.md
+source_sections:
+- §2
+objects:
+- TLC-SO-INS-033
+- TLC-SO-INS-034
+- TLC-SO-INS-036
+relations:
+- TLC-SR-INS-020
+inputs:
+- name: supplied_inputs
+  type: opaque_source_operands
+outputs:
+- name: result
+  type: opaque_value
+opaque_providers:
+- domain_04
+preconditions:
+- All source-required operands/providers are explicit and compatible.
+postconditions:
+- Classify orthodoxy only by the strict source predicate delta_dog < epsilon_dog using supplied compatible values.
+invariants:
+- Do not use <=, calibrate epsilon_dog or infer any relation to epsilon_her.
+constraints: []
+structured_errors:
+- code: OrthodoxyOperandUnavailable
+  when: A source-required external provider or threshold is absent, incompatible, or outside its declared domain.
+dependencies:
+  scientific:
+  - 4
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-INS-016
+forbidden_behaviors:
+- Do not use <=, calibrate epsilon_dog or infer any relation to epsilon_her.
+traceability:
+  source: maths/31-institutionalization/institutionalization.md
+  inventory: registry/domain-progress/institutionalization/feature-inventory.yaml

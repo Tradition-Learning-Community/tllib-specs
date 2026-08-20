@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-002
+source_contract: registry/math-contracts/TLC-FC-31-INSTITUTIONALIZATION-002/contract.yaml
+tests:
+- id: INS031002-T01
+  category: source_conformance
+  verifies: Expose both the optional-reference contradiction and the absence of a source-backed argmin procedure.
+- id: INS031002-T02
+  category: non_invention
+  verifies: Do not replace missing Txt_ref by zero, empty text, identity or lambda=0, and do not prescribe a solver or canonical
+    minimizer.
+- id: INS031002-T03
+  category: dependency_boundary
+  verifies: No runtime dependency or domain-30 scientific dependency is introduced; domain 24 remains unresolved where applicable.
