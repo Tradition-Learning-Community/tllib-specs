@@ -1,0 +1,48 @@
+contract_id: TLC-MC-TLC-FC-31-INSTITUTIONALIZATION-034
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-034
+title: Institutional-health evaluator
+domain_id: institutionalization
+contract_kind: source_backed_formula_contract
+scientific_status: partially_defined
+execution_status: conditionally_executable
+scientific_authority: maths/31-institutionalization/institutionalization.md
+source_sections:
+- §5
+objects:
+- TLC-SO-INS-060
+- TLC-SO-INS-063
+- TLC-SO-INS-085
+- TLC-SO-INS-088
+- TLC-SO-INS-089
+- TLC-SO-INS-090
+relations:
+- TLC-SR-INS-052
+inputs:
+- name: supplied_inputs
+  type: opaque_source_operands
+outputs:
+- name: result
+  type: opaque_value
+opaque_providers: []
+preconditions:
+- All source-required operands/providers are explicit and compatible.
+postconditions:
+- Evaluate the exact raw H_inst product for supplied operands in an explicitly declared valid domain, preserving negative
+  outputs.
+invariants:
+- Do not clamp, truncate, normalize, force [0,1] or define zero-denominator behavior.
+constraints: []
+structured_errors:
+- code: InstitutionalHealthOperandUnavailable
+  when: The request exceeds the relation or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-INS-034
+forbidden_behaviors:
+- Do not clamp, truncate, normalize, force [0,1] or define zero-denominator behavior.
+traceability:
+  source: maths/31-institutionalization/institutionalization.md
+  inventory: registry/domain-progress/institutionalization/feature-inventory.yaml

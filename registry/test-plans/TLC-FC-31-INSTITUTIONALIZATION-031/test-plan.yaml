@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-031
+source_contract: registry/math-contracts/TLC-FC-31-INSTITUTIONALIZATION-031/contract.yaml
+tests:
+- id: INS031031-T01
+  category: source_conformance
+  verifies: Preserve the implication from durable B or G_A critical exceedance to periodic reform necessity.
+- id: INS031031-T02
+  category: non_invention
+  verifies: Do not define durable, calibrate thresholds, merge B_crit with B_seuil or schedule reforms automatically.
+- id: INS031031-T03
+  category: dependency_boundary
+  verifies: No runtime dependency or domain-30 scientific dependency is introduced; domain 24 remains unresolved where applicable.

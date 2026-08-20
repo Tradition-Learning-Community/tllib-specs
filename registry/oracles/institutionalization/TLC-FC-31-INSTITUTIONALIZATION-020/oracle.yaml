@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-020
+oracle_kind: source_conformance
+acceptance:
+- Evaluate the source inner-product predicate with supplied compatible values and theta_val, preserving >=.
+rejections:
+- Do not normalize vectors, choose cosine similarity, invent dimensions or calibrate theta_val.
+dependency_guards:
+  confirmed:
+  - 29
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 30

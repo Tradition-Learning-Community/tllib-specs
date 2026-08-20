@@ -1,0 +1,22 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-002
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-31-INSTITUTIONALIZATION-002/ir.yaml
+operation: handle_institutionalization_002
+required_behavior:
+- Expose both the optional-reference contradiction and the absence of a source-backed argmin procedure.
+forbidden_behavior:
+- Do not replace missing Txt_ref by zero, empty text, identity or lambda=0, and do not prescribe a solver or canonical minimizer.
+provider_requirements:
+- 4
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-INS-002
+- TLC-UR-INS-001
+- TLC-UR-INS-005
+- TLC-UR-INS-004
+error_codes:
+- ReferenceTextAndArgminUnresolved
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

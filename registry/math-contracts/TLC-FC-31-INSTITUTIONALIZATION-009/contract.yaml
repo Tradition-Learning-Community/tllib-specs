@@ -1,0 +1,41 @@
+contract_id: TLC-MC-TLC-FC-31-INSTITUTIONALIZATION-009
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-009
+title: Dogma invariant-core ownership boundary
+domain_id: institutionalization
+contract_kind: source_backed_descriptor_contract
+scientific_status: defined
+execution_status: structural_only
+scientific_authority: maths/31-institutionalization/institutionalization.md
+source_sections:
+- §2
+objects:
+- TLC-SO-INS-028
+- TLC-SO-INS-029
+relations:
+- TLC-SR-INS-018
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- domain_04
+preconditions: []
+postconditions:
+- Preserve Dog as a subset of domain-04 N_inv without copying or redefining invariant authority.
+invariants:
+- Do not redefine N_inv or pi_N, or promote local dogma construction into domain-04 authority.
+constraints: []
+structured_errors:
+- code: InvariantAuthorityBoundaryViolation
+  when: The request would violate source ownership, signs, thresholds, or declared structure.
+dependencies:
+  scientific:
+  - 4
+  scientific_unresolved: []
+  runtime: []
+unresolved_items: []
+forbidden_behaviors:
+- Do not redefine N_inv or pi_N, or promote local dogma construction into domain-04 authority.
+traceability:
+  source: maths/31-institutionalization/institutionalization.md
+  inventory: registry/domain-progress/institutionalization/feature-inventory.yaml

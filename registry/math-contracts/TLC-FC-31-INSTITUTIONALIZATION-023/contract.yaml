@@ -1,0 +1,48 @@
+contract_id: TLC-MC-TLC-FC-31-INSTITUTIONALIZATION-023
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-023
+title: Bureaucratization ratio descriptor
+domain_id: institutionalization
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/31-institutionalization/institutionalization.md
+source_sections:
+- §4
+- §6
+objects:
+- TLC-SO-INS-060
+- TLC-SO-INS-061
+- TLC-SO-INS-062
+relations:
+- TLC-SR-INS-037
+- TLC-SR-INS-038
+- TLC-SR-INS-039
+- TLC-SR-INS-054
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- domain_24_unresolved
+preconditions: []
+postconditions:
+- Preserve exactly B = N_rules / tau_adapt and the source-31 naming of tau_adapt without selecting the Context convention.
+invariants:
+- Do not invert tau_adapt, modify the formula, invent conversion, or define zero/sign behavior.
+constraints: []
+structured_errors:
+- code: AdaptationRateConventionUnresolved
+  when: The requested result depends on a convention or scientific rule that the source explicitly leaves unresolved.
+dependencies:
+  scientific: []
+  scientific_unresolved:
+  - 24
+  runtime: []
+unresolved_items:
+- TLC-UR-INS-027
+- TLC-UR-INS-028
+forbidden_behaviors:
+- Do not invert tau_adapt, modify the formula, invent conversion, or define zero/sign behavior.
+traceability:
+  source: maths/31-institutionalization/institutionalization.md
+  inventory: registry/domain-progress/institutionalization/feature-inventory.yaml

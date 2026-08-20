@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-025
+source_contract: registry/math-contracts/TLC-FC-31-INSTITUTIONALIZATION-025/contract.yaml
+tests:
+- id: INS031025-T01
+  category: source_conformance
+  verifies: Evaluate the exact G_A pairwise-difference ratio only for provider-supplied operands in an explicitly valid denominator
+    domain.
+- id: INS031025-T02
+  category: non_invention
+  verifies: Do not assume nonnegative authority, normalize values, define n=0 or define zero-total-authority behavior.
+- id: INS031025-T03
+  category: dependency_boundary
+  verifies: No runtime dependency or domain-30 scientific dependency is introduced; domain 24 remains unresolved where applicable.

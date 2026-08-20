@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-025
+algorithm_kind: guarded_expression_evaluator
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Evaluate the exact G_A pairwise-difference ratio only for provider-supplied operands in an explicitly valid denominator
+  domain.
+provider_requirements: []
+unresolved_domain_relations: []
+forbidden:
+- Do not assume nonnegative authority, normalize values, define n=0 or define zero-total-authority behavior.
+prescription_basis:
+- maths/31-institutionalization/institutionalization.md

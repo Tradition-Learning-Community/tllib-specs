@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-037
+status: finalized
+scientific_status: defined
+execution: structural_only
+source_ir: registry/ir/TLC-FC-31-INSTITUTIONALIZATION-037/ir.yaml
+operation: handle_institutionalization_037
+required_behavior:
+- Freeze confirmed scientific dependencies to 04 and 29, preserve 31 -> 24 as unresolved, reject 31 -> 30, keep runtime dependencies
+  empty and reuse exactly eight shared contracts.
+forbidden_behavior:
+- Do not promote 31 -> 24, add 31 -> 30, invent runtime edges, redefine external concepts or create a ninth shared contract.
+provider_requirements:
+- 4
+- 29
+unresolved_domain_relations:
+- 24
+unresolved_items:
+- TLC-UR-INS-019
+- TLC-UR-INS-027
+error_codes:
+- Domain31DependencyBoundaryViolation
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

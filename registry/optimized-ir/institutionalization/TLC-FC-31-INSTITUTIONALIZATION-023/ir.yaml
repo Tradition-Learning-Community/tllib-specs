@@ -1,0 +1,20 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-023
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-31-INSTITUTIONALIZATION-023/ir.yaml
+operation: handle_institutionalization_023
+required_behavior:
+- Preserve exactly B = N_rules / tau_adapt and the source-31 naming of tau_adapt without selecting the Context convention.
+forbidden_behavior:
+- Do not invert tau_adapt, modify the formula, invent conversion, or define zero/sign behavior.
+provider_requirements: []
+unresolved_domain_relations:
+- 24
+unresolved_items:
+- TLC-UR-INS-027
+- TLC-UR-INS-028
+error_codes:
+- AdaptationRateConventionUnresolved
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

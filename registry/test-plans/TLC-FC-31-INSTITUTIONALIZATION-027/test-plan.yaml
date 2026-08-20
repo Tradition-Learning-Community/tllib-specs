@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-027
+source_contract: registry/math-contracts/TLC-FC-31-INSTITUTIONALIZATION-027/contract.yaml
+tests:
+- id: INS031027-T01
+  category: source_conformance
+  verifies: Preserve rule rigidification, power concentration and loss of transmission finality as qualitative failure conditions.
+- id: INS031027-T02
+  category: non_invention
+  verifies: Do not equate them automatically with B or G_A thresholds or invent a failure classifier.
+- id: INS031027-T03
+  category: dependency_boundary
+  verifies: No runtime dependency or domain-30 scientific dependency is introduced; domain 24 remains unresolved where applicable.

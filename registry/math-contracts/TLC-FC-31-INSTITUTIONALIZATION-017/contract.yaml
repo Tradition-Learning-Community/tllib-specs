@@ -1,0 +1,43 @@
+contract_id: TLC-MC-TLC-FC-31-INSTITUTIONALIZATION-017
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-017
+title: Generational vertex-to-role mapping boundary
+domain_id: institutionalization
+contract_kind: source_backed_descriptor_contract
+scientific_status: defined
+execution_status: structural_only
+scientific_authority: maths/31-institutionalization/institutionalization.md
+source_sections:
+- §3
+objects:
+- TLC-SO-INS-043
+- TLC-SO-INS-044
+- TLC-SO-INS-045
+relations:
+- TLC-SR-INS-025
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- domain_29
+preconditions: []
+postconditions:
+- Preserve phi as a mapping from domain-29 V_t to the domain-31 role set.
+invariants:
+- Do not redefine V_t or prescribe assignment order, optimization, priorities or tie-breaking.
+constraints: []
+structured_errors:
+- code: RoleMappingOwnershipViolation
+  when: The request would violate source ownership, signs, thresholds, or declared structure.
+dependencies:
+  scientific:
+  - 29
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-INS-021
+forbidden_behaviors:
+- Do not redefine V_t or prescribe assignment order, optimization, priorities or tie-breaking.
+traceability:
+  source: maths/31-institutionalization/institutionalization.md
+  inventory: registry/domain-progress/institutionalization/feature-inventory.yaml

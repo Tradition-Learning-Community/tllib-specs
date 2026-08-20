@@ -1,0 +1,933 @@
+schema_version: 1
+domain: institutionalization
+domain_index: 31
+status: frozen
+authoritative_source: maths/31-institutionalization/institutionalization.md
+scientific_object_count: 91
+objects:
+- object_id: TLC-SO-INS-001
+  symbol: Cod_ecrit
+  name: written codification operator
+  semantic_type: operator
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §1 Formalisation
+  source_definition: Maps an oral message to a written codification through the source argmin objective.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-002
+  symbol: Msg_oral
+  name: oral message
+  semantic_type: state/value
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §1 Formalisation
+  source_definition: The oral message being codified.
+  definition_status: defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-003
+  symbol: Txt
+  name: candidate written text
+  semantic_type: optimization variable
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §1 Formalisation
+  source_definition: The text variable over which the codification objective is minimized.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-004
+  symbol: Txt_ref
+  name: reference text
+  semantic_type: optional reference/value
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §1 and §6
+  source_definition: An eventual prior text used obligatorily by the displayed objective.
+  definition_status: preserved_unresolved
+  constraints: []
+  ambiguities:
+  - The source calls it eventual but defines no no-reference case.
+- object_id: TLC-SO-INS-005
+  symbol: pi_N
+  name: invariant projection
+  semantic_type: external operator
+  owner: domain-04
+  source_basis: maths/31-institutionalization/institutionalization.md — §1 and §5
+  source_definition: Projection onto the invariant authority reused from domain 04.
+  definition_status: external_provider_required
+  constraints:
+  - Must not be redefined locally.
+  ambiguities: []
+- object_id: TLC-SO-INS-006
+  symbol: lambda_codification
+  name: codification reference weight
+  semantic_type: parameter
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §1 Formalisation
+  source_definition: The source symbol lambda multiplying the text-reference term in the codification objective.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities:
+  - Sign, units, range and calibration are absent.
+  - Must not be identified with the bureaucracy-growth lambda without proof.
+- object_id: TLC-SO-INS-007
+  symbol: J_cod
+  name: codification objective
+  semantic_type: objective functional
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §1 Formalisation
+  source_definition: Sum of squared invariant-projection discrepancy and lambda-weighted squared text-reference discrepancy.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-008
+  symbol: '||epsilon||'
+  name: variation magnitude/rate
+  semantic_type: metric value
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §1 Formalisation
+  source_definition: The named variation magnitude said to decrease under codification.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-009
+  symbol: rigidity
+  name: institutional/codification rigidity
+  semantic_type: qualitative state
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §1 Formalisation
+  source_definition: A qualitative property said to increase under codification.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-010
+  symbol: Practice_codified
+  name: codified practice
+  semantic_type: structured practice
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §1 Formalisation
+  source_definition: A sequence of actions equipped with a formal grammar.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-011
+  symbol: action_sequence
+  name: practice action sequence
+  semantic_type: sequence
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §1 Formalisation
+  source_definition: The ordered actions constituting a codified practice.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-012
+  symbol: formal_grammar
+  name: formal grammar of a practice
+  semantic_type: grammar/constraint system
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §1 Formalisation
+  source_definition: The formal grammar attached to a codified practice.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-013
+  symbol: canonical_sequence
+  name: canonical practice sequence
+  semantic_type: reference sequence
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §1 Formalisation
+  source_definition: The sequence used as the fidelity reference.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-014
+  symbol: practice_fidelity
+  name: codified-practice fidelity
+  semantic_type: distance/metric result
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §1 Formalisation
+  source_definition: Defined as distance from the practice sequence to the canonical sequence.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-015
+  symbol: curriculum_DAG
+  name: curriculum directed acyclic graph
+  semantic_type: DAG
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §1 Formalisation
+  source_definition: Graph whose vertices are milestones and arcs are prerequisites.
+  definition_status: defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-016
+  symbol: curriculum_milestone
+  name: curriculum milestone
+  semantic_type: graph vertex
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §1 Formalisation
+  source_definition: A curriculum vertex carrying objectives on the eight dimensions.
+  definition_status: defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-017
+  symbol: eight_dimension_objectives
+  name: objectives on the eight dimensions
+  semantic_type: objective descriptor
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §1 Formalisation
+  source_definition: Objectives attached to curriculum milestones; no external domain ownership is asserted by this source.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-018
+  symbol: prerequisite_arc
+  name: curriculum prerequisite
+  semantic_type: directed graph edge
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §1 Formalisation
+  source_definition: An arc encoding a prerequisite relation between milestones.
+  definition_status: defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-019
+  symbol: curriculum_success_rate
+  name: curriculum success rate
+  semantic_type: metric
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §1 Formalisation
+  source_definition: One named measure of curriculum effectiveness.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-020
+  symbol: mean_time_to_mastery
+  name: mean time to mastery
+  semantic_type: metric
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §1 Formalisation
+  source_definition: One named measure of curriculum effectiveness.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-021
+  symbol: mastery_criterion
+  name: mastery state/criterion
+  semantic_type: classification boundary
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §1 Formalisation
+  source_definition: The mastery condition implicit in time-to-mastery measurement.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-022
+  symbol: K
+  name: canon
+  semantic_type: set
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §2 Stabilisation doctrinale
+  source_definition: The selected subset of writings satisfying the authenticity predicate.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-023
+  symbol: S
+  name: canon-selection operator
+  semantic_type: set selector
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §2 Stabilisation doctrinale
+  source_definition: Maps the set of writings to the canon by authenticity threshold.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-024
+  symbol: W
+  name: set of writings
+  semantic_type: set
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §2 Stabilisation doctrinale
+  source_definition: The source-defined set of writings.
+  definition_status: defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-025
+  symbol: w
+  name: a writing
+  semantic_type: set element
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §2 Stabilisation doctrinale
+  source_definition: An element of W tested for authenticity.
+  definition_status: defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-026
+  symbol: Aut
+  name: authenticity measure
+  semantic_type: external measure/provider
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §2 and §6
+  source_definition: Measure of authenticity used to select the canon.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities:
+  - The source does not construct the measure.
+- object_id: TLC-SO-INS-027
+  symbol: theta_aut
+  name: authenticity threshold
+  semantic_type: threshold
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §2 Stabilisation doctrinale
+  source_definition: Strict threshold in Aut(w) > theta_aut.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-028
+  symbol: Dog
+  name: dogma set
+  semantic_type: subset
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §2 Stabilisation doctrinale
+  source_definition: A source-defined subset of the invariant core.
+  definition_status: defined
+  constraints:
+  - Dog ⊂ N_inv.
+  ambiguities: []
+- object_id: TLC-SO-INS-029
+  symbol: N_inv
+  name: invariant core
+  semantic_type: external set/authority
+  owner: domain-04
+  source_basis: maths/31-institutionalization/institutionalization.md — §2 Stabilisation doctrinale
+  source_definition: Invariant core owned by domain 04 and reused by the dogma subset relation.
+  definition_status: external_provider_required
+  constraints:
+  - Must not be redefined locally.
+  ambiguities: []
+- object_id: TLC-SO-INS-030
+  symbol: d
+  name: dogma element
+  semantic_type: set element
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §2 Stabilisation doctrinale
+  source_definition: An element of Dog used in the maximum distance.
+  definition_status: defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-031
+  symbol: X_interpretation
+  name: interpretation state
+  semantic_type: state/vector
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §2 Stabilisation doctrinale
+  source_definition: The interpretation evaluated by delta_dog.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities:
+  - The same source glyph X is later used for institutional reform state; identity is not proven.
+- object_id: TLC-SO-INS-032
+  symbol: pi_d
+  name: dogma-specific projection
+  semantic_type: external operator
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §2 and §6
+  source_definition: Projection used to compare an interpretation with each dogma element.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities:
+  - Construction is explicitly absent.
+- object_id: TLC-SO-INS-033
+  symbol: delta_dog
+  name: dogmatic distance
+  semantic_type: metric expression
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §2 Stabilisation doctrinale
+  source_definition: Maximum over d in Dog of ||pi_d(X)-d||.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-034
+  symbol: epsilon_dog
+  name: orthodoxy tolerance
+  semantic_type: threshold
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §2 Stabilisation doctrinale
+  source_definition: Strict upper bound for orthodoxy.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-035
+  symbol: epsilon_her
+  name: heresy threshold
+  semantic_type: threshold
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §2 Stabilisation doctrinale
+  source_definition: Strict lower bound whose durable exceedance after correction contributes to heresy.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-036
+  symbol: orthodoxy
+  name: orthodoxy predicate/state
+  semantic_type: classification
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §2 Stabilisation doctrinale
+  source_definition: Requires delta_dog < epsilon_dog.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-037
+  symbol: correction
+  name: correction procedure
+  semantic_type: procedure/provider
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §2 and §6
+  source_definition: The correction process referenced before persistence is assessed.
+  definition_status: preserved_unresolved
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-038
+  symbol: persistence_after_correction
+  name: persistence-after-correction predicate
+  semantic_type: temporal predicate/provider
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §2 and §6
+  source_definition: Required for heresy but not constructed.
+  definition_status: preserved_unresolved
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-039
+  symbol: heresy
+  name: heresy predicate/state
+  semantic_type: classification
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §2 Stabilisation doctrinale
+  source_definition: Combines delta_dog > epsilon_her with persistence after correction.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-040
+  symbol: transmitter
+  name: transmitter subject to exclusion
+  semantic_type: external graph member
+  owner: domain-29
+  source_basis: maths/31-institutionalization/institutionalization.md — §2 Stabilisation doctrinale
+  source_definition: The graph participant removed following the source exclusion condition.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-041
+  symbol: G_t
+  name: generational/transmission graph
+  semantic_type: external graph
+  owner: domain-29
+  source_basis: maths/31-institutionalization/institutionalization.md — §2 and §3
+  source_definition: The graph owned by Generational Propagation; source 31 may reference role assignment and exclusion but
+    must not redefine it.
+  definition_status: external_provider_required
+  constraints:
+  - G_t = (V_t,E_t,w) remains domain-29-owned.
+  ambiguities: []
+- object_id: TLC-SO-INS-042
+  symbol: exclusion
+  name: transmitter exclusion operation
+  semantic_type: graph mutation request
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §2 Stabilisation doctrinale
+  source_definition: Removes an excluded transmitter from the domain-29 transmission graph.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-043
+  symbol: R_roles
+  name: role set
+  semantic_type: open set
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §3 Différenciation des rôles
+  source_definition: Set containing priest, doctor, administrator and additional unspecified roles.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-044
+  symbol: phi
+  name: role-assignment mapping
+  semantic_type: mapping
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §3 Différenciation des rôles
+  source_definition: Maps vertices V_t to roles R.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-045
+  symbol: V_t
+  name: recognized-transmitter vertices
+  semantic_type: external set
+  owner: domain-29
+  source_basis: maths/31-institutionalization/institutionalization.md — §3 Différenciation des rôles
+  source_definition: Vertex set of the domain-29 generational graph used as the domain of phi.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-046
+  symbol: r
+  name: role
+  semantic_type: set element
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §3 Différenciation des rôles
+  source_definition: A role carrying minimum competences, preferred values and required virtues.
+  definition_status: defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-047
+  symbol: C_r_min
+  name: minimum competence vector for a role
+  semantic_type: vector requirement
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §3 Différenciation des rôles
+  source_definition: Minimum competence requirement attached to role r.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-048
+  symbol: Val_r
+  name: preferred-values vector for a role
+  semantic_type: vector requirement
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §3 Différenciation des rôles
+  source_definition: Preferred values attached to role r.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-049
+  symbol: V_r
+  name: required-virtues vector for a role
+  semantic_type: vector requirement
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §3 Différenciation des rôles
+  source_definition: Required virtues attached to role r.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-050
+  symbol: C(v)
+  name: competence vector of vertex v
+  semantic_type: vector/provider value
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §3 Différenciation des rôles
+  source_definition: Competence vector used by the role eligibility constraint.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-051
+  symbol: Val(v)
+  name: values vector of vertex v
+  semantic_type: vector/provider value
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §3 Différenciation des rôles
+  source_definition: Values vector used by the alignment constraint.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-052
+  symbol: V(v)
+  name: virtues vector of vertex v
+  semantic_type: vector/provider value
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §3 Différenciation des rôles
+  source_definition: Virtues vector used by the distance constraint.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-053
+  symbol: theta_val
+  name: values-alignment threshold
+  semantic_type: threshold
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §3 Différenciation des rôles
+  source_definition: Lower bound for the values inner product.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-054
+  symbol: epsilon_vert
+  name: virtue-distance tolerance
+  semantic_type: threshold
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §3 Différenciation des rôles
+  source_definition: Upper bound for virtue-vector distance.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-055
+  symbol: value_inner_product
+  name: values inner product
+  semantic_type: operator/provider
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §3 Différenciation des rôles
+  source_definition: Inner product between member and role values vectors.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-056
+  symbol: virtue_norm
+  name: virtue-vector norm
+  semantic_type: operator/provider
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §3 Différenciation des rôles
+  source_definition: Norm used for the virtue-distance constraint.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-057
+  symbol: role_responsibility
+  name: named role responsibility mapping
+  semantic_type: qualitative mapping
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §3 Différenciation des rôles
+  source_definition: Priests guard rite, doctors meaning, administrators structure.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-058
+  symbol: H_role
+  name: Shannon role-diversity index
+  semantic_type: metric/provider
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §3 Différenciation des rôles
+  source_definition: A Shannon index said to measure role diversity; no formula or convention is supplied.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-059
+  symbol: role_balance
+  name: balanced role-diversity condition
+  semantic_type: qualitative classification
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §3 Différenciation des rôles
+  source_definition: The source requires role diversity to remain balanced without defining the criterion.
+  definition_status: preserved_unresolved
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-060
+  symbol: B
+  name: bureaucratization index
+  semantic_type: ratio expression
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §4 Bureaucratisation
+  source_definition: N_rules divided by tau_adapt.
+  definition_status: preserved_unresolved
+  constraints: []
+  ambiguities:
+  - The formula is preserved while tau_adapt semantics remain unresolved.
+- object_id: TLC-SO-INS-061
+  symbol: N_rules
+  name: number of rules
+  semantic_type: count
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §4 Bureaucratisation
+  source_definition: The source-defined count of institutional rules.
+  definition_status: defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-062
+  symbol: tau_adapt
+  name: adaptation quantity named as a rate
+  semantic_type: cross-domain quantity
+  owner: domain-24-unresolved
+  source_basis: maths/31-institutionalization/institutionalization.md — §4 and §6
+  source_definition: Denominator of B; source 31 names it a rate while Context defines a product of rates/sensitivities.
+  definition_status: preserved_unresolved
+  constraints:
+  - 31 -> 24 remains unresolved; no inversion or conversion is authorized.
+  ambiguities: []
+- object_id: TLC-SO-INS-063
+  symbol: G_A
+  name: authority-concentration index
+  semantic_type: ratio expression
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §4 Bureaucratisation
+  source_definition: Pairwise absolute authority differences divided by 2 n times total authority.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-064
+  symbol: A_i
+  name: authority value for member i
+  semantic_type: scalar/provider value
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §4 Bureaucratisation
+  source_definition: Authority value appearing in G_A.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-065
+  symbol: n
+  name: authority population size
+  semantic_type: count
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §4 Bureaucratisation
+  source_definition: Count used in the denominator of G_A.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-066
+  symbol: institutional_failure
+  name: institutional failure state
+  semantic_type: qualitative classification
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §4 Bureaucratisation
+  source_definition: Failure when rules are rigidified, power is concentrated, or transmission finality is forgotten.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-067
+  symbol: rule_rigidification
+  name: rule-rigidification condition
+  semantic_type: qualitative condition
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §4 Bureaucratisation
+  source_definition: One source-named institutional failure mode.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-068
+  symbol: power_concentration
+  name: power-concentration condition
+  semantic_type: qualitative condition
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §4 Bureaucratisation
+  source_definition: One source-named institutional failure mode.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-069
+  symbol: transmission_finality_loss
+  name: loss of transmission finality
+  semantic_type: qualitative condition
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §4 Bureaucratisation
+  source_definition: One source-named institutional failure mode.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-070
+  symbol: R_ref
+  name: reform operator
+  semantic_type: operator/specification
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §5 Réforme
+  source_definition: Maps an institutional state X to a state X' satisfying three output constraints.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-071
+  symbol: X_institution
+  name: institutional state before reform
+  semantic_type: state
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §5 Réforme
+  source_definition: Input to R_ref.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities:
+  - The same source glyph X was used for interpretation; identity is not proven.
+- object_id: TLC-SO-INS-072
+  symbol: X_prime
+  name: reformed institutional state
+  semantic_type: state
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §5 Réforme
+  source_definition: Output state constrained by lower B, lower G_A and invariant fidelity.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-073
+  symbol: X_orig
+  name: original/reference institutional state
+  semantic_type: reference state
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §5 Réforme
+  source_definition: Reference state in the invariant-projection fidelity constraint.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-074
+  symbol: B_prime
+  name: post-reform bureaucratization
+  semantic_type: metric value
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §5 Réforme
+  source_definition: B evaluated for X'.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-075
+  symbol: G_A_prime
+  name: post-reform authority concentration
+  semantic_type: metric value
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §5 Réforme
+  source_definition: G_A evaluated for X'.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-076
+  symbol: epsilon_ref
+  name: reform fidelity tolerance
+  semantic_type: threshold
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §5 Réforme
+  source_definition: Upper bound on invariant-projection distance to X_orig.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-077
+  symbol: B(t)
+  name: time-dependent bureaucratization
+  semantic_type: time series
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §5 Réforme
+  source_definition: B evaluated as a function of time for critical exceedance.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-078
+  symbol: G_A(t)
+  name: time-dependent authority concentration
+  semantic_type: time series
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §5 Réforme
+  source_definition: G_A evaluated as a function of time for critical exceedance.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-079
+  symbol: B_crit
+  name: critical bureaucratization threshold
+  semantic_type: threshold
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §5 Réforme
+  source_definition: Threshold whose durable exceedance contributes to reform necessity.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-080
+  symbol: G_crit
+  name: critical authority-concentration threshold
+  semantic_type: threshold
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §5 Réforme
+  source_definition: Threshold whose durable exceedance contributes to reform necessity.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-081
+  symbol: durable_exceedance
+  name: durable threshold-exceedance predicate
+  semantic_type: temporal predicate/provider
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §5 Réforme
+  source_definition: Persistence condition attached to B and G_A critical exceedance.
+  definition_status: preserved_unresolved
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-082
+  symbol: periodic_reform_requirement
+  name: periodic reform necessity
+  semantic_type: qualitative implication
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §5 Réforme
+  source_definition: The source-asserted need for periodic reforms following durable critical exceedance.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-083
+  symbol: T_ref
+  name: reform period
+  semantic_type: logarithmic expression
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §5 Réforme
+  source_definition: 1/lambda times log((B_max-B_min)/(B_seuil-B_min)).
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-084
+  symbol: lambda_bureaucracy
+  name: bureaucracy growth rate
+  semantic_type: parameter
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §5 Réforme
+  source_definition: The source symbol lambda named as bureaucracy growth rate.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities:
+  - No growth law is provided.
+  - Must not be identified with lambda_codification without proof.
+- object_id: TLC-SO-INS-085
+  symbol: B_max
+  name: maximum bureaucratization reference
+  semantic_type: parameter
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §5 Réforme
+  source_definition: Appears in T_ref and H_inst denominators/reference terms.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-086
+  symbol: B_min
+  name: minimum bureaucratization reference
+  semantic_type: parameter
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §5 Réforme
+  source_definition: Appears in the T_ref logarithm.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-087
+  symbol: B_seuil
+  name: bureaucratization threshold in T_ref
+  semantic_type: parameter
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §5 Réforme
+  source_definition: Threshold appearing in the T_ref denominator inside the logarithm.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-088
+  symbol: V_vit
+  name: institutional vitality
+  semantic_type: metric/provider value
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §5 Réforme
+  source_definition: Vitality factor in H_inst.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-089
+  symbol: V_vit_max
+  name: maximum institutional vitality
+  semantic_type: normalization reference
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §5 Réforme
+  source_definition: Denominator of the vitality factor in H_inst.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-090
+  symbol: H_inst
+  name: institutional health index
+  semantic_type: multiplicative expression
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §5 and §6
+  source_definition: Product of normalized vitality, one minus normalized B, and one minus G_A.
+  definition_status: partially_defined
+  constraints: []
+  ambiguities: []
+- object_id: TLC-SO-INS-091
+  symbol: theta_inst
+  name: institutional-health threshold
+  semantic_type: threshold
+  owner: domain-31
+  source_basis: maths/31-institutionalization/institutionalization.md — §5 Réforme
+  source_definition: Strict lower bound in H_inst > theta_inst.
+  definition_status: external_provider_required
+  constraints: []
+  ambiguities: []

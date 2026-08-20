@@ -1,0 +1,53 @@
+schema_version: 1
+domain: institutionalization
+domain_index: 31
+status: frozen
+baseline_commit: 8b11e62a26c2d2a68753525941ce0ad457c31fdc
+scientific_source:
+  path: maths/31-institutionalization/institutionalization.md
+  blob_sha: f5ae9cb8ad54d41ab1108078b1f691f043cbe891
+  modified: false
+scientific_readme:
+  path: maths/31-institutionalization/README.md
+  blob_sha: 846742ac78f60403c052ba2ba976b994ae63348b
+  modified: false
+provider_sources:
+- domain: invariants
+  domain_index: 4
+  path: maths/04-invariants/invariants.md
+  blob_sha: 5bddc38b4a74465c2bc3b1d2e9f8aac004e86800
+  relation: 31 -> 04
+  status: confirmed
+  semantics: scientific_domain_dependency_only
+- domain: generational-propagation
+  domain_index: 29
+  path: maths/29-generational-propagation/generational-propagation.md
+  blob_sha: 19f894e70b5e6898cc0db2fbd8b402e7d843393f
+  relation: 31 -> 29
+  status: confirmed
+  semantics: scientific_domain_dependency_only
+- domain: context
+  domain_index: 24
+  path: maths/24-context/context.md
+  blob_sha: c95c233b4f7f09e837dab975dcd7393ccd8edc64
+  relation: 31 -> 24
+  status: unresolved
+  semantics: conflicting_tau_adapt_convention_not_promoted
+analysis_companions:
+- 29
+- 30
+non_proven_dependency:
+- 30
+provider_boundary:
+  pi_N_provided_locally: false
+  N_inv_provided_locally: false
+  G_t_provided_locally: false
+  V_t_provided_locally: false
+  tau_adapt_context_convention_selected: false
+  runtime_dependencies: []
+  new_shared_contract: false
+counts:
+  scientific_objects: 91
+  scientific_relations: 54
+  unresolved_items: 34
+  features: 37

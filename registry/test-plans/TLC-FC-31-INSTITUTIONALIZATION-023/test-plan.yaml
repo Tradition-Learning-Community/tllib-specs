@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-023
+source_contract: registry/math-contracts/TLC-FC-31-INSTITUTIONALIZATION-023/contract.yaml
+tests:
+- id: INS031023-T01
+  category: source_conformance
+  verifies: Preserve exactly B = N_rules / tau_adapt and the source-31 naming of tau_adapt without selecting the Context convention.
+- id: INS031023-T02
+  category: non_invention
+  verifies: Do not invert tau_adapt, modify the formula, invent conversion, or define zero/sign behavior.
+- id: INS031023-T03
+  category: dependency_boundary
+  verifies: No runtime dependency or domain-30 scientific dependency is introduced; domain 24 remains unresolved where applicable.

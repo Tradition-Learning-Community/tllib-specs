@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-014
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-31-INSTITUTIONALIZATION-014/ir.yaml
+operation: handle_institutionalization_014
+required_behavior:
+- Preserve full heresy as threshold exceedance plus persistence after an unspecified correction, with threshold ordering and
+  equality cases unresolved.
+forbidden_behavior:
+- Do not invent correction steps, observation windows, iteration counts, threshold ordering, intermediate states or equality
+  policy.
+provider_requirements:
+- 4
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-INS-016
+- TLC-UR-INS-017
+- TLC-UR-INS-018
+error_codes:
+- CorrectionPersistenceUnresolved
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

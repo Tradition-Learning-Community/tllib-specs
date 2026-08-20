@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-011
+algorithm_kind: unresolved_guard
+strategy: open
+execution: structural_only
+steps:
+- Preserve the undefined projection construction, norm compatibility and maximum-domain cases of delta_dog.
+provider_requirements:
+- 4
+unresolved_domain_relations: []
+forbidden:
+- Do not return zero, infinity or a sentinel for an empty/invalid domain, and do not infer a projection codomain.
+prescription_basis: []

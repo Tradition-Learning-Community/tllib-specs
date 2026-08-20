@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-025
+oracle_kind: source_conformance
+acceptance:
+- Evaluate the exact G_A pairwise-difference ratio only for provider-supplied operands in an explicitly valid denominator
+  domain.
+rejections:
+- Do not assume nonnegative authority, normalize values, define n=0 or define zero-total-authority behavior.
+dependency_guards:
+  confirmed: []
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 30

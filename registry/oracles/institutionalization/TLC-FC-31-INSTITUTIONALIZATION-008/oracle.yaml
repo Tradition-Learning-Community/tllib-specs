@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-008
+oracle_kind: source_conformance
+acceptance:
+- Require an explicit authenticity-measure provider and supplied threshold before canon filtering can execute.
+rejections:
+- Do not infer authenticity from provenance, popularity or other metadata, and do not supply a default threshold.
+dependency_guards:
+  confirmed: []
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 30

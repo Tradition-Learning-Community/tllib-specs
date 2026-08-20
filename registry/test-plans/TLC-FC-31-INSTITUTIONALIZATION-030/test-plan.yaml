@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-030
+source_contract: registry/math-contracts/TLC-FC-31-INSTITUTIONALIZATION-030/contract.yaml
+tests:
+- id: INS031030-T01
+  category: source_conformance
+  verifies: Validate the supplied reform output against ||pi_N(X_prime)-pi_N(X_orig)|| <= epsilon_ref using domain-04 projection
+    authority.
+- id: INS031030-T02
+  category: non_invention
+  verifies: Do not redefine pi_N, choose a norm, calibrate epsilon_ref, change <= or construct X_prime.
+- id: INS031030-T03
+  category: dependency_boundary
+  verifies: No runtime dependency or domain-30 scientific dependency is introduced; domain 24 remains unresolved where applicable.

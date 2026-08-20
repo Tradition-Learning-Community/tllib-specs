@@ -1,0 +1,51 @@
+contract_id: TLC-MC-TLC-FC-31-INSTITUTIONALIZATION-002
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-002
+title: Reference-text optionality and argmin procedure guard
+domain_id: institutionalization
+contract_kind: source_backed_formula_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/31-institutionalization/institutionalization.md
+source_sections:
+- §1
+- §6
+objects:
+- TLC-SO-INS-001
+- TLC-SO-INS-003
+- TLC-SO-INS-004
+- TLC-SO-INS-005
+- TLC-SO-INS-007
+relations:
+- TLC-SR-INS-001
+- TLC-SR-INS-002
+- TLC-SR-INS-003
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- domain_04
+preconditions: []
+postconditions:
+- Expose both the optional-reference contradiction and the absence of a source-backed argmin procedure.
+invariants:
+- Do not replace missing Txt_ref by zero, empty text, identity or lambda=0, and do not prescribe a solver or canonical minimizer.
+constraints: []
+structured_errors:
+- code: ReferenceTextAndArgminUnresolved
+  when: The requested result depends on a convention or scientific rule that the source explicitly leaves unresolved.
+dependencies:
+  scientific:
+  - 4
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-INS-002
+- TLC-UR-INS-001
+- TLC-UR-INS-005
+- TLC-UR-INS-004
+forbidden_behaviors:
+- Do not replace missing Txt_ref by zero, empty text, identity or lambda=0, and do not prescribe a solver or canonical minimizer.
+traceability:
+  source: maths/31-institutionalization/institutionalization.md
+  inventory: registry/domain-progress/institutionalization/feature-inventory.yaml

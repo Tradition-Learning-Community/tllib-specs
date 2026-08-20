@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-002
+oracle_kind: source_conformance
+acceptance:
+- Expose both the optional-reference contradiction and the absence of a source-backed argmin procedure.
+rejections:
+- Do not replace missing Txt_ref by zero, empty text, identity or lambda=0, and do not prescribe a solver or canonical minimizer.
+dependency_guards:
+  confirmed:
+  - 4
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 30

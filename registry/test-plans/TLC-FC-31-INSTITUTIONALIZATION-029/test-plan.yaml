@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-029
+source_contract: registry/math-contracts/TLC-FC-31-INSTITUTIONALIZATION-029/contract.yaml
+tests:
+- id: INS031029-T01
+  category: source_conformance
+  verifies: Validate exactly the two strict supplied-output constraints B_prime < B and G_A_prime < G_A.
+- id: INS031029-T02
+  category: non_invention
+  verifies: Do not construct X_prime, weaken either strict sign, combine the inequalities into an objective or infer sufficiency.
+- id: INS031029-T03
+  category: dependency_boundary
+  verifies: No runtime dependency or domain-30 scientific dependency is introduced; domain 24 remains unresolved where applicable.

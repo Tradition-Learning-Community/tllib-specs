@@ -1,0 +1,19 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-017
+status: finalized
+scientific_status: defined
+execution: structural_only
+source_ir: registry/ir/TLC-FC-31-INSTITUTIONALIZATION-017/ir.yaml
+operation: handle_institutionalization_017
+required_behavior:
+- Preserve phi as a mapping from domain-29 V_t to the domain-31 role set.
+forbidden_behavior:
+- Do not redefine V_t or prescribe assignment order, optimization, priorities or tie-breaking.
+provider_requirements:
+- 29
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-INS-021
+error_codes:
+- RoleMappingOwnershipViolation
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

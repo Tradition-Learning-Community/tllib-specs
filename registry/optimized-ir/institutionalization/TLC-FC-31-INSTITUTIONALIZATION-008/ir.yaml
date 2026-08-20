@@ -1,0 +1,19 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-008
+status: finalized
+scientific_status: external_provider_required
+execution: structural_only
+source_ir: registry/ir/TLC-FC-31-INSTITUTIONALIZATION-008/ir.yaml
+operation: handle_institutionalization_008
+required_behavior:
+- Require an explicit authenticity-measure provider and supplied threshold before canon filtering can execute.
+forbidden_behavior:
+- Do not infer authenticity from provenance, popularity or other metadata, and do not supply a default threshold.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-INS-012
+- TLC-UR-INS-013
+error_codes:
+- AuthenticityProviderRequired
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

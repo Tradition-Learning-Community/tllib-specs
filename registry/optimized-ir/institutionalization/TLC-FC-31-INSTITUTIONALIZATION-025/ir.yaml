@@ -1,0 +1,19 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-025
+status: finalized
+scientific_status: partially_defined
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-31-INSTITUTIONALIZATION-025/ir.yaml
+operation: handle_institutionalization_025
+required_behavior:
+- Evaluate the exact G_A pairwise-difference ratio only for provider-supplied operands in an explicitly valid denominator
+  domain.
+forbidden_behavior:
+- Do not assume nonnegative authority, normalize values, define n=0 or define zero-total-authority behavior.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-INS-029
+error_codes:
+- AuthorityConcentrationOperandUnavailable
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

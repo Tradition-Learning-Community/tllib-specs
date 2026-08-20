@@ -1,0 +1,19 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-007
+status: finalized
+scientific_status: external_provider_required
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-31-INSTITUTIONALIZATION-007/ir.yaml
+operation: handle_institutionalization_007
+required_behavior:
+- Return exactly the writings w in W for which supplied Aut(w) is strictly greater than supplied theta_aut.
+forbidden_behavior:
+- Do not construct Aut, calibrate theta_aut, change the strict sign or include equality.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-INS-012
+- TLC-UR-INS-013
+error_codes:
+- CanonAuthenticityOperandUnavailable
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

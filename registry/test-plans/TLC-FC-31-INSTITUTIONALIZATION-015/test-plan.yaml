@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-015
+source_contract: registry/math-contracts/TLC-FC-31-INSTITUTIONALIZATION-015/contract.yaml
+tests:
+- id: INS031015-T01
+  category: source_conformance
+  verifies: Preserve the institutional exclusion consequence as removal of the transmitter through the domain-29 transmission-graph
+    authority.
+- id: INS031015-T02
+  category: non_invention
+  verifies: Do not redefine G_t, choose mutation lifecycle semantics or introduce a runtime dependency.
+- id: INS031015-T03
+  category: dependency_boundary
+  verifies: No runtime dependency or domain-30 scientific dependency is introduced; domain 24 remains unresolved where applicable.

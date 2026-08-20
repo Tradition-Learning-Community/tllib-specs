@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-020
+algorithm_kind: threshold_predicate
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Evaluate the source inner-product predicate with supplied compatible values and theta_val, preserving >=.
+provider_requirements:
+- 29
+unresolved_domain_relations: []
+forbidden:
+- Do not normalize vectors, choose cosine similarity, invent dimensions or calibrate theta_val.
+prescription_basis:
+- maths/31-institutionalization/institutionalization.md

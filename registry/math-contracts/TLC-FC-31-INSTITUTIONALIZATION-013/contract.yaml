@@ -1,0 +1,47 @@
+contract_id: TLC-MC-TLC-FC-31-INSTITUTIONALIZATION-013
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-013
+title: Heresy deviation predicate evaluator
+domain_id: institutionalization
+contract_kind: source_backed_formula_contract
+scientific_status: external_provider_required
+execution_status: conditionally_executable
+scientific_authority: maths/31-institutionalization/institutionalization.md
+source_sections:
+- §2
+objects:
+- TLC-SO-INS-033
+- TLC-SO-INS-035
+- TLC-SO-INS-039
+relations:
+- TLC-SR-INS-021
+inputs:
+- name: supplied_inputs
+  type: opaque_source_operands
+outputs:
+- name: result
+  type: opaque_value
+opaque_providers:
+- domain_04
+preconditions:
+- All source-required operands/providers are explicit and compatible.
+postconditions:
+- Evaluate only the strict deviation predicate delta_dog > epsilon_her from supplied compatible values; this is not by itself
+  full heresy.
+invariants:
+- Do not use >=, calibrate epsilon_her or treat threshold exceedance alone as persistence after correction.
+constraints: []
+structured_errors:
+- code: HeresyDeviationOperandUnavailable
+  when: A source-required external provider or threshold is absent, incompatible, or outside its declared domain.
+dependencies:
+  scientific:
+  - 4
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-INS-016
+forbidden_behaviors:
+- Do not use >=, calibrate epsilon_her or treat threshold exceedance alone as persistence after correction.
+traceability:
+  source: maths/31-institutionalization/institutionalization.md
+  inventory: registry/domain-progress/institutionalization/feature-inventory.yaml

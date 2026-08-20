@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-011
+source_contract: registry/math-contracts/TLC-FC-31-INSTITUTIONALIZATION-011/contract.yaml
+tests:
+- id: INS031011-T01
+  category: source_conformance
+  verifies: Preserve the undefined projection construction, norm compatibility and maximum-domain cases of delta_dog.
+- id: INS031011-T02
+  category: non_invention
+  verifies: Do not return zero, infinity or a sentinel for an empty/invalid domain, and do not infer a projection codomain.
+- id: INS031011-T03
+  category: dependency_boundary
+  verifies: No runtime dependency or domain-30 scientific dependency is introduced; domain 24 remains unresolved where applicable.

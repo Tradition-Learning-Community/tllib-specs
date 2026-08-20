@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-026
+oracle_kind: source_conformance
+acceptance:
+- Expose the unspecified authority-value domain, n=0 case and zero-total-authority denominator.
+rejections:
+- Do not return zero, infinity, NaN policy, a clamp or an asserted [0,1] range.
+dependency_guards:
+  confirmed: []
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 30

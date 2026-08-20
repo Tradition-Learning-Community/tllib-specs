@@ -1,0 +1,46 @@
+contract_id: TLC-MC-TLC-FC-31-INSTITUTIONALIZATION-004
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-004
+title: Codified-practice grammar and fidelity boundary
+domain_id: institutionalization
+contract_kind: source_backed_descriptor_contract
+scientific_status: partially_defined
+execution_status: structural_only
+scientific_authority: maths/31-institutionalization/institutionalization.md
+source_sections:
+- §1
+objects:
+- TLC-SO-INS-010
+- TLC-SO-INS-011
+- TLC-SO-INS-012
+- TLC-SO-INS-013
+- TLC-SO-INS-014
+relations:
+- TLC-SR-INS-006
+- TLC-SR-INS-007
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve a codified practice as an action sequence with a formal grammar and fidelity defined as distance to a canonical
+  sequence.
+invariants:
+- Do not invent the grammar, canonical sequence, parser, distance, alignment, weighting or validation procedure.
+constraints: []
+structured_errors:
+- code: PracticeGrammarAndFidelityProviderRequired
+  when: The request exceeds the relation or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-INS-007
+- TLC-UR-INS-008
+forbidden_behaviors:
+- Do not invent the grammar, canonical sequence, parser, distance, alignment, weighting or validation procedure.
+traceability:
+  source: maths/31-institutionalization/institutionalization.md
+  inventory: registry/domain-progress/institutionalization/feature-inventory.yaml

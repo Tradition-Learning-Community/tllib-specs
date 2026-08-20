@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-017
+oracle_kind: source_conformance
+acceptance:
+- Preserve phi as a mapping from domain-29 V_t to the domain-31 role set.
+rejections:
+- Do not redefine V_t or prescribe assignment order, optimization, priorities or tie-breaking.
+dependency_guards:
+  confirmed:
+  - 29
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 30

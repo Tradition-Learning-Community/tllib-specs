@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-034
+source_contract: registry/math-contracts/TLC-FC-31-INSTITUTIONALIZATION-034/contract.yaml
+tests:
+- id: INS031034-T01
+  category: source_conformance
+  verifies: Evaluate the exact raw H_inst product for supplied operands in an explicitly declared valid domain, preserving
+    negative outputs.
+- id: INS031034-T02
+  category: non_invention
+  verifies: Do not clamp, truncate, normalize, force [0,1] or define zero-denominator behavior.
+- id: INS031034-T03
+  category: dependency_boundary
+  verifies: No runtime dependency or domain-30 scientific dependency is introduced; domain 24 remains unresolved where applicable.

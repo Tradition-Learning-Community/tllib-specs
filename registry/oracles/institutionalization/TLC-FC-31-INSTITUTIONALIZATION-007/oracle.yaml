@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-007
+oracle_kind: source_conformance
+acceptance:
+- Return exactly the writings w in W for which supplied Aut(w) is strictly greater than supplied theta_aut.
+rejections:
+- Do not construct Aut, calibrate theta_aut, change the strict sign or include equality.
+dependency_guards:
+  confirmed: []
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 30

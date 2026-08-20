@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-036
+oracle_kind: source_conformance
+acceptance:
+- Classify institutional health only by the strict predicate H_inst > theta_inst using supplied values.
+rejections:
+- Do not use >=, calibrate theta_inst, clamp H_inst or infer a default threshold.
+dependency_guards:
+  confirmed: []
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 30

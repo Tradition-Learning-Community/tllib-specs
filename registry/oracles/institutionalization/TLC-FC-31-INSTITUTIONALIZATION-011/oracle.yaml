@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-011
+oracle_kind: source_conformance
+acceptance:
+- Preserve the undefined projection construction, norm compatibility and maximum-domain cases of delta_dog.
+rejections:
+- Do not return zero, infinity or a sentinel for an empty/invalid domain, and do not infer a projection codomain.
+dependency_guards:
+  confirmed:
+  - 4
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 30

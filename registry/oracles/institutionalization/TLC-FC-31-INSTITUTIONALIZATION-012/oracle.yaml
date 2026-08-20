@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-012
+oracle_kind: source_conformance
+acceptance:
+- Classify orthodoxy only by the strict source predicate delta_dog < epsilon_dog using supplied compatible values.
+rejections:
+- Do not use <=, calibrate epsilon_dog or infer any relation to epsilon_her.
+dependency_guards:
+  confirmed:
+  - 4
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 30

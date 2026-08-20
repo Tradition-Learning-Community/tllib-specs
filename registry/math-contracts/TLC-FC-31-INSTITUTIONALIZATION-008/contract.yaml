@@ -1,0 +1,43 @@
+contract_id: TLC-MC-TLC-FC-31-INSTITUTIONALIZATION-008
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-008
+title: Authenticity provider and threshold boundary
+domain_id: institutionalization
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: structural_only
+scientific_authority: maths/31-institutionalization/institutionalization.md
+source_sections:
+- §2
+- §6
+objects:
+- TLC-SO-INS-026
+- TLC-SO-INS-027
+relations:
+- TLC-SR-INS-015
+- TLC-SR-INS-017
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Require an explicit authenticity-measure provider and supplied threshold before canon filtering can execute.
+invariants:
+- Do not infer authenticity from provenance, popularity or other metadata, and do not supply a default threshold.
+constraints: []
+structured_errors:
+- code: AuthenticityProviderRequired
+  when: A source-required external provider or threshold is absent, incompatible, or outside its declared domain.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-INS-012
+- TLC-UR-INS-013
+forbidden_behaviors:
+- Do not infer authenticity from provenance, popularity or other metadata, and do not supply a default threshold.
+traceability:
+  source: maths/31-institutionalization/institutionalization.md
+  inventory: registry/domain-progress/institutionalization/feature-inventory.yaml

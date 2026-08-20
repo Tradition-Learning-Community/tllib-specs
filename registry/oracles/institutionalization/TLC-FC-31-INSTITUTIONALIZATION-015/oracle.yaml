@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-015
+oracle_kind: source_conformance
+acceptance:
+- Preserve the institutional exclusion consequence as removal of the transmitter through the domain-29 transmission-graph
+  authority.
+rejections:
+- Do not redefine G_t, choose mutation lifecycle semantics or introduce a runtime dependency.
+dependency_guards:
+  confirmed:
+  - 29
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 30

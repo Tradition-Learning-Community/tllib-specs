@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-019
+source_contract: registry/math-contracts/TLC-FC-31-INSTITUTIONALIZATION-019/contract.yaml
+tests:
+- id: INS031019-T01
+  category: source_conformance
+  verifies: Expose C(v) >= C_phi(v)_min while preserving the absent vector representation and partial order.
+- id: INS031019-T02
+  category: non_invention
+  verifies: Do not assume componentwise, lexicographic, Pareto, norm-based or scalarized comparison.
+- id: INS031019-T03
+  category: dependency_boundary
+  verifies: No runtime dependency or domain-30 scientific dependency is introduced; domain 24 remains unresolved where applicable.

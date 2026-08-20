@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-020
+source_contract: registry/math-contracts/TLC-FC-31-INSTITUTIONALIZATION-020/contract.yaml
+tests:
+- id: INS031020-T01
+  category: source_conformance
+  verifies: Evaluate the source inner-product predicate with supplied compatible values and theta_val, preserving >=.
+- id: INS031020-T02
+  category: non_invention
+  verifies: Do not normalize vectors, choose cosine similarity, invent dimensions or calibrate theta_val.
+- id: INS031020-T03
+  category: dependency_boundary
+  verifies: No runtime dependency or domain-30 scientific dependency is introduced; domain 24 remains unresolved where applicable.

@@ -1,0 +1,45 @@
+contract_id: TLC-MC-TLC-FC-31-INSTITUTIONALIZATION-031
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-031
+title: Durable critical-exceedance and periodic-reform boundary
+domain_id: institutionalization
+contract_kind: source_backed_formula_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/31-institutionalization/institutionalization.md
+source_sections:
+- §5
+objects:
+- TLC-SO-INS-077
+- TLC-SO-INS-078
+- TLC-SO-INS-079
+- TLC-SO-INS-080
+- TLC-SO-INS-081
+- TLC-SO-INS-082
+relations:
+- TLC-SR-INS-048
+- TLC-SR-INS-049
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve the implication from durable B or G_A critical exceedance to periodic reform necessity.
+invariants:
+- Do not define durable, calibrate thresholds, merge B_crit with B_seuil or schedule reforms automatically.
+constraints: []
+structured_errors:
+- code: DurableExceedanceUndefined
+  when: The requested result depends on a convention or scientific rule that the source explicitly leaves unresolved.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-INS-032
+forbidden_behaviors:
+- Do not define durable, calibrate thresholds, merge B_crit with B_seuil or schedule reforms automatically.
+traceability:
+  source: maths/31-institutionalization/institutionalization.md
+  inventory: registry/domain-progress/institutionalization/feature-inventory.yaml

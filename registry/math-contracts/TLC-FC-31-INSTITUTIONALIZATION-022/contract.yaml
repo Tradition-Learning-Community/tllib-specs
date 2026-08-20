@@ -1,0 +1,47 @@
+contract_id: TLC-MC-TLC-FC-31-INSTITUTIONALIZATION-022
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-022
+title: Shannon role-diversity and balance boundary
+domain_id: institutionalization
+contract_kind: source_backed_descriptor_contract
+scientific_status: partially_defined
+execution_status: structural_only
+scientific_authority: maths/31-institutionalization/institutionalization.md
+source_sections:
+- §3
+objects:
+- TLC-SO-INS-043
+- TLC-SO-INS-044
+- TLC-SO-INS-058
+- TLC-SO-INS-059
+relations:
+- TLC-SR-INS-035
+- TLC-SR-INS-036
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- domain_29
+preconditions: []
+postconditions:
+- Preserve that role diversity is measured by a Shannon index and is required to remain balanced, while both conventions remain
+  provider/unresolved boundaries.
+invariants:
+- Do not choose a Shannon formula, logarithm base, probability distribution, normalization or balance criterion.
+constraints: []
+structured_errors:
+- code: RoleDiversityBalanceUndefined
+  when: The request exceeds the relation or structure actually defined by the source.
+dependencies:
+  scientific:
+  - 29
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-INS-025
+- TLC-UR-INS-026
+forbidden_behaviors:
+- Do not choose a Shannon formula, logarithm base, probability distribution, normalization or balance criterion.
+traceability:
+  source: maths/31-institutionalization/institutionalization.md
+  inventory: registry/domain-progress/institutionalization/feature-inventory.yaml

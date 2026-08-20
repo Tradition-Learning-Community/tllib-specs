@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-032
+source_contract: registry/math-contracts/TLC-FC-31-INSTITUTIONALIZATION-032/contract.yaml
+tests:
+- id: INS031032-T01
+  category: source_conformance
+  verifies: Evaluate only the displayed logarithmic T_ref expression for supplied operands in an explicitly valid domain.
+- id: INS031032-T02
+  category: non_invention
+  verifies: Do not reconstruct an exponential law, infer units, merge thresholds, select singular behavior or identify the
+    two lambdas.
+- id: INS031032-T03
+  category: dependency_boundary
+  verifies: No runtime dependency or domain-30 scientific dependency is introduced; domain 24 remains unresolved where applicable.

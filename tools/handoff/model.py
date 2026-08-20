@@ -10,8 +10,8 @@ MODEL_VERSION = "1.0.0"
 VALIDATOR_VERSION = "1.0.0"
 EXPORTER_VERSION = "1.0.0"
 CATALOG_GENERATOR_VERSION = "1.0.0"
-EXPECTED_DOMAIN_COUNT = 32
-EXPECTED_FEATURE_COUNT = 452
+EXPECTED_DOMAIN_COUNT = 33
+EXPECTED_FEATURE_COUNT = 489
 EXPECTED_SHARED_CONTRACT_COUNT = 8
 PILOT_ID = "TLC-FC-00-MASTER-005"
 
@@ -48,6 +48,7 @@ DOMAIN_ORDER = (
     "finality-and-evolutionary-teleology",
     "generational-propagation",
     "expansion",
+    "institutionalization",
 )
 
 SHARED_CONTRACT_IDS = frozenset(

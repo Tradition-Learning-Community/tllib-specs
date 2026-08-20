@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-31-INSTITUTIONALIZATION-007
+algorithm_kind: provider_backed_filter
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Return exactly the writings w in W for which supplied Aut(w) is strictly greater than supplied theta_aut.
+provider_requirements: []
+unresolved_domain_relations: []
+forbidden:
+- Do not construct Aut, calibrate theta_aut, change the strict sign or include equality.
+prescription_basis:
+- maths/31-institutionalization/institutionalization.md
