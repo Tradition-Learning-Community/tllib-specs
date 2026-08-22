@@ -1,0 +1,46 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-008
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-008
+title: Finite-automaton totalization prohibition guard
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/operational-pipeline.md
+additional_scientific_authorities: []
+source_sections:
+- §6/§7
+objects:
+- TLC-SO-TRL-092
+- TLC-SO-TRL-094
+- TLC-SO-TRL-095
+relations:
+- TLC-SR-TRL-039
+- TLC-SR-TRL-040
+- TLC-SR-TRL-041
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Reject any transition table entry not directly supplied by the source.
+invariants:
+- Do not construct a total FSM or infer one transition per specialized phase.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryUnresolved
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-007
+forbidden_behaviors:
+- Do not construct a total FSM or infer one transition per specialized phase.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/operational-pipeline.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

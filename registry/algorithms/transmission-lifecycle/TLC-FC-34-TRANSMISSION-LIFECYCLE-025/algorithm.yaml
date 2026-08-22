@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-025
+algorithm_kind: provider_backed_evaluator
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Evaluate S_M and S_D only from supplied four-term factors and positive normalized weights.
+provider_requirements:
+- 'Explicit source-compatible provider for: Mutual-recognition score evaluator'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not construct phi_k or psi_k factors, calibrate weights or transfer factors between the two scores.
+prescription_basis: []

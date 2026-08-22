@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-044
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-34-TRANSMISSION-LIFECYCLE-044/contract.yaml
+source_candidate_ir: ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-044/ir.candidate.json
+nature: guard
+steps:
+- Evaluate band activation only from the strict source inequality w_k>theta_act.
+errors:
+- ScientificBoundaryPartial
+unresolved_items:
+- TLC-UR-TRL-039

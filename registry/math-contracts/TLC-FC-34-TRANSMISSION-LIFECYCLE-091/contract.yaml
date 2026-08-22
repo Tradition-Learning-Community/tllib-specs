@@ -1,0 +1,52 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-091
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-091
+title: Validation-matrix evaluator
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: conditionally_executable
+scientific_authority: maths/34-transmission-lifecycle/validation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §1
+objects:
+- TLC-SO-TRL-337
+- TLC-SO-TRL-339
+- TLC-SO-TRL-340
+- TLC-SO-TRL-341
+- TLC-SO-TRL-342
+- TLC-SO-TRL-343
+- TLC-SO-TRL-344
+- TLC-SO-TRL-345
+relations:
+- TLC-SR-TRL-154
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- 'Explicit source-compatible provider for: Validation-matrix evaluator'
+preconditions: []
+postconditions:
+- Evaluate M(a,t) only from a supplied nonempty evaluator set, weights, evaluations, recognition and lambda.
+invariants:
+- Do not invent activation order, evaluator selection, weight semantics or an empty-set result.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-080
+forbidden_behaviors:
+- Do not invent activation order, evaluator selection, weight semantics or an empty-set result.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/validation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

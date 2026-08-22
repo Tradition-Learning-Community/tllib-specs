@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-064
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-34-TRANSMISSION-LIFECYCLE-064/contract.yaml
+source_candidate_ir: ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-064/ir.candidate.json
+nature: descriptor
+steps:
+- Preserve L(X_n+1)<=L(X_n)-epsilon||X_n+1-X_n||^2 under the explicit hypothesis that L exists.
+errors:
+- ScientificBoundaryPartial
+unresolved_items:
+- TLC-UR-TRL-057

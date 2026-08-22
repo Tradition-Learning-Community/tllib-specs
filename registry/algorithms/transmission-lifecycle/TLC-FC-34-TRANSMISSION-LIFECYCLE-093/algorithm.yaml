@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-093
+algorithm_kind: scientific_guard
+strategy: open
+execution: structural_only
+steps:
+- Preserve the product called 1_valid and the unconstrained c_conv factor.
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not coerce c_conv to Boolean, clamp the product or change its factors.
+prescription_basis: []

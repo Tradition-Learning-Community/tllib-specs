@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-019
+algorithm_kind: provider_backed_evaluator
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Evaluate V_coll only for a supplied nonempty community and a supplied recognition function rec.
+provider_requirements:
+- 'Explicit source-compatible provider for: Operational collective-validation evaluator'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not invent rec, evaluator weights or an empty-community convention.
+prescription_basis: []

@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-105
+status: finalized
+scientific_status: external_provider_required
+execution: structural_only
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-105/ir.yaml
+operation: handle_transmission_lifecycle_105
+required_behavior:
+- Require a projection/core provider and keep the potential Domain 34 to Domain 04 ownership relation unresolved.
+forbidden_behavior:
+- Do not redefine pi_N, equate local N with a repository authority or promote the edge without explicit binding evidence.
+provider_requirements:
+- 'Explicit source-compatible provider for: Invariant-core projection authority boundary'
+scientific_domain_dependencies: []
+unresolved_domain_relations:
+- 4
+runtime_domain_dependencies: []
+unresolved_items:
+- TLC-UR-TRL-093
+error_codes:
+- ProviderRequired
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.

@@ -1,0 +1,46 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-072
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-072
+title: Master monitoring and correction descriptor
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/incorporation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §1
+objects:
+- TLC-SO-TRL-282
+- TLC-SO-TRL-283
+relations:
+- TLC-SR-TRL-122
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- 'Explicit source-compatible provider for: Master monitoring and correction descriptor'
+preconditions: []
+postconditions:
+- Expose continued monitoring and correction during withdrawal as provider-backed operators.
+invariants:
+- Do not invent a controller, alert rule, correction policy or intervention schedule.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-065
+forbidden_behaviors:
+- Do not invent a controller, alert rule, correction policy or intervention schedule.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/incorporation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

@@ -1,0 +1,17 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-009
+algorithm_kind: provider_boundary
+strategy: open
+execution: structural_only
+steps:
+- Publish only source-backed dependencies, keep runtime dependencies empty and retain exactly the existing eight shared contracts.
+provider_requirements: []
+scientific_domain_dependencies:
+- 21
+- 29
+unresolved_domain_relations:
+- 4
+runtime_domain_dependencies: []
+forbidden:
+- Do not infer a Domain 34 to Domain 17 edge from wave membership or create a ninth shared contract.
+prescription_basis: []

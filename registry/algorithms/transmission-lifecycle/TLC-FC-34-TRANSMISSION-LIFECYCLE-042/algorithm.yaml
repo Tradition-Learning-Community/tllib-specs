@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-042
+algorithm_kind: provider_backed_evaluator
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Evaluate I_k only with a supplied band, projection, observation representation and compatible inner product.
+provider_requirements:
+- 'Explicit source-compatible provider for: Resonance-band intensity evaluator and projection guard'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not invent band bases, dimensions, the all-ones vector type or projection construction.
+prescription_basis: []

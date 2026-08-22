@@ -1,0 +1,22 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-094
+status: finalized
+scientific_status: external_provider_required
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-094/ir.yaml
+operation: handle_transmission_lifecycle_094
+required_behavior:
+- Evaluate w(a,a',t) only from supplied elder, competence and proximity factors with a nonzero denominator.
+forbidden_behavior:
+- Do not construct factors, normalize by another rule or assume positivity.
+provider_requirements:
+- 'Explicit source-compatible provider for: Evaluator-weight normalizer'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- TLC-UR-TRL-083
+error_codes:
+- ProviderRequired
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.

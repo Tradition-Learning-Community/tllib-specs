@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-050
+algorithm_kind: structural_descriptor
+strategy: partially_constrained
+execution: structural_only
+steps:
+- Preserve the C dynamics, its source conditions and the stated typical initial conditions for C, w_k and both memories.
+provider_requirements:
+- 'Explicit source-compatible provider for: Integration-depth dynamics and initial-condition descriptor'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not add integration method, distributions, unlisted initial values or value ranges.
+prescription_basis: []

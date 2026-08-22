@@ -1,0 +1,44 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-092
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-092
+title: Empty evaluator-set division guard
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/validation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §1/§5
+objects:
+- TLC-SO-TRL-337
+- TLC-SO-TRL-340
+relations:
+- TLC-SR-TRL-154
+- TLC-SR-TRL-155
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve that M divides by |A(t)| before activation can guarantee a nonempty evaluator set.
+invariants:
+- Do not return zero, skip validation, reorder activation or add a fallback evaluator.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryUnresolved
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-081
+forbidden_behaviors:
+- Do not return zero, skip validation, reorder activation or add a fallback evaluator.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/validation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

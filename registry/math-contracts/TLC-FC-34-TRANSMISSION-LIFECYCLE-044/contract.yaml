@@ -1,0 +1,45 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-044
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-044
+title: Resonance-band activation predicate
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: partially_defined
+execution_status: conditionally_executable
+scientific_authority: maths/34-transmission-lifecycle/impregnation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §3
+objects:
+- TLC-SO-TRL-186
+- TLC-SO-TRL-191
+relations:
+- TLC-SR-TRL-083
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Evaluate band activation only from the strict source inequality w_k>theta_act.
+invariants:
+- Do not replace the strict sign, clamp w_k or supply theta_act.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryPartial
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-039
+forbidden_behaviors:
+- Do not replace the strict sign, clamp w_k or supply theta_act.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/impregnation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

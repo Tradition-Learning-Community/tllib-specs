@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-018
+algorithm_kind: provider_boundary
+strategy: partially_constrained
+execution: structural_only
+steps:
+- Require explicit providers for Phi_1, Phi_2, Phi_3 and the sigmoid identity.
+provider_requirements:
+- 'Explicit source-compatible provider for: Trial component-function and sigmoid identity guard'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not bind sigma to a width or noise coefficient used elsewhere.
+prescription_basis: []

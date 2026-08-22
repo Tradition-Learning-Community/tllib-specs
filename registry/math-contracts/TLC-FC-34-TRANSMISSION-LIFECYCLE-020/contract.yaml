@@ -1,0 +1,44 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-020
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-020
+title: Operational collective-validation undefined-domain guard
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/operational-pipeline.md
+additional_scientific_authorities: []
+source_sections:
+- §4/§7
+objects:
+- TLC-SO-TRL-079
+- TLC-SO-TRL-080
+- TLC-SO-TRL-081
+relations:
+- TLC-SR-TRL-031
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve the undefined cases for rec and division by community cardinality.
+invariants:
+- Do not add zero, NaN, epsilon or fallback behavior for an empty community.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryUnresolved
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-017
+forbidden_behaviors:
+- Do not add zero, NaN, epsilon or fallback behavior for an empty community.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/operational-pipeline.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

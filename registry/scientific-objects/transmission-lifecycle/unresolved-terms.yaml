@@ -1,0 +1,937 @@
+schema_version: 1
+domain: transmission-lifecycle
+domain_index: 34
+status: frozen
+authoritative_sources:
+- maths/34-transmission-lifecycle/operational-pipeline.md
+- maths/34-transmission-lifecycle/initiation-phase.md
+- maths/34-transmission-lifecycle/impregnation-phase.md
+- maths/34-transmission-lifecycle/guidance-phase.md
+- maths/34-transmission-lifecycle/incorporation-phase.md
+- maths/34-transmission-lifecycle/integration-phase.md
+- maths/34-transmission-lifecycle/validation-phase.md
+- maths/34-transmission-lifecycle/empowerment-phase.md
+unresolved_count: 96
+items:
+- concept: Four-stage versus seven-phase non-bijection guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve the four operational
+    macro-stages and seven specialized phases as distinct, only partially related decompositions.'
+  source_basis:
+  - maths/34-transmission-lifecycle/operational-pipeline.md - op §1/§7
+  - maths/34-transmission-lifecycle/initiation-phase.md - cross-source
+  - maths/34-transmission-lifecycle/impregnation-phase.md - cross-source
+  - maths/34-transmission-lifecycle/guidance-phase.md - cross-source
+  - maths/34-transmission-lifecycle/incorporation-phase.md - cross-source
+  - maths/34-transmission-lifecycle/integration-phase.md - cross-source
+  - maths/34-transmission-lifecycle/validation-phase.md - cross-source
+  - maths/34-transmission-lifecycle/empowerment-phase.md - cross-source
+  execution_consequence: Do not invent a one-to-one or total mapping between admission/imprégnation-apprentissage/épreuve/sortie
+    and the seven phases.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-001
+- concept: Cross-document symbol identity and collision matrix guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Namespace homonymous
+    symbols by document, section and scientific role while preserving source notation.'
+  source_basis:
+  - maths/34-transmission-lifecycle/operational-pipeline.md - cross-source
+  - maths/34-transmission-lifecycle/initiation-phase.md - cross-source
+  - maths/34-transmission-lifecycle/impregnation-phase.md - cross-source
+  - maths/34-transmission-lifecycle/guidance-phase.md - cross-source
+  - maths/34-transmission-lifecycle/incorporation-phase.md - cross-source
+  - maths/34-transmission-lifecycle/integration-phase.md - cross-source
+  - maths/34-transmission-lifecycle/validation-phase.md - cross-source
+  - maths/34-transmission-lifecycle/empowerment-phase.md - cross-source
+  execution_consequence: Do not bind C, V, Val, P, M, R, F, E, N, G_t, pi_N, X, lambda, sigma, Phi or L by name alone.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-002
+- concept: Lifecycle phase-transition matrix descriptor
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Expose only source-backed or explicitly partial phase transitions, conditions and transmitted state
+    components.'
+  source_basis:
+  - maths/34-transmission-lifecycle/operational-pipeline.md - cross-source transitions
+  - maths/34-transmission-lifecycle/initiation-phase.md - cross-source transitions
+  - maths/34-transmission-lifecycle/impregnation-phase.md - cross-source transitions
+  - maths/34-transmission-lifecycle/guidance-phase.md - cross-source transitions
+  - maths/34-transmission-lifecycle/incorporation-phase.md - cross-source transitions
+  - maths/34-transmission-lifecycle/integration-phase.md - cross-source transitions
+  - maths/34-transmission-lifecycle/validation-phase.md - cross-source transitions
+  - maths/34-transmission-lifecycle/empowerment-phase.md - cross-source transitions
+  execution_consequence: Do not invent missing phase mappings, reset rules, preserved parameters or threshold identities.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-003
+- concept: State X version and cross-phase mapping guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Keep every source-local
+    definition of X distinct and record the absent mappings between four- and five-component states.'
+  source_basis:
+  - maths/34-transmission-lifecycle/operational-pipeline.md - cross-source state
+  - maths/34-transmission-lifecycle/guidance-phase.md - cross-source state
+  - maths/34-transmission-lifecycle/incorporation-phase.md - cross-source state
+  - maths/34-transmission-lifecycle/integration-phase.md - cross-source state
+  - maths/34-transmission-lifecycle/empowerment-phase.md - cross-source state
+  execution_consequence: Do not silently treat X=(C,V,Val,P) and X=(C,V,Val,P,I) as the same typed space.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-004
+- concept: Threshold and coefficient namespace guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Scope thresholds and
+    reused coefficients to their source relation unless the sources explicitly identify them.'
+  source_basis:
+  - maths/34-transmission-lifecycle/operational-pipeline.md - cross-source notation
+  - maths/34-transmission-lifecycle/initiation-phase.md - cross-source notation
+  - maths/34-transmission-lifecycle/impregnation-phase.md - cross-source notation
+  - maths/34-transmission-lifecycle/guidance-phase.md - cross-source notation
+  - maths/34-transmission-lifecycle/incorporation-phase.md - cross-source notation
+  - maths/34-transmission-lifecycle/integration-phase.md - cross-source notation
+  - maths/34-transmission-lifecycle/validation-phase.md - cross-source notation
+  - maths/34-transmission-lifecycle/empowerment-phase.md - cross-source notation
+  execution_consequence: Do not unify same-numbered thresholds or reused alpha, beta, gamma, lambda or sigma parameters across
+    documents.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-005
+- concept: Partial finite-automaton descriptor
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Preserve A=(S,Sigma,delta,s0,SF), its enumerated states and the explicit failure return transition.'
+  source_basis:
+  - maths/34-transmission-lifecycle/operational-pipeline.md - §6
+  execution_consequence: Do not claim that Sigma or delta is complete.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-006
+- concept: Finite-automaton totalization prohibition guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Reject any transition
+    table entry not directly supplied by the source.'
+  source_basis:
+  - maths/34-transmission-lifecycle/operational-pipeline.md - §6/§7
+  execution_consequence: Do not construct a total FSM or infer one transition per specialized phase.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-007
+- concept: Admission selection-score evaluator
+  gap: The source does not construct every provider, operand, representation or domain required to evaluate the weighted selection
+    expression only from explicitly supplied compatible capacity, receptivity, motivation and initial-value operands.
+  source_basis:
+  - maths/34-transmission-lifecycle/operational-pipeline.md - §2
+  execution_consequence: Do not normalize, rescale, clamp or supply missing component functions or weights.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Admission selection-score evaluator'
+  id: TLC-UR-TRL-008
+- concept: Admission scalar-compatibility and normalization guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve the absence
+    of a common typed scale for C_p, R, Mot and Val_init.'
+  source_basis:
+  - maths/34-transmission-lifecycle/operational-pipeline.md - §2/§7
+  execution_consequence: Do not invent units, a common codomain or a normalization convention for the selection sum.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-009
+- concept: Operational impregnation-state dynamic relation descriptor
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Preserve dX/dt=alpha_imp O_obs(M,C,t)(X_M-X) over the declared impregnation interval.'
+  source_basis:
+  - maths/34-transmission-lifecycle/operational-pipeline.md - §3
+  execution_consequence: Do not choose an integrator, timestep, initial state, representation or multiplication law.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-010
+- concept: Active-learning phase, noise and correction provider boundary
+  gap: The source does not construct every provider, operand, representation or domain required to expose F_phase(X,M,C,t)+noise-and-correction
+    as an incomplete source relation requiring providers.
+  source_basis:
+  - maths/34-transmission-lifecycle/operational-pipeline.md - §3/§7
+  execution_consequence: Do not construct the phase function, stochastic law or correction term from the narrative label.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Active-learning phase, noise and correction provider boundary'
+  id: TLC-UR-TRL-011
+- concept: Three operational learning-dynamics descriptor
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Preserve the three source equations for imitation, technical mastery and contextual judgement as
+    separate relations.'
+  source_basis:
+  - maths/34-transmission-lifecycle/operational-pipeline.md - §3
+  execution_consequence: Do not fuse their two C derivatives or identify reused symbols and coefficients across the equations.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-012
+- concept: Operational-to-specialized dynamics non-identity guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Record the source references
+    from the three operational dynamics to Guidance, Incorporation and Integration without asserting formula identity.'
+  source_basis:
+  - maths/34-transmission-lifecycle/operational-pipeline.md - op §3; specialized documents
+  - maths/34-transmission-lifecycle/guidance-phase.md - op §3; specialized documents
+  - maths/34-transmission-lifecycle/incorporation-phase.md - op §3; specialized documents
+  - maths/34-transmission-lifecycle/integration-phase.md - op §3; specialized documents
+  execution_consequence: Do not merge equations across documents merely because the narrative labels are similar.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-013
+- concept: Trial-success probability evaluator
+  gap: The source does not construct every provider, operand, representation or domain required to evaluate the stated sigmoid
+    expression only after Phi_1, Phi_2, Phi_3, coefficients and environment offset are supplied.
+  source_basis:
+  - maths/34-transmission-lifecycle/operational-pipeline.md - §4
+  execution_consequence: Do not construct the Phi_i functions, calibrate gamma_e or reinterpret sigma from another section.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Trial-success probability evaluator'
+  id: TLC-UR-TRL-014
+- concept: Trial component-function and sigmoid identity guard
+  gap: The source does not construct every provider, operand, representation or domain required to require explicit providers
+    for Phi_1, Phi_2, Phi_3 and the sigmoid identity.
+  source_basis:
+  - maths/34-transmission-lifecycle/operational-pipeline.md - §4/§7
+  execution_consequence: Do not bind sigma to a width or noise coefficient used elsewhere.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Trial component-function and sigmoid identity guard'
+  id: TLC-UR-TRL-015
+- concept: Operational collective-validation evaluator
+  gap: The source does not construct every provider, operand, representation or domain required to evaluate V_coll only for
+    a supplied nonempty community and a supplied recognition function rec.
+  source_basis:
+  - maths/34-transmission-lifecycle/operational-pipeline.md - §4
+  execution_consequence: Do not invent rec, evaluator weights or an empty-community convention.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Operational collective-validation evaluator'
+  id: TLC-UR-TRL-016
+- concept: Operational collective-validation undefined-domain guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve the undefined
+    cases for rec and division by community cardinality.'
+  source_basis:
+  - maths/34-transmission-lifecycle/operational-pipeline.md - §4/§7
+  execution_consequence: Do not add zero, NaN, epsilon or fallback behavior for an empty community.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-017
+- concept: Operational readiness predicate
+  gap: The source does not construct every provider, operand, representation or domain required to evaluate readiness only
+    from V_coll>theta_val and Phi_3(X)>=Theta_3 with all operands supplied.
+  source_basis:
+  - maths/34-transmission-lifecycle/operational-pipeline.md - §4
+  execution_consequence: Do not weaken, strengthen or merge the two source conditions.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Operational readiness predicate'
+  id: TLC-UR-TRL-018
+- concept: Relay output and lineage-graph join descriptor
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Preserve R_init(D,C,t)=(M_relais,S_trans,A_trans) and the stated join to G_t.'
+  source_basis:
+  - maths/34-transmission-lifecycle/operational-pipeline.md - op §5; emp §4
+  - maths/34-transmission-lifecycle/empowerment-phase.md - op §5; emp §4
+  execution_consequence: Do not invent graph insertion, authority issuance or status-transition procedures.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-019
+- concept: Entry-composition typing guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve E_entry=A_adm(a,t)
+    o O_obs(a,M,t) as an untyped composition.'
+  source_basis:
+  - maths/34-transmission-lifecycle/operational-pipeline.md - §5/§7
+  execution_consequence: Do not invent an adapter, evaluation order or matching codomain/domain.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-020
+- concept: Incomplete coupled-system ellipsis guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Represent the intermediate
+    C,V,Val,P system exactly with the source ellipses retained.'
+  source_basis:
+  - maths/34-transmission-lifecycle/operational-pipeline.md - §5
+  execution_consequence: Do not complete any omitted term, coupling, initial condition or numerical method.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-021
+- concept: Mutual-recognition score evaluator
+  gap: The source does not construct every provider, operand, representation or domain required to evaluate S_M and S_D only
+    from supplied four-term factors and positive normalized weights.
+  source_basis:
+  - maths/34-transmission-lifecycle/initiation-phase.md - §1
+  execution_consequence: Do not construct phi_k or psi_k factors, calibrate weights or transfer factors between the two scores.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Mutual-recognition score evaluator'
+  id: TLC-UR-TRL-022
+- concept: Motivation-vector scalarization guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve motivation as
+    a [0,1]^3 vector where the source later expects a scalar term.'
+  source_basis:
+  - maths/34-transmission-lifecycle/initiation-phase.md - init §1/§5; op §2
+  - maths/34-transmission-lifecycle/operational-pipeline.md - init §1/§5; op §2
+  execution_consequence: Do not choose a sum, mean, norm, component, projection or learned aggregation.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-023
+- concept: Projected cosine affinity evaluator and zero-vector guard
+  gap: The source does not construct every provider, operand, representation or domain required to evaluate value compatibility
+    and trait affinity only with supplied projections, vectors, norms and a nonzero-domain convention.
+  source_basis:
+  - maths/34-transmission-lifecycle/initiation-phase.md - §1/§5
+  execution_consequence: Do not add an epsilon, default similarity or projection rule for zero vectors.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Projected cosine affinity evaluator and zero-vector guard'
+  id: TLC-UR-TRL-024
+- concept: Mutual-recognition and probation predicate descriptor
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Preserve the conjunction of recognition, receptivity, motivation, value compatibility and affinity
+    thresholds.'
+  source_basis:
+  - maths/34-transmission-lifecycle/initiation-phase.md - §1/§2
+  execution_consequence: Do not collapse the conjunction into a synthetic score or invent missing threshold identities.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-025
+- concept: Receptivity-component dynamic relation descriptor
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Preserve the four coupled logistic/competition/influence/noise relations for R_k.'
+  source_basis:
+  - maths/34-transmission-lifecycle/initiation-phase.md - §2
+  execution_consequence: Do not choose a stochastic process, solver, timestep, coefficient signs or initial conditions.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-026
+- concept: Preparation-index evaluator and zero-capacity guard
+  gap: The source does not construct every provider, operand, representation or domain required to evaluate Pi only with explicit
+    norms, lambda and a nonzero capacity maximum supplied by a provider.
+  source_basis:
+  - maths/34-transmission-lifecycle/initiation-phase.md - §2/§5
+  execution_consequence: Do not invent norm choices, normalize R, or define the zero-denominator case.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Preparation-index evaluator and zero-capacity guard'
+  id: TLC-UR-TRL-027
+- concept: Reciprocal-trust dynamics and event-provider boundary
+  gap: The source does not construct every provider, operand, representation or domain required to preserve both trust equations
+    and require explicit exemplariness, loyalty, benevolence, betrayal and abuse providers.
+  source_basis:
+  - maths/34-transmission-lifecycle/initiation-phase.md - §3/§5
+  execution_consequence: Do not generate betrayal/abuse events, infer their probabilities or numerically integrate the equations.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Reciprocal-trust dynamics and event-provider boundary'
+  id: TLC-UR-TRL-028
+- concept: Objective-compatibility predicate
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Evaluate ||O_M-O_D||<epsilon only after a common space, norm and epsilon are supplied.'
+  source_basis:
+  - maths/34-transmission-lifecycle/initiation-phase.md - §4
+  execution_consequence: Do not invent the objective representation, norm, units or tolerance.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-029
+- concept: Initial teaching, practice, evaluation and ceremony process descriptor
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Expose the source-named initial operations while preserving the vector evaluation and unspecified
+    practice-response details.'
+  source_basis:
+  - maths/34-transmission-lifecycle/initiation-phase.md - §4/§5
+  execution_consequence: Do not construct the logistic response, evaluation target space, aggregation or ceremony protocol.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-030
+- concept: Initiation insertion into G_t semantic boundary
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Record that the ceremony inserts the disciple into G_t while Domain 29 defines G_t vertices as recognized
+    transmitters.'
+  source_basis:
+  - maths/34-transmission-lifecycle/initiation-phase.md - init §4; emp §4
+  - maths/34-transmission-lifecycle/empowerment-phase.md - init §4; emp §4
+  execution_consequence: Do not resolve the timing or role mismatch by changing either source or inventing an intermediate
+    graph.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-031
+- concept: Immersion operator descriptor
+  gap: The source does not construct every provider, operand, representation or domain required to preserve I_imm(D,C_P,t)=D+sum
+    integral kappa_c Phi_c and require explicit memory-kernel and contextual-influence providers.
+  source_basis:
+  - maths/34-transmission-lifecycle/impregnation-phase.md - §1
+  execution_consequence: Do not discretize the integral or construct kappa_c, Phi_c or the community representation.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Immersion operator descriptor'
+  id: TLC-UR-TRL-032
+- concept: Immersion zero-target contradiction guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve the approximation
+    that attracts D toward 0 together with the narrative claim of attraction toward the community frame.'
+  source_basis:
+  - maths/34-transmission-lifecycle/impregnation-phase.md - §1/§5
+  execution_consequence: Do not change the sign, replace zero or invent a separate frame state.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-033
+- concept: Environmental-authenticity metric evaluator and provider guard
+  gap: The source does not construct every provider, operand, representation or domain required to evaluate delta_auth=max_d
+    min_s d_CP(d,s) only with supplied domains, distance and threshold semantics.
+  source_basis:
+  - maths/34-transmission-lifecycle/impregnation-phase.md - §1
+  execution_consequence: Do not invent the sets, units, extrema conventions or decreasing-test tolerance.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Environmental-authenticity metric evaluator and provider
+    guard'
+  id: TLC-UR-TRL-034
+- concept: Exposure-modalities and observation-trace descriptor
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Preserve the weighted indicator combination and T_obs(t)=integral O_obs(M,C_P,tau)d tau.'
+  source_basis:
+  - maths/34-transmission-lifecycle/impregnation-phase.md - §2
+  execution_consequence: Do not invent modality weights, indicator generators, integration method or observation codomain.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-035
+- concept: Hidden-exposure motivation and delayed-imitation descriptor
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Preserve the logistic motivation modulation, attention multiplier >1 and I_imit=0 during impregnation.'
+  source_basis:
+  - maths/34-transmission-lifecycle/impregnation-phase.md - §2
+  execution_consequence: Do not construct the logistic parameters, attention baseline or post-phase imitation rule.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-036
+- concept: Resonance-band intensity evaluator and projection guard
+  gap: The source does not construct every provider, operand, representation or domain required to evaluate I_k only with
+    a supplied band, projection, observation representation and compatible inner product.
+  source_basis:
+  - maths/34-transmission-lifecycle/impregnation-phase.md - §3
+  execution_consequence: Do not invent band bases, dimensions, the all-ones vector type or projection construction.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Resonance-band intensity evaluator and projection guard'
+  id: TLC-UR-TRL-037
+- concept: Resonance-weight dynamic relation descriptor
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Preserve dw_k/dt=alpha_k I_k(1-w_k)-beta_k w_k+gamma_k xi_k(t).'
+  source_basis:
+  - maths/34-transmission-lifecycle/impregnation-phase.md - §3
+  execution_consequence: Do not choose a noise law, solver, coefficient calibration or boundary behavior for w_k.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-038
+- concept: Resonance-band activation predicate
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Evaluate band activation only from the strict source inequality w_k>theta_act.'
+  source_basis:
+  - maths/34-transmission-lifecycle/impregnation-phase.md - §3
+  execution_consequence: Do not replace the strict sign, clamp w_k or supply theta_act.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-039
+- concept: Moving-window repetition evaluator
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Evaluate the source moving average only when a complete history on [t-T,t] and nonzero T are supplied.'
+  source_basis:
+  - maths/34-transmission-lifecycle/impregnation-phase.md - §3
+  execution_consequence: Do not extrapolate negative-time observations or invent a warm-up convention.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-040
+- concept: Negative-time moving-window convention guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve the undefined
+    history requirement for t<T.'
+  source_basis:
+  - maths/34-transmission-lifecycle/impregnation-phase.md - §3/§5
+  execution_consequence: Do not pad, truncate, mirror, wrap or initialize negative-time values.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-041
+- concept: Implicit-memory dynamics descriptor
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Preserve the causal integral, exponential kernel and decay relation for M_impl.'
+  source_basis:
+  - maths/34-transmission-lifecycle/impregnation-phase.md - §4
+  execution_consequence: Do not choose an integration scheme, state representation or parameter calibration.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-042
+- concept: Explicit-memory, recall-term and memory-coupling boundary
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve the explicit-memory
+    equation, undefined recall term and bidirectional nu/rho couplings.'
+  source_basis:
+  - maths/34-transmission-lifecycle/impregnation-phase.md - §4/§5
+  execution_consequence: Do not construct recall, equate implicit and explicit memory spaces or infer coupling units.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-043
+- concept: Observation O_obs versus O notation identity guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Keep O_obs and O(tau)
+    distinct unless an implementation receives an explicit identity provider.'
+  source_basis:
+  - maths/34-transmission-lifecycle/impregnation-phase.md - imp §4/§5; op §3
+  - maths/34-transmission-lifecycle/operational-pipeline.md - imp §4/§5; op §3
+  execution_consequence: Do not silently substitute one notation for the other.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-044
+- concept: Integration-depth dynamics and initial-condition descriptor
+  gap: The source does not construct every provider, operand, representation or domain required to preserve the C dynamics,
+    its source conditions and the stated typical initial conditions for C, w_k and both memories.
+  source_basis:
+  - maths/34-transmission-lifecycle/impregnation-phase.md - §4
+  execution_consequence: Do not add integration method, distributions, unlisted initial values or value ranges.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Integration-depth dynamics and initial-condition descriptor'
+  id: TLC-UR-TRL-045
+- concept: Impregnation exit predicate
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Evaluate exit only from C(T_imp)>=C_seuil and all source bands satisfying w_k(T_imp)>=w_k_min.'
+  source_basis:
+  - maths/34-transmission-lifecycle/impregnation-phase.md - §4
+  execution_consequence: Do not weaken the universal quantifier, choose thresholds or infer missing bands.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-046
+- concept: Selective-resonance versus all-bands exit contradiction guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve selective activation
+    and the universal all-band exit condition without reconciliation.'
+  source_basis:
+  - maths/34-transmission-lifecycle/impregnation-phase.md - §3-§5
+  execution_consequence: Do not reinterpret selective resonance as universal activation or alter the exit quantifier.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-047
+- concept: Contextual-parameter argmin claim descriptor
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Preserve theta*(t)=argmin L(Phi_theta(X(t),c(t)),X_target) as a selection claim.'
+  source_basis:
+  - maths/34-transmission-lifecycle/guidance-phase.md - §1
+  execution_consequence: Do not claim existence, uniqueness, attainability or a computable minimizer.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-048
+- concept: No-solver and argmin existence guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Require an externally
+    selected optimization method and admissible-space semantics before computation.'
+  source_basis:
+  - maths/34-transmission-lifecycle/guidance-phase.md - §1/§5
+  execution_consequence: Do not invent KKT conditions, gradients, convexity, compactness, tolerances or a solver.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-049
+- concept: Stochastic contextual-parameter adaptation descriptor
+  gap: The source does not construct every provider, operand, representation or domain required to preserve dtheta/dt=-eta
+    grad_theta L+sigma xi as a structural relation.
+  source_basis:
+  - maths/34-transmission-lifecycle/guidance-phase.md - §1
+  execution_consequence: Do not choose an SDE/ODE interpretation, noise law, seed, integrator, timestep or initial theta.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Stochastic contextual-parameter adaptation descriptor'
+  id: TLC-UR-TRL-050
+- concept: Guidance-mode combination descriptor
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Preserve the four source guidance modes and their alpha-weighted total with sum alpha_i=1.'
+  source_basis:
+  - maths/34-transmission-lifecycle/guidance-phase.md - §2
+  execution_consequence: Do not add nonnegativity, common vector-space assumptions or default weights.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-051
+- concept: Convex-combination typing and nonnegativity guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve that only the
+    unit-sum equation is stated although the combination is called convex.'
+  source_basis:
+  - maths/34-transmission-lifecycle/guidance-phase.md - §2/§5
+  execution_consequence: Do not infer alpha_i>=0 or a linear operator space.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-052
+- concept: Questioning-gradient sign and uncertainty-reduction guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve the source questioning
+    displacement and its stated uncertainty-reduction intent without selecting a sign convention.'
+  source_basis:
+  - maths/34-transmission-lifecycle/guidance-phase.md - section 2/section 5
+  execution_consequence: Do not reverse the gradient, invent a cost, or claim that the displayed sign reduces uncertainty.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-053
+- concept: Feedback processor and causal-kernel descriptor
+  gap: The source does not construct every provider, operand, representation or domain required to preserve the four-stage
+    feedback composition and its causal integral with K(t-tau;R,P).
+  source_basis:
+  - maths/34-transmission-lifecycle/guidance-phase.md - §3
+  execution_consequence: Do not construct feedback stages, the kernel, the infinite-history convention or the internal feedback
+    term.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Feedback processor and causal-kernel descriptor'
+  id: TLC-UR-TRL-054
+- concept: Coupled trajectory-feedback dynamics descriptor
+  gap: The source does not construct every provider, operand, representation or domain required to preserve the coupled dX/dt=T(X,F[I_ext])
+    and dF/dt=G(X,F,I_ext) relations.
+  source_basis:
+  - maths/34-transmission-lifecycle/guidance-phase.md - §3
+  execution_consequence: Do not supply T, G, initial conditions, numerical coupling or stability assumptions.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Coupled trajectory-feedback dynamics descriptor'
+  id: TLC-UR-TRL-055
+- concept: Discrete feedback-loop process descriptor
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Expose the source order state -> practice -> feedback -> transformation -> next state.'
+  source_basis:
+  - maths/34-transmission-lifecycle/guidance-phase.md - §3
+  execution_consequence: Do not invent transition functions, data structures, stopping rules or iteration limits.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-056
+- concept: Lyapunov decrease-criterion claim descriptor
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Preserve L(X_n+1)<=L(X_n)-epsilon||X_n+1-X_n||^2 under the explicit hypothesis that L exists.'
+  source_basis:
+  - maths/34-transmission-lifecycle/guidance-phase.md - §3
+  execution_consequence: Do not present the inequality as a general convergence theorem.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-057
+- concept: Lyapunov-provider and no-convergence-proof guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Require a constructed
+    L, norm, epsilon and domain of validity before evaluating the criterion.'
+  source_basis:
+  - maths/34-transmission-lifecycle/guidance-phase.md - §3/§5
+  execution_consequence: Do not invent L or complete a convergence proof.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-058
+- concept: D-by-C versus X,c typing guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve the unbound
+    change from Phi_theta:D x C -> D to equations using X and c.'
+  source_basis:
+  - maths/34-transmission-lifecycle/guidance-phase.md - §1/§5
+  execution_consequence: Do not identify D with X or C with c without an explicit mapping.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-059
+- concept: Guidance end-threshold boundary descriptor
+  gap: The source does not construct every provider, operand, representation or domain required to expose that phase completion
+    depends on competence, practice, virtue and value thresholds not constructed in the chapter.
+  source_basis:
+  - maths/34-transmission-lifecycle/guidance-phase.md - §4
+  execution_consequence: Do not import threshold values or aggregation rules from other phases by number alone.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Guidance end-threshold boundary descriptor'
+  id: TLC-UR-TRL-060
+- concept: Guidance-withdrawal practice-blend evaluator
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Evaluate P_t=lambda(t)P_M+(1-lambda(t))P_aut only with compatible practice representations and supplied
+    lambda.'
+  source_basis:
+  - maths/34-transmission-lifecycle/incorporation-phase.md - §1
+  execution_consequence: Do not assume convexity, clamp lambda or choose its terminal value.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-061
+- concept: Guidance-withdrawal terminal-value guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve the qualitative
+    statement lambda(t)<<1 without a terminal value.'
+  source_basis:
+  - maths/34-transmission-lifecycle/incorporation-phase.md - §1/§5
+  execution_consequence: Do not replace it with zero, a tolerance or a decay law.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-062
+- concept: Incorporation autonomy-index evaluator
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Evaluate A(t) only with nonzero supplied denominators, a supplied norm and source indicator semantics.'
+  source_basis:
+  - maths/34-transmission-lifecycle/incorporation-phase.md - §1
+  execution_consequence: Do not invert the distance factor, normalize it or fill undefined denominators.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-063
+- concept: Autonomy undefined-domain and distance-direction guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve all zero-denominator
+    cases and the fact that larger master-distance increases the first autonomy factor.'
+  source_basis:
+  - maths/34-transmission-lifecycle/incorporation-phase.md - §1/§5
+  execution_consequence: Do not add epsilons, fallback values, clamps or reverse the factor.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-064
+- concept: Master monitoring and correction descriptor
+  gap: The source does not construct every provider, operand, representation or domain required to expose continued monitoring
+    and correction during withdrawal as provider-backed operators.
+  source_basis:
+  - maths/34-transmission-lifecycle/incorporation-phase.md - §1
+  execution_consequence: Do not invent a controller, alert rule, correction policy or intervention schedule.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Master monitoring and correction descriptor'
+  id: TLC-UR-TRL-065
+- concept: Virtue-incorporation dynamics descriptor
+  gap: The source does not construct every provider, operand, representation or domain required to preserve the four-term
+    dV_i/dt relation and its local coefficient roles.
+  source_basis:
+  - maths/34-transmission-lifecycle/incorporation-phase.md - §2
+  execution_consequence: Do not choose a moral-environment gradient, compatible spaces, solver, initial conditions or coefficient
+    calibration.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Virtue-incorporation dynamics descriptor'
+  id: TLC-UR-TRL-066
+- concept: Moral-gradient and cross-space provider guard
+  gap: The source does not construct every provider, operand, representation or domain required to require explicit semantics
+    for Val dot grad E_moral and competence-virtue couplings.
+  source_basis:
+  - maths/34-transmission-lifecycle/incorporation-phase.md - §2
+  execution_consequence: Do not invent vector spaces, inner products, gradients or unit conversions.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Moral-gradient and cross-space provider guard'
+  id: TLC-UR-TRL-067
+- concept: Practice-operator family and combined-intensity boundary
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve the four formalized
+    practice operators and their M(t) weighted norm sum while recording the narrative claim of three operators.'
+  source_basis:
+  - maths/34-transmission-lifecycle/incorporation-phase.md - §3/§5
+  execution_consequence: Do not delete a practice operator, choose the redundant one or bind M(t) to master/memory/matrix
+    roles.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-068
+- concept: Fluidity, metacompetence and reflective-cycle descriptor
+  gap: The source does not construct every provider, operand, representation or domain required to expose the named fluidity
+    measure, metacompetence relation and practice-observation-evaluation-correction cycle as provider-backed structures.
+  source_basis:
+  - maths/34-transmission-lifecycle/incorporation-phase.md - §3
+  execution_consequence: Do not invent the fluidity formula, metacompetence equation, observation/evaluation rules or stopping
+    condition.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Fluidity, metacompetence and reflective-cycle descriptor'
+  id: TLC-UR-TRL-069
+- concept: Maieutic identity-gradient guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve the maieutic
+    identity action while recording that its gradient sign is not tied to an oriented cost.'
+  source_basis:
+  - maths/34-transmission-lifecycle/incorporation-phase.md - §3/§5
+  execution_consequence: Do not select ascent/descent, invent a cost or numerically integrate identity evolution.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-070
+- concept: Incorporation exit-criterion descriptor
+  gap: The source does not construct every provider, operand, representation or domain required to expose the second-threshold
+    conjunction over autonomy, incorporation, practical competence and metacompetence.
+  source_basis:
+  - maths/34-transmission-lifecycle/incorporation-phase.md - §4
+  execution_consequence: Do not supply thresholds, aggregation or phase-transition mapping.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Incorporation exit-criterion descriptor'
+  id: TLC-UR-TRL-071
+- concept: Maximum-competence semantics guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve max_i C_i exactly,
+    including that one competence can satisfy the criterion.'
+  source_basis:
+  - maths/34-transmission-lifecycle/incorporation-phase.md - §4/§5
+  execution_consequence: Do not replace max with min, mean or a universal condition.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-072
+- concept: Inverse-distance consolidation and singularity guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve inverse-distance
+    consolidation together with its singularity at zero distance.'
+  source_basis:
+  - maths/34-transmission-lifecycle/integration-phase.md - §1/§4
+  execution_consequence: Do not add an epsilon, cap, limit convention or alternate consolidation law.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-073
+- concept: Four-to-five-component state mapping guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Record that no source
+    constructs the map from incorporation X4 to integration X5.'
+  source_basis:
+  - maths/34-transmission-lifecycle/incorporation-phase.md - inc §2; integ §2
+  - maths/34-transmission-lifecycle/integration-phase.md - inc §2; integ §2
+  execution_consequence: Do not append identity silently, infer initialization or assume component-space equality.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-074
+- concept: Dual coherence-gradient contradiction guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve both Delta X=+eta
+    grad Phi_coh and Delta X=-eta_corr grad Phi_coh as source relations.'
+  source_basis:
+  - maths/34-transmission-lifecycle/integration-phase.md - §2/§4
+  execution_consequence: Do not choose a correct sign, equate coefficients or rewrite the potential as a cost.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-075
+- concept: Coherence metric, cross-space product and entropy-range guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve cosine/inner-product
+    and entropy terms while recording absent compatible spaces and absent global normalization.'
+  source_basis:
+  - maths/34-transmission-lifecycle/integration-phase.md - §2/§4
+  execution_consequence: Do not invent embeddings, dimensions, common bases, clamping or output ranges.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-076
+- concept: Identity bifurcation, crisis and irreversibility claim descriptor
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Expose the source claims concerning bifurcations, crises and irreversibility without completing
+    derivations.'
+  source_basis:
+  - maths/34-transmission-lifecycle/integration-phase.md - §3
+  execution_consequence: Do not turn the claims into a detector, proof, solver or transition algorithm.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-077
+- concept: Integration exit-threshold descriptor
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Preserve the source end-of-phase threshold statements and their harmony context.'
+  source_basis:
+  - maths/34-transmission-lifecycle/integration-phase.md - §3
+  execution_consequence: Do not identify the threshold with same-numbered thresholds in other documents.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-078
+- concept: Integration threshold-2 versus threshold-3 divergence guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Keep both threshold 3
+    and threshold 2 as competing source end conditions.'
+  source_basis:
+  - maths/34-transmission-lifecycle/integration-phase.md - §3/§4
+  execution_consequence: Do not select one, average them, renumber them or infer precedence.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-079
+- concept: Validation-matrix evaluator
+  gap: The source does not construct every provider, operand, representation or domain required to evaluate M(a,t) only from
+    a supplied nonempty evaluator set, weights, evaluations, recognition and lambda.
+  source_basis:
+  - maths/34-transmission-lifecycle/validation-phase.md - §1
+  execution_consequence: Do not invent activation order, evaluator selection, weight semantics or an empty-set result.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Validation-matrix evaluator'
+  id: TLC-UR-TRL-080
+- concept: Empty evaluator-set division guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve that M divides
+    by |A(t)| before activation can guarantee a nonempty evaluator set.'
+  source_basis:
+  - maths/34-transmission-lifecycle/validation-phase.md - §1/§5
+  execution_consequence: Do not return zero, skip validation, reorder activation or add a fallback evaluator.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-081
+- concept: Validation-activation and non-binary convocation guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve the product
+    called 1_valid and the unconstrained c_conv factor.'
+  source_basis:
+  - maths/34-transmission-lifecycle/validation-phase.md - §2/§5
+  execution_consequence: Do not coerce c_conv to Boolean, clamp the product or change its factors.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-082
+- concept: Evaluator-weight normalizer
+  gap: The source does not construct every provider, operand, representation or domain required to evaluate w(a,a',t) only
+    from supplied elder, competence and proximity factors with a nonzero denominator.
+  source_basis:
+  - maths/34-transmission-lifecycle/validation-phase.md - §3
+  execution_consequence: Do not construct factors, normalize by another rule or assume positivity.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Evaluator-weight normalizer'
+  id: TLC-UR-TRL-083
+- concept: Evaluator-weight zero-denominator guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve the undefined
+    zero-denominator case in the evaluator-weight formula.'
+  source_basis:
+  - maths/34-transmission-lifecycle/validation-phase.md - §3/§5
+  execution_consequence: Do not add uniform weights, epsilons, dropping rules or fallback priorities.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-084
+- concept: Rite, recognition and legitimacy-dynamics boundary
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve ritual jumps
+    and dL/dt while recording absent ranges, event semantics and local stability proof.'
+  source_basis:
+  - maths/34-transmission-lifecycle/validation-phase.md - §4/§5
+  execution_consequence: Do not clamp M or L, invent jump sizes, construct E(t) or claim stability.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-085
+- concept: Final collective-validation predicate
+  gap: The source does not construct every provider, operand, representation or domain required to evaluate final validation
+    only from the simultaneous source thresholds for M and L.
+  source_basis:
+  - maths/34-transmission-lifecycle/validation-phase.md - §4
+  execution_consequence: Do not choose threshold values, combine them into one score or infer missing range semantics.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Final collective-validation predicate'
+  id: TLC-UR-TRL-086
+- concept: Master-dependency index evaluator
+  gap: The source does not construct every provider, operand, representation or domain required to evaluate Delta_M only with
+    an explicitly supplied counterfactual X_without and nonzero observed-state norm.
+  source_basis:
+  - maths/34-transmission-lifecycle/empowerment-phase.md - §1
+  execution_consequence: Do not estimate the counterfactual from the observed trajectory or define the zero-norm case.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Master-dependency index evaluator'
+  id: TLC-UR-TRL-087
+- concept: Counterfactual-state and zero-norm guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve X_without as
+    unconstructed and Delta_M as undefined when ||X||=0.'
+  source_basis:
+  - maths/34-transmission-lifecycle/empowerment-phase.md - §1/§6
+  execution_consequence: Do not synthesize a causal model, baseline state, epsilon or fallback value.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-088
+- concept: Four-level autonomy classification descriptor
+  gap: 'The source states the relation or structure but leaves part of its construction, typing, calibration or transition
+    semantics incomplete: Expose technical, decisional, strategic and existential autonomy levels and the source threshold
+    narrative.'
+  source_basis:
+  - maths/34-transmission-lifecycle/empowerment-phase.md - §2
+  execution_consequence: Do not invent complete classification predicates, interval closure or transition order beyond the
+    source.
+  scientific_status: partially_defined
+  provider_requirement: null
+  id: TLC-UR-TRL-089
+- concept: Creative-operator transformed-state versus innovation guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve K(X,C)=X+epsilon
+    v(X,C) as an output state while recording the narrative description of an innovation delta X.'
+  source_basis:
+  - maths/34-transmission-lifecycle/empowerment-phase.md - §3/§6
+  execution_consequence: Do not identify K with delta X, subtract X implicitly or invent v.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-090
+- concept: Creative-autonomy index evaluator
+  gap: The source does not construct every provider, operand, representation or domain required to evaluate I_crea only from
+    supplied nonzero norms, K, pi_N and compatible projection-distance operations.
+  source_basis:
+  - maths/34-transmission-lifecycle/empowerment-phase.md - §3
+  execution_consequence: Do not construct providers, normalize factors or alter the source multiplication.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Creative-autonomy index evaluator'
+  id: TLC-UR-TRL-091
+- concept: Creative-index range guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve that the source
+    factors do not guarantee positivity or boundedness.'
+  source_basis:
+  - maths/34-transmission-lifecycle/empowerment-phase.md - §3/§6
+  execution_consequence: Do not clamp, take absolute values, rescale or report a [0,1] score.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-092
+- concept: Invariant-core projection authority boundary
+  gap: The source does not construct every provider, operand, representation or domain required to require a projection/core
+    provider and keep the potential Domain 34 to Domain 04 ownership relation unresolved.
+  source_basis:
+  - maths/34-transmission-lifecycle/empowerment-phase.md - §2/§3
+  execution_consequence: Do not redefine pi_N, equate local N with a repository authority or promote the edge without explicit
+    binding evidence.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Invariant-core projection authority boundary'
+  id: TLC-UR-TRL-093
+- concept: Analogy, recombination and differential-space guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Expose analogy and recombination
+    as named operations while preserving the absent common differential space for principle/state derivatives.'
+  source_basis:
+  - maths/34-transmission-lifecycle/empowerment-phase.md - §3/§6
+  execution_consequence: Do not invent embeddings, derivative semantics, recombination algorithms or admissibility tests.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-094
+- concept: Transmission-readiness and third-threshold descriptor
+  gap: The source does not construct every provider, operand, representation or domain required to preserve the conjunction
+    of autonomy, creativity, fidelity and recognized transmission capacity at the third threshold.
+  source_basis:
+  - maths/34-transmission-lifecycle/empowerment-phase.md - §3/§4
+  execution_consequence: Do not import Domain 29 threshold formulas as an identity unless an explicit mapping is supplied.
+  scientific_status: external_provider_required
+  provider_requirement: 'Explicit source-compatible provider for: Transmission-readiness and third-threshold descriptor'
+  id: TLC-UR-TRL-095
+- concept: Pitchfork, Landau and irreversibility claim guard
+  gap: 'The source leaves a contradiction, identity, domain, sign, mapping or convention unresolved: Preserve the potential-attractor,
+    topology-change, pitchfork, Landau and irreversibility claims without derivation from the full dynamics.'
+  source_basis:
+  - maths/34-transmission-lifecycle/empowerment-phase.md - §5/§6
+  execution_consequence: Do not construct a potential, bifurcation detector, proof, solver or irreversible transition rule.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+  id: TLC-UR-TRL-096

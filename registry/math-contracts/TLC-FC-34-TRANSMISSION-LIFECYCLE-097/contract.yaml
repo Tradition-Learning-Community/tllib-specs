@@ -1,0 +1,55 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-097
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-097
+title: Rite, recognition and legitimacy-dynamics boundary
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/validation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §4/§5
+objects:
+- TLC-SO-TRL-337
+- TLC-SO-TRL-338
+- TLC-SO-TRL-359
+- TLC-SO-TRL-360
+- TLC-SO-TRL-361
+- TLC-SO-TRL-362
+- TLC-SO-TRL-363
+- TLC-SO-TRL-364
+- TLC-SO-TRL-365
+- TLC-SO-TRL-366
+relations:
+- TLC-SR-TRL-161
+- TLC-SR-TRL-162
+- TLC-SR-TRL-163
+- TLC-SR-TRL-165
+- TLC-SR-TRL-166
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve ritual jumps and dL/dt while recording absent ranges, event semantics and local stability proof.
+invariants:
+- Do not clamp M or L, invent jump sizes, construct E(t) or claim stability.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryUnresolved
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-085
+forbidden_behaviors:
+- Do not clamp M or L, invent jump sizes, construct E(t) or claim stability.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/validation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

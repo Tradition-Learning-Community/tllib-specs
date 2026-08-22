@@ -1,0 +1,44 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-055
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-055
+title: No-solver and argmin existence guard
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/guidance-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §1/§5
+objects:
+- TLC-SO-TRL-228
+- TLC-SO-TRL-229
+relations:
+- TLC-SR-TRL-098
+- TLC-SR-TRL-101
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Require an externally selected optimization method and admissible-space semantics before computation.
+invariants:
+- Do not invent KKT conditions, gradients, convexity, compactness, tolerances or a solver.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryUnresolved
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-049
+forbidden_behaviors:
+- Do not invent KKT conditions, gradients, convexity, compactness, tolerances or a solver.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/guidance-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

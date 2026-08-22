@@ -1,0 +1,50 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-029
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-029
+title: Receptivity-component dynamic relation descriptor
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: partially_defined
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/initiation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §2
+objects:
+- TLC-SO-TRL-121
+- TLC-SO-TRL-122
+- TLC-SO-TRL-123
+- TLC-SO-TRL-124
+- TLC-SO-TRL-125
+- TLC-SO-TRL-126
+- TLC-SO-TRL-127
+relations:
+- TLC-SR-TRL-056
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve the four coupled logistic/competition/influence/noise relations for R_k.
+invariants:
+- Do not choose a stochastic process, solver, timestep, coefficient signs or initial conditions.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryPartial
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-026
+forbidden_behaviors:
+- Do not choose a stochastic process, solver, timestep, coefficient signs or initial conditions.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/initiation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

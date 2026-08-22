@@ -1,0 +1,51 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-103
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-103
+title: Creative-autonomy index evaluator
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: conditionally_executable
+scientific_authority: maths/34-transmission-lifecycle/empowerment-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §3
+objects:
+- TLC-SO-TRL-370
+- TLC-SO-TRL-379
+- TLC-SO-TRL-381
+- TLC-SO-TRL-382
+- TLC-SO-TRL-386
+- TLC-SO-TRL-387
+- TLC-SO-TRL-388
+relations:
+- TLC-SR-TRL-175
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- 'Explicit source-compatible provider for: Creative-autonomy index evaluator'
+preconditions: []
+postconditions:
+- Evaluate I_crea only from supplied nonzero norms, K, pi_N and compatible projection-distance operations.
+invariants:
+- Do not construct providers, normalize factors or alter the source multiplication.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-091
+forbidden_behaviors:
+- Do not construct providers, normalize factors or alter the source multiplication.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/empowerment-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

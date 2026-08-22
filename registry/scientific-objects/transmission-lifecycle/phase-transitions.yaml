@@ -1,0 +1,157 @@
+schema_version: 1
+domain: transmission-lifecycle
+domain_index: 34
+status: frozen
+columns:
+- phase_from
+- phase_to
+- condition_source
+- symbols
+- status
+- ambiguities
+transitions:
+- phase_from: aspirant
+  phase_to: disciple/admitted
+  condition_source: operational-pipeline.md section 2
+  symbols:
+  - A_adm
+  - Phi_selection
+  - theta_adm
+  status: partially_defined
+  ambiguities:
+  - selection operands are not typed on a common scale
+  - rejection and tie semantics are absent
+- phase_from: operational trial state s3
+  phase_to: operational active-learning state s2
+  condition_source: operational-pipeline.md section 6
+  symbols:
+  - delta
+  - s3
+  - failure
+  - s2
+  status: defined
+  ambiguities: []
+- phase_from: operational FSM states
+  phase_to: all other operational FSM states
+  condition_source: operational-pipeline.md section 6/7
+  symbols:
+  - Sigma
+  - delta
+  status: preserved_unresolved
+  ambiguities:
+  - Sigma is incomplete
+  - delta is not total
+- phase_from: four operational macro-stages
+  phase_to: seven specialized phases
+  condition_source: operational-pipeline.md section 1/7 and README
+  symbols:
+  - P_4
+  - P_7
+  status: preserved_unresolved
+  ambiguities:
+  - no complete bijection is supplied
+- phase_from: initiation
+  phase_to: impregnation
+  condition_source: initiation-phase.md sections 1-4 and README order
+  symbols:
+  - S_M
+  - S_D
+  - Pi
+  - K
+  - T_init
+  status: partially_defined
+  ambiguities:
+  - no explicit state-transfer map
+  - vector evaluation has no target space or aggregation
+- phase_from: impregnation
+  phase_to: guidance
+  condition_source: impregnation-phase.md section 4 and README order
+  symbols:
+  - C(T_imp)
+  - C_threshold
+  - w_k(T_imp)
+  - w_k_min
+  status: partially_defined
+  ambiguities:
+  - selective resonance conflicts with universal all-band exit
+  - no state-transfer map
+- phase_from: guidance
+  phase_to: incorporation
+  condition_source: guidance-phase.md section 4 and README order
+  symbols:
+  - C
+  - P
+  - V
+  - Val
+  status: external_provider_required
+  ambiguities:
+  - threshold values and exact predicate are absent
+  - D x C versus X,c typing is unresolved
+- phase_from: incorporation
+  phase_to: integration
+  condition_source: incorporation-phase.md section 4 and integration-phase.md section 2
+  symbols:
+  - threshold 2
+  - X_4
+  - X_5
+  - I
+  status: preserved_unresolved
+  ambiguities:
+  - no X_4 -> X_5 mapping
+  - identity initialization and retained parameters are absent
+- phase_from: integration
+  phase_to: validation
+  condition_source: integration-phase.md sections 3/4 and README order
+  symbols:
+  - threshold 2
+  - threshold 3
+  - Phi_coh
+  status: preserved_unresolved
+  ambiguities:
+  - two different end thresholds
+  - opposite gradient signs
+  - no transition state map
+- phase_from: validation
+  phase_to: empowerment
+  condition_source: validation-phase.md section 4 and README order
+  symbols:
+  - M
+  - L
+  - theta_M
+  - theta_L
+  status: external_provider_required
+  ambiguities:
+  - score ranges are absent
+  - rite jumps are unbounded
+  - no cross-phase state map
+- phase_from: empowerment
+  phase_to: master-function eligibility
+  condition_source: empowerment-phase.md sections 3/4
+  symbols:
+  - threshold 3
+  - I_crea
+  - fidelity
+  - transmission capacity
+  status: external_provider_required
+  ambiguities:
+  - counterfactual dependency state is absent
+  - classification predicates are incomplete
+- phase_from: empowerment output
+  phase_to: Domain 29 generational propagation
+  condition_source: empowerment-phase.md section 4
+  symbols:
+  - G_t
+  - pedagogical competence
+  - community authorization
+  - rite
+  status: confirmed_scientific_dependency
+  ambiguities:
+  - graph insertion and runtime orchestration are not specified
+- phase_from: initiation ceremony
+  phase_to: G_t registration
+  condition_source: initiation-phase.md section 4 and Domain 29 G_t definition
+  symbols:
+  - G_t
+  status: partially_defined
+  ambiguities:
+  - Domain 29 vertices are recognized transmitters, while initiation concerns a new disciple

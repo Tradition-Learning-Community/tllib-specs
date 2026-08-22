@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-051
+algorithm_kind: scientific_guard
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Evaluate exit only from C(T_imp)>=C_seuil and all source bands satisfying w_k(T_imp)>=w_k_min.
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not weaken the universal quantifier, choose thresholds or infer missing bands.
+prescription_basis: []

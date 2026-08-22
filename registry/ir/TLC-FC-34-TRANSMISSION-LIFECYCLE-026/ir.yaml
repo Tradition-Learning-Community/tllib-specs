@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-026
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-34-TRANSMISSION-LIFECYCLE-026/contract.yaml
+source_candidate_ir: ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-026/ir.candidate.json
+nature: guard
+steps:
+- Preserve motivation as a [0,1]^3 vector where the source later expects a scalar term.
+errors:
+- ScientificBoundaryUnresolved
+unresolved_items:
+- TLC-UR-TRL-023

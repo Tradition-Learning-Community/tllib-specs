@@ -1,0 +1,22 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-073
+status: finalized
+scientific_status: external_provider_required
+execution: structural_only
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-073/ir.yaml
+operation: handle_transmission_lifecycle_073
+required_behavior:
+- Preserve the four-term dV_i/dt relation and its local coefficient roles.
+forbidden_behavior:
+- Do not choose a moral-environment gradient, compatible spaces, solver, initial conditions or coefficient calibration.
+provider_requirements:
+- 'Explicit source-compatible provider for: Virtue-incorporation dynamics descriptor'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- TLC-UR-TRL-066
+error_codes:
+- ProviderRequired
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.

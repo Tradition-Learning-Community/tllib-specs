@@ -1,0 +1,57 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-109
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-109
+title: Pitchfork, Landau and irreversibility claim guard
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/empowerment-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §5/§6
+objects:
+- TLC-SO-TRL-370
+- TLC-SO-TRL-390
+- TLC-SO-TRL-402
+- TLC-SO-TRL-403
+- TLC-SO-TRL-404
+- TLC-SO-TRL-405
+- TLC-SO-TRL-406
+- TLC-SO-TRL-407
+- TLC-SO-TRL-408
+- TLC-SO-TRL-409
+- TLC-SO-TRL-410
+relations:
+- TLC-SR-TRL-184
+- TLC-SR-TRL-185
+- TLC-SR-TRL-186
+- TLC-SR-TRL-187
+- TLC-SR-TRL-188
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve the potential-attractor, topology-change, pitchfork, Landau and irreversibility claims without derivation from
+  the full dynamics.
+invariants:
+- Do not construct a potential, bifurcation detector, proof, solver or irreversible transition rule.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryUnresolved
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-096
+forbidden_behaviors:
+- Do not construct a potential, bifurcation detector, proof, solver or irreversible transition rule.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/empowerment-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

@@ -1,0 +1,43 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-034
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-034
+title: Initiation-ritual mapping descriptor
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: defined
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/initiation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §4
+objects:
+- TLC-SO-TRL-152
+- TLC-SO-TRL-153
+- TLC-SO-TRL-154
+relations:
+- TLC-SR-TRL-065
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve T_init:D x C x R+ -> D' x M_mem as a source signature.
+invariants:
+- Do not invent ritual procedure, memory encoding or transformed-disciple construction.
+constraints: []
+structured_errors:
+- code: SourceBoundaryExceeded
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items: []
+forbidden_behaviors:
+- Do not invent ritual procedure, memory encoding or transformed-disciple construction.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/initiation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

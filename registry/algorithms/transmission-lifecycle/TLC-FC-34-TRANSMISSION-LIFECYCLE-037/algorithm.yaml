@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-037
+algorithm_kind: structural_descriptor
+strategy: partially_constrained
+execution: structural_only
+steps:
+- Preserve I_imm(D,C_P,t)=D+sum integral kappa_c Phi_c and require explicit memory-kernel and contextual-influence providers.
+provider_requirements:
+- 'Explicit source-compatible provider for: Immersion operator descriptor'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not discretize the integral or construct kappa_c, Phi_c or the community representation.
+prescription_basis: []

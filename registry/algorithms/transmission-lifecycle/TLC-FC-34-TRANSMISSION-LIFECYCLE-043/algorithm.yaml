@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-043
+algorithm_kind: structural_descriptor
+strategy: open
+execution: structural_only
+steps:
+- Preserve dw_k/dt=alpha_k I_k(1-w_k)-beta_k w_k+gamma_k xi_k(t).
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not choose a noise law, solver, coefficient calibration or boundary behavior for w_k.
+prescription_basis: []

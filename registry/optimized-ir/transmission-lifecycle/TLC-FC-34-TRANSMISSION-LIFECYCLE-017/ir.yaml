@@ -1,0 +1,22 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-017
+status: finalized
+scientific_status: external_provider_required
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-017/ir.yaml
+operation: handle_transmission_lifecycle_017
+required_behavior:
+- Evaluate the stated sigmoid expression only after Phi_1, Phi_2, Phi_3, coefficients and environment offset are supplied.
+forbidden_behavior:
+- Do not construct the Phi_i functions, calibrate gamma_e or reinterpret sigma from another section.
+provider_requirements:
+- 'Explicit source-compatible provider for: Trial-success probability evaluator'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- TLC-UR-TRL-014
+error_codes:
+- ProviderRequired
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.

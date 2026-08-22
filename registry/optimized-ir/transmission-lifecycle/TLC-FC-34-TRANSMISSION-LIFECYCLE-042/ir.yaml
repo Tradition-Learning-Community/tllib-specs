@@ -1,0 +1,22 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-042
+status: finalized
+scientific_status: external_provider_required
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-042/ir.yaml
+operation: handle_transmission_lifecycle_042
+required_behavior:
+- Evaluate I_k only with a supplied band, projection, observation representation and compatible inner product.
+forbidden_behavior:
+- Do not invent band bases, dimensions, the all-ones vector type or projection construction.
+provider_requirements:
+- 'Explicit source-compatible provider for: Resonance-band intensity evaluator and projection guard'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- TLC-UR-TRL-037
+error_codes:
+- ProviderRequired
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.

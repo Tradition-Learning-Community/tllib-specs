@@ -1,0 +1,47 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-085
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-085
+title: Dual coherence-gradient contradiction guard
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/integration-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §2/§4
+objects:
+- TLC-SO-TRL-320
+- TLC-SO-TRL-321
+- TLC-SO-TRL-322
+- TLC-SO-TRL-323
+relations:
+- TLC-SR-TRL-143
+- TLC-SR-TRL-144
+- TLC-SR-TRL-145
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve both Delta X=+eta grad Phi_coh and Delta X=-eta_corr grad Phi_coh as source relations.
+invariants:
+- Do not choose a correct sign, equate coefficients or rewrite the potential as a cost.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryUnresolved
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-075
+forbidden_behaviors:
+- Do not choose a correct sign, equate coefficients or rewrite the potential as a cost.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/integration-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

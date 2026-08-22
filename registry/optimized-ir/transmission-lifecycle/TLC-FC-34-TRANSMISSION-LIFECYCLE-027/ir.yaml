@@ -1,0 +1,22 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-027
+status: finalized
+scientific_status: external_provider_required
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-027/ir.yaml
+operation: handle_transmission_lifecycle_027
+required_behavior:
+- Evaluate value compatibility and trait affinity only with supplied projections, vectors, norms and a nonzero-domain convention.
+forbidden_behavior:
+- Do not add an epsilon, default similarity or projection rule for zero vectors.
+provider_requirements:
+- 'Explicit source-compatible provider for: Projected cosine affinity evaluator and zero-vector guard'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- TLC-UR-TRL-024
+error_codes:
+- ProviderRequired
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.

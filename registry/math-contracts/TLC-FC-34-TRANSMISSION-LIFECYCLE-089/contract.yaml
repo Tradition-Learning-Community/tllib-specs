@@ -1,0 +1,44 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-089
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-089
+title: Integration threshold-2 versus threshold-3 divergence guard
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/integration-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §3/§4
+objects:
+- TLC-SO-TRL-330
+- TLC-SO-TRL-331
+relations:
+- TLC-SR-TRL-150
+- TLC-SR-TRL-151
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Keep both threshold 3 and threshold 2 as competing source end conditions.
+invariants:
+- Do not select one, average them, renumber them or infer precedence.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryUnresolved
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-079
+forbidden_behaviors:
+- Do not select one, average them, renumber them or infer precedence.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/integration-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

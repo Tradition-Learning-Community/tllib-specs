@@ -1,0 +1,22 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-019
+status: finalized
+scientific_status: external_provider_required
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-019/ir.yaml
+operation: handle_transmission_lifecycle_019
+required_behavior:
+- Evaluate V_coll only for a supplied nonempty community and a supplied recognition function rec.
+forbidden_behavior:
+- Do not invent rec, evaluator weights or an empty-community convention.
+provider_requirements:
+- 'Explicit source-compatible provider for: Operational collective-validation evaluator'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- TLC-UR-TRL-016
+error_codes:
+- ProviderRequired
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.

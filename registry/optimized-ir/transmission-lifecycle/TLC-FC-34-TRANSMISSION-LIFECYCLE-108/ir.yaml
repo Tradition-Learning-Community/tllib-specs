@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-108
+status: finalized
+scientific_status: defined
+execution: structural_only
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-108/ir.yaml
+operation: handle_transmission_lifecycle_108
+required_behavior:
+- Bind the explicitly stated empowerment output handoff to Domain 29 generational propagation and G_t authority.
+forbidden_behavior:
+- Do not turn the scientific handoff into a runtime dependency or merge Domain 34 lifecycle states with Domain 29 graph states.
+provider_requirements: []
+scientific_domain_dependencies:
+- 29
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- TLC-UR-TRL-019
+- TLC-UR-TRL-031
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.

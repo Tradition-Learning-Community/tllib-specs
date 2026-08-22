@@ -1,0 +1,22 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-072
+status: finalized
+scientific_status: external_provider_required
+execution: structural_only
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-072/ir.yaml
+operation: handle_transmission_lifecycle_072
+required_behavior:
+- Expose continued monitoring and correction during withdrawal as provider-backed operators.
+forbidden_behavior:
+- Do not invent a controller, alert rule, correction policy or intervention schedule.
+provider_requirements:
+- 'Explicit source-compatible provider for: Master monitoring and correction descriptor'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- TLC-UR-TRL-065
+error_codes:
+- ProviderRequired
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.

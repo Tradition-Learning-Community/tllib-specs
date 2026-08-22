@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-070
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-34-TRANSMISSION-LIFECYCLE-070/contract.yaml
+source_candidate_ir: ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-070/ir.candidate.json
+nature: formula_evaluator
+steps:
+- Evaluate A(t) only with nonzero supplied denominators, a supplied norm and source indicator semantics.
+errors:
+- ScientificBoundaryPartial
+unresolved_items:
+- TLC-UR-TRL-063

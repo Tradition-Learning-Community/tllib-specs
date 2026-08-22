@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-022
+status: finalized
+scientific_status: partially_defined
+execution: structural_only
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-022/ir.yaml
+operation: handle_transmission_lifecycle_022
+required_behavior:
+- Preserve R_init(D,C,t)=(M_relais,S_trans,A_trans) and the stated join to G_t.
+forbidden_behavior:
+- Do not invent graph insertion, authority issuance or status-transition procedures.
+provider_requirements: []
+scientific_domain_dependencies:
+- 29
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- TLC-UR-TRL-019
+- TLC-UR-TRL-031
+error_codes:
+- ScientificBoundaryPartial
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.

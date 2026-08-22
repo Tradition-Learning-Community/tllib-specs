@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-032
+source_contract: registry/math-contracts/TLC-FC-34-TRANSMISSION-LIFECYCLE-032/contract.yaml
+tests:
+- id: TRL034032-T01
+  category: source_conformance
+  verifies: Preserve K=(O_M,O_D,M,R,S,P) with source-local meanings for objectives, means, rules, sanctions and promises.
+- id: TRL034032-T02
+  category: non_invention
+  verifies: Do not bind the local M, R, S or P roles to homonymous objects in other documents.
+- id: TRL034032-T03
+  category: dependency_boundary
+  verifies: Domain 34 confirms scientific dependencies 34 -> 21 and 34 -> 29; keeps 34 -> 04 unresolved; does not promote
+    34 -> 17, 19, 22, 23, 24, 26 or 35; runtime dependencies are empty; exactly eight shared contracts remain.

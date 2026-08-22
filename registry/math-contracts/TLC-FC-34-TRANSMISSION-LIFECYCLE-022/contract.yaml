@@ -1,0 +1,63 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-022
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-022
+title: Relay output and lineage-graph join descriptor
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: partially_defined
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/operational-pipeline.md
+additional_scientific_authorities:
+- maths/34-transmission-lifecycle/empowerment-phase.md
+source_sections:
+- op §5; emp §4
+objects:
+- TLC-SO-TRL-028
+- TLC-SO-TRL-084
+- TLC-SO-TRL-085
+- TLC-SO-TRL-086
+- TLC-SO-TRL-087
+- TLC-SO-TRL-088
+- TLC-SO-TRL-159
+- TLC-SO-TRL-398
+- TLC-SO-TRL-399
+- TLC-SO-TRL-400
+- TLC-SO-TRL-401
+relations:
+- TLC-SR-TRL-012
+- TLC-SR-TRL-033
+- TLC-SR-TRL-034
+- TLC-SR-TRL-069
+- TLC-SR-TRL-182
+- TLC-SR-TRL-183
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve R_init(D,C,t)=(M_relais,S_trans,A_trans) and the stated join to G_t.
+invariants:
+- Do not invent graph insertion, authority issuance or status-transition procedures.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryPartial
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific:
+  - 29
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-019
+- TLC-UR-TRL-031
+forbidden_behaviors:
+- Do not invent graph insertion, authority issuance or status-transition procedures.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/operational-pipeline.md
+  - maths/34-transmission-lifecycle/empowerment-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

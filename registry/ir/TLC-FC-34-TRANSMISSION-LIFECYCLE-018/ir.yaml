@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-018
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-34-TRANSMISSION-LIFECYCLE-018/contract.yaml
+source_candidate_ir: ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-018/ir.candidate.json
+nature: dependency_boundary
+steps:
+- Require explicit providers for Phi_1, Phi_2, Phi_3 and the sigmoid identity.
+errors:
+- ProviderRequired
+unresolved_items:
+- TLC-UR-TRL-015

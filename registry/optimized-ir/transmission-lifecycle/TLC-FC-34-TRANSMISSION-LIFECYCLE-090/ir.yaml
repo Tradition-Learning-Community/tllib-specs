@@ -1,0 +1,21 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-090
+status: finalized
+scientific_status: defined
+execution: structural_only
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-090/ir.yaml
+operation: handle_transmission_lifecycle_090
+required_behavior:
+- Preserve the V_c, narrative N, validation-matrix M and legitimacy-system L roles, including the explicit statement that
+  M is neither memory nor master.
+forbidden_behavior:
+- Do not transfer semantics among homonymous M, N or L objects.
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items: []
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.

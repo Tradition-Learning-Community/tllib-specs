@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-104
+algorithm_kind: scientific_guard
+strategy: open
+execution: structural_only
+steps:
+- Preserve that the source factors do not guarantee positivity or boundedness.
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not clamp, take absolute values, rescale or report a [0,1] score.
+prescription_basis: []

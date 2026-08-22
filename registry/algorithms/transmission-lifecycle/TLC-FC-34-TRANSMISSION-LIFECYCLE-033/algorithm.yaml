@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-033
+algorithm_kind: scientific_guard
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Evaluate ||O_M-O_D||<epsilon only after a common space, norm and epsilon are supplied.
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not invent the objective representation, norm, units or tolerance.
+prescription_basis: []

@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-030
+algorithm_kind: provider_backed_evaluator
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Evaluate Pi only with explicit norms, lambda and a nonzero capacity maximum supplied by a provider.
+provider_requirements:
+- 'Explicit source-compatible provider for: Preparation-index evaluator and zero-capacity guard'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not invent norm choices, normalize R, or define the zero-denominator case.
+prescription_basis: []

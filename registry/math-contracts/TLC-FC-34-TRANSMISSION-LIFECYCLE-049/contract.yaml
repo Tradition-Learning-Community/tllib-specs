@@ -1,0 +1,47 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-049
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-049
+title: Observation O_obs versus O notation identity guard
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/impregnation-phase.md
+additional_scientific_authorities:
+- maths/34-transmission-lifecycle/operational-pipeline.md
+source_sections:
+- imp §4/§5; op §3
+objects:
+- TLC-SO-TRL-045
+- TLC-SO-TRL-177
+- TLC-SO-TRL-208
+- TLC-SO-TRL-211
+relations:
+- TLC-SR-TRL-091
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Keep O_obs and O(tau) distinct unless an implementation receives an explicit identity provider.
+invariants:
+- Do not silently substitute one notation for the other.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryUnresolved
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-044
+forbidden_behaviors:
+- Do not silently substitute one notation for the other.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/impregnation-phase.md
+  - maths/34-transmission-lifecycle/operational-pipeline.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-094
+algorithm_kind: provider_backed_evaluator
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Evaluate w(a,a',t) only from supplied elder, competence and proximity factors with a nonzero denominator.
+provider_requirements:
+- 'Explicit source-compatible provider for: Evaluator-weight normalizer'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not construct factors, normalize by another rule or assume positivity.
+prescription_basis: []

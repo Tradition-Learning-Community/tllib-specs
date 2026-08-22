@@ -1,0 +1,60 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-025
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-025
+title: Mutual-recognition score evaluator
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: conditionally_executable
+scientific_authority: maths/34-transmission-lifecycle/initiation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §1
+objects:
+- TLC-SO-TRL-107
+- TLC-SO-TRL-108
+- TLC-SO-TRL-109
+- TLC-SO-TRL-110
+- TLC-SO-TRL-111
+- TLC-SO-TRL-112
+- TLC-SO-TRL-113
+- TLC-SO-TRL-114
+relations:
+- TLC-SR-TRL-043
+- TLC-SR-TRL-044
+- TLC-SR-TRL-045
+- TLC-SR-TRL-046
+- TLC-SR-TRL-047
+- TLC-SR-TRL-048
+- TLC-SR-TRL-049
+- TLC-SR-TRL-050
+- TLC-SR-TRL-051
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- 'Explicit source-compatible provider for: Mutual-recognition score evaluator'
+preconditions: []
+postconditions:
+- Evaluate S_M and S_D only from supplied four-term factors and positive normalized weights.
+invariants:
+- Do not construct phi_k or psi_k factors, calibrate weights or transfer factors between the two scores.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-022
+forbidden_behaviors:
+- Do not construct phi_k or psi_k factors, calibrate weights or transfer factors between the two scores.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/initiation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

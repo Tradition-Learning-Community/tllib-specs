@@ -1,0 +1,49 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-030
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-030
+title: Preparation-index evaluator and zero-capacity guard
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: conditionally_executable
+scientific_authority: maths/34-transmission-lifecycle/initiation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §2/§5
+objects:
+- TLC-SO-TRL-128
+- TLC-SO-TRL-129
+- TLC-SO-TRL-130
+- TLC-SO-TRL-131
+- TLC-SO-TRL-132
+relations:
+- TLC-SR-TRL-057
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- 'Explicit source-compatible provider for: Preparation-index evaluator and zero-capacity guard'
+preconditions: []
+postconditions:
+- Evaluate Pi only with explicit norms, lambda and a nonzero capacity maximum supplied by a provider.
+invariants:
+- Do not invent norm choices, normalize R, or define the zero-denominator case.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-027
+forbidden_behaviors:
+- Do not invent norm choices, normalize R, or define the zero-denominator case.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/initiation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

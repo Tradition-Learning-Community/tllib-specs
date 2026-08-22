@@ -1,0 +1,56 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-031
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-031
+title: Reciprocal-trust dynamics and event-provider boundary
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/initiation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §3/§5
+objects:
+- TLC-SO-TRL-134
+- TLC-SO-TRL-135
+- TLC-SO-TRL-136
+- TLC-SO-TRL-137
+- TLC-SO-TRL-138
+- TLC-SO-TRL-139
+- TLC-SO-TRL-140
+- TLC-SO-TRL-141
+- TLC-SO-TRL-142
+- TLC-SO-TRL-143
+relations:
+- TLC-SR-TRL-059
+- TLC-SR-TRL-060
+- TLC-SR-TRL-061
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- 'Explicit source-compatible provider for: Reciprocal-trust dynamics and event-provider boundary'
+preconditions: []
+postconditions:
+- Preserve both trust equations and require explicit exemplariness, loyalty, benevolence, betrayal and abuse providers.
+invariants:
+- Do not generate betrayal/abuse events, infer their probabilities or numerically integrate the equations.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-028
+forbidden_behaviors:
+- Do not generate betrayal/abuse events, infer their probabilities or numerically integrate the equations.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/initiation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

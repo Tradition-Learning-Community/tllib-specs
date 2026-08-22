@@ -1,0 +1,44 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-100
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-100
+title: Counterfactual-state and zero-norm guard
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/empowerment-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §1/§6
+objects:
+- TLC-SO-TRL-369
+- TLC-SO-TRL-370
+- TLC-SO-TRL-371
+relations:
+- TLC-SR-TRL-167
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve X_without as unconstructed and Delta_M as undefined when ||X||=0.
+invariants:
+- Do not synthesize a causal model, baseline state, epsilon or fallback value.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryUnresolved
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-088
+forbidden_behaviors:
+- Do not synthesize a causal model, baseline state, epsilon or fallback value.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/empowerment-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

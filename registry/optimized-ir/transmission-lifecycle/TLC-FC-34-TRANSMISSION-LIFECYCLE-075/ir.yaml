@@ -1,0 +1,20 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-075
+status: finalized
+scientific_status: defined
+execution: structural_only
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-075/ir.yaml
+operation: handle_transmission_lifecycle_075
+required_behavior:
+- Preserve X=(C,V,Val,P) as the source-local incorporation state.
+forbidden_behavior:
+- Do not add identity or equate this tuple with other X definitions.
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items: []
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.
