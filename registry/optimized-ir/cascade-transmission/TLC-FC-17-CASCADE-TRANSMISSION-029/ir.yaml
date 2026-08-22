@@ -1,0 +1,33 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-029
+status: finalized
+scientific_status: defined
+execution: structural_only
+source_ir: registry/ir/TLC-FC-17-CASCADE-TRANSMISSION-029/ir.yaml
+operation: handle_cascade_transmission_029
+required_behavior:
+- Preserve R_operator mapping signature and distinguish it from other R roles.
+forbidden_behavior:
+- Do not invent update semantics for Delta G_total/Delta X_doct.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-CAS-003
+- TLC-UR-CAS-004
+- TLC-UR-CAS-023
+- TLC-UR-CAS-024
+- TLC-UR-CAS-048
+- TLC-UR-CAS-050
+- TLC-UR-CAS-051
+- TLC-UR-CAS-052
+- TLC-UR-CAS-053
+- TLC-UR-CAS-070
+- TLC-UR-CAS-071
+- TLC-UR-CAS-075
+- TLC-UR-CAS-076
+- TLC-UR-CAS-078
+- TLC-UR-CAS-101
+- TLC-UR-CAS-103
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-056
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-056/contract.yaml
+tests:
+- id: CAS017056-T01
+  category: source_conformance
+  verifies: Evaluate R_res exactly from supplied L_total spectrum, degree, cohesion and norm/reference providers.
+- id: CAS017056-T02
+  category: non_invention
+  verifies: Do not choose Laplacian normalization, graph degree convention or value/environment normalization.
+- id: CAS017056-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

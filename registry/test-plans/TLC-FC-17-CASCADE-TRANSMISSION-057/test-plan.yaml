@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-057
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-057/contract.yaml
+tests:
+- id: CAS017057-T01
+  category: source_conformance
+  verifies: Preserve empty/min-degree and zero reference-norm cases without fallback.
+- id: CAS017057-T02
+  category: non_invention
+  verifies: Do not add epsilon denominators, clamping or defaults.
+- id: CAS017057-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

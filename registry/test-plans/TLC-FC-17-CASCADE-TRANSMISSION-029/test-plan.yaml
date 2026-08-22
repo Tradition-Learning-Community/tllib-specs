@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-029
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-029/contract.yaml
+tests:
+- id: CAS017029-T01
+  category: source_conformance
+  verifies: Preserve R_operator mapping signature and distinguish it from other R roles.
+- id: CAS017029-T02
+  category: non_invention
+  verifies: Do not invent update semantics for Delta G_total/Delta X_doct.
+- id: CAS017029-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

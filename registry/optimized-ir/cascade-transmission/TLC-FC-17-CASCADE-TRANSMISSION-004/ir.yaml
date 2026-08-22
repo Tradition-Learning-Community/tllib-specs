@@ -1,0 +1,26 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-004
+status: finalized
+scientific_status: partially_defined
+execution: structural_only
+source_ir: registry/ir/TLC-FC-17-CASCADE-TRANSMISSION-004/ir.yaml
+operation: handle_cascade_transmission_004
+required_behavior:
+- Preserve the existential N*(t), measure lower bound and projection-distance condition exactly.
+forbidden_behavior:
+- Do not construct N*(t), pi_N, d_D, mu or missing measurable/projection geometry.
+provider_requirements: []
+unresolved_domain_relations:
+- 4
+unresolved_items:
+- TLC-UR-CAS-013
+- TLC-UR-CAS-015
+- TLC-UR-CAS-024
+- TLC-UR-CAS-036
+- TLC-UR-CAS-042
+- TLC-UR-CAS-048
+- TLC-UR-CAS-061
+- TLC-UR-CAS-062
+error_codes:
+- ScientificBoundaryPartial
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

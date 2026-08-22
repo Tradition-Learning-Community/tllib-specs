@@ -1,0 +1,30 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-055
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-17-CASCADE-TRANSMISSION-055/ir.yaml
+operation: handle_cascade_transmission_055
+required_behavior:
+- Preserve empty V_D, empty-community/log and missing expectation conventions as unresolved.
+forbidden_behavior:
+- Do not introduce 0log0, empty-set or sampling defaults.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-CAS-037
+- TLC-UR-CAS-081
+- TLC-UR-CAS-084
+- TLC-UR-CAS-085
+- TLC-UR-CAS-086
+- TLC-UR-CAS-096
+- TLC-UR-CAS-097
+- TLC-UR-CAS-100
+- TLC-UR-CAS-101
+- TLC-UR-CAS-102
+- TLC-UR-CAS-103
+- TLC-UR-CAS-104
+- TLC-UR-CAS-105
+error_codes:
+- ScientificBoundaryUnresolved
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

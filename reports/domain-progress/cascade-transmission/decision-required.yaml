@@ -1,0 +1,57 @@
+domain_id: cascade-transmission
+status: finalized_with_preserved_unresolved_boundaries
+authority: maths/17-cascade-transmission/cascade-transmission-system.md
+working_base_commit: 99fed2c7255e6a11e8ce77f87a11058c267c5a6c
+scope: domain_17_complete_handoff_publication
+blocking_issues: []
+normative_unresolved_decisions:
+- id: CAS-DEC-001
+  subject: F source overload
+  decision: preserve_three_distinct_internal_identities
+  forbidden_resolution: Do not identify filiation, fusion and fidelity simply because the source symbol is F.
+- id: CAS-DEC-002
+  subject: R source overload
+  decision: preserve_distinct_system_operator_dynamic_roles
+  forbidden_resolution: Do not identify regulation system/operator/dynamic quantity solely by shared R notation.
+- id: CAS-DEC-003
+  subject: G_D graph algebra and differentiation
+  decision: remain_untyped
+  forbidden_resolution: Do not choose matrix, embedding, tensor, graph subtraction/product, gradient or graph derivative semantics.
+- id: CAS-DEC-004
+  subject: g_FS tensor types
+  decision: remain_unresolved
+  forbidden_resolution: Do not choose bases, dimensions, Riemannian structures or compatible tensor types.
+- id: CAS-DEC-005
+  subject: 17 -> 04 invariant-core relation
+  decision: remain_unresolved
+  forbidden_resolution: Do not replace local N_inv(t), bind pi_N to domain 04 as confirmed, or redefine domain 04.
+- id: CAS-DEC-006
+  subject: dJ/dx identity
+  decision: remain_source_local_unresolved
+  forbidden_resolution: Do not bind to domain 29 or any other J.
+- id: CAS-DEC-007
+  subject: differential equations and coupled system
+  decision: structural_only_without_numerical_method
+  forbidden_resolution: Do not invent solver, integrator, timestep, initial data, stochastic law or convergence rule.
+- id: CAS-DEC-008
+  subject: theorem and optimum claims
+  decision: claims_only
+  forbidden_resolution: Do not invent proof completion, optimizer, KKT conditions, admissible-set construction or uniqueness.
+- id: CAS-DEC-009
+  subject: health metric undefined domains
+  decision: preserve_undefined_cases
+  forbidden_resolution: Do not add epsilon denominators, empty-set conventions, normalization, clamp or defaults.
+confirmed_dependencies: []
+unresolved_dependencies:
+- 4
+rejected_dependencies:
+- 9
+- 19
+- 22
+- 24
+- 29
+- 34
+runtime_dependencies: []
+shared_contract_count: 8
+recommended_decision: publish_complete_domain_with_unresolved_boundaries_preserved
+verdict: implementation_handoff_ready_with_structural_and_provider_boundaries

@@ -1,0 +1,56 @@
+contract_id: TLC-MC-TLC-FC-17-CASCADE-TRANSMISSION-004
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-004
+title: Dynamic essential-conservation axiom descriptor
+domain_id: cascade-transmission
+contract_kind: source_backed_descriptor_contract
+scientific_status: partially_defined
+execution_status: structural_only
+scientific_authority: maths/17-cascade-transmission/cascade-transmission-system.md
+source_sections:
+- §2.1
+objects:
+- TLC-SO-CAS-021
+- TLC-SO-CAS-022
+- TLC-SO-CAS-023
+- TLC-SO-CAS-024
+- TLC-SO-CAS-027
+- TLC-SO-CAS-028
+- TLC-SO-CAS-026
+- TLC-SO-CAS-029
+relations:
+- TLC-SR-CAS-004
+- TLC-SR-CAS-005
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- unresolved_domain_04
+preconditions: []
+postconditions:
+- Preserve the existential N*(t), measure lower bound and projection-distance condition exactly.
+invariants:
+- Do not construct N*(t), pi_N, d_D, mu or missing measurable/projection geometry.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryPartial
+  when: The request exceeds the relation, provider boundary, or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved:
+  - 4
+  runtime: []
+unresolved_items:
+- TLC-UR-CAS-013
+- TLC-UR-CAS-015
+- TLC-UR-CAS-024
+- TLC-UR-CAS-036
+- TLC-UR-CAS-042
+- TLC-UR-CAS-048
+- TLC-UR-CAS-061
+- TLC-UR-CAS-062
+forbidden_behaviors:
+- Do not construct N*(t), pi_N, d_D, mu or missing measurable/projection geometry.
+traceability:
+  source: maths/17-cascade-transmission/cascade-transmission-system.md
+  inventory: registry/domain-progress/cascade-transmission/feature-inventory.yaml

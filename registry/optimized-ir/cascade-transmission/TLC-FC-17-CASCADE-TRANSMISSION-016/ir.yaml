@@ -1,0 +1,26 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-016
+status: finalized
+scientific_status: external_provider_required
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-17-CASCADE-TRANSMISSION-016/ir.yaml
+operation: handle_cascade_transmission_016
+required_behavior:
+- Evaluate w_L(e)=exp(-lambda generation(e))*phi(t_L(e)) only with supplied provider semantics.
+forbidden_behavior:
+- Do not invent generation indices, phi, time units or lambda calibration.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-CAS-031
+- TLC-UR-CAS-032
+- TLC-UR-CAS-048
+- TLC-UR-CAS-053
+- TLC-UR-CAS-070
+- TLC-UR-CAS-076
+- TLC-UR-CAS-078
+- TLC-UR-CAS-081
+- TLC-UR-CAS-101
+error_codes:
+- ProviderRequired
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

@@ -1,0 +1,25 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-048
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-17-CASCADE-TRANSMISSION-048/ir.yaml
+operation: handle_cascade_transmission_048
+required_behavior:
+- Keep dW_v and differential equations structural absent a prescribed numerical method.
+forbidden_behavior:
+- Do not invent Euler/RK/SDE integrator, timestep, covariance, seed, initial/boundary conditions or tolerances.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-CAS-024
+- TLC-UR-CAS-057
+- TLC-UR-CAS-070
+- TLC-UR-CAS-076
+- TLC-UR-CAS-077
+- TLC-UR-CAS-080
+- TLC-UR-CAS-095
+- TLC-UR-CAS-096
+error_codes:
+- ScientificBoundaryUnresolved
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

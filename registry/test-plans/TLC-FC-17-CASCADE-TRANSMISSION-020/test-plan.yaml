@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-020
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-020/contract.yaml
+tests:
+- id: CAS017020-T01
+  category: source_conformance
+  verifies: Preserve d_total=min(d_L,d_D,d_V) but require explicit distance comparability before numerical evaluation.
+- id: CAS017020-T02
+  category: non_invention
+  verifies: Do not assume common units, scales, codomains or normalization.
+- id: CAS017020-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

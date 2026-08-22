@@ -1,0 +1,62 @@
+contract_id: TLC-MC-TLC-FC-17-CASCADE-TRANSMISSION-009
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-009
+title: Collective-regulation drift-trigger provider boundary
+domain_id: cascade-transmission
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: structural_only
+scientific_authority: maths/17-cascade-transmission/cascade-transmission-system.md
+source_sections:
+- §2.3
+objects:
+- TLC-SO-CAS-049
+- TLC-SO-CAS-027
+- TLC-SO-CAS-050
+- TLC-SO-CAS-051
+- TLC-SO-CAS-052
+relations:
+- TLC-SR-CAS-009
+- TLC-SR-CAS-010
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve the dR/dt, d_D, theta_alert and R o V conditions as provider-backed constraints.
+invariants:
+- Do not invent alert thresholds, composition semantics or a correction protocol.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds the relation, provider boundary, or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-CAS-023
+- TLC-UR-CAS-024
+- TLC-UR-CAS-025
+- TLC-UR-CAS-038
+- TLC-UR-CAS-039
+- TLC-UR-CAS-048
+- TLC-UR-CAS-050
+- TLC-UR-CAS-051
+- TLC-UR-CAS-052
+- TLC-UR-CAS-053
+- TLC-UR-CAS-054
+- TLC-UR-CAS-057
+- TLC-UR-CAS-070
+- TLC-UR-CAS-076
+- TLC-UR-CAS-078
+- TLC-UR-CAS-095
+- TLC-UR-CAS-096
+- TLC-UR-CAS-101
+- TLC-UR-CAS-103
+forbidden_behaviors:
+- Do not invent alert thresholds, composition semantics or a correction protocol.
+traceability:
+  source: maths/17-cascade-transmission/cascade-transmission-system.md
+  inventory: registry/domain-progress/cascade-transmission/feature-inventory.yaml

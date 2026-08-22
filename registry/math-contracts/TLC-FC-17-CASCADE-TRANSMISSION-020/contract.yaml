@@ -1,0 +1,55 @@
+contract_id: TLC-MC-TLC-FC-17-CASCADE-TRANSMISSION-020
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-020
+title: Total-distance minimum comparability guard
+domain_id: cascade-transmission
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/17-cascade-transmission/cascade-transmission-system.md
+source_sections:
+- §3
+objects:
+- TLC-SO-CAS-094
+- TLC-SO-CAS-092
+- TLC-SO-CAS-027
+- TLC-SO-CAS-093
+relations:
+- TLC-SR-CAS-021
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve d_total=min(d_L,d_D,d_V) but require explicit distance comparability before numerical evaluation.
+invariants:
+- Do not assume common units, scales, codomains or normalization.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryUnresolved
+  when: The request exceeds the relation, provider boundary, or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-CAS-036
+- TLC-UR-CAS-048
+- TLC-UR-CAS-057
+- TLC-UR-CAS-062
+- TLC-UR-CAS-077
+- TLC-UR-CAS-080
+- TLC-UR-CAS-082
+- TLC-UR-CAS-088
+- TLC-UR-CAS-100
+- TLC-UR-CAS-101
+- TLC-UR-CAS-102
+- TLC-UR-CAS-103
+- TLC-UR-CAS-104
+- TLC-UR-CAS-105
+forbidden_behaviors:
+- Do not assume common units, scales, codomains or normalization.
+traceability:
+  source: maths/17-cascade-transmission/cascade-transmission-system.md
+  inventory: registry/domain-progress/cascade-transmission/feature-inventory.yaml

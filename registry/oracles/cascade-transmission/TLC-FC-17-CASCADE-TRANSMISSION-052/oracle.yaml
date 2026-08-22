@@ -1,0 +1,19 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-052
+oracle_kind: source_conformance
+acceptance:
+- Evaluate C_coh exactly from supplied compatible operands/providers.
+rejections:
+- Do not normalize, clamp, reinterpret distance, or supply missing pi_N/gradient/norm semantics.
+dependency_guards:
+  confirmed: []
+  unresolved:
+  - 4
+  runtime: []
+  forbidden:
+  - 9
+  - 19
+  - 22
+  - 24
+  - 29
+  - 34

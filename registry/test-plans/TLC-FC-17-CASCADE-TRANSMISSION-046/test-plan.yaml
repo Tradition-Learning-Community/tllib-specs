@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-046
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-046/contract.yaml
+tests:
+- id: CAS017046-T01
+  category: source_conformance
+  verifies: Expose graph algebra, derivative, cross-graph subtraction and operator-arity mismatches in the complete system.
+- id: CAS017046-T02
+  category: non_invention
+  verifies: Do not invent implicit arguments, currying, embeddings or graph calculus.
+- id: CAS017046-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

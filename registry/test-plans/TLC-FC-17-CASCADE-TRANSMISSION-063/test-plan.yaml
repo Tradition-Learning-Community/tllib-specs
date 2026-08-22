@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-063
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-063/contract.yaml
+tests:
+- id: CAS017063-T01
+  category: source_conformance
+  verifies: Preserve empty boundary and type-compatibility cases without fallback.
+- id: CAS017063-T02
+  category: non_invention
+  verifies: Do not define 0/0, clamp impact, invent boundary semantics or expectation law.
+- id: CAS017063-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

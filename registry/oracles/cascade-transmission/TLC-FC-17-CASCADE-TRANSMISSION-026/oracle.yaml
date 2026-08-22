@@ -1,0 +1,19 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-026
+oracle_kind: source_conformance
+acceptance:
+- Preserve P signature and output roles exactly.
+rejections:
+- Do not conflate its outputs with computed values absent providers.
+dependency_guards:
+  confirmed: []
+  unresolved:
+  - 4
+  runtime: []
+  forbidden:
+  - 9
+  - 19
+  - 22
+  - 24
+  - 29
+  - 34

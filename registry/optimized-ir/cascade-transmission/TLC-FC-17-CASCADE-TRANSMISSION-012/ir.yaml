@@ -1,0 +1,22 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-012
+status: finalized
+scientific_status: external_provider_required
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-17-CASCADE-TRANSMISSION-012/ir.yaml
+operation: handle_cascade_transmission_012
+required_behavior:
+- Evaluate L(C,t)>L_min only from supplied compatible legitimacy value and threshold.
+forbidden_behavior:
+- Do not invent L_min or infer legitimacy from unrelated spectral L.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-CAS-030
+- TLC-UR-CAS-031
+- TLC-UR-CAS-041
+- TLC-UR-CAS-067
+- TLC-UR-CAS-082
+error_codes:
+- ProviderRequired
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

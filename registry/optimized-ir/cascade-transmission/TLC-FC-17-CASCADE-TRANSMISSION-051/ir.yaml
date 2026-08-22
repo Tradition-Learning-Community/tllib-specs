@@ -1,0 +1,19 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-051
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-17-CASCADE-TRANSMISSION-051/ir.yaml
+operation: handle_cascade_transmission_051
+required_behavior:
+- Preserve F approximately 1, F in (0.7,0.9), and F<0.5 with V>theta_V exactly as written.
+forbidden_behavior:
+- Do not justify externally, fill gaps, alter open intervals or add equality rules.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-CAS-079
+- TLC-UR-CAS-080
+error_codes:
+- ScientificBoundaryUnresolved
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

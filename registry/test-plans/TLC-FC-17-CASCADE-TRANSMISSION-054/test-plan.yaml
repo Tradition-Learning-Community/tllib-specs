@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-054
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-054/contract.yaml
+tests:
+- id: CAS017054-T01
+  category: source_conformance
+  verifies: Evaluate D_div exactly from supplied community, expectation, diversity/richness and coefficient providers.
+- id: CAS017054-T02
+  category: non_invention
+  verifies: Do not invent community detection, probability law or normalization.
+- id: CAS017054-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

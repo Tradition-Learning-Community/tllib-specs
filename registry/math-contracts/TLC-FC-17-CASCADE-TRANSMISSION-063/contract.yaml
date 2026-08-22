@@ -1,0 +1,58 @@
+contract_id: TLC-MC-TLC-FC-17-CASCADE-TRANSMISSION-063
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-063
+title: Impact empty-boundary and provider guard
+domain_id: cascade-transmission
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/17-cascade-transmission/cascade-transmission-system.md
+source_sections:
+- §8
+objects:
+- TLC-SO-CAS-273
+- TLC-SO-CAS-274
+- TLC-SO-CAS-275
+- TLC-SO-CAS-276
+- TLC-SO-CAS-277
+- TLC-SO-CAS-278
+- TLC-SO-CAS-279
+relations:
+- TLC-SR-CAS-061
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve empty boundary and type-compatibility cases without fallback.
+invariants:
+- Do not define 0/0, clamp impact, invent boundary semantics or expectation law.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryUnresolved
+  when: The request exceeds the relation, provider boundary, or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-CAS-023
+- TLC-UR-CAS-048
+- TLC-UR-CAS-053
+- TLC-UR-CAS-057
+- TLC-UR-CAS-070
+- TLC-UR-CAS-076
+- TLC-UR-CAS-078
+- TLC-UR-CAS-081
+- TLC-UR-CAS-084
+- TLC-UR-CAS-085
+- TLC-UR-CAS-095
+- TLC-UR-CAS-096
+- TLC-UR-CAS-097
+- TLC-UR-CAS-101
+forbidden_behaviors:
+- Do not define 0/0, clamp impact, invent boundary semantics or expectation law.
+traceability:
+  source: maths/17-cascade-transmission/cascade-transmission-system.md
+  inventory: registry/domain-progress/cascade-transmission/feature-inventory.yaml

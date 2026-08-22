@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-023
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-023/contract.yaml
+tests:
+- id: CAS017023-T01
+  category: source_conformance
+  verifies: Preserve nonlinear, memory, contractive, expansive and value-preserving claims as qualitative properties.
+- id: CAS017023-T02
+  category: non_invention
+  verifies: Do not operationalize zones, frontiers, memory or contraction/expansion without source procedures.
+- id: CAS017023-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-041
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-041/contract.yaml
+tests:
+- id: CAS017041-T01
+  category: source_conformance
+  verifies: Preserve the existence claim, objective and stated concavity/compactness assumptions.
+- id: CAS017041-T02
+  category: non_invention
+  verifies: Do not infer uniqueness, KKT conditions, Hessians or a search space.
+- id: CAS017041-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

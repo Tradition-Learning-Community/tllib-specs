@@ -1,0 +1,18 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-060
+oracle_kind: source_conformance
+acceptance:
+- Evaluate the displayed V_vit expression only when all derivative and innovation/permanence providers are supplied.
+rejections:
+- Do not invent discrete-rate interpolation, derivative methods, units or coefficient calibration.
+dependency_guards:
+  confirmed: []
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 9
+  - 19
+  - 22
+  - 24
+  - 29
+  - 34

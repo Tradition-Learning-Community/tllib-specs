@@ -1,0 +1,25 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-061
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-17-CASCADE-TRANSMISSION-061/ir.yaml
+operation: handle_cascade_transmission_061
+required_behavior:
+- Preserve d|V_L|/dt, dV/dt and dE/dt as unresolved/provider-backed derivatives.
+forbidden_behavior:
+- Do not choose finite differences, continuous interpolation or numerical differentiation.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-CAS-007
+- TLC-UR-CAS-008
+- TLC-UR-CAS-044
+- TLC-UR-CAS-077
+- TLC-UR-CAS-080
+- TLC-UR-CAS-092
+- TLC-UR-CAS-093
+- TLC-UR-CAS-094
+error_codes:
+- ScientificBoundaryUnresolved
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

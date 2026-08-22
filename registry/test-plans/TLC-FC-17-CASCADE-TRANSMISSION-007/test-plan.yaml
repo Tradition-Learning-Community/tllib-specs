@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-007
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-007/contract.yaml
+tests:
+- id: CAS017007-T01
+  category: source_conformance
+  verifies: Expose that G_D is a graph while its algebraic/differential representation is undefined.
+- id: CAS017007-T02
+  category: non_invention
+  verifies: Do not choose adjacency matrices, embeddings, tensors, graph subtraction, products or graph derivatives.
+- id: CAS017007-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

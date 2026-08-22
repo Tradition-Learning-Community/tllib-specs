@@ -1,0 +1,27 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-064
+status: finalized
+scientific_status: defined
+execution: structural_only
+source_ir: registry/ir/TLC-FC-17-CASCADE-TRANSMISSION-064/ir.yaml
+operation: handle_cascade_transmission_064
+required_behavior:
+- Freeze scientific dependencies as confirmed=[], unresolved=[4], non-proven thematic relations only; runtime=[]; reuse exactly
+  eight shared contracts.
+forbidden_behavior:
+- Do not create dependencies to 09,19,22,24,29,34 or a ninth shared contract without explicit source evidence.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-CAS-012
+- TLC-UR-CAS-098
+- TLC-UR-CAS-099
+- TLC-UR-CAS-100
+- TLC-UR-CAS-101
+- TLC-UR-CAS-102
+- TLC-UR-CAS-103
+- TLC-UR-CAS-104
+- TLC-UR-CAS-105
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

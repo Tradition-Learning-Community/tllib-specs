@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-002
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-002/contract.yaml
+tests:
+- id: CAS017002-T01
+  category: source_conformance
+  verifies: Keep filiation F, fusion F and fidelity F as distinct internal scientific identities while preserving source notation.
+- id: CAS017002-T02
+  category: non_invention
+  verifies: Do not merge the three F roles, select a canonical F, or transfer properties between them.
+- id: CAS017002-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

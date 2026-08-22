@@ -1,0 +1,64 @@
+contract_id: TLC-MC-TLC-FC-17-CASCADE-TRANSMISSION-026
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-026
+title: Preservation operator signature descriptor
+domain_id: cascade-transmission
+contract_kind: source_backed_descriptor_contract
+scientific_status: defined
+execution_status: structural_only
+scientific_authority: maths/17-cascade-transmission/cascade-transmission-system.md
+source_sections:
+- §4.3
+objects:
+- TLC-SO-CAS-005
+- TLC-SO-CAS-102
+- TLC-SO-CAS-126
+- TLC-SO-CAS-103
+- TLC-SO-CAS-011
+- TLC-SO-CAS-013
+- TLC-SO-CAS-127
+- TLC-SO-CAS-128
+- TLC-SO-CAS-129
+relations:
+- TLC-SR-CAS-033
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- unresolved_domain_04
+preconditions: []
+postconditions:
+- Preserve P signature and output roles exactly.
+invariants:
+- Do not conflate its outputs with computed values absent providers.
+constraints: []
+structured_errors:
+- code: SourceBoundaryExceeded
+  when: The request exceeds the relation, provider boundary, or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved:
+  - 4
+  runtime: []
+unresolved_items:
+- TLC-UR-CAS-003
+- TLC-UR-CAS-004
+- TLC-UR-CAS-021
+- TLC-UR-CAS-029
+- TLC-UR-CAS-032
+- TLC-UR-CAS-033
+- TLC-UR-CAS-041
+- TLC-UR-CAS-045
+- TLC-UR-CAS-047
+- TLC-UR-CAS-052
+- TLC-UR-CAS-071
+- TLC-UR-CAS-082
+- TLC-UR-CAS-083
+- TLC-UR-CAS-087
+- TLC-UR-CAS-091
+- TLC-UR-CAS-104
+forbidden_behaviors:
+- Do not conflate its outputs with computed values absent providers.
+traceability:
+  source: maths/17-cascade-transmission/cascade-transmission-system.md
+  inventory: registry/domain-progress/cascade-transmission/feature-inventory.yaml

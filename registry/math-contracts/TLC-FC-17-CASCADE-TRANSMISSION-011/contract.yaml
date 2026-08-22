@@ -1,0 +1,54 @@
+contract_id: TLC-MC-TLC-FC-17-CASCADE-TRANSMISSION-011
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-011
+title: Dynamic legitimacy expression evaluator
+domain_id: cascade-transmission
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: conditionally_executable
+scientific_authority: maths/17-cascade-transmission/cascade-transmission-system.md
+source_sections:
+- §2.5
+objects:
+- TLC-SO-CAS-062
+- TLC-SO-CAS-063
+- TLC-SO-CAS-064
+- TLC-SO-CAS-065
+- TLC-SO-CAS-066
+- TLC-SO-CAS-067
+- TLC-SO-CAS-068
+relations:
+- TLC-SR-CAS-012
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Evaluate the displayed legitimacy expression only when all components and compatible parameter semantics are supplied.
+invariants:
+- Do not invent recognition/competence/history functions, calibration or implicit units.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds the relation, provider boundary, or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-CAS-023
+- TLC-UR-CAS-030
+- TLC-UR-CAS-031
+- TLC-UR-CAS-048
+- TLC-UR-CAS-053
+- TLC-UR-CAS-064
+- TLC-UR-CAS-070
+- TLC-UR-CAS-076
+- TLC-UR-CAS-078
+- TLC-UR-CAS-101
+forbidden_behaviors:
+- Do not invent recognition/competence/history functions, calibration or implicit units.
+traceability:
+  source: maths/17-cascade-transmission/cascade-transmission-system.md
+  inventory: registry/domain-progress/cascade-transmission/feature-inventory.yaml

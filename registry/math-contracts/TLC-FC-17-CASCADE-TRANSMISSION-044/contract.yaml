@@ -1,0 +1,62 @@
+contract_id: TLC-MC-TLC-FC-17-CASCADE-TRANSMISSION-044
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-044
+title: Resilience spectral norm and zero-denominator guard
+domain_id: cascade-transmission
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/17-cascade-transmission/cascade-transmission-system.md
+source_sections:
+- §6
+objects:
+- TLC-SO-CAS-191
+- TLC-SO-CAS-192
+- TLC-SO-CAS-193
+- TLC-SO-CAS-194
+- TLC-SO-CAS-195
+- TLC-SO-CAS-197
+- TLC-SO-CAS-196
+- TLC-SO-CAS-200
+- TLC-SO-CAS-198
+- TLC-SO-CAS-201
+- TLC-SO-CAS-199
+relations:
+- TLC-SR-CAS-046
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve undefined L, norms, gradients and zero-denominator cases explicitly.
+invariants:
+- Do not choose a Laplacian, norm, epsilon, infinity convention or denominator fallback.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryUnresolved
+  when: The request exceeds the relation, provider boundary, or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-CAS-017
+- TLC-UR-CAS-020
+- TLC-UR-CAS-028
+- TLC-UR-CAS-049
+- TLC-UR-CAS-057
+- TLC-UR-CAS-062
+- TLC-UR-CAS-067
+- TLC-UR-CAS-068
+- TLC-UR-CAS-069
+- TLC-UR-CAS-082
+- TLC-UR-CAS-086
+- TLC-UR-CAS-087
+- TLC-UR-CAS-088
+- TLC-UR-CAS-089
+forbidden_behaviors:
+- Do not choose a Laplacian, norm, epsilon, infinity convention or denominator fallback.
+traceability:
+  source: maths/17-cascade-transmission/cascade-transmission-system.md
+  inventory: registry/domain-progress/cascade-transmission/feature-inventory.yaml

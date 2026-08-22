@@ -1,0 +1,18 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-049
+oracle_kind: source_conformance
+acceptance:
+- Preserve the p_i differential relation with provider-backed rates/interactions/environment/values terms.
+rejections:
+- Do not infer probability-simplex normalization, interaction matrix, solver or parameter values.
+dependency_guards:
+  confirmed: []
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 9
+  - 19
+  - 22
+  - 24
+  - 29
+  - 34

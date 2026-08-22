@@ -1,0 +1,18 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-051
+oracle_kind: source_conformance
+acceptance:
+- Preserve F approximately 1, F in (0.7,0.9), and F<0.5 with V>theta_V exactly as written.
+rejections:
+- Do not justify externally, fill gaps, alter open intervals or add equality rules.
+dependency_guards:
+  confirmed: []
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 9
+  - 19
+  - 22
+  - 24
+  - 29
+  - 34

@@ -1,0 +1,29 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-017
+status: finalized
+scientific_status: defined
+execution: structural_only
+source_ir: registry/ir/TLC-FC-17-CASCADE-TRANSMISSION-017/ir.yaml
+operation: handle_cascade_transmission_017
+required_behavior:
+- Preserve G_D=(V_D,E_D,w_D,phi_D) as the source doctrinal graph.
+forbidden_behavior:
+- Do not infer an algebraic representation from the graph tuple.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-CAS-006
+- TLC-UR-CAS-009
+- TLC-UR-CAS-018
+- TLC-UR-CAS-019
+- TLC-UR-CAS-026
+- TLC-UR-CAS-033
+- TLC-UR-CAS-035
+- TLC-UR-CAS-051
+- TLC-UR-CAS-072
+- TLC-UR-CAS-073
+- TLC-UR-CAS-084
+- TLC-UR-CAS-095
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

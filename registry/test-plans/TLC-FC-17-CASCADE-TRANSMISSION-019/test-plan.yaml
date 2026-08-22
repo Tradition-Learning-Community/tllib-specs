@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-019
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-019/contract.yaml
+tests:
+- id: CAS017019-T01
+  category: source_conformance
+  verifies: Preserve G_total=G_L union G_D union G_V while exposing vertex/edge compatibility as unresolved.
+- id: CAS017019-T02
+  category: non_invention
+  verifies: Do not coerce graph vertex spaces or invent a unified graph representation.
+- id: CAS017019-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

@@ -1,0 +1,61 @@
+contract_id: TLC-MC-TLC-FC-17-CASCADE-TRANSMISSION-054
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-054
+title: Diversity health-metric evaluator
+domain_id: cascade-transmission
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: conditionally_executable
+scientific_authority: maths/17-cascade-transmission/cascade-transmission-system.md
+source_sections:
+- §8
+objects:
+- TLC-SO-CAS-250
+- TLC-SO-CAS-251
+- TLC-SO-CAS-252
+- TLC-SO-CAS-253
+- TLC-SO-CAS-254
+- TLC-SO-CAS-255
+- TLC-SO-CAS-256
+relations:
+- TLC-SR-CAS-057
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Evaluate D_div exactly from supplied community, expectation, diversity/richness and coefficient providers.
+invariants:
+- Do not invent community detection, probability law or normalization.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds the relation, provider boundary, or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-CAS-005
+- TLC-UR-CAS-032
+- TLC-UR-CAS-033
+- TLC-UR-CAS-037
+- TLC-UR-CAS-041
+- TLC-UR-CAS-045
+- TLC-UR-CAS-057
+- TLC-UR-CAS-062
+- TLC-UR-CAS-082
+- TLC-UR-CAS-083
+- TLC-UR-CAS-084
+- TLC-UR-CAS-085
+- TLC-UR-CAS-086
+- TLC-UR-CAS-087
+- TLC-UR-CAS-088
+- TLC-UR-CAS-091
+- TLC-UR-CAS-097
+forbidden_behaviors:
+- Do not invent community detection, probability law or normalization.
+traceability:
+  source: maths/17-cascade-transmission/cascade-transmission-system.md
+  inventory: registry/domain-progress/cascade-transmission/feature-inventory.yaml

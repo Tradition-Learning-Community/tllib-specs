@@ -1,0 +1,31 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-044
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-17-CASCADE-TRANSMISSION-044/ir.yaml
+operation: handle_cascade_transmission_044
+required_behavior:
+- Preserve undefined L, norms, gradients and zero-denominator cases explicitly.
+forbidden_behavior:
+- Do not choose a Laplacian, norm, epsilon, infinity convention or denominator fallback.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-CAS-017
+- TLC-UR-CAS-020
+- TLC-UR-CAS-028
+- TLC-UR-CAS-049
+- TLC-UR-CAS-057
+- TLC-UR-CAS-062
+- TLC-UR-CAS-067
+- TLC-UR-CAS-068
+- TLC-UR-CAS-069
+- TLC-UR-CAS-082
+- TLC-UR-CAS-086
+- TLC-UR-CAS-087
+- TLC-UR-CAS-088
+- TLC-UR-CAS-089
+error_codes:
+- ScientificBoundaryUnresolved
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

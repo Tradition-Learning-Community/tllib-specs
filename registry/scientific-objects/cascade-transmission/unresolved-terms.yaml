@@ -1,0 +1,742 @@
+schema_version: 1
+domain: cascade-transmission
+domain_index: 17
+status: frozen
+authoritative_source: maths/17-cascade-transmission/cascade-transmission-system.md
+unresolved_count: 105
+items:
+- id: TLC-UR-CAS-001
+  concept: F symbol overload
+  gap: F denotes filiation, fusion and fidelity.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §1/§2.4/§4.2/§7/§9
+  execution_consequence: Keep distinct internal identities; preserve source symbol/context.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-002
+  concept: R symbol overload
+  gap: R denotes regulation system, dynamic aggregate and operator.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §1/§2.3/§4.4/§7
+  execution_consequence: Keep distinct internal identities.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-003
+  concept: P role ambiguity
+  gap: Preservation P and perturbation P in theorem are not explicitly identical.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.3/§6
+  execution_consequence: Do not merge the roles.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-004
+  concept: L role ambiguity
+  gap: Legitimacy L(C,t) and spectral L are not explicitly identical.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.5/§6
+  execution_consequence: Do not infer a Laplacian from legitimacy.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-005
+  concept: coefficient namespace reuse
+  gap: Coefficient symbols are reused across sections.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2-§8
+  execution_consequence: Namespace by source relation; do not share calibration.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-006
+  concept: G_D algebraic representation
+  gap: G_D is a graph but subtraction/products/actions are applied without representation.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.2/§7/§9
+  execution_consequence: No matrix, embedding or tensor may be invented.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-007
+  concept: G_D derivative
+  gap: No graph derivative structure is defined.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.2/§7
+  execution_consequence: Keep dG_D/dt structural.
+  scientific_status: preserved_unresolved
+  provider_requirement: graph differential provider
+- id: TLC-UR-CAS-008
+  concept: G_L derivative
+  gap: No graph derivative structure is defined.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §7
+  execution_consequence: Keep dG_L/dt structural.
+  scientific_status: preserved_unresolved
+  provider_requirement: graph differential provider
+- id: TLC-UR-CAS-009
+  concept: cross-graph subtraction G_L-G_D
+  gap: No common algebra for the two graphs is defined.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §7
+  execution_consequence: Do not invent graph subtraction.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-010
+  concept: FS tensor product typing
+  gap: Heterogeneous factors lack tensor types/dimensions/bases.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §3
+  execution_consequence: Preserve formal tensor product only.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-011
+  concept: g_FS tensor typing
+  gap: Metrics and differentials are direct-summed without compatible tensor types.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §3/§9
+  execution_consequence: Do not claim a numerical/Riemannian metric.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-012
+  concept: invariant-core authority relation 17 -> 04
+  gap: Domain 17 defines N_inv(t) locally but pi_N/core authority is not explicitly bound to domain 04.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §1/§2.1/§4.3/§5
+  execution_consequence: Keep 17->04 unresolved; do not redefine/equate authorities.
+  scientific_status: preserved_unresolved
+  provider_requirement: potential domain-04 authority
+- id: TLC-UR-CAS-013
+  concept: pi_N construction
+  gap: Projection rule/domain/codomain/geometry absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.1/§4.3/§5/§8
+  execution_consequence: Require explicit projection provider.
+  scientific_status: external_provider_required
+  provider_requirement: projection provider
+- id: TLC-UR-CAS-014
+  concept: d_D construction
+  gap: Doctrinal distance construction/range/units absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2-§8
+  execution_consequence: Require explicit distance provider.
+  scientific_status: external_provider_required
+  provider_requirement: distance provider
+- id: TLC-UR-CAS-015
+  concept: mu measurable structure
+  gap: Measure and measurable space absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.1
+  execution_consequence: Measure inequality is provider-backed only.
+  scientific_status: external_provider_required
+  provider_requirement: measure provider
+- id: TLC-UR-CAS-016
+  concept: N*(t) construction
+  gap: Existence asserted but selection/construction absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.1
+  execution_consequence: Do not construct N*(t) from the axiom.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-017
+  concept: epsilon parameters
+  gap: epsilon_0/lambda units/range/calibration absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.1
+  execution_consequence: No defaults/calibration.
+  scientific_status: external_provider_required
+  provider_requirement: parameter provider
+- id: TLC-UR-CAS-018
+  concept: guided adaptation environment-graph subtraction
+  gap: E_context-G_D is untyped.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.2
+  execution_consequence: No numerical subtraction.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-019
+  concept: guided adaptation graph product
+  gap: G_D×(...) product is undefined.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.2
+  execution_consequence: Do not choose matrix/tensor/cross product.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-020
+  concept: council gradient
+  gap: grad C lacks differentiable council representation.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.2/§4.4
+  execution_consequence: Require provider.
+  scientific_status: external_provider_required
+  provider_requirement: council gradient provider
+- id: TLC-UR-CAS-021
+  concept: values action on graphs
+  gap: V action on graph differences is undefined.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.2/§7
+  execution_consequence: Do not invent action/multiplication.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-022
+  concept: G_D,opt construction
+  gap: Optimal doctrinal graph named but not constructed.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.2/§7
+  execution_consequence: No optimization/reference graph invention.
+  scientific_status: external_provider_required
+  provider_requirement: optimal graph provider
+- id: TLC-UR-CAS-023
+  concept: regulation component compatibility
+  gap: R components summed without type/scale.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.3
+  execution_consequence: Aggregate is structural absent compatibility.
+  scientific_status: partially_defined
+  provider_requirement: null
+- id: TLC-UR-CAS-024
+  concept: regulation drift condition
+  gap: Threshold/calibration/state semantics missing.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.3
+  execution_consequence: No alert/correction protocol invention.
+  scientific_status: external_provider_required
+  provider_requirement: regulation threshold provider
+- id: TLC-UR-CAS-025
+  concept: R∘V composition
+  gap: Composition compatibility undefined.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.3
+  execution_consequence: Do not choose scoring/composition semantics.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-026
+  concept: fidelity-state algebra
+  gap: Dynamic F scalar/vector/tensor type absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.4/§7
+  execution_consequence: Do not infer algebra.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-027
+  concept: faithful creative references
+  gap: F_faithful/F_creative unconstructed.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.4
+  execution_consequence: Require provider.
+  scientific_status: external_provider_required
+  provider_requirement: fidelity reference provider
+- id: TLC-UR-CAS-028
+  concept: environment gradient
+  gap: grad E representation/differential structure absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.4/§4.3/§7
+  execution_consequence: Require provider.
+  scientific_status: external_provider_required
+  provider_requirement: environment gradient provider
+- id: TLC-UR-CAS-029
+  concept: values fidelity interaction
+  gap: V·F action untyped.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.4/§7
+  execution_consequence: Do not invent dot product.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-030
+  concept: legitimacy components
+  gap: L_hist/L_comp/L_recog/E semantics unconstructed.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.5
+  execution_consequence: Expression conditionally evaluable only with providers.
+  scientific_status: external_provider_required
+  provider_requirement: legitimacy provider
+- id: TLC-UR-CAS-031
+  concept: legitimacy calibration
+  gap: alpha/beta/L_min calibration absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.5
+  execution_consequence: No defaults.
+  scientific_status: external_provider_required
+  provider_requirement: legitimacy parameter provider
+- id: TLC-UR-CAS-032
+  concept: lineage weighting providers
+  gap: generation(e), phi, t_L semantics incomplete.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §3
+  execution_consequence: w_L conditionally evaluable only with providers.
+  scientific_status: external_provider_required
+  provider_requirement: lineage weight provider
+- id: TLC-UR-CAS-033
+  concept: doctrinal weighting providers
+  gap: phi_D/psi/d_D semantics incomplete.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §3
+  execution_consequence: w_D conditionally evaluable only with providers.
+  scientific_status: external_provider_required
+  provider_requirement: doctrinal weight provider
+- id: TLC-UR-CAS-034
+  concept: G_V construction
+  gap: Values graph is used but not defined.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §3
+  execution_consequence: Require values-graph provider.
+  scientific_status: external_provider_required
+  provider_requirement: values graph provider
+- id: TLC-UR-CAS-035
+  concept: graph union typing
+  gap: Graph vertex/edge spaces not stated compatible.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §3
+  execution_consequence: Do not coerce/relabel to force union.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-036
+  concept: distance comparability
+  gap: d_L,d_D,d_V comparability/units absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §3
+  execution_consequence: Do not evaluate min without explicit compatibility.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-037
+  concept: community detection
+  gap: No community algorithm prescribed.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §3/§8
+  execution_consequence: Do not invent clustering.
+  scientific_status: external_provider_required
+  provider_requirement: community provider
+- id: TLC-UR-CAS-038
+  concept: bridge thresholds
+  gap: High betweenness/trust thresholds absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §3
+  execution_consequence: Keep qualitative.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-039
+  concept: insulator thresholds
+  gap: Low/decreasing degree threshold/window absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §3
+  execution_consequence: Keep qualitative.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-040
+  concept: branching construction
+  gap: B has signature/conditions but no procedure.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.1
+  execution_consequence: Do not invent vertices/edges/state machine.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-041
+  concept: branching predicate providers
+  gap: theta_ram,t_mat,E_fav,value coherence unconstructed.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.1
+  execution_consequence: Admissibility provider-backed.
+  scientific_status: external_provider_required
+  provider_requirement: branching predicate provider
+- id: TLC-UR-CAS-042
+  concept: branching memory/stability geometry
+  gap: Memory/stable/frontier/contraction metric absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.1
+  execution_consequence: Keep qualitative; no algorithm.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-043
+  concept: fusion construction
+  gap: No community selection/merge/new-vertex/integration procedure.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.2
+  execution_consequence: Do not invent merge protocol.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-044
+  concept: fusion derivative typing
+  gap: Fusion dF/dt lacks state/differential type.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.2
+  execution_consequence: No ODE solver/integration.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-045
+  concept: fusion term providers
+  gap: min d_D, diameter, V(C1,C2), E_conv unconstructed.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.2
+  execution_consequence: Relation provider-backed only.
+  scientific_status: external_provider_required
+  provider_requirement: fusion term providers
+- id: TLC-UR-CAS-046
+  concept: fusion coefficients
+  gap: Fusion coefficients calibration absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.2
+  execution_consequence: No defaults.
+  scientific_status: external_provider_required
+  provider_requirement: fusion parameter provider
+- id: TLC-UR-CAS-047
+  concept: preservation coefficients
+  gap: alpha(t,E), beta(V), delta_max unconstructed.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.3
+  execution_consequence: Require providers.
+  scientific_status: external_provider_required
+  provider_requirement: preservation coefficient provider
+- id: TLC-UR-CAS-048
+  concept: distance-to-core semantics
+  gap: d_D(x,N) with set-like N lacks point-to-set convention.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.3/§5
+  execution_consequence: Do not invent infimum/average/max distance.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-049
+  concept: environment gradient action on doctrine
+  gap: grad E·x untyped.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.3
+  execution_consequence: Do not invent dot product/embedding.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-050
+  concept: regulation controller construction
+  gap: Signature/relation but no controller.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.4
+  execution_consequence: No feedback law/gain tuning/correction protocol.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-051
+  concept: regulation state algebra
+  gap: X_obs-X_des and products untyped.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.4
+  execution_consequence: No numeric controller evaluation without provider.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-052
+  concept: regulation delta outputs
+  gap: Delta graph/state outputs lack application semantics.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.4
+  execution_consequence: Do not invent mutation/update rules.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-053
+  concept: N_inv(t) set semantics
+  gap: Distance-to-set/value/tolerances incomplete.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §5
+  execution_consequence: Set is structural/provider-backed, not construction algorithm.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-054
+  concept: core thresholds
+  gap: epsilon_ess/theta_V calibration absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §5
+  execution_consequence: No defaults.
+  scientific_status: external_provider_required
+  provider_requirement: core threshold provider
+- id: TLC-UR-CAS-055
+  concept: delta_adapt
+  gap: Adaptation radius unconstructed.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §5
+  execution_consequence: No context/radius model invention.
+  scientific_status: external_provider_required
+  provider_requirement: adaptation threshold provider
+- id: TLC-UR-CAS-056
+  concept: dJ/dx identity and construction
+  gap: J and derivative structure undefined.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §5
+  execution_consequence: Keep source-local; do not bind to domain 29 or another J.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-057
+  concept: adaptation boundary gradient norm
+  gap: grad V/norm/eta_crit unconstructed.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §5
+  execution_consequence: Require providers; no tolerance invention.
+  scientific_status: external_provider_required
+  provider_requirement: gradient norm provider
+- id: TLC-UR-CAS-058
+  concept: elders council procedure
+  gap: Signature lacks vote/quorum/aggregation/confidence/recommendation procedure.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §5
+  execution_consequence: Expose signature only.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-059
+  concept: adaptive ritual procedure
+  gap: Signature lacks ritual/transformation/fidelity/impact procedure.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §5
+  execution_consequence: Expose signature only.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-060
+  concept: auto-surveillance procedure
+  gap: Signature lacks correction/alerts/innovation procedure.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §5
+  execution_consequence: Expose signature only.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-061
+  concept: conservation theorem hypotheses
+  gap: Operational/complete/representative/competent/legitimate/coherent criteria absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §6
+  execution_consequence: Claim descriptor only absent providers.
+  scientific_status: external_provider_required
+  provider_requirement: theorem hypothesis provider
+- id: TLC-UR-CAS-062
+  concept: conservation proof norm
+  gap: Set norm and differentiability hypotheses absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §9
+  execution_consequence: Do not complete proof externally.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-063
+  concept: J_opt vs J_local identity
+  gap: No statement equates optimum J with adaptation dJ/dx J.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §5/§6
+  execution_consequence: Keep distinct.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-064
+  concept: optimum objective components
+  gap: F_fid/A_adapt/C_crea/R_comp unconstructed.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §6
+  execution_consequence: Objective requires providers.
+  scientific_status: external_provider_required
+  provider_requirement: objective component provider
+- id: TLC-UR-CAS-065
+  concept: admissible set/topology
+  gap: Admissible set only assumed compact; topology/constraints absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §6
+  execution_consequence: Do not invent optimization domain/KKT.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-066
+  concept: optimizer/selection procedure
+  gap: Existence gives no solver/uniqueness/tolerance/search.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §6
+  execution_consequence: Do not invent optimizer.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-067
+  concept: resilience spectral object
+  gap: L/lambda_2(L) unconstructed.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §6
+  execution_consequence: Require provider; do not infer Laplacian identity.
+  scientific_status: external_provider_required
+  provider_requirement: spectral provider
+- id: TLC-UR-CAS-068
+  concept: resilience norms gradients
+  gap: Norms/gradients of V/E unconstructed.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §6
+  execution_consequence: Bound provider-backed only.
+  scientific_status: external_provider_required
+  provider_requirement: norm gradient provider
+- id: TLC-UR-CAS-069
+  concept: resilience zero denominators
+  gap: '||V||=0, ||E||=0, lambda_2(L)=0 cases undefined.'
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §6
+  execution_consequence: No epsilon/infinity/fallback/clamp.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-070
+  concept: recovery-time semantics
+  gap: Recovery event and tau_rec measurement undefined.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §6
+  execution_consequence: No recovery protocol invention.
+  scientific_status: external_provider_required
+  provider_requirement: recovery provider
+- id: TLC-UR-CAS-071
+  concept: coupled operator arity mismatch
+  gap: Full system uses B/F/R with fewer/different arguments than §4 signatures.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4/§7
+  execution_consequence: Preserve; do not invent implicit arguments/currying.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-072
+  concept: coupled graph dynamics typing
+  gap: Graph equations combine untyped operations.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §7
+  execution_consequence: Do not create simulator.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-073
+  concept: agent state vector algebra
+  gap: x differences/gradient actions require absent vector space.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §7
+  execution_consequence: Do not invent embeddings.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-074
+  concept: network topology weights
+  gap: N(v),w_uv and relation to graphs unspecified.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §7
+  execution_consequence: No adjacency/topology inference.
+  scientific_status: external_provider_required
+  provider_requirement: agent network provider
+- id: TLC-UR-CAS-075
+  concept: mentor mapping
+  gap: M(v) construction/missing case absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §7
+  execution_consequence: No mentor selection/fallback.
+  scientific_status: external_provider_required
+  provider_requirement: mentor provider
+- id: TLC-UR-CAS-076
+  concept: stochastic process semantics
+  gap: dW_v dimension/covariance/convention absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §7
+  execution_consequence: Do not invent stochastic law/integrator.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-077
+  concept: numerical integration
+  gap: No integrator/timestep/tolerance/seed/initial/boundary conditions.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §7
+  execution_consequence: System remains descriptor, not simulator.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-078
+  concept: population dynamics semantics
+  gap: p_i/r_i/a_ij/domain/normalization incomplete.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §7
+  execution_consequence: Do not infer simplex/matrix/parameters.
+  scientific_status: external_provider_required
+  provider_requirement: population provider
+- id: TLC-UR-CAS-079
+  concept: attractor classification gaps
+  gap: Only three partial F associations for five attractors.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §7
+  execution_consequence: Do not fill intervals/equality cases/other criteria.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-080
+  concept: attractor numeric justification
+  gap: Numeric bands not justified in chapter.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §7/§9
+  execution_consequence: Preserve exactly, no external justification.
+  scientific_status: partially_defined
+  provider_requirement: null
+- id: TLC-UR-CAS-081
+  concept: cohesion empty lineage set
+  gap: C_coh divides by |V_L|; empty case absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  execution_consequence: No fallback.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-082
+  concept: cohesion zero value norm
+  gap: C_coh divides by ||V(x_v)||; zero case absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  execution_consequence: No epsilon/clamp/fallback.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-083
+  concept: cohesion providers
+  gap: d_D/pi_N/grad V/norm/lambda semantics missing.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  execution_consequence: Metric conditionally evaluable only with providers.
+  scientific_status: external_provider_required
+  provider_requirement: cohesion providers
+- id: TLC-UR-CAS-084
+  concept: diversity empty doctrinal set
+  gap: D_div divides by |V_D|; empty case absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  execution_consequence: No fallback.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-085
+  concept: diversity communities expectation
+  gap: comm(G_D), probability law, V_div,E_rich unconstructed.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  execution_consequence: Require providers.
+  scientific_status: external_provider_required
+  provider_requirement: diversity providers
+- id: TLC-UR-CAS-086
+  concept: diversity log zero
+  gap: '|C|log|C| empty-community convention absent.'
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  execution_consequence: Do not invent 0log0.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-087
+  concept: resilience metric providers
+  gap: L_total/spectrum/degree/min convention unconstructed.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  execution_consequence: Require providers.
+  scientific_status: external_provider_required
+  provider_requirement: resilience metric providers
+- id: TLC-UR-CAS-088
+  concept: resilience metric normalization
+  gap: V_max/E_max zero/undefined cases absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  execution_consequence: No epsilon/fallback/clamp.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-089
+  concept: transmission efficiency horizon denominator
+  gap: T and weighted denominator conditions absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  execution_consequence: No empty/zero fallback.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-090
+  concept: transmission efficiency F identity
+  gap: F(v) not explicitly bound to fidelity/filiation F.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  execution_consequence: Preserve ambiguity.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-091
+  concept: transmission efficiency providers
+  gap: gen(v),V(x_v),E_qual,integral semantics incomplete.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  execution_consequence: Require providers.
+  scientific_status: external_provider_required
+  provider_requirement: transmission metric providers
+- id: TLC-UR-CAS-092
+  concept: vitality cardinality derivative
+  gap: d|V_L|/dt lacks event/rate convention.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  execution_consequence: No finite difference/continuous interpolation.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-093
+  concept: vitality innovation permanence
+  gap: nu_innov/pi_perm unconstructed; units may differ.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  execution_consequence: Require providers.
+  scientific_status: external_provider_required
+  provider_requirement: vitality providers
+- id: TLC-UR-CAS-094
+  concept: vitality V E derivatives
+  gap: dV/dt,dE/dt lack differential structures.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  execution_consequence: No numerical differentiation.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-095
+  concept: impact graph boundary
+  gap: partial G_total and intersection E_soc unconstructed/type compatibility absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  execution_consequence: Require providers.
+  scientific_status: external_provider_required
+  provider_requirement: impact boundary provider
+- id: TLC-UR-CAS-096
+  concept: impact empty boundary
+  gap: I_imp divides by boundary size; empty case absent.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  execution_consequence: No 0/0 fallback.
+  scientific_status: preserved_unresolved
+  provider_requirement: null
+- id: TLC-UR-CAS-097
+  concept: impact expectation contribution
+  gap: Expectation law/V_contrib/E_reconn unconstructed.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  execution_consequence: Require providers.
+  scientific_status: external_provider_required
+  provider_requirement: impact metric providers
+- id: TLC-UR-CAS-098
+  concept: shared-contract population
+  gap: No scientific need for ninth shared contract.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — pipeline
+  execution_consequence: Reuse exactly eight existing contracts.
+  scientific_status: defined
+  provider_requirement: null
+- id: TLC-UR-CAS-099
+  concept: runtime dependencies
+  gap: No source-backed runtime domain dependency.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — pipeline
+  execution_consequence: Keep runtime dependencies empty.
+  scientific_status: defined
+  provider_requirement: null
+- id: TLC-UR-CAS-100
+  concept: domain 34 wave proximity
+  gap: Same wave does not prove dependency.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — pipeline
+  execution_consequence: Do not create 17->34 edge.
+  scientific_status: defined
+  provider_requirement: null
+- id: TLC-UR-CAS-101
+  concept: domain 29 semantic proximity
+  gap: Lineage/generational/dJdx resemblance does not prove identity.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — pipeline
+  execution_consequence: Do not create 17->29 edge.
+  scientific_status: defined
+  provider_requirement: null
+- id: TLC-UR-CAS-102
+  concept: domain 24 contextual proximity
+  gap: Context resemblance does not prove ownership.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — pipeline
+  execution_consequence: Do not create 17->24 edge.
+  scientific_status: defined
+  provider_requirement: null
+- id: TLC-UR-CAS-103
+  concept: domain 19 regulation proximity
+  gap: R is locally defined; no authority handoff stated.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — pipeline
+  execution_consequence: Do not create 17->19 edge.
+  scientific_status: defined
+  provider_requirement: null
+- id: TLC-UR-CAS-104
+  concept: domain 09 values proximity
+  gap: V is local tuple component; no authority handoff stated.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — pipeline
+  execution_consequence: Do not create 17->09 edge.
+  scientific_status: defined
+  provider_requirement: null
+- id: TLC-UR-CAS-105
+  concept: domain 22 temporality proximity
+  gap: T is local tuple component; no authority handoff stated.
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — pipeline
+  execution_consequence: Do not create 17->22 edge.
+  scientific_status: defined
+  provider_requirement: null

@@ -1,0 +1,26 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-030
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-17-CASCADE-TRANSMISSION-030/ir.yaml
+operation: handle_cascade_transmission_030
+required_behavior:
+- Preserve the regulation differential relation as a structural/provider-backed constraint.
+forbidden_behavior:
+- Do not invent controller gains, feedback law, state algebra, solver or correction protocol.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-CAS-012
+- TLC-UR-CAS-023
+- TLC-UR-CAS-024
+- TLC-UR-CAS-026
+- TLC-UR-CAS-050
+- TLC-UR-CAS-051
+- TLC-UR-CAS-052
+- TLC-UR-CAS-073
+- TLC-UR-CAS-103
+error_codes:
+- ScientificBoundaryUnresolved
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

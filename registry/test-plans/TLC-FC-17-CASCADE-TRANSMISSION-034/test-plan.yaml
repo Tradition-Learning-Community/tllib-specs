@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-034
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-034/contract.yaml
+tests:
+- id: CAS017034-T01
+  category: source_conformance
+  verifies: Keep dJ/dx and its J source-local unresolved.
+- id: CAS017034-T02
+  category: non_invention
+  verifies: Do not bind it to domain 29 dJ/dx, domain 28/other J, differentiate an external objective, or create a 17->29
+    edge.
+- id: CAS017034-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

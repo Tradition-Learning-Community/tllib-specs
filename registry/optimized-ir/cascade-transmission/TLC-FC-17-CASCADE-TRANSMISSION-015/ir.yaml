@@ -1,0 +1,33 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-015
+status: finalized
+scientific_status: defined
+execution: structural_only
+source_ir: registry/ir/TLC-FC-17-CASCADE-TRANSMISSION-015/ir.yaml
+operation: handle_cascade_transmission_015
+required_behavior:
+- Preserve G_L=(V_L,E_L,w_L,t_L) and its source roles.
+forbidden_behavior:
+- Do not identify G_L with domain-29 G_t or invent direction/connectivity beyond source.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-CAS-003
+- TLC-UR-CAS-004
+- TLC-UR-CAS-009
+- TLC-UR-CAS-018
+- TLC-UR-CAS-019
+- TLC-UR-CAS-032
+- TLC-UR-CAS-035
+- TLC-UR-CAS-072
+- TLC-UR-CAS-081
+- TLC-UR-CAS-095
+- TLC-UR-CAS-100
+- TLC-UR-CAS-101
+- TLC-UR-CAS-102
+- TLC-UR-CAS-103
+- TLC-UR-CAS-104
+- TLC-UR-CAS-105
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

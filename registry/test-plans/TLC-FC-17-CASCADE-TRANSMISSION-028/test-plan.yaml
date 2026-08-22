@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-028
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-028/contract.yaml
+tests:
+- id: CAS017028-T01
+  category: source_conformance
+  verifies: Require explicit providers for pi_N, d_D, distance-to-core semantics and grad E dot x.
+- id: CAS017028-T02
+  category: non_invention
+  verifies: Do not bind pi_N to domain 04 as confirmed or invent geometric structure.
+- id: CAS017028-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

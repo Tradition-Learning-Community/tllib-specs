@@ -1,0 +1,29 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-003
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-17-CASCADE-TRANSMISSION-003/ir.yaml
+operation: handle_cascade_transmission_003
+required_behavior:
+- Keep regulation system, aggregate/dynamic R and regulation operator roles distinct.
+forbidden_behavior:
+- Do not identify R roles solely because the source symbol is reused.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-CAS-001
+- TLC-UR-CAS-002
+- TLC-UR-CAS-003
+- TLC-UR-CAS-004
+- TLC-UR-CAS-005
+- TLC-UR-CAS-023
+- TLC-UR-CAS-024
+- TLC-UR-CAS-050
+- TLC-UR-CAS-051
+- TLC-UR-CAS-052
+- TLC-UR-CAS-071
+- TLC-UR-CAS-103
+error_codes:
+- ScientificBoundaryUnresolved
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

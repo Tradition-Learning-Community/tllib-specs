@@ -1,0 +1,19 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-053
+oracle_kind: source_conformance
+acceptance:
+- Preserve unresolved cases such as empty V_L or zero values norm rather than choosing fallbacks.
+rejections:
+- Do not add epsilon denominators, empty-set conventions or default cohesion.
+dependency_guards:
+  confirmed: []
+  unresolved:
+  - 4
+  runtime: []
+  forbidden:
+  - 9
+  - 19
+  - 22
+  - 24
+  - 29
+  - 34

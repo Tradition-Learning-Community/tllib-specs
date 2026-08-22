@@ -1,0 +1,53 @@
+contract_id: TLC-MC-TLC-FC-17-CASCADE-TRANSMISSION-008
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-008
+title: Distributed collective-regulation decomposition descriptor
+domain_id: cascade-transmission
+contract_kind: source_backed_descriptor_contract
+scientific_status: partially_defined
+execution_status: structural_only
+scientific_authority: maths/17-cascade-transmission/cascade-transmission-system.md
+source_sections:
+- §2.3
+objects:
+- TLC-SO-CAS-048
+- TLC-SO-CAS-043
+- TLC-SO-CAS-044
+- TLC-SO-CAS-045
+- TLC-SO-CAS-046
+- TLC-SO-CAS-047
+relations:
+- TLC-SR-CAS-008
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve R(t)=R_self+R_peers+R_elders+R_comm+R_env as a source decomposition.
+invariants:
+- Do not infer scales, weights or aggregation calibration beyond the displayed sum.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryPartial
+  when: The request exceeds the relation, provider boundary, or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-CAS-023
+- TLC-UR-CAS-024
+- TLC-UR-CAS-025
+- TLC-UR-CAS-031
+- TLC-UR-CAS-050
+- TLC-UR-CAS-051
+- TLC-UR-CAS-052
+- TLC-UR-CAS-058
+- TLC-UR-CAS-074
+- TLC-UR-CAS-103
+forbidden_behaviors:
+- Do not infer scales, weights or aggregation calibration beyond the displayed sum.
+traceability:
+  source: maths/17-cascade-transmission/cascade-transmission-system.md
+  inventory: registry/domain-progress/cascade-transmission/feature-inventory.yaml

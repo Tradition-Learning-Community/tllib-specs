@@ -1,0 +1,18 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-048
+oracle_kind: source_conformance
+acceptance:
+- Keep dW_v and differential equations structural absent a prescribed numerical method.
+rejections:
+- Do not invent Euler/RK/SDE integrator, timestep, covariance, seed, initial/boundary conditions or tolerances.
+dependency_guards:
+  confirmed: []
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 9
+  - 19
+  - 22
+  - 24
+  - 29
+  - 34

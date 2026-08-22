@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-051
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-051/contract.yaml
+tests:
+- id: CAS017051-T01
+  category: source_conformance
+  verifies: Preserve F approximately 1, F in (0.7,0.9), and F<0.5 with V>theta_V exactly as written.
+- id: CAS017051-T02
+  category: non_invention
+  verifies: Do not justify externally, fill gaps, alter open intervals or add equality rules.
+- id: CAS017051-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

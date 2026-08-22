@@ -1,0 +1,19 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-028
+oracle_kind: source_conformance
+acceptance:
+- Require explicit providers for pi_N, d_D, distance-to-core semantics and grad E dot x.
+rejections:
+- Do not bind pi_N to domain 04 as confirmed or invent geometric structure.
+dependency_guards:
+  confirmed: []
+  unresolved:
+  - 4
+  runtime: []
+  forbidden:
+  - 9
+  - 19
+  - 22
+  - 24
+  - 29
+  - 34

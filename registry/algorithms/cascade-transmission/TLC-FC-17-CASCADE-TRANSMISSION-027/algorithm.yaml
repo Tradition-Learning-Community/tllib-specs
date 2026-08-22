@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-027
+algorithm_kind: source_bounded_evaluator
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Evaluate the displayed preservation expression only when pi_N,d_D,alpha,beta,delta_max and gradient-action semantics are
+  supplied.
+provider_requirements: []
+unresolved_domain_relations:
+- 4
+forbidden:
+- Do not invent projection, point-to-set distance, gradient action, coefficients or fallback behavior.
+prescription_basis: []

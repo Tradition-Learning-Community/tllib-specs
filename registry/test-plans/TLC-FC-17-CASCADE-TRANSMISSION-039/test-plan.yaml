@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-039
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-039/contract.yaml
+tests:
+- id: CAS017039-T01
+  category: source_conformance
+  verifies: Preserve the theorem hypotheses and conclusion as a source-backed claim.
+- id: CAS017039-T02
+  category: non_invention
+  verifies: Do not present an executable proof/checker without operational hypothesis providers.
+- id: CAS017039-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

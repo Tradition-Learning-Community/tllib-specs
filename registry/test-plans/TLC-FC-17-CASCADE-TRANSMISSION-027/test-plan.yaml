@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-027
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-027/contract.yaml
+tests:
+- id: CAS017027-T01
+  category: source_conformance
+  verifies: Evaluate the displayed preservation expression only when pi_N,d_D,alpha,beta,delta_max and gradient-action semantics
+    are supplied.
+- id: CAS017027-T02
+  category: non_invention
+  verifies: Do not invent projection, point-to-set distance, gradient action, coefficients or fallback behavior.
+- id: CAS017027-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.
