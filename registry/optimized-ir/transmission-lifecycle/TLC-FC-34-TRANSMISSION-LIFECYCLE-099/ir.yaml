@@ -1,0 +1,22 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-099
+status: finalized
+scientific_status: external_provider_required
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-099/ir.yaml
+operation: handle_transmission_lifecycle_099
+required_behavior:
+- Evaluate Delta_M only with an explicitly supplied counterfactual X_without and nonzero observed-state norm.
+forbidden_behavior:
+- Do not estimate the counterfactual from the observed trajectory or define the zero-norm case.
+provider_requirements:
+- 'Explicit source-compatible provider for: Master-dependency index evaluator'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- TLC-UR-TRL-087
+error_codes:
+- ProviderRequired
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.

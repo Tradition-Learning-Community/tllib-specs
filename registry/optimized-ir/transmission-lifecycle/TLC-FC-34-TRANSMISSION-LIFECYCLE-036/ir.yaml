@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-036
+status: finalized
+scientific_status: partially_defined
+execution: structural_only
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-036/ir.yaml
+operation: handle_transmission_lifecycle_036
+required_behavior:
+- Record that the ceremony inserts the disciple into G_t while Domain 29 defines G_t vertices as recognized transmitters.
+forbidden_behavior:
+- Do not resolve the timing or role mismatch by changing either source or inventing an intermediate graph.
+provider_requirements: []
+scientific_domain_dependencies:
+- 29
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- TLC-UR-TRL-019
+- TLC-UR-TRL-031
+error_codes:
+- ScientificBoundaryPartial
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.

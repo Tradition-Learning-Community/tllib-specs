@@ -1,0 +1,47 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-074
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-074
+title: Moral-gradient and cross-space provider guard
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/incorporation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §2
+objects:
+- TLC-SO-TRL-290
+- TLC-SO-TRL-291
+- TLC-SO-TRL-292
+relations:
+- TLC-SR-TRL-123
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- 'Explicit source-compatible provider for: Moral-gradient and cross-space provider guard'
+preconditions: []
+postconditions:
+- Require explicit semantics for Val dot grad E_moral and competence-virtue couplings.
+invariants:
+- Do not invent vector spaces, inner products, gradients or unit conversions.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-067
+forbidden_behaviors:
+- Do not invent vector spaces, inner products, gradients or unit conversions.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/incorporation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

@@ -1,0 +1,45 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-095
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-095
+title: Evaluator-weight zero-denominator guard
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/validation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §3/§5
+objects:
+- TLC-SO-TRL-340
+- TLC-SO-TRL-343
+- TLC-SO-TRL-357
+relations:
+- TLC-SR-TRL-158
+- TLC-SR-TRL-159
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve the undefined zero-denominator case in the evaluator-weight formula.
+invariants:
+- Do not add uniform weights, epsilons, dropping rules or fallback priorities.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryUnresolved
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-084
+forbidden_behaviors:
+- Do not add uniform weights, epsilons, dropping rules or fallback priorities.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/validation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

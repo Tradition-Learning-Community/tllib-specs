@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-006
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-34-TRANSMISSION-LIFECYCLE-006/contract.yaml
+source_candidate_ir: ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-006/ir.candidate.json
+nature: guard
+steps:
+- Scope thresholds and reused coefficients to their source relation unless the sources explicitly identify them.
+errors:
+- ScientificBoundaryUnresolved
+unresolved_items:
+- TLC-UR-TRL-005

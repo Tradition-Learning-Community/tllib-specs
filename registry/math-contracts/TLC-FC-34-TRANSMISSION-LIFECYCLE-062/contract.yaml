@@ -1,0 +1,49 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-062
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-062
+title: Coupled trajectory-feedback dynamics descriptor
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/guidance-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §3
+objects:
+- TLC-SO-TRL-231
+- TLC-SO-TRL-253
+- TLC-SO-TRL-258
+- TLC-SO-TRL-259
+relations:
+- TLC-SR-TRL-111
+- TLC-SR-TRL-112
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- 'Explicit source-compatible provider for: Coupled trajectory-feedback dynamics descriptor'
+preconditions: []
+postconditions:
+- Preserve the coupled dX/dt=T(X,F[I_ext]) and dF/dt=G(X,F,I_ext) relations.
+invariants:
+- Do not supply T, G, initial conditions, numerical coupling or stability assumptions.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-055
+forbidden_behaviors:
+- Do not supply T, G, initial conditions, numerical coupling or stability assumptions.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/guidance-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

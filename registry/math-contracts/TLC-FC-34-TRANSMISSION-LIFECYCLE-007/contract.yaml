@@ -1,0 +1,61 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-007
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-007
+title: Partial finite-automaton descriptor
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: partially_defined
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/operational-pipeline.md
+additional_scientific_authorities: []
+source_sections:
+- §6
+objects:
+- TLC-SO-TRL-027
+- TLC-SO-TRL-092
+- TLC-SO-TRL-093
+- TLC-SO-TRL-094
+- TLC-SO-TRL-095
+- TLC-SO-TRL-096
+- TLC-SO-TRL-097
+- TLC-SO-TRL-098
+- TLC-SO-TRL-099
+- TLC-SO-TRL-100
+- TLC-SO-TRL-101
+- TLC-SO-TRL-102
+- TLC-SO-TRL-103
+- TLC-SO-TRL-104
+- TLC-SO-TRL-105
+- TLC-SO-TRL-106
+relations:
+- TLC-SR-TRL-037
+- TLC-SR-TRL-038
+- TLC-SR-TRL-039
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve A=(S,Sigma,delta,s0,SF), its enumerated states and the explicit failure return transition.
+invariants:
+- Do not claim that Sigma or delta is complete.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryPartial
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-006
+forbidden_behaviors:
+- Do not claim that Sigma or delta is complete.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/operational-pipeline.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-068
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-34-TRANSMISSION-LIFECYCLE-068/contract.yaml
+source_candidate_ir: ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-068/ir.candidate.json
+nature: formula_evaluator
+steps:
+- Evaluate P_t=lambda(t)P_M+(1-lambda(t))P_aut only with compatible practice representations and supplied lambda.
+errors:
+- ScientificBoundaryPartial
+unresolved_items:
+- TLC-UR-TRL-061

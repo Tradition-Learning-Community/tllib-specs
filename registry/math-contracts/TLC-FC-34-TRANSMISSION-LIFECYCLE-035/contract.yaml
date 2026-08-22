@@ -1,0 +1,49 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-035
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-035
+title: Initial teaching, practice, evaluation and ceremony process descriptor
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: partially_defined
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/initiation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §4/§5
+objects:
+- TLC-SO-TRL-155
+- TLC-SO-TRL-156
+- TLC-SO-TRL-157
+- TLC-SO-TRL-158
+relations:
+- TLC-SR-TRL-066
+- TLC-SR-TRL-067
+- TLC-SR-TRL-068
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Expose the source-named initial operations while preserving the vector evaluation and unspecified practice-response details.
+invariants:
+- Do not construct the logistic response, evaluation target space, aggregation or ceremony protocol.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryPartial
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-030
+forbidden_behaviors:
+- Do not construct the logistic response, evaluation target space, aggregation or ceremony protocol.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/initiation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

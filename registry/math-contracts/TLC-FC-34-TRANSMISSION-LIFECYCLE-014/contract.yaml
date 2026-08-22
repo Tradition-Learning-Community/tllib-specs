@@ -1,0 +1,49 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-014
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-014
+title: Active-learning phase, noise and correction provider boundary
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/operational-pipeline.md
+additional_scientific_authorities: []
+source_sections:
+- §3/§7
+objects:
+- TLC-SO-TRL-043
+- TLC-SO-TRL-046
+- TLC-SO-TRL-047
+- TLC-SO-TRL-050
+- TLC-SO-TRL-051
+relations:
+- TLC-SR-TRL-023
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- 'Explicit source-compatible provider for: Active-learning phase, noise and correction provider boundary'
+preconditions: []
+postconditions:
+- Expose F_phase(X,M,C,t)+noise-and-correction as an incomplete source relation requiring providers.
+invariants:
+- Do not construct the phase function, stochastic law or correction term from the narrative label.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-011
+forbidden_behaviors:
+- Do not construct the phase function, stochastic law or correction term from the narrative label.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/operational-pipeline.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

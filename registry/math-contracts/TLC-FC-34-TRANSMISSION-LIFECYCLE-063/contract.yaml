@@ -1,0 +1,47 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-063
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-063
+title: Discrete feedback-loop process descriptor
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: partially_defined
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/guidance-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §3
+objects:
+- TLC-SO-TRL-260
+- TLC-SO-TRL-261
+- TLC-SO-TRL-262
+- TLC-SO-TRL-263
+relations:
+- TLC-SR-TRL-113
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Expose the source order state -> practice -> feedback -> transformation -> next state.
+invariants:
+- Do not invent transition functions, data structures, stopping rules or iteration limits.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryPartial
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-056
+forbidden_behaviors:
+- Do not invent transition functions, data structures, stopping rules or iteration limits.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/guidance-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

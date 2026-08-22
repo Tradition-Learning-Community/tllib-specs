@@ -1,0 +1,50 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-042
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-042
+title: Resonance-band intensity evaluator and projection guard
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: conditionally_executable
+scientific_authority: maths/34-transmission-lifecycle/impregnation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §3
+objects:
+- TLC-SO-TRL-177
+- TLC-SO-TRL-182
+- TLC-SO-TRL-183
+- TLC-SO-TRL-184
+- TLC-SO-TRL-185
+relations:
+- TLC-SR-TRL-080
+- TLC-SR-TRL-081
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- 'Explicit source-compatible provider for: Resonance-band intensity evaluator and projection guard'
+preconditions: []
+postconditions:
+- Evaluate I_k only with a supplied band, projection, observation representation and compatible inner product.
+invariants:
+- Do not invent band bases, dimensions, the all-ones vector type or projection construction.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-037
+forbidden_behaviors:
+- Do not invent band bases, dimensions, the all-ones vector type or projection construction.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/impregnation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

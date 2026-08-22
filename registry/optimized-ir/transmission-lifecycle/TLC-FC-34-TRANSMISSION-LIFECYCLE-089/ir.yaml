@@ -1,0 +1,21 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-089
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-089/ir.yaml
+operation: handle_transmission_lifecycle_089
+required_behavior:
+- Keep both threshold 3 and threshold 2 as competing source end conditions.
+forbidden_behavior:
+- Do not select one, average them, renumber them or infer precedence.
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- TLC-UR-TRL-079
+error_codes:
+- ScientificBoundaryUnresolved
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.

@@ -1,0 +1,47 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-066
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-066
+title: D-by-C versus X,c typing guard
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/guidance-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §1/§5
+objects:
+- TLC-SO-TRL-225
+- TLC-SO-TRL-226
+- TLC-SO-TRL-231
+- TLC-SO-TRL-232
+relations:
+- TLC-SR-TRL-097
+- TLC-SR-TRL-098
+- TLC-SR-TRL-100
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve the unbound change from Phi_theta:D x C -> D to equations using X and c.
+invariants:
+- Do not identify D with X or C with c without an explicit mapping.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryUnresolved
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-059
+forbidden_behaviors:
+- Do not identify D with X or C with c without an explicit mapping.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/guidance-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

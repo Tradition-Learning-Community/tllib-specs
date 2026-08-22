@@ -1,0 +1,48 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-068
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-068
+title: Guidance-withdrawal practice-blend evaluator
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: partially_defined
+execution_status: conditionally_executable
+scientific_authority: maths/34-transmission-lifecycle/incorporation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §1
+objects:
+- TLC-SO-TRL-269
+- TLC-SO-TRL-270
+- TLC-SO-TRL-271
+- TLC-SO-TRL-272
+relations:
+- TLC-SR-TRL-118
+- TLC-SR-TRL-119
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Evaluate P_t=lambda(t)P_M+(1-lambda(t))P_aut only with compatible practice representations and supplied lambda.
+invariants:
+- Do not assume convexity, clamp lambda or choose its terminal value.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryPartial
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-061
+forbidden_behaviors:
+- Do not assume convexity, clamp lambda or choose its terminal value.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/incorporation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

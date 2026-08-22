@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-062
+algorithm_kind: structural_descriptor
+strategy: partially_constrained
+execution: structural_only
+steps:
+- Preserve the coupled dX/dt=T(X,F[I_ext]) and dF/dt=G(X,F,I_ext) relations.
+provider_requirements:
+- 'Explicit source-compatible provider for: Coupled trajectory-feedback dynamics descriptor'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not supply T, G, initial conditions, numerical coupling or stability assumptions.
+prescription_basis: []

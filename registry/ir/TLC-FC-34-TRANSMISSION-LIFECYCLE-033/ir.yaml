@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-033
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-34-TRANSMISSION-LIFECYCLE-033/contract.yaml
+source_candidate_ir: ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-033/ir.candidate.json
+nature: guard
+steps:
+- Evaluate ||O_M-O_D||<epsilon only after a common space, norm and epsilon are supplied.
+errors:
+- ScientificBoundaryPartial
+unresolved_items:
+- TLC-UR-TRL-029

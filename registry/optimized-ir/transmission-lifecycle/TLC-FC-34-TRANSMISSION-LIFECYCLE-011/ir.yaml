@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-011
+status: finalized
+scientific_status: external_provider_required
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-011/ir.yaml
+operation: handle_transmission_lifecycle_011
+required_behavior:
+- Evaluate the weighted selection expression only from explicitly supplied compatible capacity, receptivity, motivation and
+  initial-value operands.
+forbidden_behavior:
+- Do not normalize, rescale, clamp or supply missing component functions or weights.
+provider_requirements:
+- 'Explicit source-compatible provider for: Admission selection-score evaluator'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- TLC-UR-TRL-008
+error_codes:
+- ProviderRequired
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.

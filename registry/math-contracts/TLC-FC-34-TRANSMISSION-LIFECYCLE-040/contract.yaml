@@ -1,0 +1,49 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-040
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-040
+title: Exposure-modalities and observation-trace descriptor
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: partially_defined
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/impregnation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §2
+objects:
+- TLC-SO-TRL-161
+- TLC-SO-TRL-174
+- TLC-SO-TRL-175
+- TLC-SO-TRL-176
+- TLC-SO-TRL-177
+relations:
+- TLC-SR-TRL-075
+- TLC-SR-TRL-076
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve the weighted indicator combination and T_obs(t)=integral O_obs(M,C_P,tau)d tau.
+invariants:
+- Do not invent modality weights, indicator generators, integration method or observation codomain.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryPartial
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-035
+forbidden_behaviors:
+- Do not invent modality weights, indicator generators, integration method or observation codomain.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/impregnation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

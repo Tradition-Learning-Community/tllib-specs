@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-026
+algorithm_kind: scientific_guard
+strategy: open
+execution: structural_only
+steps:
+- Preserve motivation as a [0,1]^3 vector where the source later expects a scalar term.
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not choose a sum, mean, norm, component, projection or learned aggregation.
+prescription_basis: []

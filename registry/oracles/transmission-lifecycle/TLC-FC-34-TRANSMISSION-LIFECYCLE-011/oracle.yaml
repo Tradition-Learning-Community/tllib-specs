@@ -1,0 +1,20 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-011
+oracle_kind: source_conformance
+acceptance:
+- Evaluate the weighted selection expression only from explicitly supplied compatible capacity, receptivity, motivation and
+  initial-value operands.
+rejections:
+- Do not normalize, rescale, clamp or supply missing component functions or weights.
+dependency_guards:
+  confirmed: []
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 17
+  - 19
+  - 22
+  - 23
+  - 24
+  - 26
+  - 35

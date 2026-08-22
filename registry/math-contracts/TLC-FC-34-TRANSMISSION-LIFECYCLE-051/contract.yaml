@@ -1,0 +1,47 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-051
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-051
+title: Impregnation exit predicate
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: partially_defined
+execution_status: conditionally_executable
+scientific_authority: maths/34-transmission-lifecycle/impregnation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §4
+objects:
+- TLC-SO-TRL-049
+- TLC-SO-TRL-186
+- TLC-SO-TRL-220
+- TLC-SO-TRL-221
+relations:
+- TLC-SR-TRL-095
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Evaluate exit only from C(T_imp)>=C_seuil and all source bands satisfying w_k(T_imp)>=w_k_min.
+invariants:
+- Do not weaken the universal quantifier, choose thresholds or infer missing bands.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryPartial
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-046
+forbidden_behaviors:
+- Do not weaken the universal quantifier, choose thresholds or infer missing bands.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/impregnation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

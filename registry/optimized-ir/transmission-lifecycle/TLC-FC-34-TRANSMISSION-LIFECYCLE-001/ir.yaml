@@ -1,0 +1,21 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-001
+status: finalized
+scientific_status: defined
+execution: structural_only
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-001/ir.yaml
+operation: handle_transmission_lifecycle_001
+required_behavior:
+- Expose the eight-document Domain 34 authority and the seven named lifecycle phases without collapsing them into a single
+  executable machine.
+forbidden_behavior:
+- Do not replace the eight source documents with an inferred canonical phase model.
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items: []
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.

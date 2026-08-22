@@ -1,0 +1,49 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-043
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-043
+title: Resonance-weight dynamic relation descriptor
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: partially_defined
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/impregnation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §3
+objects:
+- TLC-SO-TRL-185
+- TLC-SO-TRL-186
+- TLC-SO-TRL-187
+- TLC-SO-TRL-188
+- TLC-SO-TRL-189
+- TLC-SO-TRL-190
+relations:
+- TLC-SR-TRL-082
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve dw_k/dt=alpha_k I_k(1-w_k)-beta_k w_k+gamma_k xi_k(t).
+invariants:
+- Do not choose a noise law, solver, coefficient calibration or boundary behavior for w_k.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryPartial
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-038
+forbidden_behaviors:
+- Do not choose a noise law, solver, coefficient calibration or boundary behavior for w_k.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/impregnation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

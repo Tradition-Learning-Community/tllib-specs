@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-009
+status: finalized
+scientific_status: defined
+execution: structural_only
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-009/ir.yaml
+operation: handle_transmission_lifecycle_009
+required_behavior:
+- Publish only source-backed dependencies, keep runtime dependencies empty and retain exactly the existing eight shared contracts.
+forbidden_behavior:
+- Do not infer a Domain 34 to Domain 17 edge from wave membership or create a ninth shared contract.
+provider_requirements: []
+scientific_domain_dependencies:
+- 21
+- 29
+unresolved_domain_relations:
+- 4
+runtime_domain_dependencies: []
+unresolved_items: []
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.

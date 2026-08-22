@@ -1,0 +1,19 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-052
+oracle_kind: source_conformance
+acceptance:
+- Preserve selective activation and the universal all-band exit condition without reconciliation.
+rejections:
+- Do not reinterpret selective resonance as universal activation or alter the exit quantifier.
+dependency_guards:
+  confirmed: []
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 17
+  - 19
+  - 22
+  - 23
+  - 24
+  - 26
+  - 35

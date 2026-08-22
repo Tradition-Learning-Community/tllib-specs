@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-014
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-34-TRANSMISSION-LIFECYCLE-014/contract.yaml
+source_candidate_ir: ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-014/ir.candidate.json
+nature: dependency_boundary
+steps:
+- Expose F_phase(X,M,C,t)+noise-and-correction as an incomplete source relation requiring providers.
+errors:
+- ProviderRequired
+unresolved_items:
+- TLC-UR-TRL-011

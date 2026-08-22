@@ -1,0 +1,21 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-068
+status: finalized
+scientific_status: partially_defined
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-068/ir.yaml
+operation: handle_transmission_lifecycle_068
+required_behavior:
+- Evaluate P_t=lambda(t)P_M+(1-lambda(t))P_aut only with compatible practice representations and supplied lambda.
+forbidden_behavior:
+- Do not assume convexity, clamp lambda or choose its terminal value.
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- TLC-UR-TRL-061
+error_codes:
+- ScientificBoundaryPartial
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.

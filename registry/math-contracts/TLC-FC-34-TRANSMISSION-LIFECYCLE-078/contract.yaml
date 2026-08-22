@@ -1,0 +1,44 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-078
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-078
+title: Maieutic identity-gradient guard
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/incorporation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §3/§5
+objects:
+- TLC-SO-TRL-305
+- TLC-SO-TRL-306
+relations:
+- TLC-SR-TRL-131
+- TLC-SR-TRL-132
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve the maieutic identity action while recording that its gradient sign is not tied to an oriented cost.
+invariants:
+- Do not select ascent/descent, invent a cost or numerically integrate identity evolution.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryUnresolved
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-070
+forbidden_behaviors:
+- Do not select ascent/descent, invent a cost or numerically integrate identity evolution.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/incorporation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

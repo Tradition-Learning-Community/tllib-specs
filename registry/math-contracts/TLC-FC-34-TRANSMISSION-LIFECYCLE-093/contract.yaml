@@ -1,0 +1,52 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-093
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-093
+title: Validation-activation and non-binary convocation guard
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/validation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §2/§5
+objects:
+- TLC-SO-TRL-339
+- TLC-SO-TRL-340
+- TLC-SO-TRL-346
+- TLC-SO-TRL-347
+- TLC-SO-TRL-348
+- TLC-SO-TRL-349
+- TLC-SO-TRL-350
+- TLC-SO-TRL-351
+- TLC-SO-TRL-352
+- TLC-SO-TRL-353
+relations:
+- TLC-SR-TRL-156
+- TLC-SR-TRL-157
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve the product called 1_valid and the unconstrained c_conv factor.
+invariants:
+- Do not coerce c_conv to Boolean, clamp the product or change its factors.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryUnresolved
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-082
+forbidden_behaviors:
+- Do not coerce c_conv to Boolean, clamp the product or change its factors.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/validation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

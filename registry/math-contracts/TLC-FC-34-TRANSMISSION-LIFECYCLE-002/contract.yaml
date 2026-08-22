@@ -1,0 +1,64 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-002
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-002
+title: Four-stage versus seven-phase non-bijection guard
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/operational-pipeline.md
+additional_scientific_authorities:
+- maths/34-transmission-lifecycle/initiation-phase.md
+- maths/34-transmission-lifecycle/impregnation-phase.md
+- maths/34-transmission-lifecycle/guidance-phase.md
+- maths/34-transmission-lifecycle/incorporation-phase.md
+- maths/34-transmission-lifecycle/integration-phase.md
+- maths/34-transmission-lifecycle/validation-phase.md
+- maths/34-transmission-lifecycle/empowerment-phase.md
+source_sections:
+- op §1/§7
+- cross-source
+objects:
+- TLC-SO-TRL-003
+- TLC-SO-TRL-004
+- TLC-SO-TRL-005
+- TLC-SO-TRL-006
+- TLC-SO-TRL-007
+- TLC-SO-TRL-008
+relations:
+- TLC-SR-TRL-003
+- TLC-SR-TRL-004
+- TLC-SR-TRL-042
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve the four operational macro-stages and seven specialized phases as distinct, only partially related decompositions.
+invariants:
+- Do not invent a one-to-one or total mapping between admission/imprégnation-apprentissage/épreuve/sortie and the seven phases.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryUnresolved
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-001
+forbidden_behaviors:
+- Do not invent a one-to-one or total mapping between admission/imprégnation-apprentissage/épreuve/sortie and the seven phases.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/operational-pipeline.md
+  - maths/34-transmission-lifecycle/initiation-phase.md
+  - maths/34-transmission-lifecycle/impregnation-phase.md
+  - maths/34-transmission-lifecycle/guidance-phase.md
+  - maths/34-transmission-lifecycle/incorporation-phase.md
+  - maths/34-transmission-lifecycle/integration-phase.md
+  - maths/34-transmission-lifecycle/validation-phase.md
+  - maths/34-transmission-lifecycle/empowerment-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

@@ -1,0 +1,48 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-032
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-032
+title: Pedagogical-contract sextuple descriptor
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: defined
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/initiation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §4
+objects:
+- TLC-SO-TRL-144
+- TLC-SO-TRL-145
+- TLC-SO-TRL-146
+- TLC-SO-TRL-147
+- TLC-SO-TRL-148
+- TLC-SO-TRL-149
+- TLC-SO-TRL-150
+relations:
+- TLC-SR-TRL-062
+- TLC-SR-TRL-063
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve K=(O_M,O_D,M,R,S,P) with source-local meanings for objectives, means, rules, sanctions and promises.
+invariants:
+- Do not bind the local M, R, S or P roles to homonymous objects in other documents.
+constraints: []
+structured_errors:
+- code: SourceBoundaryExceeded
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items: []
+forbidden_behaviors:
+- Do not bind the local M, R, S or P roles to homonymous objects in other documents.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/initiation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

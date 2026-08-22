@@ -1,0 +1,47 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-026
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-026
+title: Motivation-vector scalarization guard
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/initiation-phase.md
+additional_scientific_authorities:
+- maths/34-transmission-lifecycle/operational-pipeline.md
+source_sections:
+- init §1/§5; op §2
+objects:
+- TLC-SO-TRL-040
+- TLC-SO-TRL-115
+relations:
+- TLC-SR-TRL-048
+- TLC-SR-TRL-052
+- TLC-SR-TRL-053
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve motivation as a [0,1]^3 vector where the source later expects a scalar term.
+invariants:
+- Do not choose a sum, mean, norm, component, projection or learned aggregation.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryUnresolved
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-023
+forbidden_behaviors:
+- Do not choose a sum, mean, norm, component, projection or learned aggregation.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/initiation-phase.md
+  - maths/34-transmission-lifecycle/operational-pipeline.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

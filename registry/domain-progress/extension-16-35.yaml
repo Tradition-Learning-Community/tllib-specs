@@ -230,6 +230,24 @@ dependency_graph:
       status: confirmed
       evidence: maths/32-drift-and-correction/stability-drift-and-correction.md
       rationale: Drift diagnostics explicitly defer the fundamental invariant definition to domain 04.
+    - id: scientific-34-04
+      from_domain: 34
+      to_domain: 4
+      status: unresolved
+      evidence: maths/34-transmission-lifecycle/empowerment-phase.md
+      rationale: Empowerment uses pi_N and invariant-core notions without explicitly binding repository authority to Domain 04; ownership remains unresolved.
+    - id: scientific-34-21
+      from_domain: 34
+      to_domain: 21
+      status: confirmed
+      evidence: maths/34-transmission-lifecycle/validation-phase.md
+      rationale: Validation Phase explicitly delegates fairness corrections to Domain 21 without importing unrelated fairness machinery.
+    - id: scientific-34-29
+      from_domain: 34
+      to_domain: 29
+      status: confirmed
+      evidence: maths/34-transmission-lifecycle/empowerment-phase.md
+      rationale: Empowerment explicitly states that its output joins Domain 29 generational propagation and the G_t authority.
     - id: scientific-35-04
       from_domain: 35
       to_domain: 4
@@ -633,10 +651,18 @@ domains:
       - maths/34-transmission-lifecycle/empowerment-phase.md
     wave: wave-4
     analysis_companions: []
-    feature_count: null
-    handoff_publication: false
-    dependencies: {confirmed: [], provisional: [], unknown: true}
-    pipeline: *unstarted_pipeline
+    feature_count: 109
+    handoff_publication: true
+    dependencies: {confirmed: [21, 29], provisional: [], unknown: false}
+    pipeline:
+      scientific_source: complete
+      functional_decomposition: complete
+      registries: complete
+      ir: complete
+      contracts: complete
+      algorithms: complete_or_not_applicable
+      oracles: complete
+      handoff_packages: complete
 
   - index: 35
     slug: fidelity-to-invariant-core

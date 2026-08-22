@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-091
+algorithm_kind: provider_backed_evaluator
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Evaluate M(a,t) only from a supplied nonempty evaluator set, weights, evaluations, recognition and lambda.
+provider_requirements:
+- 'Explicit source-compatible provider for: Validation-matrix evaluator'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not invent activation order, evaluator selection, weight semantics or an empty-set result.
+prescription_basis: []

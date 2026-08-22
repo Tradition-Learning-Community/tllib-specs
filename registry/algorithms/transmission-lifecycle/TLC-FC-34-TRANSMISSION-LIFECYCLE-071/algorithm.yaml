@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-071
+algorithm_kind: scientific_guard
+strategy: open
+execution: structural_only
+steps:
+- Preserve all zero-denominator cases and the fact that larger master-distance increases the first autonomy factor.
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not add epsilons, fallback values, clamps or reverse the factor.
+prescription_basis: []

@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-103
+algorithm_kind: provider_backed_evaluator
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Evaluate I_crea only from supplied nonzero norms, K, pi_N and compatible projection-distance operations.
+provider_requirements:
+- 'Explicit source-compatible provider for: Creative-autonomy index evaluator'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not construct providers, normalize factors or alter the source multiplication.
+prescription_basis: []

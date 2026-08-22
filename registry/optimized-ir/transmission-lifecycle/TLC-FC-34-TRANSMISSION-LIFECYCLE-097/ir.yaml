@@ -1,0 +1,21 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-097
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-097/ir.yaml
+operation: handle_transmission_lifecycle_097
+required_behavior:
+- Preserve ritual jumps and dL/dt while recording absent ranges, event semantics and local stability proof.
+forbidden_behavior:
+- Do not clamp M or L, invent jump sizes, construct E(t) or claim stability.
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- TLC-UR-TRL-085
+error_codes:
+- ScientificBoundaryUnresolved
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.

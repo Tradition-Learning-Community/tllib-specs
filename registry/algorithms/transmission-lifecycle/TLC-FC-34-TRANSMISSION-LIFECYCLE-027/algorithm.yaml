@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-027
+algorithm_kind: provider_backed_evaluator
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Evaluate value compatibility and trait affinity only with supplied projections, vectors, norms and a nonzero-domain convention.
+provider_requirements:
+- 'Explicit source-compatible provider for: Projected cosine affinity evaluator and zero-vector guard'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not add an epsilon, default similarity or projection rule for zero vectors.
+prescription_basis: []

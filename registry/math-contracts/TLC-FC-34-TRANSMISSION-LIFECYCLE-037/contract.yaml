@@ -1,0 +1,52 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-037
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-037
+title: Immersion operator descriptor
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/impregnation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §1
+objects:
+- TLC-SO-TRL-160
+- TLC-SO-TRL-161
+- TLC-SO-TRL-162
+- TLC-SO-TRL-163
+- TLC-SO-TRL-164
+- TLC-SO-TRL-165
+- TLC-SO-TRL-166
+relations:
+- TLC-SR-TRL-070
+- TLC-SR-TRL-071
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- 'Explicit source-compatible provider for: Immersion operator descriptor'
+preconditions: []
+postconditions:
+- Preserve I_imm(D,C_P,t)=D+sum integral kappa_c Phi_c and require explicit memory-kernel and contextual-influence providers.
+invariants:
+- Do not discretize the integral or construct kappa_c, Phi_c or the community representation.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-032
+forbidden_behaviors:
+- Do not discretize the integral or construct kappa_c, Phi_c or the community representation.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/impregnation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

@@ -1,0 +1,140 @@
+schema_version: 1
+domain: transmission-lifecycle
+domain_index: 34
+status: frozen
+baseline_commit: 913d3747f3fc740eddfac57dcc64811408039370
+scientific_sources:
+- path: maths/34-transmission-lifecycle/operational-pipeline.md
+  blob_sha: 6cc51d8fe5225e998cc0ec2a714d0067f39c4f28
+  title: Operational pipeline
+  modified: false
+- path: maths/34-transmission-lifecycle/initiation-phase.md
+  blob_sha: 64014520f4c4655c8e22a1975be46081dfefb537
+  title: Initiation phase
+  modified: false
+- path: maths/34-transmission-lifecycle/impregnation-phase.md
+  blob_sha: 75c7162e48e82a28b536cdb90c23b4e4a407b5f7
+  title: Impregnation phase
+  modified: false
+- path: maths/34-transmission-lifecycle/guidance-phase.md
+  blob_sha: 666ce0b9c67dce64c849cdd2dfaca12147bb9bc0
+  title: Guidance phase
+  modified: false
+- path: maths/34-transmission-lifecycle/incorporation-phase.md
+  blob_sha: 4f495b1e73edd4f2783cea314c0b4127e8a1c5a2
+  title: Incorporation phase
+  modified: false
+- path: maths/34-transmission-lifecycle/integration-phase.md
+  blob_sha: 0db2aed5d6dae06d78c654a2005328d9a0aaa98c
+  title: Integration phase
+  modified: false
+- path: maths/34-transmission-lifecycle/validation-phase.md
+  blob_sha: c42c8b3ac2351a4d55b92097117c5133d6ed74a2
+  title: Validation phase
+  modified: false
+- path: maths/34-transmission-lifecycle/empowerment-phase.md
+  blob_sha: 8cc63a085e2242ddc9748975bd10f7807bd85827
+  title: Empowerment phase
+  modified: false
+scientific_readme:
+  path: maths/34-transmission-lifecycle/README.md
+  blob_sha: 50027ac03722fbc59bf212bacde662ad6a9976a7
+  modified: false
+provider_sources:
+- domain: invariants
+  domain_index: 4
+  path: maths/04-invariants/invariants.md
+  blob_sha: 5bddc38b4a74465c2bc3b1d2e9f8aac004e86800
+  relation: 34 -> 04
+  status: unresolved
+  semantics: pi_N / invariant-core projection authority
+- domain: fairness
+  domain_index: 21
+  path: maths/21-fairness/fairness.md
+  blob_sha: bbe983d3f74063072c97059e8ff7346b28d28158
+  relation: 34 -> 21
+  status: confirmed
+  semantics: fairness corrections explicitly referenced by Validation Phase
+- domain: generational-propagation
+  domain_index: 29
+  path: maths/29-generational-propagation/generational-propagation.md
+  blob_sha: 19f894e70b5e6898cc0db2fbd8b402e7d843393f
+  relation: 34 -> 29
+  status: confirmed
+  semantics: G_t and generational-propagation handoff explicitly referenced by Empowerment Phase
+analysis_companions: []
+dependency_matrix:
+- from_domain: 34
+  to_domain: 21
+  concept: fairness corrections for collective validation
+  evidence: maths/34-transmission-lifecycle/validation-phase.md section 3 explicitly links corrections to Domain 21
+  status: confirmed
+  rationale: The source delegates fairness-correction authority; only that scientific authority is reused.
+- from_domain: 34
+  to_domain: 29
+  concept: generational-propagation handoff and G_t authority
+  evidence: maths/34-transmission-lifecycle/empowerment-phase.md section 4 explicitly states that output joins Domain 29 propagation
+  status: confirmed
+  rationale: The source explicitly delegates the post-empowerment propagation destination; no runtime dependency is implied.
+- from_domain: 34
+  to_domain: 4
+  concept: pi_N and invariant-core projection authority
+  evidence: maths/34-transmission-lifecycle/empowerment-phase.md section 3 uses pi_N without binding repository ownership
+  status: unresolved
+  rationale: Projection/core semantics are not constructed locally, but the source does not explicitly identify Domain 04.
+- from_domain: 34
+  to_domain: 17
+  concept: cascade transmission thematic proximity and common wave
+  evidence: No Domain 34 source explicitly reuses a Domain 17 authority
+  status: non-proven
+  rationale: Common wave membership and thematic proximity are insufficient.
+- from_domain: 34
+  to_domain: 19
+  concept: homonymous or thematically adjacent notation
+  evidence: No explicit source-level authority binding found in the eight Domain 34 documents
+  status: non-proven
+  rationale: Same symbol or nearby topic does not prove scientific ownership reuse.
+- from_domain: 34
+  to_domain: 22
+  concept: homonymous or thematically adjacent notation
+  evidence: No explicit source-level authority binding found in the eight Domain 34 documents
+  status: non-proven
+  rationale: Same symbol or nearby topic does not prove scientific ownership reuse.
+- from_domain: 34
+  to_domain: 23
+  concept: homonymous or thematically adjacent notation
+  evidence: No explicit source-level authority binding found in the eight Domain 34 documents
+  status: non-proven
+  rationale: Same symbol or nearby topic does not prove scientific ownership reuse.
+- from_domain: 34
+  to_domain: 24
+  concept: homonymous or thematically adjacent notation
+  evidence: No explicit source-level authority binding found in the eight Domain 34 documents
+  status: non-proven
+  rationale: Same symbol or nearby topic does not prove scientific ownership reuse.
+- from_domain: 34
+  to_domain: 26
+  concept: homonymous or thematically adjacent notation
+  evidence: No explicit source-level authority binding found in the eight Domain 34 documents
+  status: non-proven
+  rationale: Same symbol or nearby topic does not prove scientific ownership reuse.
+- from_domain: 34
+  to_domain: 35
+  concept: homonymous or thematically adjacent notation
+  evidence: No explicit source-level authority binding found in the eight Domain 34 documents
+  status: non-proven
+  rationale: Same symbol or nearby topic does not prove scientific ownership reuse.
+provider_boundary:
+  domain_21_fairness_correction_selected: true
+  domain_29_generational_handoff_selected: true
+  domain_04_projection_binding_selected: false
+  domain_17_wave_edge_selected: false
+  runtime_dependencies: []
+  new_shared_contract: false
+counts:
+  scientific_objects: 412
+  scientific_relations: 189
+  unresolved_items: 96
+  symbol_collisions: 16
+  phase_transitions: 13
+  features: 109

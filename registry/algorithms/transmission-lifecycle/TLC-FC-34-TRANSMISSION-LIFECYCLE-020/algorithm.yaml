@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-020
+algorithm_kind: scientific_guard
+strategy: open
+execution: structural_only
+steps:
+- Preserve the undefined cases for rec and division by community cardinality.
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not add zero, NaN, epsilon or fallback behavior for an empty community.
+prescription_basis: []

@@ -1,0 +1,58 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-036
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-036
+title: Initiation insertion into G_t semantic boundary
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: partially_defined
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/initiation-phase.md
+additional_scientific_authorities:
+- maths/34-transmission-lifecycle/empowerment-phase.md
+source_sections:
+- init §4; emp §4
+objects:
+- TLC-SO-TRL-088
+- TLC-SO-TRL-158
+- TLC-SO-TRL-159
+- TLC-SO-TRL-398
+- TLC-SO-TRL-399
+- TLC-SO-TRL-400
+- TLC-SO-TRL-401
+relations:
+- TLC-SR-TRL-012
+- TLC-SR-TRL-034
+- TLC-SR-TRL-069
+- TLC-SR-TRL-182
+- TLC-SR-TRL-183
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Record that the ceremony inserts the disciple into G_t while Domain 29 defines G_t vertices as recognized transmitters.
+invariants:
+- Do not resolve the timing or role mismatch by changing either source or inventing an intermediate graph.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryPartial
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific:
+  - 29
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-019
+- TLC-UR-TRL-031
+forbidden_behaviors:
+- Do not resolve the timing or role mismatch by changing either source or inventing an intermediate graph.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/initiation-phase.md
+  - maths/34-transmission-lifecycle/empowerment-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

@@ -1,0 +1,19 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-071
+oracle_kind: source_conformance
+acceptance:
+- Preserve all zero-denominator cases and the fact that larger master-distance increases the first autonomy factor.
+rejections:
+- Do not add epsilons, fallback values, clamps or reverse the factor.
+dependency_guards:
+  confirmed: []
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 17
+  - 19
+  - 22
+  - 23
+  - 24
+  - 26
+  - 35

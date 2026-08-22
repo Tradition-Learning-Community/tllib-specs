@@ -1,0 +1,69 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-001
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-001
+title: Transmission-lifecycle source-set and seven-phase architecture descriptor
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: defined
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/operational-pipeline.md
+additional_scientific_authorities:
+- maths/34-transmission-lifecycle/initiation-phase.md
+- maths/34-transmission-lifecycle/impregnation-phase.md
+- maths/34-transmission-lifecycle/guidance-phase.md
+- maths/34-transmission-lifecycle/incorporation-phase.md
+- maths/34-transmission-lifecycle/integration-phase.md
+- maths/34-transmission-lifecycle/validation-phase.md
+- maths/34-transmission-lifecycle/empowerment-phase.md
+source_sections:
+- README
+- cross-source
+objects:
+- TLC-SO-TRL-001
+- TLC-SO-TRL-002
+- TLC-SO-TRL-004
+- TLC-SO-TRL-009
+- TLC-SO-TRL-010
+- TLC-SO-TRL-011
+- TLC-SO-TRL-012
+- TLC-SO-TRL-013
+- TLC-SO-TRL-014
+- TLC-SO-TRL-015
+- TLC-SO-TRL-026
+relations:
+- TLC-SR-TRL-001
+- TLC-SR-TRL-002
+- TLC-SR-TRL-017
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Expose the eight-document Domain 34 authority and the seven named lifecycle phases without collapsing them into a single
+  executable machine.
+invariants:
+- Do not replace the eight source documents with an inferred canonical phase model.
+constraints: []
+structured_errors:
+- code: SourceBoundaryExceeded
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items: []
+forbidden_behaviors:
+- Do not replace the eight source documents with an inferred canonical phase model.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/operational-pipeline.md
+  - maths/34-transmission-lifecycle/initiation-phase.md
+  - maths/34-transmission-lifecycle/impregnation-phase.md
+  - maths/34-transmission-lifecycle/guidance-phase.md
+  - maths/34-transmission-lifecycle/incorporation-phase.md
+  - maths/34-transmission-lifecycle/integration-phase.md
+  - maths/34-transmission-lifecycle/validation-phase.md
+  - maths/34-transmission-lifecycle/empowerment-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

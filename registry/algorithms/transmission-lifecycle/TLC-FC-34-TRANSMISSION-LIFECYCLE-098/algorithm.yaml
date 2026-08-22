@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-098
+algorithm_kind: scientific_guard
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Evaluate final validation only from the simultaneous source thresholds for M and L.
+provider_requirements:
+- 'Explicit source-compatible provider for: Final collective-validation predicate'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not choose threshold values, combine them into one score or infer missing range semantics.
+prescription_basis: []

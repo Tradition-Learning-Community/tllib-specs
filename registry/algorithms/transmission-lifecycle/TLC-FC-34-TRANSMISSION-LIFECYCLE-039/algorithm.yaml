@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-039
+algorithm_kind: provider_backed_evaluator
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Evaluate delta_auth=max_d min_s d_CP(d,s) only with supplied domains, distance and threshold semantics.
+provider_requirements:
+- 'Explicit source-compatible provider for: Environmental-authenticity metric evaluator and provider guard'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not invent the sets, units, extrema conventions or decreasing-test tolerance.
+prescription_basis: []

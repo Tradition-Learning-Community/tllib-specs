@@ -1,0 +1,21 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-033
+status: finalized
+scientific_status: partially_defined
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-033/ir.yaml
+operation: handle_transmission_lifecycle_033
+required_behavior:
+- Evaluate ||O_M-O_D||<epsilon only after a common space, norm and epsilon are supplied.
+forbidden_behavior:
+- Do not invent the objective representation, norm, units or tolerance.
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- TLC-UR-TRL-029
+error_codes:
+- ScientificBoundaryPartial
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.

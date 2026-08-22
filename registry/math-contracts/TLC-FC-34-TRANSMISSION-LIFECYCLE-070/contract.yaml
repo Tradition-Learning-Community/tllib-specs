@@ -1,0 +1,52 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-070
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-070
+title: Incorporation autonomy-index evaluator
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: partially_defined
+execution_status: conditionally_executable
+scientific_authority: maths/34-transmission-lifecycle/incorporation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §1
+objects:
+- TLC-SO-TRL-273
+- TLC-SO-TRL-274
+- TLC-SO-TRL-275
+- TLC-SO-TRL-276
+- TLC-SO-TRL-277
+- TLC-SO-TRL-278
+- TLC-SO-TRL-279
+- TLC-SO-TRL-280
+- TLC-SO-TRL-281
+relations:
+- TLC-SR-TRL-120
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Evaluate A(t) only with nonzero supplied denominators, a supplied norm and source indicator semantics.
+invariants:
+- Do not invert the distance factor, normalize it or fill undefined denominators.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryPartial
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-063
+forbidden_behaviors:
+- Do not invert the distance factor, normalize it or fill undefined denominators.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/incorporation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

@@ -1,0 +1,54 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-056
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-056
+title: Stochastic contextual-parameter adaptation descriptor
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/guidance-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §1
+objects:
+- TLC-SO-TRL-224
+- TLC-SO-TRL-227
+- TLC-SO-TRL-230
+- TLC-SO-TRL-231
+- TLC-SO-TRL-232
+- TLC-SO-TRL-233
+- TLC-SO-TRL-234
+- TLC-SO-TRL-235
+- TLC-SO-TRL-236
+- TLC-SO-TRL-237
+relations:
+- TLC-SR-TRL-099
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- 'Explicit source-compatible provider for: Stochastic contextual-parameter adaptation descriptor'
+preconditions: []
+postconditions:
+- Preserve dtheta/dt=-eta grad_theta L+sigma xi as a structural relation.
+invariants:
+- Do not choose an SDE/ODE interpretation, noise law, seed, integrator, timestep or initial theta.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-050
+forbidden_behaviors:
+- Do not choose an SDE/ODE interpretation, noise law, seed, integrator, timestep or initial theta.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/guidance-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

@@ -1,0 +1,20 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-022
+oracle_kind: source_conformance
+acceptance:
+- Preserve R_init(D,C,t)=(M_relais,S_trans,A_trans) and the stated join to G_t.
+rejections:
+- Do not invent graph insertion, authority issuance or status-transition procedures.
+dependency_guards:
+  confirmed:
+  - 29
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 17
+  - 19
+  - 22
+  - 23
+  - 24
+  - 26
+  - 35

@@ -1,0 +1,21 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-102
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-102/ir.yaml
+operation: handle_transmission_lifecycle_102
+required_behavior:
+- Preserve K(X,C)=X+epsilon v(X,C) as an output state while recording the narrative description of an innovation delta X.
+forbidden_behavior:
+- Do not identify K with delta X, subtract X implicitly or invent v.
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- TLC-UR-TRL-090
+error_codes:
+- ScientificBoundaryUnresolved
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.

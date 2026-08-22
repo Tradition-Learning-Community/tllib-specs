@@ -1,0 +1,3248 @@
+schema_version: 1
+domain: transmission-lifecycle
+domain_index: 34
+status: frozen
+authoritative_sources:
+- maths/34-transmission-lifecycle/operational-pipeline.md
+- maths/34-transmission-lifecycle/initiation-phase.md
+- maths/34-transmission-lifecycle/impregnation-phase.md
+- maths/34-transmission-lifecycle/guidance-phase.md
+- maths/34-transmission-lifecycle/incorporation-phase.md
+- maths/34-transmission-lifecycle/integration-phase.md
+- maths/34-transmission-lifecycle/validation-phase.md
+- maths/34-transmission-lifecycle/empowerment-phase.md
+scientific_relation_count: 189
+relations:
+- expression: S_34 = {operational pipeline, initiation, impregnation, guidance, incorporation, integration, validation, empowerment}
+  nature: definition
+  source_basis: Domain 34 authority
+  document: cross-source
+  section: Domain 34 authority
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-001
+  objects:
+  - TLC-SO-TRL-001
+  - TLC-SO-TRL-002
+  - TLC-SO-TRL-004
+  - TLC-SO-TRL-009
+  - TLC-SO-TRL-010
+  - TLC-SO-TRL-011
+  - TLC-SO-TRL-012
+  - TLC-SO-TRL-013
+  - TLC-SO-TRL-014
+  - TLC-SO-TRL-015
+  - TLC-SO-TRL-026
+- expression: P_7 = (initiation, impregnation, guidance, incorporation, integration, validation, empowerment)
+  nature: ordered phase declaration
+  source_basis: README
+  document: cross-source
+  section: README
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-002
+  objects:
+  - TLC-SO-TRL-001
+  - TLC-SO-TRL-002
+  - TLC-SO-TRL-004
+  - TLC-SO-TRL-009
+  - TLC-SO-TRL-010
+  - TLC-SO-TRL-011
+  - TLC-SO-TRL-012
+  - TLC-SO-TRL-013
+  - TLC-SO-TRL-014
+  - TLC-SO-TRL-015
+  - TLC-SO-TRL-016
+  - TLC-SO-TRL-026
+- expression: P_4 and P_7 are both source declarations
+  nature: cross-source relation
+  source_basis: operational versus specialized decomposition
+  document: cross-source
+  section: operational versus specialized decomposition
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-003
+  objects:
+  - TLC-SO-TRL-003
+  - TLC-SO-TRL-004
+  - TLC-SO-TRL-005
+  - TLC-SO-TRL-006
+  - TLC-SO-TRL-007
+  - TLC-SO-TRL-008
+- expression: No complete bijection P_4 <-> P_7 is supplied
+  nature: unresolved mapping
+  source_basis: operational versus specialized decomposition
+  document: cross-source
+  section: operational versus specialized decomposition
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-004
+  objects:
+  - TLC-SO-TRL-003
+  - TLC-SO-TRL-004
+  - TLC-SO-TRL-005
+  - TLC-SO-TRL-006
+  - TLC-SO-TRL-007
+  - TLC-SO-TRL-008
+- expression: same source symbol does not imply same scientific object
+  nature: identity guard
+  source_basis: symbol identity
+  document: cross-source
+  section: symbol identity
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-005
+  objects:
+  - TLC-SO-TRL-017
+  - TLC-SO-TRL-039
+  - TLC-SO-TRL-046
+  - TLC-SO-TRL-047
+  - TLC-SO-TRL-050
+  - TLC-SO-TRL-054
+  - TLC-SO-TRL-057
+  - TLC-SO-TRL-061
+  - TLC-SO-TRL-063
+  - TLC-SO-TRL-067
+  - TLC-SO-TRL-073
+  - TLC-SO-TRL-084
+  - TLC-SO-TRL-085
+  - TLC-SO-TRL-093
+  - TLC-SO-TRL-107
+  - TLC-SO-TRL-108
+  - TLC-SO-TRL-121
+  - TLC-SO-TRL-126
+  - TLC-SO-TRL-134
+  - TLC-SO-TRL-135
+  - TLC-SO-TRL-138
+  - TLC-SO-TRL-144
+  - TLC-SO-TRL-147
+  - TLC-SO-TRL-148
+  - TLC-SO-TRL-149
+  - TLC-SO-TRL-150
+  - TLC-SO-TRL-154
+  - TLC-SO-TRL-163
+  - TLC-SO-TRL-186
+  - TLC-SO-TRL-195
+  - TLC-SO-TRL-200
+  - TLC-SO-TRL-203
+  - TLC-SO-TRL-208
+  - TLC-SO-TRL-223
+  - TLC-SO-TRL-230
+  - TLC-SO-TRL-236
+  - TLC-SO-TRL-245
+  - TLC-SO-TRL-246
+  - TLC-SO-TRL-247
+  - TLC-SO-TRL-248
+  - TLC-SO-TRL-255
+  - TLC-SO-TRL-256
+  - TLC-SO-TRL-264
+  - TLC-SO-TRL-269
+  - TLC-SO-TRL-271
+  - TLC-SO-TRL-273
+  - TLC-SO-TRL-274
+  - TLC-SO-TRL-301
+  - TLC-SO-TRL-309
+  - TLC-SO-TRL-320
+  - TLC-SO-TRL-326
+  - TLC-SO-TRL-336
+  - TLC-SO-TRL-337
+  - TLC-SO-TRL-338
+  - TLC-SO-TRL-340
+  - TLC-SO-TRL-352
+  - TLC-SO-TRL-365
+  - TLC-SO-TRL-366
+  - TLC-SO-TRL-381
+  - TLC-SO-TRL-382
+  - TLC-SO-TRL-387
+  - TLC-SO-TRL-388
+- expression: X_4 = (C,V,Val,P)
+  nature: definition
+  source_basis: state family
+  document: cross-source
+  section: state family
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-006
+  objects:
+  - TLC-SO-TRL-018
+  - TLC-SO-TRL-019
+  - TLC-SO-TRL-043
+  - TLC-SO-TRL-090
+  - TLC-SO-TRL-231
+  - TLC-SO-TRL-295
+  - TLC-SO-TRL-319
+  - TLC-SO-TRL-370
+- expression: X_5 = (C,V,Val,P,I)
+  nature: definition
+  source_basis: state family
+  document: cross-source
+  section: state family
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-007
+  objects:
+  - TLC-SO-TRL-018
+  - TLC-SO-TRL-019
+  - TLC-SO-TRL-020
+  - TLC-SO-TRL-043
+  - TLC-SO-TRL-090
+  - TLC-SO-TRL-231
+  - TLC-SO-TRL-295
+  - TLC-SO-TRL-306
+  - TLC-SO-TRL-319
+  - TLC-SO-TRL-370
+- expression: map_X4_X5 is not constructed
+  nature: unresolved mapping
+  source_basis: state family
+  document: cross-source
+  section: state family
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-008
+  objects:
+  - TLC-SO-TRL-019
+  - TLC-SO-TRL-020
+  - TLC-SO-TRL-295
+  - TLC-SO-TRL-306
+  - TLC-SO-TRL-319
+- expression: same-numbered thresholds remain source-local unless explicitly identified
+  nature: identity guard
+  source_basis: threshold namespace
+  document: cross-source
+  section: threshold namespace
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-009
+  objects:
+  - TLC-SO-TRL-021
+  - TLC-SO-TRL-022
+  - TLC-SO-TRL-037
+  - TLC-SO-TRL-042
+  - TLC-SO-TRL-044
+  - TLC-SO-TRL-053
+  - TLC-SO-TRL-059
+  - TLC-SO-TRL-060
+  - TLC-SO-TRL-065
+  - TLC-SO-TRL-070
+  - TLC-SO-TRL-074
+  - TLC-SO-TRL-082
+  - TLC-SO-TRL-083
+  - TLC-SO-TRL-109
+  - TLC-SO-TRL-110
+  - TLC-SO-TRL-111
+  - TLC-SO-TRL-113
+  - TLC-SO-TRL-120
+  - TLC-SO-TRL-122
+  - TLC-SO-TRL-124
+  - TLC-SO-TRL-125
+  - TLC-SO-TRL-129
+  - TLC-SO-TRL-142
+  - TLC-SO-TRL-143
+  - TLC-SO-TRL-165
+  - TLC-SO-TRL-173
+  - TLC-SO-TRL-187
+  - TLC-SO-TRL-188
+  - TLC-SO-TRL-189
+  - TLC-SO-TRL-191
+  - TLC-SO-TRL-197
+  - TLC-SO-TRL-198
+  - TLC-SO-TRL-199
+  - TLC-SO-TRL-204
+  - TLC-SO-TRL-210
+  - TLC-SO-TRL-213
+  - TLC-SO-TRL-215
+  - TLC-SO-TRL-220
+  - TLC-SO-TRL-221
+  - TLC-SO-TRL-242
+  - TLC-SO-TRL-268
+  - TLC-SO-TRL-281
+  - TLC-SO-TRL-285
+  - TLC-SO-TRL-288
+  - TLC-SO-TRL-290
+  - TLC-SO-TRL-293
+  - TLC-SO-TRL-300
+  - TLC-SO-TRL-307
+  - TLC-SO-TRL-321
+  - TLC-SO-TRL-322
+  - TLC-SO-TRL-330
+  - TLC-SO-TRL-331
+  - TLC-SO-TRL-345
+  - TLC-SO-TRL-349
+  - TLC-SO-TRL-351
+  - TLC-SO-TRL-353
+  - TLC-SO-TRL-362
+  - TLC-SO-TRL-363
+  - TLC-SO-TRL-364
+  - TLC-SO-TRL-367
+  - TLC-SO-TRL-368
+  - TLC-SO-TRL-373
+  - TLC-SO-TRL-378
+  - TLC-SO-TRL-383
+  - TLC-SO-TRL-395
+- expression: reused alpha, beta, gamma, lambda and sigma remain relation-local
+  nature: identity guard
+  source_basis: coefficient namespace
+  document: cross-source
+  section: coefficient namespace
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-010
+  objects:
+  - TLC-SO-TRL-021
+  - TLC-SO-TRL-022
+  - TLC-SO-TRL-037
+  - TLC-SO-TRL-042
+  - TLC-SO-TRL-044
+  - TLC-SO-TRL-053
+  - TLC-SO-TRL-059
+  - TLC-SO-TRL-060
+  - TLC-SO-TRL-065
+  - TLC-SO-TRL-070
+  - TLC-SO-TRL-074
+  - TLC-SO-TRL-082
+  - TLC-SO-TRL-083
+  - TLC-SO-TRL-109
+  - TLC-SO-TRL-110
+  - TLC-SO-TRL-111
+  - TLC-SO-TRL-113
+  - TLC-SO-TRL-120
+  - TLC-SO-TRL-122
+  - TLC-SO-TRL-124
+  - TLC-SO-TRL-125
+  - TLC-SO-TRL-129
+  - TLC-SO-TRL-142
+  - TLC-SO-TRL-143
+  - TLC-SO-TRL-165
+  - TLC-SO-TRL-173
+  - TLC-SO-TRL-187
+  - TLC-SO-TRL-188
+  - TLC-SO-TRL-189
+  - TLC-SO-TRL-191
+  - TLC-SO-TRL-197
+  - TLC-SO-TRL-198
+  - TLC-SO-TRL-199
+  - TLC-SO-TRL-204
+  - TLC-SO-TRL-210
+  - TLC-SO-TRL-213
+  - TLC-SO-TRL-215
+  - TLC-SO-TRL-220
+  - TLC-SO-TRL-221
+  - TLC-SO-TRL-242
+  - TLC-SO-TRL-268
+  - TLC-SO-TRL-281
+  - TLC-SO-TRL-285
+  - TLC-SO-TRL-288
+  - TLC-SO-TRL-290
+  - TLC-SO-TRL-293
+  - TLC-SO-TRL-300
+  - TLC-SO-TRL-307
+  - TLC-SO-TRL-321
+  - TLC-SO-TRL-322
+  - TLC-SO-TRL-330
+  - TLC-SO-TRL-331
+  - TLC-SO-TRL-345
+  - TLC-SO-TRL-349
+  - TLC-SO-TRL-351
+  - TLC-SO-TRL-353
+  - TLC-SO-TRL-362
+  - TLC-SO-TRL-363
+  - TLC-SO-TRL-364
+  - TLC-SO-TRL-367
+  - TLC-SO-TRL-368
+  - TLC-SO-TRL-373
+  - TLC-SO-TRL-378
+  - TLC-SO-TRL-383
+  - TLC-SO-TRL-395
+- expression: '34 -> 21: confirmed scientific reuse of fairness corrections'
+  nature: scientific dependency
+  source_basis: dependency matrix
+  document: cross-source
+  section: dependency matrix
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-011
+  objects:
+  - TLC-SO-TRL-023
+  - TLC-SO-TRL-024
+  - TLC-SO-TRL-025
+  - TLC-SO-TRL-358
+- expression: '34 -> 29: confirmed scientific handoff to generational propagation and G_t'
+  nature: scientific dependency
+  source_basis: dependency matrix
+  document: cross-source
+  section: dependency matrix
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-012
+  objects:
+  - TLC-SO-TRL-023
+  - TLC-SO-TRL-024
+  - TLC-SO-TRL-025
+  - TLC-SO-TRL-088
+  - TLC-SO-TRL-159
+  - TLC-SO-TRL-398
+  - TLC-SO-TRL-399
+  - TLC-SO-TRL-400
+  - TLC-SO-TRL-401
+- expression: '34 -> 04: unresolved pi_N and invariant-core authority relation'
+  nature: unresolved scientific dependency
+  source_basis: dependency matrix
+  document: cross-source
+  section: dependency matrix
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-013
+  objects:
+  - TLC-SO-TRL-023
+  - TLC-SO-TRL-024
+  - TLC-SO-TRL-025
+  - TLC-SO-TRL-380
+  - TLC-SO-TRL-387
+  - TLC-SO-TRL-388
+- expression: 34 -> 17 is non-proven; common wave membership is not evidence
+  nature: non-proven dependency
+  source_basis: dependency matrix
+  document: cross-source
+  section: dependency matrix
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-014
+  objects:
+  - TLC-SO-TRL-023
+  - TLC-SO-TRL-024
+  - TLC-SO-TRL-025
+- expression: runtime dependencies = []
+  nature: runtime dependency declaration
+  source_basis: dependency matrix
+  document: cross-source
+  section: dependency matrix
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-015
+  objects:
+  - TLC-SO-TRL-023
+  - TLC-SO-TRL-024
+  - TLC-SO-TRL-025
+- expression: shared contract population remains exactly the existing eight
+  nature: shared-contract declaration
+  source_basis: shared-contract matrix
+  document: cross-source
+  section: shared-contract matrix
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-016
+  objects:
+  - TLC-SO-TRL-023
+  - TLC-SO-TRL-024
+  - TLC-SO-TRL-025
+- expression: aspirant -> master-relay through admission, impregnation, active learning, trial, validation and authorization
+  nature: qualitative process
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 1
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 1
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-017
+  objects:
+  - TLC-SO-TRL-001
+  - TLC-SO-TRL-002
+  - TLC-SO-TRL-004
+  - TLC-SO-TRL-009
+  - TLC-SO-TRL-010
+  - TLC-SO-TRL-011
+  - TLC-SO-TRL-012
+  - TLC-SO-TRL-013
+  - TLC-SO-TRL-014
+  - TLC-SO-TRL-015
+  - TLC-SO-TRL-026
+- expression: 'A_adm: C_asp x R_+ -> D union {emptyset}'
+  nature: mapping
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 2
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 2
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-018
+  objects:
+  - TLC-SO-TRL-027
+  - TLC-SO-TRL-029
+  - TLC-SO-TRL-030
+  - TLC-SO-TRL-031
+  - TLC-SO-TRL-032
+  - TLC-SO-TRL-033
+  - TLC-SO-TRL-034
+  - TLC-SO-TRL-035
+  - TLC-SO-TRL-037
+- expression: Phi_selection(c,t) >= theta_adm
+  nature: threshold condition
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 2
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 2
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-019
+  objects:
+  - TLC-SO-TRL-027
+  - TLC-SO-TRL-029
+  - TLC-SO-TRL-030
+  - TLC-SO-TRL-031
+  - TLC-SO-TRL-032
+  - TLC-SO-TRL-033
+  - TLC-SO-TRL-034
+  - TLC-SO-TRL-035
+  - TLC-SO-TRL-037
+- expression: Phi_selection(a,t) = w1||C_p(a)|| + w2 R(a,t) + w3 Mot(a,t) + w4 Val_init(a)
+  nature: equality
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 2
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 2
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-020
+  objects:
+  - TLC-SO-TRL-034
+  - TLC-SO-TRL-036
+  - TLC-SO-TRL-038
+  - TLC-SO-TRL-039
+  - TLC-SO-TRL-040
+  - TLC-SO-TRL-041
+  - TLC-SO-TRL-042
+- expression: C_p, R, Mot and Val_init are added without a common typed scale
+  nature: typing boundary
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 2
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 2
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-021
+  objects:
+  - TLC-SO-TRL-034
+  - TLC-SO-TRL-038
+  - TLC-SO-TRL-039
+  - TLC-SO-TRL-040
+  - TLC-SO-TRL-041
+- expression: dX/dt = alpha_imp O_obs(M,C,t)(X_M-X), 0 <= t <= T_imp
+  nature: differential equation
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 3
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 3
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-022
+  objects:
+  - TLC-SO-TRL-043
+  - TLC-SO-TRL-044
+  - TLC-SO-TRL-045
+  - TLC-SO-TRL-046
+  - TLC-SO-TRL-047
+  - TLC-SO-TRL-048
+  - TLC-SO-TRL-049
+- expression: dX/dt = F_phase(X,M,C,t) + noise and correction
+  nature: incomplete differential relation
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 3
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 3
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-023
+  objects:
+  - TLC-SO-TRL-043
+  - TLC-SO-TRL-046
+  - TLC-SO-TRL-047
+  - TLC-SO-TRL-050
+  - TLC-SO-TRL-051
+- expression: dC/dt = kappa_2 P(t) sqrt(C(C_max-C)) V_perseverance exp(-||Val-Val_M||^2/(2 tau^2))
+  nature: differential equation
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 3
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 3
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-024
+  objects:
+  - TLC-SO-TRL-052
+  - TLC-SO-TRL-053
+  - TLC-SO-TRL-054
+  - TLC-SO-TRL-055
+  - TLC-SO-TRL-056
+  - TLC-SO-TRL-057
+  - TLC-SO-TRL-058
+  - TLC-SO-TRL-059
+  - TLC-SO-TRL-060
+  - TLC-SO-TRL-061
+  - TLC-SO-TRL-062
+  - TLC-SO-TRL-063
+  - TLC-SO-TRL-064
+  - TLC-SO-TRL-065
+  - TLC-SO-TRL-066
+  - TLC-SO-TRL-067
+  - TLC-SO-TRL-068
+  - TLC-SO-TRL-069
+  - TLC-SO-TRL-070
+- expression: dC/dt = kappa_3 M(t) C/(1+C) exp(-(C-C_opt)^2/(2 sigma^2)) P_fluid
+  nature: differential equation
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 3
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 3
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-025
+  objects:
+  - TLC-SO-TRL-052
+  - TLC-SO-TRL-053
+  - TLC-SO-TRL-054
+  - TLC-SO-TRL-055
+  - TLC-SO-TRL-056
+  - TLC-SO-TRL-057
+  - TLC-SO-TRL-058
+  - TLC-SO-TRL-059
+  - TLC-SO-TRL-060
+  - TLC-SO-TRL-061
+  - TLC-SO-TRL-062
+  - TLC-SO-TRL-063
+  - TLC-SO-TRL-064
+  - TLC-SO-TRL-065
+  - TLC-SO-TRL-066
+  - TLC-SO-TRL-067
+  - TLC-SO-TRL-068
+  - TLC-SO-TRL-069
+  - TLC-SO-TRL-070
+- expression: dC/dt = kappa_4 J(t) log(1+C) Phi(V,Val)(1+alpha||grad E_context||)
+  nature: differential equation
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 3
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 3
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-026
+  objects:
+  - TLC-SO-TRL-052
+  - TLC-SO-TRL-053
+  - TLC-SO-TRL-054
+  - TLC-SO-TRL-055
+  - TLC-SO-TRL-056
+  - TLC-SO-TRL-057
+  - TLC-SO-TRL-058
+  - TLC-SO-TRL-059
+  - TLC-SO-TRL-060
+  - TLC-SO-TRL-061
+  - TLC-SO-TRL-062
+  - TLC-SO-TRL-063
+  - TLC-SO-TRL-064
+  - TLC-SO-TRL-065
+  - TLC-SO-TRL-066
+  - TLC-SO-TRL-067
+  - TLC-SO-TRL-068
+  - TLC-SO-TRL-069
+  - TLC-SO-TRL-070
+- expression: the three C dynamics correspond respectively to imitation, technical mastery and contextual judgement
+  nature: classification
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 3
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 3
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-027
+  objects:
+  - TLC-SO-TRL-052
+  - TLC-SO-TRL-053
+  - TLC-SO-TRL-054
+  - TLC-SO-TRL-055
+  - TLC-SO-TRL-056
+  - TLC-SO-TRL-057
+  - TLC-SO-TRL-058
+  - TLC-SO-TRL-059
+  - TLC-SO-TRL-060
+  - TLC-SO-TRL-061
+  - TLC-SO-TRL-062
+  - TLC-SO-TRL-063
+  - TLC-SO-TRL-064
+  - TLC-SO-TRL-065
+  - TLC-SO-TRL-066
+  - TLC-SO-TRL-067
+  - TLC-SO-TRL-068
+  - TLC-SO-TRL-069
+  - TLC-SO-TRL-070
+- expression: the three operational dynamics refer to Guidance, Incorporation and Integration
+  nature: document reference
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 3
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 3
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-028
+  objects:
+  - TLC-SO-TRL-052
+  - TLC-SO-TRL-053
+  - TLC-SO-TRL-054
+  - TLC-SO-TRL-055
+  - TLC-SO-TRL-056
+  - TLC-SO-TRL-057
+  - TLC-SO-TRL-058
+  - TLC-SO-TRL-059
+  - TLC-SO-TRL-060
+  - TLC-SO-TRL-061
+  - TLC-SO-TRL-062
+  - TLC-SO-TRL-063
+  - TLC-SO-TRL-064
+  - TLC-SO-TRL-065
+  - TLC-SO-TRL-066
+  - TLC-SO-TRL-067
+  - TLC-SO-TRL-068
+  - TLC-SO-TRL-069
+  - TLC-SO-TRL-070
+- expression: the references do not assert equation identity across documents
+  nature: non-identity guard
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 3
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 3
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-029
+  objects:
+  - TLC-SO-TRL-052
+  - TLC-SO-TRL-053
+  - TLC-SO-TRL-054
+  - TLC-SO-TRL-055
+  - TLC-SO-TRL-056
+  - TLC-SO-TRL-057
+  - TLC-SO-TRL-058
+  - TLC-SO-TRL-059
+  - TLC-SO-TRL-060
+  - TLC-SO-TRL-061
+  - TLC-SO-TRL-062
+  - TLC-SO-TRL-063
+  - TLC-SO-TRL-064
+  - TLC-SO-TRL-065
+  - TLC-SO-TRL-066
+  - TLC-SO-TRL-067
+  - TLC-SO-TRL-068
+  - TLC-SO-TRL-069
+  - TLC-SO-TRL-070
+- expression: P(success|X,e) = sigmoid(beta1 Phi1(X)+beta2 Phi2(X)+beta3 Phi3(X)-gamma_e)
+  nature: probability expression
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 4
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 4
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-030
+  objects:
+  - TLC-SO-TRL-071
+  - TLC-SO-TRL-072
+  - TLC-SO-TRL-073
+  - TLC-SO-TRL-074
+  - TLC-SO-TRL-075
+  - TLC-SO-TRL-076
+  - TLC-SO-TRL-077
+  - TLC-SO-TRL-078
+- expression: V_coll = (1/|C|) sum_{c in C} rec(c,D,t)
+  nature: aggregate equality
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 4
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 4
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-031
+  objects:
+  - TLC-SO-TRL-079
+  - TLC-SO-TRL-080
+  - TLC-SO-TRL-081
+- expression: V_coll > theta_val and Phi3(X) >= Theta3
+  nature: conjunctive threshold condition
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 4
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 4
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-032
+  objects:
+  - TLC-SO-TRL-077
+  - TLC-SO-TRL-079
+  - TLC-SO-TRL-082
+  - TLC-SO-TRL-083
+- expression: R_init(D,C,t) = (M_relais,S_trans,A_trans)
+  nature: mapping/equality
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 5
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 5
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-033
+  objects:
+  - TLC-SO-TRL-028
+  - TLC-SO-TRL-084
+  - TLC-SO-TRL-085
+  - TLC-SO-TRL-086
+  - TLC-SO-TRL-087
+  - TLC-SO-TRL-088
+- expression: M_relais joins the lineage graph G_t
+  nature: scientific handoff
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 5
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 5
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-034
+  objects:
+  - TLC-SO-TRL-028
+  - TLC-SO-TRL-084
+  - TLC-SO-TRL-085
+  - TLC-SO-TRL-086
+  - TLC-SO-TRL-087
+  - TLC-SO-TRL-088
+  - TLC-SO-TRL-159
+  - TLC-SO-TRL-398
+  - TLC-SO-TRL-399
+  - TLC-SO-TRL-400
+  - TLC-SO-TRL-401
+- expression: E_entry(a,t) = A_adm(a,t) o O_obs(a,M,t)
+  nature: untyped composition
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 5
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 5
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-035
+  objects:
+  - TLC-SO-TRL-036
+  - TLC-SO-TRL-045
+  - TLC-SO-TRL-089
+- expression: the intermediate coupled system on C,V,Val,P contains source ellipses
+  nature: incomplete relation
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 5
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 5
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-036
+  objects:
+  - TLC-SO-TRL-090
+  - TLC-SO-TRL-091
+- expression: A = (S,Sigma,delta,s0,SF)
+  nature: finite-automaton definition
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 6
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 6
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-037
+  objects:
+  - TLC-SO-TRL-027
+  - TLC-SO-TRL-092
+  - TLC-SO-TRL-093
+  - TLC-SO-TRL-094
+  - TLC-SO-TRL-095
+  - TLC-SO-TRL-096
+  - TLC-SO-TRL-097
+  - TLC-SO-TRL-098
+  - TLC-SO-TRL-099
+  - TLC-SO-TRL-100
+  - TLC-SO-TRL-101
+  - TLC-SO-TRL-102
+  - TLC-SO-TRL-103
+  - TLC-SO-TRL-104
+  - TLC-SO-TRL-105
+  - TLC-SO-TRL-106
+- expression: S contains aspirant, impregnation, active learning, trial, transmission and exit
+  nature: state-set declaration
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 6
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 6
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-038
+  objects:
+  - TLC-SO-TRL-027
+  - TLC-SO-TRL-092
+  - TLC-SO-TRL-093
+  - TLC-SO-TRL-094
+  - TLC-SO-TRL-095
+  - TLC-SO-TRL-096
+  - TLC-SO-TRL-097
+  - TLC-SO-TRL-098
+  - TLC-SO-TRL-099
+  - TLC-SO-TRL-100
+  - TLC-SO-TRL-101
+  - TLC-SO-TRL-102
+  - TLC-SO-TRL-103
+  - TLC-SO-TRL-104
+  - TLC-SO-TRL-105
+  - TLC-SO-TRL-106
+- expression: delta(s3,failure) = s2
+  nature: transition
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 6
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 6
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-039
+  objects:
+  - TLC-SO-TRL-027
+  - TLC-SO-TRL-092
+  - TLC-SO-TRL-093
+  - TLC-SO-TRL-094
+  - TLC-SO-TRL-095
+  - TLC-SO-TRL-096
+  - TLC-SO-TRL-097
+  - TLC-SO-TRL-098
+  - TLC-SO-TRL-099
+  - TLC-SO-TRL-100
+  - TLC-SO-TRL-101
+  - TLC-SO-TRL-102
+  - TLC-SO-TRL-103
+  - TLC-SO-TRL-104
+  - TLC-SO-TRL-105
+  - TLC-SO-TRL-106
+- expression: Sigma is not completely enumerated
+  nature: incompleteness claim
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 7
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 7
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-040
+  objects:
+  - TLC-SO-TRL-092
+  - TLC-SO-TRL-094
+  - TLC-SO-TRL-095
+- expression: delta is not a total transition function in the source
+  nature: incompleteness claim
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 7
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 7
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-041
+  objects:
+  - TLC-SO-TRL-092
+  - TLC-SO-TRL-094
+  - TLC-SO-TRL-095
+- expression: four macro-stages and seven phases lack a complete formal correspondence
+  nature: unresolved cross-decomposition relation
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 7
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 7
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-042
+  objects:
+  - TLC-SO-TRL-003
+  - TLC-SO-TRL-004
+  - TLC-SO-TRL-005
+  - TLC-SO-TRL-006
+  - TLC-SO-TRL-007
+  - TLC-SO-TRL-008
+- expression: 'S_M: C_asp x R_+ -> [0,1]'
+  nature: mapping
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 1
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-043
+  objects:
+  - TLC-SO-TRL-107
+  - TLC-SO-TRL-108
+  - TLC-SO-TRL-109
+  - TLC-SO-TRL-110
+  - TLC-SO-TRL-111
+  - TLC-SO-TRL-112
+  - TLC-SO-TRL-113
+  - TLC-SO-TRL-114
+- expression: 'S_D: M x R_+ -> [0,1]'
+  nature: mapping
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 1
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-044
+  objects:
+  - TLC-SO-TRL-107
+  - TLC-SO-TRL-108
+  - TLC-SO-TRL-109
+  - TLC-SO-TRL-110
+  - TLC-SO-TRL-111
+  - TLC-SO-TRL-112
+  - TLC-SO-TRL-113
+  - TLC-SO-TRL-114
+- expression: S_M(c,t) >= theta_M and S_D(m,t) >= theta_D
+  nature: conjunctive threshold condition
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 1
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-045
+  objects:
+  - TLC-SO-TRL-107
+  - TLC-SO-TRL-108
+  - TLC-SO-TRL-109
+  - TLC-SO-TRL-110
+  - TLC-SO-TRL-111
+  - TLC-SO-TRL-112
+  - TLC-SO-TRL-113
+  - TLC-SO-TRL-114
+  - TLC-SO-TRL-115
+  - TLC-SO-TRL-119
+  - TLC-SO-TRL-120
+  - TLC-SO-TRL-121
+  - TLC-SO-TRL-128
+  - TLC-SO-TRL-133
+- expression: S_M = sum_{k=1}^4 w_k phi_k
+  nature: weighted aggregate
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 1
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-046
+  objects:
+  - TLC-SO-TRL-107
+  - TLC-SO-TRL-108
+  - TLC-SO-TRL-109
+  - TLC-SO-TRL-110
+  - TLC-SO-TRL-111
+  - TLC-SO-TRL-112
+  - TLC-SO-TRL-113
+  - TLC-SO-TRL-114
+- expression: w_k > 0 and sum_{k=1}^4 w_k = 1
+  nature: weight constraints
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 1
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-047
+  objects:
+  - TLC-SO-TRL-107
+  - TLC-SO-TRL-108
+  - TLC-SO-TRL-109
+  - TLC-SO-TRL-110
+  - TLC-SO-TRL-111
+  - TLC-SO-TRL-112
+  - TLC-SO-TRL-113
+  - TLC-SO-TRL-114
+- expression: phi_k cover receptivity, normative potential, motivation and axiological compatibility
+  nature: factor classification
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 1
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-048
+  objects:
+  - TLC-SO-TRL-040
+  - TLC-SO-TRL-107
+  - TLC-SO-TRL-108
+  - TLC-SO-TRL-109
+  - TLC-SO-TRL-110
+  - TLC-SO-TRL-111
+  - TLC-SO-TRL-112
+  - TLC-SO-TRL-113
+  - TLC-SO-TRL-114
+  - TLC-SO-TRL-115
+- expression: S_D = sum_{k=1}^4 v_k psi_k
+  nature: weighted aggregate
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 1
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-049
+  objects:
+  - TLC-SO-TRL-107
+  - TLC-SO-TRL-108
+  - TLC-SO-TRL-109
+  - TLC-SO-TRL-110
+  - TLC-SO-TRL-111
+  - TLC-SO-TRL-112
+  - TLC-SO-TRL-113
+  - TLC-SO-TRL-114
+- expression: v_k > 0 and sum_{k=1}^4 v_k = 1
+  nature: weight constraints
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 1
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-050
+  objects:
+  - TLC-SO-TRL-107
+  - TLC-SO-TRL-108
+  - TLC-SO-TRL-109
+  - TLC-SO-TRL-110
+  - TLC-SO-TRL-111
+  - TLC-SO-TRL-112
+  - TLC-SO-TRL-113
+  - TLC-SO-TRL-114
+- expression: psi_k cover master exemplariness, normative competence, benevolence and community cohesion
+  nature: factor classification
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 1
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-051
+  objects:
+  - TLC-SO-TRL-107
+  - TLC-SO-TRL-108
+  - TLC-SO-TRL-109
+  - TLC-SO-TRL-110
+  - TLC-SO-TRL-111
+  - TLC-SO-TRL-112
+  - TLC-SO-TRL-113
+  - TLC-SO-TRL-114
+- expression: Motivation belongs to [0,1]^3
+  nature: type declaration
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 1
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-052
+  objects:
+  - TLC-SO-TRL-040
+  - TLC-SO-TRL-115
+- expression: Motivation is later used as a scalar score term without aggregation
+  nature: typing boundary
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 1
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-053
+  objects:
+  - TLC-SO-TRL-040
+  - TLC-SO-TRL-115
+- expression: axiological compatibility and affinity use cosine similarities on projected value and trait vectors
+  nature: evaluator relation
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 1
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-054
+  objects:
+  - TLC-SO-TRL-116
+  - TLC-SO-TRL-117
+  - TLC-SO-TRL-118
+  - TLC-SO-TRL-119
+  - TLC-SO-TRL-120
+- expression: affinity must exceed its own threshold
+  nature: threshold condition
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 1
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-055
+  objects:
+  - TLC-SO-TRL-107
+  - TLC-SO-TRL-108
+  - TLC-SO-TRL-109
+  - TLC-SO-TRL-110
+  - TLC-SO-TRL-115
+  - TLC-SO-TRL-116
+  - TLC-SO-TRL-117
+  - TLC-SO-TRL-118
+  - TLC-SO-TRL-119
+  - TLC-SO-TRL-120
+  - TLC-SO-TRL-121
+  - TLC-SO-TRL-128
+  - TLC-SO-TRL-133
+- expression: dR_k/dt = r_k R_k(1-R_k/K_k) - sum_{j!=k} alpha_kj R_k R_j + beta_k F_k(M,D) + xi_k(t)
+  nature: differential equation
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 2
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 2
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-056
+  objects:
+  - TLC-SO-TRL-121
+  - TLC-SO-TRL-122
+  - TLC-SO-TRL-123
+  - TLC-SO-TRL-124
+  - TLC-SO-TRL-125
+  - TLC-SO-TRL-126
+  - TLC-SO-TRL-127
+- expression: Pi = lambda||R|| + (1-lambda)||C_p||/||C_p||_max
+  nature: equality
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 2
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 2
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-057
+  objects:
+  - TLC-SO-TRL-128
+  - TLC-SO-TRL-129
+  - TLC-SO-TRL-130
+  - TLC-SO-TRL-131
+  - TLC-SO-TRL-132
+- expression: final probation requires recognition, receptivity, motivation, value compatibility and affinity thresholds jointly
+  nature: conjunctive predicate
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 2
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 2
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-058
+  objects:
+  - TLC-SO-TRL-107
+  - TLC-SO-TRL-108
+  - TLC-SO-TRL-109
+  - TLC-SO-TRL-110
+  - TLC-SO-TRL-115
+  - TLC-SO-TRL-119
+  - TLC-SO-TRL-120
+  - TLC-SO-TRL-121
+  - TLC-SO-TRL-128
+  - TLC-SO-TRL-133
+- expression: dC_MtoD/dt = alpha1(E_D(t)-C_MtoD) + alpha2 F_loyalty(D,t) - alpha3 1_betrayal C_MtoD
+  nature: differential equation
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 3
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 3
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-059
+  objects:
+  - TLC-SO-TRL-134
+  - TLC-SO-TRL-135
+  - TLC-SO-TRL-136
+  - TLC-SO-TRL-137
+  - TLC-SO-TRL-138
+  - TLC-SO-TRL-139
+  - TLC-SO-TRL-140
+  - TLC-SO-TRL-141
+  - TLC-SO-TRL-142
+  - TLC-SO-TRL-143
+- expression: dC_DtoM/dt = beta1(E_M(t)-C_DtoM) + beta2 B_M(t) - beta3 1_abuse C_DtoM
+  nature: differential equation
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 3
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 3
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-060
+  objects:
+  - TLC-SO-TRL-134
+  - TLC-SO-TRL-135
+  - TLC-SO-TRL-136
+  - TLC-SO-TRL-137
+  - TLC-SO-TRL-138
+  - TLC-SO-TRL-139
+  - TLC-SO-TRL-140
+  - TLC-SO-TRL-141
+  - TLC-SO-TRL-142
+  - TLC-SO-TRL-143
+- expression: betrayal and abuse indicators model trust ruptures
+  nature: qualitative relation
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 3
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 3
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-061
+  objects:
+  - TLC-SO-TRL-134
+  - TLC-SO-TRL-135
+  - TLC-SO-TRL-136
+  - TLC-SO-TRL-137
+  - TLC-SO-TRL-138
+  - TLC-SO-TRL-139
+  - TLC-SO-TRL-140
+  - TLC-SO-TRL-141
+  - TLC-SO-TRL-142
+  - TLC-SO-TRL-143
+- expression: K = (O_M,O_D,M,R,S,P)
+  nature: sextuple definition
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 4
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-062
+  objects:
+  - TLC-SO-TRL-144
+  - TLC-SO-TRL-145
+  - TLC-SO-TRL-146
+  - TLC-SO-TRL-147
+  - TLC-SO-TRL-148
+  - TLC-SO-TRL-149
+  - TLC-SO-TRL-150
+- expression: K components are master/disciple objectives, means, rules, sanctions and promises
+  nature: semantic assignment
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 4
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-063
+  objects:
+  - TLC-SO-TRL-144
+  - TLC-SO-TRL-145
+  - TLC-SO-TRL-146
+  - TLC-SO-TRL-147
+  - TLC-SO-TRL-148
+  - TLC-SO-TRL-149
+  - TLC-SO-TRL-150
+- expression: '||O_M-O_D|| < epsilon'
+  nature: inequality
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 4
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-064
+  objects:
+  - TLC-SO-TRL-145
+  - TLC-SO-TRL-146
+  - TLC-SO-TRL-151
+- expression: 'T_init: D x C x R+ -> D'' x M_mem'
+  nature: mapping
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 4
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-065
+  objects:
+  - TLC-SO-TRL-152
+  - TLC-SO-TRL-153
+  - TLC-SO-TRL-154
+- expression: the phase includes first integrated teaching
+  nature: qualitative process
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 4
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-066
+  objects:
+  - TLC-SO-TRL-155
+  - TLC-SO-TRL-156
+  - TLC-SO-TRL-157
+  - TLC-SO-TRL-158
+- expression: first practice is modeled by a logistic response
+  nature: qualitative/formula reference
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 4
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-067
+  objects:
+  - TLC-SO-TRL-155
+  - TLC-SO-TRL-156
+  - TLC-SO-TRL-157
+  - TLC-SO-TRL-158
+- expression: initial evaluation is vector-valued
+  nature: type declaration
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 4
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-068
+  objects:
+  - TLC-SO-TRL-155
+  - TLC-SO-TRL-156
+  - TLC-SO-TRL-157
+  - TLC-SO-TRL-158
+- expression: validation ceremony registers the disciple in G_t
+  nature: graph-registration claim
+  source_basis: maths/34-transmission-lifecycle/initiation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/initiation-phase.md
+  section: section 4
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-069
+  objects:
+  - TLC-SO-TRL-088
+  - TLC-SO-TRL-158
+  - TLC-SO-TRL-159
+  - TLC-SO-TRL-398
+  - TLC-SO-TRL-399
+  - TLC-SO-TRL-400
+  - TLC-SO-TRL-401
+- expression: I_imm(D,C_P,t) = D + sum_{c in C_P} integral_0^t kappa_c(tau) Phi_c(D(tau),c) d tau
+  nature: integral definition
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 1
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-070
+  objects:
+  - TLC-SO-TRL-160
+  - TLC-SO-TRL-161
+  - TLC-SO-TRL-162
+  - TLC-SO-TRL-163
+  - TLC-SO-TRL-164
+  - TLC-SO-TRL-165
+  - TLC-SO-TRL-166
+- expression: dD/dt approximately eta_E E(C_P)(0-D)
+  nature: approximate differential equation
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 1
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-071
+  objects:
+  - TLC-SO-TRL-160
+  - TLC-SO-TRL-161
+  - TLC-SO-TRL-162
+  - TLC-SO-TRL-163
+  - TLC-SO-TRL-164
+  - TLC-SO-TRL-165
+  - TLC-SO-TRL-166
+  - TLC-SO-TRL-167
+  - TLC-SO-TRL-168
+- expression: the approximation attracts D toward zero while prose describes attraction to the community frame
+  nature: source contradiction
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 1
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-072
+  objects:
+  - TLC-SO-TRL-164
+  - TLC-SO-TRL-167
+  - TLC-SO-TRL-168
+- expression: delta_auth = max_d min_s d_CP(d,s)
+  nature: max-min metric
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 1
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-073
+  objects:
+  - TLC-SO-TRL-161
+  - TLC-SO-TRL-169
+  - TLC-SO-TRL-170
+  - TLC-SO-TRL-171
+  - TLC-SO-TRL-172
+  - TLC-SO-TRL-173
+- expression: delta_auth must stay below its maximum threshold and decrease
+  nature: qualitative threshold condition
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 1
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-074
+  objects:
+  - TLC-SO-TRL-161
+  - TLC-SO-TRL-169
+  - TLC-SO-TRL-170
+  - TLC-SO-TRL-171
+  - TLC-SO-TRL-172
+  - TLC-SO-TRL-173
+- expression: exposure modalities are combined by a weighted sum of indicators
+  nature: aggregate relation
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 2
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 2
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-075
+  objects:
+  - TLC-SO-TRL-161
+  - TLC-SO-TRL-174
+  - TLC-SO-TRL-175
+  - TLC-SO-TRL-176
+  - TLC-SO-TRL-177
+- expression: T_obs(t) = integral_0^t O_obs(M,C_P,tau) d tau
+  nature: integral definition
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 2
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 2
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-076
+  objects:
+  - TLC-SO-TRL-161
+  - TLC-SO-TRL-174
+  - TLC-SO-TRL-175
+  - TLC-SO-TRL-176
+  - TLC-SO-TRL-177
+- expression: demonstration multiplies attention by a factor strictly greater than one
+  nature: inequality/qualitative relation
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 2
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 2
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-077
+  objects:
+  - TLC-SO-TRL-178
+  - TLC-SO-TRL-179
+  - TLC-SO-TRL-180
+  - TLC-SO-TRL-181
+- expression: hidden exposure modulates motivation through a logistic function
+  nature: qualitative functional relation
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 2
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 2
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-078
+  objects:
+  - TLC-SO-TRL-178
+  - TLC-SO-TRL-179
+  - TLC-SO-TRL-180
+  - TLC-SO-TRL-181
+- expression: I_imit = 0 during impregnation
+  nature: equality
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 2
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 2
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-079
+  objects:
+  - TLC-SO-TRL-178
+  - TLC-SO-TRL-179
+  - TLC-SO-TRL-180
+  - TLC-SO-TRL-181
+- expression: each fundamental object is assigned a resonance band B_k
+  nature: assignment
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 3
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 3
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-080
+  objects:
+  - TLC-SO-TRL-177
+  - TLC-SO-TRL-182
+  - TLC-SO-TRL-183
+  - TLC-SO-TRL-184
+  - TLC-SO-TRL-185
+- expression: I_k(t) = < pi_Bk(O_obs(D,M,t)), 1 >
+  nature: projection/inner-product equality
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 3
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 3
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-081
+  objects:
+  - TLC-SO-TRL-177
+  - TLC-SO-TRL-182
+  - TLC-SO-TRL-183
+  - TLC-SO-TRL-184
+  - TLC-SO-TRL-185
+- expression: dw_k/dt = alpha_k I_k(t)(1-w_k) - beta_k w_k + gamma_k xi_k(t)
+  nature: differential equation
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 3
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 3
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-082
+  objects:
+  - TLC-SO-TRL-185
+  - TLC-SO-TRL-186
+  - TLC-SO-TRL-187
+  - TLC-SO-TRL-188
+  - TLC-SO-TRL-189
+  - TLC-SO-TRL-190
+- expression: w_k > theta_act
+  nature: activation condition
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 3
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 3
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-083
+  objects:
+  - TLC-SO-TRL-186
+  - TLC-SO-TRL-191
+- expression: Ibar_k(t) = (1/T) integral_{t-T}^t I_k(tau) d tau
+  nature: moving-window integral
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 3
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 3
+  operational_status: partially_operational
+  note: ''
+  relation_id: TLC-SR-TRL-084
+  objects:
+  - TLC-SO-TRL-185
+  - TLC-SO-TRL-192
+  - TLC-SO-TRL-193
+  - TLC-SO-TRL-194
+- expression: for t<T the moving window requests negative-time values
+  nature: undefined-domain condition
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 3
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 3
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-085
+  objects:
+  - TLC-SO-TRL-192
+  - TLC-SO-TRL-193
+  - TLC-SO-TRL-194
+- expression: dM_impl/dt = integral_0^t K_impl(t-tau) O_obs(D,M,tau) d tau - lambda_impl M_impl
+  nature: integro-differential equation
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 4
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-086
+  objects:
+  - TLC-SO-TRL-177
+  - TLC-SO-TRL-195
+  - TLC-SO-TRL-196
+  - TLC-SO-TRL-197
+  - TLC-SO-TRL-198
+  - TLC-SO-TRL-199
+- expression: K_impl(s) = alpha_impl exp(-beta_impl s)
+  nature: kernel definition
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 4
+  operational_status: conditionally_operational
+  note: ''
+  relation_id: TLC-SR-TRL-087
+  objects:
+  - TLC-SO-TRL-177
+  - TLC-SO-TRL-195
+  - TLC-SO-TRL-196
+  - TLC-SO-TRL-197
+  - TLC-SO-TRL-198
+  - TLC-SO-TRL-199
+- expression: dM_expl/dt = mu(t) E_first(N_min,D) - lambda_expl M_expl + undefined recall term
+  nature: incomplete differential equation
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 4
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-088
+  objects:
+  - TLC-SO-TRL-195
+  - TLC-SO-TRL-200
+  - TLC-SO-TRL-201
+  - TLC-SO-TRL-202
+  - TLC-SO-TRL-203
+  - TLC-SO-TRL-204
+  - TLC-SO-TRL-205
+  - TLC-SO-TRL-206
+  - TLC-SO-TRL-207
+- expression: dM_expl/dt includes nu M_impl
+  nature: coupling term
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 4
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-089
+  objects:
+  - TLC-SO-TRL-195
+  - TLC-SO-TRL-200
+  - TLC-SO-TRL-201
+  - TLC-SO-TRL-202
+  - TLC-SO-TRL-203
+  - TLC-SO-TRL-204
+  - TLC-SO-TRL-205
+  - TLC-SO-TRL-206
+  - TLC-SO-TRL-207
+- expression: dM_impl/dt includes rho M_expl
+  nature: coupling term
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 4
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-090
+  objects:
+  - TLC-SO-TRL-195
+  - TLC-SO-TRL-200
+  - TLC-SO-TRL-201
+  - TLC-SO-TRL-202
+  - TLC-SO-TRL-203
+  - TLC-SO-TRL-204
+  - TLC-SO-TRL-205
+  - TLC-SO-TRL-206
+  - TLC-SO-TRL-207
+- expression: O_obs is replaced by O(tau) elsewhere without formal identity
+  nature: notation boundary
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 4
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-091
+  objects:
+  - TLC-SO-TRL-045
+  - TLC-SO-TRL-177
+  - TLC-SO-TRL-208
+  - TLC-SO-TRL-211
+- expression: dC/dt = kappa1 O(t)(C_max-C) sigmoid(V_receptivity-theta1) 1_{Val_openness>psi1}
+  nature: differential equation
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 4
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-092
+  objects:
+  - TLC-SO-TRL-209
+  - TLC-SO-TRL-210
+  - TLC-SO-TRL-211
+  - TLC-SO-TRL-212
+  - TLC-SO-TRL-213
+  - TLC-SO-TRL-214
+  - TLC-SO-TRL-215
+  - TLC-SO-TRL-216
+  - TLC-SO-TRL-217
+  - TLC-SO-TRL-218
+  - TLC-SO-TRL-219
+- expression: complete state contains C, w_k, M_impl and M_expl
+  nature: state-system declaration
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 4
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-093
+  objects:
+  - TLC-SO-TRL-209
+  - TLC-SO-TRL-210
+  - TLC-SO-TRL-211
+  - TLC-SO-TRL-212
+  - TLC-SO-TRL-213
+  - TLC-SO-TRL-214
+  - TLC-SO-TRL-215
+  - TLC-SO-TRL-216
+  - TLC-SO-TRL-217
+  - TLC-SO-TRL-218
+  - TLC-SO-TRL-219
+- expression: C(0)=0, w_k(0)=w_k^0, M_impl(0)=0, M_expl(0)=0
+  nature: initial conditions
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 4
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-094
+  objects:
+  - TLC-SO-TRL-209
+  - TLC-SO-TRL-210
+  - TLC-SO-TRL-211
+  - TLC-SO-TRL-212
+  - TLC-SO-TRL-213
+  - TLC-SO-TRL-214
+  - TLC-SO-TRL-215
+  - TLC-SO-TRL-216
+  - TLC-SO-TRL-217
+  - TLC-SO-TRL-218
+  - TLC-SO-TRL-219
+- expression: C(T_imp)>=C_threshold and for all k w_k(T_imp)>=w_k_min
+  nature: conjunctive exit condition
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 4
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-095
+  objects:
+  - TLC-SO-TRL-049
+  - TLC-SO-TRL-182
+  - TLC-SO-TRL-186
+  - TLC-SO-TRL-220
+  - TLC-SO-TRL-221
+  - TLC-SO-TRL-222
+- expression: selective resonance and all-band exit are both source requirements
+  nature: source tension
+  source_basis: maths/34-transmission-lifecycle/impregnation-phase.md - section 5
+  document: maths/34-transmission-lifecycle/impregnation-phase.md
+  section: section 5
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-096
+  objects:
+  - TLC-SO-TRL-182
+  - TLC-SO-TRL-221
+  - TLC-SO-TRL-222
+- expression: 'Phi = {Phi_theta: D x C -> D | theta in Theta}'
+  nature: operator-family definition
+  source_basis: maths/34-transmission-lifecycle/guidance-phase.md - section 1
+  document: maths/34-transmission-lifecycle/guidance-phase.md
+  section: section 1
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-097
+  objects:
+  - TLC-SO-TRL-223
+  - TLC-SO-TRL-224
+  - TLC-SO-TRL-225
+  - TLC-SO-TRL-226
+  - TLC-SO-TRL-227
+  - TLC-SO-TRL-228
+  - TLC-SO-TRL-231
+  - TLC-SO-TRL-232
+- expression: theta*(t) = argmin_{theta in Theta} L(Phi_theta(X(t),c(t)),X_target)
+  nature: optimization claim
+  source_basis: maths/34-transmission-lifecycle/guidance-phase.md - section 1
+  document: maths/34-transmission-lifecycle/guidance-phase.md
+  section: section 1
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-098
+  objects:
+  - TLC-SO-TRL-224
+  - TLC-SO-TRL-225
+  - TLC-SO-TRL-226
+  - TLC-SO-TRL-227
+  - TLC-SO-TRL-228
+  - TLC-SO-TRL-229
+  - TLC-SO-TRL-230
+  - TLC-SO-TRL-231
+  - TLC-SO-TRL-232
+  - TLC-SO-TRL-233
+- expression: dtheta/dt = -eta(t) grad_theta L(Phi_theta(X(t),c(t)),X_target) + sigma(t) xi(t)
+  nature: stochastic differential relation
+  source_basis: maths/34-transmission-lifecycle/guidance-phase.md - section 1
+  document: maths/34-transmission-lifecycle/guidance-phase.md
+  section: section 1
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-099
+  objects:
+  - TLC-SO-TRL-224
+  - TLC-SO-TRL-227
+  - TLC-SO-TRL-230
+  - TLC-SO-TRL-231
+  - TLC-SO-TRL-232
+  - TLC-SO-TRL-233
+  - TLC-SO-TRL-234
+  - TLC-SO-TRL-235
+  - TLC-SO-TRL-236
+  - TLC-SO-TRL-237
+- expression: D x C typing is not formally identified with later X and c notation
+  nature: typing boundary
+  source_basis: maths/34-transmission-lifecycle/guidance-phase.md - section 1
+  document: maths/34-transmission-lifecycle/guidance-phase.md
+  section: section 1
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-100
+  objects:
+  - TLC-SO-TRL-225
+  - TLC-SO-TRL-226
+  - TLC-SO-TRL-231
+  - TLC-SO-TRL-232
+- expression: existence and uniqueness of theta* are not established
+  nature: existence boundary
+  source_basis: maths/34-transmission-lifecycle/guidance-phase.md - section 1
+  document: maths/34-transmission-lifecycle/guidance-phase.md
+  section: section 1
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-101
+  objects:
+  - TLC-SO-TRL-228
+  - TLC-SO-TRL-229
+- expression: guidance modes = {explicit, implicit, progressive, initiatic}
+  nature: classification
+  source_basis: maths/34-transmission-lifecycle/guidance-phase.md - section 2
+  document: maths/34-transmission-lifecycle/guidance-phase.md
+  section: section 2
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-102
+  objects:
+  - TLC-SO-TRL-238
+  - TLC-SO-TRL-239
+  - TLC-SO-TRL-240
+  - TLC-SO-TRL-241
+  - TLC-SO-TRL-242
+  - TLC-SO-TRL-243
+- expression: Phi_total(X,c) = sum_i alpha_i(t) Phi_i(X,c)
+  nature: linear-combination expression
+  source_basis: maths/34-transmission-lifecycle/guidance-phase.md - section 2
+  document: maths/34-transmission-lifecycle/guidance-phase.md
+  section: section 2
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-103
+  objects:
+  - TLC-SO-TRL-238
+  - TLC-SO-TRL-239
+  - TLC-SO-TRL-240
+  - TLC-SO-TRL-241
+  - TLC-SO-TRL-242
+  - TLC-SO-TRL-243
+- expression: sum_i alpha_i(t)=1
+  nature: coefficient constraint
+  source_basis: maths/34-transmission-lifecycle/guidance-phase.md - section 2
+  document: maths/34-transmission-lifecycle/guidance-phase.md
+  section: section 2
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-104
+  objects:
+  - TLC-SO-TRL-238
+  - TLC-SO-TRL-239
+  - TLC-SO-TRL-240
+  - TLC-SO-TRL-241
+  - TLC-SO-TRL-242
+  - TLC-SO-TRL-243
+- expression: alpha_i >= 0 is not stated and the common vector space is not constructed
+  nature: convexity boundary
+  source_basis: maths/34-transmission-lifecycle/guidance-phase.md - section 2
+  document: maths/34-transmission-lifecycle/guidance-phase.md
+  section: section 2
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-105
+  objects:
+  - TLC-SO-TRL-242
+  - TLC-SO-TRL-243
+- expression: elementary operators are D_dem, Q, C and S
+  nature: operator classification
+  source_basis: maths/34-transmission-lifecycle/guidance-phase.md - section 2
+  document: maths/34-transmission-lifecycle/guidance-phase.md
+  section: section 2
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-106
+  objects:
+  - TLC-SO-TRL-244
+  - TLC-SO-TRL-245
+  - TLC-SO-TRL-246
+  - TLC-SO-TRL-247
+- expression: S o C o Q o D_dem
+  nature: operator composition
+  source_basis: maths/34-transmission-lifecycle/guidance-phase.md - section 2
+  document: maths/34-transmission-lifecycle/guidance-phase.md
+  section: section 2
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-107
+  objects:
+  - TLC-SO-TRL-244
+  - TLC-SO-TRL-245
+  - TLC-SO-TRL-246
+  - TLC-SO-TRL-247
+- expression: the question operator follows an unjustified gradient sign
+  nature: sign boundary
+  source_basis: maths/34-transmission-lifecycle/guidance-phase.md - section 2
+  document: maths/34-transmission-lifecycle/guidance-phase.md
+  section: section 2
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-108
+  objects:
+  - TLC-SO-TRL-412
+- expression: F = F_perceptual o F_evaluate o F_integrative o F_regulatory
+  nature: hierarchical composition
+  source_basis: maths/34-transmission-lifecycle/guidance-phase.md - section 3
+  document: maths/34-transmission-lifecycle/guidance-phase.md
+  section: section 3
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-109
+  objects:
+  - TLC-SO-TRL-248
+  - TLC-SO-TRL-249
+  - TLC-SO-TRL-250
+  - TLC-SO-TRL-251
+  - TLC-SO-TRL-252
+  - TLC-SO-TRL-253
+  - TLC-SO-TRL-254
+  - TLC-SO-TRL-255
+  - TLC-SO-TRL-256
+  - TLC-SO-TRL-257
+  - TLC-SO-TRL-267
+- expression: F[I_ext](t) = integral_{-infinity}^t K(t-tau;R,P) I_ext(tau) d tau + F_int(D)
+  nature: causal integral
+  source_basis: maths/34-transmission-lifecycle/guidance-phase.md - section 3
+  document: maths/34-transmission-lifecycle/guidance-phase.md
+  section: section 3
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-110
+  objects:
+  - TLC-SO-TRL-248
+  - TLC-SO-TRL-249
+  - TLC-SO-TRL-250
+  - TLC-SO-TRL-251
+  - TLC-SO-TRL-252
+  - TLC-SO-TRL-253
+  - TLC-SO-TRL-254
+  - TLC-SO-TRL-255
+  - TLC-SO-TRL-256
+  - TLC-SO-TRL-257
+  - TLC-SO-TRL-267
+- expression: dX/dt = T(X,F[I_ext])
+  nature: coupled differential relation
+  source_basis: maths/34-transmission-lifecycle/guidance-phase.md - section 3
+  document: maths/34-transmission-lifecycle/guidance-phase.md
+  section: section 3
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-111
+  objects:
+  - TLC-SO-TRL-231
+  - TLC-SO-TRL-253
+  - TLC-SO-TRL-258
+  - TLC-SO-TRL-259
+- expression: dF/dt = G(X,F,I_ext)
+  nature: coupled differential relation
+  source_basis: maths/34-transmission-lifecycle/guidance-phase.md - section 3
+  document: maths/34-transmission-lifecycle/guidance-phase.md
+  section: section 3
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-112
+  objects:
+  - TLC-SO-TRL-231
+  - TLC-SO-TRL-253
+  - TLC-SO-TRL-258
+  - TLC-SO-TRL-259
+- expression: X_n -> practice -> feedback -> transformation -> X_{n+1}
+  nature: discrete process sequence
+  source_basis: maths/34-transmission-lifecycle/guidance-phase.md - section 3
+  document: maths/34-transmission-lifecycle/guidance-phase.md
+  section: section 3
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-113
+  objects:
+  - TLC-SO-TRL-260
+  - TLC-SO-TRL-261
+  - TLC-SO-TRL-262
+  - TLC-SO-TRL-263
+- expression: L(X_{n+1}) <= L(X_n) - epsilon||X_{n+1}-X_n||^2
+  nature: Lyapunov inequality
+  source_basis: maths/34-transmission-lifecycle/guidance-phase.md - section 3
+  document: maths/34-transmission-lifecycle/guidance-phase.md
+  section: section 3
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-114
+  objects:
+  - TLC-SO-TRL-260
+  - TLC-SO-TRL-264
+  - TLC-SO-TRL-265
+  - TLC-SO-TRL-266
+- expression: L is not constructed and the inequality is not a general convergence proof
+  nature: proof boundary
+  source_basis: maths/34-transmission-lifecycle/guidance-phase.md - section 3
+  document: maths/34-transmission-lifecycle/guidance-phase.md
+  section: section 3
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-115
+  objects:
+  - TLC-SO-TRL-264
+  - TLC-SO-TRL-265
+  - TLC-SO-TRL-266
+- expression: multiple feedback loops may run simultaneously at different scales
+  nature: qualitative concurrency claim
+  source_basis: maths/34-transmission-lifecycle/guidance-phase.md - section 3
+  document: maths/34-transmission-lifecycle/guidance-phase.md
+  section: section 3
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-116
+  objects:
+  - TLC-SO-TRL-248
+  - TLC-SO-TRL-249
+  - TLC-SO-TRL-250
+  - TLC-SO-TRL-251
+  - TLC-SO-TRL-252
+  - TLC-SO-TRL-253
+  - TLC-SO-TRL-254
+  - TLC-SO-TRL-255
+  - TLC-SO-TRL-256
+  - TLC-SO-TRL-257
+  - TLC-SO-TRL-267
+- expression: end of guidance uses competence, practice, virtue and value thresholds
+  nature: qualitative exit condition
+  source_basis: maths/34-transmission-lifecycle/guidance-phase.md - section 4
+  document: maths/34-transmission-lifecycle/guidance-phase.md
+  section: section 4
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-117
+  objects:
+  - TLC-SO-TRL-268
+- expression: lambda(t) decreases as master guidance is withdrawn
+  nature: qualitative dynamic relation
+  source_basis: maths/34-transmission-lifecycle/incorporation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/incorporation-phase.md
+  section: section 1
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-118
+  objects:
+  - TLC-SO-TRL-269
+  - TLC-SO-TRL-270
+  - TLC-SO-TRL-271
+  - TLC-SO-TRL-272
+- expression: P_t = lambda(t) P_M + (1-lambda(t)) P_aut
+  nature: linear-combination equality
+  source_basis: maths/34-transmission-lifecycle/incorporation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/incorporation-phase.md
+  section: section 1
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-119
+  objects:
+  - TLC-SO-TRL-269
+  - TLC-SO-TRL-270
+  - TLC-SO-TRL-271
+  - TLC-SO-TRL-272
+- expression: A(t) = ||C(t)-C_master||/||C_master|| * V_initiative/V_initiative,max * P_original/P_max * 1_{Val_independence>theta_A}
+  nature: index equality
+  source_basis: maths/34-transmission-lifecycle/incorporation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/incorporation-phase.md
+  section: section 1
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-120
+  objects:
+  - TLC-SO-TRL-273
+  - TLC-SO-TRL-274
+  - TLC-SO-TRL-275
+  - TLC-SO-TRL-276
+  - TLC-SO-TRL-277
+  - TLC-SO-TRL-278
+  - TLC-SO-TRL-279
+  - TLC-SO-TRL-280
+  - TLC-SO-TRL-281
+- expression: greater distance from master competence increases the first autonomy factor
+  nature: source consequence
+  source_basis: maths/34-transmission-lifecycle/incorporation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/incorporation-phase.md
+  section: section 1
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-121
+  objects:
+  - TLC-SO-TRL-273
+  - TLC-SO-TRL-275
+  - TLC-SO-TRL-277
+  - TLC-SO-TRL-279
+- expression: master retains monitoring and correction during transition
+  nature: qualitative process
+  source_basis: maths/34-transmission-lifecycle/incorporation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/incorporation-phase.md
+  section: section 1
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-122
+  objects:
+  - TLC-SO-TRL-282
+  - TLC-SO-TRL-283
+- expression: dV_i/dt = alpha_i P_practice(t)(V_i,max-V_i) + sum_j beta_ij C_j V_i + gamma_i Val dot grad E_moral - delta_i
+    V_i(1-C_i/C_i,max)
+  nature: differential equation
+  source_basis: maths/34-transmission-lifecycle/incorporation-phase.md - section 2
+  document: maths/34-transmission-lifecycle/incorporation-phase.md
+  section: section 2
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-123
+  objects:
+  - TLC-SO-TRL-274
+  - TLC-SO-TRL-284
+  - TLC-SO-TRL-285
+  - TLC-SO-TRL-286
+  - TLC-SO-TRL-287
+  - TLC-SO-TRL-288
+  - TLC-SO-TRL-289
+  - TLC-SO-TRL-290
+  - TLC-SO-TRL-291
+  - TLC-SO-TRL-292
+  - TLC-SO-TRL-293
+  - TLC-SO-TRL-294
+- expression: X = (C,V,Val,P)
+  nature: state definition
+  source_basis: maths/34-transmission-lifecycle/incorporation-phase.md - section 2
+  document: maths/34-transmission-lifecycle/incorporation-phase.md
+  section: section 2
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-124
+  objects:
+  - TLC-SO-TRL-018
+  - TLC-SO-TRL-019
+  - TLC-SO-TRL-043
+  - TLC-SO-TRL-090
+  - TLC-SO-TRL-231
+  - TLC-SO-TRL-274
+  - TLC-SO-TRL-284
+  - TLC-SO-TRL-291
+  - TLC-SO-TRL-295
+  - TLC-SO-TRL-319
+  - TLC-SO-TRL-370
+- expression: practice operators = {technical, contextual, problem-solving, reflective}
+  nature: operator classification
+  source_basis: maths/34-transmission-lifecycle/incorporation-phase.md - section 3
+  document: maths/34-transmission-lifecycle/incorporation-phase.md
+  section: section 3
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-125
+  objects:
+  - TLC-SO-TRL-296
+  - TLC-SO-TRL-297
+  - TLC-SO-TRL-298
+  - TLC-SO-TRL-299
+  - TLC-SO-TRL-300
+  - TLC-SO-TRL-301
+- expression: the prose announces three practice operators but formalizes four
+  nature: count contradiction
+  source_basis: maths/34-transmission-lifecycle/incorporation-phase.md - section 3
+  document: maths/34-transmission-lifecycle/incorporation-phase.md
+  section: section 3
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-126
+  objects:
+  - TLC-SO-TRL-296
+  - TLC-SO-TRL-297
+  - TLC-SO-TRL-298
+  - TLC-SO-TRL-299
+  - TLC-SO-TRL-300
+  - TLC-SO-TRL-301
+- expression: M(t) = w_tech||PT_tech|| + w_ctx||PT_ctx|| + w_prob||PT_prob|| + w_refl||PT_refl||
+  nature: weighted aggregate
+  source_basis: maths/34-transmission-lifecycle/incorporation-phase.md - section 3
+  document: maths/34-transmission-lifecycle/incorporation-phase.md
+  section: section 3
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-127
+  objects:
+  - TLC-SO-TRL-296
+  - TLC-SO-TRL-297
+  - TLC-SO-TRL-298
+  - TLC-SO-TRL-299
+  - TLC-SO-TRL-300
+  - TLC-SO-TRL-301
+- expression: the source defines a fluidity measure
+  nature: named evaluator relation
+  source_basis: maths/34-transmission-lifecycle/incorporation-phase.md - section 3
+  document: maths/34-transmission-lifecycle/incorporation-phase.md
+  section: section 3
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-128
+  objects:
+  - TLC-SO-TRL-302
+  - TLC-SO-TRL-303
+  - TLC-SO-TRL-304
+- expression: metacompetence follows a dedicated equation and supports self-evaluation
+  nature: qualitative dynamic relation
+  source_basis: maths/34-transmission-lifecycle/incorporation-phase.md - section 3
+  document: maths/34-transmission-lifecycle/incorporation-phase.md
+  section: section 3
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-129
+  objects:
+  - TLC-SO-TRL-302
+  - TLC-SO-TRL-303
+  - TLC-SO-TRL-304
+- expression: reflective cycle = practice -> observation -> evaluation -> correction
+  nature: process sequence
+  source_basis: maths/34-transmission-lifecycle/incorporation-phase.md - section 3
+  document: maths/34-transmission-lifecycle/incorporation-phase.md
+  section: section 3
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-130
+  objects:
+  - TLC-SO-TRL-302
+  - TLC-SO-TRL-303
+  - TLC-SO-TRL-304
+- expression: the maieutic operator acts on disciple identity
+  nature: operator relation
+  source_basis: maths/34-transmission-lifecycle/incorporation-phase.md - section 3
+  document: maths/34-transmission-lifecycle/incorporation-phase.md
+  section: section 3
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-131
+  objects:
+  - TLC-SO-TRL-305
+  - TLC-SO-TRL-306
+- expression: identity evolution is integrated into the full X dynamics
+  nature: state-coupling claim
+  source_basis: maths/34-transmission-lifecycle/incorporation-phase.md - section 3
+  document: maths/34-transmission-lifecycle/incorporation-phase.md
+  section: section 3
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-132
+  objects:
+  - TLC-SO-TRL-018
+  - TLC-SO-TRL-019
+  - TLC-SO-TRL-043
+  - TLC-SO-TRL-090
+  - TLC-SO-TRL-231
+  - TLC-SO-TRL-295
+  - TLC-SO-TRL-305
+  - TLC-SO-TRL-306
+  - TLC-SO-TRL-319
+  - TLC-SO-TRL-370
+- expression: phase ends at the second threshold
+  nature: threshold declaration
+  source_basis: maths/34-transmission-lifecycle/incorporation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/incorporation-phase.md
+  section: section 4
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-133
+  objects:
+  - TLC-SO-TRL-303
+  - TLC-SO-TRL-307
+- expression: exit combines autonomy, principles/virtues, practical competence and metacompetence
+  nature: conjunctive qualitative condition
+  source_basis: maths/34-transmission-lifecycle/incorporation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/incorporation-phase.md
+  section: section 4
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-134
+  objects:
+  - TLC-SO-TRL-303
+  - TLC-SO-TRL-307
+- expression: a max_i C_i criterion can be satisfied by one competence component
+  nature: source consequence
+  source_basis: maths/34-transmission-lifecycle/incorporation-phase.md - section 5
+  document: maths/34-transmission-lifecycle/incorporation-phase.md
+  section: section 5
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-135
+  objects:
+  - TLC-SO-TRL-308
+- expression: lambda(t) is only described as much less than one at the end
+  nature: terminal-value boundary
+  source_basis: maths/34-transmission-lifecycle/incorporation-phase.md - section 5
+  document: maths/34-transmission-lifecycle/incorporation-phase.md
+  section: section 5
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-136
+  objects:
+  - TLC-SO-TRL-269
+- expression: 'G: D x E_prof x R_+ -> I_prof x V_ident'
+  nature: mapping
+  source_basis: maths/34-transmission-lifecycle/integration-phase.md - section 1
+  document: maths/34-transmission-lifecycle/integration-phase.md
+  section: section 1
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-137
+  objects:
+  - TLC-SO-TRL-309
+  - TLC-SO-TRL-310
+  - TLC-SO-TRL-311
+  - TLC-SO-TRL-312
+  - TLC-SO-TRL-313
+  - TLC-SO-TRL-314
+- expression: V_ident belongs to [0,1]
+  nature: range declaration
+  source_basis: maths/34-transmission-lifecycle/integration-phase.md - section 1
+  document: maths/34-transmission-lifecycle/integration-phase.md
+  section: section 1
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-138
+  objects:
+  - TLC-SO-TRL-309
+  - TLC-SO-TRL-310
+  - TLC-SO-TRL-311
+  - TLC-SO-TRL-312
+  - TLC-SO-TRL-313
+  - TLC-SO-TRL-314
+- expression: professional identity follows a differential equation under practice, community and feedback influences
+  nature: qualitative differential relation
+  source_basis: maths/34-transmission-lifecycle/integration-phase.md - section 1
+  document: maths/34-transmission-lifecycle/integration-phase.md
+  section: section 1
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-139
+  objects:
+  - TLC-SO-TRL-309
+  - TLC-SO-TRL-310
+  - TLC-SO-TRL-311
+  - TLC-SO-TRL-312
+  - TLC-SO-TRL-313
+  - TLC-SO-TRL-314
+- expression: consolidation is linked to inverse distance from the identity core
+  nature: inverse-distance relation
+  source_basis: maths/34-transmission-lifecycle/integration-phase.md - section 1
+  document: maths/34-transmission-lifecycle/integration-phase.md
+  section: section 1
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-140
+  objects:
+  - TLC-SO-TRL-313
+  - TLC-SO-TRL-315
+  - TLC-SO-TRL-316
+- expression: identity jumps and a synthesis operation are admitted
+  nature: discontinuous/qualitative relation
+  source_basis: maths/34-transmission-lifecycle/integration-phase.md - section 1
+  document: maths/34-transmission-lifecycle/integration-phase.md
+  section: section 1
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-141
+  objects:
+  - TLC-SO-TRL-309
+  - TLC-SO-TRL-310
+  - TLC-SO-TRL-311
+  - TLC-SO-TRL-312
+  - TLC-SO-TRL-313
+  - TLC-SO-TRL-314
+- expression: X = (C,V,Val,P,I)
+  nature: state definition
+  source_basis: maths/34-transmission-lifecycle/integration-phase.md - section 2
+  document: maths/34-transmission-lifecycle/integration-phase.md
+  section: section 2
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-142
+  objects:
+  - TLC-SO-TRL-018
+  - TLC-SO-TRL-019
+  - TLC-SO-TRL-020
+  - TLC-SO-TRL-043
+  - TLC-SO-TRL-090
+  - TLC-SO-TRL-231
+  - TLC-SO-TRL-295
+  - TLC-SO-TRL-306
+  - TLC-SO-TRL-312
+  - TLC-SO-TRL-319
+  - TLC-SO-TRL-370
+- expression: Delta X = eta grad_X Phi_coh(X)
+  nature: gradient displacement
+  source_basis: maths/34-transmission-lifecycle/integration-phase.md - section 2
+  document: maths/34-transmission-lifecycle/integration-phase.md
+  section: section 2
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-143
+  objects:
+  - TLC-SO-TRL-320
+  - TLC-SO-TRL-321
+  - TLC-SO-TRL-322
+  - TLC-SO-TRL-323
+- expression: Delta X = -eta_corr grad_X Phi_coh(X)
+  nature: gradient displacement
+  source_basis: maths/34-transmission-lifecycle/integration-phase.md - section 2
+  document: maths/34-transmission-lifecycle/integration-phase.md
+  section: section 2
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-144
+  objects:
+  - TLC-SO-TRL-320
+  - TLC-SO-TRL-321
+  - TLC-SO-TRL-322
+  - TLC-SO-TRL-323
+- expression: both positive and negative coherence gradients are presented as corrective
+  nature: sign contradiction
+  source_basis: maths/34-transmission-lifecycle/integration-phase.md - section 2
+  document: maths/34-transmission-lifecycle/integration-phase.md
+  section: section 2
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-145
+  objects:
+  - TLC-SO-TRL-320
+  - TLC-SO-TRL-321
+  - TLC-SO-TRL-322
+  - TLC-SO-TRL-323
+- expression: coherence combines cosine similarities and an entropy term H
+  nature: metric composition
+  source_basis: maths/34-transmission-lifecycle/integration-phase.md - section 2
+  document: maths/34-transmission-lifecycle/integration-phase.md
+  section: section 2
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-146
+  objects:
+  - TLC-SO-TRL-320
+  - TLC-SO-TRL-324
+  - TLC-SO-TRL-325
+  - TLC-SO-TRL-326
+  - TLC-SO-TRL-327
+  - TLC-SO-TRL-328
+- expression: specialized alignment indices are aggregated into a global index
+  nature: aggregate relation
+  source_basis: maths/34-transmission-lifecycle/integration-phase.md - section 2
+  document: maths/34-transmission-lifecycle/integration-phase.md
+  section: section 2
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-147
+  objects:
+  - TLC-SO-TRL-320
+  - TLC-SO-TRL-324
+  - TLC-SO-TRL-325
+  - TLC-SO-TRL-326
+  - TLC-SO-TRL-327
+  - TLC-SO-TRL-328
+- expression: integration requires harmony among competence, principles, virtues, values and identity
+  nature: qualitative condition
+  source_basis: maths/34-transmission-lifecycle/integration-phase.md - section 3
+  document: maths/34-transmission-lifecycle/integration-phase.md
+  section: section 3
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-148
+  objects:
+  - TLC-SO-TRL-329
+  - TLC-SO-TRL-330
+  - TLC-SO-TRL-331
+- expression: the source declares passage thresholds, identity bifurcations, irreversibility and coherence-crisis treatment
+  nature: scientific claim set
+  source_basis: maths/34-transmission-lifecycle/integration-phase.md - section 3
+  document: maths/34-transmission-lifecycle/integration-phase.md
+  section: section 3
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-149
+  objects:
+  - TLC-SO-TRL-317
+  - TLC-SO-TRL-318
+  - TLC-SO-TRL-332
+  - TLC-SO-TRL-333
+  - TLC-SO-TRL-334
+- expression: one passage identifies threshold 3 as phase end
+  nature: threshold declaration
+  source_basis: maths/34-transmission-lifecycle/integration-phase.md - section 3
+  document: maths/34-transmission-lifecycle/integration-phase.md
+  section: section 3
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-150
+  objects:
+  - TLC-SO-TRL-329
+  - TLC-SO-TRL-330
+  - TLC-SO-TRL-331
+- expression: another passage identifies threshold 2 as phase end
+  nature: threshold declaration
+  source_basis: maths/34-transmission-lifecycle/integration-phase.md - section 3/4
+  document: maths/34-transmission-lifecycle/integration-phase.md
+  section: section 3/4
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-151
+  objects:
+  - TLC-SO-TRL-329
+  - TLC-SO-TRL-330
+  - TLC-SO-TRL-331
+- expression: collective validation system = (V_c,N,M,L)
+  nature: system decomposition
+  source_basis: maths/34-transmission-lifecycle/validation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/validation-phase.md
+  section: section 1
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-152
+  objects:
+  - TLC-SO-TRL-335
+  - TLC-SO-TRL-336
+  - TLC-SO-TRL-337
+  - TLC-SO-TRL-338
+- expression: validation M is explicitly neither memory nor master
+  nature: symbol identity guard
+  source_basis: maths/34-transmission-lifecycle/validation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/validation-phase.md
+  section: section 1
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-153
+  objects:
+  - TLC-SO-TRL-017
+  - TLC-SO-TRL-039
+  - TLC-SO-TRL-046
+  - TLC-SO-TRL-047
+  - TLC-SO-TRL-050
+  - TLC-SO-TRL-054
+  - TLC-SO-TRL-057
+  - TLC-SO-TRL-061
+  - TLC-SO-TRL-063
+  - TLC-SO-TRL-067
+  - TLC-SO-TRL-073
+  - TLC-SO-TRL-084
+  - TLC-SO-TRL-085
+  - TLC-SO-TRL-093
+  - TLC-SO-TRL-107
+  - TLC-SO-TRL-108
+  - TLC-SO-TRL-121
+  - TLC-SO-TRL-126
+  - TLC-SO-TRL-134
+  - TLC-SO-TRL-135
+  - TLC-SO-TRL-138
+  - TLC-SO-TRL-144
+  - TLC-SO-TRL-147
+  - TLC-SO-TRL-148
+  - TLC-SO-TRL-149
+  - TLC-SO-TRL-150
+  - TLC-SO-TRL-154
+  - TLC-SO-TRL-163
+  - TLC-SO-TRL-186
+  - TLC-SO-TRL-195
+  - TLC-SO-TRL-200
+  - TLC-SO-TRL-203
+  - TLC-SO-TRL-208
+  - TLC-SO-TRL-223
+  - TLC-SO-TRL-230
+  - TLC-SO-TRL-236
+  - TLC-SO-TRL-245
+  - TLC-SO-TRL-246
+  - TLC-SO-TRL-247
+  - TLC-SO-TRL-248
+  - TLC-SO-TRL-255
+  - TLC-SO-TRL-256
+  - TLC-SO-TRL-264
+  - TLC-SO-TRL-269
+  - TLC-SO-TRL-271
+  - TLC-SO-TRL-273
+  - TLC-SO-TRL-274
+  - TLC-SO-TRL-301
+  - TLC-SO-TRL-309
+  - TLC-SO-TRL-320
+  - TLC-SO-TRL-326
+  - TLC-SO-TRL-335
+  - TLC-SO-TRL-336
+  - TLC-SO-TRL-337
+  - TLC-SO-TRL-338
+  - TLC-SO-TRL-340
+  - TLC-SO-TRL-352
+  - TLC-SO-TRL-365
+  - TLC-SO-TRL-366
+  - TLC-SO-TRL-381
+  - TLC-SO-TRL-382
+  - TLC-SO-TRL-387
+  - TLC-SO-TRL-388
+- expression: M(a,t) = (1/|A(t)|) sum_{a' in A(t)} w(a,a',t) v(a',a,t) + lambda(t) r(a,t)
+  nature: aggregate equality
+  source_basis: maths/34-transmission-lifecycle/validation-phase.md - section 1
+  document: maths/34-transmission-lifecycle/validation-phase.md
+  section: section 1
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-154
+  objects:
+  - TLC-SO-TRL-337
+  - TLC-SO-TRL-339
+  - TLC-SO-TRL-340
+  - TLC-SO-TRL-341
+  - TLC-SO-TRL-342
+  - TLC-SO-TRL-343
+  - TLC-SO-TRL-344
+  - TLC-SO-TRL-345
+- expression: A(t) may be empty before activation while M divides by |A(t)|
+  nature: undefined-domain condition
+  source_basis: maths/34-transmission-lifecycle/validation-phase.md - section 1/5
+  document: maths/34-transmission-lifecycle/validation-phase.md
+  section: section 1/5
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-155
+  objects:
+  - TLC-SO-TRL-337
+  - TLC-SO-TRL-340
+- expression: 1_valid = 1_{Phi_threshold=1} 1_{rho_prep>=rho_min} c_conv 1_{|A|>=Q_min} 1_{H_eval>=H_min}
+  nature: indicator-like product
+  source_basis: maths/34-transmission-lifecycle/validation-phase.md - section 2
+  document: maths/34-transmission-lifecycle/validation-phase.md
+  section: section 2
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-156
+  objects:
+  - TLC-SO-TRL-339
+  - TLC-SO-TRL-340
+  - TLC-SO-TRL-346
+  - TLC-SO-TRL-347
+  - TLC-SO-TRL-348
+  - TLC-SO-TRL-349
+  - TLC-SO-TRL-350
+  - TLC-SO-TRL-351
+  - TLC-SO-TRL-352
+  - TLC-SO-TRL-353
+- expression: c_conv is not constrained to be binary
+  nature: typing/range boundary
+  source_basis: maths/34-transmission-lifecycle/validation-phase.md - section 2
+  document: maths/34-transmission-lifecycle/validation-phase.md
+  section: section 2
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-157
+  objects:
+  - TLC-SO-TRL-339
+  - TLC-SO-TRL-340
+  - TLC-SO-TRL-346
+  - TLC-SO-TRL-347
+  - TLC-SO-TRL-348
+  - TLC-SO-TRL-349
+  - TLC-SO-TRL-350
+  - TLC-SO-TRL-351
+  - TLC-SO-TRL-352
+  - TLC-SO-TRL-353
+- expression: w(a,a',t) = phi_eld(a',t) phi_comp(a',t) phi_prox(a,a',t) / sum_{a'' in A(t)} phi_eld phi_comp phi_prox
+  nature: normalized-weight equality
+  source_basis: maths/34-transmission-lifecycle/validation-phase.md - section 3
+  document: maths/34-transmission-lifecycle/validation-phase.md
+  section: section 3
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-158
+  objects:
+  - TLC-SO-TRL-339
+  - TLC-SO-TRL-340
+  - TLC-SO-TRL-341
+  - TLC-SO-TRL-343
+  - TLC-SO-TRL-354
+  - TLC-SO-TRL-355
+  - TLC-SO-TRL-356
+  - TLC-SO-TRL-357
+- expression: the evaluator-weight denominator may be zero
+  nature: undefined-domain condition
+  source_basis: maths/34-transmission-lifecycle/validation-phase.md - section 3/5
+  document: maths/34-transmission-lifecycle/validation-phase.md
+  section: section 3/5
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-159
+  objects:
+  - TLC-SO-TRL-340
+  - TLC-SO-TRL-343
+  - TLC-SO-TRL-357
+- expression: validation is linked to fairness corrections defined in Domain 21
+  nature: scientific dependency
+  source_basis: maths/34-transmission-lifecycle/validation-phase.md - section 3
+  document: maths/34-transmission-lifecycle/validation-phase.md
+  section: section 3
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-160
+  objects:
+  - TLC-SO-TRL-358
+- expression: rite of passage may cause recognition and legitimacy jumps
+  nature: discontinuous event claim
+  source_basis: maths/34-transmission-lifecycle/validation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/validation-phase.md
+  section: section 4
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-161
+  objects:
+  - TLC-SO-TRL-337
+  - TLC-SO-TRL-338
+  - TLC-SO-TRL-359
+  - TLC-SO-TRL-360
+  - TLC-SO-TRL-361
+  - TLC-SO-TRL-362
+  - TLC-SO-TRL-363
+  - TLC-SO-TRL-364
+  - TLC-SO-TRL-365
+  - TLC-SO-TRL-366
+- expression: dL/dt = alpha_L(M(a,t)-L) + beta_L(L_hist-L) + gamma_L E(t)
+  nature: differential equation
+  source_basis: maths/34-transmission-lifecycle/validation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/validation-phase.md
+  section: section 4
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-162
+  objects:
+  - TLC-SO-TRL-337
+  - TLC-SO-TRL-338
+  - TLC-SO-TRL-359
+  - TLC-SO-TRL-360
+  - TLC-SO-TRL-361
+  - TLC-SO-TRL-362
+  - TLC-SO-TRL-363
+  - TLC-SO-TRL-364
+  - TLC-SO-TRL-365
+  - TLC-SO-TRL-366
+- expression: L_hist is historical legitimacy and E(t) contains legitimation-affecting events
+  nature: semantic assignment
+  source_basis: maths/34-transmission-lifecycle/validation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/validation-phase.md
+  section: section 4
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-163
+  objects:
+  - TLC-SO-TRL-337
+  - TLC-SO-TRL-338
+  - TLC-SO-TRL-359
+  - TLC-SO-TRL-360
+  - TLC-SO-TRL-361
+  - TLC-SO-TRL-362
+  - TLC-SO-TRL-363
+  - TLC-SO-TRL-364
+  - TLC-SO-TRL-365
+  - TLC-SO-TRL-366
+- expression: final validation requires simultaneous M and L thresholds
+  nature: conjunctive threshold condition
+  source_basis: maths/34-transmission-lifecycle/validation-phase.md - section 4
+  document: maths/34-transmission-lifecycle/validation-phase.md
+  section: section 4
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-164
+  objects:
+  - TLC-SO-TRL-337
+  - TLC-SO-TRL-338
+  - TLC-SO-TRL-367
+  - TLC-SO-TRL-368
+- expression: ranges of M and L are not established
+  nature: range boundary
+  source_basis: maths/34-transmission-lifecycle/validation-phase.md - section 5
+  document: maths/34-transmission-lifecycle/validation-phase.md
+  section: section 5
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-165
+  objects:
+  - TLC-SO-TRL-337
+  - TLC-SO-TRL-338
+  - TLC-SO-TRL-359
+  - TLC-SO-TRL-360
+  - TLC-SO-TRL-361
+  - TLC-SO-TRL-362
+  - TLC-SO-TRL-363
+  - TLC-SO-TRL-364
+  - TLC-SO-TRL-365
+  - TLC-SO-TRL-366
+- expression: local stability of the recalled legitimacy dynamic is not proved
+  nature: proof boundary
+  source_basis: maths/34-transmission-lifecycle/validation-phase.md - section 5
+  document: maths/34-transmission-lifecycle/validation-phase.md
+  section: section 5
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-166
+  objects:
+  - TLC-SO-TRL-337
+  - TLC-SO-TRL-338
+  - TLC-SO-TRL-359
+  - TLC-SO-TRL-360
+  - TLC-SO-TRL-361
+  - TLC-SO-TRL-362
+  - TLC-SO-TRL-363
+  - TLC-SO-TRL-364
+  - TLC-SO-TRL-365
+  - TLC-SO-TRL-366
+- expression: Delta_M(t) = ||X(t)-X_without(t)|| / ||X(t)||
+  nature: ratio definition
+  source_basis: maths/34-transmission-lifecycle/empowerment-phase.md - section 1
+  document: maths/34-transmission-lifecycle/empowerment-phase.md
+  section: section 1
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-167
+  objects:
+  - TLC-SO-TRL-369
+  - TLC-SO-TRL-370
+  - TLC-SO-TRL-371
+  - TLC-SO-TRL-372
+  - TLC-SO-TRL-373
+- expression: guidance share decreases exponentially
+  nature: qualitative dynamic relation
+  source_basis: maths/34-transmission-lifecycle/empowerment-phase.md - section 1
+  document: maths/34-transmission-lifecycle/empowerment-phase.md
+  section: section 1
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-168
+  objects:
+  - TLC-SO-TRL-369
+  - TLC-SO-TRL-370
+  - TLC-SO-TRL-371
+  - TLC-SO-TRL-372
+  - TLC-SO-TRL-373
+- expression: internal mechanisms activate only after dependency thresholds
+  nature: threshold condition
+  source_basis: maths/34-transmission-lifecycle/empowerment-phase.md - section 1
+  document: maths/34-transmission-lifecycle/empowerment-phase.md
+  section: section 1
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-169
+  objects:
+  - TLC-SO-TRL-369
+  - TLC-SO-TRL-370
+  - TLC-SO-TRL-371
+  - TLC-SO-TRL-372
+  - TLC-SO-TRL-373
+  - TLC-SO-TRL-374
+  - TLC-SO-TRL-375
+  - TLC-SO-TRL-376
+  - TLC-SO-TRL-377
+  - TLC-SO-TRL-378
+  - TLC-SO-TRL-379
+- expression: autonomy levels = {technical, decisional, strategic, existential}
+  nature: classification
+  source_basis: maths/34-transmission-lifecycle/empowerment-phase.md - section 2
+  document: maths/34-transmission-lifecycle/empowerment-phase.md
+  section: section 2
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-170
+  objects:
+  - TLC-SO-TRL-373
+  - TLC-SO-TRL-374
+  - TLC-SO-TRL-375
+  - TLC-SO-TRL-376
+  - TLC-SO-TRL-377
+  - TLC-SO-TRL-378
+  - TLC-SO-TRL-379
+- expression: the second cycle threshold marks stabilized autonomy
+  nature: threshold declaration
+  source_basis: maths/34-transmission-lifecycle/empowerment-phase.md - section 2
+  document: maths/34-transmission-lifecycle/empowerment-phase.md
+  section: section 2
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-171
+  objects:
+  - TLC-SO-TRL-373
+  - TLC-SO-TRL-374
+  - TLC-SO-TRL-375
+  - TLC-SO-TRL-376
+  - TLC-SO-TRL-377
+  - TLC-SO-TRL-378
+  - TLC-SO-TRL-379
+- expression: autonomy combines reduced vertical dependence, internal criteria and fidelity to the core
+  nature: qualitative relation
+  source_basis: maths/34-transmission-lifecycle/empowerment-phase.md - section 2
+  document: maths/34-transmission-lifecycle/empowerment-phase.md
+  section: section 2
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-172
+  objects:
+  - TLC-SO-TRL-373
+  - TLC-SO-TRL-374
+  - TLC-SO-TRL-375
+  - TLC-SO-TRL-376
+  - TLC-SO-TRL-377
+  - TLC-SO-TRL-378
+  - TLC-SO-TRL-379
+  - TLC-SO-TRL-380
+  - TLC-SO-TRL-387
+  - TLC-SO-TRL-388
+  - TLC-SO-TRL-389
+  - TLC-SO-TRL-394
+  - TLC-SO-TRL-395
+  - TLC-SO-TRL-396
+  - TLC-SO-TRL-397
+  - TLC-SO-TRL-398
+  - TLC-SO-TRL-399
+- expression: K(X,C) = X + epsilon v(X,C)
+  nature: operator equality
+  source_basis: maths/34-transmission-lifecycle/empowerment-phase.md - section 3
+  document: maths/34-transmission-lifecycle/empowerment-phase.md
+  section: section 3
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-173
+  objects:
+  - TLC-SO-TRL-370
+  - TLC-SO-TRL-381
+  - TLC-SO-TRL-382
+  - TLC-SO-TRL-383
+  - TLC-SO-TRL-384
+  - TLC-SO-TRL-385
+- expression: K returns a transformed state while prose also calls its product innovation delta X
+  nature: identity boundary
+  source_basis: maths/34-transmission-lifecycle/empowerment-phase.md - section 3
+  document: maths/34-transmission-lifecycle/empowerment-phase.md
+  section: section 3
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-174
+  objects:
+  - TLC-SO-TRL-370
+  - TLC-SO-TRL-381
+  - TLC-SO-TRL-382
+  - TLC-SO-TRL-383
+  - TLC-SO-TRL-384
+  - TLC-SO-TRL-385
+- expression: I_crea(t) = ||K(X(t),C(t))-X(t)||/||X(t)|| * (1-||pi_N(K(X,C))-pi_N(X)||)
+  nature: index equality
+  source_basis: maths/34-transmission-lifecycle/empowerment-phase.md - section 3
+  document: maths/34-transmission-lifecycle/empowerment-phase.md
+  section: section 3
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-175
+  objects:
+  - TLC-SO-TRL-370
+  - TLC-SO-TRL-379
+  - TLC-SO-TRL-380
+  - TLC-SO-TRL-381
+  - TLC-SO-TRL-382
+  - TLC-SO-TRL-386
+  - TLC-SO-TRL-387
+  - TLC-SO-TRL-388
+- expression: the I_crea factors do not guarantee positivity or boundedness
+  nature: range boundary
+  source_basis: maths/34-transmission-lifecycle/empowerment-phase.md - section 3
+  document: maths/34-transmission-lifecycle/empowerment-phase.md
+  section: section 3
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-176
+  objects:
+  - TLC-SO-TRL-386
+- expression: fidelity and innovation are related by a source-named relation
+  nature: qualitative relation
+  source_basis: maths/34-transmission-lifecycle/empowerment-phase.md - section 3
+  document: maths/34-transmission-lifecycle/empowerment-phase.md
+  section: section 3
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-177
+  objects:
+  - TLC-SO-TRL-380
+  - TLC-SO-TRL-389
+  - TLC-SO-TRL-394
+  - TLC-SO-TRL-395
+  - TLC-SO-TRL-396
+  - TLC-SO-TRL-397
+  - TLC-SO-TRL-398
+  - TLC-SO-TRL-399
+- expression: analogy and recombination are allowed under core fidelity and community validation
+  nature: admissibility claim
+  source_basis: maths/34-transmission-lifecycle/empowerment-phase.md - section 3
+  document: maths/34-transmission-lifecycle/empowerment-phase.md
+  section: section 3
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-178
+  objects:
+  - TLC-SO-TRL-380
+  - TLC-SO-TRL-387
+  - TLC-SO-TRL-388
+  - TLC-SO-TRL-389
+  - TLC-SO-TRL-391
+  - TLC-SO-TRL-392
+  - TLC-SO-TRL-393
+  - TLC-SO-TRL-394
+  - TLC-SO-TRL-395
+  - TLC-SO-TRL-396
+  - TLC-SO-TRL-397
+  - TLC-SO-TRL-398
+  - TLC-SO-TRL-399
+- expression: analogy differentiates a principle with respect to state without a common differential space
+  nature: typing boundary
+  source_basis: maths/34-transmission-lifecycle/empowerment-phase.md - section 3
+  document: maths/34-transmission-lifecycle/empowerment-phase.md
+  section: section 3
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-179
+  objects:
+  - TLC-SO-TRL-391
+  - TLC-SO-TRL-392
+  - TLC-SO-TRL-393
+- expression: third threshold requires autonomy, creativity, fidelity and recognized transmission capacity jointly
+  nature: conjunctive threshold condition
+  source_basis: maths/34-transmission-lifecycle/empowerment-phase.md - section 3
+  document: maths/34-transmission-lifecycle/empowerment-phase.md
+  section: section 3
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-180
+  objects:
+  - TLC-SO-TRL-380
+  - TLC-SO-TRL-389
+  - TLC-SO-TRL-394
+  - TLC-SO-TRL-395
+  - TLC-SO-TRL-396
+  - TLC-SO-TRL-397
+  - TLC-SO-TRL-398
+  - TLC-SO-TRL-399
+- expression: output transforms an autonomous disciple into a subject eligible for the master function
+  nature: role-transition claim
+  source_basis: maths/34-transmission-lifecycle/empowerment-phase.md - section 4
+  document: maths/34-transmission-lifecycle/empowerment-phase.md
+  section: section 4
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-181
+  objects:
+  - TLC-SO-TRL-380
+  - TLC-SO-TRL-389
+  - TLC-SO-TRL-394
+  - TLC-SO-TRL-395
+  - TLC-SO-TRL-396
+  - TLC-SO-TRL-397
+  - TLC-SO-TRL-398
+  - TLC-SO-TRL-399
+- expression: output includes pedagogical competence, community authorization and a rite of passage
+  nature: conjunctive process condition
+  source_basis: maths/34-transmission-lifecycle/empowerment-phase.md - section 4
+  document: maths/34-transmission-lifecycle/empowerment-phase.md
+  section: section 4
+  operational_status: provider_backed
+  note: ''
+  relation_id: TLC-SR-TRL-182
+  objects:
+  - TLC-SO-TRL-088
+  - TLC-SO-TRL-159
+  - TLC-SO-TRL-380
+  - TLC-SO-TRL-389
+  - TLC-SO-TRL-394
+  - TLC-SO-TRL-395
+  - TLC-SO-TRL-396
+  - TLC-SO-TRL-397
+  - TLC-SO-TRL-398
+  - TLC-SO-TRL-399
+  - TLC-SO-TRL-400
+  - TLC-SO-TRL-401
+- expression: the output joins generational propagation specified in Domain 29
+  nature: scientific dependency
+  source_basis: maths/34-transmission-lifecycle/empowerment-phase.md - section 4
+  document: maths/34-transmission-lifecycle/empowerment-phase.md
+  section: section 4
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-183
+  objects:
+  - TLC-SO-TRL-088
+  - TLC-SO-TRL-159
+  - TLC-SO-TRL-398
+  - TLC-SO-TRL-399
+  - TLC-SO-TRL-400
+  - TLC-SO-TRL-401
+- expression: minima of U(X) represent dependent-disciple, autonomous and master attractors
+  nature: attractor claim
+  source_basis: maths/34-transmission-lifecycle/empowerment-phase.md - section 5
+  document: maths/34-transmission-lifecycle/empowerment-phase.md
+  section: section 5
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-184
+  objects:
+  - TLC-SO-TRL-370
+  - TLC-SO-TRL-390
+  - TLC-SO-TRL-402
+  - TLC-SO-TRL-403
+  - TLC-SO-TRL-404
+  - TLC-SO-TRL-405
+  - TLC-SO-TRL-406
+  - TLC-SO-TRL-407
+  - TLC-SO-TRL-408
+  - TLC-SO-TRL-409
+  - TLC-SO-TRL-410
+- expression: thresholds are points where the topology of U changes
+  nature: topology-change claim
+  source_basis: maths/34-transmission-lifecycle/empowerment-phase.md - section 5
+  document: maths/34-transmission-lifecycle/empowerment-phase.md
+  section: section 5
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-185
+  objects:
+  - TLC-SO-TRL-370
+  - TLC-SO-TRL-390
+  - TLC-SO-TRL-402
+  - TLC-SO-TRL-403
+  - TLC-SO-TRL-404
+  - TLC-SO-TRL-405
+  - TLC-SO-TRL-406
+  - TLC-SO-TRL-407
+  - TLC-SO-TRL-408
+  - TLC-SO-TRL-409
+  - TLC-SO-TRL-410
+- expression: a pitchfork bifurcation and Landau potential represent qualitative change
+  nature: modeling claim
+  source_basis: maths/34-transmission-lifecycle/empowerment-phase.md - section 5
+  document: maths/34-transmission-lifecycle/empowerment-phase.md
+  section: section 5
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-186
+  objects:
+  - TLC-SO-TRL-370
+  - TLC-SO-TRL-390
+  - TLC-SO-TRL-402
+  - TLC-SO-TRL-403
+  - TLC-SO-TRL-404
+  - TLC-SO-TRL-405
+  - TLC-SO-TRL-406
+  - TLC-SO-TRL-407
+  - TLC-SO-TRL-408
+  - TLC-SO-TRL-409
+  - TLC-SO-TRL-410
+- expression: irreversibility is asserted under a coherence condition
+  nature: scientific claim
+  source_basis: maths/34-transmission-lifecycle/empowerment-phase.md - section 5
+  document: maths/34-transmission-lifecycle/empowerment-phase.md
+  section: section 5
+  operational_status: structural_only
+  note: ''
+  relation_id: TLC-SR-TRL-187
+  objects:
+  - TLC-SO-TRL-370
+  - TLC-SO-TRL-390
+  - TLC-SO-TRL-402
+  - TLC-SO-TRL-403
+  - TLC-SO-TRL-404
+  - TLC-SO-TRL-405
+  - TLC-SO-TRL-406
+  - TLC-SO-TRL-407
+  - TLC-SO-TRL-408
+  - TLC-SO-TRL-409
+  - TLC-SO-TRL-410
+- expression: pitchfork and irreversibility are not derived from the complete disciple dynamics
+  nature: proof boundary
+  source_basis: maths/34-transmission-lifecycle/empowerment-phase.md - section 6
+  document: maths/34-transmission-lifecycle/empowerment-phase.md
+  section: section 6
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-188
+  objects:
+  - TLC-SO-TRL-370
+  - TLC-SO-TRL-390
+  - TLC-SO-TRL-402
+  - TLC-SO-TRL-403
+  - TLC-SO-TRL-404
+  - TLC-SO-TRL-405
+  - TLC-SO-TRL-406
+  - TLC-SO-TRL-407
+  - TLC-SO-TRL-408
+  - TLC-SO-TRL-409
+  - TLC-SO-TRL-410
+- expression: operational learning dynamics reference Guidance, Incorporation and Integration without asserted formula identity
+  nature: document-link boundary
+  source_basis: maths/34-transmission-lifecycle/operational-pipeline.md - section 3
+  document: maths/34-transmission-lifecycle/operational-pipeline.md
+  section: section 3
+  operational_status: preserved_unresolved
+  note: ''
+  relation_id: TLC-SR-TRL-189
+  objects:
+  - TLC-SO-TRL-411

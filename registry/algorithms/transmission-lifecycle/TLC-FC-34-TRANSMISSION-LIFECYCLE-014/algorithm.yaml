@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-014
+algorithm_kind: provider_boundary
+strategy: partially_constrained
+execution: structural_only
+steps:
+- Expose F_phase(X,M,C,t)+noise-and-correction as an incomplete source relation requiring providers.
+provider_requirements:
+- 'Explicit source-compatible provider for: Active-learning phase, noise and correction provider boundary'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not construct the phase function, stochastic law or correction term from the narrative label.
+prescription_basis: []

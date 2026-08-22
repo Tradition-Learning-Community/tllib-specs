@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-096
+source_contract: registry/math-contracts/TLC-FC-34-TRANSMISSION-LIFECYCLE-096/contract.yaml
+tests:
+- id: TRL034096-T01
+  category: source_conformance
+  verifies: Bind only the explicitly referenced validation fairness-correction authority to Domain 21.
+- id: TRL034096-T02
+  category: non_invention
+  verifies: Do not import all Domain 21 metrics, optimizers or runtime behavior into Domain 34.
+- id: TRL034096-T03
+  category: dependency_boundary
+  verifies: Domain 34 confirms scientific dependencies 34 -> 21 and 34 -> 29; keeps 34 -> 04 unresolved; does not promote
+    34 -> 17, 19, 22, 23, 24, 26 or 35; runtime dependencies are empty; exactly eight shared contracts remain.

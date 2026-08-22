@@ -1,0 +1,51 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-039
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-039
+title: Environmental-authenticity metric evaluator and provider guard
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: conditionally_executable
+scientific_authority: maths/34-transmission-lifecycle/impregnation-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §1
+objects:
+- TLC-SO-TRL-161
+- TLC-SO-TRL-169
+- TLC-SO-TRL-170
+- TLC-SO-TRL-171
+- TLC-SO-TRL-172
+- TLC-SO-TRL-173
+relations:
+- TLC-SR-TRL-073
+- TLC-SR-TRL-074
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- 'Explicit source-compatible provider for: Environmental-authenticity metric evaluator and provider guard'
+preconditions: []
+postconditions:
+- Evaluate delta_auth=max_d min_s d_CP(d,s) only with supplied domains, distance and threshold semantics.
+invariants:
+- Do not invent the sets, units, extrema conventions or decreasing-test tolerance.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-034
+forbidden_behaviors:
+- Do not invent the sets, units, extrema conventions or decreasing-test tolerance.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/impregnation-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

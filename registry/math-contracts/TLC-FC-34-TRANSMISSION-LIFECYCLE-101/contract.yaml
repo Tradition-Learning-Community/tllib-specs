@@ -1,0 +1,53 @@
+contract_id: TLC-MC-TLC-FC-34-TRANSMISSION-LIFECYCLE-101
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-101
+title: Four-level autonomy classification descriptor
+domain_id: transmission-lifecycle
+contract_kind: source_backed_descriptor_contract
+scientific_status: partially_defined
+execution_status: structural_only
+scientific_authority: maths/34-transmission-lifecycle/empowerment-phase.md
+additional_scientific_authorities: []
+source_sections:
+- §2
+objects:
+- TLC-SO-TRL-373
+- TLC-SO-TRL-374
+- TLC-SO-TRL-375
+- TLC-SO-TRL-376
+- TLC-SO-TRL-377
+- TLC-SO-TRL-378
+- TLC-SO-TRL-379
+relations:
+- TLC-SR-TRL-169
+- TLC-SR-TRL-170
+- TLC-SR-TRL-171
+- TLC-SR-TRL-172
+inputs:
+- name: provided_operands
+  type: opaque_source_compatible_value
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Expose technical, decisional, strategic and existential autonomy levels and the source threshold narrative.
+invariants:
+- Do not invent complete classification predicates, interval closure or transition order beyond the source.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryPartial
+  when: The request exceeds supplied providers or the relation, typing, transition, identity or structure actually defined
+    by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-TRL-089
+forbidden_behaviors:
+- Do not invent complete classification predicates, interval closure or transition order beyond the source.
+traceability:
+  sources:
+  - maths/34-transmission-lifecycle/empowerment-phase.md
+  inventory: registry/domain-progress/transmission-lifecycle/feature-inventory.yaml

@@ -1,0 +1,19 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-019
+oracle_kind: source_conformance
+acceptance:
+- Evaluate V_coll only for a supplied nonempty community and a supplied recognition function rec.
+rejections:
+- Do not invent rec, evaluator weights or an empty-community convention.
+dependency_guards:
+  confirmed: []
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 17
+  - 19
+  - 22
+  - 23
+  - 24
+  - 26
+  - 35

@@ -1,0 +1,22 @@
+schema_version: 1
+feature_id: TLC-FC-34-TRANSMISSION-LIFECYCLE-025
+status: finalized
+scientific_status: external_provider_required
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-34-TRANSMISSION-LIFECYCLE-025/ir.yaml
+operation: handle_transmission_lifecycle_025
+required_behavior:
+- Evaluate S_M and S_D only from supplied four-term factors and positive normalized weights.
+forbidden_behavior:
+- Do not construct phi_k or psi_k factors, calibrate weights or transfer factors between the two scores.
+provider_requirements:
+- 'Explicit source-compatible provider for: Mutual-recognition score evaluator'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- TLC-UR-TRL-022
+error_codes:
+- ProviderRequired
+optimization_note: Structural normalization only; no scientific semantics, phase mapping, symbol identity or execution status
+  changed.
