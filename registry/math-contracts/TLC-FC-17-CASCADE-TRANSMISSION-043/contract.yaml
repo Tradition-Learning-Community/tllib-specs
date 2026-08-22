@@ -1,0 +1,59 @@
+contract_id: TLC-MC-TLC-FC-17-CASCADE-TRANSMISSION-043
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-043
+title: Adaptive-resilience theorem descriptor
+domain_id: cascade-transmission
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: structural_only
+scientific_authority: maths/17-cascade-transmission/cascade-transmission-system.md
+source_sections:
+- §6
+objects:
+- TLC-SO-CAS-191
+- TLC-SO-CAS-192
+- TLC-SO-CAS-193
+- TLC-SO-CAS-194
+- TLC-SO-CAS-195
+- TLC-SO-CAS-197
+- TLC-SO-CAS-196
+- TLC-SO-CAS-200
+- TLC-SO-CAS-198
+- TLC-SO-CAS-201
+- TLC-SO-CAS-199
+relations:
+- TLC-SR-CAS-046
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve the perturbation hypothesis and recovery-time bound as a provider-backed claim.
+invariants:
+- Do not identify spectral L with legitimacy L or preservation P with perturbation P.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds the relation, provider boundary, or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-CAS-030
+- TLC-UR-CAS-031
+- TLC-UR-CAS-047
+- TLC-UR-CAS-059
+- TLC-UR-CAS-061
+- TLC-UR-CAS-067
+- TLC-UR-CAS-068
+- TLC-UR-CAS-069
+- TLC-UR-CAS-070
+- TLC-UR-CAS-087
+- TLC-UR-CAS-088
+forbidden_behaviors:
+- Do not identify spectral L with legitimacy L or preservation P with perturbation P.
+traceability:
+  source: maths/17-cascade-transmission/cascade-transmission-system.md
+  inventory: registry/domain-progress/cascade-transmission/feature-inventory.yaml

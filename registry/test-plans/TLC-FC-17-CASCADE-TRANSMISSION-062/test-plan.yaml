@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-062
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-062/contract.yaml
+tests:
+- id: CAS017062-T01
+  category: source_conformance
+  verifies: Evaluate I_imp exactly from supplied graph-boundary, social-set, expectation and contribution/recognition providers.
+- id: CAS017062-T02
+  category: non_invention
+  verifies: Do not invent graph boundary, probability law, social embedding or scoring functions.
+- id: CAS017062-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-052
+algorithm_kind: source_bounded_evaluator
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Evaluate C_coh exactly from supplied compatible operands/providers.
+provider_requirements: []
+unresolved_domain_relations:
+- 4
+forbidden:
+- Do not normalize, clamp, reinterpret distance, or supply missing pi_N/gradient/norm semantics.
+prescription_basis: []

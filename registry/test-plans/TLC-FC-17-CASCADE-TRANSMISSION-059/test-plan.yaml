@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-059
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-059/contract.yaml
+tests:
+- id: CAS017059-T01
+  category: source_conformance
+  verifies: Preserve undefined T/denominator/empty lineage cases and F(v) identity ambiguity.
+- id: CAS017059-T02
+  category: non_invention
+  verifies: Do not add positive-T assumptions, denominator epsilon or bind F(v) to another F role.
+- id: CAS017059-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

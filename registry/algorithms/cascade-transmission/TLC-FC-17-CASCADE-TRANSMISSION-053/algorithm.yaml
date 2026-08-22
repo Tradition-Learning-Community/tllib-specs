@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-053
+algorithm_kind: structural_descriptor
+strategy: open
+execution: structural_only
+steps:
+- Preserve unresolved cases such as empty V_L or zero values norm rather than choosing fallbacks.
+provider_requirements: []
+unresolved_domain_relations:
+- 4
+forbidden:
+- Do not add epsilon denominators, empty-set conventions or default cohesion.
+prescription_basis: []

@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-060
+algorithm_kind: source_bounded_evaluator
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Evaluate the displayed V_vit expression only when all derivative and innovation/permanence providers are supplied.
+provider_requirements: []
+unresolved_domain_relations: []
+forbidden:
+- Do not invent discrete-rate interpolation, derivative methods, units or coefficient calibration.
+prescription_basis: []

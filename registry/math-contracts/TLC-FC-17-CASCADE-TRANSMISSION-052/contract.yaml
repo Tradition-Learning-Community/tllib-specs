@@ -1,0 +1,70 @@
+contract_id: TLC-MC-TLC-FC-17-CASCADE-TRANSMISSION-052
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-052
+title: Cohesion health-metric evaluator
+domain_id: cascade-transmission
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: conditionally_executable
+scientific_authority: maths/17-cascade-transmission/cascade-transmission-system.md
+source_sections:
+- §8
+objects:
+- TLC-SO-CAS-246
+- TLC-SO-CAS-247
+- TLC-SO-CAS-027
+- TLC-SO-CAS-026
+- TLC-SO-CAS-028
+- TLC-SO-CAS-248
+- TLC-SO-CAS-164
+- TLC-SO-CAS-249
+relations:
+- TLC-SR-CAS-056
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- unresolved_domain_04
+preconditions: []
+postconditions:
+- Evaluate C_coh exactly from supplied compatible operands/providers.
+invariants:
+- Do not normalize, clamp, reinterpret distance, or supply missing pi_N/gradient/norm semantics.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds the relation, provider boundary, or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved:
+  - 4
+  runtime: []
+unresolved_items:
+- TLC-UR-CAS-013
+- TLC-UR-CAS-020
+- TLC-UR-CAS-028
+- TLC-UR-CAS-032
+- TLC-UR-CAS-033
+- TLC-UR-CAS-036
+- TLC-UR-CAS-041
+- TLC-UR-CAS-045
+- TLC-UR-CAS-048
+- TLC-UR-CAS-049
+- TLC-UR-CAS-053
+- TLC-UR-CAS-057
+- TLC-UR-CAS-062
+- TLC-UR-CAS-070
+- TLC-UR-CAS-076
+- TLC-UR-CAS-078
+- TLC-UR-CAS-081
+- TLC-UR-CAS-082
+- TLC-UR-CAS-083
+- TLC-UR-CAS-087
+- TLC-UR-CAS-088
+- TLC-UR-CAS-091
+- TLC-UR-CAS-101
+forbidden_behaviors:
+- Do not normalize, clamp, reinterpret distance, or supply missing pi_N/gradient/norm semantics.
+traceability:
+  source: maths/17-cascade-transmission/cascade-transmission-system.md
+  inventory: registry/domain-progress/cascade-transmission/feature-inventory.yaml

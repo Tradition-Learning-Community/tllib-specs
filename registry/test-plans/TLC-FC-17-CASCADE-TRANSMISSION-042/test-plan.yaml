@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-042
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-042/contract.yaml
+tests:
+- id: CAS017042-T01
+  category: source_conformance
+  verifies: Expose that no optimization procedure or admissible set construction is provided.
+- id: CAS017042-T02
+  category: non_invention
+  verifies: Do not invent solver, tie-breaking, tolerance, gradient search, KKT or convergence rule.
+- id: CAS017042-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

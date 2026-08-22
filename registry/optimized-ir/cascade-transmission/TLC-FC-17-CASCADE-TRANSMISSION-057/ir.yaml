@@ -1,0 +1,37 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-057
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-17-CASCADE-TRANSMISSION-057/ir.yaml
+operation: handle_cascade_transmission_057
+required_behavior:
+- Preserve empty/min-degree and zero reference-norm cases without fallback.
+forbidden_behavior:
+- Do not add epsilon denominators, clamping or defaults.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-CAS-017
+- TLC-UR-CAS-057
+- TLC-UR-CAS-062
+- TLC-UR-CAS-067
+- TLC-UR-CAS-068
+- TLC-UR-CAS-069
+- TLC-UR-CAS-081
+- TLC-UR-CAS-082
+- TLC-UR-CAS-084
+- TLC-UR-CAS-086
+- TLC-UR-CAS-087
+- TLC-UR-CAS-088
+- TLC-UR-CAS-089
+- TLC-UR-CAS-096
+- TLC-UR-CAS-100
+- TLC-UR-CAS-101
+- TLC-UR-CAS-102
+- TLC-UR-CAS-103
+- TLC-UR-CAS-104
+- TLC-UR-CAS-105
+error_codes:
+- ScientificBoundaryUnresolved
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

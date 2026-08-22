@@ -1,0 +1,66 @@
+contract_id: TLC-MC-TLC-FC-17-CASCADE-TRANSMISSION-047
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-047
+title: Agent network mentor stochastic-dynamics descriptor
+domain_id: cascade-transmission
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: structural_only
+scientific_authority: maths/17-cascade-transmission/cascade-transmission-system.md
+source_sections:
+- §7
+objects:
+- TLC-SO-CAS-026
+- TLC-SO-CAS-213
+- TLC-SO-CAS-214
+- TLC-SO-CAS-215
+- TLC-SO-CAS-216
+- TLC-SO-CAS-217
+- TLC-SO-CAS-218
+- TLC-SO-CAS-219
+- TLC-SO-CAS-220
+- TLC-SO-CAS-221
+- TLC-SO-CAS-222
+relations:
+- TLC-SR-CAS-050
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve the x_v relation including neighbor, mentor, noise and values-environment terms.
+invariants:
+- Do not invent network topology, mentor selection, vector representation or stochastic law.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds the relation, provider boundary, or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-CAS-006
+- TLC-UR-CAS-012
+- TLC-UR-CAS-018
+- TLC-UR-CAS-021
+- TLC-UR-CAS-028
+- TLC-UR-CAS-029
+- TLC-UR-CAS-045
+- TLC-UR-CAS-049
+- TLC-UR-CAS-065
+- TLC-UR-CAS-066
+- TLC-UR-CAS-072
+- TLC-UR-CAS-073
+- TLC-UR-CAS-074
+- TLC-UR-CAS-075
+- TLC-UR-CAS-076
+- TLC-UR-CAS-078
+- TLC-UR-CAS-082
+- TLC-UR-CAS-104
+forbidden_behaviors:
+- Do not invent network topology, mentor selection, vector representation or stochastic law.
+traceability:
+  source: maths/17-cascade-transmission/cascade-transmission-system.md
+  inventory: registry/domain-progress/cascade-transmission/feature-inventory.yaml

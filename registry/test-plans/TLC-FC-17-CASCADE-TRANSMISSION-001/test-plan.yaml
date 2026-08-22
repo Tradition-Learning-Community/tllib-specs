@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-001
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-001/contract.yaml
+tests:
+- id: CAS017001-T01
+  category: source_conformance
+  verifies: Preserve the 12-tuple system identity, controlled receiver-to-emitter validation, contextual locality, core-preservation
+    claim and creative margin.
+- id: CAS017001-T02
+  category: non_invention
+  verifies: Do not turn the 12 tuple components into an implicit runtime object model or procedure.
+- id: CAS017001-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

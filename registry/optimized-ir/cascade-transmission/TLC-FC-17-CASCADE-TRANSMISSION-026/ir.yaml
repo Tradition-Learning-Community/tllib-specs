@@ -1,0 +1,34 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-026
+status: finalized
+scientific_status: defined
+execution: structural_only
+source_ir: registry/ir/TLC-FC-17-CASCADE-TRANSMISSION-026/ir.yaml
+operation: handle_cascade_transmission_026
+required_behavior:
+- Preserve P signature and output roles exactly.
+forbidden_behavior:
+- Do not conflate its outputs with computed values absent providers.
+provider_requirements: []
+unresolved_domain_relations:
+- 4
+unresolved_items:
+- TLC-UR-CAS-003
+- TLC-UR-CAS-004
+- TLC-UR-CAS-021
+- TLC-UR-CAS-029
+- TLC-UR-CAS-032
+- TLC-UR-CAS-033
+- TLC-UR-CAS-041
+- TLC-UR-CAS-045
+- TLC-UR-CAS-047
+- TLC-UR-CAS-052
+- TLC-UR-CAS-071
+- TLC-UR-CAS-082
+- TLC-UR-CAS-083
+- TLC-UR-CAS-087
+- TLC-UR-CAS-091
+- TLC-UR-CAS-104
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

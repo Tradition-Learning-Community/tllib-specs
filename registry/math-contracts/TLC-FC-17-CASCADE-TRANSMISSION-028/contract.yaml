@@ -1,0 +1,89 @@
+contract_id: TLC-MC-TLC-FC-17-CASCADE-TRANSMISSION-028
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-028
+title: Projection distance and gradient provider guard
+domain_id: cascade-transmission
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: structural_only
+scientific_authority: maths/17-cascade-transmission/cascade-transmission-system.md
+source_sections:
+- §2.1
+- §4.3
+- §5
+objects:
+- TLC-SO-CAS-024
+- TLC-SO-CAS-027
+- TLC-SO-CAS-028
+- TLC-SO-CAS-026
+- TLC-SO-CAS-021
+- TLC-SO-CAS-029
+- TLC-SO-CAS-005
+- TLC-SO-CAS-130
+- TLC-SO-CAS-131
+- TLC-SO-CAS-132
+- TLC-SO-CAS-134
+- TLC-SO-CAS-133
+- TLC-SO-CAS-153
+- TLC-SO-CAS-102
+- TLC-SO-CAS-154
+- TLC-SO-CAS-155
+- TLC-SO-CAS-156
+- TLC-SO-CAS-157
+relations:
+- TLC-SR-CAS-005
+- TLC-SR-CAS-034
+- TLC-SR-CAS-037
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- unresolved_domain_04
+preconditions: []
+postconditions:
+- Require explicit providers for pi_N, d_D, distance-to-core semantics and grad E dot x.
+invariants:
+- Do not bind pi_N to domain 04 as confirmed or invent geometric structure.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds the relation, provider boundary, or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved:
+  - 4
+  runtime: []
+unresolved_items:
+- TLC-UR-CAS-012
+- TLC-UR-CAS-013
+- TLC-UR-CAS-015
+- TLC-UR-CAS-020
+- TLC-UR-CAS-028
+- TLC-UR-CAS-032
+- TLC-UR-CAS-033
+- TLC-UR-CAS-036
+- TLC-UR-CAS-041
+- TLC-UR-CAS-045
+- TLC-UR-CAS-048
+- TLC-UR-CAS-049
+- TLC-UR-CAS-053
+- TLC-UR-CAS-054
+- TLC-UR-CAS-057
+- TLC-UR-CAS-070
+- TLC-UR-CAS-076
+- TLC-UR-CAS-078
+- TLC-UR-CAS-083
+- TLC-UR-CAS-087
+- TLC-UR-CAS-088
+- TLC-UR-CAS-091
+- TLC-UR-CAS-100
+- TLC-UR-CAS-101
+- TLC-UR-CAS-102
+- TLC-UR-CAS-103
+- TLC-UR-CAS-104
+- TLC-UR-CAS-105
+forbidden_behaviors:
+- Do not bind pi_N to domain 04 as confirmed or invent geometric structure.
+traceability:
+  source: maths/17-cascade-transmission/cascade-transmission-system.md
+  inventory: registry/domain-progress/cascade-transmission/feature-inventory.yaml

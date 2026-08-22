@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-052
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-052/contract.yaml
+tests:
+- id: CAS017052-T01
+  category: source_conformance
+  verifies: Evaluate C_coh exactly from supplied compatible operands/providers.
+- id: CAS017052-T02
+  category: non_invention
+  verifies: Do not normalize, clamp, reinterpret distance, or supply missing pi_N/gradient/norm semantics.
+- id: CAS017052-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

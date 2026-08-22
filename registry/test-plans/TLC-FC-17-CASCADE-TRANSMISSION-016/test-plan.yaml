@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-016
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-016/contract.yaml
+tests:
+- id: CAS017016-T01
+  category: source_conformance
+  verifies: Evaluate w_L(e)=exp(-lambda generation(e))*phi(t_L(e)) only with supplied provider semantics.
+- id: CAS017016-T02
+  category: non_invention
+  verifies: Do not invent generation indices, phi, time units or lambda calibration.
+- id: CAS017016-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

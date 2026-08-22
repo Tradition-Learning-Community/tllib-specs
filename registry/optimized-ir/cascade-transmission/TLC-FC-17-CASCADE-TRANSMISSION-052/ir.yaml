@@ -1,0 +1,41 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-052
+status: finalized
+scientific_status: external_provider_required
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-17-CASCADE-TRANSMISSION-052/ir.yaml
+operation: handle_cascade_transmission_052
+required_behavior:
+- Evaluate C_coh exactly from supplied compatible operands/providers.
+forbidden_behavior:
+- Do not normalize, clamp, reinterpret distance, or supply missing pi_N/gradient/norm semantics.
+provider_requirements: []
+unresolved_domain_relations:
+- 4
+unresolved_items:
+- TLC-UR-CAS-013
+- TLC-UR-CAS-020
+- TLC-UR-CAS-028
+- TLC-UR-CAS-032
+- TLC-UR-CAS-033
+- TLC-UR-CAS-036
+- TLC-UR-CAS-041
+- TLC-UR-CAS-045
+- TLC-UR-CAS-048
+- TLC-UR-CAS-049
+- TLC-UR-CAS-053
+- TLC-UR-CAS-057
+- TLC-UR-CAS-062
+- TLC-UR-CAS-070
+- TLC-UR-CAS-076
+- TLC-UR-CAS-078
+- TLC-UR-CAS-081
+- TLC-UR-CAS-082
+- TLC-UR-CAS-083
+- TLC-UR-CAS-087
+- TLC-UR-CAS-088
+- TLC-UR-CAS-091
+- TLC-UR-CAS-101
+error_codes:
+- ProviderRequired
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

@@ -1,0 +1,32 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-049
+status: finalized
+scientific_status: external_provider_required
+execution: structural_only
+source_ir: registry/ir/TLC-FC-17-CASCADE-TRANSMISSION-049/ir.yaml
+operation: handle_cascade_transmission_049
+required_behavior:
+- Preserve the p_i differential relation with provider-backed rates/interactions/environment/values terms.
+forbidden_behavior:
+- Do not infer probability-simplex normalization, interaction matrix, solver or parameter values.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-CAS-012
+- TLC-UR-CAS-018
+- TLC-UR-CAS-021
+- TLC-UR-CAS-028
+- TLC-UR-CAS-029
+- TLC-UR-CAS-045
+- TLC-UR-CAS-049
+- TLC-UR-CAS-057
+- TLC-UR-CAS-062
+- TLC-UR-CAS-072
+- TLC-UR-CAS-078
+- TLC-UR-CAS-082
+- TLC-UR-CAS-088
+- TLC-UR-CAS-098
+- TLC-UR-CAS-104
+error_codes:
+- ProviderRequired
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

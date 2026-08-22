@@ -1,0 +1,62 @@
+contract_id: TLC-MC-TLC-FC-17-CASCADE-TRANSMISSION-062
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-062
+title: Impact health-metric evaluator
+domain_id: cascade-transmission
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: conditionally_executable
+scientific_authority: maths/17-cascade-transmission/cascade-transmission-system.md
+source_sections:
+- §8
+objects:
+- TLC-SO-CAS-273
+- TLC-SO-CAS-274
+- TLC-SO-CAS-275
+- TLC-SO-CAS-276
+- TLC-SO-CAS-277
+- TLC-SO-CAS-278
+- TLC-SO-CAS-279
+relations:
+- TLC-SR-CAS-061
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Evaluate I_imp exactly from supplied graph-boundary, social-set, expectation and contribution/recognition providers.
+invariants:
+- Do not invent graph boundary, probability law, social embedding or scoring functions.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds the relation, provider boundary, or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-CAS-009
+- TLC-UR-CAS-018
+- TLC-UR-CAS-019
+- TLC-UR-CAS-032
+- TLC-UR-CAS-033
+- TLC-UR-CAS-035
+- TLC-UR-CAS-041
+- TLC-UR-CAS-045
+- TLC-UR-CAS-057
+- TLC-UR-CAS-072
+- TLC-UR-CAS-083
+- TLC-UR-CAS-085
+- TLC-UR-CAS-087
+- TLC-UR-CAS-088
+- TLC-UR-CAS-091
+- TLC-UR-CAS-095
+- TLC-UR-CAS-096
+- TLC-UR-CAS-097
+forbidden_behaviors:
+- Do not invent graph boundary, probability law, social embedding or scoring functions.
+traceability:
+  source: maths/17-cascade-transmission/cascade-transmission-system.md
+  inventory: registry/domain-progress/cascade-transmission/feature-inventory.yaml

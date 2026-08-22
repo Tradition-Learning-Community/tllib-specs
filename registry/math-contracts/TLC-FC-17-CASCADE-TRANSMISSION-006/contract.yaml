@@ -1,0 +1,68 @@
+contract_id: TLC-MC-TLC-FC-17-CASCADE-TRANSMISSION-006
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-006
+title: Guided doctrinal-graph adaptation relation descriptor
+domain_id: cascade-transmission
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/17-cascade-transmission/cascade-transmission-system.md
+source_sections:
+- §2.2
+objects:
+- TLC-SO-CAS-039
+- TLC-SO-CAS-003
+- TLC-SO-CAS-032
+- TLC-SO-CAS-033
+- TLC-SO-CAS-038
+- TLC-SO-CAS-040
+- TLC-SO-CAS-041
+- TLC-SO-CAS-042
+relations:
+- TLC-SR-CAS-007
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve the displayed dG_D/dt guided-adaptation relation term-for-term.
+invariants:
+- Do not assign matrix/vector semantics to G_D, subtraction, multiplication, gradients or V action.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryUnresolved
+  when: The request exceeds the relation, provider boundary, or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-CAS-009
+- TLC-UR-CAS-012
+- TLC-UR-CAS-018
+- TLC-UR-CAS-019
+- TLC-UR-CAS-020
+- TLC-UR-CAS-021
+- TLC-UR-CAS-028
+- TLC-UR-CAS-033
+- TLC-UR-CAS-035
+- TLC-UR-CAS-045
+- TLC-UR-CAS-048
+- TLC-UR-CAS-049
+- TLC-UR-CAS-053
+- TLC-UR-CAS-057
+- TLC-UR-CAS-068
+- TLC-UR-CAS-070
+- TLC-UR-CAS-072
+- TLC-UR-CAS-073
+- TLC-UR-CAS-076
+- TLC-UR-CAS-078
+- TLC-UR-CAS-084
+- TLC-UR-CAS-095
+- TLC-UR-CAS-101
+forbidden_behaviors:
+- Do not assign matrix/vector semantics to G_D, subtraction, multiplication, gradients or V action.
+traceability:
+  source: maths/17-cascade-transmission/cascade-transmission-system.md
+  inventory: registry/domain-progress/cascade-transmission/feature-inventory.yaml

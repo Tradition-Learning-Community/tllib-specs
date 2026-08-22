@@ -1,0 +1,18 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-063
+oracle_kind: source_conformance
+acceptance:
+- Preserve empty boundary and type-compatibility cases without fallback.
+rejections:
+- Do not define 0/0, clamp impact, invent boundary semantics or expectation law.
+dependency_guards:
+  confirmed: []
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 9
+  - 19
+  - 22
+  - 24
+  - 29
+  - 34

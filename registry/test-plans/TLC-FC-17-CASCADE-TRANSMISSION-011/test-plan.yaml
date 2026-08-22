@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-011
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-011/contract.yaml
+tests:
+- id: CAS017011-T01
+  category: source_conformance
+  verifies: Evaluate the displayed legitimacy expression only when all components and compatible parameter semantics are supplied.
+- id: CAS017011-T02
+  category: non_invention
+  verifies: Do not invent recognition/competence/history functions, calibration or implicit units.
+- id: CAS017011-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

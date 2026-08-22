@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-040
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-040/contract.yaml
+tests:
+- id: CAS017040-T01
+  category: source_conformance
+  verifies: Preserve the source limitation about undefined time-dependent-set norm and derivative hypotheses.
+- id: CAS017040-T02
+  category: non_invention
+  verifies: Do not complete the proof with external mathematics or select a norm.
+- id: CAS017040-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-005
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-005/contract.yaml
+tests:
+- id: CAS017005-T01
+  category: source_conformance
+  verifies: Evaluate epsilon(t)=epsilon_0 exp(-lambda t) only from supplied compatible operands.
+- id: CAS017005-T02
+  category: non_invention
+  verifies: Do not invent units, signs, ranges, defaults or calibration for epsilon_0 or lambda.
+- id: CAS017005-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

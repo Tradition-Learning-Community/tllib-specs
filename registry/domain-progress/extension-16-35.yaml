@@ -140,6 +140,12 @@ dependency_graph:
       status: confirmed
       evidence: maths/16-cohort/cohort.md
       rationale: Cohort is explicitly a collective/set of Disciples and uses Disciple trait profiles.
+    - id: scientific-17-04
+      from_domain: 17
+      to_domain: 4
+      status: unresolved
+      evidence: maths/17-cascade-transmission/cascade-transmission-system.md
+      rationale: Domain 17 constructs N_inv(t) locally while using pi_N and invariant-core notions without explicitly binding their authority to Domain 04; the ownership relation is preserved unresolved.
     - id: scientific-19-18
       from_domain: 19
       to_domain: 18
@@ -263,18 +269,18 @@ domains:
     scientific_sources: [maths/17-cascade-transmission/cascade-transmission-system.md]
     wave: wave-4
     analysis_companions: []
-    feature_count: null
-    handoff_publication: false
-    dependencies: {confirmed: [], provisional: [], unknown: true}
-    pipeline: &unstarted_pipeline
+    feature_count: 64
+    handoff_publication: true
+    dependencies: {confirmed: [], provisional: [], unknown: false}
+    pipeline:
       scientific_source: complete
-      functional_decomposition: not_started
-      registries: not_started
-      ir: not_started
-      contracts: not_started
-      algorithms: not_started
-      oracles: not_started
-      handoff_packages: not_started
+      functional_decomposition: complete
+      registries: complete
+      ir: complete
+      contracts: complete
+      algorithms: complete_or_not_applicable
+      oracles: complete
+      handoff_packages: complete
 
   - index: 18
     slug: evaluation
@@ -601,7 +607,15 @@ domains:
     feature_count: null
     handoff_publication: false
     dependencies: {confirmed: [], provisional: [], unknown: true}
-    pipeline: *unstarted_pipeline
+    pipeline: &unstarted_pipeline
+      scientific_source: complete
+      functional_decomposition: not_started
+      registries: not_started
+      ir: not_started
+      contracts: not_started
+      algorithms: not_started
+      oracles: not_started
+      handoff_packages: not_started
 
   - index: 34
     slug: transmission-lifecycle

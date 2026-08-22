@@ -1,0 +1,22 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-036
+status: finalized
+scientific_status: partially_defined
+execution: structural_only
+source_ir: registry/ir/TLC-FC-17-CASCADE-TRANSMISSION-036/ir.yaml
+operation: handle_cascade_transmission_036
+required_behavior:
+- Preserve C(t) input/output signature only.
+forbidden_behavior:
+- Do not invent vote, quorum, aggregation, confidence or recommendation protocol.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-CAS-020
+- TLC-UR-CAS-058
+- TLC-UR-CAS-059
+- TLC-UR-CAS-060
+- TLC-UR-CAS-066
+error_codes:
+- ScientificBoundaryPartial
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

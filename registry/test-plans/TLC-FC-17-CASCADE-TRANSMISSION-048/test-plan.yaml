@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-048
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-048/contract.yaml
+tests:
+- id: CAS017048-T01
+  category: source_conformance
+  verifies: Keep dW_v and differential equations structural absent a prescribed numerical method.
+- id: CAS017048-T02
+  category: non_invention
+  verifies: Do not invent Euler/RK/SDE integrator, timestep, covariance, seed, initial/boundary conditions or tolerances.
+- id: CAS017048-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

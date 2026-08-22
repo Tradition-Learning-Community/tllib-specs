@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-058
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-058/contract.yaml
+tests:
+- id: CAS017058-T01
+  category: source_conformance
+  verifies: Evaluate eta_trans exactly from supplied horizon, vertex fidelity, generation, value, quality and integration
+    semantics.
+- id: CAS017058-T02
+  category: non_invention
+  verifies: Do not choose an F role, generation model, integration discretization or zero-denominator fallback.
+- id: CAS017058-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

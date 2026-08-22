@@ -1,0 +1,899 @@
+schema_version: 1
+domain: cascade-transmission
+domain_index: 17
+status: frozen
+authoritative_source: maths/17-cascade-transmission/cascade-transmission-system.md
+scientific_relation_count: 67
+relations:
+- relation_id: TLC-SR-CAS-001
+  expression: \\mathcal{TC}=(\\mathcal G_L,\\mathcal G_D,\\mathcal F,\\mathcal P,\\mathcal R,\\mathcal C,\\mathcal A,\\mathcal
+    S,\\mathcal M,\\mathcal E,\\mathcal T,\\mathcal V)
+  objects:
+  - TLC-SO-CAS-001
+  - TLC-SO-CAS-002
+  - TLC-SO-CAS-003
+  - TLC-SO-CAS-004
+  - TLC-SO-CAS-005
+  - TLC-SO-CAS-006
+  - TLC-SO-CAS-007
+  - TLC-SO-CAS-008
+  - TLC-SO-CAS-009
+  - TLC-SO-CAS-010
+  - TLC-SO-CAS-011
+  - TLC-SO-CAS-012
+  - TLC-SO-CAS-013
+  nature: definition
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §1
+  operational_status: structural
+  note: ''
+- relation_id: TLC-SR-CAS-002
+  expression: receiver -> emitter only after validation
+  objects:
+  - TLC-SO-CAS-014
+  - TLC-SO-CAS-015
+  - TLC-SO-CAS-016
+  nature: condition
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §1
+  operational_status: structural_only
+  note: ''
+- relation_id: TLC-SR-CAS-003
+  expression: transformations are contextual, core-preserving and creatively permissive
+  objects:
+  - TLC-SO-CAS-017
+  - TLC-SO-CAS-018
+  - TLC-SO-CAS-019
+  nature: qualitative relation
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §1
+  operational_status: structural_only
+  note: ''
+- relation_id: TLC-SR-CAS-004
+  expression: \\mu(\\mathcal N^*(t))>\\mu_{\\min}
+  objects:
+  - TLC-SO-CAS-021
+  - TLC-SO-CAS-022
+  - TLC-SO-CAS-023
+  nature: inequality
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.1
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-CAS-005
+  expression: \\forall v\\in V_L,\\quad d_D(\\pi_{\\mathcal N}(x_v(t)),\\mathcal N^*(t))<\\epsilon(t)
+  objects:
+  - TLC-SO-CAS-024
+  - TLC-SO-CAS-027
+  - TLC-SO-CAS-028
+  - TLC-SO-CAS-026
+  - TLC-SO-CAS-021
+  - TLC-SO-CAS-029
+  nature: inequality
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.1
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-CAS-006
+  expression: \\epsilon(t)=\\epsilon_0e^{-\\lambda t}
+  objects:
+  - TLC-SO-CAS-029
+  - TLC-SO-CAS-030
+  - TLC-SO-CAS-031
+  - TLC-SO-CAS-020
+  nature: equality
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.1
+  operational_status: conditionally_operational
+  note: ''
+- relation_id: TLC-SR-CAS-007
+  expression: \\frac{d\\mathcal G_D}{dt}=\\alpha(\\mathcal E_{\\text{context}}-\\mathcal G_D)+\\beta\\mathcal G_D\\times(\\mathcal
+    E_{\\text{context}}-\\mathcal G_D)+\\gamma\\nabla\\mathcal C+\\delta\\mathcal V(\\mathcal G_D-\\mathcal G_{D,\\text{opt}})
+  objects:
+  - TLC-SO-CAS-039
+  - TLC-SO-CAS-003
+  - TLC-SO-CAS-032
+  - TLC-SO-CAS-033
+  - TLC-SO-CAS-038
+  - TLC-SO-CAS-040
+  - TLC-SO-CAS-041
+  - TLC-SO-CAS-042
+  nature: differential equation
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.2
+  operational_status: unresolved_untyped_graph_algebra
+  note: ''
+- relation_id: TLC-SR-CAS-008
+  expression: \\mathcal R(t)=\\mathcal R_{\\text{self}}+\\mathcal R_{\\text{peers}}+\\mathcal R_{\\text{elders}}+\\mathcal
+    R_{\\text{comm}}+\\mathcal R_{\\text{env}}
+  objects:
+  - TLC-SO-CAS-048
+  - TLC-SO-CAS-043
+  - TLC-SO-CAS-044
+  - TLC-SO-CAS-045
+  - TLC-SO-CAS-046
+  - TLC-SO-CAS-047
+  nature: equality
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.3
+  operational_status: partially_operational
+  note: ''
+- relation_id: TLC-SR-CAS-009
+  expression: d\\mathcal R/dt>0 \\text{ lorsque } d_D>\\theta_{\\text{alert}}
+  objects:
+  - TLC-SO-CAS-049
+  - TLC-SO-CAS-027
+  - TLC-SO-CAS-050
+  nature: condition
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.3
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-CAS-010
+  expression: \\mathcal R\\circ\\mathcal V>\\mathcal R_{\\min}
+  objects:
+  - TLC-SO-CAS-051
+  - TLC-SO-CAS-052
+  nature: condition
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.3
+  operational_status: unresolved_composition
+  note: ''
+- relation_id: TLC-SR-CAS-011
+  expression: \\frac{d\\mathcal F}{dt}=\\lambda(\\mathcal F_{\\text{faithful}}-\\mathcal F)+\\mu\\mathcal F\\times(\\mathcal
+    F_{\\text{creative}}-\\mathcal F)+\\nu\\nabla\\mathcal E\\cdot\\mathcal F+\\xi\\mathcal V\\cdot\\mathcal F
+  objects:
+  - TLC-SO-CAS-053
+  - TLC-SO-CAS-054
+  - TLC-SO-CAS-055
+  - TLC-SO-CAS-060
+  - TLC-SO-CAS-061
+  nature: differential equation
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.4
+  operational_status: unresolved_state_algebra
+  note: ''
+- relation_id: TLC-SR-CAS-012
+  expression: \\mathcal L(\\mathcal C,t)=\\mathcal L_{\\text{hist}}e^{-\\alpha t}+\\mathcal L_{\\text{comp}}(1-e^{-\\beta
+    t})+\\mathcal L_{\\text{recog}}\\mathcal E(t)
+  objects:
+  - TLC-SO-CAS-062
+  - TLC-SO-CAS-063
+  - TLC-SO-CAS-064
+  - TLC-SO-CAS-065
+  - TLC-SO-CAS-066
+  - TLC-SO-CAS-067
+  - TLC-SO-CAS-068
+  nature: equality
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.5
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-CAS-013
+  expression: \\mathcal L(\\mathcal C,t)>\\mathcal L_{\\min} \\text{ pour tout } t
+  objects:
+  - TLC-SO-CAS-062
+  - TLC-SO-CAS-069
+  nature: inequality
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §2.5
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-CAS-014
+  expression: \\mathcal{FS}=\\mathcal G_L\\otimes\\mathcal G_D\\otimes\\mathcal F\\otimes\\mathcal T\\otimes\\mathcal V
+  objects:
+  - TLC-SO-CAS-070
+  - TLC-SO-CAS-002
+  - TLC-SO-CAS-003
+  - TLC-SO-CAS-004
+  - TLC-SO-CAS-012
+  - TLC-SO-CAS-013
+  - TLC-SO-CAS-071
+  nature: definition
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §3
+  operational_status: unresolved_tensor_types
+  note: ''
+- relation_id: TLC-SR-CAS-015
+  expression: g_{\\mathcal{FS}}=g_L\\oplus g_D\\oplus d\\mathcal F\\oplus d\\mathcal T\\oplus d\\mathcal V
+  objects:
+  - TLC-SO-CAS-072
+  - TLC-SO-CAS-073
+  - TLC-SO-CAS-074
+  - TLC-SO-CAS-075
+  - TLC-SO-CAS-076
+  - TLC-SO-CAS-077
+  - TLC-SO-CAS-078
+  nature: definition
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §3
+  operational_status: unresolved_tensor_types
+  note: ''
+- relation_id: TLC-SR-CAS-016
+  expression: \\mathcal G_L=(V_L,E_L,w_L,t_L)
+  objects:
+  - TLC-SO-CAS-002
+  - TLC-SO-CAS-024
+  - TLC-SO-CAS-079
+  - TLC-SO-CAS-080
+  - TLC-SO-CAS-081
+  nature: graph definition
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §3
+  operational_status: structural
+  note: ''
+- relation_id: TLC-SR-CAS-017
+  expression: w_L(e)=e^{-\\lambda\\operatorname{generation}(e)}\\phi(t_L(e))
+  objects:
+  - TLC-SO-CAS-080
+  - TLC-SO-CAS-082
+  - TLC-SO-CAS-083
+  - TLC-SO-CAS-081
+  - TLC-SO-CAS-084
+  nature: equality
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §3
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-CAS-018
+  expression: \\mathcal G_D=(V_D,E_D,w_D,\\phi_D)
+  objects:
+  - TLC-SO-CAS-003
+  - TLC-SO-CAS-085
+  - TLC-SO-CAS-086
+  - TLC-SO-CAS-087
+  - TLC-SO-CAS-088
+  nature: graph definition
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §3
+  operational_status: structural
+  note: ''
+- relation_id: TLC-SR-CAS-019
+  expression: w_D(e)=e^{-d_D(x_{v_i},x_{v_j})}\\psi(\\phi_D(v_i),\\phi_D(v_j))
+  objects:
+  - TLC-SO-CAS-087
+  - TLC-SO-CAS-027
+  - TLC-SO-CAS-089
+  - TLC-SO-CAS-088
+  nature: equality
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §3
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-CAS-020
+  expression: \\mathcal G_{\\text{total}}=\\mathcal G_L\\cup\\mathcal G_D\\cup\\mathcal G_{\\mathcal V}
+  objects:
+  - TLC-SO-CAS-091
+  - TLC-SO-CAS-002
+  - TLC-SO-CAS-003
+  - TLC-SO-CAS-090
+  nature: graph union
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §3
+  operational_status: unresolved_vertex_compatibility
+  note: ''
+- relation_id: TLC-SR-CAS-021
+  expression: d_{\\text{total}}=\\min(d_L,d_D,d_{\\mathcal V})
+  objects:
+  - TLC-SO-CAS-094
+  - TLC-SO-CAS-092
+  - TLC-SO-CAS-027
+  - TLC-SO-CAS-093
+  nature: definition
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §3
+  operational_status: unresolved_comparability
+  note: ''
+- relation_id: TLC-SR-CAS-022
+  expression: superposition exhibits multi-criteria communities
+  objects:
+  - TLC-SO-CAS-095
+  - TLC-SO-CAS-091
+  nature: qualitative relation
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §3
+  operational_status: structural_only
+  note: ''
+- relation_id: TLC-SR-CAS-023
+  expression: adaptive bridges have high betweenness and high trust
+  objects:
+  - TLC-SO-CAS-096
+  - TLC-SO-CAS-097
+  - TLC-SO-CAS-098
+  nature: classification
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §3
+  operational_status: provider_backed_no_threshold
+  note: ''
+- relation_id: TLC-SR-CAS-024
+  expression: dynamic insulators have low and decreasing degree
+  objects:
+  - TLC-SO-CAS-099
+  - TLC-SO-CAS-100
+  nature: classification
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §3
+  operational_status: provider_backed_no_threshold
+  note: ''
+- relation_id: TLC-SR-CAS-025
+  expression: \\mathcal B:V_L\\times\\mathcal X_{\\text{doct}}\\times\\mathbb R^+\\times\\mathcal E\\times\\mathcal V\\to
+    E_L'\\times V_L'\\times[0,1]_{\\text{leg}}
+  objects:
+  - TLC-SO-CAS-101
+  - TLC-SO-CAS-024
+  - TLC-SO-CAS-102
+  - TLC-SO-CAS-103
+  - TLC-SO-CAS-011
+  - TLC-SO-CAS-013
+  - TLC-SO-CAS-104
+  - TLC-SO-CAS-105
+  - TLC-SO-CAS-106
+  nature: mapping
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.1
+  operational_status: structural
+  note: ''
+- relation_id: TLC-SR-CAS-026
+  expression: \\{(v,x,t,\\mathcal E,\\mathcal V)\\mid d_D(x_v,x)>\\theta_{\\text{ram}}(t),\\ t>t_{\\text{mat}}(v),\\ \\mathcal
+    E\\in\\mathcal E_{\\text{fav}},\\ \\mathcal V\\text{ coherent}\\}
+  objects:
+  - TLC-SO-CAS-101
+  - TLC-SO-CAS-027
+  - TLC-SO-CAS-107
+  - TLC-SO-CAS-108
+  - TLC-SO-CAS-109
+  - TLC-SO-CAS-110
+  nature: condition
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.1
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-CAS-027
+  expression: B is nonlinear with memory
+  objects:
+  - TLC-SO-CAS-101
+  - TLC-SO-CAS-113
+  nature: qualitative relation
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.1
+  operational_status: structural_only
+  note: ''
+- relation_id: TLC-SR-CAS-028
+  expression: B is contractive in stable zones
+  objects:
+  - TLC-SO-CAS-101
+  - TLC-SO-CAS-111
+  nature: qualitative relation
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.1
+  operational_status: provider_backed_no_metric
+  note: ''
+- relation_id: TLC-SR-CAS-029
+  expression: B is expansive at frontiers
+  objects:
+  - TLC-SO-CAS-101
+  - TLC-SO-CAS-112
+  nature: qualitative relation
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.1
+  operational_status: provider_backed_no_metric
+  note: ''
+- relation_id: TLC-SR-CAS-030
+  expression: B preserves values
+  objects:
+  - TLC-SO-CAS-101
+  - TLC-SO-CAS-013
+  nature: qualitative invariant
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.1
+  operational_status: structural_only
+  note: ''
+- relation_id: TLC-SR-CAS-031
+  expression: \\mathcal F:\\mathcal P(V_L)\\times\\mathcal P(V_D)\\times\\mathbb R^+\\times\\mathcal E\\times\\mathcal V\\to\\mathcal
+    P(V_L')\\times\\mathcal P(V_D')\\times\\mathbb R^+_{\\text{syn}}
+  objects:
+  - TLC-SO-CAS-114
+  - TLC-SO-CAS-115
+  - TLC-SO-CAS-116
+  - TLC-SO-CAS-103
+  - TLC-SO-CAS-011
+  - TLC-SO-CAS-013
+  - TLC-SO-CAS-117
+  - TLC-SO-CAS-118
+  - TLC-SO-CAS-119
+  nature: mapping
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.2
+  operational_status: structural
+  note: ''
+- relation_id: TLC-SR-CAS-032
+  expression: \\frac{d\\mathcal F}{dt}=\\alpha\\min_{v_i\\in C_1,v_j\\in C_2}d_D(x_{v_i},x_{v_j})+\\beta\\mathcal R_{\\text{comm}}-\\gamma\\operatorname{diam}(C_1\\cup
+    C_2)+\\delta\\mathcal V(C_1,C_2)+\\epsilon\\mathcal E_{\\text{conv}}
+  objects:
+  - TLC-SO-CAS-125
+  - TLC-SO-CAS-027
+  - TLC-SO-CAS-046
+  - TLC-SO-CAS-122
+  - TLC-SO-CAS-123
+  - TLC-SO-CAS-124
+  - TLC-SO-CAS-120
+  - TLC-SO-CAS-121
+  nature: differential equation
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.2
+  operational_status: provider_backed_no_construction
+  note: ''
+- relation_id: TLC-SR-CAS-033
+  expression: \\mathcal P:\\mathcal X_{\\text{doct}}\\times\\mathcal N_{\\text{inv}}\\times\\mathbb R^+\\times\\mathcal E\\times\\mathcal
+    V\\to\\mathcal X_{\\text{doct}}'\\times[0,1]_{\\text{fid}}\\times[0,1]_{\\text{adapt}}
+  objects:
+  - TLC-SO-CAS-005
+  - TLC-SO-CAS-102
+  - TLC-SO-CAS-126
+  - TLC-SO-CAS-103
+  - TLC-SO-CAS-011
+  - TLC-SO-CAS-013
+  - TLC-SO-CAS-127
+  - TLC-SO-CAS-128
+  - TLC-SO-CAS-129
+  nature: mapping
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.3
+  operational_status: structural
+  note: ''
+- relation_id: TLC-SR-CAS-034
+  expression: \\mathcal P(x,\\mathcal N,t,\\mathcal E,\\mathcal V)=\\pi_{\\mathcal N}(x)+\\alpha(t,\\mathcal E)(x-\\pi_{\\mathcal
+    N}(x))\\mathbf1_{\\{d_D(x,\\mathcal N)<\\delta_{\\max}(t)\\}}+\\beta(\\mathcal V)\\nabla\\mathcal E\\cdot x
+  objects:
+  - TLC-SO-CAS-005
+  - TLC-SO-CAS-028
+  - TLC-SO-CAS-130
+  - TLC-SO-CAS-027
+  - TLC-SO-CAS-131
+  - TLC-SO-CAS-132
+  - TLC-SO-CAS-134
+  - TLC-SO-CAS-133
+  nature: equality
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.3
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-CAS-035
+  expression: \\mathcal R:\\mathcal G_{\\text{total}}\\times\\mathcal X_{\\text{doct}}\\times\\mathcal S_{\\text{thresh}}\\times\\mathcal
+    E\\times\\mathcal V\\to\\Delta\\mathcal G_{\\text{total}}\\times\\Delta\\mathcal X_{\\text{doct}}\\times\\mathbb R^+_{\\text{corr}}
+  objects:
+  - TLC-SO-CAS-135
+  - TLC-SO-CAS-091
+  - TLC-SO-CAS-102
+  - TLC-SO-CAS-136
+  - TLC-SO-CAS-011
+  - TLC-SO-CAS-013
+  - TLC-SO-CAS-137
+  - TLC-SO-CAS-138
+  - TLC-SO-CAS-139
+  nature: mapping
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.4
+  operational_status: structural
+  note: ''
+- relation_id: TLC-SR-CAS-036
+  expression: \\frac{d\\mathcal R}{dt}=\\lambda(\\mathcal X_{\\text{obs}}-\\mathcal X_{\\text{des}})+\\mu\\mathcal R\\times(\\mathcal
+    X_{\\text{obs}}-\\mathcal X_{\\text{des}})+\\nu\\nabla\\mathcal C+\\xi\\mathcal E\\cdot\\mathcal R+\\pi\\mathcal V\\cdot\\mathcal
+    R
+  objects:
+  - TLC-SO-CAS-135
+  - TLC-SO-CAS-049
+  - TLC-SO-CAS-140
+  - TLC-SO-CAS-141
+  - TLC-SO-CAS-142
+  - TLC-SO-CAS-038
+  - TLC-SO-CAS-011
+  - TLC-SO-CAS-013
+  nature: differential equation
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §4.4
+  operational_status: provider_backed_no_controller
+  note: ''
+- relation_id: TLC-SR-CAS-037
+  expression: \\mathcal N_{\\text{inv}}(t)=\\{x\\in\\mathcal X_{\\text{doct}}\\mid\\forall\\tau\\in[0,t],\\forall v\\in V_L,d_D(\\pi_{\\mathcal
+    N}(x_v(\\tau)),x)<\\epsilon_{\\text{ess}}(\\tau),\\ \\mathcal V(x)>\\theta_{\\mathcal V}\\}
+  objects:
+  - TLC-SO-CAS-153
+  - TLC-SO-CAS-102
+  - TLC-SO-CAS-154
+  - TLC-SO-CAS-024
+  - TLC-SO-CAS-027
+  - TLC-SO-CAS-028
+  - TLC-SO-CAS-026
+  - TLC-SO-CAS-155
+  - TLC-SO-CAS-156
+  - TLC-SO-CAS-157
+  nature: set definition
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §5
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-CAS-038
+  expression: \\mathcal E_{\\text{adapt}}(t)=\\{x\\in\\mathcal X_{\\text{doct}}\\mid d_D(x,\\mathcal N_{\\text{inv}}(t))<\\delta_{\\text{adapt}}(t,\\mathcal
+    E),\\ d\\mathcal J/dx>0\\}
+  objects:
+  - TLC-SO-CAS-158
+  - TLC-SO-CAS-102
+  - TLC-SO-CAS-027
+  - TLC-SO-CAS-153
+  - TLC-SO-CAS-159
+  - TLC-SO-CAS-161
+  - TLC-SO-CAS-160
+  nature: set definition
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §5
+  operational_status: provider_backed_with_unresolved_J
+  note: ''
+- relation_id: TLC-SR-CAS-039
+  expression: \\partial\\mathcal E_{\\text{adapt}}(t)=\\{x\\mid d_D(x,\\mathcal N_{\\text{inv}}(t))=\\delta_{\\text{adapt}}(t,\\mathcal
+    E),\\ \\|\\nabla\\mathcal V(x)\\|<\\eta_{\\text{crit}}\\}
+  objects:
+  - TLC-SO-CAS-162
+  - TLC-SO-CAS-027
+  - TLC-SO-CAS-153
+  - TLC-SO-CAS-159
+  - TLC-SO-CAS-164
+  - TLC-SO-CAS-165
+  nature: set definition
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §5
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-CAS-040
+  expression: \\mathcal C(t):\\mathcal P(V_L)\\times\\mathbb R^+\\times\\mathcal X_{\\text{doct}}\\times\\mathcal E\\times\\mathcal
+    V\\to\\{0,1\\}_{\\text{val}}\\times\\mathbb R^+_{\\text{conf}}\\times\\mathcal P_{\\text{reco}}
+  objects:
+  - TLC-SO-CAS-166
+  - TLC-SO-CAS-115
+  - TLC-SO-CAS-103
+  - TLC-SO-CAS-102
+  - TLC-SO-CAS-011
+  - TLC-SO-CAS-013
+  - TLC-SO-CAS-167
+  - TLC-SO-CAS-168
+  - TLC-SO-CAS-169
+  nature: mapping
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §5
+  operational_status: structural_signature_only
+  note: ''
+- relation_id: TLC-SR-CAS-041
+  expression: \\mathcal T_{\\text{rit}}:V_L\\times V_L\\times\\mathcal X_{\\text{doct}}\\times\\mathbb R^+\\times\\mathcal
+    E\\times\\mathcal V\\to\\mathcal X_{\\text{doct}}'\\times[0,1]_{\\text{fid}}\\times[0,1]_{\\text{impact}}
+  objects:
+  - TLC-SO-CAS-170
+  - TLC-SO-CAS-024
+  - TLC-SO-CAS-102
+  - TLC-SO-CAS-103
+  - TLC-SO-CAS-011
+  - TLC-SO-CAS-013
+  - TLC-SO-CAS-127
+  - TLC-SO-CAS-128
+  - TLC-SO-CAS-171
+  nature: mapping
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §5
+  operational_status: structural_signature_only
+  note: ''
+- relation_id: TLC-SR-CAS-042
+  expression: \\mathcal A_{\\text{auto}}:V_L\\times\\mathcal X_{\\text{doct}}\\times\\mathcal N_{\\text{inv}}\\times\\mathcal
+    E\\times\\mathcal V\\to\\mathbb R^+_{\\text{corr}}\\times\\mathcal P_{\\text{al}}\\times\\mathcal P_{\\text{innov}}
+  objects:
+  - TLC-SO-CAS-172
+  - TLC-SO-CAS-024
+  - TLC-SO-CAS-102
+  - TLC-SO-CAS-126
+  - TLC-SO-CAS-011
+  - TLC-SO-CAS-013
+  - TLC-SO-CAS-139
+  - TLC-SO-CAS-173
+  - TLC-SO-CAS-174
+  nature: mapping
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §5
+  operational_status: structural_signature_only
+  note: ''
+- relation_id: TLC-SR-CAS-043
+  expression: Si le noyau est non vide et de mesure supérieure à mu_min, si la régulation est opérationnelle et complète,
+    si le conseil est représentatif, compétent et légitime, et si les valeurs sont cohérentes et préservées, alors le noyau
+    demeure de mesure supérieure à mu_min et les valeurs restent au-dessus de theta_V.
+  objects:
+  - TLC-SO-CAS-175
+  - TLC-SO-CAS-153
+  - TLC-SO-CAS-023
+  - TLC-SO-CAS-157
+  - TLC-SO-CAS-176
+  - TLC-SO-CAS-177
+  - TLC-SO-CAS-178
+  nature: theorem
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §6
+  operational_status: structural_claim
+  note: ''
+- relation_id: TLC-SR-CAS-044
+  expression: \\exists(\\alpha^*,\\delta^*,\\gamma^*)\\text{ maximisant }\\mathcal J\\text{ sous concavité des coûts et compacité
+    de l’ensemble admissible}
+  objects:
+  - TLC-SO-CAS-179
+  - TLC-SO-CAS-180
+  - TLC-SO-CAS-181
+  - TLC-SO-CAS-182
+  - TLC-SO-CAS-183
+  - TLC-SO-CAS-188
+  - TLC-SO-CAS-189
+  - TLC-SO-CAS-190
+  nature: theorem
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §6
+  operational_status: structural_existence_claim
+  note: ''
+- relation_id: TLC-SR-CAS-045
+  expression: \\mathcal J=\\mathcal F_{\\text{fid}}(\\alpha)+\\lambda\\mathcal A_{\\text{adapt}}(\\delta)+\\mu\\mathcal C_{\\text{crea}}(\\gamma)-\\nu\\mathcal
+    R_{\\text{comp}}(\\alpha,\\delta,\\gamma)
+  objects:
+  - TLC-SO-CAS-183
+  - TLC-SO-CAS-184
+  - TLC-SO-CAS-185
+  - TLC-SO-CAS-186
+  - TLC-SO-CAS-187
+  nature: objective equality
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §6
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-CAS-046
+  expression: \\|\\mathcal P\\|<\\epsilon\\Rightarrow\\tau_{\\text{rec}}<\\frac1{\\lambda_2(\\mathcal L)}\\left(1+\\frac{\\|\\nabla\\mathcal
+    V\\|}{\\|\\mathcal V\\|}+\\frac{\\|\\nabla\\mathcal E\\|}{\\|\\mathcal E\\|}\\right)
+  objects:
+  - TLC-SO-CAS-191
+  - TLC-SO-CAS-192
+  - TLC-SO-CAS-193
+  - TLC-SO-CAS-194
+  - TLC-SO-CAS-195
+  - TLC-SO-CAS-197
+  - TLC-SO-CAS-196
+  - TLC-SO-CAS-200
+  - TLC-SO-CAS-198
+  - TLC-SO-CAS-201
+  - TLC-SO-CAS-199
+  nature: bound/theorem
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §6
+  operational_status: provider_backed_with_undefined_domains
+  note: ''
+- relation_id: TLC-SR-CAS-047
+  expression: \\frac{d\\mathcal G_L}{dt}=\\alpha\\mathcal B(\\mathcal G_L,\\mathcal E,\\mathcal V)-\\beta\\mathcal F(\\mathcal
+    G_L,\\mathcal E,\\mathcal V)+\\gamma\\mathcal R(\\mathcal G_L,\\mathcal E,\\mathcal V)+\\delta\\nabla\\mathcal E\\cdot\\mathcal
+    G_L
+  objects:
+  - TLC-SO-CAS-205
+  - TLC-SO-CAS-002
+  - TLC-SO-CAS-101
+  - TLC-SO-CAS-114
+  - TLC-SO-CAS-135
+  - TLC-SO-CAS-011
+  - TLC-SO-CAS-013
+  - TLC-SO-CAS-206
+  nature: differential equation
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §7
+  operational_status: unresolved_graph_dynamics
+  note: ''
+- relation_id: TLC-SR-CAS-048
+  expression: \\frac{d\\mathcal G_D}{dt}=-\\mathcal L_D\\mathcal G_D+\\delta(\\mathcal E_{\\text{ctx}}-\\mathcal G_D)+\\epsilon\\nabla\\mathcal
+    C+\\zeta\\mathcal V\\cdot(\\mathcal G_D-\\mathcal G_{D,\\text{opt}})+\\eta\\nabla\\mathcal E\\cdot\\mathcal G_D
+  objects:
+  - TLC-SO-CAS-039
+  - TLC-SO-CAS-003
+  - TLC-SO-CAS-207
+  - TLC-SO-CAS-208
+  - TLC-SO-CAS-038
+  - TLC-SO-CAS-209
+  - TLC-SO-CAS-210
+  - TLC-SO-CAS-033
+  nature: differential equation
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §7
+  operational_status: unresolved_graph_dynamics
+  note: ''
+- relation_id: TLC-SR-CAS-049
+  expression: \\frac{d\\mathcal F}{dt}=\\theta(\\mathcal G_L-\\mathcal G_D)\\cdot\\mathcal F\\cdot(1-\\mathcal F)+\\iota\\mathcal
+    V\\cdot\\mathcal F+\\kappa\\nabla\\mathcal E\\cdot\\mathcal F
+  objects:
+  - TLC-SO-CAS-053
+  - TLC-SO-CAS-211
+  - TLC-SO-CAS-212
+  - TLC-SO-CAS-061
+  - TLC-SO-CAS-060
+  nature: differential equation
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §7
+  operational_status: unresolved_state_algebra
+  note: ''
+- relation_id: TLC-SR-CAS-050
+  expression: \\frac{dx_v}{dt}=\\eta\\sum_{u\\in N(v)}w_{uv}(x_u-x_v)+\\xi(v)(x_{\\mathcal M(v)}-x_v)+\\sigma dW_v+\\tau\\mathcal
+    V\\cdot\\nabla\\mathcal E\\cdot x_v
+  objects:
+  - TLC-SO-CAS-026
+  - TLC-SO-CAS-213
+  - TLC-SO-CAS-214
+  - TLC-SO-CAS-215
+  - TLC-SO-CAS-216
+  - TLC-SO-CAS-217
+  - TLC-SO-CAS-218
+  - TLC-SO-CAS-219
+  - TLC-SO-CAS-220
+  - TLC-SO-CAS-221
+  - TLC-SO-CAS-222
+  nature: stochastic differential relation
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §7
+  operational_status: structural_no_integrator
+  note: ''
+- relation_id: TLC-SR-CAS-051
+  expression: \\frac{dp_i}{dt}=p_i\\left(r_i-\\sum_j a_{ij}p_j\\right)+\\mu_i\\nabla\\mathcal E_{\\text{ctx}}+\\nu_i\\mathcal
+    V\\cdot p_i(1-p_i)
+  objects:
+  - TLC-SO-CAS-223
+  - TLC-SO-CAS-224
+  - TLC-SO-CAS-225
+  - TLC-SO-CAS-226
+  - TLC-SO-CAS-227
+  - TLC-SO-CAS-228
+  - TLC-SO-CAS-013
+  nature: differential equation
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §7
+  operational_status: structural_no_integrator
+  note: ''
+- relation_id: TLC-SR-CAS-052
+  expression: \\mathcal F\\approx1 \\text{ associé à l’orthodoxie}
+  objects:
+  - TLC-SO-CAS-053
+  - TLC-SO-CAS-229
+  - TLC-SO-CAS-234
+  nature: classification
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §7
+  operational_status: source_value_preserved
+  note: ''
+- relation_id: TLC-SR-CAS-053
+  expression: \\mathcal F\\in(0.7,0.9) \\text{ associé à l’hétérodoxie contrôlée}
+  objects:
+  - TLC-SO-CAS-053
+  - TLC-SO-CAS-230
+  - TLC-SO-CAS-234
+  nature: classification
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §7
+  operational_status: source_value_preserved
+  note: ''
+- relation_id: TLC-SR-CAS-054
+  expression: \\mathcal F<0.5 \\text{ associé au schisme constructif si }\\mathcal V>\\theta_{\\mathcal V}
+  objects:
+  - TLC-SO-CAS-053
+  - TLC-SO-CAS-231
+  - TLC-SO-CAS-157
+  - TLC-SO-CAS-234
+  nature: classification
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §7
+  operational_status: source_value_preserved
+  note: ''
+- relation_id: TLC-SR-CAS-055
+  expression: sclerotic orthodoxy and destructive heterodoxy named without numeric criteria
+  objects:
+  - TLC-SO-CAS-232
+  - TLC-SO-CAS-233
+  nature: classification
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §7
+  operational_status: structural_only
+  note: ''
+- relation_id: TLC-SR-CAS-056
+  expression: \\mathcal C_{\\text{coh}}=1-\\frac1{|V_L|}\\sum_{v\\in V_L}d_D(x_v,\\pi_{\\mathcal N}(x_v))\\exp\\!\\left(-\\lambda\\frac{\\|\\nabla\\mathcal
+    V(x_v)\\|}{\\|\\mathcal V(x_v)\\|}\\right)
+  objects:
+  - TLC-SO-CAS-246
+  - TLC-SO-CAS-247
+  - TLC-SO-CAS-027
+  - TLC-SO-CAS-026
+  - TLC-SO-CAS-028
+  - TLC-SO-CAS-248
+  - TLC-SO-CAS-164
+  - TLC-SO-CAS-249
+  nature: metric equality
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-CAS-057
+  expression: \\mathcal D_{\\text{div}}=\\frac1{|V_D|}\\sum_{C\\in\\operatorname{comm}(\\mathcal G_D)}|C|\\log|C|+\\alpha\\mathbb
+    E[d_D(x_i,x_j)]+\\beta\\mathcal V_{\\text{div}}(C)+\\gamma\\mathcal E_{\\text{rich}}(C)
+  objects:
+  - TLC-SO-CAS-250
+  - TLC-SO-CAS-251
+  - TLC-SO-CAS-252
+  - TLC-SO-CAS-253
+  - TLC-SO-CAS-254
+  - TLC-SO-CAS-255
+  - TLC-SO-CAS-256
+  nature: metric equality
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-CAS-058
+  expression: \\mathcal R_{\\text{res}}=\\lambda_2(\\mathcal L_{\\text{total}})\\min_{v\\in V_L}\\deg(v)\\,\\mathcal C_{\\text{coh}}\\left(1+\\frac{\\|\\mathcal
+    V\\|}{\\|\\mathcal V_{\\max}\\|}+\\frac{\\|\\mathcal E\\|}{\\|\\mathcal E_{\\max}\\|}\\right)
+  objects:
+  - TLC-SO-CAS-257
+  - TLC-SO-CAS-258
+  - TLC-SO-CAS-259
+  - TLC-SO-CAS-246
+  - TLC-SO-CAS-198
+  - TLC-SO-CAS-260
+  - TLC-SO-CAS-199
+  - TLC-SO-CAS-261
+  nature: metric equality
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-CAS-059
+  expression: \\eta_{\\text{trans}}=\\frac1T\\int_0^T\\frac{\\sum_{v\\in V_L}\\mathcal F(v)e^{-\\lambda\\operatorname{gen}(v)}\\mathcal
+    V(x_v)\\mathcal E_{\\text{qual}}(v)}{\\sum_{v\\in V_L}e^{-\\lambda\\operatorname{gen}(v)}}\\,dt
+  objects:
+  - TLC-SO-CAS-262
+  - TLC-SO-CAS-263
+  - TLC-SO-CAS-264
+  - TLC-SO-CAS-265
+  - TLC-SO-CAS-156
+  - TLC-SO-CAS-266
+  - TLC-SO-CAS-084
+  nature: metric equality
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-CAS-060
+  expression: \\mathcal V_{\\text{vit}}=\\frac{d|V_L|}{dt}\\mathcal C_{\\text{coh}}+\\alpha\\nu_{\\text{innov}}+\\beta\\pi_{\\text{perm}}+\\gamma\\frac{d\\mathcal
+    V}{dt}+\\delta\\frac{d\\mathcal E}{dt}
+  objects:
+  - TLC-SO-CAS-267
+  - TLC-SO-CAS-268
+  - TLC-SO-CAS-246
+  - TLC-SO-CAS-269
+  - TLC-SO-CAS-270
+  - TLC-SO-CAS-271
+  - TLC-SO-CAS-272
+  nature: metric equality
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  operational_status: provider_backed_with_formal_derivatives
+  note: ''
+- relation_id: TLC-SR-CAS-061
+  expression: \\mathcal I_{\\text{imp}}=\\frac{|\\partial\\mathcal G_{\\text{total}}\\cap\\mathcal E_{\\text{soc}}|}{|\\partial\\mathcal
+    G_{\\text{total}}|}\\mathbb E[\\mathcal F(\\partial\\mathcal G_{\\text{total}})]\\mathcal V_{\\text{contrib}}(\\partial\\mathcal
+    G_{\\text{total}})\\mathcal E_{\\text{reconn}}(\\partial\\mathcal G_{\\text{total}})
+  objects:
+  - TLC-SO-CAS-273
+  - TLC-SO-CAS-274
+  - TLC-SO-CAS-275
+  - TLC-SO-CAS-276
+  - TLC-SO-CAS-277
+  - TLC-SO-CAS-278
+  - TLC-SO-CAS-279
+  nature: metric equality
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §8
+  operational_status: provider_backed
+  note: ''
+- relation_id: TLC-SR-CAS-062
+  expression: 'F is overloaded: filiation, fusion, fidelity'
+  objects:
+  - TLC-SO-CAS-004
+  - TLC-SO-CAS-114
+  - TLC-SO-CAS-053
+  nature: normative ambiguity
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §9
+  operational_status: preserved_unresolved
+  note: ''
+- relation_id: TLC-SR-CAS-063
+  expression: G_D graph receives untyped algebraic/differential operations
+  objects:
+  - TLC-SO-CAS-003
+  - TLC-SO-CAS-039
+  - TLC-SO-CAS-040
+  - TLC-SO-CAS-041
+  nature: normative ambiguity
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §9
+  operational_status: preserved_unresolved
+  note: ''
+- relation_id: TLC-SR-CAS-064
+  expression: g_FS combines metrics and differentials without tensor types
+  objects:
+  - TLC-SO-CAS-072
+  - TLC-SO-CAS-073
+  - TLC-SO-CAS-074
+  - TLC-SO-CAS-075
+  - TLC-SO-CAS-076
+  - TLC-SO-CAS-077
+  nature: normative ambiguity
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §9
+  operational_status: preserved_unresolved
+  note: ''
+- relation_id: TLC-SR-CAS-065
+  expression: functions/projections/distances/measures/costs/thresholds/calibration are often unconstructed
+  objects:
+  - TLC-SO-CAS-028
+  - TLC-SO-CAS-027
+  - TLC-SO-CAS-022
+  - TLC-SO-CAS-009
+  - TLC-SO-CAS-010
+  nature: normative limitation
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §9
+  operational_status: external_provider_required
+  note: ''
+- relation_id: TLC-SR-CAS-066
+  expression: attractor numeric values preserved but unjustified
+  objects:
+  - TLC-SO-CAS-234
+  nature: normative limitation
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §9
+  operational_status: partially_defined
+  note: ''
+- relation_id: TLC-SR-CAS-067
+  expression: conservation proof sketch uses undefined set norm and derivative hypotheses
+  objects:
+  - TLC-SO-CAS-280
+  - TLC-SO-CAS-281
+  - TLC-SO-CAS-175
+  nature: normative limitation
+  source_basis: maths/17-cascade-transmission/cascade-transmission-system.md — §9
+  operational_status: preserved_unresolved
+  note: ''

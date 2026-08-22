@@ -1,0 +1,74 @@
+contract_id: TLC-MC-TLC-FC-17-CASCADE-TRANSMISSION-064
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-064
+title: Domain-17 scientific runtime and shared-contract ownership guard
+domain_id: cascade-transmission
+contract_kind: source_backed_descriptor_contract
+scientific_status: defined
+execution_status: structural_only
+scientific_authority: maths/17-cascade-transmission/cascade-transmission-system.md
+source_sections:
+- §9
+objects:
+- TLC-SO-CAS-004
+- TLC-SO-CAS-114
+- TLC-SO-CAS-053
+- TLC-SO-CAS-003
+- TLC-SO-CAS-039
+- TLC-SO-CAS-040
+- TLC-SO-CAS-041
+- TLC-SO-CAS-072
+- TLC-SO-CAS-073
+- TLC-SO-CAS-074
+- TLC-SO-CAS-075
+- TLC-SO-CAS-076
+- TLC-SO-CAS-077
+- TLC-SO-CAS-028
+- TLC-SO-CAS-027
+- TLC-SO-CAS-022
+- TLC-SO-CAS-009
+- TLC-SO-CAS-010
+- TLC-SO-CAS-234
+- TLC-SO-CAS-280
+- TLC-SO-CAS-281
+- TLC-SO-CAS-175
+relations:
+- TLC-SR-CAS-062
+- TLC-SR-CAS-063
+- TLC-SR-CAS-064
+- TLC-SR-CAS-065
+- TLC-SR-CAS-066
+- TLC-SR-CAS-067
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Freeze scientific dependencies as confirmed=[], unresolved=[4], non-proven thematic relations only; runtime=[]; reuse exactly
+  eight shared contracts.
+invariants:
+- Do not create dependencies to 09,19,22,24,29,34 or a ninth shared contract without explicit source evidence.
+constraints: []
+structured_errors:
+- code: SourceBoundaryExceeded
+  when: The request exceeds the relation, provider boundary, or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-CAS-012
+- TLC-UR-CAS-098
+- TLC-UR-CAS-099
+- TLC-UR-CAS-100
+- TLC-UR-CAS-101
+- TLC-UR-CAS-102
+- TLC-UR-CAS-103
+- TLC-UR-CAS-104
+- TLC-UR-CAS-105
+forbidden_behaviors:
+- Do not create dependencies to 09,19,22,24,29,34 or a ninth shared contract without explicit source evidence.
+traceability:
+  source: maths/17-cascade-transmission/cascade-transmission-system.md
+  inventory: registry/domain-progress/cascade-transmission/feature-inventory.yaml

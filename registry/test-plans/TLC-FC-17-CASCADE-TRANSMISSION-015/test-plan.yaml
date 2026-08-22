@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-015
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-015/contract.yaml
+tests:
+- id: CAS017015-T01
+  category: source_conformance
+  verifies: Preserve G_L=(V_L,E_L,w_L,t_L) and its source roles.
+- id: CAS017015-T02
+  category: non_invention
+  verifies: Do not identify G_L with domain-29 G_t or invent direction/connectivity beyond source.
+- id: CAS017015-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

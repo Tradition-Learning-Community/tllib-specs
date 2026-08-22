@@ -1,0 +1,60 @@
+contract_id: TLC-MC-TLC-FC-17-CASCADE-TRANSMISSION-041
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-041
+title: Fidelity-adaptation-creation optimum claim descriptor
+domain_id: cascade-transmission
+contract_kind: source_backed_descriptor_contract
+scientific_status: partially_defined
+execution_status: structural_only
+scientific_authority: maths/17-cascade-transmission/cascade-transmission-system.md
+source_sections:
+- §6
+objects:
+- TLC-SO-CAS-179
+- TLC-SO-CAS-180
+- TLC-SO-CAS-181
+- TLC-SO-CAS-182
+- TLC-SO-CAS-183
+- TLC-SO-CAS-188
+- TLC-SO-CAS-189
+- TLC-SO-CAS-190
+- TLC-SO-CAS-184
+- TLC-SO-CAS-185
+- TLC-SO-CAS-186
+- TLC-SO-CAS-187
+relations:
+- TLC-SR-CAS-044
+- TLC-SR-CAS-045
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve the existence claim, objective and stated concavity/compactness assumptions.
+invariants:
+- Do not infer uniqueness, KKT conditions, Hessians or a search space.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryPartial
+  when: The request exceeds the relation, provider boundary, or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-CAS-018
+- TLC-UR-CAS-019
+- TLC-UR-CAS-024
+- TLC-UR-CAS-026
+- TLC-UR-CAS-029
+- TLC-UR-CAS-051
+- TLC-UR-CAS-057
+- TLC-UR-CAS-064
+- TLC-UR-CAS-067
+- TLC-UR-CAS-073
+forbidden_behaviors:
+- Do not infer uniqueness, KKT conditions, Hessians or a search space.
+traceability:
+  source: maths/17-cascade-transmission/cascade-transmission-system.md
+  inventory: registry/domain-progress/cascade-transmission/feature-inventory.yaml

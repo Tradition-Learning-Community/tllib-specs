@@ -1,0 +1,49 @@
+contract_id: TLC-MC-TLC-FC-17-CASCADE-TRANSMISSION-051
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-051
+title: Attractor-threshold non-extension guard
+domain_id: cascade-transmission
+contract_kind: source_backed_descriptor_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/17-cascade-transmission/cascade-transmission-system.md
+source_sections:
+- §7
+- §9
+objects:
+- TLC-SO-CAS-053
+- TLC-SO-CAS-229
+- TLC-SO-CAS-234
+- TLC-SO-CAS-230
+- TLC-SO-CAS-231
+- TLC-SO-CAS-157
+relations:
+- TLC-SR-CAS-052
+- TLC-SR-CAS-053
+- TLC-SR-CAS-054
+- TLC-SR-CAS-066
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve F approximately 1, F in (0.7,0.9), and F<0.5 with V>theta_V exactly as written.
+invariants:
+- Do not justify externally, fill gaps, alter open intervals or add equality rules.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryUnresolved
+  when: The request exceeds the relation, provider boundary, or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-CAS-079
+- TLC-UR-CAS-080
+forbidden_behaviors:
+- Do not justify externally, fill gaps, alter open intervals or add equality rules.
+traceability:
+  source: maths/17-cascade-transmission/cascade-transmission-system.md
+  inventory: registry/domain-progress/cascade-transmission/feature-inventory.yaml

@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-013
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-013/contract.yaml
+tests:
+- id: CAS017013-T01
+  category: source_conformance
+  verifies: Preserve FS=G_L tensor G_D tensor F tensor T tensor V as a declarative structure.
+- id: CAS017013-T02
+  category: non_invention
+  verifies: Do not construct dimensions, bases, tensor representations or products absent from source.
+- id: CAS017013-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

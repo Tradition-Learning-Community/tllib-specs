@@ -1,0 +1,45 @@
+contract_id: TLC-MC-TLC-FC-17-CASCADE-TRANSMISSION-005
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-005
+title: Exponential conservation-tolerance evaluator
+domain_id: cascade-transmission
+contract_kind: source_backed_descriptor_contract
+scientific_status: partially_defined
+execution_status: conditionally_executable
+scientific_authority: maths/17-cascade-transmission/cascade-transmission-system.md
+source_sections:
+- §2.1
+objects:
+- TLC-SO-CAS-029
+- TLC-SO-CAS-030
+- TLC-SO-CAS-031
+- TLC-SO-CAS-020
+relations:
+- TLC-SR-CAS-006
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Evaluate epsilon(t)=epsilon_0 exp(-lambda t) only from supplied compatible operands.
+invariants:
+- Do not invent units, signs, ranges, defaults or calibration for epsilon_0 or lambda.
+constraints: []
+structured_errors:
+- code: ScientificBoundaryPartial
+  when: The request exceeds the relation, provider boundary, or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-CAS-017
+- TLC-UR-CAS-031
+- TLC-UR-CAS-061
+- TLC-UR-CAS-062
+forbidden_behaviors:
+- Do not invent units, signs, ranges, defaults or calibration for epsilon_0 or lambda.
+traceability:
+  source: maths/17-cascade-transmission/cascade-transmission-system.md
+  inventory: registry/domain-progress/cascade-transmission/feature-inventory.yaml

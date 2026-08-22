@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-031
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-031/contract.yaml
+tests:
+- id: CAS017031-T01
+  category: source_conformance
+  verifies: Preserve the exact source set comprehension defining N_inv(t).
+- id: CAS017031-T02
+  category: non_invention
+  verifies: Do not replace it with domain-04 invariants or invent distance/value/tolerance providers.
+- id: CAS017031-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

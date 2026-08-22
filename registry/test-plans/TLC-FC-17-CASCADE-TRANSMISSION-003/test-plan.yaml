@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-003
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-003/contract.yaml
+tests:
+- id: CAS017003-T01
+  category: source_conformance
+  verifies: Keep regulation system, aggregate/dynamic R and regulation operator roles distinct.
+- id: CAS017003-T02
+  category: non_invention
+  verifies: Do not identify R roles solely because the source symbol is reused.
+- id: CAS017003-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-025
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-025/contract.yaml
+tests:
+- id: CAS017025-T01
+  category: source_conformance
+  verifies: Preserve the fusion differential relation and provider terms without constructing a fusion procedure.
+- id: CAS017025-T02
+  category: non_invention
+  verifies: Do not invent community detection, merge selection, graph integration, new vertices, solver or integrator.
+- id: CAS017025-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

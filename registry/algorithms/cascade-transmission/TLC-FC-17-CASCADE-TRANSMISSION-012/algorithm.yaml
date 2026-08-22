@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-012
+algorithm_kind: source_bounded_evaluator
+strategy: partially_constrained
+execution: conditionally_executable
+steps:
+- Evaluate L(C,t)>L_min only from supplied compatible legitimacy value and threshold.
+provider_requirements: []
+unresolved_domain_relations: []
+forbidden:
+- Do not invent L_min or infer legitimacy from unrelated spectral L.
+prescription_basis: []

@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-050
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-050/contract.yaml
+tests:
+- id: CAS017050-T01
+  category: source_conformance
+  verifies: Preserve five named attractors and only the source-supplied F associations/condition.
+- id: CAS017050-T02
+  category: non_invention
+  verifies: Do not classify uncovered regions or invent criteria for sclerotic/destructive attractors.
+- id: CAS017050-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

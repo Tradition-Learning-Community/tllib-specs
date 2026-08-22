@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-008
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-008/contract.yaml
+tests:
+- id: CAS017008-T01
+  category: source_conformance
+  verifies: Preserve R(t)=R_self+R_peers+R_elders+R_comm+R_env as a source decomposition.
+- id: CAS017008-T02
+  category: non_invention
+  verifies: Do not infer scales, weights or aggregation calibration beyond the displayed sum.
+- id: CAS017008-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

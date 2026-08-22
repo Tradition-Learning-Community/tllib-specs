@@ -1,0 +1,35 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-059
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-17-CASCADE-TRANSMISSION-059/ir.yaml
+operation: handle_cascade_transmission_059
+required_behavior:
+- Preserve undefined T/denominator/empty lineage cases and F(v) identity ambiguity.
+forbidden_behavior:
+- Do not add positive-T assumptions, denominator epsilon or bind F(v) to another F role.
+provider_requirements: []
+unresolved_domain_relations: []
+unresolved_items:
+- TLC-UR-CAS-003
+- TLC-UR-CAS-004
+- TLC-UR-CAS-017
+- TLC-UR-CAS-032
+- TLC-UR-CAS-056
+- TLC-UR-CAS-063
+- TLC-UR-CAS-081
+- TLC-UR-CAS-084
+- TLC-UR-CAS-089
+- TLC-UR-CAS-090
+- TLC-UR-CAS-091
+- TLC-UR-CAS-096
+- TLC-UR-CAS-100
+- TLC-UR-CAS-101
+- TLC-UR-CAS-102
+- TLC-UR-CAS-103
+- TLC-UR-CAS-104
+- TLC-UR-CAS-105
+error_codes:
+- ScientificBoundaryUnresolved
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

@@ -1,0 +1,59 @@
+contract_id: TLC-MC-TLC-FC-17-CASCADE-TRANSMISSION-035
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-035
+title: Adaptation-boundary descriptor
+domain_id: cascade-transmission
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: structural_only
+scientific_authority: maths/17-cascade-transmission/cascade-transmission-system.md
+source_sections:
+- §5
+objects:
+- TLC-SO-CAS-162
+- TLC-SO-CAS-027
+- TLC-SO-CAS-153
+- TLC-SO-CAS-159
+- TLC-SO-CAS-164
+- TLC-SO-CAS-165
+relations:
+- TLC-SR-CAS-039
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- unresolved_domain_04
+preconditions: []
+postconditions:
+- Preserve the equality distance boundary and strict gradient-norm condition.
+invariants:
+- Do not invent gradient representation, norm, eta_crit or equality tolerance.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds the relation, provider boundary, or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved:
+  - 4
+  runtime: []
+unresolved_items:
+- TLC-UR-CAS-006
+- TLC-UR-CAS-018
+- TLC-UR-CAS-019
+- TLC-UR-CAS-020
+- TLC-UR-CAS-024
+- TLC-UR-CAS-028
+- TLC-UR-CAS-036
+- TLC-UR-CAS-048
+- TLC-UR-CAS-049
+- TLC-UR-CAS-057
+- TLC-UR-CAS-062
+- TLC-UR-CAS-082
+- TLC-UR-CAS-095
+- TLC-UR-CAS-096
+forbidden_behaviors:
+- Do not invent gradient representation, norm, eta_crit or equality tolerance.
+traceability:
+  source: maths/17-cascade-transmission/cascade-transmission-system.md
+  inventory: registry/domain-progress/cascade-transmission/feature-inventory.yaml

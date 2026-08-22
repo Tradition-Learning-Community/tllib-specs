@@ -1,0 +1,18 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-009
+oracle_kind: source_conformance
+acceptance:
+- Preserve the dR/dt, d_D, theta_alert and R o V conditions as provider-backed constraints.
+rejections:
+- Do not invent alert thresholds, composition semantics or a correction protocol.
+dependency_guards:
+  confirmed: []
+  unresolved: []
+  runtime: []
+  forbidden:
+  - 9
+  - 19
+  - 22
+  - 24
+  - 29
+  - 34

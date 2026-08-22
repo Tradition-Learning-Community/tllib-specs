@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-010
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-010/contract.yaml
+tests:
+- id: CAS017010-T01
+  category: source_conformance
+  verifies: Preserve the source fidelity-variable differential equation with its distinct F role.
+- id: CAS017010-T02
+  category: non_invention
+  verifies: Do not identify the fidelity F with filiation/fusion or invent state algebra/integration.
+- id: CAS017010-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

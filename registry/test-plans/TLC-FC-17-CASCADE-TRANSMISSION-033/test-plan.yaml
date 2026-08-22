@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-033
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-033/contract.yaml
+tests:
+- id: CAS017033-T01
+  category: source_conformance
+  verifies: Preserve the E_adapt(t) set definition and strict inequalities with provider boundaries.
+- id: CAS017033-T02
+  category: non_invention
+  verifies: Do not invent delta_adapt, distance-to-set semantics, J or derivative construction.
+- id: CAS017033-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

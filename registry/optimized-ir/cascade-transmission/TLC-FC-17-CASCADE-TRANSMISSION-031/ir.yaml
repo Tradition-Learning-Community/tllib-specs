@@ -1,0 +1,37 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-031
+status: finalized
+scientific_status: partially_defined
+execution: structural_only
+source_ir: registry/ir/TLC-FC-17-CASCADE-TRANSMISSION-031/ir.yaml
+operation: handle_cascade_transmission_031
+required_behavior:
+- Preserve the exact source set comprehension defining N_inv(t).
+forbidden_behavior:
+- Do not replace it with domain-04 invariants or invent distance/value/tolerance providers.
+provider_requirements: []
+unresolved_domain_relations:
+- 4
+unresolved_items:
+- TLC-UR-CAS-012
+- TLC-UR-CAS-032
+- TLC-UR-CAS-033
+- TLC-UR-CAS-036
+- TLC-UR-CAS-041
+- TLC-UR-CAS-045
+- TLC-UR-CAS-048
+- TLC-UR-CAS-053
+- TLC-UR-CAS-054
+- TLC-UR-CAS-082
+- TLC-UR-CAS-083
+- TLC-UR-CAS-087
+- TLC-UR-CAS-091
+- TLC-UR-CAS-100
+- TLC-UR-CAS-101
+- TLC-UR-CAS-102
+- TLC-UR-CAS-103
+- TLC-UR-CAS-104
+- TLC-UR-CAS-105
+error_codes:
+- ScientificBoundaryPartial
+optimization_note: Structural normalization only; no scientific semantics or execution status changed.

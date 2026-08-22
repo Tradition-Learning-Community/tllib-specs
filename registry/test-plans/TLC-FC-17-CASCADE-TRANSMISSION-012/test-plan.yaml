@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-012
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-012/contract.yaml
+tests:
+- id: CAS017012-T01
+  category: source_conformance
+  verifies: Evaluate L(C,t)>L_min only from supplied compatible legitimacy value and threshold.
+- id: CAS017012-T02
+  category: non_invention
+  verifies: Do not invent L_min or infer legitimacy from unrelated spectral L.
+- id: CAS017012-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.

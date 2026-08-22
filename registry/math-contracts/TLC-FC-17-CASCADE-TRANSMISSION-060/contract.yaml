@@ -1,0 +1,63 @@
+contract_id: TLC-MC-TLC-FC-17-CASCADE-TRANSMISSION-060
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-060
+title: Vitality health-metric evaluator boundary
+domain_id: cascade-transmission
+contract_kind: source_backed_descriptor_contract
+scientific_status: external_provider_required
+execution_status: conditionally_executable
+scientific_authority: maths/17-cascade-transmission/cascade-transmission-system.md
+source_sections:
+- §8
+objects:
+- TLC-SO-CAS-267
+- TLC-SO-CAS-268
+- TLC-SO-CAS-246
+- TLC-SO-CAS-269
+- TLC-SO-CAS-270
+- TLC-SO-CAS-271
+- TLC-SO-CAS-272
+relations:
+- TLC-SR-CAS-060
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Evaluate the displayed V_vit expression only when all derivative and innovation/permanence providers are supplied.
+invariants:
+- Do not invent discrete-rate interpolation, derivative methods, units or coefficient calibration.
+constraints: []
+structured_errors:
+- code: ProviderRequired
+  when: The request exceeds the relation, provider boundary, or structure actually defined by the source.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- TLC-UR-CAS-005
+- TLC-UR-CAS-007
+- TLC-UR-CAS-008
+- TLC-UR-CAS-031
+- TLC-UR-CAS-032
+- TLC-UR-CAS-033
+- TLC-UR-CAS-041
+- TLC-UR-CAS-044
+- TLC-UR-CAS-045
+- TLC-UR-CAS-057
+- TLC-UR-CAS-083
+- TLC-UR-CAS-087
+- TLC-UR-CAS-088
+- TLC-UR-CAS-091
+- TLC-UR-CAS-092
+- TLC-UR-CAS-093
+- TLC-UR-CAS-094
+- TLC-UR-CAS-095
+- TLC-UR-CAS-096
+forbidden_behaviors:
+- Do not invent discrete-rate interpolation, derivative methods, units or coefficient calibration.
+traceability:
+  source: maths/17-cascade-transmission/cascade-transmission-system.md
+  inventory: registry/domain-progress/cascade-transmission/feature-inventory.yaml

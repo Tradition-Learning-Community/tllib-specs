@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-17-CASCADE-TRANSMISSION-064
+source_contract: registry/math-contracts/TLC-FC-17-CASCADE-TRANSMISSION-064/contract.yaml
+tests:
+- id: CAS017064-T01
+  category: source_conformance
+  verifies: Freeze scientific dependencies as confirmed=[], unresolved=[4], non-proven thematic relations only; runtime=[];
+    reuse exactly eight shared contracts.
+- id: CAS017064-T02
+  category: non_invention
+  verifies: Do not create dependencies to 09,19,22,24,29,34 or a ninth shared contract without explicit source evidence.
+- id: CAS017064-T03
+  category: dependency_boundary
+  verifies: No runtime dependency, no unproven Domain-17 cross-domain edge, and no ninth shared contract is introduced.
