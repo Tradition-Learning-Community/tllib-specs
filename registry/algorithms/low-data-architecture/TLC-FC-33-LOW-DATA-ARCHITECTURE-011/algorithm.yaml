@@ -1,0 +1,46 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-011
+algorithm_kind: conditional_relation_guard
+strategy: open
+execution: conditionally_executable
+steps:
+- Preserve Q_comp and the eta_size expression subject to the source's undefined dimensional structures.
+provider_requirements:
+- 'TLC-UB-LDA-001: N_min common structure — N_min is used as a dimensioned object, finite set, and generative operand without
+  a shared structure.'
+- 'TLC-UB-LDA-002: N_inv common structure — N_inv is used as a dimensioned object, finite set, and generative domain without
+  a shared structure.'
+- 'TLC-UB-LDA-003: dimension operator semantics — The domain and meaning of dim(.) and the comparison << are not specified.'
+- 'TLC-UB-LDA-035: dim(F) structure — The dimensional structure of F is not specified.'
+- 'TLC-UB-LDA-036: eta_size denominator compatibility — Compatibility and the dim(N_inv)=0 case are not specified.'
+- 'TLC-UB-LDA-039: eta_gen definition — Q_comp names eta_gen but the source does not define its formula or measurement.'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not add normalizations, common dimensions, numeric defaults, or interpretations absent from the source.
+prescription_basis: []
+source_objects:
+- TLC-SO-LDA-039
+- TLC-SO-LDA-040
+- TLC-SO-LDA-041
+- TLC-SO-LDA-042
+- TLC-SO-LDA-043
+- TLC-SO-LDA-011
+- TLC-SO-LDA-003
+- TLC-SO-LDA-004
+- TLC-SO-LDA-010
+- TLC-SO-LDA-012
+- TLC-SO-LDA-023
+- TLC-SO-LDA-005
+source_relations:
+- TLC-SR-LDA-016
+- TLC-SR-LDA-017
+- TLC-SR-LDA-059
+unresolved_boundaries:
+- TLC-UB-LDA-001
+- TLC-UB-LDA-002
+- TLC-UB-LDA-003
+- TLC-UB-LDA-035
+- TLC-UB-LDA-036
+- TLC-UB-LDA-039

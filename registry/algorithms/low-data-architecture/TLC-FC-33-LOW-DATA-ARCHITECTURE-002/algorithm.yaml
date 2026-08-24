@@ -1,0 +1,41 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-002
+algorithm_kind: structural_guard
+strategy: open
+execution: structural_only
+steps:
+- Preserve N_min subset N_inv while recording that both are used as dimensioned spaces, finite sets, and generative operands
+  without a common structure.
+provider_requirements:
+- 'TLC-UB-LDA-001: N_min common structure — N_min is used as a dimensioned object, finite set, and generative operand without
+  a shared structure.'
+- 'TLC-UB-LDA-002: N_inv common structure — N_inv is used as a dimensioned object, finite set, and generative domain without
+  a shared structure.'
+- 'TLC-UB-LDA-003: dimension operator semantics — The domain and meaning of dim(.) and the comparison << are not specified.'
+- 'TLC-UB-LDA-004: finite-cardinality semantics — Finite-set/cardinality assumptions are not reconciled with the other structural
+  uses.'
+- 'TLC-UB-LDA-005: dimension-cardinality relationship — No relation between dim(.) and |.| is supplied.'
+scientific_domain_dependencies: []
+unresolved_domain_relations:
+- 4
+runtime_domain_dependencies: []
+forbidden:
+- Do not invent vector-space, discrete-set, topological, measure, basis, or dimension-cardinality semantics.
+prescription_basis: []
+source_objects:
+- TLC-SO-LDA-003
+- TLC-SO-LDA-004
+- TLC-SO-LDA-010
+- TLC-SO-LDA-011
+- TLC-SO-LDA-012
+- TLC-SO-LDA-023
+- TLC-SO-LDA-005
+source_relations:
+- TLC-SR-LDA-001
+- TLC-SR-LDA-059
+unresolved_boundaries:
+- TLC-UB-LDA-001
+- TLC-UB-LDA-002
+- TLC-UB-LDA-003
+- TLC-UB-LDA-004
+- TLC-UB-LDA-005

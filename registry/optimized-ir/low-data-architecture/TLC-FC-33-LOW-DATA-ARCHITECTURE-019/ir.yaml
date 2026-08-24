@@ -1,0 +1,43 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-019
+status: finalized
+scientific_status: partially_defined
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-019/ir.yaml
+operation: handle_low_data_architecture_019
+required_behavior:
+- Preserve Pi_rep and P(loss) approximately exp(-kappa Pi_rep n) with approximation status intact.
+forbidden_behavior:
+- Do not invent sim, probabilistic calibration, independence, kappa, or replace approximation by equality.
+provider_requirements: &id001
+- 'TLC-UB-LDA-071: practice population count N — Population meaning, positivity and N=0 behavior are not specified.'
+- 'TLC-UB-LDA-072: sim practice similarity — The similarity function, codomain and calibration are absent.'
+- 'TLC-UB-LDA-073: loss probability space — The probability space/events/model for P(loss) are not supplied.'
+- 'TLC-UB-LDA-074: loss kappa — Value, sign, unit and calibration of kappa in the loss approximation are absent.'
+- 'TLC-UB-LDA-075: loss approximation semantics — The meaning/error of P(loss) ≈ exp(-kappa Pi_rep n) is not supplied.'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items: *id001
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
+  status changed.
+source_objects:
+- TLC-SO-LDA-081
+- TLC-SO-LDA-082
+- TLC-SO-LDA-083
+- TLC-SO-LDA-084
+- TLC-SO-LDA-154
+- TLC-SO-LDA-085
+- TLC-SO-LDA-086
+- TLC-SO-LDA-078
+source_relations:
+- TLC-SR-LDA-030
+- TLC-SR-LDA-031
+unresolved_boundaries:
+- TLC-UB-LDA-071
+- TLC-UB-LDA-072
+- TLC-UB-LDA-073
+- TLC-UB-LDA-074
+- TLC-UB-LDA-075

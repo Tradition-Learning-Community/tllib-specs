@@ -1,0 +1,49 @@
+contract_id: TLC-MC-TLC-FC-33-LOW-DATA-ARCHITECTURE-009
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-009
+title: Memorable-form product descriptor
+domain_id: low-data-architecture
+contract_kind: source_backed_low_data_contract
+scientific_status: partially_defined
+execution_status: structural_only
+scientific_authority: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+additional_scientific_authorities: []
+source_sections:
+- section 2,8
+objects:
+- TLC-SO-LDA-015
+- TLC-SO-LDA-030
+- TLC-SO-LDA-031
+- TLC-SO-LDA-032
+- TLC-SO-LDA-033
+- TLC-SO-LDA-034
+relations:
+- TLC-SR-LDA-013
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: &id001
+- 'TLC-UB-LDA-030: memorable-form factor representations — Concrete representations of F_aph, F_symb, F_rit and F_chant are
+  absent.'
+- 'TLC-UB-LDA-031: F product structure — No topology, metric, dimensional rule or concrete product representation is supplied.'
+preconditions: []
+postconditions:
+- Preserve F = F_aph x F_symb x F_rit x F_chant as the declared memorable-form product.
+invariants:
+- Do not invent concrete representations, subspace dimensions, distances, product topology, or product metric.
+constraints: []
+structured_errors:
+- code: SourceBoundaryExceeded
+  when: The requested behavior exceeds source-defined relations or supplied providers.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items: *id001
+forbidden_behaviors:
+- Do not invent concrete representations, subspace dimensions, distances, product topology, or product metric.
+traceability:
+  sources:
+  - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml
+  unresolved_registry: registry/scientific-objects/low-data-architecture/unresolved-terms.yaml

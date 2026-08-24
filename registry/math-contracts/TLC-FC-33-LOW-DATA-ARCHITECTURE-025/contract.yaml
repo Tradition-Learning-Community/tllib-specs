@@ -1,0 +1,54 @@
+contract_id: TLC-MC-TLC-FC-33-LOW-DATA-ARCHITECTURE-025
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-025
+title: Exemplarity amplification relation
+domain_id: low-data-architecture
+contract_kind: source_backed_low_data_contract
+scientific_status: external_provider_required
+execution_status: conditionally_executable
+scientific_authority: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+additional_scientific_authorities: []
+source_sections:
+- section 6,8
+objects:
+- TLC-SO-LDA-049
+- TLC-SO-LDA-063
+- TLC-SO-LDA-114
+- TLC-SO-LDA-115
+- TLC-SO-LDA-116
+- TLC-SO-LDA-153
+- TLC-SO-LDA-155
+- TLC-SO-LDA-051
+relations:
+- TLC-SR-LDA-042
+- TLC-SR-LDA-043
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: &id001
+- 'TLC-UB-LDA-100: attracted-by predicate — The predicate defining disciples attracted by a Master is not constructed.'
+- 'TLC-UB-LDA-101: alpha_ex expectation model — The expectation population/distribution is not supplied.'
+- 'TLC-UB-LDA-102: alpha_ex denominator zero — No behavior is specified if the expected attracted-master count is zero.'
+- 'TLC-UB-LDA-103: alpha_ex kappa — The kappa in alpha_ex ≈ kappa rho_inc is not defined or bound to another kappa.'
+- 'TLC-UB-LDA-104: alpha_ex approximation semantics — The meaning/error of the alpha_ex approximation is not supplied.'
+preconditions: []
+postconditions:
+- Preserve alpha_ex(M) and alpha_ex approximately kappa rho_inc with numerator/expectation semantics provider-backed.
+invariants:
+- Do not import another domain's amplification identity, invent expected populations, or replace approximation by equality.
+constraints: []
+structured_errors:
+- code: SourceBoundaryExceeded
+  when: The requested behavior exceeds source-defined relations or supplied providers.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items: *id001
+forbidden_behaviors:
+- Do not import another domain's amplification identity, invent expected populations, or replace approximation by equality.
+traceability:
+  sources:
+  - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml
+  unresolved_registry: registry/scientific-objects/low-data-architecture/unresolved-terms.yaml

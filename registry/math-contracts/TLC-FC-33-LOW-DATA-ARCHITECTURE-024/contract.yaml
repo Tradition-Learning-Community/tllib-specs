@@ -1,0 +1,59 @@
+contract_id: TLC-MC-TLC-FC-33-LOW-DATA-ARCHITECTURE-024
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-024
+title: Fragment reconstruction-quality provider boundary
+domain_id: low-data-architecture
+contract_kind: source_backed_low_data_contract
+scientific_status: external_provider_required
+execution_status: conditionally_executable
+scientific_authority: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+additional_scientific_authorities: []
+source_sections:
+- section 5,8
+objects:
+- TLC-SO-LDA-108
+- TLC-SO-LDA-003
+- TLC-SO-LDA-109
+- TLC-SO-LDA-012
+- TLC-SO-LDA-110
+- TLC-SO-LDA-111
+- TLC-SO-LDA-112
+- TLC-SO-LDA-113
+relations:
+- TLC-SR-LDA-039
+- TLC-SR-LDA-040
+- TLC-SR-LDA-041
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: &id001
+- 'TLC-UB-LDA-093: fragment selection — How a fragment F is obtained or represented is not specified.'
+- 'TLC-UB-LDA-094: fragment reconstruction — The reconstructed tilde x is used without a reconstruction procedure.'
+- 'TLC-UB-LDA-095: Q_rec norm/type — The norm/type used in the Q_rec indicator is not specified.'
+- 'TLC-UB-LDA-096: reconstruction epsilon — The reconstruction threshold value, unit and calibration are absent.'
+- 'TLC-UB-LDA-097: t_min — The minimum-fragment threshold value, unit and calibration are absent.'
+- 'TLC-UB-LDA-098: reconstruction delta — The tolerance delta value/range and calibration are absent.'
+- 'TLC-UB-LDA-099: Q_rec guarantee proof — The reconstruction guarantee is asserted without an algorithm or proof of sufficient
+  conditions.'
+preconditions: []
+postconditions:
+- Preserve Q_rec(F) and its threshold claim for |F|>=t_min while leaving reconstruction tilde x, norm, epsilon, and fragment
+  procedure external.
+invariants:
+- Do not invent a reconstruction algorithm, metric, epsilon, t_min, or missing-element convention.
+constraints: []
+structured_errors:
+- code: SourceBoundaryExceeded
+  when: The requested behavior exceeds source-defined relations or supplied providers.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items: *id001
+forbidden_behaviors:
+- Do not invent a reconstruction algorithm, metric, epsilon, t_min, or missing-element convention.
+traceability:
+  sources:
+  - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml
+  unresolved_registry: registry/scientific-objects/low-data-architecture/unresolved-terms.yaml

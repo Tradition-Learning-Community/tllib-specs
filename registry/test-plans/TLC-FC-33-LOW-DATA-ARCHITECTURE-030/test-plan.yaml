@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-030
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-030/contract.yaml
+tests:
+- id: LDA033030-T01
+  category: source_conformance
+  verifies: Preserve T_rit(X)=integral K(t-s)X(s)ds as a source relation with kernel and integration semantics externally
+    supplied.
+- id: LDA033030-T02
+  category: non_invention
+  verifies: Do not invent K, integration domain, normalization, causality, boundary conditions, or numerical convolution.
+- id: LDA033030-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

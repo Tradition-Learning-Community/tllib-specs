@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-031
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-031/contract.yaml
+tests:
+- id: LDA033031-T01
+  category: source_conformance
+  verifies: Preserve epsilon_final=epsilon-C(epsilon) while disambiguating this correction C from compression C and community
+    C without rewriting source notation.
+- id: LDA033031-T02
+  category: non_invention
+  verifies: Do not identify homonymous C symbols or invent the collective-correction operator.
+- id: LDA033031-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

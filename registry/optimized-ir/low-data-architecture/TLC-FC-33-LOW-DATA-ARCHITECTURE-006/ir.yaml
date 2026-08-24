@@ -1,0 +1,30 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-006
+status: finalized
+scientific_status: partially_defined
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-006/ir.yaml
+operation: handle_low_data_architecture_006
+required_behavior:
+- Preserve robustness to perturbations satisfying ||epsilon|| < epsilon_max as a source condition.
+forbidden_behavior:
+- Do not invent the normed space, epsilon_max value, perturbation distribution, or correction procedure.
+provider_requirements: &id001
+- 'TLC-UB-LDA-016: perturbation normed space — The space and norm used for ||epsilon|| are not specified.'
+- 'TLC-UB-LDA-017: epsilon_max — The perturbation bound value, unit and calibration are absent.'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items: *id001
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
+  status changed.
+source_objects:
+- TLC-SO-LDA-018
+- TLC-SO-LDA-019
+source_relations:
+- TLC-SR-LDA-007
+unresolved_boundaries:
+- TLC-UB-LDA-016
+- TLC-UB-LDA-017

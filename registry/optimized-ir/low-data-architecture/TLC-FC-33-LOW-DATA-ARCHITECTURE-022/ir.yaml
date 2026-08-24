@@ -1,0 +1,37 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-022
+status: finalized
+scientific_status: external_provider_required
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-022/ir.yaml
+operation: handle_low_data_architecture_022
+required_behavior:
+- Preserve rho_rob(s) as a probability of alternative support coverage while leaving probability space, events, carried, and
+  support semantics external.
+forbidden_behavior:
+- Do not invent distributions, independence assumptions, coverage samplers, or support enumeration rules.
+provider_requirements: &id001
+- 'TLC-UB-LDA-086: rho_rob probability space — Probability space and event semantics for rho_rob are absent.'
+- 'TLC-UB-LDA-087: support set semantics — Membership/cardinality semantics for the support set S are not fully specified.'
+- 'TLC-UB-LDA-088: carried predicate — The carried(x,s) predicate is not operationally constructed.'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items: *id001
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
+  status changed.
+source_objects:
+- TLC-SO-LDA-100
+- TLC-SO-LDA-003
+- TLC-SO-LDA-101
+- TLC-SO-LDA-102
+- TLC-SO-LDA-103
+- TLC-SO-LDA-104
+source_relations:
+- TLC-SR-LDA-036
+unresolved_boundaries:
+- TLC-UB-LDA-086
+- TLC-UB-LDA-087
+- TLC-UB-LDA-088

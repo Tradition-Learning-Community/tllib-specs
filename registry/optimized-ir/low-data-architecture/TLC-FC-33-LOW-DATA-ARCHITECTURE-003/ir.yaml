@@ -1,0 +1,48 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-003
+status: finalized
+scientific_status: partially_defined
+execution: structural_only
+source_ir: registry/ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-003/ir.yaml
+operation: handle_low_data_architecture_003
+required_behavior:
+- Preserve the existential claim that each x in N_inv can be generated from N_min by a finite sequence of operators from G.
+forbidden_behavior:
+- Do not invent a search procedure, minimal k, closure theorem, solver, ordering rule, or complexity bound.
+provider_requirements: &id001
+- 'TLC-UB-LDA-006: G operator domain/codomain — Domains, codomains and concrete semantics of g_i in G are not supplied.'
+- 'TLC-UB-LDA-007: generator composition typing — Intermediate types required for g_k(...g_1(N_min)...) are not specified.'
+- 'TLC-UB-LDA-008: generator-sequence construction — The source asserts existence but gives no search or construction procedure.'
+- 'TLC-UB-LDA-009: generator ordering — No rule selects or orders a generating sequence.'
+- 'TLC-UB-LDA-010: generator length k — No minimality, bound or selection rule for k is supplied.'
+- 'TLC-UB-LDA-011: generative closure and complexity — Closure properties and complexity of generation are not established.'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items: *id001
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
+  status changed.
+source_objects:
+- TLC-SO-LDA-003
+- TLC-SO-LDA-004
+- TLC-SO-LDA-005
+- TLC-SO-LDA-006
+- TLC-SO-LDA-007
+- TLC-SO-LDA-008
+- TLC-SO-LDA-009
+- TLC-SO-LDA-010
+- TLC-SO-LDA-011
+- TLC-SO-LDA-012
+- TLC-SO-LDA-023
+source_relations:
+- TLC-SR-LDA-002
+- TLC-SR-LDA-059
+unresolved_boundaries:
+- TLC-UB-LDA-006
+- TLC-UB-LDA-007
+- TLC-UB-LDA-008
+- TLC-UB-LDA-009
+- TLC-UB-LDA-010
+- TLC-UB-LDA-011

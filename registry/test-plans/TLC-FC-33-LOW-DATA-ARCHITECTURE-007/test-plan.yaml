@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-007
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-007/contract.yaml
+tests:
+- id: LDA033007-T01
+  category: source_conformance
+  verifies: Preserve C:N_inv->N_min and the exact L_comp expression while exposing its projection, norm, and finite-cardinality
+    prerequisites.
+- id: LDA033007-T02
+  category: non_invention
+  verifies: Do not infer an implementation of C, pi_N_min, the norm, or empty-set behavior.
+- id: LDA033007-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

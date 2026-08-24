@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-024
+oracle_kind: source_conformance
+acceptance:
+- Preserve Q_rec(F) and its threshold claim for |F|>=t_min while leaving reconstruction tilde x, norm, epsilon, and fragment
+  procedure external.
+rejections:
+- Do not invent a reconstruction algorithm, metric, epsilon, t_min, or missing-element convention.
+dependency_guards:
+  confirmed: []
+  unresolved:
+  - 4
+  runtime: []
+  forbidden:
+  - 0
+  - 1
+  - 2
+  - 13
+  - 17
+  - 23
+  - 29
+  - 34
+  - 35

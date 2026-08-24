@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-009
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-009/contract.yaml
+tests:
+- id: LDA033009-T01
+  category: source_conformance
+  verifies: Preserve F = F_aph x F_symb x F_rit x F_chant as the declared memorable-form product.
+- id: LDA033009-T02
+  category: non_invention
+  verifies: Do not invent concrete representations, subspace dimensions, distances, product topology, or product metric.
+- id: LDA033009-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

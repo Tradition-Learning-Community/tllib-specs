@@ -1,0 +1,48 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-021
+algorithm_kind: conditional_relation_guard
+strategy: open
+execution: conditionally_executable
+steps:
+- Preserve the reaction-time law, symbolic-power average, and place-of-memory recall amplification as distinct source relations.
+provider_requirements:
+- 'TLC-UB-LDA-080: reaction-time parameters — Values, units, signs and calibration of tau_0, lambda and tau_infinity are absent.'
+- 'TLC-UB-LDA-081: reaction lambda identity — The source does not establish identity between this lambda and other lambda
+  occurrences.'
+- 'TLC-UB-LDA-082: evoked-by predicate — The predicate ''n evoked by s'' is not operationally constructed.'
+- 'TLC-UB-LDA-083: gamma(l) — The place amplification factor value, range and calibration are absent.'
+- 'TLC-UB-LDA-084: baseline recall probability — The probability model for baseline recall is not supplied.'
+- 'TLC-UB-LDA-085: place probability bounds — No clipping/fallback is specified if gamma(l)P(recall) is outside a probability
+  range.'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not invent evocation detection, gamma(l), probability clipping, parameter values, or causal mechanisms.
+prescription_basis: []
+source_objects:
+- TLC-SO-LDA-091
+- TLC-SO-LDA-078
+- TLC-SO-LDA-092
+- TLC-SO-LDA-151
+- TLC-SO-LDA-093
+- TLC-SO-LDA-094
+- TLC-SO-LDA-095
+- TLC-SO-LDA-003
+- TLC-SO-LDA-012
+- TLC-SO-LDA-160
+- TLC-SO-LDA-096
+- TLC-SO-LDA-097
+- TLC-SO-LDA-098
+- TLC-SO-LDA-099
+source_relations:
+- TLC-SR-LDA-033
+- TLC-SR-LDA-034
+- TLC-SR-LDA-035
+unresolved_boundaries:
+- TLC-UB-LDA-080
+- TLC-UB-LDA-081
+- TLC-UB-LDA-082
+- TLC-UB-LDA-083
+- TLC-UB-LDA-084
+- TLC-UB-LDA-085

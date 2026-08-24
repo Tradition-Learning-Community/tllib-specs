@@ -1,0 +1,21 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-006
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-006/contract.yaml
+source_candidate_ir: ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-006/ir.candidate.json
+nature: relation
+steps:
+- Preserve robustness to perturbations satisfying ||epsilon|| < epsilon_max as a source condition.
+errors:
+- SourceBoundaryExceeded
+unresolved_items:
+- 'TLC-UB-LDA-016: perturbation normed space — The space and norm used for ||epsilon|| are not specified.'
+- 'TLC-UB-LDA-017: epsilon_max — The perturbation bound value, unit and calibration are absent.'
+source_objects:
+- TLC-SO-LDA-018
+- TLC-SO-LDA-019
+source_relations:
+- TLC-SR-LDA-007
+unresolved_boundaries:
+- TLC-UB-LDA-016
+- TLC-UB-LDA-017

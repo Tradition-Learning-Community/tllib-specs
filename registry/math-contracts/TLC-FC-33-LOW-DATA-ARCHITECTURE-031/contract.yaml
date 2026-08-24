@@ -1,0 +1,50 @@
+contract_id: TLC-MC-TLC-FC-33-LOW-DATA-ARCHITECTURE-031
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-031
+title: Collective-correction symbol-collision guard
+domain_id: low-data-architecture
+contract_kind: source_backed_low_data_contract
+scientific_status: external_provider_required
+execution_status: structural_only
+scientific_authority: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+additional_scientific_authorities: []
+source_sections:
+- section 7,8
+objects:
+- TLC-SO-LDA-145
+- TLC-SO-LDA-159
+- TLC-SO-LDA-144
+relations:
+- TLC-SR-LDA-054
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: &id001
+- 'TLC-UB-LDA-105: community C identity — Community C must remain distinct from compression C, correction C and theorem constant
+  C.'
+- 'TLC-UB-LDA-132: collective correction C — The collective correction operator is not constructed.'
+- 'TLC-UB-LDA-133: collective-correction epsilon — The correction input epsilon type/space is not specified.'
+- 'TLC-UB-LDA-134: C symbol collision — Compression C, community C, correction C and theorem constant C must remain distinct
+  internally.'
+preconditions: []
+postconditions:
+- Preserve epsilon_final=epsilon-C(epsilon) while disambiguating this correction C from compression C and community C without
+  rewriting source notation.
+invariants:
+- Do not identify homonymous C symbols or invent the collective-correction operator.
+constraints: []
+structured_errors:
+- code: SourceBoundaryExceeded
+  when: The requested behavior exceeds source-defined relations or supplied providers.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items: *id001
+forbidden_behaviors:
+- Do not identify homonymous C symbols or invent the collective-correction operator.
+traceability:
+  sources:
+  - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml
+  unresolved_registry: registry/scientific-objects/low-data-architecture/unresolved-terms.yaml

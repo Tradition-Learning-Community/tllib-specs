@@ -1,0 +1,22 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-013
+oracle_kind: source_conformance
+acceptance:
+- Preserve delta(a)=|N(a)|/length(a) and expose the undefined denominator and undefined N(a)/length measures.
+rejections:
+- Do not define N(a), units of length, or a fallback when length(a)=0.
+dependency_guards:
+  confirmed: []
+  unresolved:
+  - 4
+  runtime: []
+  forbidden:
+  - 0
+  - 1
+  - 2
+  - 13
+  - 17
+  - 23
+  - 29
+  - 34
+  - 35

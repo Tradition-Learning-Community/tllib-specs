@@ -1,0 +1,29 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-016
+algorithm_kind: conditional_relation_guard
+strategy: open
+execution: conditionally_executable
+steps:
+- Preserve the exact exposure increment with the presence indicator and exponential factor.
+provider_requirements:
+- 'TLC-UB-LDA-059: presence indicator — Detection/semantics of presence are not constructed.'
+- 'TLC-UB-LDA-060: exposure lambda — Value, sign, unit and calibration of the exposure-decay lambda are absent.'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not invent presence detection, parameter values, units, or a time-integration procedure.
+prescription_basis: []
+source_objects:
+- TLC-SO-LDA-063
+- TLC-SO-LDA-064
+- TLC-SO-LDA-065
+- TLC-SO-LDA-049
+- TLC-SO-LDA-051
+- TLC-SO-LDA-066
+- TLC-SO-LDA-067
+source_relations:
+- TLC-SR-LDA-024
+unresolved_boundaries:
+- TLC-UB-LDA-059
+- TLC-UB-LDA-060

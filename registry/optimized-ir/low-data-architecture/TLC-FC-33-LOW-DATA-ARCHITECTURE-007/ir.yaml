@@ -1,0 +1,56 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-007
+status: finalized
+scientific_status: partially_defined
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-007/ir.yaml
+operation: handle_low_data_architecture_007
+required_behavior:
+- Preserve C:N_inv->N_min and the exact L_comp expression while exposing its projection, norm, and finite-cardinality prerequisites.
+forbidden_behavior:
+- Do not infer an implementation of C, pi_N_min, the norm, or empty-set behavior.
+provider_requirements: &id001
+- 'TLC-UB-LDA-001: N_min common structure — N_min is used as a dimensioned object, finite set, and generative operand without
+  a shared structure.'
+- 'TLC-UB-LDA-002: N_inv common structure — N_inv is used as a dimensioned object, finite set, and generative domain without
+  a shared structure.'
+- 'TLC-UB-LDA-004: finite-cardinality semantics — Finite-set/cardinality assumptions are not reconciled with the other structural
+  uses.'
+- 'TLC-UB-LDA-018: compression C construction — The source declares C but does not prescribe a compression procedure.'
+- 'TLC-UB-LDA-019: pi_N_min projection construction — The projection/operator pi_N_min is used but not constructed.'
+- 'TLC-UB-LDA-020: L_comp norm/type — The norm and compatible operand type for L_comp are not specified.'
+- 'TLC-UB-LDA-021: |N_inv| denominator semantics — Finite, nonzero cardinality required by 1/|N_inv| is not operationally
+  guaranteed.'
+scientific_domain_dependencies: []
+unresolved_domain_relations:
+- 4
+runtime_domain_dependencies: []
+unresolved_items: *id001
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
+  status changed.
+source_objects:
+- TLC-SO-LDA-003
+- TLC-SO-LDA-004
+- TLC-SO-LDA-020
+- TLC-SO-LDA-006
+- TLC-SO-LDA-021
+- TLC-SO-LDA-022
+- TLC-SO-LDA-023
+- TLC-SO-LDA-010
+- TLC-SO-LDA-011
+- TLC-SO-LDA-012
+- TLC-SO-LDA-005
+source_relations:
+- TLC-SR-LDA-008
+- TLC-SR-LDA-009
+- TLC-SR-LDA-059
+unresolved_boundaries:
+- TLC-UB-LDA-001
+- TLC-UB-LDA-002
+- TLC-UB-LDA-004
+- TLC-UB-LDA-018
+- TLC-UB-LDA-019
+- TLC-UB-LDA-020
+- TLC-UB-LDA-021

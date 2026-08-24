@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-002
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-002/contract.yaml
+tests:
+- id: LDA033002-T01
+  category: source_conformance
+  verifies: Preserve N_min subset N_inv while recording that both are used as dimensioned spaces, finite sets, and generative
+    operands without a common structure.
+- id: LDA033002-T02
+  category: non_invention
+  verifies: Do not invent vector-space, discrete-set, topological, measure, basis, or dimension-cardinality semantics.
+- id: LDA033002-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

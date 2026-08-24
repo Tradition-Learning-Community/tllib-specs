@@ -230,6 +230,12 @@ dependency_graph:
       status: confirmed
       evidence: maths/32-drift-and-correction/stability-drift-and-correction.md
       rationale: Drift diagnostics explicitly defer the fundamental invariant definition to domain 04.
+    - id: scientific-33-04
+      from_domain: 33
+      to_domain: 4
+      status: unresolved
+      evidence: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+      rationale: Domain 33 uses N_inv and pi_N_min while defining N_min locally, but never explicitly binds repository authority to Domain 04; ownership remains unresolved.
     - id: scientific-34-04
       from_domain: 34
       to_domain: 4
@@ -622,18 +628,18 @@ domains:
     scientific_sources: [maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md]
     wave: wave-5
     analysis_companions: []
-    feature_count: null
-    handoff_publication: false
-    dependencies: {confirmed: [], provisional: [], unknown: true}
-    pipeline: &unstarted_pipeline
+    feature_count: 32
+    handoff_publication: true
+    dependencies: {confirmed: [], provisional: [], unknown: false}
+    pipeline:
       scientific_source: complete
-      functional_decomposition: not_started
-      registries: not_started
-      ir: not_started
-      contracts: not_started
-      algorithms: not_started
-      oracles: not_started
-      handoff_packages: not_started
+      functional_decomposition: complete
+      registries: complete
+      ir: complete
+      contracts: complete
+      algorithms: complete_or_not_applicable
+      oracles: complete
+      handoff_packages: complete
 
   - index: 34
     slug: transmission-lifecycle

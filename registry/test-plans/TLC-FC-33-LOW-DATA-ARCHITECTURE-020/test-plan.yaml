@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-020
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-020/contract.yaml
+tests:
+- id: LDA033020-T01
+  category: source_conformance
+  verifies: Preserve mu_mem(T_rit), its projected-norm ratio, and F_part(t) while exposing projection, typing, zero denominator,
+    and participation-factor boundaries.
+- id: LDA033020-T02
+  category: non_invention
+  verifies: Do not insert epsilon denominators, fallback values, projection algorithms, or participation-factor formulas.
+- id: LDA033020-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

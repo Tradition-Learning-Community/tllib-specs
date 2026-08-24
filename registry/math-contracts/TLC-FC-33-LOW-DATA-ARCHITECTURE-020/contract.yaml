@@ -1,0 +1,55 @@
+contract_id: TLC-MC-TLC-FC-33-LOW-DATA-ARCHITECTURE-020
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-020
+title: Ritual mnemonic-efficiency denominator boundary
+domain_id: low-data-architecture
+contract_kind: source_backed_low_data_contract
+scientific_status: external_provider_required
+execution_status: conditionally_executable
+scientific_authority: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+additional_scientific_authorities: []
+source_sections:
+- section 4,8
+objects:
+- TLC-SO-LDA-087
+- TLC-SO-LDA-080
+- TLC-SO-LDA-088
+- TLC-SO-LDA-089
+- TLC-SO-LDA-090
+- TLC-SO-LDA-003
+- TLC-SO-LDA-022
+- TLC-SO-LDA-012
+relations:
+- TLC-SR-LDA-032
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: &id001
+- 'TLC-UB-LDA-019: pi_N_min projection construction — The projection/operator pi_N_min is used but not constructed.'
+- 'TLC-UB-LDA-076: mnemonic state X/X'' — Types, spaces and relationship of X and X'' to N_min are not specified.'
+- 'TLC-UB-LDA-077: mu_mem projection — The projection used inside mu_mem is not constructed.'
+- 'TLC-UB-LDA-078: mu_mem denominator zero — No behavior is specified when ||pi_N_min(X)||=0.'
+- 'TLC-UB-LDA-079: F_part(t) — The participation factor is not constructed.'
+preconditions: []
+postconditions:
+- Preserve mu_mem(T_rit), its projected-norm ratio, and F_part(t) while exposing projection, typing, zero denominator, and
+  participation-factor boundaries.
+invariants:
+- Do not insert epsilon denominators, fallback values, projection algorithms, or participation-factor formulas.
+constraints: []
+structured_errors:
+- code: SourceBoundaryExceeded
+  when: The requested behavior exceeds source-defined relations or supplied providers.
+dependencies:
+  scientific: []
+  scientific_unresolved:
+  - 4
+  runtime: []
+unresolved_items: *id001
+forbidden_behaviors:
+- Do not insert epsilon denominators, fallback values, projection algorithms, or participation-factor formulas.
+traceability:
+  sources:
+  - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml
+  unresolved_registry: registry/scientific-objects/low-data-architecture/unresolved-terms.yaml

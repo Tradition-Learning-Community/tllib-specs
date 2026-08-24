@@ -1,0 +1,35 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-030
+algorithm_kind: conditional_relation_guard
+strategy: open
+execution: conditionally_executable
+steps:
+- Preserve T_rit(X)=integral K(t-s)X(s)ds as a source relation with kernel and integration semantics externally supplied.
+provider_requirements:
+- 'TLC-UB-LDA-127: T_rit symbol identity — The ritualization-limit object and later filter-operator use of T_rit are not proven
+  identical.'
+- 'TLC-UB-LDA-128: kernel K — K is not constructed.'
+- 'TLC-UB-LDA-129: ritual filter analytic conditions — Integration domain, normalization, causality and boundary conditions
+  are absent.'
+- 'TLC-UB-LDA-130: numerical convolution — No numerical integration/convolution method is prescribed.'
+- 'TLC-UB-LDA-131: convolution X(s) — The type/space of X(s) and integration variable semantics are not specified.'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not invent K, integration domain, normalization, causality, boundary conditions, or numerical convolution.
+prescription_basis: []
+source_objects:
+- TLC-SO-LDA-162
+- TLC-SO-LDA-142
+- TLC-SO-LDA-050
+- TLC-SO-LDA-161
+- TLC-SO-LDA-143
+source_relations:
+- TLC-SR-LDA-053
+unresolved_boundaries:
+- TLC-UB-LDA-127
+- TLC-UB-LDA-128
+- TLC-UB-LDA-129
+- TLC-UB-LDA-130
+- TLC-UB-LDA-131

@@ -1,0 +1,63 @@
+contract_id: TLC-MC-TLC-FC-33-LOW-DATA-ARCHITECTURE-017
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-017
+title: Disciple-to-relay eligibility and probability boundary
+domain_id: low-data-architecture
+contract_kind: source_backed_low_data_contract
+scientific_status: external_provider_required
+execution_status: conditionally_executable
+scientific_authority: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+additional_scientific_authorities: []
+source_sections:
+- section 3,8
+objects:
+- TLC-SO-LDA-068
+- TLC-SO-LDA-063
+- TLC-SO-LDA-051
+- TLC-SO-LDA-069
+- TLC-SO-LDA-070
+- TLC-SO-LDA-071
+- TLC-SO-LDA-072
+- TLC-SO-LDA-073
+- TLC-SO-LDA-074
+- TLC-SO-LDA-075
+- TLC-SO-LDA-061
+relations:
+- TLC-SR-LDA-025
+- TLC-SR-LDA-026
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: &id001
+- 'TLC-UB-LDA-057: Q_rep authority — Definition and scientific authority of Q_rep are not bound by the source.'
+- 'TLC-UB-LDA-058: Q_min — The transmission-quality threshold value and calibration are absent.'
+- 'TLC-UB-LDA-061: transmission maturity — The maturity criterion is not constructed.'
+- 'TLC-UB-LDA-062: rho_relay — Relay threshold value, unit and calibration are absent.'
+- 'TLC-UB-LDA-063: sigmoid sigma — The concrete sigmoid function is not constructed.'
+- 'TLC-UB-LDA-064: relay coefficients — Values, units and calibration of alpha, beta and gamma are absent.'
+- 'TLC-UB-LDA-065: relay probability model — The formal sigmoid expression does not prescribe a transition simulator or calibration
+  procedure.'
+- 'TLC-UB-LDA-066: cross-domain transmission authority — Q_rep, relay and transmission terms are not explicitly delegated
+  to Domains 29, 34 or another authority.'
+preconditions: []
+postconditions:
+- Preserve the maturity/rho_relay gate and the sigmoid probability expression as source relations requiring external maturity,
+  Q_rep, coefficients, and sigmoid semantics.
+invariants:
+- Do not import lifecycle or generational-propagation authority, invent coefficient values, or prescribe a transition simulator.
+constraints: []
+structured_errors:
+- code: SourceBoundaryExceeded
+  when: The requested behavior exceeds source-defined relations or supplied providers.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items: *id001
+forbidden_behaviors:
+- Do not import lifecycle or generational-propagation authority, invent coefficient values, or prescribe a transition simulator.
+traceability:
+  sources:
+  - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml
+  unresolved_registry: registry/scientific-objects/low-data-architecture/unresolved-terms.yaml

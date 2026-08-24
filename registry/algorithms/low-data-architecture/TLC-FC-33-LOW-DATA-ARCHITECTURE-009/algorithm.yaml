@@ -1,0 +1,29 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-009
+algorithm_kind: structural_guard
+strategy: open
+execution: structural_only
+steps:
+- Preserve F = F_aph x F_symb x F_rit x F_chant as the declared memorable-form product.
+provider_requirements:
+- 'TLC-UB-LDA-030: memorable-form factor representations — Concrete representations of F_aph, F_symb, F_rit and F_chant are
+  absent.'
+- 'TLC-UB-LDA-031: F product structure — No topology, metric, dimensional rule or concrete product representation is supplied.'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not invent concrete representations, subspace dimensions, distances, product topology, or product metric.
+prescription_basis: []
+source_objects:
+- TLC-SO-LDA-015
+- TLC-SO-LDA-030
+- TLC-SO-LDA-031
+- TLC-SO-LDA-032
+- TLC-SO-LDA-033
+- TLC-SO-LDA-034
+source_relations:
+- TLC-SR-LDA-013
+unresolved_boundaries:
+- TLC-UB-LDA-030
+- TLC-UB-LDA-031

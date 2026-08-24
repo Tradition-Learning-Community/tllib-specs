@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-004
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-004/contract.yaml
+tests:
+- id: LDA033004-T01
+  category: source_conformance
+  verifies: Preserve the source inequalities dim(N_min) << dim(N_inv) and |N_min| <= N_min^max as distinct structural constraints.
+- id: LDA033004-T02
+  category: non_invention
+  verifies: Do not identify dimension with cardinality or supply a missing common structure.
+- id: LDA033004-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

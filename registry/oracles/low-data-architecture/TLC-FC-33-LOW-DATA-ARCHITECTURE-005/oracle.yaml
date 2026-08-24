@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-005
+oracle_kind: source_conformance
+acceptance:
+- Preserve Phi:N_min->F and the requirement that mean recall time remain below a threshold while leaving encoding and recall
+  measurement externally supplied.
+rejections:
+- Do not invent the representation of F, a recall metric, threshold value, or encoding procedure.
+dependency_guards:
+  confirmed: []
+  unresolved:
+  - 4
+  runtime: []
+  forbidden:
+  - 0
+  - 1
+  - 2
+  - 13
+  - 17
+  - 23
+  - 29
+  - 34
+  - 35

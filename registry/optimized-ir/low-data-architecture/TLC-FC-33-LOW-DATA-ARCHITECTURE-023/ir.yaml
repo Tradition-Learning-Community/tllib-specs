@@ -1,0 +1,42 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-023
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-023/ir.yaml
+operation: handle_low_data_architecture_023
+required_behavior:
+- Preserve Pi_red and H_dist=-sum p_s log p_s while recording that overlapping p_s need not sum to one.
+forbidden_behavior:
+- Do not renormalize p_s, silently create a probability distribution, or label H_dist a valid Shannon entropy without additional
+  conditions.
+provider_requirements: &id001
+- 'TLC-UB-LDA-089: p_s construction — The source does not construct how the support proportions p_s are measured.'
+- 'TLC-UB-LDA-090: p_s overlap normalization — Overlapping redundant supports mean the p_s are not guaranteed to sum to one;
+  normalization is not licensed.'
+- 'TLC-UB-LDA-091: p_s log domain — No convention is supplied for p_s=0 or otherwise invalid log inputs.'
+- 'TLC-UB-LDA-092: H_dist Shannon validity — The conditions required to interpret H_dist as Shannon entropy are not established.'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items: *id001
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
+  status changed.
+source_objects:
+- TLC-SO-LDA-003
+- TLC-SO-LDA-012
+- TLC-SO-LDA-103
+- TLC-SO-LDA-105
+- TLC-SO-LDA-106
+- TLC-SO-LDA-107
+source_relations:
+- TLC-SR-LDA-037
+- TLC-SR-LDA-038
+- TLC-SR-LDA-063
+unresolved_boundaries:
+- TLC-UB-LDA-089
+- TLC-UB-LDA-090
+- TLC-UB-LDA-091
+- TLC-UB-LDA-092

@@ -1,0 +1,36 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-023
+algorithm_kind: structural_guard
+strategy: open
+execution: structural_only
+steps:
+- Preserve Pi_red and H_dist=-sum p_s log p_s while recording that overlapping p_s need not sum to one.
+provider_requirements:
+- 'TLC-UB-LDA-089: p_s construction — The source does not construct how the support proportions p_s are measured.'
+- 'TLC-UB-LDA-090: p_s overlap normalization — Overlapping redundant supports mean the p_s are not guaranteed to sum to one;
+  normalization is not licensed.'
+- 'TLC-UB-LDA-091: p_s log domain — No convention is supplied for p_s=0 or otherwise invalid log inputs.'
+- 'TLC-UB-LDA-092: H_dist Shannon validity — The conditions required to interpret H_dist as Shannon entropy are not established.'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not renormalize p_s, silently create a probability distribution, or label H_dist a valid Shannon entropy without additional
+  conditions.
+prescription_basis: []
+source_objects:
+- TLC-SO-LDA-003
+- TLC-SO-LDA-012
+- TLC-SO-LDA-103
+- TLC-SO-LDA-105
+- TLC-SO-LDA-106
+- TLC-SO-LDA-107
+source_relations:
+- TLC-SR-LDA-037
+- TLC-SR-LDA-038
+- TLC-SR-LDA-063
+unresolved_boundaries:
+- TLC-UB-LDA-089
+- TLC-UB-LDA-090
+- TLC-UB-LDA-091
+- TLC-UB-LDA-092

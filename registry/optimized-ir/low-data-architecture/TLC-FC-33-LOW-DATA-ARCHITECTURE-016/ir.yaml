@@ -1,0 +1,35 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-016
+status: finalized
+scientific_status: partially_defined
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-016/ir.yaml
+operation: handle_low_data_architecture_016
+required_behavior:
+- Preserve the exact exposure increment with the presence indicator and exponential factor.
+forbidden_behavior:
+- Do not invent presence detection, parameter values, units, or a time-integration procedure.
+provider_requirements: &id001
+- 'TLC-UB-LDA-059: presence indicator — Detection/semantics of presence are not constructed.'
+- 'TLC-UB-LDA-060: exposure lambda — Value, sign, unit and calibration of the exposure-decay lambda are absent.'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items: *id001
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
+  status changed.
+source_objects:
+- TLC-SO-LDA-063
+- TLC-SO-LDA-064
+- TLC-SO-LDA-065
+- TLC-SO-LDA-049
+- TLC-SO-LDA-051
+- TLC-SO-LDA-066
+- TLC-SO-LDA-067
+source_relations:
+- TLC-SR-LDA-024
+unresolved_boundaries:
+- TLC-UB-LDA-059
+- TLC-UB-LDA-060

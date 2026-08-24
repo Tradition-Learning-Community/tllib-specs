@@ -1,0 +1,53 @@
+contract_id: TLC-MC-TLC-FC-33-LOW-DATA-ARCHITECTURE-010
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-010
+title: Encoding E inverse-notation guard
+domain_id: low-data-architecture
+contract_kind: source_backed_low_data_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+additional_scientific_authorities: []
+source_sections:
+- section 2,8
+objects:
+- TLC-SO-LDA-003
+- TLC-SO-LDA-015
+- TLC-SO-LDA-035
+- TLC-SO-LDA-036
+- TLC-SO-LDA-037
+- TLC-SO-LDA-038
+- TLC-SO-LDA-020
+- TLC-SO-LDA-044
+relations:
+- TLC-SR-LDA-014
+- TLC-SR-LDA-015
+- TLC-SR-LDA-060
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: &id001
+- 'TLC-UB-LDA-032: E encoding construction — E is declared but no encoding procedure is prescribed.'
+- 'TLC-UB-LDA-033: E inverse existence — E^-1 notation is used without a constructed inverse, decoder or bijection proof.'
+- 'TLC-UB-LDA-034: epsilon_enc — The error bound value, norm/type and calibration are absent.'
+preconditions: []
+postconditions:
+- Preserve E:N_min->F and the bounded reconstruction-error assertion using E^-1 without asserting that a true inverse is constructed.
+invariants:
+- Do not promote inverse notation into an implemented inverse, decoder, bijection, or existence proof.
+constraints: []
+structured_errors:
+- code: SourceBoundaryExceeded
+  when: The requested behavior exceeds source-defined relations or supplied providers.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items: *id001
+forbidden_behaviors:
+- Do not promote inverse notation into an implemented inverse, decoder, bijection, or existence proof.
+traceability:
+  sources:
+  - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml
+  unresolved_registry: registry/scientific-objects/low-data-architecture/unresolved-terms.yaml

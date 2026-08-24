@@ -1,0 +1,37 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-025
+algorithm_kind: conditional_relation_guard
+strategy: open
+execution: conditionally_executable
+steps:
+- Preserve alpha_ex(M) and alpha_ex approximately kappa rho_inc with numerator/expectation semantics provider-backed.
+provider_requirements:
+- 'TLC-UB-LDA-100: attracted-by predicate — The predicate defining disciples attracted by a Master is not constructed.'
+- 'TLC-UB-LDA-101: alpha_ex expectation model — The expectation population/distribution is not supplied.'
+- 'TLC-UB-LDA-102: alpha_ex denominator zero — No behavior is specified if the expected attracted-master count is zero.'
+- 'TLC-UB-LDA-103: alpha_ex kappa — The kappa in alpha_ex ≈ kappa rho_inc is not defined or bound to another kappa.'
+- 'TLC-UB-LDA-104: alpha_ex approximation semantics — The meaning/error of the alpha_ex approximation is not supplied.'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not import another domain's amplification identity, invent expected populations, or replace approximation by equality.
+prescription_basis: []
+source_objects:
+- TLC-SO-LDA-049
+- TLC-SO-LDA-063
+- TLC-SO-LDA-114
+- TLC-SO-LDA-115
+- TLC-SO-LDA-116
+- TLC-SO-LDA-153
+- TLC-SO-LDA-155
+- TLC-SO-LDA-051
+source_relations:
+- TLC-SR-LDA-042
+- TLC-SR-LDA-043
+unresolved_boundaries:
+- TLC-UB-LDA-100
+- TLC-UB-LDA-101
+- TLC-UB-LDA-102
+- TLC-UB-LDA-103
+- TLC-UB-LDA-104

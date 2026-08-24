@@ -1,0 +1,65 @@
+contract_id: TLC-MC-TLC-FC-33-LOW-DATA-ARCHITECTURE-007
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-007
+title: Compression map and L_comp structural relation
+domain_id: low-data-architecture
+contract_kind: source_backed_low_data_contract
+scientific_status: partially_defined
+execution_status: conditionally_executable
+scientific_authority: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+additional_scientific_authorities: []
+source_sections:
+- section 1,8
+objects:
+- TLC-SO-LDA-003
+- TLC-SO-LDA-004
+- TLC-SO-LDA-020
+- TLC-SO-LDA-006
+- TLC-SO-LDA-021
+- TLC-SO-LDA-022
+- TLC-SO-LDA-023
+- TLC-SO-LDA-010
+- TLC-SO-LDA-011
+- TLC-SO-LDA-012
+- TLC-SO-LDA-005
+relations:
+- TLC-SR-LDA-008
+- TLC-SR-LDA-009
+- TLC-SR-LDA-059
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: &id001
+- 'TLC-UB-LDA-001: N_min common structure — N_min is used as a dimensioned object, finite set, and generative operand without
+  a shared structure.'
+- 'TLC-UB-LDA-002: N_inv common structure — N_inv is used as a dimensioned object, finite set, and generative domain without
+  a shared structure.'
+- 'TLC-UB-LDA-004: finite-cardinality semantics — Finite-set/cardinality assumptions are not reconciled with the other structural
+  uses.'
+- 'TLC-UB-LDA-018: compression C construction — The source declares C but does not prescribe a compression procedure.'
+- 'TLC-UB-LDA-019: pi_N_min projection construction — The projection/operator pi_N_min is used but not constructed.'
+- 'TLC-UB-LDA-020: L_comp norm/type — The norm and compatible operand type for L_comp are not specified.'
+- 'TLC-UB-LDA-021: |N_inv| denominator semantics — Finite, nonzero cardinality required by 1/|N_inv| is not operationally
+  guaranteed.'
+preconditions: []
+postconditions:
+- Preserve C:N_inv->N_min and the exact L_comp expression while exposing its projection, norm, and finite-cardinality prerequisites.
+invariants:
+- Do not infer an implementation of C, pi_N_min, the norm, or empty-set behavior.
+constraints: []
+structured_errors:
+- code: SourceBoundaryExceeded
+  when: The requested behavior exceeds source-defined relations or supplied providers.
+dependencies:
+  scientific: []
+  scientific_unresolved:
+  - 4
+  runtime: []
+unresolved_items: *id001
+forbidden_behaviors:
+- Do not infer an implementation of C, pi_N_min, the norm, or empty-set behavior.
+traceability:
+  sources:
+  - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml
+  unresolved_registry: registry/scientific-objects/low-data-architecture/unresolved-terms.yaml

@@ -1,0 +1,34 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-010
+algorithm_kind: structural_guard
+strategy: open
+execution: structural_only
+steps:
+- Preserve E:N_min->F and the bounded reconstruction-error assertion using E^-1 without asserting that a true inverse is constructed.
+provider_requirements:
+- 'TLC-UB-LDA-032: E encoding construction — E is declared but no encoding procedure is prescribed.'
+- 'TLC-UB-LDA-033: E inverse existence — E^-1 notation is used without a constructed inverse, decoder or bijection proof.'
+- 'TLC-UB-LDA-034: epsilon_enc — The error bound value, norm/type and calibration are absent.'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not promote inverse notation into an implemented inverse, decoder, bijection, or existence proof.
+prescription_basis: []
+source_objects:
+- TLC-SO-LDA-003
+- TLC-SO-LDA-015
+- TLC-SO-LDA-035
+- TLC-SO-LDA-036
+- TLC-SO-LDA-037
+- TLC-SO-LDA-038
+- TLC-SO-LDA-020
+- TLC-SO-LDA-044
+source_relations:
+- TLC-SR-LDA-014
+- TLC-SR-LDA-015
+- TLC-SR-LDA-060
+unresolved_boundaries:
+- TLC-UB-LDA-032
+- TLC-UB-LDA-033
+- TLC-UB-LDA-034

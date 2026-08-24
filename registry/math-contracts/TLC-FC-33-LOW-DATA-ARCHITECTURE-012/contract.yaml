@@ -1,0 +1,53 @@
+contract_id: TLC-MC-TLC-FC-33-LOW-DATA-ARCHITECTURE-012
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-012
+title: Eta_loss inverse-compression boundary
+domain_id: low-data-architecture
+contract_kind: source_backed_low_data_contract
+scientific_status: external_provider_required
+execution_status: conditionally_executable
+scientific_authority: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+additional_scientific_authorities: []
+source_sections:
+- section 2,8
+objects:
+- TLC-SO-LDA-004
+- TLC-SO-LDA-006
+- TLC-SO-LDA-020
+- TLC-SO-LDA-044
+- TLC-SO-LDA-023
+- TLC-SO-LDA-041
+- TLC-SO-LDA-035
+- TLC-SO-LDA-036
+relations:
+- TLC-SR-LDA-018
+- TLC-SR-LDA-060
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: &id001
+- 'TLC-UB-LDA-021: |N_inv| denominator semantics — Finite, nonzero cardinality required by 1/|N_inv| is not operationally
+  guaranteed.'
+- 'TLC-UB-LDA-037: C inverse existence — C^-1 notation is used without an inverse/decompressor construction.'
+- 'TLC-UB-LDA-038: eta_loss norm/type — The reconstruction norm/type required by eta_loss is not specified.'
+preconditions: []
+postconditions:
+- Preserve the eta_loss expression while treating C^-1 and reconstruction semantics as external or unresolved.
+invariants:
+- Do not presume invertibility of compression or invent a decompressor/reconstructor.
+constraints: []
+structured_errors:
+- code: SourceBoundaryExceeded
+  when: The requested behavior exceeds source-defined relations or supplied providers.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items: *id001
+forbidden_behaviors:
+- Do not presume invertibility of compression or invent a decompressor/reconstructor.
+traceability:
+  sources:
+  - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml
+  unresolved_registry: registry/scientific-objects/low-data-architecture/unresolved-terms.yaml

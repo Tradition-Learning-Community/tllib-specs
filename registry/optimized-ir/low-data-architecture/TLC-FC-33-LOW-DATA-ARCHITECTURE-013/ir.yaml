@@ -1,0 +1,34 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-013
+status: finalized
+scientific_status: preserved_unresolved
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-013/ir.yaml
+operation: handle_low_data_architecture_013
+required_behavior:
+- Preserve delta(a)=|N(a)|/length(a) and expose the undefined denominator and undefined N(a)/length measures.
+forbidden_behavior:
+- Do not define N(a), units of length, or a fallback when length(a)=0.
+provider_requirements: &id001
+- 'TLC-UB-LDA-040: N(a) association rule — The mapping from an aphorism to N(a) is not constructed.'
+- 'TLC-UB-LDA-041: length(a) measure — The length measure and its unit are not specified.'
+- 'TLC-UB-LDA-042: length(a)=0 — No convention is given for semantic density when length(a)=0.'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items: *id001
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
+  status changed.
+source_objects:
+- TLC-SO-LDA-045
+- TLC-SO-LDA-046
+- TLC-SO-LDA-047
+- TLC-SO-LDA-048
+source_relations:
+- TLC-SR-LDA-019
+unresolved_boundaries:
+- TLC-UB-LDA-040
+- TLC-UB-LDA-041
+- TLC-UB-LDA-042

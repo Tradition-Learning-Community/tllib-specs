@@ -1,0 +1,47 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-015
+algorithm_kind: conditional_relation_guard
+strategy: open
+execution: conditionally_executable
+steps:
+- Preserve kappa_trans and the quality condition Q_rep >= Q_min with all required quantities source-bounded or provider-backed.
+provider_requirements:
+- 'TLC-UB-LDA-051: rho_0 — Value, unit and calibration of rho_0 are absent.'
+- 'TLC-UB-LDA-052: rho_0=0 — No behavior is specified for a zero rho_0 denominator.'
+- 'TLC-UB-LDA-053: T_avail — Available-time measurement and units are not specified.'
+- 'TLC-UB-LDA-054: Delta t_disc — Per-disciple time measurement and units are not specified.'
+- 'TLC-UB-LDA-055: Delta t_disc=0 — No behavior is specified for a zero Delta t_disc denominator.'
+- 'TLC-UB-LDA-056: kappa_trans compatibility — Units, compatible types and output bounds for transmission capacity are not
+  supplied.'
+- 'TLC-UB-LDA-057: Q_rep authority — Definition and scientific authority of Q_rep are not bound by the source.'
+- 'TLC-UB-LDA-058: Q_min — The transmission-quality threshold value and calibration are absent.'
+- 'TLC-UB-LDA-066: cross-domain transmission authority — Q_rep, relay and transmission terms are not explicitly delegated
+  to Domains 29, 34 or another authority.'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not assign Q_rep to Domain 29 or 34, invent units, thresholds, or capacity normalization.
+prescription_basis: []
+source_objects:
+- TLC-SO-LDA-049
+- TLC-SO-LDA-051
+- TLC-SO-LDA-057
+- TLC-SO-LDA-058
+- TLC-SO-LDA-059
+- TLC-SO-LDA-060
+- TLC-SO-LDA-061
+- TLC-SO-LDA-062
+source_relations:
+- TLC-SR-LDA-022
+- TLC-SR-LDA-023
+unresolved_boundaries:
+- TLC-UB-LDA-051
+- TLC-UB-LDA-052
+- TLC-UB-LDA-053
+- TLC-UB-LDA-054
+- TLC-UB-LDA-055
+- TLC-UB-LDA-056
+- TLC-UB-LDA-057
+- TLC-UB-LDA-058
+- TLC-UB-LDA-066

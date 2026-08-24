@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-028
+oracle_kind: source_conformance
+acceptance:
+- Preserve X_{n+1}=X_n+epsilon_n and epsilon_n~N(0,Sigma) as explicit source-backed relations while leaving numeric covariance
+  and sampling process unspecified.
+rejections:
+- Do not invent covariance values, temporal/dimensional independence, seeds, samplers, or a simulation process.
+dependency_guards:
+  confirmed: []
+  unresolved:
+  - 4
+  runtime: []
+  forbidden:
+  - 0
+  - 1
+  - 2
+  - 13
+  - 17
+  - 23
+  - 29
+  - 34
+  - 35

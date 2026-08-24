@@ -1,0 +1,44 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-027
+algorithm_kind: structural_guard
+strategy: open
+execution: structural_only
+steps:
+- Preserve R_eff and A_cascade as Domain 33 source symbols while refusing automatic identity with cascade/generational reproduction
+  concepts elsewhere.
+provider_requirements:
+- 'TLC-UB-LDA-111: disciple set D — Population/membership semantics for D in R_eff are not supplied.'
+- 'TLC-UB-LDA-112: |D|=0 — No behavior is specified for an empty disciple population in R_eff.'
+- 'TLC-UB-LDA-113: F_trans — The transmission function F_trans is not constructed.'
+- 'TLC-UB-LDA-114: R_0 — Definition, value, type and calibration of R_0 are absent.'
+- 'TLC-UB-LDA-115: R_eff cross-domain identity — No source evidence identifies this R_eff with Domain 17/29 reproduction quantities.'
+- 'TLC-UB-LDA-116: A_cascade stage indexing — The meaning of R_eff^(k) as a stage/indexed factor is not further constructed.'
+- 'TLC-UB-LDA-117: cascade depth n — Depth semantics and the n=0 empty-product convention are absent.'
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not promote Domain 17 or 29 dependencies by symbol similarity, nor invent propagation dynamics or generation procedures.
+prescription_basis: []
+source_objects:
+- TLC-SO-LDA-125
+- TLC-SO-LDA-126
+- TLC-SO-LDA-127
+- TLC-SO-LDA-163
+- TLC-SO-LDA-128
+- TLC-SO-LDA-049
+- TLC-SO-LDA-063
+- TLC-SO-LDA-129
+- TLC-SO-LDA-130
+- TLC-SO-LDA-158
+source_relations:
+- TLC-SR-LDA-046
+- TLC-SR-LDA-047
+unresolved_boundaries:
+- TLC-UB-LDA-111
+- TLC-UB-LDA-112
+- TLC-UB-LDA-113
+- TLC-UB-LDA-114
+- TLC-UB-LDA-115
+- TLC-UB-LDA-116
+- TLC-UB-LDA-117

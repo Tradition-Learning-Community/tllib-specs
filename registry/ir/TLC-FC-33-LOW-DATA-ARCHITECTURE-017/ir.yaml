@@ -1,0 +1,46 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-017
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-017/contract.yaml
+source_candidate_ir: ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-017/ir.candidate.json
+nature: dependency
+steps:
+- Preserve the maturity/rho_relay gate and the sigmoid probability expression as source relations requiring external maturity,
+  Q_rep, coefficients, and sigmoid semantics.
+errors:
+- SourceBoundaryExceeded
+unresolved_items:
+- 'TLC-UB-LDA-057: Q_rep authority — Definition and scientific authority of Q_rep are not bound by the source.'
+- 'TLC-UB-LDA-058: Q_min — The transmission-quality threshold value and calibration are absent.'
+- 'TLC-UB-LDA-061: transmission maturity — The maturity criterion is not constructed.'
+- 'TLC-UB-LDA-062: rho_relay — Relay threshold value, unit and calibration are absent.'
+- 'TLC-UB-LDA-063: sigmoid sigma — The concrete sigmoid function is not constructed.'
+- 'TLC-UB-LDA-064: relay coefficients — Values, units and calibration of alpha, beta and gamma are absent.'
+- 'TLC-UB-LDA-065: relay probability model — The formal sigmoid expression does not prescribe a transition simulator or calibration
+  procedure.'
+- 'TLC-UB-LDA-066: cross-domain transmission authority — Q_rep, relay and transmission terms are not explicitly delegated
+  to Domains 29, 34 or another authority.'
+source_objects:
+- TLC-SO-LDA-068
+- TLC-SO-LDA-063
+- TLC-SO-LDA-051
+- TLC-SO-LDA-069
+- TLC-SO-LDA-070
+- TLC-SO-LDA-071
+- TLC-SO-LDA-072
+- TLC-SO-LDA-073
+- TLC-SO-LDA-074
+- TLC-SO-LDA-075
+- TLC-SO-LDA-061
+source_relations:
+- TLC-SR-LDA-025
+- TLC-SR-LDA-026
+unresolved_boundaries:
+- TLC-UB-LDA-057
+- TLC-UB-LDA-058
+- TLC-UB-LDA-061
+- TLC-UB-LDA-062
+- TLC-UB-LDA-063
+- TLC-UB-LDA-064
+- TLC-UB-LDA-065
+- TLC-UB-LDA-066

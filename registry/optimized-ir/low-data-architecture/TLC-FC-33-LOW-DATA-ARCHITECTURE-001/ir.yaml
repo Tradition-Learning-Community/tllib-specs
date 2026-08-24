@@ -1,0 +1,28 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-001
+status: finalized
+scientific_status: defined
+execution: structural_only
+source_ir: registry/ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-001/ir.yaml
+operation: handle_low_data_architecture_001
+required_behavior:
+- Expose Domain 33 as a source-bounded low-data architectural specification and preserve its explicit unresolved limits.
+forbidden_behavior:
+- Do not import definitions, algorithms, dependencies, or runtime behavior from thematically adjacent domains.
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations:
+- 4
+runtime_domain_dependencies: []
+unresolved_items: []
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
+  status changed.
+source_objects:
+- TLC-SO-LDA-001
+- TLC-SO-LDA-002
+source_relations: []
+unresolved_boundaries:
+- TLC-UB-LDA-066
+- TLC-UB-LDA-115

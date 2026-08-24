@@ -1,0 +1,22 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-030
+oracle_kind: source_conformance
+acceptance:
+- Preserve T_rit(X)=integral K(t-s)X(s)ds as a source relation with kernel and integration semantics externally supplied.
+rejections:
+- Do not invent K, integration domain, normalization, causality, boundary conditions, or numerical convolution.
+dependency_guards:
+  confirmed: []
+  unresolved:
+  - 4
+  runtime: []
+  forbidden:
+  - 0
+  - 1
+  - 2
+  - 13
+  - 17
+  - 23
+  - 29
+  - 34
+  - 35

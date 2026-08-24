@@ -1,0 +1,29 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-031
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-031/contract.yaml
+source_candidate_ir: ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-031/ir.candidate.json
+nature: dependency
+steps:
+- Preserve epsilon_final=epsilon-C(epsilon) while disambiguating this correction C from compression C and community C without
+  rewriting source notation.
+errors:
+- SourceBoundaryExceeded
+unresolved_items:
+- 'TLC-UB-LDA-105: community C identity — Community C must remain distinct from compression C, correction C and theorem constant
+  C.'
+- 'TLC-UB-LDA-132: collective correction C — The collective correction operator is not constructed.'
+- 'TLC-UB-LDA-133: collective-correction epsilon — The correction input epsilon type/space is not specified.'
+- 'TLC-UB-LDA-134: C symbol collision — Compression C, community C, correction C and theorem constant C must remain distinct
+  internally.'
+source_objects:
+- TLC-SO-LDA-145
+- TLC-SO-LDA-159
+- TLC-SO-LDA-144
+source_relations:
+- TLC-SR-LDA-054
+unresolved_boundaries:
+- TLC-UB-LDA-105
+- TLC-UB-LDA-132
+- TLC-UB-LDA-133
+- TLC-UB-LDA-134
