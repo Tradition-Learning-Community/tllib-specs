@@ -1,8 +1,9 @@
 name: Temporary Domain 33 publication bootstrap
 
 on:
-  push:
-    branches: [pipeline/domain-33-low-data-architecture]
+  pull_request:
+    branches: [main]
+    types: [opened, reopened]
 
 permissions:
   contents: write
@@ -14,6 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: pipeline/domain-33-low-data-architecture
           fetch-depth: 0
           show-progress: false
       - uses: actions/setup-python@v5
