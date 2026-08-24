@@ -9,13 +9,23 @@ scientific_authority: maths/33-low-data-architecture/architectural-principles-fo
 additional_scientific_authorities: []
 source_sections:
 - section 3,8
-objects: []
-relations: []
+objects:
+- TLC-SO-LDA-063
+- TLC-SO-LDA-064
+- TLC-SO-LDA-065
+- TLC-SO-LDA-049
+- TLC-SO-LDA-051
+- TLC-SO-LDA-066
+- TLC-SO-LDA-067
+relations:
+- TLC-SR-LDA-024
 inputs: []
 outputs:
 - name: result_descriptor
   type: structural_descriptor
-opaque_providers: []
+opaque_providers: &id001
+- 'TLC-UB-LDA-059: presence indicator — Detection/semantics of presence are not constructed.'
+- 'TLC-UB-LDA-060: exposure lambda — Value, sign, unit and calibration of the exposure-decay lambda are absent.'
 preconditions: []
 postconditions:
 - Preserve the exact exposure increment with the presence indicator and exponential factor.
@@ -29,10 +39,11 @@ dependencies:
   scientific: []
   scientific_unresolved: []
   runtime: []
-unresolved_items: []
+unresolved_items: *id001
 forbidden_behaviors:
 - Do not invent presence detection, parameter values, units, or a time-integration procedure.
 traceability:
   sources:
   - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml
+  unresolved_registry: registry/scientific-objects/low-data-architecture/unresolved-terms.yaml

@@ -9,14 +9,26 @@ scientific_authority: maths/33-low-data-architecture/architectural-principles-fo
 additional_scientific_authorities: []
 source_sections:
 - section 1,8
-objects: []
-relations: []
+objects:
+- TLC-SO-LDA-003
+- TLC-SO-LDA-014
+- TLC-SO-LDA-015
+- TLC-SO-LDA-016
+- TLC-SO-LDA-017
+relations:
+- TLC-SR-LDA-005
+- TLC-SR-LDA-006
 inputs: []
 outputs:
 - name: result_descriptor
   type: structural_descriptor
-opaque_providers:
-- Source-declared external scientific/provider boundary
+opaque_providers: &id001
+- 'TLC-UB-LDA-013: Phi encoding construction — Phi is declared but no encoding procedure is supplied.'
+- 'TLC-UB-LDA-014: mean recall-time measurement — The recall-time measurement protocol is absent.'
+- 'TLC-UB-LDA-015: recall threshold — The threshold value, unit and calibration are absent.'
+- 'TLC-UB-LDA-030: memorable-form factor representations — Concrete representations of F_aph, F_symb, F_rit and F_chant are
+  absent.'
+- 'TLC-UB-LDA-031: F product structure — No topology, metric, dimensional rule or concrete product representation is supplied.'
 preconditions: []
 postconditions:
 - Preserve Phi:N_min->F and the requirement that mean recall time remain below a threshold while leaving encoding and recall
@@ -31,11 +43,11 @@ dependencies:
   scientific: []
   scientific_unresolved: []
   runtime: []
-unresolved_items:
-- Provider or scientific decision required before stronger execution semantics
+unresolved_items: *id001
 forbidden_behaviors:
 - Do not invent the representation of F, a recall metric, threshold value, or encoding procedure.
 traceability:
   sources:
   - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml
+  unresolved_registry: registry/scientific-objects/low-data-architecture/unresolved-terms.yaml

@@ -9,14 +9,21 @@ scientific_authority: maths/33-low-data-architecture/architectural-principles-fo
 additional_scientific_authorities: []
 source_sections:
 - section 2,8
-objects: []
-relations: []
+objects:
+- TLC-SO-LDA-045
+- TLC-SO-LDA-046
+- TLC-SO-LDA-047
+- TLC-SO-LDA-048
+relations:
+- TLC-SR-LDA-019
 inputs: []
 outputs:
 - name: result_descriptor
   type: structural_descriptor
-opaque_providers:
-- Source-declared external scientific/provider boundary
+opaque_providers: &id001
+- 'TLC-UB-LDA-040: N(a) association rule — The mapping from an aphorism to N(a) is not constructed.'
+- 'TLC-UB-LDA-041: length(a) measure — The length measure and its unit are not specified.'
+- 'TLC-UB-LDA-042: length(a)=0 — No convention is given for semantic density when length(a)=0.'
 preconditions: []
 postconditions:
 - Preserve delta(a)=|N(a)|/length(a) and expose the undefined denominator and undefined N(a)/length measures.
@@ -30,11 +37,11 @@ dependencies:
   scientific: []
   scientific_unresolved: []
   runtime: []
-unresolved_items:
-- Provider or scientific decision required before stronger execution semantics
+unresolved_items: *id001
 forbidden_behaviors:
 - Do not define N(a), units of length, or a fallback when length(a)=0.
 traceability:
   sources:
   - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml
+  unresolved_registry: registry/scientific-objects/low-data-architecture/unresolved-terms.yaml

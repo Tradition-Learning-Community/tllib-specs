@@ -9,13 +9,18 @@ scientific_authority: maths/33-low-data-architecture/architectural-principles-fo
 additional_scientific_authorities: []
 source_sections:
 - section 1,8
-objects: []
-relations: []
+objects:
+- TLC-SO-LDA-018
+- TLC-SO-LDA-019
+relations:
+- TLC-SR-LDA-007
 inputs: []
 outputs:
 - name: result_descriptor
   type: structural_descriptor
-opaque_providers: []
+opaque_providers: &id001
+- 'TLC-UB-LDA-016: perturbation normed space — The space and norm used for ||epsilon|| are not specified.'
+- 'TLC-UB-LDA-017: epsilon_max — The perturbation bound value, unit and calibration are absent.'
 preconditions: []
 postconditions:
 - Preserve robustness to perturbations satisfying ||epsilon|| < epsilon_max as a source condition.
@@ -29,10 +34,11 @@ dependencies:
   scientific: []
   scientific_unresolved: []
   runtime: []
-unresolved_items: []
+unresolved_items: *id001
 forbidden_behaviors:
 - Do not invent the normed space, epsilon_max value, perturbation distribution, or correction procedure.
 traceability:
   sources:
   - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml
+  unresolved_registry: registry/scientific-objects/low-data-architecture/unresolved-terms.yaml

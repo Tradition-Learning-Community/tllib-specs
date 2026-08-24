@@ -7,10 +7,30 @@ steps:
 - Preserve Phi:N_min->F and the requirement that mean recall time remain below a threshold while leaving encoding and recall
   measurement externally supplied.
 provider_requirements:
-- Source-declared external scientific/provider boundary
+- 'TLC-UB-LDA-013: Phi encoding construction — Phi is declared but no encoding procedure is supplied.'
+- 'TLC-UB-LDA-014: mean recall-time measurement — The recall-time measurement protocol is absent.'
+- 'TLC-UB-LDA-015: recall threshold — The threshold value, unit and calibration are absent.'
+- 'TLC-UB-LDA-030: memorable-form factor representations — Concrete representations of F_aph, F_symb, F_rit and F_chant are
+  absent.'
+- 'TLC-UB-LDA-031: F product structure — No topology, metric, dimensional rule or concrete product representation is supplied.'
 scientific_domain_dependencies: []
 unresolved_domain_relations: []
 runtime_domain_dependencies: []
 forbidden:
 - Do not invent the representation of F, a recall metric, threshold value, or encoding procedure.
 prescription_basis: []
+source_objects:
+- TLC-SO-LDA-003
+- TLC-SO-LDA-014
+- TLC-SO-LDA-015
+- TLC-SO-LDA-016
+- TLC-SO-LDA-017
+source_relations:
+- TLC-SR-LDA-005
+- TLC-SR-LDA-006
+unresolved_boundaries:
+- TLC-UB-LDA-013
+- TLC-UB-LDA-014
+- TLC-UB-LDA-015
+- TLC-UB-LDA-030
+- TLC-UB-LDA-031

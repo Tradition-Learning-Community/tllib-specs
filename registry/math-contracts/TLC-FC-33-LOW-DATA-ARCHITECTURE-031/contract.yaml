@@ -9,14 +9,23 @@ scientific_authority: maths/33-low-data-architecture/architectural-principles-fo
 additional_scientific_authorities: []
 source_sections:
 - section 7,8
-objects: []
-relations: []
+objects:
+- TLC-SO-LDA-145
+- TLC-SO-LDA-159
+- TLC-SO-LDA-144
+relations:
+- TLC-SR-LDA-054
 inputs: []
 outputs:
 - name: result_descriptor
   type: structural_descriptor
-opaque_providers:
-- Source-declared external scientific/provider boundary
+opaque_providers: &id001
+- 'TLC-UB-LDA-105: community C identity — Community C must remain distinct from compression C, correction C and theorem constant
+  C.'
+- 'TLC-UB-LDA-132: collective correction C — The collective correction operator is not constructed.'
+- 'TLC-UB-LDA-133: collective-correction epsilon — The correction input epsilon type/space is not specified.'
+- 'TLC-UB-LDA-134: C symbol collision — Compression C, community C, correction C and theorem constant C must remain distinct
+  internally.'
 preconditions: []
 postconditions:
 - Preserve epsilon_final=epsilon-C(epsilon) while disambiguating this correction C from compression C and community C without
@@ -31,11 +40,11 @@ dependencies:
   scientific: []
   scientific_unresolved: []
   runtime: []
-unresolved_items:
-- Provider or scientific decision required before stronger execution semantics
+unresolved_items: *id001
 forbidden_behaviors:
 - Do not identify homonymous C symbols or invent the collective-correction operator.
 traceability:
   sources:
   - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml
+  unresolved_registry: registry/scientific-objects/low-data-architecture/unresolved-terms.yaml

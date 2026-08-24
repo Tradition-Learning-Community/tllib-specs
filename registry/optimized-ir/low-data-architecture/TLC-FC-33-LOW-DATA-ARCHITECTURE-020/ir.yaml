@@ -10,15 +10,35 @@ required_behavior:
   participation-factor boundaries.
 forbidden_behavior:
 - Do not insert epsilon denominators, fallback values, projection algorithms, or participation-factor formulas.
-provider_requirements:
-- Source-declared external scientific/provider boundary
+provider_requirements: &id001
+- 'TLC-UB-LDA-019: pi_N_min projection construction — The projection/operator pi_N_min is used but not constructed.'
+- 'TLC-UB-LDA-076: mnemonic state X/X'' — Types, spaces and relationship of X and X'' to N_min are not specified.'
+- 'TLC-UB-LDA-077: mu_mem projection — The projection used inside mu_mem is not constructed.'
+- 'TLC-UB-LDA-078: mu_mem denominator zero — No behavior is specified when ||pi_N_min(X)||=0.'
+- 'TLC-UB-LDA-079: F_part(t) — The participation factor is not constructed.'
 scientific_domain_dependencies: []
 unresolved_domain_relations:
 - 4
 runtime_domain_dependencies: []
-unresolved_items:
-- Provider or scientific decision required before stronger execution semantics
+unresolved_items: *id001
 error_codes:
 - SourceBoundaryExceeded
 optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
   status changed.
+source_objects:
+- TLC-SO-LDA-087
+- TLC-SO-LDA-080
+- TLC-SO-LDA-088
+- TLC-SO-LDA-089
+- TLC-SO-LDA-090
+- TLC-SO-LDA-003
+- TLC-SO-LDA-022
+- TLC-SO-LDA-012
+source_relations:
+- TLC-SR-LDA-032
+unresolved_boundaries:
+- TLC-UB-LDA-019
+- TLC-UB-LDA-076
+- TLC-UB-LDA-077
+- TLC-UB-LDA-078
+- TLC-UB-LDA-079

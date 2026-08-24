@@ -8,4 +8,33 @@ steps:
 - Preserve the source inequalities dim(N_min) << dim(N_inv) and |N_min| <= N_min^max as distinct structural constraints.
 errors:
 - SourceBoundaryExceeded
-unresolved_items: []
+unresolved_items:
+- 'TLC-UB-LDA-001: N_min common structure — N_min is used as a dimensioned object, finite set, and generative operand without
+  a shared structure.'
+- 'TLC-UB-LDA-002: N_inv common structure — N_inv is used as a dimensioned object, finite set, and generative domain without
+  a shared structure.'
+- 'TLC-UB-LDA-003: dimension operator semantics — The domain and meaning of dim(.) and the comparison << are not specified.'
+- 'TLC-UB-LDA-004: finite-cardinality semantics — Finite-set/cardinality assumptions are not reconciled with the other structural
+  uses.'
+- 'TLC-UB-LDA-005: dimension-cardinality relationship — No relation between dim(.) and |.| is supplied.'
+- 'TLC-UB-LDA-012: N_min^max — Value, unit and calibration of N_min^max are absent.'
+source_objects:
+- TLC-SO-LDA-003
+- TLC-SO-LDA-004
+- TLC-SO-LDA-010
+- TLC-SO-LDA-011
+- TLC-SO-LDA-012
+- TLC-SO-LDA-013
+- TLC-SO-LDA-023
+- TLC-SO-LDA-005
+source_relations:
+- TLC-SR-LDA-003
+- TLC-SR-LDA-004
+- TLC-SR-LDA-059
+unresolved_boundaries:
+- TLC-UB-LDA-001
+- TLC-UB-LDA-002
+- TLC-UB-LDA-003
+- TLC-UB-LDA-004
+- TLC-UB-LDA-005
+- TLC-UB-LDA-012

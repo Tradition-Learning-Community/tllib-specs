@@ -9,14 +9,30 @@ scientific_authority: maths/33-low-data-architecture/architectural-principles-fo
 additional_scientific_authorities: []
 source_sections:
 - section 1,8
-objects: []
-relations: []
+objects:
+- TLC-SO-LDA-003
+- TLC-SO-LDA-004
+- TLC-SO-LDA-010
+- TLC-SO-LDA-011
+- TLC-SO-LDA-012
+- TLC-SO-LDA-023
+- TLC-SO-LDA-005
+relations:
+- TLC-SR-LDA-001
+- TLC-SR-LDA-059
 inputs: []
 outputs:
 - name: result_descriptor
   type: structural_descriptor
-opaque_providers:
-- Source-declared external scientific/provider boundary
+opaque_providers: &id001
+- 'TLC-UB-LDA-001: N_min common structure — N_min is used as a dimensioned object, finite set, and generative operand without
+  a shared structure.'
+- 'TLC-UB-LDA-002: N_inv common structure — N_inv is used as a dimensioned object, finite set, and generative domain without
+  a shared structure.'
+- 'TLC-UB-LDA-003: dimension operator semantics — The domain and meaning of dim(.) and the comparison << are not specified.'
+- 'TLC-UB-LDA-004: finite-cardinality semantics — Finite-set/cardinality assumptions are not reconciled with the other structural
+  uses.'
+- 'TLC-UB-LDA-005: dimension-cardinality relationship — No relation between dim(.) and |.| is supplied.'
 preconditions: []
 postconditions:
 - Preserve N_min subset N_inv while recording that both are used as dimensioned spaces, finite sets, and generative operands
@@ -32,11 +48,11 @@ dependencies:
   scientific_unresolved:
   - 4
   runtime: []
-unresolved_items:
-- Provider or scientific decision required before stronger execution semantics
+unresolved_items: *id001
 forbidden_behaviors:
 - Do not invent vector-space, discrete-set, topological, measure, basis, or dimension-cardinality semantics.
 traceability:
   sources:
   - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml
+  unresolved_registry: registry/scientific-objects/low-data-architecture/unresolved-terms.yaml

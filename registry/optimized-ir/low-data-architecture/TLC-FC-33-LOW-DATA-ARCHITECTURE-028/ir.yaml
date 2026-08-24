@@ -10,14 +10,31 @@ required_behavior:
   and sampling process unspecified.
 forbidden_behavior:
 - Do not invent covariance values, temporal/dimensional independence, seeds, samplers, or a simulation process.
-provider_requirements:
-- Source-declared external scientific/provider boundary
+provider_requirements: &id001
+- 'TLC-UB-LDA-118: noise state space — The state space and type compatibility of X_n + epsilon_n are not specified.'
+- 'TLC-UB-LDA-119: Sigma covariance — Numeric covariance, dimension and units of Sigma are absent.'
+- 'TLC-UB-LDA-120: Gaussian process/sampler — The distribution declaration does not prescribe a sampler, seed or stochastic
+  process.'
+- 'TLC-UB-LDA-121: noise independence — Temporal or inter-dimensional independence is not stated and must not be inferred.'
 scientific_domain_dependencies: []
 unresolved_domain_relations: []
 runtime_domain_dependencies: []
-unresolved_items:
-- Provider or scientific decision required before stronger execution semantics
+unresolved_items: *id001
 error_codes:
 - SourceBoundaryExceeded
 optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
   status changed.
+source_objects:
+- TLC-SO-LDA-131
+- TLC-SO-LDA-132
+- TLC-SO-LDA-133
+- TLC-SO-LDA-134
+- TLC-SO-LDA-135
+source_relations:
+- TLC-SR-LDA-048
+- TLC-SR-LDA-049
+unresolved_boundaries:
+- TLC-UB-LDA-118
+- TLC-UB-LDA-119
+- TLC-UB-LDA-120
+- TLC-UB-LDA-121

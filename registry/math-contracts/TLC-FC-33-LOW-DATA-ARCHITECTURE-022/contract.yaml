@@ -9,14 +9,23 @@ scientific_authority: maths/33-low-data-architecture/architectural-principles-fo
 additional_scientific_authorities: []
 source_sections:
 - section 5,8
-objects: []
-relations: []
+objects:
+- TLC-SO-LDA-100
+- TLC-SO-LDA-003
+- TLC-SO-LDA-101
+- TLC-SO-LDA-102
+- TLC-SO-LDA-103
+- TLC-SO-LDA-104
+relations:
+- TLC-SR-LDA-036
 inputs: []
 outputs:
 - name: result_descriptor
   type: structural_descriptor
-opaque_providers:
-- Source-declared external scientific/provider boundary
+opaque_providers: &id001
+- 'TLC-UB-LDA-086: rho_rob probability space — Probability space and event semantics for rho_rob are absent.'
+- 'TLC-UB-LDA-087: support set semantics — Membership/cardinality semantics for the support set S are not fully specified.'
+- 'TLC-UB-LDA-088: carried predicate — The carried(x,s) predicate is not operationally constructed.'
 preconditions: []
 postconditions:
 - Preserve rho_rob(s) as a probability of alternative support coverage while leaving probability space, events, carried, and
@@ -31,11 +40,11 @@ dependencies:
   scientific: []
   scientific_unresolved: []
   runtime: []
-unresolved_items:
-- Provider or scientific decision required before stronger execution semantics
+unresolved_items: *id001
 forbidden_behaviors:
 - Do not invent distributions, independence assumptions, coverage samplers, or support enumeration rules.
 traceability:
   sources:
   - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml
+  unresolved_registry: registry/scientific-objects/low-data-architecture/unresolved-terms.yaml

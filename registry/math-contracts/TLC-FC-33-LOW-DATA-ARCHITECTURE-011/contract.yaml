@@ -9,13 +9,36 @@ scientific_authority: maths/33-low-data-architecture/architectural-principles-fo
 additional_scientific_authorities: []
 source_sections:
 - section 2,8
-objects: []
-relations: []
+objects:
+- TLC-SO-LDA-039
+- TLC-SO-LDA-040
+- TLC-SO-LDA-041
+- TLC-SO-LDA-042
+- TLC-SO-LDA-043
+- TLC-SO-LDA-011
+- TLC-SO-LDA-003
+- TLC-SO-LDA-004
+- TLC-SO-LDA-010
+- TLC-SO-LDA-012
+- TLC-SO-LDA-023
+- TLC-SO-LDA-005
+relations:
+- TLC-SR-LDA-016
+- TLC-SR-LDA-017
+- TLC-SR-LDA-059
 inputs: []
 outputs:
 - name: result_descriptor
   type: structural_descriptor
-opaque_providers: []
+opaque_providers: &id001
+- 'TLC-UB-LDA-001: N_min common structure — N_min is used as a dimensioned object, finite set, and generative operand without
+  a shared structure.'
+- 'TLC-UB-LDA-002: N_inv common structure — N_inv is used as a dimensioned object, finite set, and generative domain without
+  a shared structure.'
+- 'TLC-UB-LDA-003: dimension operator semantics — The domain and meaning of dim(.) and the comparison << are not specified.'
+- 'TLC-UB-LDA-035: dim(F) structure — The dimensional structure of F is not specified.'
+- 'TLC-UB-LDA-036: eta_size denominator compatibility — Compatibility and the dim(N_inv)=0 case are not specified.'
+- 'TLC-UB-LDA-039: eta_gen definition — Q_comp names eta_gen but the source does not define its formula or measurement.'
 preconditions: []
 postconditions:
 - Preserve Q_comp and the eta_size expression subject to the source's undefined dimensional structures.
@@ -29,10 +52,11 @@ dependencies:
   scientific: []
   scientific_unresolved: []
   runtime: []
-unresolved_items: []
+unresolved_items: *id001
 forbidden_behaviors:
 - Do not add normalizations, common dimensions, numeric defaults, or interpretations absent from the source.
 traceability:
   sources:
   - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml
+  unresolved_registry: registry/scientific-objects/low-data-architecture/unresolved-terms.yaml

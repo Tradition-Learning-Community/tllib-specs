@@ -9,14 +9,32 @@ scientific_authority: maths/33-low-data-architecture/architectural-principles-fo
 additional_scientific_authorities: []
 source_sections:
 - section 1,8
-objects: []
-relations: []
+objects:
+- TLC-SO-LDA-003
+- TLC-SO-LDA-024
+- TLC-SO-LDA-025
+- TLC-SO-LDA-026
+- TLC-SO-LDA-027
+- TLC-SO-LDA-005
+- TLC-SO-LDA-028
+- TLC-SO-LDA-029
+relations:
+- TLC-SR-LDA-010
+- TLC-SR-LDA-011
+- TLC-SR-LDA-012
 inputs: []
 outputs:
 - name: result_descriptor
   type: structural_descriptor
-opaque_providers:
-- Source-declared external scientific/provider boundary
+opaque_providers: &id001
+- 'TLC-UB-LDA-022: J_sel formula — J_sel is not constructed.'
+- 'TLC-UB-LDA-023: J_sel tradeoff weights — No weights or tradeoff rule among size, generativity and robustness are supplied.'
+- 'TLC-UB-LDA-024: J_sel optimization procedure — No solver, search procedure or Pareto rule is supplied.'
+- 'TLC-UB-LDA-025: J_sel optimum existence — Existence/attainment of a minimizer is not demonstrated.'
+- 'TLC-UB-LDA-026: J_sel uniqueness — Uniqueness is not asserted or demonstrated.'
+- 'TLC-UB-LDA-027: correction operator for stability — The correction operation in the stability claim is not defined.'
+- 'TLC-UB-LDA-028: isometry space/metric — The space and metric underlying ''up to isometry'' are absent.'
+- 'TLC-UB-LDA-029: correction-stability proof — No quantitative criterion or proof for correction stability is supplied.'
 preconditions: []
 postconditions:
 - Preserve non-emptiness, J_sel-based minimality, and stability under correction up to isometry as axiomatic claims with missing
@@ -31,11 +49,11 @@ dependencies:
   scientific: []
   scientific_unresolved: []
   runtime: []
-unresolved_items:
-- Provider or scientific decision required before stronger execution semantics
+unresolved_items: *id001
 forbidden_behaviors:
 - Do not invent J_sel weights, an optimizer, Pareto semantics, uniqueness, correction operator, isometry space, or proof.
 traceability:
   sources:
   - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml
+  unresolved_registry: registry/scientific-objects/low-data-architecture/unresolved-terms.yaml

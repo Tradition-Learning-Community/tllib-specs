@@ -4,12 +4,14 @@ domain_index: 33
 status: frozen
 authoritative_sources:
 - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
-scientific_relation_count: 62
+scientific_relation_count: 64
 relations:
 - relation_id: TLC-SR-LDA-001
   expression: N_min subset N_inv
   nature: definition
-  objects: []
+  objects:
+  - TLC-SO-LDA-003
+  - TLC-SO-LDA-004
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -18,7 +20,14 @@ relations:
 - relation_id: TLC-SR-LDA-002
   expression: forall x in N_inv exists finite g_1..g_k in G generating x from N_min
   nature: existence claim
-  objects: []
+  objects:
+  - TLC-SO-LDA-003
+  - TLC-SO-LDA-004
+  - TLC-SO-LDA-005
+  - TLC-SO-LDA-006
+  - TLC-SO-LDA-007
+  - TLC-SO-LDA-008
+  - TLC-SO-LDA-009
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -27,7 +36,11 @@ relations:
 - relation_id: TLC-SR-LDA-003
   expression: dim(N_min) << dim(N_inv)
   nature: constraint
-  objects: []
+  objects:
+  - TLC-SO-LDA-003
+  - TLC-SO-LDA-004
+  - TLC-SO-LDA-010
+  - TLC-SO-LDA-011
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -36,7 +49,10 @@ relations:
 - relation_id: TLC-SR-LDA-004
   expression: '|N_min| <= N_min^max'
   nature: constraint
-  objects: []
+  objects:
+  - TLC-SO-LDA-003
+  - TLC-SO-LDA-012
+  - TLC-SO-LDA-013
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -45,7 +61,10 @@ relations:
 - relation_id: TLC-SR-LDA-005
   expression: 'Phi: N_min -> F'
   nature: mapping declaration
-  objects: []
+  objects:
+  - TLC-SO-LDA-003
+  - TLC-SO-LDA-014
+  - TLC-SO-LDA-015
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -54,7 +73,9 @@ relations:
 - relation_id: TLC-SR-LDA-006
   expression: mean recall time is below a threshold
   nature: constraint
-  objects: []
+  objects:
+  - TLC-SO-LDA-016
+  - TLC-SO-LDA-017
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -63,7 +84,9 @@ relations:
 - relation_id: TLC-SR-LDA-007
   expression: robust for ||epsilon|| < epsilon_max
   nature: constraint
-  objects: []
+  objects:
+  - TLC-SO-LDA-018
+  - TLC-SO-LDA-019
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -72,7 +95,10 @@ relations:
 - relation_id: TLC-SR-LDA-008
   expression: 'C: N_inv -> N_min'
   nature: mapping declaration
-  objects: []
+  objects:
+  - TLC-SO-LDA-003
+  - TLC-SO-LDA-004
+  - TLC-SO-LDA-020
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -81,7 +107,12 @@ relations:
 - relation_id: TLC-SR-LDA-009
   expression: L_comp = (1/|N_inv|) sum_x ||pi_N_min(x)-x||
   nature: definition
-  objects: []
+  objects:
+  - TLC-SO-LDA-004
+  - TLC-SO-LDA-006
+  - TLC-SO-LDA-021
+  - TLC-SO-LDA-022
+  - TLC-SO-LDA-023
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -90,7 +121,8 @@ relations:
 - relation_id: TLC-SR-LDA-010
   expression: N_min is non-empty
   nature: axiom
-  objects: []
+  objects:
+  - TLC-SO-LDA-003
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -99,7 +131,13 @@ relations:
 - relation_id: TLC-SR-LDA-011
   expression: N_min minimizes undefined J_sel combining size, generativity, robustness
   nature: axiom
-  objects: []
+  objects:
+  - TLC-SO-LDA-003
+  - TLC-SO-LDA-024
+  - TLC-SO-LDA-025
+  - TLC-SO-LDA-026
+  - TLC-SO-LDA-027
+  - TLC-SO-LDA-005
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -108,7 +146,10 @@ relations:
 - relation_id: TLC-SR-LDA-012
   expression: N_min remains stable under correction up to isometry
   nature: claim
-  objects: []
+  objects:
+  - TLC-SO-LDA-003
+  - TLC-SO-LDA-028
+  - TLC-SO-LDA-029
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -117,7 +158,13 @@ relations:
 - relation_id: TLC-SR-LDA-013
   expression: F = F_aph x F_symb x F_rit x F_chant
   nature: definition
-  objects: []
+  objects:
+  - TLC-SO-LDA-015
+  - TLC-SO-LDA-030
+  - TLC-SO-LDA-031
+  - TLC-SO-LDA-032
+  - TLC-SO-LDA-033
+  - TLC-SO-LDA-034
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -126,7 +173,10 @@ relations:
 - relation_id: TLC-SR-LDA-014
   expression: 'E: N_min -> F'
   nature: mapping declaration
-  objects: []
+  objects:
+  - TLC-SO-LDA-003
+  - TLC-SO-LDA-015
+  - TLC-SO-LDA-035
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -135,7 +185,12 @@ relations:
 - relation_id: TLC-SR-LDA-015
   expression: '||E^-1(E(n))-n|| <= epsilon_enc'
   nature: bounded-error claim
-  objects: []
+  objects:
+  - TLC-SO-LDA-003
+  - TLC-SO-LDA-035
+  - TLC-SO-LDA-036
+  - TLC-SO-LDA-037
+  - TLC-SO-LDA-038
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -144,7 +199,11 @@ relations:
 - relation_id: TLC-SR-LDA-016
   expression: Q_comp=(eta_size,eta_loss,eta_gen)
   nature: definition
-  objects: []
+  objects:
+  - TLC-SO-LDA-039
+  - TLC-SO-LDA-040
+  - TLC-SO-LDA-041
+  - TLC-SO-LDA-042
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -153,7 +212,10 @@ relations:
 - relation_id: TLC-SR-LDA-017
   expression: eta_size=1-dim(F)/dim(N_inv)
   nature: definition
-  objects: []
+  objects:
+  - TLC-SO-LDA-040
+  - TLC-SO-LDA-043
+  - TLC-SO-LDA-011
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -162,7 +224,13 @@ relations:
 - relation_id: TLC-SR-LDA-018
   expression: eta_loss=1-(1/|N_inv|)sum_x ||C^-1(C(x))-x||
   nature: definition
-  objects: []
+  objects:
+  - TLC-SO-LDA-004
+  - TLC-SO-LDA-006
+  - TLC-SO-LDA-020
+  - TLC-SO-LDA-044
+  - TLC-SO-LDA-023
+  - TLC-SO-LDA-041
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -171,7 +239,11 @@ relations:
 - relation_id: TLC-SR-LDA-019
   expression: delta(a)=|N(a)|/length(a)
   nature: definition
-  objects: []
+  objects:
+  - TLC-SO-LDA-045
+  - TLC-SO-LDA-046
+  - TLC-SO-LDA-047
+  - TLC-SO-LDA-048
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -180,7 +252,16 @@ relations:
 - relation_id: TLC-SR-LDA-020
   expression: rho_inc(M,t)=||pi_N_min(M(t))||/||N_min|| * 1/tau_access(M,t)
   nature: definition
-  objects: []
+  objects:
+  - TLC-SO-LDA-049
+  - TLC-SO-LDA-050
+  - TLC-SO-LDA-051
+  - TLC-SO-LDA-052
+  - TLC-SO-LDA-053
+  - TLC-SO-LDA-054
+  - TLC-SO-LDA-055
+  - TLC-SO-LDA-022
+  - TLC-SO-LDA-003
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -189,7 +270,10 @@ relations:
 - relation_id: TLC-SR-LDA-021
   expression: rho_inc approximately E C_id
   nature: approximation
-  objects: []
+  objects:
+  - TLC-SO-LDA-051
+  - TLC-SO-LDA-035
+  - TLC-SO-LDA-056
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -198,7 +282,13 @@ relations:
 - relation_id: TLC-SR-LDA-022
   expression: kappa_trans(M)=rho_inc(M)/rho_0 * T_avail/Delta t_disc
   nature: definition
-  objects: []
+  objects:
+  - TLC-SO-LDA-049
+  - TLC-SO-LDA-051
+  - TLC-SO-LDA-057
+  - TLC-SO-LDA-058
+  - TLC-SO-LDA-059
+  - TLC-SO-LDA-060
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -207,7 +297,9 @@ relations:
 - relation_id: TLC-SR-LDA-023
   expression: Q_rep >= Q_min
   nature: gate
-  objects: []
+  objects:
+  - TLC-SO-LDA-061
+  - TLC-SO-LDA-062
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -216,7 +308,14 @@ relations:
 - relation_id: TLC-SR-LDA-024
   expression: Delta N_D(tau)=rho_inc(M)(1-exp(-lambda tau))1_presence
   nature: definition
-  objects: []
+  objects:
+  - TLC-SO-LDA-063
+  - TLC-SO-LDA-064
+  - TLC-SO-LDA-065
+  - TLC-SO-LDA-049
+  - TLC-SO-LDA-051
+  - TLC-SO-LDA-066
+  - TLC-SO-LDA-067
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -225,7 +324,11 @@ relations:
 - relation_id: TLC-SR-LDA-025
   expression: relay requires transmission maturity and rho_inc(D)>rho_relay
   nature: gate
-  objects: []
+  objects:
+  - TLC-SO-LDA-068
+  - TLC-SO-LDA-063
+  - TLC-SO-LDA-051
+  - TLC-SO-LDA-069
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -234,7 +337,16 @@ relations:
 - relation_id: TLC-SR-LDA-026
   expression: P(D->M_relay)=sigma(alpha rho_inc(D)+beta Q_rep-gamma)
   nature: probability relation
-  objects: []
+  objects:
+  - TLC-SO-LDA-070
+  - TLC-SO-LDA-071
+  - TLC-SO-LDA-072
+  - TLC-SO-LDA-073
+  - TLC-SO-LDA-074
+  - TLC-SO-LDA-075
+  - TLC-SO-LDA-063
+  - TLC-SO-LDA-051
+  - TLC-SO-LDA-061
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -243,7 +355,11 @@ relations:
 - relation_id: TLC-SR-LDA-027
   expression: R_rep^n(PR)=PR+sum_{k=1}^n Delta_k
   nature: definition
-  objects: []
+  objects:
+  - TLC-SO-LDA-076
+  - TLC-SO-LDA-077
+  - TLC-SO-LDA-078
+  - TLC-SO-LDA-079
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -252,7 +368,8 @@ relations:
 - relation_id: TLC-SR-LDA-028
   expression: Delta_k are decreasing increments
   nature: qualitative condition
-  objects: []
+  objects:
+  - TLC-SO-LDA-079
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -261,7 +378,11 @@ relations:
 - relation_id: TLC-SR-LDA-029
   expression: T_rit=lim_{n->infinity} R_rep^n(PR)
   nature: formal limit
-  objects: []
+  objects:
+  - TLC-SO-LDA-080
+  - TLC-SO-LDA-077
+  - TLC-SO-LDA-078
+  - TLC-SO-LDA-079
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -270,7 +391,12 @@ relations:
 - relation_id: TLC-SR-LDA-030
   expression: Pi_rep=(1/N)sum_i sum_{j!=i} sim(PR_i,PR_j)
   nature: definition
-  objects: []
+  objects:
+  - TLC-SO-LDA-081
+  - TLC-SO-LDA-082
+  - TLC-SO-LDA-083
+  - TLC-SO-LDA-084
+  - TLC-SO-LDA-154
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -279,7 +405,11 @@ relations:
 - relation_id: TLC-SR-LDA-031
   expression: P(loss) approximately exp(-kappa Pi_rep n)
   nature: approximation
-  objects: []
+  objects:
+  - TLC-SO-LDA-085
+  - TLC-SO-LDA-086
+  - TLC-SO-LDA-084
+  - TLC-SO-LDA-078
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -288,7 +418,15 @@ relations:
 - relation_id: TLC-SR-LDA-032
   expression: mu_mem(T_rit)=(||pi_N_min(X')||-||pi_N_min(X)||)/||pi_N_min(X)|| * F_part(t)
   nature: definition
-  objects: []
+  objects:
+  - TLC-SO-LDA-087
+  - TLC-SO-LDA-080
+  - TLC-SO-LDA-088
+  - TLC-SO-LDA-089
+  - TLC-SO-LDA-090
+  - TLC-SO-LDA-003
+  - TLC-SO-LDA-022
+  - TLC-SO-LDA-012
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -297,7 +435,12 @@ relations:
 - relation_id: TLC-SR-LDA-033
   expression: tau_reaction(n)=tau_0 exp(-lambda n)+tau_infty
   nature: definition
-  objects: []
+  objects:
+  - TLC-SO-LDA-091
+  - TLC-SO-LDA-078
+  - TLC-SO-LDA-092
+  - TLC-SO-LDA-151
+  - TLC-SO-LDA-093
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -306,7 +449,13 @@ relations:
 - relation_id: TLC-SR-LDA-034
   expression: psi(s)=(1/|N_min|)sum_{n in N_min} 1_{n evoked by s}
   nature: definition
-  objects: []
+  objects:
+  - TLC-SO-LDA-094
+  - TLC-SO-LDA-095
+  - TLC-SO-LDA-003
+  - TLC-SO-LDA-012
+  - TLC-SO-LDA-160
+  - TLC-SO-LDA-096
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -315,7 +464,10 @@ relations:
 - relation_id: TLC-SR-LDA-035
   expression: P(recall|presence at l)=gamma(l)P(recall)
   nature: probability relation
-  objects: []
+  objects:
+  - TLC-SO-LDA-097
+  - TLC-SO-LDA-098
+  - TLC-SO-LDA-099
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -324,7 +476,13 @@ relations:
 - relation_id: TLC-SR-LDA-036
   expression: 'rho_rob(s)=P(forall x in N_min exists s''!=s: carried(x,s''))'
   nature: probability relation
-  objects: []
+  objects:
+  - TLC-SO-LDA-100
+  - TLC-SO-LDA-003
+  - TLC-SO-LDA-101
+  - TLC-SO-LDA-102
+  - TLC-SO-LDA-103
+  - TLC-SO-LDA-104
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -333,7 +491,11 @@ relations:
 - relation_id: TLC-SR-LDA-037
   expression: Pi_red=(1/|N_min|)sum_x |{s:carried(x,s)}|
   nature: definition
-  objects: []
+  objects:
+  - TLC-SO-LDA-003
+  - TLC-SO-LDA-012
+  - TLC-SO-LDA-103
+  - TLC-SO-LDA-105
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -342,7 +504,9 @@ relations:
 - relation_id: TLC-SR-LDA-038
   expression: H_dist=-sum_s p_s log p_s
   nature: formal expression
-  objects: []
+  objects:
+  - TLC-SO-LDA-106
+  - TLC-SO-LDA-107
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -351,7 +515,9 @@ relations:
 - relation_id: TLC-SR-LDA-039
   expression: F subset N_min
   nature: subset relation
-  objects: []
+  objects:
+  - TLC-SO-LDA-108
+  - TLC-SO-LDA-003
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -360,7 +526,13 @@ relations:
 - relation_id: TLC-SR-LDA-040
   expression: Q_rec(F)=(1/|N_min|)sum_x 1_{||tilde x-x||<epsilon}
   nature: definition
-  objects: []
+  objects:
+  - TLC-SO-LDA-108
+  - TLC-SO-LDA-109
+  - TLC-SO-LDA-003
+  - TLC-SO-LDA-012
+  - TLC-SO-LDA-110
+  - TLC-SO-LDA-111
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -369,7 +541,11 @@ relations:
 - relation_id: TLC-SR-LDA-041
   expression: Q_rec(F)>=1-delta when |F|>=t_min
   nature: claim
-  objects: []
+  objects:
+  - TLC-SO-LDA-108
+  - TLC-SO-LDA-112
+  - TLC-SO-LDA-113
+  - TLC-SO-LDA-111
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -378,7 +554,13 @@ relations:
 - relation_id: TLC-SR-LDA-042
   expression: alpha_ex(M)=|{D:attracted by M}|/E[|{D:attracted by a master}|]
   nature: definition
-  objects: []
+  objects:
+  - TLC-SO-LDA-049
+  - TLC-SO-LDA-063
+  - TLC-SO-LDA-114
+  - TLC-SO-LDA-115
+  - TLC-SO-LDA-116
+  - TLC-SO-LDA-153
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -387,7 +569,10 @@ relations:
 - relation_id: TLC-SR-LDA-043
   expression: alpha_ex approximately kappa rho_inc
   nature: approximation
-  objects: []
+  objects:
+  - TLC-SO-LDA-114
+  - TLC-SO-LDA-155
+  - TLC-SO-LDA-051
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -396,7 +581,12 @@ relations:
 - relation_id: TLC-SR-LDA-044
   expression: mu_C=I_coll(C)/sum_{c in C} I_indiv(c)
   nature: definition
-  objects: []
+  objects:
+  - TLC-SO-LDA-117
+  - TLC-SO-LDA-118
+  - TLC-SO-LDA-119
+  - TLC-SO-LDA-120
+  - TLC-SO-LDA-121
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -405,7 +595,11 @@ relations:
 - relation_id: TLC-SR-LDA-045
   expression: mu_C=mu_0 kappa(C) H_type(C)
   nature: asserted factorization
-  objects: []
+  objects:
+  - TLC-SO-LDA-117
+  - TLC-SO-LDA-122
+  - TLC-SO-LDA-123
+  - TLC-SO-LDA-124
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -414,7 +608,14 @@ relations:
 - relation_id: TLC-SR-LDA-046
   expression: R_eff=R_0(1/|D|)sum_D F_trans(M,D)
   nature: definition
-  objects: []
+  objects:
+  - TLC-SO-LDA-125
+  - TLC-SO-LDA-126
+  - TLC-SO-LDA-127
+  - TLC-SO-LDA-163
+  - TLC-SO-LDA-128
+  - TLC-SO-LDA-049
+  - TLC-SO-LDA-063
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -423,7 +624,11 @@ relations:
 - relation_id: TLC-SR-LDA-047
   expression: A_cascade=product_{k=1}^n R_eff^(k)
   nature: definition
-  objects: []
+  objects:
+  - TLC-SO-LDA-129
+  - TLC-SO-LDA-130
+  - TLC-SO-LDA-125
+  - TLC-SO-LDA-158
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -432,7 +637,10 @@ relations:
 - relation_id: TLC-SR-LDA-048
   expression: X_{n+1}=X_n+epsilon_n
   nature: state relation
-  objects: []
+  objects:
+  - TLC-SO-LDA-131
+  - TLC-SO-LDA-132
+  - TLC-SO-LDA-133
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -441,7 +649,10 @@ relations:
 - relation_id: TLC-SR-LDA-049
   expression: epsilon_n distributed as Normal(0,Sigma)
   nature: distribution declaration
-  objects: []
+  objects:
+  - TLC-SO-LDA-133
+  - TLC-SO-LDA-134
+  - TLC-SO-LDA-135
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -450,7 +661,11 @@ relations:
 - relation_id: TLC-SR-LDA-050
   expression: r supports are independent
   nature: explicit assumption
-  objects: []
+  objects:
+  - TLC-SO-LDA-136
+  - TLC-SO-LDA-100
+  - TLC-SO-LDA-101
+  - TLC-SO-LDA-102
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -459,7 +674,10 @@ relations:
 - relation_id: TLC-SR-LDA-051
   expression: sigma_avg^2=sigma^2/r
   nature: conditional relation
-  objects: []
+  objects:
+  - TLC-SO-LDA-137
+  - TLC-SO-LDA-138
+  - TLC-SO-LDA-136
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -468,7 +686,12 @@ relations:
 - relation_id: TLC-SR-LDA-052
   expression: sigma_eff(n)=sigma_0 exp(-lambda n)+sigma_infty
   nature: definition
-  objects: []
+  objects:
+  - TLC-SO-LDA-139
+  - TLC-SO-LDA-140
+  - TLC-SO-LDA-152
+  - TLC-SO-LDA-156
+  - TLC-SO-LDA-141
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -477,7 +700,12 @@ relations:
 - relation_id: TLC-SR-LDA-053
   expression: T_rit(X)=integral K(t-s)X(s) ds
   nature: filter relation
-  objects: []
+  objects:
+  - TLC-SO-LDA-162
+  - TLC-SO-LDA-142
+  - TLC-SO-LDA-050
+  - TLC-SO-LDA-161
+  - TLC-SO-LDA-143
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -486,7 +714,10 @@ relations:
 - relation_id: TLC-SR-LDA-054
   expression: epsilon_final=epsilon-C(epsilon)
   nature: correction relation
-  objects: []
+  objects:
+  - TLC-SO-LDA-145
+  - TLC-SO-LDA-159
+  - TLC-SO-LDA-144
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -495,7 +726,11 @@ relations:
 - relation_id: TLC-SR-LDA-055
   expression: '||R_rec(tilde x)-x|| <= eta||tilde x-x||'
   nature: contraction property
-  objects: []
+  objects:
+  - TLC-SO-LDA-146
+  - TLC-SO-LDA-109
+  - TLC-SO-LDA-006
+  - TLC-SO-LDA-147
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -504,7 +739,8 @@ relations:
 - relation_id: TLC-SR-LDA-056
   expression: eta<1
   nature: constraint
-  objects: []
+  objects:
+  - TLC-SO-LDA-147
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -513,7 +749,13 @@ relations:
 - relation_id: TLC-SR-LDA-057
   expression: global theorem assumes redundancy, regular practice, rituals, active community, generative core
   nature: theorem preconditions
-  objects: []
+  objects:
+  - TLC-SO-LDA-105
+  - TLC-SO-LDA-076
+  - TLC-SO-LDA-080
+  - TLC-SO-LDA-118
+  - TLC-SO-LDA-003
+  - TLC-SO-LDA-005
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -522,7 +764,14 @@ relations:
 - relation_id: TLC-SR-LDA-058
   expression: '||X_n-pi_N_min(X_n)|| <= C exp(-lambda n)'
   nature: global claim
-  objects: []
+  objects:
+  - TLC-SO-LDA-131
+  - TLC-SO-LDA-022
+  - TLC-SO-LDA-003
+  - TLC-SO-LDA-148
+  - TLC-SO-LDA-149
+  - TLC-SO-LDA-157
+  - TLC-SO-LDA-150
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -531,7 +780,14 @@ relations:
 - relation_id: TLC-SR-LDA-059
   expression: N_min and N_inv have no specified common structure despite dimension/cardinality/operator uses
   nature: preserved unresolved
-  objects: []
+  objects:
+  - TLC-SO-LDA-003
+  - TLC-SO-LDA-004
+  - TLC-SO-LDA-010
+  - TLC-SO-LDA-011
+  - TLC-SO-LDA-012
+  - TLC-SO-LDA-023
+  - TLC-SO-LDA-005
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -540,7 +796,11 @@ relations:
 - relation_id: TLC-SR-LDA-060
   expression: inverse notation E^-1 and C^-1 is not accompanied by construction/existence proof
   nature: preserved unresolved
-  objects: []
+  objects:
+  - TLC-SO-LDA-035
+  - TLC-SO-LDA-036
+  - TLC-SO-LDA-020
+  - TLC-SO-LDA-044
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -549,7 +809,9 @@ relations:
 - relation_id: TLC-SR-LDA-061
   expression: decreasing increments do not guarantee ritualization-series convergence
   nature: preserved unresolved
-  objects: []
+  objects:
+  - TLC-SO-LDA-079
+  - TLC-SO-LDA-080
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
@@ -558,9 +820,45 @@ relations:
 - relation_id: TLC-SR-LDA-062
   expression: rho_inc has zero-denominator, units and bounds unresolved
   nature: preserved unresolved
-  objects: []
+  objects:
+  - TLC-SO-LDA-051
+  - TLC-SO-LDA-043
+  - TLC-SO-LDA-044
+  - TLC-SO-LDA-045
+  - TLC-SO-LDA-046
+  - TLC-SO-LDA-047
+  - TLC-SO-LDA-048
   source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   section: source freeze
   operational_status: preserved_unresolved
   note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-063
+  expression: overlapping p_s are not guaranteed to sum to one
+  nature: preserved unresolved
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: section 8
+  operational_status: preserved_unresolved
+  note: The source explicitly states that overlapping support proportions need not sum to one; no normalization is licensed.
+  objects:
+  - TLC-SO-LDA-106
+  - TLC-SO-LDA-107
+- relation_id: TLC-SR-LDA-064
+  expression: reconstruction/global theorem lacks complete quantitative linkage among redundancy, noise, filter, correction
+    and eta
+  nature: preserved unresolved
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: section 8
+  operational_status: preserved_unresolved
+  note: The source explicitly states that the reconstruction property and global resistance theorem lack complete quantitative
+    linking conditions.
+  objects:
+  - TLC-SO-LDA-105
+  - TLC-SO-LDA-133
+  - TLC-SO-LDA-135
+  - TLC-SO-LDA-142
+  - TLC-SO-LDA-144
+  - TLC-SO-LDA-147
+  - TLC-SO-LDA-162

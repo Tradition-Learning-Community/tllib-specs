@@ -2,10 +2,10 @@
 
 Authoritative source: `maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md` (`06bf42f0adfb98be51afe83bb4d0ca8e8f28177d`). README blob: `7b813a31f5f20d415fb7a3c52a0f21cc0a80fde6`.
 
-- scientific objects: **150**
-- scientific relations: **62**
-- unresolved/provider boundaries: **77**
-- symbol collisions: **13**
+- scientific objects: **163**
+- scientific relations: **64**
+- unresolved/provider boundaries: **146**
+- symbol collisions: **17**
 - frozen features: **32**
 - scientific statuses: defined=1, partially_defined=10, external_provider_required=14, preserved_unresolved=7
 - execution statuses: conditionally_executable=21, structural_only=11, executable=0
@@ -14,3 +14,5 @@ Authoritative source: `maths/33-low-data-architecture/architectural-principles-f
 - shared contracts: exactly **8**
 
 The freeze preserves mixed structure of N_min/N_inv, existential generativity without a solver, undefined J_sel, inverse notation without constructed inverses, zero-denominator cases, non-guaranteed ritualization convergence, overlapping p_s without normalization, provider-backed reconstruction/filter/correction, explicit Gaussian noise without a simulator, independence-gated variance reduction, and the global resistance result as a claim rather than an algorithm.
+
+The corrected freeze is occurrence-scoped: homonymous source symbols are not silently merged, every scientific relation names its source objects, and each feature package carries explicit relation/object/boundary traceability. The source files themselves remain byte-identical to the baseline blobs.

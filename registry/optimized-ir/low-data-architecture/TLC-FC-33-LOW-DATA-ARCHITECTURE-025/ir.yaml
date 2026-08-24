@@ -9,14 +9,35 @@ required_behavior:
 - Preserve alpha_ex(M) and alpha_ex approximately kappa rho_inc with numerator/expectation semantics provider-backed.
 forbidden_behavior:
 - Do not import another domain's amplification identity, invent expected populations, or replace approximation by equality.
-provider_requirements:
-- Source-declared external scientific/provider boundary
+provider_requirements: &id001
+- 'TLC-UB-LDA-100: attracted-by predicate — The predicate defining disciples attracted by a Master is not constructed.'
+- 'TLC-UB-LDA-101: alpha_ex expectation model — The expectation population/distribution is not supplied.'
+- 'TLC-UB-LDA-102: alpha_ex denominator zero — No behavior is specified if the expected attracted-master count is zero.'
+- 'TLC-UB-LDA-103: alpha_ex kappa — The kappa in alpha_ex ≈ kappa rho_inc is not defined or bound to another kappa.'
+- 'TLC-UB-LDA-104: alpha_ex approximation semantics — The meaning/error of the alpha_ex approximation is not supplied.'
 scientific_domain_dependencies: []
 unresolved_domain_relations: []
 runtime_domain_dependencies: []
-unresolved_items:
-- Provider or scientific decision required before stronger execution semantics
+unresolved_items: *id001
 error_codes:
 - SourceBoundaryExceeded
 optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
   status changed.
+source_objects:
+- TLC-SO-LDA-049
+- TLC-SO-LDA-063
+- TLC-SO-LDA-114
+- TLC-SO-LDA-115
+- TLC-SO-LDA-116
+- TLC-SO-LDA-153
+- TLC-SO-LDA-155
+- TLC-SO-LDA-051
+source_relations:
+- TLC-SR-LDA-042
+- TLC-SR-LDA-043
+unresolved_boundaries:
+- TLC-UB-LDA-100
+- TLC-UB-LDA-101
+- TLC-UB-LDA-102
+- TLC-UB-LDA-103
+- TLC-UB-LDA-104

@@ -7,10 +7,28 @@ steps:
 - Preserve X_{n+1}=X_n+epsilon_n and epsilon_n~N(0,Sigma) as explicit source-backed relations while leaving numeric covariance
   and sampling process unspecified.
 provider_requirements:
-- Source-declared external scientific/provider boundary
+- 'TLC-UB-LDA-118: noise state space — The state space and type compatibility of X_n + epsilon_n are not specified.'
+- 'TLC-UB-LDA-119: Sigma covariance — Numeric covariance, dimension and units of Sigma are absent.'
+- 'TLC-UB-LDA-120: Gaussian process/sampler — The distribution declaration does not prescribe a sampler, seed or stochastic
+  process.'
+- 'TLC-UB-LDA-121: noise independence — Temporal or inter-dimensional independence is not stated and must not be inferred.'
 scientific_domain_dependencies: []
 unresolved_domain_relations: []
 runtime_domain_dependencies: []
 forbidden:
 - Do not invent covariance values, temporal/dimensional independence, seeds, samplers, or a simulation process.
 prescription_basis: []
+source_objects:
+- TLC-SO-LDA-131
+- TLC-SO-LDA-132
+- TLC-SO-LDA-133
+- TLC-SO-LDA-134
+- TLC-SO-LDA-135
+source_relations:
+- TLC-SR-LDA-048
+- TLC-SR-LDA-049
+unresolved_boundaries:
+- TLC-UB-LDA-118
+- TLC-UB-LDA-119
+- TLC-UB-LDA-120
+- TLC-UB-LDA-121

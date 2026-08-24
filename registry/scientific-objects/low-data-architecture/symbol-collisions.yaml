@@ -2,7 +2,7 @@ schema_version: 1
 domain: low-data-architecture
 domain_index: 33
 status: frozen
-collision_count: 13
+collision_count: 17
 matrix:
 - collision_id: TLC-SC-LDA-001
   symbol: C
@@ -42,7 +42,7 @@ matrix:
   - N_inv
   - N(a)
   - Delta N_D
-  - summation-count N
+  - practice population count N
   internal_policy: assign distinct internal identifiers; preserve original source notation in traceability
   status: disambiguated_internal_only
 - collision_id: TLC-SC-LDA-006
@@ -109,5 +109,43 @@ matrix:
   - pi_N_min projection
   - Pi_rep
   - Pi_red
+  internal_policy: assign distinct internal identifiers; preserve original source notation in traceability
+  status: disambiguated_internal_only
+- collision_id: TLC-SC-LDA-014
+  symbol: n
+  source_uses:
+  - encoded-core n
+  - repetition n
+  - reaction-time index n
+  - symbolic-power summation n
+  - cascade depth n
+  - sigma_eff index n
+  - global theorem/state step n
+  internal_policy: assign distinct internal identifiers; preserve original source notation in traceability
+  status: disambiguated_internal_only
+- collision_id: TLC-SC-LDA-015
+  symbol: s
+  source_uses:
+  - symbolic stimulus s
+  - support s
+  - convolution integration variable s
+  internal_policy: assign distinct internal identifiers; preserve original source notation in traceability
+  status: disambiguated_internal_only
+- collision_id: TLC-SC-LDA-016
+  symbol: T_rit
+  source_uses:
+  - ritualization limit
+  - ritual convolution/filter operator
+  internal_policy: assign distinct internal identifiers; preserve original source notation in traceability
+  status: disambiguated_internal_only
+- collision_id: TLC-SC-LDA-017
+  symbol: epsilon
+  source_uses:
+  - perturbation epsilon
+  - epsilon_enc
+  - reconstruction epsilon
+  - Gaussian epsilon_n
+  - collective-correction epsilon
+  - epsilon_final
   internal_policy: assign distinct internal identifiers; preserve original source notation in traceability
   status: disambiguated_internal_only

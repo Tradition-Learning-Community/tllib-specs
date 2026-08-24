@@ -6,10 +6,29 @@ execution: conditionally_executable
 steps:
 - Preserve the eta_loss expression while treating C^-1 and reconstruction semantics as external or unresolved.
 provider_requirements:
-- Source-declared external scientific/provider boundary
+- 'TLC-UB-LDA-021: |N_inv| denominator semantics — Finite, nonzero cardinality required by 1/|N_inv| is not operationally
+  guaranteed.'
+- 'TLC-UB-LDA-037: C inverse existence — C^-1 notation is used without an inverse/decompressor construction.'
+- 'TLC-UB-LDA-038: eta_loss norm/type — The reconstruction norm/type required by eta_loss is not specified.'
 scientific_domain_dependencies: []
 unresolved_domain_relations: []
 runtime_domain_dependencies: []
 forbidden:
 - Do not presume invertibility of compression or invent a decompressor/reconstructor.
 prescription_basis: []
+source_objects:
+- TLC-SO-LDA-004
+- TLC-SO-LDA-006
+- TLC-SO-LDA-020
+- TLC-SO-LDA-044
+- TLC-SO-LDA-023
+- TLC-SO-LDA-041
+- TLC-SO-LDA-035
+- TLC-SO-LDA-036
+source_relations:
+- TLC-SR-LDA-018
+- TLC-SR-LDA-060
+unresolved_boundaries:
+- TLC-UB-LDA-021
+- TLC-UB-LDA-037
+- TLC-UB-LDA-038

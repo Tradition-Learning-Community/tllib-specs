@@ -9,13 +9,28 @@ scientific_authority: maths/33-low-data-architecture/architectural-principles-fo
 additional_scientific_authorities: []
 source_sections:
 - section 4,8
-objects: []
-relations: []
+objects:
+- TLC-SO-LDA-081
+- TLC-SO-LDA-082
+- TLC-SO-LDA-083
+- TLC-SO-LDA-084
+- TLC-SO-LDA-154
+- TLC-SO-LDA-085
+- TLC-SO-LDA-086
+- TLC-SO-LDA-078
+relations:
+- TLC-SR-LDA-030
+- TLC-SR-LDA-031
 inputs: []
 outputs:
 - name: result_descriptor
   type: structural_descriptor
-opaque_providers: []
+opaque_providers: &id001
+- 'TLC-UB-LDA-071: practice population count N — Population meaning, positivity and N=0 behavior are not specified.'
+- 'TLC-UB-LDA-072: sim practice similarity — The similarity function, codomain and calibration are absent.'
+- 'TLC-UB-LDA-073: loss probability space — The probability space/events/model for P(loss) are not supplied.'
+- 'TLC-UB-LDA-074: loss kappa — Value, sign, unit and calibration of kappa in the loss approximation are absent.'
+- 'TLC-UB-LDA-075: loss approximation semantics — The meaning/error of P(loss) ≈ exp(-kappa Pi_rep n) is not supplied.'
 preconditions: []
 postconditions:
 - Preserve Pi_rep and P(loss) approximately exp(-kappa Pi_rep n) with approximation status intact.
@@ -29,10 +44,11 @@ dependencies:
   scientific: []
   scientific_unresolved: []
   runtime: []
-unresolved_items: []
+unresolved_items: *id001
 forbidden_behaviors:
 - Do not invent sim, probabilistic calibration, independence, kappa, or replace approximation by equality.
 traceability:
   sources:
   - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml
+  unresolved_registry: registry/scientific-objects/low-data-architecture/unresolved-terms.yaml

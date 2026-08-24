@@ -9,14 +9,33 @@ required_behavior:
 - Preserve T_rit(X)=integral K(t-s)X(s)ds as a source relation with kernel and integration semantics externally supplied.
 forbidden_behavior:
 - Do not invent K, integration domain, normalization, causality, boundary conditions, or numerical convolution.
-provider_requirements:
-- Source-declared external scientific/provider boundary
+provider_requirements: &id001
+- 'TLC-UB-LDA-127: T_rit symbol identity — The ritualization-limit object and later filter-operator use of T_rit are not proven
+  identical.'
+- 'TLC-UB-LDA-128: kernel K — K is not constructed.'
+- 'TLC-UB-LDA-129: ritual filter analytic conditions — Integration domain, normalization, causality and boundary conditions
+  are absent.'
+- 'TLC-UB-LDA-130: numerical convolution — No numerical integration/convolution method is prescribed.'
+- 'TLC-UB-LDA-131: convolution X(s) — The type/space of X(s) and integration variable semantics are not specified.'
 scientific_domain_dependencies: []
 unresolved_domain_relations: []
 runtime_domain_dependencies: []
-unresolved_items:
-- Provider or scientific decision required before stronger execution semantics
+unresolved_items: *id001
 error_codes:
 - SourceBoundaryExceeded
 optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
   status changed.
+source_objects:
+- TLC-SO-LDA-162
+- TLC-SO-LDA-142
+- TLC-SO-LDA-050
+- TLC-SO-LDA-161
+- TLC-SO-LDA-143
+source_relations:
+- TLC-SR-LDA-053
+unresolved_boundaries:
+- TLC-UB-LDA-127
+- TLC-UB-LDA-128
+- TLC-UB-LDA-129
+- TLC-UB-LDA-130
+- TLC-UB-LDA-131

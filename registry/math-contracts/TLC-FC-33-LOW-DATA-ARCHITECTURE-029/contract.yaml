@@ -9,13 +9,32 @@ scientific_authority: maths/33-low-data-architecture/architectural-principles-fo
 additional_scientific_authorities: []
 source_sections:
 - section 7,8
-objects: []
-relations: []
+objects:
+- TLC-SO-LDA-136
+- TLC-SO-LDA-100
+- TLC-SO-LDA-101
+- TLC-SO-LDA-102
+- TLC-SO-LDA-137
+- TLC-SO-LDA-138
+- TLC-SO-LDA-139
+- TLC-SO-LDA-140
+- TLC-SO-LDA-152
+- TLC-SO-LDA-156
+- TLC-SO-LDA-141
+relations:
+- TLC-SR-LDA-050
+- TLC-SR-LDA-051
+- TLC-SR-LDA-052
 inputs: []
 outputs:
 - name: result_descriptor
   type: structural_descriptor
-opaque_providers: []
+opaque_providers: &id001
+- 'TLC-UB-LDA-122: support count r — Positivity/nonzero semantics required by sigma^2/r are not explicitly constructed.'
+- 'TLC-UB-LDA-123: support independence verification — No test/procedure for independence of supports is supplied.'
+- 'TLC-UB-LDA-124: sigma^2 semantics — The variance quantity sigma^2 and its type/unit relation to Sigma are not fully specified.'
+- 'TLC-UB-LDA-125: sigma_eff parameters — Values, units, signs and calibration of sigma_0, lambda and sigma_infinity are absent.'
+- 'TLC-UB-LDA-126: sigma_eff index n — The indexing semantics of n in sigma_eff(n) are not bound to another n occurrence.'
 preconditions: []
 postconditions:
 - Preserve sigma_avg^2=sigma^2/r only under the explicit assumption of r independent supports, together with sigma_eff(n).
@@ -29,10 +48,11 @@ dependencies:
   scientific: []
   scientific_unresolved: []
   runtime: []
-unresolved_items: []
+unresolved_items: *id001
 forbidden_behaviors:
 - Do not apply the variance formula without independence, invent an independence test, or supply missing sigma parameters.
 traceability:
   sources:
   - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml
+  unresolved_registry: registry/scientific-objects/low-data-architecture/unresolved-terms.yaml

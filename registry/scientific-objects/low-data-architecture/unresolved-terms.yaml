@@ -2,543 +2,1027 @@ schema_version: 1
 domain: low-data-architecture
 domain_index: 33
 status: frozen
-unresolved_provider_boundary_count: 77
+unresolved_provider_boundary_count: 146
 boundaries:
 - boundary_id: TLC-UB-LDA-001
   concept: N_min common structure
-  gap: dimension/cardinality/generative-operand structure unspecified
+  gap: N_min is used as a dimensioned object, finite set, and generative operand without a shared structure.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-002
   concept: N_inv common structure
-  gap: dimension/cardinality/generative-operand structure unspecified
+  gap: N_inv is used as a dimensioned object, finite set, and generative domain without a shared structure.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-003
-  concept: dimension semantics
-  gap: dim operator domain unspecified
+  concept: dimension operator semantics
+  gap: The domain and meaning of dim(.) and the comparison << are not specified.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-004
-  concept: cardinality semantics
-  gap: finite-set interpretation not reconciled with dimension
+  concept: finite-cardinality semantics
+  gap: Finite-set/cardinality assumptions are not reconciled with the other structural uses.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-005
-  concept: G operator typing
-  gap: operator domains/codomains unspecified
+  concept: dimension-cardinality relationship
+  gap: No relation between dim(.) and |.| is supplied.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-006
-  concept: generator composition typing
-  gap: intermediate types unspecified
+  concept: G operator domain/codomain
+  gap: Domains, codomains and concrete semantics of g_i in G are not supplied.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-007
-  concept: generator-sequence search
-  gap: no construction procedure
+  concept: generator composition typing
+  gap: Intermediate types required for g_k(...g_1(N_min)...) are not specified.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-008
-  concept: generator order
-  gap: no selection/order rule
+  concept: generator-sequence construction
+  gap: The source asserts existence but gives no search or construction procedure.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-009
-  concept: generator length k
-  gap: no minimality or bound
+  concept: generator ordering
+  gap: No rule selects or orders a generating sequence.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-010
-  concept: generative closure
-  gap: not established
+  concept: generator length k
+  gap: No minimality, bound or selection rule for k is supplied.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-011
-  concept: N_min^max
-  gap: value and units absent
+  concept: generative closure and complexity
+  gap: Closure properties and complexity of generation are not established.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-012
-  concept: Phi encoding
-  gap: construction absent
+  concept: N_min^max
+  gap: Value, unit and calibration of N_min^max are absent.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-013
-  concept: recall time
-  gap: measurement protocol absent
+  concept: Phi encoding construction
+  gap: Phi is declared but no encoding procedure is supplied.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-014
-  concept: recall threshold
-  gap: value absent
+  concept: mean recall-time measurement
+  gap: The recall-time measurement protocol is absent.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-015
-  concept: perturbation norm
-  gap: normed space absent
+  concept: recall threshold
+  gap: The threshold value, unit and calibration are absent.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-016
-  concept: epsilon_max
-  gap: value absent
+  concept: perturbation normed space
+  gap: The space and norm used for ||epsilon|| are not specified.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-017
-  concept: compression C
-  gap: procedure absent
+  concept: epsilon_max
+  gap: The perturbation bound value, unit and calibration are absent.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-018
-  concept: projection pi_N_min
-  gap: construction absent
+  concept: compression C construction
+  gap: The source declares C but does not prescribe a compression procedure.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-019
-  concept: L_comp empty denominator
-  gap: '|N_inv|=0 behavior absent'
+  concept: pi_N_min projection construction
+  gap: The projection/operator pi_N_min is used but not constructed.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-020
-  concept: L_comp norm
-  gap: norm/type absent
+  concept: L_comp norm/type
+  gap: The norm and compatible operand type for L_comp are not specified.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-021
-  concept: J_sel
-  gap: cost formula absent
+  concept: '|N_inv| denominator semantics'
+  gap: Finite, nonzero cardinality required by 1/|N_inv| is not operationally guaranteed.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-022
-  concept: J_sel weights
-  gap: weights absent
+  concept: J_sel formula
+  gap: J_sel is not constructed.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-023
-  concept: J_sel optimizer
-  gap: selection algorithm absent
+  concept: J_sel tradeoff weights
+  gap: No weights or tradeoff rule among size, generativity and robustness are supplied.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-024
-  concept: J_sel uniqueness
-  gap: not asserted
+  concept: J_sel optimization procedure
+  gap: No solver, search procedure or Pareto rule is supplied.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-025
-  concept: correction stability
-  gap: correction operator absent
+  concept: J_sel optimum existence
+  gap: Existence/attainment of a minimizer is not demonstrated.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-026
-  concept: isometry
-  gap: space/metric absent
+  concept: J_sel uniqueness
+  gap: Uniqueness is not asserted or demonstrated.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-027
-  concept: F product structure
-  gap: concrete product semantics absent
+  concept: correction operator for stability
+  gap: The correction operation in the stability claim is not defined.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-028
-  concept: E encoding procedure
-  gap: construction absent
+  concept: isometry space/metric
+  gap: The space and metric underlying 'up to isometry' are absent.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-029
-  concept: E inverse
-  gap: inverse existence not established
+  concept: correction-stability proof
+  gap: No quantitative criterion or proof for correction stability is supplied.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-030
-  concept: epsilon_enc
-  gap: value/type absent
+  concept: memorable-form factor representations
+  gap: Concrete representations of F_aph, F_symb, F_rit and F_chant are absent.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-031
-  concept: dim(F)
-  gap: dimensional structure absent
+  concept: F product structure
+  gap: No topology, metric, dimensional rule or concrete product representation is supplied.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-032
-  concept: C inverse
-  gap: inverse existence not established
+  concept: E encoding construction
+  gap: E is declared but no encoding procedure is prescribed.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-033
-  concept: N(a)
-  gap: association rule absent
+  concept: E inverse existence
+  gap: E^-1 notation is used without a constructed inverse, decoder or bijection proof.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-034
-  concept: length(a)
-  gap: measure/unit absent
+  concept: epsilon_enc
+  gap: The error bound value, norm/type and calibration are absent.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-035
-  concept: length(a)=0
-  gap: division behavior absent
+  concept: dim(F) structure
+  gap: The dimensional structure of F is not specified.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-036
-  concept: rho_inc N_min denominator
-  gap: zero and norm-of-set semantics absent
+  concept: eta_size denominator compatibility
+  gap: Compatibility and the dim(N_inv)=0 case are not specified.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-037
-  concept: tau_access
-  gap: measurement/unit absent
+  concept: C inverse existence
+  gap: C^-1 notation is used without an inverse/decompressor construction.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-038
-  concept: tau_access=0
-  gap: division behavior absent
+  concept: eta_loss norm/type
+  gap: The reconstruction norm/type required by eta_loss is not specified.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-039
-  concept: rho_inc units
-  gap: units absent
+  concept: eta_gen definition
+  gap: Q_comp names eta_gen but the source does not define its formula or measurement.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-040
-  concept: rho_inc bounds
-  gap: bounds absent
+  concept: N(a) association rule
+  gap: The mapping from an aphorism to N(a) is not constructed.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-041
-  concept: rho_inc approximation
-  gap: meaning/error absent
+  concept: length(a) measure
+  gap: The length measure and its unit are not specified.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-042
-  concept: C_id
-  gap: operator definition absent
+  concept: length(a)=0
+  gap: No convention is given for semantic density when length(a)=0.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-043
-  concept: rho_0
-  gap: value/unit absent
+  concept: '||N_min|| semantics'
+  gap: A norm-like quantity of the set/core N_min is used without structural definition.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-044
-  concept: T_avail
-  gap: measurement/unit absent
+  concept: '||N_min||=0'
+  gap: No behavior is specified for a zero incorporation-density denominator.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-045
-  concept: Delta t_disc
-  gap: measurement/unit and zero case absent
+  concept: tau_access definition
+  gap: Access-time measurement and units are not specified.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-046
-  concept: Q_rep
-  gap: authority/definition absent
+  concept: tau_access=0
+  gap: No behavior is specified when tau_access=0.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-047
-  concept: Q_min
-  gap: value absent
+  concept: rho_inc units
+  gap: Unit compatibility of the factors in rho_inc is not defined.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-048
-  concept: presence indicator
-  gap: detection semantics absent
+  concept: rho_inc bounds
+  gap: The range/bounds of rho_inc are not defined.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-049
-  concept: transmission maturity
-  gap: criterion absent
+  concept: rho_inc approximation semantics
+  gap: The meaning and error of rho_inc ≈ E C_id are not constructed.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-050
-  concept: rho_relay
-  gap: value absent
+  concept: C_id
+  gap: C_id is not defined or typed.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-051
-  concept: sigmoid sigma
-  gap: specific function not constructed
+  concept: rho_0
+  gap: Value, unit and calibration of rho_0 are absent.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-052
-  concept: relay coefficients
-  gap: alpha beta gamma values/units absent
+  concept: rho_0=0
+  gap: No behavior is specified for a zero rho_0 denominator.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-053
-  concept: ritualization convergence
-  gap: not guaranteed
+  concept: T_avail
+  gap: Available-time measurement and units are not specified.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-054
-  concept: Delta_k decay
-  gap: rate/summability absent
+  concept: Delta t_disc
+  gap: Per-disciple time measurement and units are not specified.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-055
-  concept: sim
-  gap: similarity function absent
+  concept: Delta t_disc=0
+  gap: No behavior is specified for a zero Delta t_disc denominator.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-056
-  concept: loss probability space
-  gap: probability model absent
+  concept: kappa_trans compatibility
+  gap: Units, compatible types and output bounds for transmission capacity are not supplied.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-057
-  concept: kappa loss
-  gap: value absent
+  concept: Q_rep authority
+  gap: Definition and scientific authority of Q_rep are not bound by the source.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-058
-  concept: mu_mem projection
-  gap: projection construction absent
+  concept: Q_min
+  gap: The transmission-quality threshold value and calibration are absent.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-059
-  concept: mu_mem zero denominator
-  gap: behavior absent
+  concept: presence indicator
+  gap: Detection/semantics of presence are not constructed.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-060
-  concept: F_part(t)
-  gap: function construction absent
+  concept: exposure lambda
+  gap: Value, sign, unit and calibration of the exposure-decay lambda are absent.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-061
-  concept: evoked-by predicate
-  gap: detection semantics absent
+  concept: transmission maturity
+  gap: The maturity criterion is not constructed.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-062
-  concept: gamma(l)
-  gap: value/model absent
+  concept: rho_relay
+  gap: Relay threshold value, unit and calibration are absent.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-063
-  concept: rho_rob probability space
-  gap: events/distribution absent
+  concept: sigmoid sigma
+  gap: The concrete sigmoid function is not constructed.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-064
-  concept: carried predicate
-  gap: implementation absent
+  concept: relay coefficients
+  gap: Values, units and calibration of alpha, beta and gamma are absent.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-065
-  concept: p_s normalization
-  gap: overlap prevents guaranteed unit sum
+  concept: relay probability model
+  gap: The formal sigmoid expression does not prescribe a transition simulator or calibration procedure.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-066
-  concept: H_dist Shannon interpretation
-  gap: validity conditions absent
+  concept: cross-domain transmission authority
+  gap: Q_rep, relay and transmission terms are not explicitly delegated to Domains 29, 34 or another authority.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-067
-  concept: fragment reconstruction tilde x
-  gap: procedure absent
+  concept: Delta_k
+  gap: Types and construction of repetition increments are absent.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-068
-  concept: Q_rec norm
-  gap: norm/type absent
+  concept: decreasing increments semantics
+  gap: The ordering/norm in which increments decrease is not specified.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-069
-  concept: reconstruction epsilon
-  gap: value absent
+  concept: ritualization convergence
+  gap: Decreasing increments do not establish summability or convergence.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-070
-  concept: t_min
-  gap: value absent
+  concept: ritualization limit existence
+  gap: The formal limit is not guaranteed to exist.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-071
-  concept: alpha_ex expectation
-  gap: population/distribution absent
+  concept: practice population count N
+  gap: Population meaning, positivity and N=0 behavior are not specified.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-072
-  concept: community C collision
-  gap: homonym with compression/correction
+  concept: sim practice similarity
+  gap: The similarity function, codomain and calibration are absent.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-073
-  concept: collective information functions
-  gap: I_coll/I_indiv definitions absent
+  concept: loss probability space
+  gap: The probability space/events/model for P(loss) are not supplied.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-074
-  concept: R_eff cross-domain identity
-  gap: no authority link to Domain 17/29
+  concept: loss kappa
+  gap: Value, sign, unit and calibration of kappa in the loss approximation are absent.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-075
-  concept: Gaussian sampler
-  gap: simulation procedure absent
+  concept: loss approximation semantics
+  gap: The meaning/error of P(loss) ≈ exp(-kappa Pi_rep n) is not supplied.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-076
-  concept: Sigma numeric covariance
-  gap: values absent
+  concept: mnemonic state X/X'
+  gap: Types, spaces and relationship of X and X' to N_min are not specified.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required
   status: preserved_unresolved
 - boundary_id: TLC-UB-LDA-077
+  concept: mu_mem projection
+  gap: The projection used inside mu_mem is not constructed.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-078
+  concept: mu_mem denominator zero
+  gap: No behavior is specified when ||pi_N_min(X)||=0.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-079
+  concept: F_part(t)
+  gap: The participation factor is not constructed.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-080
+  concept: reaction-time parameters
+  gap: Values, units, signs and calibration of tau_0, lambda and tau_infinity are absent.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-081
+  concept: reaction lambda identity
+  gap: The source does not establish identity between this lambda and other lambda occurrences.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-082
+  concept: evoked-by predicate
+  gap: The predicate 'n evoked by s' is not operationally constructed.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-083
+  concept: gamma(l)
+  gap: The place amplification factor value, range and calibration are absent.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-084
+  concept: baseline recall probability
+  gap: The probability model for baseline recall is not supplied.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-085
+  concept: place probability bounds
+  gap: No clipping/fallback is specified if gamma(l)P(recall) is outside a probability range.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-086
+  concept: rho_rob probability space
+  gap: Probability space and event semantics for rho_rob are absent.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-087
+  concept: support set semantics
+  gap: Membership/cardinality semantics for the support set S are not fully specified.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-088
+  concept: carried predicate
+  gap: The carried(x,s) predicate is not operationally constructed.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-089
+  concept: p_s construction
+  gap: The source does not construct how the support proportions p_s are measured.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-090
+  concept: p_s overlap normalization
+  gap: Overlapping redundant supports mean the p_s are not guaranteed to sum to one; normalization is not licensed.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-091
+  concept: p_s log domain
+  gap: No convention is supplied for p_s=0 or otherwise invalid log inputs.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-092
+  concept: H_dist Shannon validity
+  gap: The conditions required to interpret H_dist as Shannon entropy are not established.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-093
+  concept: fragment selection
+  gap: How a fragment F is obtained or represented is not specified.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-094
+  concept: fragment reconstruction
+  gap: The reconstructed tilde x is used without a reconstruction procedure.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-095
+  concept: Q_rec norm/type
+  gap: The norm/type used in the Q_rec indicator is not specified.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-096
+  concept: reconstruction epsilon
+  gap: The reconstruction threshold value, unit and calibration are absent.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-097
+  concept: t_min
+  gap: The minimum-fragment threshold value, unit and calibration are absent.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-098
+  concept: reconstruction delta
+  gap: The tolerance delta value/range and calibration are absent.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-099
+  concept: Q_rec guarantee proof
+  gap: The reconstruction guarantee is asserted without an algorithm or proof of sufficient conditions.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-100
+  concept: attracted-by predicate
+  gap: The predicate defining disciples attracted by a Master is not constructed.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-101
+  concept: alpha_ex expectation model
+  gap: The expectation population/distribution is not supplied.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-102
+  concept: alpha_ex denominator zero
+  gap: No behavior is specified if the expected attracted-master count is zero.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-103
+  concept: alpha_ex kappa
+  gap: The kappa in alpha_ex ≈ kappa rho_inc is not defined or bound to another kappa.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-104
+  concept: alpha_ex approximation semantics
+  gap: The meaning/error of the alpha_ex approximation is not supplied.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-105
+  concept: community C identity
+  gap: Community C must remain distinct from compression C, correction C and theorem constant C.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-106
+  concept: I_coll
+  gap: Collective information I_coll is not constructed.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-107
+  concept: I_indiv
+  gap: Individual information I_indiv is not constructed.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-108
+  concept: mu_C denominator zero
+  gap: No behavior is specified if sum I_indiv(c)=0.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-109
+  concept: mu_C factor providers
+  gap: mu_0, kappa(C) and H_type(C) are not constructed/calibrated.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-110
+  concept: mu_C factorization conditions
+  gap: No derivation or conditions justify the asserted factorization beyond the source claim.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-111
+  concept: disciple set D
+  gap: Population/membership semantics for D in R_eff are not supplied.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-112
+  concept: '|D|=0'
+  gap: No behavior is specified for an empty disciple population in R_eff.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-113
+  concept: F_trans
+  gap: The transmission function F_trans is not constructed.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-114
+  concept: R_0
+  gap: Definition, value, type and calibration of R_0 are absent.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-115
+  concept: R_eff cross-domain identity
+  gap: No source evidence identifies this R_eff with Domain 17/29 reproduction quantities.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-116
+  concept: A_cascade stage indexing
+  gap: The meaning of R_eff^(k) as a stage/indexed factor is not further constructed.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-117
+  concept: cascade depth n
+  gap: Depth semantics and the n=0 empty-product convention are absent.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-118
+  concept: noise state space
+  gap: The state space and type compatibility of X_n + epsilon_n are not specified.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-119
+  concept: Sigma covariance
+  gap: Numeric covariance, dimension and units of Sigma are absent.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-120
+  concept: Gaussian process/sampler
+  gap: The distribution declaration does not prescribe a sampler, seed or stochastic process.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-121
+  concept: noise independence
+  gap: Temporal or inter-dimensional independence is not stated and must not be inferred.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-122
+  concept: support count r
+  gap: Positivity/nonzero semantics required by sigma^2/r are not explicitly constructed.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-123
   concept: support independence verification
-  gap: test absent
+  gap: No test/procedure for independence of supports is supplied.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-124
+  concept: sigma^2 semantics
+  gap: The variance quantity sigma^2 and its type/unit relation to Sigma are not fully specified.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-125
+  concept: sigma_eff parameters
+  gap: Values, units, signs and calibration of sigma_0, lambda and sigma_infinity are absent.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-126
+  concept: sigma_eff index n
+  gap: The indexing semantics of n in sigma_eff(n) are not bound to another n occurrence.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-127
+  concept: T_rit symbol identity
+  gap: The ritualization-limit object and later filter-operator use of T_rit are not proven identical.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-128
+  concept: kernel K
+  gap: K is not constructed.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-129
+  concept: ritual filter analytic conditions
+  gap: Integration domain, normalization, causality and boundary conditions are absent.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-130
+  concept: numerical convolution
+  gap: No numerical integration/convolution method is prescribed.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-131
+  concept: convolution X(s)
+  gap: The type/space of X(s) and integration variable semantics are not specified.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-132
+  concept: collective correction C
+  gap: The collective correction operator is not constructed.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-133
+  concept: collective-correction epsilon
+  gap: The correction input epsilon type/space is not specified.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-134
+  concept: C symbol collision
+  gap: Compression C, community C, correction C and theorem constant C must remain distinct internally.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-135
+  concept: R_rec
+  gap: The reconstruction operator is not constructed.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-136
+  concept: contraction norm/space
+  gap: The normed space and typing needed for the contraction inequality are absent.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-137
+  concept: eta contraction semantics
+  gap: Only eta<1 is stated; value, calibration and additional domain assumptions are absent.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-138
+  concept: contraction proof
+  gap: No proof of the contraction property is supplied.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-139
+  concept: reconstruction iteration
+  gap: No iteration, fixed-point procedure, iteration count or convergence algorithm is prescribed.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-140
+  concept: global theorem preconditions
+  gap: Redundancy, regular practice, rituals, active community and generative-core conditions lack a complete quantitative
+    formulation.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-141
+  concept: global theorem C
+  gap: Value, sign, unit and derivation of theorem constant C are absent.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-142
+  concept: global theorem lambda
+  gap: Value, sign, unit, derivation and identity of theorem lambda are absent.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-143
+  concept: global theorem index n
+  gap: The theorem step index is not bound to other n occurrences.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-144
+  concept: global quantitative linkage
+  gap: No complete quantitative link joins redundancy, noise, filter, correction and contraction eta.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-145
+  concept: global theorem proof
+  gap: The source states the resistance bound without a complete proof.
+  consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
+  source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  provider: external_or_scientific_decision_required
+  status: preserved_unresolved
+- boundary_id: TLC-UB-LDA-146
+  concept: stabilization algorithm
+  gap: The theorem does not prescribe an algorithm that stabilizes X_n.
   consequence: Execution or stronger interpretation is forbidden unless the missing scientific/provider condition is supplied.
   source: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   provider: external_or_scientific_decision_required

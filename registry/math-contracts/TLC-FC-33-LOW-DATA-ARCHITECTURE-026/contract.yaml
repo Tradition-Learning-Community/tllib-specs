@@ -9,14 +9,31 @@ scientific_authority: maths/33-low-data-architecture/architectural-principles-fo
 additional_scientific_authorities: []
 source_sections:
 - section 6,8
-objects: []
-relations: []
+objects:
+- TLC-SO-LDA-117
+- TLC-SO-LDA-118
+- TLC-SO-LDA-119
+- TLC-SO-LDA-120
+- TLC-SO-LDA-121
+- TLC-SO-LDA-122
+- TLC-SO-LDA-123
+- TLC-SO-LDA-124
+relations:
+- TLC-SR-LDA-044
+- TLC-SR-LDA-045
 inputs: []
 outputs:
 - name: result_descriptor
   type: structural_descriptor
-opaque_providers:
-- Source-declared external scientific/provider boundary
+opaque_providers: &id001
+- 'TLC-UB-LDA-105: community C identity — Community C must remain distinct from compression C, correction C and theorem constant
+  C.'
+- 'TLC-UB-LDA-106: I_coll — Collective information I_coll is not constructed.'
+- 'TLC-UB-LDA-107: I_indiv — Individual information I_indiv is not constructed.'
+- 'TLC-UB-LDA-108: mu_C denominator zero — No behavior is specified if sum I_indiv(c)=0.'
+- 'TLC-UB-LDA-109: mu_C factor providers — mu_0, kappa(C) and H_type(C) are not constructed/calibrated.'
+- 'TLC-UB-LDA-110: mu_C factorization conditions — No derivation or conditions justify the asserted factorization beyond the
+  source claim.'
 preconditions: []
 postconditions:
 - Preserve mu_C as both a collective/individual ratio and mu_0 kappa(C) H_type(C), with community and information quantities
@@ -31,11 +48,11 @@ dependencies:
   scientific: []
   scientific_unresolved: []
   runtime: []
-unresolved_items:
-- Provider or scientific decision required before stronger execution semantics
+unresolved_items: *id001
 forbidden_behaviors:
 - Do not conflate community C with compression/correction C or invent information measures, kappa(C), or H_type.
 traceability:
   sources:
   - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml
+  unresolved_registry: registry/scientific-objects/low-data-architecture/unresolved-terms.yaml

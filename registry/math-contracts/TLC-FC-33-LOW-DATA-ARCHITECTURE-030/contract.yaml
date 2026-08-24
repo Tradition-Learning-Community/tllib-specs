@@ -9,14 +9,26 @@ scientific_authority: maths/33-low-data-architecture/architectural-principles-fo
 additional_scientific_authorities: []
 source_sections:
 - section 7,8
-objects: []
-relations: []
+objects:
+- TLC-SO-LDA-162
+- TLC-SO-LDA-142
+- TLC-SO-LDA-050
+- TLC-SO-LDA-161
+- TLC-SO-LDA-143
+relations:
+- TLC-SR-LDA-053
 inputs: []
 outputs:
 - name: result_descriptor
   type: structural_descriptor
-opaque_providers:
-- Source-declared external scientific/provider boundary
+opaque_providers: &id001
+- 'TLC-UB-LDA-127: T_rit symbol identity — The ritualization-limit object and later filter-operator use of T_rit are not proven
+  identical.'
+- 'TLC-UB-LDA-128: kernel K — K is not constructed.'
+- 'TLC-UB-LDA-129: ritual filter analytic conditions — Integration domain, normalization, causality and boundary conditions
+  are absent.'
+- 'TLC-UB-LDA-130: numerical convolution — No numerical integration/convolution method is prescribed.'
+- 'TLC-UB-LDA-131: convolution X(s) — The type/space of X(s) and integration variable semantics are not specified.'
 preconditions: []
 postconditions:
 - Preserve T_rit(X)=integral K(t-s)X(s)ds as a source relation with kernel and integration semantics externally supplied.
@@ -30,11 +42,11 @@ dependencies:
   scientific: []
   scientific_unresolved: []
   runtime: []
-unresolved_items:
-- Provider or scientific decision required before stronger execution semantics
+unresolved_items: *id001
 forbidden_behaviors:
 - Do not invent K, integration domain, normalization, causality, boundary conditions, or numerical convolution.
 traceability:
   sources:
   - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
   inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml
+  unresolved_registry: registry/scientific-objects/low-data-architecture/unresolved-terms.yaml
