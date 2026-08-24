@@ -1,6 +1,6 @@
 # Feature Handoff Package v1.0
 
-`handoff/` is the final, language-neutral output of `tllib-specs`. It contains sixteen complete domain catalogs, 166 autonomous feature packages, eight shared structural contracts, and a deterministic global catalog.
+`handoff/` is the final, language-neutral output of `tllib-specs`. It contains 36 complete domain catalogs, 694 autonomous feature packages, eight shared structural contracts, and a deterministic global catalog.
 
 A programmer normally begins with a standalone exported bundle, not with `registry/` or the mathematical source texts.
 
@@ -44,7 +44,7 @@ Each feature package declares exactly five mandatory files:
 - `acceptance.json`;
 - `traceability.json`.
 
-`examples.json` is optional and is present only when `manifest.json` declares it. The finalized model contains one package with examples and 165 without them.
+`examples.json` is optional and is present only when `manifest.json` declares it. The finalized model contains one package with examples and 693 without them.
 
 `manifest.json` states the feature identity, domain, package version, scientific status, execution status, file population, examples presence, and exact shared dependencies.
 
@@ -56,7 +56,7 @@ Each feature package declares exactly five mandatory files:
 
 ## Complete catalogs
 
-`domains/<domain>/catalog.json` contains the exact authoritative population and order of one domain. The sixteen catalogs together declare exactly 166 unique feature IDs.
+`domains/<domain>/catalog.json` contains the exact authoritative population and order of one domain. The 36 catalogs together declare exactly 694 unique feature IDs.
 
 `catalog.json` is the deterministic global projection. It contains all domains and features, multidimensional statuses, examples presence, shared dependencies, deterministic fingerprints, and tool versions. It is autonomous enough for population audit and export selection without becoming a competing scientific source.
 
@@ -89,7 +89,7 @@ The model uses eight versioned structural contracts:
 
 A shared carrier does not imply scientific equivalence. Feature-local cardinality, order, errors, negative semantics, provider boundaries, and unresolved meanings remain explicit.
 
-All 42 reported sharing candidates were reconciled globally. None was promoted in v1.0 because no candidate met every requirement for independent-domain equivalence, semantic neutrality, parameterizable local differences, net benefit, and non-invented shared tests.
+Shared contracts are promoted only when independent-domain equivalence, semantic neutrality, parameterizable local differences, net benefit, and source-backed conformance can all be demonstrated. No additional shared contract is implied by repeated notation or representation alone.
 
 ## Scientific boundary
 
@@ -130,7 +130,7 @@ python tools/handoff/validate_handoff.py --self-test
 
 The validator enforces:
 
-- exactly sixteen catalogs, 166 feature packages, and eight shared contracts;
+- exactly 36 catalogs, 694 feature packages, and eight shared contracts;
 - exact equality with authoritative inventory populations and order;
 - exact mandatory and optional file populations;
 - JSON Schema and cross-file identity coherence;
