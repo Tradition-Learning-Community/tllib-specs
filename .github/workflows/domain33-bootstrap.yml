@@ -8,6 +8,9 @@ on:
 permissions:
   contents: write
 
+env:
+  PYTHONDONTWRITEBYTECODE: '1'
+
 jobs:
   finalize-domain-33:
     runs-on: ubuntu-latest
@@ -33,17 +36,21 @@ jobs:
           s = s.replace('together with sigma_eff(n).\n","Do not apply', 'together with sigma_eff(n).","Do not apply')
           s = s.replace(',("overlapping p_s are not guaranteed to sum to one","preserved unresolved")', '')
           s = s.replace(',("reconstruction/global theorem lacks complete quantitative linkage among redundancy, noise, filter, correction and eta","preserved unresolved")', '')
+          compile(s, str(p), 'exec')
           p.write_text(s, encoding='utf-8')
           PY
-          python -m py_compile tools/domain33_bootstrap.py
       - name: Generate complete Domain 33 population
         run: python tools/domain33_bootstrap.py
       - name: Generate global catalog last
         run: |
           python tools/handoff/generate_catalog.py --write
           python tools/handoff/generate_catalog.py --check
-      - name: Remove bootstrap artifacts before final commit
-        run: git rm -f .github/workflows/domain33-bootstrap.yml tools/domain33_bootstrap.py
+      - name: Restore tracked bytecode and remove bootstrap artifacts
+        shell: bash
+        run: |
+          rm -rf tools/__pycache__
+          git checkout origin/main -- tools/handoff/__pycache__/generate_catalog.cpython-312.pyc tools/handoff/__pycache__/model.cpython-312.pyc
+          git rm -f .github/workflows/domain33-bootstrap.yml tools/domain33_bootstrap.py
       - name: Create net Domain 33 commit
         run: |
           git config user.name 'Tradition Learning CI'
