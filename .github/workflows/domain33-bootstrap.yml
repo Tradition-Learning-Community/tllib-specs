@@ -1,0 +1,76 @@
+name: Temporary Domain 33 publication bootstrap
+
+on:
+  push:
+    branches: [pipeline/domain-33-low-data-architecture]
+
+permissions:
+  contents: write
+
+jobs:
+  finalize-domain-33:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          show-progress: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install validation dependencies
+        run: python -m pip install --disable-pip-version-check --quiet jsonschema pyyaml
+      - name: Repair bootstrap transport newline
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('tools/domain33_bootstrap.py')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('together with sigma_eff(n).\n","Do not apply', 'together with sigma_eff(n).","Do not apply')
+          p.write_text(s, encoding='utf-8')
+          PY
+          python -m py_compile tools/domain33_bootstrap.py
+      - name: Generate complete Domain 33 population
+        run: python tools/domain33_bootstrap.py
+      - name: Generate global catalog last
+        run: |
+          python tools/handoff/generate_catalog.py --write
+          python tools/handoff/generate_catalog.py --check
+      - name: Remove bootstrap artifacts before final commit
+        run: git rm .github/workflows/domain33-bootstrap.yml tools/domain33_bootstrap.py
+      - name: Create net Domain 33 commit
+        run: |
+          git config user.name 'Tradition Learning CI'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Finalize Domain 33 low data architecture handoffs'
+      - name: Verify protected scope and source immutability
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md)" = "06bf42f0adfb98be51afe83bb4d0ca8e8f28177d"
+          test "$(git hash-object maths/33-low-data-architecture/README.md)" = "7b813a31f5f20d415fb7a3c52a0f21cc0a80fde6"
+          git diff --quiet origin/main...HEAD -- maths/33-low-data-architecture
+          git diff --quiet origin/main...HEAD -- registry/domain-finalization/cascade-transmission registry/domain-finalization/generational-propagation registry/domain-finalization/expansion registry/domain-finalization/institutionalization registry/domain-finalization/transmission-lifecycle
+          git diff --quiet origin/main...HEAD -- tools/handoff/generate_catalog.py handoff/schemas .github/workflows
+          ! git diff --name-only origin/main...HEAD | grep -E '(__pycache__|\.status$|\.log$|\.zip$|\.tar$|\.tgz$|\.tar\.gz$)'
+      - name: Validate deterministic catalog
+        run: python tools/handoff/generate_catalog.py --check
+      - name: Validate Feature Handoff Package v1.0
+        run: python tools/handoff/validate_handoff.py
+      - name: Run validator logical self-tests
+        run: python tools/handoff/validate_handoff.py --self-test
+      - name: Validate domains 16-35 extension
+        run: python tools/domain-progress/validate_extension_16_35.py
+      - name: Validate standalone exports and determinism
+        run: python tools/handoff/export_bundle.py --all --check --verify-determinism
+      - name: Validate global structural finalization
+        env:
+          GLOBAL_FINALIZATION_BASE_SHA: eb646c110bbec240fe6a86aac1fd19f6224047b8
+        run: python tools/global-finalization/validate_global_finalization.py
+      - name: Git diff check
+        run: git diff --check origin/main...HEAD
+      - name: Publish validated commit
+        run: git push origin HEAD:pipeline/domain-33-low-data-architecture
