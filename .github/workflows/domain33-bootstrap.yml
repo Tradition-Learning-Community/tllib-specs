@@ -43,7 +43,7 @@ jobs:
           python tools/handoff/generate_catalog.py --write
           python tools/handoff/generate_catalog.py --check
       - name: Remove bootstrap artifacts before final commit
-        run: git rm .github/workflows/domain33-bootstrap.yml tools/domain33_bootstrap.py
+        run: git rm -f .github/workflows/domain33-bootstrap.yml tools/domain33_bootstrap.py
       - name: Create net Domain 33 commit
         run: |
           git config user.name 'Tradition Learning CI'
