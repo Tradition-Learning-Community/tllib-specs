@@ -16,24 +16,25 @@
 
 **Tradition Learning Community (TLC)** is the community of scientists, mathematicians, algorithm designers, engineers, programmers, reviewers, and other contributors who study, formalize, promote, and implement that theory. TLC is an organization of people; it is not the name of the theory and it is not one of the theory's mathematical objects.
 
-**`tllib`** is the principal software product being prepared by the community: a scientific library intended for use in artificial intelligence as a complement to machine learning, deep learning, reinforcement learning, and related methods. Its intended role is comparable to that of a reusable AI library such as TensorFlow or PyTorch, while exposing concepts and capabilities specific to Tradition Learning.
+**`tllib`** is the principal software product prepared from these specifications: a scientific library intended for use in artificial intelligence as a complement to machine learning, deep learning, reinforcement learning, and related methods. Its intended role is comparable to that of a reusable AI library such as TensorFlow or PyTorch, while exposing concepts and capabilities specific to Tradition Learning.
 
-**`tllib-specs`** is the upstream specification repository where scientists, mathematicians, and algorithm designers prepare `tllib` before runtime implementation begins. It transforms the theory into traceable, testable, language-neutral Feature Handoff Packages.
+**`tllib-specs`** is the upstream specification repository where scientists, mathematicians, algorithm designers, and specification engineers define `tllib` before runtime implementation. It transforms the theory into traceable, testable, language-neutral Feature Handoff Packages.
 
-> The **Community** domain under `maths/02-community/community.md` is one of the sixteen fundamental domains of Tradition Learning, alongside Master, Disciple, Dynamics, Relations, and the other domains. It must not be confused with the Tradition Learning Community organization.
+> The **Community** domain under `maths/02-community/community.md` is Domain 02 of the 36 Tradition Learning domains. It must not be confused with the Tradition Learning Community organization.
 
 ## Production status
 
-`tllib-specs` contains specifications, validation, traceability, and language-neutral handoff packages—not a runtime library.
+`tllib-specs` contains the complete specification model, validation, traceability, and language-neutral handoff packages for the 36-domain Tradition Learning corpus. It does not contain the downstream runtime library.
 
 | Published artifact | Finalized population |
 |---|---:|
-| Domain catalogs | **16** |
-| Feature Handoff Packages | **166** |
+| Domain catalogs | **36** |
+| Feature Handoff Packages | **694** |
 | Shared structural contracts | **8** |
-| Standalone exports validated by CI | **166** |
+| Standalone exports validated by CI | **694** |
+| Runtime implementations in this repository | **0** |
 
-Feature Handoff Package v1.0 is finalized. The published model is independent of C++, Rust, Ruby, Python, or any other implementation language. Production runtime code, bindings, solvers, kernels, binary packages, and release archives belong in downstream implementation repositories.
+Feature Handoff Package v1.0 is structurally finalized. The published model is independent of C++, Rust, Ruby, Python, or any other implementation language. Production runtime code, bindings, solvers, kernels, binary packages, and release archives belong in downstream implementation repositories.
 
 ## How the repositories relate
 
@@ -102,8 +103,8 @@ registry/                      compiler-like intermediate specification pipeline
 handoff/                       final language-neutral programmer interface
   schemas/                     JSON Schemas
   shared/                      eight shared structural contracts
-  domains/                     sixteen complete catalogs
-  features/                    166 autonomous feature packages
+  domains/                     36 complete catalogs
+  features/                    694 autonomous feature packages
   catalog.json                 deterministic global catalog
 reports/handoff/               domain and global audit evidence
 tools/handoff/                 official validation, catalog, and export tools
@@ -184,11 +185,11 @@ Structural finalization does not authorize scientific invention. A contributor o
 - relation endpoints, direction, arity, composition, or membership;
 - defaults for unresolved parameters or decisions.
 
-Opaque values remain opaque. Unresolved items remain explicit. Provider-required features remain structurally implementable without fabricating provider behavior. The repository's **147 scientific review questions remain scientifically unresolved**.
+Opaque values remain opaque. Unresolved items remain explicit. Provider-required features remain structurally implementable without fabricating provider behavior. The global scientific-review registry preserves 147 recorded review questions, while domain-level unresolved and provider boundaries remain authoritative in their respective registries.
 
 ## Global catalog
 
-[`handoff/catalog.json`](handoff/catalog.json) is a deterministic projection of the sixteen domain catalogs, 166 feature manifests, and eight shared packages. It records:
+[`handoff/catalog.json`](handoff/catalog.json) is a deterministic projection of the 36 domain catalogs, 694 feature manifests, and eight shared packages. It records:
 
 - model and tool versions;
 - authoritative domain order and populations;
@@ -218,7 +219,7 @@ python tools/handoff/export_bundle.py --all --check --verify-determinism
 
 The validator checks exact populations and order, schemas, required files, feature ownership, shared dependencies, cross-file identities, traceability, errors, strategies, test uniqueness, global catalog equality, and absence of normative implementation-language code.
 
-The permanent workflow also generates each of the 166 standalone bundles twice and compares their locks and fingerprints for determinism.
+The permanent workflow also generates each of the 694 standalone bundles twice and compares their locks and fingerprints for determinism.
 
 ## Change workflow
 
@@ -249,7 +250,7 @@ An unresolved item is a preserved boundary, not an invitation to create an imple
 
 ## Domains
 
-The sixteen domains below are domains of the **Tradition Learning theory**. The domain named **Community** is a theoretical domain and is distinct from the Tradition Learning Community organization.
+The repository defines 36 domains of the **Tradition Learning theory**. The domain named **Community** is a theoretical domain and is distinct from the Tradition Learning Community organization.
 
 | # | Domain | Features |
 |---:|---|---:|
@@ -269,7 +270,29 @@ The sixteen domains below are domains of the **Tradition Learning theory**. The 
 | 13 | Practice | 10 |
 | 14 | Lived Experience | 12 |
 | 15 | Relations | 5 |
-|  | **Total** | **166** |
+| 16 | Cohort | 17 |
+| 17 | Cascade Transmission | 64 |
+| 18 | Evaluation | 20 |
+| 19 | Regulation | 20 |
+| 20 | Robustness | 35 |
+| 21 | Fairness | 18 |
+| 22 | Temporality | 9 |
+| 23 | Memory | 10 |
+| 24 | Context | 12 |
+| 25 | Culture | 8 |
+| 26 | Identity | 13 |
+| 27 | Reflexivity | 9 |
+| 28 | Finality and Evolutionary Teleology | 22 |
+| 29 | Generational Propagation | 28 |
+| 30 | Expansion | 29 |
+| 31 | Institutionalization | 37 |
+| 32 | Drift and Correction | 18 |
+| 33 | Low Data Architecture | 32 |
+| 34 | Transmission Lifecycle | 109 |
+| 35 | Fidelity to Invariant Core | 18 |
+|  | **Total** | **694** |
+
+The scientific source index is maintained in [`maths/README.md`](maths/README.md); the machine-readable production population is authoritative in [`handoff/catalog.json`](handoff/catalog.json).
 
 ## Governance and support
 
@@ -281,7 +304,7 @@ The sixteen domains below are domains of the **Tradition Learning theory**. The 
 
 ## Audit evidence
 
-Global evidence is under [`reports/handoff/global/`](reports/handoff/global/), including population validation, cross-domain consistency, shared-contract decisions, unresolved ambiguities, validator consolidation, export validation, representative simulations, protected-artifact changes, and the finalization report.
+Global evidence is maintained under [`reports/`](reports/), including handoff validation, domain finalization, global structural finalization, dependency analysis, reconciliation records, deterministic export evidence, and implementation-readiness reports.
 
 ## Repository boundary
 
