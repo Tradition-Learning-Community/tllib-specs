@@ -2,87 +2,101 @@
 
 ## Result
 
-The sixteen domain finalization packages merged through pull requests #77 to #92 are integrated on top of `main@20db6555447c91f9f9022f814f06dea6453ead3e`.
+`tllib-specs` is the structurally finalized engineering specification for the complete 36-domain Tradition Learning corpus represented in this repository.
 
-The integrated population is:
+The integrated production population is:
 
-- 16 domains;
-- 166 active features;
-- 166 preserved mathematical contracts;
-- 166 preserved source IR artifacts;
-- 166 preserved source test plans;
-- 166 finalized engineering IRs;
-- 166 algorithm specifications;
-- 166 acceptance oracles;
-- 16 module specifications and domain implementation-task packages.
+- 36 domains;
+- 694 feature identities;
+- 694 language-neutral Feature Handoff Packages;
+- 8 shared structural contracts;
+- finalized engineering IR, algorithm/or-guard specifications, and acceptance oracles for every published feature identity;
+- deterministic global and per-domain catalogs;
+- 0 runtime implementations in this repository.
 
-The integrated package is now classified as a **structurally finalized engineering specification**. This wording describes the specification state and does not assert that runtime implementation exists in this repository.
+The integrated package is classified as a **structurally finalized engineering specification**. This classification describes specification readiness and does not assert that runtime implementation exists here.
 
-## Global integration
+## Integrated specification model
 
-This package adds only global structural integration metadata, shared software patterns, interface policy, dependency views, downstream engineering waves, developer backlog, and validation tooling.
+The repository maintains one traceable transformation path from scientific authority to downstream handoff:
 
-No scientific object, equation, metric, invariant, proof, threshold, transition, ordering, value, virtue, capacity, competency, practice, experience, or relation semantics are invented.
+```text
+maths/
+  → mathematical contracts
+  → source IR and test plans
+  → finalized engineering IR
+  → algorithm specifications and structural guards
+  → acceptance oracles
+  → Feature Handoff Packages
+  → deterministic standalone bundles
+```
 
-The integration also adds the missing `registry/domain-finalization/master/decision-required.yaml` file so all sixteen domain packages expose the same six-file finalization registry surface. It records no new scientific decision.
+Every layer preserves stable feature identity and source traceability. A downstream representation may clarify structure and conformance requirements, but it may not create scientific meaning absent from the authoritative source.
 
 ## Scientific review disposition
 
-The 147 scientific review questions remain unresolved and traceable. Structural finalization does not mark them approved, completed, rejected, merged, or aliased.
+Structural finalization does not close unresolved science.
 
-For engineering purposes they receive a conservative non-blocking disposition:
+The global scientific-review registry preserves 147 recorded review questions. Domain-specific unresolved terms, provider boundaries, proof gaps, type gaps, dependency questions, and execution conditions remain authoritative in their corresponding registries and handoff packages.
 
-- stable identities remain distinct unless an explicit alias is approved;
-- missing semantics remain opaque or unresolved;
-- scientific execution is blocked only where the missing decision is required by a feature;
-- structural specification closure and engineering handoff remain authorized.
+For engineering purposes the disposition is conservative:
 
-The authoritative policy is `registry/scientific-review/engineering-disposition.yaml`.
+- stable identities remain distinct unless explicit authority establishes an alias;
+- missing semantics remain opaque, unresolved, or provider-bound as declared;
+- scientific execution is blocked only where a feature requires unavailable semantics;
+- structural specification closure and deterministic handoff remain valid without fabricating those semantics.
+
+The authoritative global policy is `registry/scientific-review/engineering-disposition.yaml`.
 
 ## Canonical engineering identity
 
-Canonicalization is intentionally scoped to stable identifiers, domain-qualified namespaces, shared structural types, and public interfaces. It does not attempt to assign a globally unique mathematical symbol to every term in the theory.
+Canonicalization is scoped to stable identifiers, domain-qualified namespaces, shared structural types, public interfaces, and deterministic package representation. It does not assign a globally unique mathematical symbol to every scientific term.
 
-Distinct semantic concepts may share a structural carrier without becoming aliases or scientifically equivalent. The authoritative rules are under `registry/symbols/` and `registry/global-finalization/shared-types.yaml`.
+Distinct semantic concepts may share a structural carrier without becoming aliases or scientifically equivalent. Canonical naming and representation rules are maintained under `registry/symbols/` and `registry/global-finalization/`.
 
 ## Algorithm authority
 
-`registry/algorithms/` is the only active and authoritative algorithm specification tree. The former root-level `algorithms/example.md` prototype has been removed from the active tree. Its history remains available through Git.
+`registry/algorithms/` is the active authoritative algorithm-specification tree. Algorithm artifacts may describe a prescribed procedure, a partially constrained strategy, a structural guard, or a non-executable boundary according to source authority and feature status.
+
+No implementation strategy becomes normative solely because it is convenient for a runtime language or platform.
 
 ## Shared software layer
 
-Confirmed common structures are limited to identifiers, source references, opaque payload carriers, unresolved propagation, traceability, structured errors, deterministic structural validation, and lossless serialization where declared.
+The repository exposes exactly eight shared structural contracts. They cover reusable representation concerns such as identifiers, scientific references, opaque values, unresolved items, structured errors, traceability, and descriptor envelopes.
 
-Scientific types and algorithms remain domain-specific unless source evidence proves equivalence.
-
-## Message validation gap closure
-
-The Message pull request did not expose an observable pull-request workflow run on its final branch head. GitHub Actions run `30217758860` validated Message artifact parity on the integrated tree together with all other domains and the complete global integrity gate.
+Scientific types and algorithms remain domain-specific unless evidence establishes genuine cross-domain equivalence.
 
 ## Validation
 
-GitHub Actions run `30217758860` completed successfully:
+The production validation surface verifies:
 
-- all 16 independent domain jobs passed;
-- all expected feature counts passed;
-- every domain has matching finalized-IR, algorithm, and oracle directory populations;
-- exactly 166 unique active feature directories are present;
-- no historical Capacities Goose identifier is promoted;
-- no protected scientific source, source contract, source IR, source test plan, or global-reconciliation file changed;
-- no runtime C++ implementation, Python binding, cache, log, or temporary status artifact is present;
-- `git diff --check` passed.
+- exact 36-domain and 694-feature populations;
+- per-domain catalog and finalized-artifact parity;
+- feature identity and ownership;
+- mathematical contracts, finalized IR, algorithms, oracles, and handoff package structure;
+- deterministic global catalog reconstruction;
+- standalone bundle determinism;
+- shared-contract closure;
+- preserved unresolved and provider boundaries;
+- absence of runtime implementation artifacts from the specification repository.
 
-The governance cleanup is additionally required to validate the canonical symbol registry, engineering disposition policy, and absence of active root-level algorithm specifications.
+The permanent GitHub workflows `Feature handoff validation` and `Global finalization validation` are the repository-level merge gates for these invariants.
 
-## Remaining scientific work
+## Implementation boundary
 
-There is no blocker for the structurally finalized engineering specification. Scientific execution remains deferred wherever domain contracts preserve unresolved equations, evaluators, proofs, thresholds, transition engines, comparisons, or relation semantics.
+`tllib-specs` defines implementation-ready contracts where the science permits them and explicit structural boundaries where it does not. Runtime source code, bindings, memory models, platform optimization, packaging, and binary distribution belong in downstream `tllib` implementation repositories.
+
+No runtime implementation is part of this repository's finalized population.
 
 ## Preservation
 
-- no file under `maths/` is modified by global integration;
-- no source contract, source IR, or source test plan is modified;
-- no active feature is rejected;
-- nine historical Capacities Goose identifiers remain excluded from the active population;
-- no C++ implementation, Python binding, or reference implementation is added;
-- deleted exploratory files remain recoverable from Git history.
+Global finalization preserves:
+
+- scientific authority under `maths/`;
+- stable feature and domain identities;
+- unresolved scientific semantics;
+- source-to-handoff traceability;
+- deterministic catalogs and exports;
+- historical reconciliation and review evidence under `reports/` and `registry/`.
+
+The production presentation of the repository is derived from the complete current model. Historical audit records remain available without defining the current population.

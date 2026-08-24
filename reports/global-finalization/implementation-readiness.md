@@ -2,7 +2,9 @@
 
 ## Structurally finalized
 
-The repository contains a structurally finalized, engineering-facing specification package for all 166 active features. It authorizes downstream implementation work for:
+The repository contains a structurally finalized, engineering-facing specification package for all 694 feature identities across 36 domains.
+
+It authorizes downstream implementation work for the behavior and structure actually defined by each feature contract, including:
 
 - immutable structural descriptors;
 - exact input, identity, provenance, and reference validation;
@@ -10,24 +12,28 @@ The repository contains a structurally finalized, engineering-facing specificati
 - unresolved and reservation propagation;
 - deterministic structural errors;
 - serialization and round-trip behavior where declared;
-- module-level interfaces and oracle-driven acceptance tests.
+- domain interfaces and oracle-driven acceptance tests.
+
+A feature's scientific and execution statuses remain authoritative. Structural readiness does not convert a conditional, provider-backed, or unresolved scientific operation into an executable one.
 
 ## Scientific review disposition
 
-The 147 recorded scientific review decisions remain scientifically unresolved and fully traceable. They are not marked approved, completed, or rejected by the engineering finalization process.
+The global scientific-review registry preserves 147 recorded review questions. Domain-level unresolved terms and provider boundaries are preserved separately and remain fully traceable.
 
-Their engineering disposition is non-blocking and conservative:
+Their engineering disposition is conservative:
 
-- keep distinct identities separate unless an explicit alias is approved;
-- preserve missing semantics as opaque or unresolved;
-- block only feature-scoped scientific execution that requires the missing semantics;
-- do not block structural specification closure or engineering handoff.
+- keep distinct identities separate unless explicit authority establishes an alias;
+- preserve missing semantics as opaque, unresolved, or provider-bound;
+- block only feature-scoped scientific execution that requires unavailable semantics;
+- do not block structural specification closure or deterministic handoff.
 
-The authoritative policy is `registry/scientific-review/engineering-disposition.yaml`.
+The authoritative global policy is `registry/scientific-review/engineering-disposition.yaml`.
 
 ## Not asserted
 
-This readiness statement does not assert that every feature is scientifically executable. Domain-level unresolved items remain authoritative. No missing scientific semantics may be replaced by defaults.
+This readiness statement does not assert that every feature is scientifically executable. No missing scientific semantics may be replaced by defaults, inferred providers, synthetic equations, or convenient runtime behavior.
+
+It also does not assert that runtime implementation exists in this repository. Runtime source code and platform integration remain downstream concerns.
 
 ## Canonical engineering identity
 
@@ -35,16 +41,16 @@ Public and cross-domain identities use stable identifiers and qualified namespac
 
 The canonical naming and representation policy lives under `registry/symbols/`.
 
-## Planned downstream waves
+## Downstream implementation order
 
-1. shared identifiers, references, opaque values, unresolved propagation, traceability, and errors;
-2. independent descriptor modules;
-3. remaining domain structural modules in dependency-aware parallel lots;
-4. cross-module acceptance suites;
-5. Python bindings only after the C++ structural interfaces pass their oracles.
+Downstream projects should begin from shared structural contracts and resolved standalone bundles, then proceed in dependency-aware feature or domain groups according to the published dependency graph and each feature's execution status.
+
+Concrete language APIs, memory ownership conventions, schedulers, numerical libraries, bindings, build systems, and platform optimizations are downstream design choices unless an observable requirement is explicitly present in the handoff.
 
 ## Acceptance gate
 
-Downstream work begins from the global backlog and the sixteen domain task files. A feature is accepted only when its finalized IR, algorithm, and oracle remain mutually consistent and all source-preservation obligations pass.
+A downstream feature is accepted only when its package contract, acceptance tests, shared dependencies, traceability, finalized IR, algorithm or structural guard, and oracle remain mutually consistent.
+
+The repository-wide validation authority additionally requires exact population, deterministic catalogs, deterministic standalone exports, and preservation of unresolved scientific boundaries.
 
 Implementation code remains outside this specification repository.

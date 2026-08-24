@@ -8,7 +8,7 @@ Use these names consistently:
 
 - **Tradition Learning** — the theory and research programme for learning approaches that do not depend on big-data training regimes.
 - **Tradition Learning Community (TLC)** — the community of people who research, formalize, promote, review, and implement Tradition Learning.
-- **Community** — one of the sixteen fundamental domains of the Tradition Learning theory; it is not the TLC organization.
+- **Community** — Domain 02 of the 36-domain Tradition Learning corpus; it is not the TLC organization.
 - **`tllib`** — the principal downstream software library, intended to complement machine learning, deep learning, reinforcement learning, and related AI methods.
 - **`tllib-specs`** — the upstream scientific and engineering specification repository that prepares `tllib` through language-neutral handoff packages.
 
@@ -195,7 +195,7 @@ A change is done when:
 
 ## Cross-domain changes
 
-Cross-domain work should use a dedicated integration branch and explicit inventory. Do not modify sixteen domains in parallel without first stabilizing shared schemas and contracts.
+Cross-domain work should use a dedicated integration branch and explicit inventory. Do not modify a large set of domains in parallel without first stabilizing shared schemas and contracts.
 
 For cross-domain changes:
 
