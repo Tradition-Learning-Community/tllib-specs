@@ -4,7 +4,7 @@
 
 Tradition Learning is the theory and research programme. The Tradition Learning Community (TLC) is the community of people advancing it. `tllib` is the downstream AI library intended to complement machine learning, deep learning, reinforcement learning, and related methods. This repository is the upstream scientific and engineering specification workspace; it is not the runtime implementation repository.
 
-The theoretical domain named **Community** is one of the sixteen fundamental domains of Tradition Learning. It is distinct from the Tradition Learning Community organization.
+The theoretical domain named **Community** is Domain 02 of the 36-domain Tradition Learning corpus. It is distinct from the Tradition Learning Community organization.
 
 Contributions are accepted when they improve scientific clarity, mathematical precision, algorithmic contracts, traceability, validation, or the language-neutral Feature Handoff Packages without inventing unresolved science.
 
