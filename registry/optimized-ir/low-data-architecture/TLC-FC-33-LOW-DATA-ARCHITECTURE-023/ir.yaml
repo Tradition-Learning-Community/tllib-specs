@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-023
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-023/ir.yaml
+operation: handle_low_data_architecture_023
+required_behavior:
+- Preserve Pi_red and H_dist=-sum p_s log p_s while recording that overlapping p_s need not sum to one.
+forbidden_behavior:
+- Do not renormalize p_s, silently create a probability distribution, or label H_dist a valid Shannon entropy without additional
+  conditions.
+provider_requirements:
+- Source-declared external scientific/provider boundary
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- Provider or scientific decision required before stronger execution semantics
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
+  status changed.

@@ -1,0 +1,16 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-032
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-032/contract.yaml
+tests:
+- id: LDA033032-T01
+  category: source_conformance
+  verifies: Preserve the contraction inequality, eta<1, and global exponential-resistance theorem strictly as source claims
+    with missing operator/proof/quantitative-link conditions.
+- id: LDA033032-T02
+  category: non_invention
+  verifies: Do not invent R_rec, fixed-point iteration, convergence proof, C or lambda derivations, stabilizing algorithm,
+    or quantitative theorem completion.
+- id: LDA033032-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

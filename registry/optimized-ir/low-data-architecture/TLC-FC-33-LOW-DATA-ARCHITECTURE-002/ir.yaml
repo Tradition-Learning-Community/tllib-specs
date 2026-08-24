@@ -1,0 +1,24 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-002
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-002/ir.yaml
+operation: handle_low_data_architecture_002
+required_behavior:
+- Preserve N_min subset N_inv while recording that both are used as dimensioned spaces, finite sets, and generative operands
+  without a common structure.
+forbidden_behavior:
+- Do not invent vector-space, discrete-set, topological, measure, basis, or dimension-cardinality semantics.
+provider_requirements:
+- Source-declared external scientific/provider boundary
+scientific_domain_dependencies: []
+unresolved_domain_relations:
+- 4
+runtime_domain_dependencies: []
+unresolved_items:
+- Provider or scientific decision required before stronger execution semantics
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
+  status changed.

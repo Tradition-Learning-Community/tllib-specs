@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-010
+algorithm_kind: structural_guard
+strategy: open
+execution: structural_only
+steps:
+- Preserve E:N_min->F and the bounded reconstruction-error assertion using E^-1 without asserting that a true inverse is constructed.
+provider_requirements:
+- Source-declared external scientific/provider boundary
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not promote inverse notation into an implemented inverse, decoder, bijection, or existence proof.
+prescription_basis: []

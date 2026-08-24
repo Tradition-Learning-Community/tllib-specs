@@ -1,0 +1,17 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-020
+algorithm_kind: conditional_relation_guard
+strategy: open
+execution: conditionally_executable
+steps:
+- Preserve mu_mem(T_rit), its projected-norm ratio, and F_part(t) while exposing projection, typing, zero denominator, and
+  participation-factor boundaries.
+provider_requirements:
+- Source-declared external scientific/provider boundary
+scientific_domain_dependencies: []
+unresolved_domain_relations:
+- 4
+runtime_domain_dependencies: []
+forbidden:
+- Do not insert epsilon denominators, fallback values, projection algorithms, or participation-factor formulas.
+prescription_basis: []

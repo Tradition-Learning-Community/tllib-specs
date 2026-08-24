@@ -1,0 +1,22 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-015
+oracle_kind: source_conformance
+acceptance:
+- Preserve kappa_trans and the quality condition Q_rep >= Q_min with all required quantities source-bounded or provider-backed.
+rejections:
+- Do not assign Q_rep to Domain 29 or 34, invent units, thresholds, or capacity normalization.
+dependency_guards:
+  confirmed: []
+  unresolved:
+  - 4
+  runtime: []
+  forbidden:
+  - 0
+  - 1
+  - 2
+  - 13
+  - 17
+  - 23
+  - 29
+  - 34
+  - 35

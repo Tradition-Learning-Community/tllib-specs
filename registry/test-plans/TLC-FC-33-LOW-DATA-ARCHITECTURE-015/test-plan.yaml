@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-015
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-015/contract.yaml
+tests:
+- id: LDA033015-T01
+  category: source_conformance
+  verifies: Preserve kappa_trans and the quality condition Q_rep >= Q_min with all required quantities source-bounded or provider-backed.
+- id: LDA033015-T02
+  category: non_invention
+  verifies: Do not assign Q_rep to Domain 29 or 34, invent units, thresholds, or capacity normalization.
+- id: LDA033015-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

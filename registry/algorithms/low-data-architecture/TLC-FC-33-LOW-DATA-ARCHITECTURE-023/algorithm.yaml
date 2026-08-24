@@ -1,0 +1,16 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-023
+algorithm_kind: structural_guard
+strategy: open
+execution: structural_only
+steps:
+- Preserve Pi_red and H_dist=-sum p_s log p_s while recording that overlapping p_s need not sum to one.
+provider_requirements:
+- Source-declared external scientific/provider boundary
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not renormalize p_s, silently create a probability distribution, or label H_dist a valid Shannon entropy without additional
+  conditions.
+prescription_basis: []

@@ -1,0 +1,22 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-013
+status: finalized
+scientific_status: preserved_unresolved
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-013/ir.yaml
+operation: handle_low_data_architecture_013
+required_behavior:
+- Preserve delta(a)=|N(a)|/length(a) and expose the undefined denominator and undefined N(a)/length measures.
+forbidden_behavior:
+- Do not define N(a), units of length, or a fallback when length(a)=0.
+provider_requirements:
+- Source-declared external scientific/provider boundary
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- Provider or scientific decision required before stronger execution semantics
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
+  status changed.

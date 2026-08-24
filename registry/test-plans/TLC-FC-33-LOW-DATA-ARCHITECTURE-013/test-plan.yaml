@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-013
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-013/contract.yaml
+tests:
+- id: LDA033013-T01
+  category: source_conformance
+  verifies: Preserve delta(a)=|N(a)|/length(a) and expose the undefined denominator and undefined N(a)/length measures.
+- id: LDA033013-T02
+  category: non_invention
+  verifies: Do not define N(a), units of length, or a fallback when length(a)=0.
+- id: LDA033013-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

@@ -1,0 +1,22 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-015
+status: finalized
+scientific_status: external_provider_required
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-015/ir.yaml
+operation: handle_low_data_architecture_015
+required_behavior:
+- Preserve kappa_trans and the quality condition Q_rep >= Q_min with all required quantities source-bounded or provider-backed.
+forbidden_behavior:
+- Do not assign Q_rep to Domain 29 or 34, invent units, thresholds, or capacity normalization.
+provider_requirements:
+- Source-declared external scientific/provider boundary
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- Provider or scientific decision required before stronger execution semantics
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
+  status changed.

@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-022
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-022/contract.yaml
+tests:
+- id: LDA033022-T01
+  category: source_conformance
+  verifies: Preserve rho_rob(s) as a probability of alternative support coverage while leaving probability space, events,
+    carried, and support semantics external.
+- id: LDA033022-T02
+  category: non_invention
+  verifies: Do not invent distributions, independence assumptions, coverage samplers, or support enumeration rules.
+- id: LDA033022-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

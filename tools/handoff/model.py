@@ -10,8 +10,8 @@ MODEL_VERSION = "1.0.0"
 VALIDATOR_VERSION = "1.0.0"
 EXPORTER_VERSION = "1.0.0"
 CATALOG_GENERATOR_VERSION = "1.0.0"
-EXPECTED_DOMAIN_COUNT = 35
-EXPECTED_FEATURE_COUNT = 662
+EXPECTED_DOMAIN_COUNT = 36
+EXPECTED_FEATURE_COUNT = 694
 EXPECTED_SHARED_CONTRACT_COUNT = 8
 PILOT_ID = "TLC-FC-00-MASTER-005"
 
@@ -51,6 +51,7 @@ DOMAIN_ORDER = (
     "institutionalization",
     "cascade-transmission",
     "transmission-lifecycle",
+    "low-data-architecture",
 )
 
 SHARED_CONTRACT_IDS = frozenset(

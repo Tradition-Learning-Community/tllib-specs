@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-023
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-023/contract.yaml
+tests:
+- id: LDA033023-T01
+  category: source_conformance
+  verifies: Preserve Pi_red and H_dist=-sum p_s log p_s while recording that overlapping p_s need not sum to one.
+- id: LDA033023-T02
+  category: non_invention
+  verifies: Do not renormalize p_s, silently create a probability distribution, or label H_dist a valid Shannon entropy without
+    additional conditions.
+- id: LDA033023-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

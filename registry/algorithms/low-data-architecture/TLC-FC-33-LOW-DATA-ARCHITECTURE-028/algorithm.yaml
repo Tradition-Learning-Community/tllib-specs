@@ -1,0 +1,16 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-028
+algorithm_kind: conditional_relation_guard
+strategy: open
+execution: conditionally_executable
+steps:
+- Preserve X_{n+1}=X_n+epsilon_n and epsilon_n~N(0,Sigma) as explicit source-backed relations while leaving numeric covariance
+  and sampling process unspecified.
+provider_requirements:
+- Source-declared external scientific/provider boundary
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not invent covariance values, temporal/dimensional independence, seeds, samplers, or a simulation process.
+prescription_basis: []

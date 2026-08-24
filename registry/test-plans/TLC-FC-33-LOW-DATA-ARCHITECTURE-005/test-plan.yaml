@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-005
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-005/contract.yaml
+tests:
+- id: LDA033005-T01
+  category: source_conformance
+  verifies: Preserve Phi:N_min->F and the requirement that mean recall time remain below a threshold while leaving encoding
+    and recall measurement externally supplied.
+- id: LDA033005-T02
+  category: non_invention
+  verifies: Do not invent the representation of F, a recall metric, threshold value, or encoding procedure.
+- id: LDA033005-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

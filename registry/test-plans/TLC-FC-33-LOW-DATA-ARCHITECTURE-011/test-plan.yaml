@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-011
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-011/contract.yaml
+tests:
+- id: LDA033011-T01
+  category: source_conformance
+  verifies: Preserve Q_comp and the eta_size expression subject to the source's undefined dimensional structures.
+- id: LDA033011-T02
+  category: non_invention
+  verifies: Do not add normalizations, common dimensions, numeric defaults, or interpretations absent from the source.
+- id: LDA033011-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

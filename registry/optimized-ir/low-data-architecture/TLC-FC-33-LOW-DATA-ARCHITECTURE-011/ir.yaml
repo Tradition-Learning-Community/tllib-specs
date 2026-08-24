@@ -1,0 +1,20 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-011
+status: finalized
+scientific_status: partially_defined
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-011/ir.yaml
+operation: handle_low_data_architecture_011
+required_behavior:
+- Preserve Q_comp and the eta_size expression subject to the source's undefined dimensional structures.
+forbidden_behavior:
+- Do not add normalizations, common dimensions, numeric defaults, or interpretations absent from the source.
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items: []
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
+  status changed.

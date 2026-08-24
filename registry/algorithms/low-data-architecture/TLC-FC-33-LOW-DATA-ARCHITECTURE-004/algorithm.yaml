@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-004
+algorithm_kind: conditional_relation_guard
+strategy: open
+execution: conditionally_executable
+steps:
+- Preserve the source inequalities dim(N_min) << dim(N_inv) and |N_min| <= N_min^max as distinct structural constraints.
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not identify dimension with cardinality or supply a missing common structure.
+prescription_basis: []

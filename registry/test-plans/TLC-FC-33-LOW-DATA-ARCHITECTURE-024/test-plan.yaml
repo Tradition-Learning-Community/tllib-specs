@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-024
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-024/contract.yaml
+tests:
+- id: LDA033024-T01
+  category: source_conformance
+  verifies: Preserve Q_rec(F) and its threshold claim for |F|>=t_min while leaving reconstruction tilde x, norm, epsilon,
+    and fragment procedure external.
+- id: LDA033024-T02
+  category: non_invention
+  verifies: Do not invent a reconstruction algorithm, metric, epsilon, t_min, or missing-element convention.
+- id: LDA033024-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

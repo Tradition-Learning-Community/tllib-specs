@@ -1,0 +1,16 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-027
+algorithm_kind: structural_guard
+strategy: open
+execution: structural_only
+steps:
+- Preserve R_eff and A_cascade as Domain 33 source symbols while refusing automatic identity with cascade/generational reproduction
+  concepts elsewhere.
+provider_requirements:
+- Source-declared external scientific/provider boundary
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not promote Domain 17 or 29 dependencies by symbol similarity, nor invent propagation dynamics or generation procedures.
+prescription_basis: []

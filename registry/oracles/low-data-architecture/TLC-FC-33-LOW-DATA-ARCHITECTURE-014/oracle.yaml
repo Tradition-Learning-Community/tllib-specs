@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-014
+oracle_kind: source_conformance
+acceptance:
+- Preserve rho_inc(M,t), its two divisions, and rho_inc approximately E C_id while leaving units, bounds, operators, and zero-denominator
+  behavior unresolved.
+rejections:
+- Do not normalize ||N_min||, clamp tau_access, replace approximation by equality, or invent fallback values.
+dependency_guards:
+  confirmed: []
+  unresolved:
+  - 4
+  runtime: []
+  forbidden:
+  - 0
+  - 1
+  - 2
+  - 13
+  - 17
+  - 23
+  - 29
+  - 34
+  - 35

@@ -1,0 +1,20 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-003
+status: finalized
+scientific_status: partially_defined
+execution: structural_only
+source_ir: registry/ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-003/ir.yaml
+operation: handle_low_data_architecture_003
+required_behavior:
+- Preserve the existential claim that each x in N_inv can be generated from N_min by a finite sequence of operators from G.
+forbidden_behavior:
+- Do not invent a search procedure, minimal k, closure theorem, solver, ordering rule, or complexity bound.
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items: []
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
+  status changed.

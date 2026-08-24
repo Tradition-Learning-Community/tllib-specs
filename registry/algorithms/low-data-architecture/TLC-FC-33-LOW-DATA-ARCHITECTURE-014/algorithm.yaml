@@ -1,0 +1,17 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-014
+algorithm_kind: conditional_relation_guard
+strategy: open
+execution: conditionally_executable
+steps:
+- Preserve rho_inc(M,t), its two divisions, and rho_inc approximately E C_id while leaving units, bounds, operators, and zero-denominator
+  behavior unresolved.
+provider_requirements:
+- Source-declared external scientific/provider boundary
+scientific_domain_dependencies: []
+unresolved_domain_relations:
+- 4
+runtime_domain_dependencies: []
+forbidden:
+- Do not normalize ||N_min||, clamp tau_access, replace approximation by equality, or invent fallback values.
+prescription_basis: []

@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-025
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-025/contract.yaml
+tests:
+- id: LDA033025-T01
+  category: source_conformance
+  verifies: Preserve alpha_ex(M) and alpha_ex approximately kappa rho_inc with numerator/expectation semantics provider-backed.
+- id: LDA033025-T02
+  category: non_invention
+  verifies: Do not import another domain's amplification identity, invent expected populations, or replace approximation by
+    equality.
+- id: LDA033025-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

@@ -1,0 +1,42 @@
+contract_id: TLC-MC-TLC-FC-33-LOW-DATA-ARCHITECTURE-014
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-014
+title: Master incorporation-density boundary
+domain_id: low-data-architecture
+contract_kind: source_backed_low_data_contract
+scientific_status: external_provider_required
+execution_status: conditionally_executable
+scientific_authority: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+additional_scientific_authorities: []
+source_sections:
+- section 3,8
+objects: []
+relations: []
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- Source-declared external scientific/provider boundary
+preconditions: []
+postconditions:
+- Preserve rho_inc(M,t), its two divisions, and rho_inc approximately E C_id while leaving units, bounds, operators, and zero-denominator
+  behavior unresolved.
+invariants:
+- Do not normalize ||N_min||, clamp tau_access, replace approximation by equality, or invent fallback values.
+constraints: []
+structured_errors:
+- code: SourceBoundaryExceeded
+  when: The requested behavior exceeds source-defined relations or supplied providers.
+dependencies:
+  scientific: []
+  scientific_unresolved:
+  - 4
+  runtime: []
+unresolved_items:
+- Provider or scientific decision required before stronger execution semantics
+forbidden_behaviors:
+- Do not normalize ||N_min||, clamp tau_access, replace approximation by equality, or invent fallback values.
+traceability:
+  sources:
+  - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml

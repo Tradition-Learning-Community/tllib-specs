@@ -1,0 +1,20 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-016
+status: finalized
+scientific_status: partially_defined
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-016/ir.yaml
+operation: handle_low_data_architecture_016
+required_behavior:
+- Preserve the exact exposure increment with the presence indicator and exponential factor.
+forbidden_behavior:
+- Do not invent presence detection, parameter values, units, or a time-integration procedure.
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items: []
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
+  status changed.

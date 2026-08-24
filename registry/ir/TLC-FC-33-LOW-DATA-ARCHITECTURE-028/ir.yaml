@@ -1,0 +1,13 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-028
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-028/contract.yaml
+source_candidate_ir: ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-028/ir.candidate.json
+nature: dependency
+steps:
+- Preserve X_{n+1}=X_n+epsilon_n and epsilon_n~N(0,Sigma) as explicit source-backed relations while leaving numeric covariance
+  and sampling process unspecified.
+errors:
+- SourceBoundaryExceeded
+unresolved_items:
+- Provider or scientific decision required before stronger execution semantics

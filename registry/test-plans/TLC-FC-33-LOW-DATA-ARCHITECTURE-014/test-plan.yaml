@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-014
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-014/contract.yaml
+tests:
+- id: LDA033014-T01
+  category: source_conformance
+  verifies: Preserve rho_inc(M,t), its two divisions, and rho_inc approximately E C_id while leaving units, bounds, operators,
+    and zero-denominator behavior unresolved.
+- id: LDA033014-T02
+  category: non_invention
+  verifies: Do not normalize ||N_min||, clamp tau_access, replace approximation by equality, or invent fallback values.
+- id: LDA033014-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

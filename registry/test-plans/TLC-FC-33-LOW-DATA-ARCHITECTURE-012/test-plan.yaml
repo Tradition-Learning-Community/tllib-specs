@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-012
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-012/contract.yaml
+tests:
+- id: LDA033012-T01
+  category: source_conformance
+  verifies: Preserve the eta_loss expression while treating C^-1 and reconstruction semantics as external or unresolved.
+- id: LDA033012-T02
+  category: non_invention
+  verifies: Do not presume invertibility of compression or invent a decompressor/reconstructor.
+- id: LDA033012-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

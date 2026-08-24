@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-028
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-028/contract.yaml
+tests:
+- id: LDA033028-T01
+  category: source_conformance
+  verifies: Preserve X_{n+1}=X_n+epsilon_n and epsilon_n~N(0,Sigma) as explicit source-backed relations while leaving numeric
+    covariance and sampling process unspecified.
+- id: LDA033028-T02
+  category: non_invention
+  verifies: Do not invent covariance values, temporal/dimensional independence, seeds, samplers, or a simulation process.
+- id: LDA033028-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

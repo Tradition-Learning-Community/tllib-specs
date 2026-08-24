@@ -1,0 +1,16 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-018
+algorithm_kind: structural_guard
+strategy: open
+execution: structural_only
+steps:
+- Preserve R_rep^n(PR)=PR+sum Delta_k, decreasing increments, and the formal T_rit limit while recording that convergence
+  is not guaranteed.
+provider_requirements:
+- Source-declared external scientific/provider boundary
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not infer summability, convergence criteria, a limiting value, numerical iteration, or executable ritualization.
+prescription_basis: []

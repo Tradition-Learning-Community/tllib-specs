@@ -1,0 +1,38 @@
+contract_id: TLC-MC-TLC-FC-33-LOW-DATA-ARCHITECTURE-021
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-021
+title: Embodied anchoring symbolic power and place recall
+domain_id: low-data-architecture
+contract_kind: source_backed_low_data_contract
+scientific_status: partially_defined
+execution_status: conditionally_executable
+scientific_authority: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+additional_scientific_authorities: []
+source_sections:
+- section 4,8
+objects: []
+relations: []
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers: []
+preconditions: []
+postconditions:
+- Preserve the reaction-time law, symbolic-power average, and place-of-memory recall amplification as distinct source relations.
+invariants:
+- Do not invent evocation detection, gamma(l), probability clipping, parameter values, or causal mechanisms.
+constraints: []
+structured_errors:
+- code: SourceBoundaryExceeded
+  when: The requested behavior exceeds source-defined relations or supplied providers.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items: []
+forbidden_behaviors:
+- Do not invent evocation detection, gamma(l), probability clipping, parameter values, or causal mechanisms.
+traceability:
+  sources:
+  - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml

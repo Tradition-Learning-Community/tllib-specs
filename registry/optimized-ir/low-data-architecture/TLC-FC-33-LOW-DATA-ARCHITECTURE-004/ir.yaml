@@ -1,0 +1,20 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-004
+status: finalized
+scientific_status: partially_defined
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-004/ir.yaml
+operation: handle_low_data_architecture_004
+required_behavior:
+- Preserve the source inequalities dim(N_min) << dim(N_inv) and |N_min| <= N_min^max as distinct structural constraints.
+forbidden_behavior:
+- Do not identify dimension with cardinality or supply a missing common structure.
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items: []
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
+  status changed.

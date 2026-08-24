@@ -1,0 +1,22 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-011
+oracle_kind: source_conformance
+acceptance:
+- Preserve Q_comp and the eta_size expression subject to the source's undefined dimensional structures.
+rejections:
+- Do not add normalizations, common dimensions, numeric defaults, or interpretations absent from the source.
+dependency_guards:
+  confirmed: []
+  unresolved:
+  - 4
+  runtime: []
+  forbidden:
+  - 0
+  - 1
+  - 2
+  - 13
+  - 17
+  - 23
+  - 29
+  - 34
+  - 35

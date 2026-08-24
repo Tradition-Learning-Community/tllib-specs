@@ -1,0 +1,16 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-017
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-017/contract.yaml
+tests:
+- id: LDA033017-T01
+  category: source_conformance
+  verifies: Preserve the maturity/rho_relay gate and the sigmoid probability expression as source relations requiring external
+    maturity, Q_rep, coefficients, and sigmoid semantics.
+- id: LDA033017-T02
+  category: non_invention
+  verifies: Do not import lifecycle or generational-propagation authority, invent coefficient values, or prescribe a transition
+    simulator.
+- id: LDA033017-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

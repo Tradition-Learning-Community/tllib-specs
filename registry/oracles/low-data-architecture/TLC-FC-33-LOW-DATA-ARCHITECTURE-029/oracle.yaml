@@ -1,0 +1,22 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-029
+oracle_kind: source_conformance
+acceptance:
+- Preserve sigma_avg^2=sigma^2/r only under the explicit assumption of r independent supports, together with sigma_eff(n).
+rejections:
+- Do not apply the variance formula without independence, invent an independence test, or supply missing sigma parameters.
+dependency_guards:
+  confirmed: []
+  unresolved:
+  - 4
+  runtime: []
+  forbidden:
+  - 0
+  - 1
+  - 2
+  - 13
+  - 17
+  - 23
+  - 29
+  - 34
+  - 35

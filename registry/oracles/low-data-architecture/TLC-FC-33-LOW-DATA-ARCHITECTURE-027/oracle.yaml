@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-027
+oracle_kind: source_conformance
+acceptance:
+- Preserve R_eff and A_cascade as Domain 33 source symbols while refusing automatic identity with cascade/generational reproduction
+  concepts elsewhere.
+rejections:
+- Do not promote Domain 17 or 29 dependencies by symbol similarity, nor invent propagation dynamics or generation procedures.
+dependency_guards:
+  confirmed: []
+  unresolved:
+  - 4
+  runtime: []
+  forbidden:
+  - 0
+  - 1
+  - 2
+  - 13
+  - 17
+  - 23
+  - 29
+  - 34
+  - 35

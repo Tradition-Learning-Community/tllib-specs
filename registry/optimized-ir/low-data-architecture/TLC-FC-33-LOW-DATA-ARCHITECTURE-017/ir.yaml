@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-017
+status: finalized
+scientific_status: external_provider_required
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-017/ir.yaml
+operation: handle_low_data_architecture_017
+required_behavior:
+- Preserve the maturity/rho_relay gate and the sigmoid probability expression as source relations requiring external maturity,
+  Q_rep, coefficients, and sigmoid semantics.
+forbidden_behavior:
+- Do not import lifecycle or generational-propagation authority, invent coefficient values, or prescribe a transition simulator.
+provider_requirements:
+- Source-declared external scientific/provider boundary
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- Provider or scientific decision required before stronger execution semantics
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
+  status changed.

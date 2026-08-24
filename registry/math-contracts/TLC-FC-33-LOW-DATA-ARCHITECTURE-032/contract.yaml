@@ -1,0 +1,44 @@
+contract_id: TLC-MC-TLC-FC-33-LOW-DATA-ARCHITECTURE-032
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-032
+title: Reconstruction contraction and global-resistance claim guard
+domain_id: low-data-architecture
+contract_kind: source_backed_low_data_contract
+scientific_status: preserved_unresolved
+execution_status: structural_only
+scientific_authority: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+additional_scientific_authorities: []
+source_sections:
+- section 7,8
+objects: []
+relations: []
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- Source-declared external scientific/provider boundary
+preconditions: []
+postconditions:
+- Preserve the contraction inequality, eta<1, and global exponential-resistance theorem strictly as source claims with missing
+  operator/proof/quantitative-link conditions.
+invariants:
+- Do not invent R_rec, fixed-point iteration, convergence proof, C or lambda derivations, stabilizing algorithm, or quantitative
+  theorem completion.
+constraints: []
+structured_errors:
+- code: SourceBoundaryExceeded
+  when: The requested behavior exceeds source-defined relations or supplied providers.
+dependencies:
+  scientific: []
+  scientific_unresolved:
+  - 4
+  runtime: []
+unresolved_items:
+- Provider or scientific decision required before stronger execution semantics
+forbidden_behaviors:
+- Do not invent R_rec, fixed-point iteration, convergence proof, C or lambda derivations, stabilizing algorithm, or quantitative
+  theorem completion.
+traceability:
+  sources:
+  - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml

@@ -1,0 +1,22 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-019
+oracle_kind: source_conformance
+acceptance:
+- Preserve Pi_rep and P(loss) approximately exp(-kappa Pi_rep n) with approximation status intact.
+rejections:
+- Do not invent sim, probabilistic calibration, independence, kappa, or replace approximation by equality.
+dependency_guards:
+  confirmed: []
+  unresolved:
+  - 4
+  runtime: []
+  forbidden:
+  - 0
+  - 1
+  - 2
+  - 13
+  - 17
+  - 23
+  - 29
+  - 34
+  - 35

@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-019
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-019/contract.yaml
+tests:
+- id: LDA033019-T01
+  category: source_conformance
+  verifies: Preserve Pi_rep and P(loss) approximately exp(-kappa Pi_rep n) with approximation status intact.
+- id: LDA033019-T02
+  category: non_invention
+  verifies: Do not invent sim, probabilistic calibration, independence, kappa, or replace approximation by equality.
+- id: LDA033019-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

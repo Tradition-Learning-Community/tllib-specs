@@ -1,0 +1,17 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-002
+algorithm_kind: structural_guard
+strategy: open
+execution: structural_only
+steps:
+- Preserve N_min subset N_inv while recording that both are used as dimensioned spaces, finite sets, and generative operands
+  without a common structure.
+provider_requirements:
+- Source-declared external scientific/provider boundary
+scientific_domain_dependencies: []
+unresolved_domain_relations:
+- 4
+runtime_domain_dependencies: []
+forbidden:
+- Do not invent vector-space, discrete-set, topological, measure, basis, or dimension-cardinality semantics.
+prescription_basis: []

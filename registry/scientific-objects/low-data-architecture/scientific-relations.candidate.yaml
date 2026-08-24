@@ -1,0 +1,566 @@
+schema_version: 1
+domain: low-data-architecture
+domain_index: 33
+status: frozen
+authoritative_sources:
+- maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+scientific_relation_count: 62
+relations:
+- relation_id: TLC-SR-LDA-001
+  expression: N_min subset N_inv
+  nature: definition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-002
+  expression: forall x in N_inv exists finite g_1..g_k in G generating x from N_min
+  nature: existence claim
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-003
+  expression: dim(N_min) << dim(N_inv)
+  nature: constraint
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-004
+  expression: '|N_min| <= N_min^max'
+  nature: constraint
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-005
+  expression: 'Phi: N_min -> F'
+  nature: mapping declaration
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-006
+  expression: mean recall time is below a threshold
+  nature: constraint
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-007
+  expression: robust for ||epsilon|| < epsilon_max
+  nature: constraint
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-008
+  expression: 'C: N_inv -> N_min'
+  nature: mapping declaration
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-009
+  expression: L_comp = (1/|N_inv|) sum_x ||pi_N_min(x)-x||
+  nature: definition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-010
+  expression: N_min is non-empty
+  nature: axiom
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-011
+  expression: N_min minimizes undefined J_sel combining size, generativity, robustness
+  nature: axiom
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-012
+  expression: N_min remains stable under correction up to isometry
+  nature: claim
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-013
+  expression: F = F_aph x F_symb x F_rit x F_chant
+  nature: definition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-014
+  expression: 'E: N_min -> F'
+  nature: mapping declaration
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-015
+  expression: '||E^-1(E(n))-n|| <= epsilon_enc'
+  nature: bounded-error claim
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-016
+  expression: Q_comp=(eta_size,eta_loss,eta_gen)
+  nature: definition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-017
+  expression: eta_size=1-dim(F)/dim(N_inv)
+  nature: definition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-018
+  expression: eta_loss=1-(1/|N_inv|)sum_x ||C^-1(C(x))-x||
+  nature: definition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-019
+  expression: delta(a)=|N(a)|/length(a)
+  nature: definition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-020
+  expression: rho_inc(M,t)=||pi_N_min(M(t))||/||N_min|| * 1/tau_access(M,t)
+  nature: definition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-021
+  expression: rho_inc approximately E C_id
+  nature: approximation
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-022
+  expression: kappa_trans(M)=rho_inc(M)/rho_0 * T_avail/Delta t_disc
+  nature: definition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-023
+  expression: Q_rep >= Q_min
+  nature: gate
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-024
+  expression: Delta N_D(tau)=rho_inc(M)(1-exp(-lambda tau))1_presence
+  nature: definition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-025
+  expression: relay requires transmission maturity and rho_inc(D)>rho_relay
+  nature: gate
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-026
+  expression: P(D->M_relay)=sigma(alpha rho_inc(D)+beta Q_rep-gamma)
+  nature: probability relation
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-027
+  expression: R_rep^n(PR)=PR+sum_{k=1}^n Delta_k
+  nature: definition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-028
+  expression: Delta_k are decreasing increments
+  nature: qualitative condition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-029
+  expression: T_rit=lim_{n->infinity} R_rep^n(PR)
+  nature: formal limit
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-030
+  expression: Pi_rep=(1/N)sum_i sum_{j!=i} sim(PR_i,PR_j)
+  nature: definition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-031
+  expression: P(loss) approximately exp(-kappa Pi_rep n)
+  nature: approximation
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-032
+  expression: mu_mem(T_rit)=(||pi_N_min(X')||-||pi_N_min(X)||)/||pi_N_min(X)|| * F_part(t)
+  nature: definition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-033
+  expression: tau_reaction(n)=tau_0 exp(-lambda n)+tau_infty
+  nature: definition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-034
+  expression: psi(s)=(1/|N_min|)sum_{n in N_min} 1_{n evoked by s}
+  nature: definition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-035
+  expression: P(recall|presence at l)=gamma(l)P(recall)
+  nature: probability relation
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-036
+  expression: 'rho_rob(s)=P(forall x in N_min exists s''!=s: carried(x,s''))'
+  nature: probability relation
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-037
+  expression: Pi_red=(1/|N_min|)sum_x |{s:carried(x,s)}|
+  nature: definition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-038
+  expression: H_dist=-sum_s p_s log p_s
+  nature: formal expression
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-039
+  expression: F subset N_min
+  nature: subset relation
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-040
+  expression: Q_rec(F)=(1/|N_min|)sum_x 1_{||tilde x-x||<epsilon}
+  nature: definition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-041
+  expression: Q_rec(F)>=1-delta when |F|>=t_min
+  nature: claim
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-042
+  expression: alpha_ex(M)=|{D:attracted by M}|/E[|{D:attracted by a master}|]
+  nature: definition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-043
+  expression: alpha_ex approximately kappa rho_inc
+  nature: approximation
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-044
+  expression: mu_C=I_coll(C)/sum_{c in C} I_indiv(c)
+  nature: definition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-045
+  expression: mu_C=mu_0 kappa(C) H_type(C)
+  nature: asserted factorization
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-046
+  expression: R_eff=R_0(1/|D|)sum_D F_trans(M,D)
+  nature: definition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-047
+  expression: A_cascade=product_{k=1}^n R_eff^(k)
+  nature: definition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-048
+  expression: X_{n+1}=X_n+epsilon_n
+  nature: state relation
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-049
+  expression: epsilon_n distributed as Normal(0,Sigma)
+  nature: distribution declaration
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-050
+  expression: r supports are independent
+  nature: explicit assumption
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-051
+  expression: sigma_avg^2=sigma^2/r
+  nature: conditional relation
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-052
+  expression: sigma_eff(n)=sigma_0 exp(-lambda n)+sigma_infty
+  nature: definition
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-053
+  expression: T_rit(X)=integral K(t-s)X(s) ds
+  nature: filter relation
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-054
+  expression: epsilon_final=epsilon-C(epsilon)
+  nature: correction relation
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-055
+  expression: '||R_rec(tilde x)-x|| <= eta||tilde x-x||'
+  nature: contraction property
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-056
+  expression: eta<1
+  nature: constraint
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-057
+  expression: global theorem assumes redundancy, regular practice, rituals, active community, generative core
+  nature: theorem preconditions
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-058
+  expression: '||X_n-pi_N_min(X_n)|| <= C exp(-lambda n)'
+  nature: global claim
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: structural_only
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-059
+  expression: N_min and N_inv have no specified common structure despite dimension/cardinality/operator uses
+  nature: preserved unresolved
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: preserved_unresolved
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-060
+  expression: inverse notation E^-1 and C^-1 is not accompanied by construction/existence proof
+  nature: preserved unresolved
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: preserved_unresolved
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-061
+  expression: decreasing increments do not guarantee ritualization-series convergence
+  nature: preserved unresolved
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: preserved_unresolved
+  note: No semantics beyond the source expression are supplied.
+- relation_id: TLC-SR-LDA-062
+  expression: rho_inc has zero-denominator, units and bounds unresolved
+  nature: preserved unresolved
+  objects: []
+  source_basis: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  document: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  section: source freeze
+  operational_status: preserved_unresolved
+  note: No semantics beyond the source expression are supplied.

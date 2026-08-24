@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-006
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-006/contract.yaml
+tests:
+- id: LDA033006-T01
+  category: source_conformance
+  verifies: Preserve robustness to perturbations satisfying ||epsilon|| < epsilon_max as a source condition.
+- id: LDA033006-T02
+  category: non_invention
+  verifies: Do not invent the normed space, epsilon_max value, perturbation distribution, or correction procedure.
+- id: LDA033006-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

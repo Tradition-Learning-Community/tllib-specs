@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-002
+oracle_kind: source_conformance
+acceptance:
+- Preserve N_min subset N_inv while recording that both are used as dimensioned spaces, finite sets, and generative operands
+  without a common structure.
+rejections:
+- Do not invent vector-space, discrete-set, topological, measure, basis, or dimension-cardinality semantics.
+dependency_guards:
+  confirmed: []
+  unresolved:
+  - 4
+  runtime: []
+  forbidden:
+  - 0
+  - 1
+  - 2
+  - 13
+  - 17
+  - 23
+  - 29
+  - 34
+  - 35

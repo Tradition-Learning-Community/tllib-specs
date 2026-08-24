@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-003
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-003/contract.yaml
+tests:
+- id: LDA033003-T01
+  category: source_conformance
+  verifies: Preserve the existential claim that each x in N_inv can be generated from N_min by a finite sequence of operators
+    from G.
+- id: LDA033003-T02
+  category: non_invention
+  verifies: Do not invent a search procedure, minimal k, closure theorem, solver, ordering rule, or complexity bound.
+- id: LDA033003-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

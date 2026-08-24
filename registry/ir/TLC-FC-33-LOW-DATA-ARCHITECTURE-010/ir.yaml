@@ -1,0 +1,12 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-010
+status: canonical_candidate
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-010/contract.yaml
+source_candidate_ir: ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-010/ir.candidate.json
+nature: validation
+steps:
+- Preserve E:N_min->F and the bounded reconstruction-error assertion using E^-1 without asserting that a true inverse is constructed.
+errors:
+- SourceBoundaryExceeded
+unresolved_items:
+- Provider or scientific decision required before stronger execution semantics

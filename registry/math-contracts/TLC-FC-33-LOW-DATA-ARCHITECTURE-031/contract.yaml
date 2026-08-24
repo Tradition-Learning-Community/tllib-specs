@@ -1,0 +1,41 @@
+contract_id: TLC-MC-TLC-FC-33-LOW-DATA-ARCHITECTURE-031
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-031
+title: Collective-correction symbol-collision guard
+domain_id: low-data-architecture
+contract_kind: source_backed_low_data_contract
+scientific_status: external_provider_required
+execution_status: structural_only
+scientific_authority: maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+additional_scientific_authorities: []
+source_sections:
+- section 7,8
+objects: []
+relations: []
+inputs: []
+outputs:
+- name: result_descriptor
+  type: structural_descriptor
+opaque_providers:
+- Source-declared external scientific/provider boundary
+preconditions: []
+postconditions:
+- Preserve epsilon_final=epsilon-C(epsilon) while disambiguating this correction C from compression C and community C without
+  rewriting source notation.
+invariants:
+- Do not identify homonymous C symbols or invent the collective-correction operator.
+constraints: []
+structured_errors:
+- code: SourceBoundaryExceeded
+  when: The requested behavior exceeds source-defined relations or supplied providers.
+dependencies:
+  scientific: []
+  scientific_unresolved: []
+  runtime: []
+unresolved_items:
+- Provider or scientific decision required before stronger execution semantics
+forbidden_behaviors:
+- Do not identify homonymous C symbols or invent the collective-correction operator.
+traceability:
+  sources:
+  - maths/33-low-data-architecture/architectural-principles-for-low-data-environments.md
+  inventory: registry/domain-progress/low-data-architecture/feature-inventory.yaml

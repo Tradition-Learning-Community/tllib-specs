@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-029
+algorithm_kind: conditional_relation_guard
+strategy: open
+execution: conditionally_executable
+steps:
+- Preserve sigma_avg^2=sigma^2/r only under the explicit assumption of r independent supports, together with sigma_eff(n).
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+forbidden:
+- Do not apply the variance formula without independence, invent an independence test, or supply missing sigma parameters.
+prescription_basis: []

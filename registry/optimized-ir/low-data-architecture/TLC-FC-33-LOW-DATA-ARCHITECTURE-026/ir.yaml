@@ -1,0 +1,23 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-026
+status: finalized
+scientific_status: external_provider_required
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-026/ir.yaml
+operation: handle_low_data_architecture_026
+required_behavior:
+- Preserve mu_C as both a collective/individual ratio and mu_0 kappa(C) H_type(C), with community and information quantities
+  external.
+forbidden_behavior:
+- Do not conflate community C with compression/correction C or invent information measures, kappa(C), or H_type.
+provider_requirements:
+- Source-declared external scientific/provider boundary
+scientific_domain_dependencies: []
+unresolved_domain_relations: []
+runtime_domain_dependencies: []
+unresolved_items:
+- Provider or scientific decision required before stronger execution semantics
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
+  status changed.

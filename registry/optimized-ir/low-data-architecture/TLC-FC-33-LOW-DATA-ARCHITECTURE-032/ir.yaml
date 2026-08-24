@@ -1,0 +1,25 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-032
+status: finalized
+scientific_status: preserved_unresolved
+execution: structural_only
+source_ir: registry/ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-032/ir.yaml
+operation: handle_low_data_architecture_032
+required_behavior:
+- Preserve the contraction inequality, eta<1, and global exponential-resistance theorem strictly as source claims with missing
+  operator/proof/quantitative-link conditions.
+forbidden_behavior:
+- Do not invent R_rec, fixed-point iteration, convergence proof, C or lambda derivations, stabilizing algorithm, or quantitative
+  theorem completion.
+provider_requirements:
+- Source-declared external scientific/provider boundary
+scientific_domain_dependencies: []
+unresolved_domain_relations:
+- 4
+runtime_domain_dependencies: []
+unresolved_items:
+- Provider or scientific decision required before stronger execution semantics
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
+  status changed.

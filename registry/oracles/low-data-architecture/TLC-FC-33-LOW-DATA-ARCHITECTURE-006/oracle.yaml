@@ -1,0 +1,22 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-006
+oracle_kind: source_conformance
+acceptance:
+- Preserve robustness to perturbations satisfying ||epsilon|| < epsilon_max as a source condition.
+rejections:
+- Do not invent the normed space, epsilon_max value, perturbation distribution, or correction procedure.
+dependency_guards:
+  confirmed: []
+  unresolved:
+  - 4
+  runtime: []
+  forbidden:
+  - 0
+  - 1
+  - 2
+  - 13
+  - 17
+  - 23
+  - 29
+  - 34
+  - 35

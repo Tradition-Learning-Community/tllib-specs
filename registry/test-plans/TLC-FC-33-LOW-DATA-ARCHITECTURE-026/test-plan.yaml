@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-026
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-026/contract.yaml
+tests:
+- id: LDA033026-T01
+  category: source_conformance
+  verifies: Preserve mu_C as both a collective/individual ratio and mu_0 kappa(C) H_type(C), with community and information
+    quantities external.
+- id: LDA033026-T02
+  category: non_invention
+  verifies: Do not conflate community C with compression/correction C or invent information measures, kappa(C), or H_type.
+- id: LDA033026-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.

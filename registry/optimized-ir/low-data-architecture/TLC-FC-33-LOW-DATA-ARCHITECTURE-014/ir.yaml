@@ -1,0 +1,24 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-014
+status: finalized
+scientific_status: external_provider_required
+execution: conditionally_executable
+source_ir: registry/ir/TLC-FC-33-LOW-DATA-ARCHITECTURE-014/ir.yaml
+operation: handle_low_data_architecture_014
+required_behavior:
+- Preserve rho_inc(M,t), its two divisions, and rho_inc approximately E C_id while leaving units, bounds, operators, and zero-denominator
+  behavior unresolved.
+forbidden_behavior:
+- Do not normalize ||N_min||, clamp tau_access, replace approximation by equality, or invent fallback values.
+provider_requirements:
+- Source-declared external scientific/provider boundary
+scientific_domain_dependencies: []
+unresolved_domain_relations:
+- 4
+runtime_domain_dependencies: []
+unresolved_items:
+- Provider or scientific decision required before stronger execution semantics
+error_codes:
+- SourceBoundaryExceeded
+optimization_note: Structural normalization only; no scientific semantics, convergence, inverse, solver, dependency or execution
+  status changed.

@@ -1,0 +1,15 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-007
+algorithm_kind: conditional_relation_guard
+strategy: open
+execution: conditionally_executable
+steps:
+- Preserve C:N_inv->N_min and the exact L_comp expression while exposing its projection, norm, and finite-cardinality prerequisites.
+provider_requirements: []
+scientific_domain_dependencies: []
+unresolved_domain_relations:
+- 4
+runtime_domain_dependencies: []
+forbidden:
+- Do not infer an implementation of C, pi_N_min, the norm, or empty-set behavior.
+prescription_basis: []

@@ -1,0 +1,14 @@
+schema_version: 1
+feature_id: TLC-FC-33-LOW-DATA-ARCHITECTURE-029
+source_contract: registry/math-contracts/TLC-FC-33-LOW-DATA-ARCHITECTURE-029/contract.yaml
+tests:
+- id: LDA033029-T01
+  category: source_conformance
+  verifies: Preserve sigma_avg^2=sigma^2/r only under the explicit assumption of r independent supports, together with sigma_eff(n).
+- id: LDA033029-T02
+  category: non_invention
+  verifies: Do not apply the variance formula without independence, invent an independence test, or supply missing sigma parameters.
+- id: LDA033029-T03
+  category: dependency_boundary
+  verifies: No confirmed scientific dependency; 33 -> 04 remains unresolved; all thematic candidates remain non-proven; runtime
+    dependencies are empty; exactly eight shared contracts remain.
