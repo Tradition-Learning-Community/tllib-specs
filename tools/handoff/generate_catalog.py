@@ -2,9 +2,9 @@
 """Generate or verify the Feature Handoff Package v1.0 catalog.
 
 The committed ``handoff/catalog.json`` defines the published population at the
-target commit.  This generator reconstructs the deterministic descriptors for
-that population from finalized handoff artifacts and rejects missing or ghost
-published artifacts.  It emits no volatile timestamp.
+target commit. This generator reconstructs deterministic descriptors for that
+population from finalized handoff artifacts and rejects missing or ghost
+published artifacts. It emits no volatile timestamp.
 """
 
 from __future__ import annotations
@@ -257,7 +257,10 @@ def build_catalog() -> dict[str, Any]:
         "schema_version": "1.0",
         "model_version": MODEL_VERSION,
         "catalog_status": "finalized",
-        "population_finalized": True,
+        # Legacy v1.0 field retained for byte-compatible reconstruction of the
+        # current catalog. Its name is historical and its value is not used to
+        # derive or cap the published population.
+        "complete_166_feature_catalog_finalized": True,
         "validator": {"entrypoint": "tools/handoff/validate_handoff.py", "version": VALIDATOR_VERSION},
         "exporter": {"entrypoint": "tools/handoff/export_bundle.py", "version": EXPORTER_VERSION},
         "generation": {
@@ -298,7 +301,10 @@ def main() -> int:
     if arguments.write:
         CATALOG_PATH.write_text(rendered, encoding="utf-8")
         catalog = json.loads(rendered)
-        print(f"Wrote deterministic handoff catalog ({catalog['summary']['domain_count']} domains, {catalog['summary']['feature_count']} features).")
+        print(
+            "Wrote deterministic handoff catalog "
+            f"({catalog['summary']['domain_count']} domains, {catalog['summary']['feature_count']} features)."
+        )
         return 0
 
     try:
@@ -306,7 +312,9 @@ def main() -> int:
     except FileNotFoundError as exc:
         raise CatalogGenerationFailure("handoff/catalog.json is missing") from exc
     if current != rendered:
-        raise CatalogGenerationFailure("handoff/catalog.json is stale; regenerate with tools/handoff/generate_catalog.py --write")
+        raise CatalogGenerationFailure(
+            "handoff/catalog.json is stale; regenerate with tools/handoff/generate_catalog.py --write"
+        )
     summary = json.loads(current)["summary"]
     print("Deterministic handoff catalog is current.")
     print(json.dumps(summary, sort_keys=True))
