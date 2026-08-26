@@ -4,88 +4,139 @@ on:
   pull_request:
     branches: [main]
     paths:
-      - 'registry/global-finalization/**'
-      - 'registry/domain-finalization/**'
-      - 'registry/optimized-ir/**'
-      - 'registry/algorithms/**'
-      - 'registry/oracles/**'
-      - 'registry/symbols/**'
-      - 'registry/scientific-review/**'
-      - 'algorithms/**'
-      - 'reports/global-finalization/**'
-      - 'tools/global-finalization/**'
-      - '.github/workflows/global-finalization.yml'
+      - 'maths/**'
+      - 'framework/**'
+      - 'registry/**'
+      - 'handoff/**'
+      - 'reports/**'
+      - 'execution-manifests/**'
+      - 'tools/**'
+      - '.github/workflows/**'
+  push:
+    branches: [main]
+    paths:
+      - 'maths/**'
+      - 'framework/**'
+      - 'registry/**'
+      - 'handoff/**'
+      - 'reports/**'
+      - 'execution-manifests/**'
+      - 'tools/**'
+      - '.github/workflows/**'
   workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
+  catalog:
+    name: Resolve canonical catalog population
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.population.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          show-progress: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Resolve catalog population and commit evidence
+        id: population
+        shell: bash
+        run: |
+          set -euo pipefail
+          matrix="$(python tools/pipeline/catalog_snapshot.py --matrix)"
+          printf 'matrix=%s\n' "$matrix" >> "$GITHUB_OUTPUT"
+          python tools/pipeline/catalog_snapshot.py --output pipeline-evidence.json
+          cat pipeline-evidence.json >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload commit-pinned publication evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: global-finalization-evidence-${{ github.sha }}
+          path: pipeline-evidence.json
+          if-no-files-found: error
+
   domain:
     name: Domain ${{ matrix.domain }}
+    needs: catalog
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix:
-        include:
-          - {domain: master, count: 16}
-          - {domain: disciple, count: 10}
-          - {domain: community, count: 8}
-          - {domain: huit-dimensions, count: 11}
-          - {domain: invariants, count: 10}
-          - {domain: dynamics, count: 7}
-          - {domain: theorems, count: 9}
-          - {domain: message, count: 6}
-          - {domain: principle, count: 10}
-          - {domain: values, count: 14}
-          - {domain: virtues, count: 10}
-          - {domain: capacities, count: 15}
-          - {domain: competencies, count: 13}
-          - {domain: practice, count: 10}
-          - {domain: lived-experience, count: 12}
-          - {domain: relations, count: 5}
+      matrix: ${{ fromJSON(needs.catalog.outputs.matrix) }}
     steps:
       - uses: actions/checkout@v4
         with:
           show-progress: false
-      - name: Check artifact parity
+      - name: Check published domain artifact parity
         env:
           DOMAIN: ${{ matrix.domain }}
           EXPECTED: ${{ matrix.count }}
         run: |
           python3 - <<'PY'
+          import json
           import os
           from pathlib import Path
+
           domain = os.environ['DOMAIN']
           expected = int(os.environ['EXPECTED'])
           roots = {
-              'ir': Path('registry/optimized-ir') / domain,
-              'algorithm': Path('registry/algorithms') / domain,
-              'oracle': Path('registry/oracles') / domain,
+              'ir': (Path('registry/optimized-ir') / domain, 'ir.yaml'),
+              'algorithm': (Path('registry/algorithms') / domain, 'algorithm.yaml'),
+              'oracle': (Path('registry/oracles') / domain, 'oracle.yaml'),
           }
           sets = {}
-          for kind, root in roots.items():
-              name = {'ir':'ir.yaml','algorithm':'algorithm.yaml','oracle':'oracle.yaml'}[kind]
-              files = sorted(root.glob(f'*/{name}'))
-              assert len(files) == expected, f'{domain} {kind}: {len(files)} != {expected}'
-              sets[kind] = {p.parent.name for p in files}
-          assert sets['ir'] == sets['algorithm'] == sets['oracle'], f'{domain}: artifact directory populations differ'
-          required = ['manifest.yaml','feature-status.yaml','patterns.yaml','module-specification.yaml','implementation-tasks.yaml','decision-required.yaml']
-          for name in required:
-              assert (Path('registry/domain-finalization') / domain / name).is_file(), f'{domain}: missing {name}'
-          print(f'{domain}: PASS ({expected} features)')
+          for kind, (root, filename) in roots.items():
+              files = sorted(root.glob(f'*/{filename}'))
+              observed = len(files)
+              if observed != expected:
+                  raise SystemExit(f'{domain} {kind}: expected={expected}, observed={observed}')
+              sets[kind] = {path.parent.name for path in files}
+          if sets['ir'] != sets['algorithm'] or sets['ir'] != sets['oracle']:
+              raise SystemExit(f'{domain}: IR/algorithm/oracle feature populations differ')
+
+          required = [
+              'manifest.yaml',
+              'feature-status.yaml',
+              'patterns.yaml',
+              'module-specification.yaml',
+              'implementation-tasks.yaml',
+              'decision-required.yaml',
+          ]
+          missing = [
+              name for name in required
+              if not (Path('registry/domain-finalization') / domain / name).is_file()
+          ]
+          if missing:
+              raise SystemExit(f'{domain}: missing finalization artifacts {missing}')
+
+          catalog = json.loads((Path('handoff/domains') / domain / 'catalog.json').read_text(encoding='utf-8'))
+          ordered = catalog.get('ordered_feature_ids')
+          if not isinstance(ordered, list) or len(ordered) != expected:
+              raise SystemExit(
+                  f'{domain} handoff catalog: expected={expected}, observed={len(ordered) if isinstance(ordered, list) else "invalid"}'
+              )
+          if set(ordered) != sets['ir']:
+              raise SystemExit(f'{domain}: handoff and finalized artifact populations differ')
+          print(f'{domain}: PASS ({expected} catalog-derived features)')
           PY
 
   global:
     name: Global integrity
-    needs: domain
+    needs: [catalog, domain]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           show-progress: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - name: Install validator dependency
-        run: python3 -m pip install --disable-pip-version-check --quiet pyyaml
+        run: python -m pip install --disable-pip-version-check --quiet pyyaml
+      - name: Verify canonical catalog reconstruction
+        run: python tools/handoff/generate_catalog.py --check
       - name: Validate integrated package
-        run: python3 tools/global-finalization/validate_global_finalization.py
+        run: python tools/global-finalization/validate_global_finalization.py
