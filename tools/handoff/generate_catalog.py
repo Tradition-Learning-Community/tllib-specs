@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Generate or verify the finalized Feature Handoff Package v1.0 catalog.
+"""Generate or verify the Feature Handoff Package v1.0 catalog.
 
-The generator reads only finalized handoff artifacts. It does not read scientific
-sources or intermediate IR content, and it emits no volatile timestamp.
+The committed ``handoff/catalog.json`` defines the published population at the
+target commit. This generator reconstructs deterministic descriptors for that
+population from finalized handoff artifacts and rejects missing or ghost
+published artifacts. It emits no volatile timestamp.
 """
 
 from __future__ import annotations
@@ -74,12 +76,16 @@ def aggregate_fingerprint(paths: Iterable[Path]) -> str:
 
 def package_files(package_dir: Path, manifest: dict[str, Any]) -> list[Path]:
     declared = manifest.get("files")
-    if not isinstance(declared, list) or not declared:
+    if not isinstance(declared, list) or not declared or any(not isinstance(item, str) for item in declared):
         raise CatalogGenerationFailure(f"invalid declared file list: {package_dir.relative_to(ROOT)}")
     paths = [package_dir / name for name in declared]
     missing = [path.relative_to(ROOT).as_posix() for path in paths if not path.is_file()]
     if missing:
         raise CatalogGenerationFailure(f"declared files are missing: {missing}")
+    actual = {path for path in package_dir.rglob("*") if path.is_file()}
+    if actual != set(paths):
+        extra = sorted(path.relative_to(ROOT).as_posix() for path in actual - set(paths))
+        raise CatalogGenerationFailure(f"undeclared package files in {package_dir.relative_to(ROOT)}: {extra}")
     return paths
 
 
@@ -96,11 +102,15 @@ def normalized_dependencies(manifest: dict[str, Any]) -> list[dict[str, str]]:
         if not isinstance(identifier, str) or not isinstance(version, str):
             raise CatalogGenerationFailure("manifest dependency identity or version is invalid")
         normalized.append({"shared_contract_id": identifier, "version": version})
+    if len(normalized) != len({item["shared_contract_id"] for item in normalized}):
+        raise CatalogGenerationFailure("duplicate shared dependency identity")
     return sorted(normalized, key=lambda item: (item["shared_contract_id"], item["version"]))
 
 
 def shared_catalog_entries() -> list[dict[str, Any]]:
     shared_root = HANDOFF / "shared"
+    if not shared_root.is_dir():
+        raise CatalogGenerationFailure("handoff/shared is missing")
     entries: list[dict[str, Any]] = []
     for package_dir in sorted(path for path in shared_root.iterdir() if path.is_dir()):
         manifest = load_json(package_dir / "manifest.json")
@@ -122,6 +132,17 @@ def shared_catalog_entries() -> list[dict[str, Any]]:
 
 
 def build_catalog() -> dict[str, Any]:
+    domains_root = HANDOFF / "domains"
+    if not domains_root.is_dir():
+        raise CatalogGenerationFailure("handoff/domains is missing")
+    actual_domains = {path.name for path in domains_root.iterdir() if path.is_dir()}
+    expected_domains = set(DOMAIN_ORDER)
+    if actual_domains != expected_domains:
+        raise CatalogGenerationFailure(
+            "published domain population mismatch: "
+            f"expected={sorted(expected_domains)}, observed={sorted(actual_domains)}"
+        )
+
     domains: list[dict[str, Any]] = []
     features: list[dict[str, Any]] = []
     package_statuses: Counter[str] = Counter()
@@ -132,24 +153,25 @@ def build_catalog() -> dict[str, Any]:
     seen_domain_indices: set[int] = set()
 
     for domain in DOMAIN_ORDER:
-        catalog_path = HANDOFF / "domains" / domain / "catalog.json"
+        catalog_path = domains_root / domain / "catalog.json"
         domain_catalog = load_json(catalog_path)
         domain_index = domain_catalog.get("domain_index")
-        if (
-            domain_catalog.get("domain") != domain
-            or isinstance(domain_index, bool)
-            or not isinstance(domain_index, int)
-        ):
+        if domain_catalog.get("domain") != domain or isinstance(domain_index, bool) or not isinstance(domain_index, int):
             raise CatalogGenerationFailure(f"domain identity or index mismatch: {catalog_path.relative_to(ROOT)}")
         if domain_index in seen_domain_indices:
             raise CatalogGenerationFailure(f"duplicate domain index {domain_index}: {catalog_path.relative_to(ROOT)}")
         seen_domain_indices.add(domain_index)
+        if domain_catalog.get("statuses") != {"population": "complete", "validation": "validated"}:
+            raise CatalogGenerationFailure(f"domain is not publishable: {domain}")
         ordered_ids = domain_catalog.get("ordered_feature_ids")
         entries = domain_catalog.get("feature_packages")
         if not isinstance(ordered_ids, list) or not isinstance(entries, list):
             raise CatalogGenerationFailure(f"invalid domain population: {catalog_path.relative_to(ROOT)}")
         if domain_catalog.get("expected_feature_count") != len(ordered_ids) or len(entries) != len(ordered_ids):
-            raise CatalogGenerationFailure(f"domain feature count mismatch: {catalog_path.relative_to(ROOT)}")
+            raise CatalogGenerationFailure(
+                f"domain feature count mismatch for {domain}: expected={domain_catalog.get('expected_feature_count')}, "
+                f"observed={len(ordered_ids)}"
+            )
         if [entry.get("feature_id") for entry in entries if isinstance(entry, dict)] != ordered_ids:
             raise CatalogGenerationFailure(f"domain package order mismatch: {catalog_path.relative_to(ROOT)}")
 
@@ -164,11 +186,18 @@ def build_catalog() -> dict[str, Any]:
         )
 
         for domain_entry in entries:
-            feature_id = domain_entry["feature_id"]
+            if not isinstance(domain_entry, dict):
+                raise CatalogGenerationFailure(f"invalid package entry in {catalog_path.relative_to(ROOT)}")
+            feature_id = domain_entry.get("feature_id")
+            if not isinstance(feature_id, str):
+                raise CatalogGenerationFailure(f"invalid feature identity in {catalog_path.relative_to(ROOT)}")
             if feature_id in seen:
                 raise CatalogGenerationFailure(f"duplicate feature identity: {feature_id}")
             seen.add(feature_id)
-            package_dir = ROOT / domain_entry["path"]
+            path_value = domain_entry.get("path")
+            if not isinstance(path_value, str):
+                raise CatalogGenerationFailure(f"invalid package path for {feature_id}")
+            package_dir = ROOT / path_value
             manifest_path = package_dir / "manifest.json"
             manifest = load_json(manifest_path)
             if manifest.get("feature_id") != feature_id or manifest.get("domain") != domain:
@@ -190,28 +219,37 @@ def build_catalog() -> dict[str, Any]:
             descriptor = {
                 "feature_id": feature_id,
                 "domain": domain,
-                "path": domain_entry["path"],
+                "path": path_value,
                 "package_version": manifest["package_version"],
                 "statuses": statuses,
                 "examples_present": bool(examples["present"]),
                 "shared_dependencies": dependencies,
                 "package_sha256": aggregate_fingerprint(files),
             }
-            descriptor_sha256 = sha256_bytes(canonical_json(descriptor))
             features.append(
                 {
                     **descriptor,
                     "manifest_path": manifest_path.relative_to(ROOT).as_posix(),
-                    "descriptor_sha256": descriptor_sha256,
+                    "descriptor_sha256": sha256_bytes(canonical_json(descriptor)),
                     "deprecation": None,
                     "substitution": None,
                 }
             )
 
+    feature_root = HANDOFF / "features"
+    actual_features = {path.name for path in feature_root.iterdir() if path.is_dir()} if feature_root.is_dir() else set()
+    expected_features = {entry["feature_id"] for entry in features}
+    if actual_features != expected_features:
+        raise CatalogGenerationFailure(
+            "published feature population mismatch: "
+            f"missing={sorted(expected_features - actual_features)}, orphan={sorted(actual_features - expected_features)}"
+        )
+
     if len(domains) != EXPECTED_DOMAIN_COUNT or len(features) != EXPECTED_FEATURE_COUNT:
         raise CatalogGenerationFailure(
-            f"expected {EXPECTED_DOMAIN_COUNT} domains and {EXPECTED_FEATURE_COUNT} features, "
-            f"found {len(domains)} and {len(features)}"
+            "catalog-derived population changed while reconstructing artifacts: "
+            f"expected={EXPECTED_DOMAIN_COUNT} domains/{EXPECTED_FEATURE_COUNT} features, "
+            f"observed={len(domains)} domains/{len(features)} features"
         )
 
     shared_contracts = shared_catalog_entries()
@@ -219,15 +257,12 @@ def build_catalog() -> dict[str, Any]:
         "schema_version": "1.0",
         "model_version": MODEL_VERSION,
         "catalog_status": "finalized",
+        # Legacy v1.0 field retained for byte-compatible reconstruction of the
+        # current catalog. Its name is historical and its value is not used to
+        # derive or cap the published population.
         "complete_166_feature_catalog_finalized": True,
-        "validator": {
-            "entrypoint": "tools/handoff/validate_handoff.py",
-            "version": VALIDATOR_VERSION,
-        },
-        "exporter": {
-            "entrypoint": "tools/handoff/export_bundle.py",
-            "version": EXPORTER_VERSION,
-        },
+        "validator": {"entrypoint": "tools/handoff/validate_handoff.py", "version": VALIDATOR_VERSION},
+        "exporter": {"entrypoint": "tools/handoff/export_bundle.py", "version": EXPORTER_VERSION},
         "generation": {
             "entrypoint": "tools/handoff/generate_catalog.py",
             "version": CATALOG_GENERATOR_VERSION,
@@ -258,16 +293,17 @@ def rendered_catalog() -> str:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     mode = parser.add_mutually_exclusive_group(required=True)
-    mode.add_argument("--write", action="store_true", help="write the deterministic catalog")
+    mode.add_argument("--write", action="store_true", help="refresh deterministic fields for the canonical population")
     mode.add_argument("--check", action="store_true", help="verify the committed catalog is current")
     arguments = parser.parse_args()
 
     rendered = rendered_catalog()
     if arguments.write:
         CATALOG_PATH.write_text(rendered, encoding="utf-8")
+        catalog = json.loads(rendered)
         print(
-            f"Wrote finalized deterministic handoff catalog "
-            f"({EXPECTED_DOMAIN_COUNT} domains, {EXPECTED_FEATURE_COUNT} features)."
+            "Wrote deterministic handoff catalog "
+            f"({catalog['summary']['domain_count']} domains, {catalog['summary']['feature_count']} features)."
         )
         return 0
 
@@ -279,9 +315,8 @@ def main() -> int:
         raise CatalogGenerationFailure(
             "handoff/catalog.json is stale; regenerate with tools/handoff/generate_catalog.py --write"
         )
-    catalog = json.loads(current)
-    summary = catalog["summary"]
-    print("Finalized deterministic handoff catalog is current.")
+    summary = json.loads(current)["summary"]
+    print("Deterministic handoff catalog is current.")
     print(json.dumps(summary, sort_keys=True))
     return 0
 
