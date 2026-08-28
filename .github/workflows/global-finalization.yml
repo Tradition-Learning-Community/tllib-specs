@@ -36,6 +36,9 @@ on:
 permissions:
   contents: read
 
+env:
+  PYTHONDONTWRITEBYTECODE: '1'
+
 jobs:
   catalog:
     name: Resolve canonical catalog population
