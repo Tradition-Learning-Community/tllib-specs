@@ -38,6 +38,9 @@ on:
 permissions:
   contents: read
 
+env:
+  PYTHONDONTWRITEBYTECODE: '1'
+
 jobs:
   validate:
     name: Validate finalized handoff v1.0
