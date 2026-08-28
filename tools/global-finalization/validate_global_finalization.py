@@ -382,13 +382,17 @@ def validate_global_catalog(published: list[dict], extension_ids: set[str]) -> N
 
 
 def validate_changed_scope(changed: list[str], base: str) -> None:
-    runtime_files = [path for path in changed if path.endswith(FORBIDDEN_SUFFIXES)]
+    # Deleting an already-tracked generated artifact is cleanup, not an attempt
+    # to publish one. Scope guards apply to files that still exist at HEAD.
+    present = [path for path in changed if (ROOT / path).exists()]
+
+    runtime_files = [path for path in present if path.endswith(FORBIDDEN_SUFFIXES)]
     if runtime_files:
         fail(f"runtime implementation files are out of scope: {runtime_files}")
 
     temporary = [
         path
-        for path in changed
+        for path in present
         if path.endswith(".status")
         or "__pycache__" in path
         or path.endswith(".log")

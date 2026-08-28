@@ -21,6 +21,10 @@ REQUIRED_PATHS = {
     "execution-manifests/**",
     "tools/**",
     ".github/workflows/**",
+    "requirements.in",
+    "requirements.lock",
+    ".python-version",
+    ".gitignore",
 }
 
 

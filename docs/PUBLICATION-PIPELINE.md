@@ -38,7 +38,17 @@ Normative source families covered by the full publication validation are:
 - `tools/**`;
 - `.github/workflows/**`.
 
-Purely unrelated documentation does not need to trigger the complete publication pipeline.
+The Python validation-environment inputs (`requirements.in`, `requirements.lock`, `.python-version`) and repository hygiene policy (`.gitignore`) also trigger both publication workflows. Purely unrelated documentation does not need to trigger the complete publication pipeline.
+
+## Reproducible validator environment
+
+Repository validation uses CPython 3.12 as declared by `.python-version`. Direct tooling dependencies are declared in `requirements.in`; the complete direct and transitive set is exactly pinned in `requirements.lock`.
+
+CI installs the lock with `--no-deps`, runs `pip check`, and then executes `tools/pipeline/validate_python_environment.py`. This makes an omitted transitive dependency or installed-version divergence a validation failure instead of allowing the resolver to silently change the environment.
+
+Local clean-checkout installation and the explicit lock-update procedure are documented in `docs/PYTHON-ENVIRONMENT.md`. These dependencies belong to `tllib-specs` validation tooling only; they do not define dependencies for the future `tllib` runtime library.
+
+`tools/pipeline/validate_repository_hygiene.py` rejects tracked Python/test/type/lint/coverage caches. The publication workflows also require their validation checkout to remain clean after validators run. Existing rejection of committed handoff bundle archives remains in force.
 
 ## Exact `main` validation
 
@@ -68,10 +78,11 @@ Protection configuration is a GitHub repository setting rather than a normative 
 
 ## Reproducible verification commands
 
-From a clean checkout of a target commit, after installing the validation dependencies:
+From a clean checkout of a target commit, create the locked environment as documented in `docs/PYTHON-ENVIRONMENT.md`, then run:
 
 ```text
 python tools/pipeline/validate_ci_triggers.py
+python tools/pipeline/validate_repository_hygiene.py
 python tools/pipeline/catalog_snapshot.py --self-test
 python tools/pipeline/catalog_snapshot.py
 python tools/handoff/generate_catalog.py --check
@@ -79,6 +90,6 @@ python tools/handoff/validate_handoff.py --self-test
 python tools/handoff/validate_handoff.py
 python tools/handoff/export_bundle.py --all --check --verify-determinism
 python tools/global-finalization/validate_global_finalization.py
+git diff --check
+git status --short
 ```
-
-The Python environment itself is standardized separately by issue #170.
