@@ -8,7 +8,7 @@
     "schema_version",
     "model_version",
     "catalog_status",
-    "population_finalized",
+    "complete_166_feature_catalog_finalized",
     "validator",
     "exporter",
     "generation",
@@ -58,7 +58,11 @@
     "schema_version": {"const": "1.0"},
     "model_version": {"const": "1.0.0"},
     "catalog_status": {"const": "finalized"},
-    "population_finalized": {"const": true},
+    "complete_166_feature_catalog_finalized": {
+      "const": true,
+      "deprecated": true,
+      "description": "Legacy v1 snapshot marker retained for compatibility only. The published population is derived from domains, features, shared_contracts, and summary; this field does not constrain population size."
+    },
     "validator": {"$ref": "#/$defs/tool"},
     "exporter": {"$ref": "#/$defs/tool"},
     "generation": {
