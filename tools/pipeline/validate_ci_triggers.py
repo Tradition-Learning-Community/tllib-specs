@@ -3,7 +3,6 @@
 
 from __future__ import annotations
 
-import re
 import sys
 from pathlib import Path
 
@@ -88,6 +87,27 @@ def validate_workflow(path: Path) -> None:
             )
 
 
+def contains_manual_matrix(lines: list[str]) -> bool:
+    """Return True for a YAML block shaped as ``matrix:`` followed by ``include:``.
+
+    This intentionally uses a linear indentation scan instead of a multiline
+    regular expression so validation time is bounded by workflow size.
+    """
+    for index, line in enumerate(lines):
+        if line.strip() != "matrix:":
+            continue
+        matrix_indent = len(line) - len(line.lstrip())
+        for child in lines[index + 1 :]:
+            if not child.strip():
+                continue
+            child_indent = len(child) - len(child.lstrip())
+            if child_indent <= matrix_indent:
+                break
+            if child.strip() == "include:":
+                return True
+    return False
+
+
 def validate_dynamic_matrix() -> None:
     path = ROOT / ".github/workflows/global-finalization.yml"
     text = path.read_text(encoding="utf-8")
@@ -98,7 +118,7 @@ def validate_dynamic_matrix() -> None:
     for fragment in required_fragments:
         if fragment not in text:
             raise TriggerFailure(f"global-finalization workflow is not catalog-driven: missing {fragment!r}")
-    if re.search(r"strategy:\s*\n(?:\s+.*\n)*?\s+matrix:\s*\n\s+include:", text):
+    if contains_manual_matrix(text.splitlines()):
         raise TriggerFailure("global-finalization workflow contains a manually enumerated matrix")
 
 
