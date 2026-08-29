@@ -50,6 +50,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           show-progress: false
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version-file: '.python-version'
@@ -64,6 +65,12 @@ jobs:
         run: python tools/pipeline/validate_ci_triggers.py
       - name: Verify deterministic global catalog
         run: python tools/handoff/generate_catalog.py --check
+      - name: Audit semantic governance and shared contract closures
+        shell: bash
+        run: |
+          python tools/pipeline/validate_semantic_contract_governance.py --evidence "$RUNNER_TEMP/wave-c-evidence.json"
+          python tools/pipeline/validate_semantic_contract_governance.py --evidence "$RUNNER_TEMP/wave-c-evidence-repeat.json"
+          cmp "$RUNNER_TEMP/wave-c-evidence.json" "$RUNNER_TEMP/wave-c-evidence-repeat.json"
       - name: Validate published domains and feature packages
         id: validate
         shell: bash
@@ -100,6 +107,13 @@ jobs:
             echo 'Validation dirtied the checkout.' >&2
             exit 1
           fi
+      - name: Upload Wave C governance evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wave-c-governance-${{ github.sha }}
+          path: ${{ runner.temp }}/wave-c-evidence.json
+          if-no-files-found: ignore
       - name: Upload validation diagnostics
         if: failure()
         uses: actions/upload-artifact@v4
