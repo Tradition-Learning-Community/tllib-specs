@@ -27,6 +27,8 @@ For every feature in the canonical catalog, the validator reads the published pa
 
 Stable governance identifiers are deterministic hashes of feature identity, item kind, and the already-published structural payload. They are identifiers for governance evidence, not scientific identifiers and not scientific conclusions.
 
+The evidence distinguishes occurrence-level governance items from the set of unique unresolved identifiers. Neither count is hard-coded: both are reconstructed from the catalog population at the targeted commit.
+
 Classification is deliberately conservative. Explicit upstream classifications are preserved. `external_provider_required` maps to the external-provider class, an explicit `TLC-HC-OPAQUE-VALUE` boundary maps to opacity, explicit blockers map to blocker, and otherwise the validator records `unknown`. It does not infer a scientific answer. `contested` is preserved only when explicitly published by an upstream package.
 
 Implementation impact is copied from the existing execution status: `executable`, `conditionally_executable`, or `structural_only`. The validator never upgrades a package to executable.
@@ -46,19 +48,23 @@ The resolution ledger is intentionally a transition ledger, not a replacement so
 
 ## Shared structural contracts
 
-For each shared contract and each feature package discovered from the canonical catalog, the validator:
+For each shared contract and each feature package discovered from the canonical catalog, the validator checks the dependency declarations according to the package formats that already exist in the repository.
 
-1. scans the package's declared JSON files for `shared_contract_ref` references;
-2. compares those direct references exactly with `shared_dependencies` in the package manifest;
-3. checks every referenced shared contract and exact version exists;
-4. computes the deterministic transitive closure of the shared dependency graph and rejects cycles;
-5. verifies the catalog dependency descriptors agree with the manifests;
-6. audits cardinality and ordering declarations structurally;
-7. records structured-error and opaque-provider boundaries;
-8. requires shared contracts to remain `structural_only` and rejects feature/object/relation scientific identities inside shared contract definitions;
-9. reports any explicit `shared_contract_candidate` markers found while scanning every published feature.
+For a feature package, the top-level `dependencies` section of `contract.json` is the explicit dependency declaration. Every entry must carry an exact contract ID, version, and non-empty structural purpose. The set must equal `shared_dependencies` in the package manifest and the dependency set published in the canonical catalog. Every operational `shared_contract_ref` found in the feature contract must be contained in that declared set.
 
-This makes closures minimal by construction: a direct dependency must correspond to an actual package reference, and transitive dependencies are derived only from those exact direct edges.
+For a shared-contract package, direct dependencies are represented by structural `shared_contract_ref` values in its contract. After excluding its permitted self-reference, that direct set must equal `shared_dependencies` in its manifest and the canonical catalog entry.
+
+Across the complete catalog population, the validator additionally:
+
+1. checks every referenced shared contract and exact version exists;
+2. computes the deterministic transitive closure of the shared dependency graph and rejects cycles;
+3. audits cardinality and ordering declarations structurally;
+4. audits feature error contracts and requires a structured-error boundary when error contracts are present;
+5. records opaque/provider boundaries and externally supplied scientific features;
+6. requires shared contracts to remain `structural_only` and rejects feature/object/relation scientific identities inside shared contract definitions;
+7. reports every explicit `shared_contract_candidate` marker found while scanning all published feature documents.
+
+The validator does not infer that a scientifically meaningful dependency is useless merely because its purpose is expressed by an error contract, opacity rule, preservation obligation, or other structural statement instead of a `shared_contract_ref`. Exactness is established from the repository's explicit dependency declaration surfaces; scientific necessity is not guessed.
 
 ## CI and deterministic evidence
 
