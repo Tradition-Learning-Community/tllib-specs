@@ -299,7 +299,6 @@ def validate_resolutions(current_ids: set[str], disappeared: set[str]) -> tuple[
 
 
 def validate_cardinality_order_errors(value: Any, label: str, errors: list[str], counters: Counter[str]) -> None:
-    error_codes: list[str] = []
     for row in iter_dicts(value):
         cardinality = row.get("cardinality")
         if isinstance(cardinality, dict):
@@ -318,6 +317,7 @@ def validate_cardinality_order_errors(value: Any, label: str, errors: list[str],
         error_contract = row.get("error_contract")
         if isinstance(error_contract, list):
             counters["error_contracts"] += len(error_contract)
+            local_codes: set[str] = set()
             for error in error_contract:
                 if not isinstance(error, dict):
                     errors.append(f"invalid error contract in {label}")
@@ -325,10 +325,10 @@ def validate_cardinality_order_errors(value: Any, label: str, errors: list[str],
                 code = error.get("code")
                 if not isinstance(code, str) or not code:
                     errors.append(f"error contract without code in {label}")
+                elif code in local_codes:
+                    errors.append(f"duplicate error code within one error contract in {label}: {code}")
                 else:
-                    error_codes.append(code)
-    if len(error_codes) != len(set(error_codes)):
-        errors.append(f"duplicate error code in {label}")
+                    local_codes.add(code)
 
 
 def audit_contracts(catalog: dict[str, Any], errors: list[str]) -> dict[str, Any]:
