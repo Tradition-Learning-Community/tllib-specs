@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Audit unresolved semantic governance and shared structural contracts.
 
-The committed global catalog is the only population authority.  This validator
-never resolves scientific content: it inventories structural signals already
-published by feature packages, compares them with the first parent, and requires
-an explicit resolution ledger entry before any previously visible semantic item
-may disappear.
+The canonical handoff catalog is the sole population authority. This validator
+never adjudicates scientific truth: it inventories already-published structural
+signals, rejects silent semantic disappearance, and audits shared-contract
+identity, dependency, version, closure, cardinality, ordering, error, provider,
+and neutrality properties.
 """
 
 from __future__ import annotations
@@ -49,9 +49,8 @@ def git(*args: str, check: bool = True) -> str:
 
 def read_text(path: pathlib.PurePosixPath, ref: str | None = None) -> str:
     if ref is None:
-        disk = ROOT.joinpath(*path.parts)
         try:
-            return disk.read_text(encoding="utf-8")
+            return ROOT.joinpath(*path.parts).read_text(encoding="utf-8")
         except FileNotFoundError as exc:
             raise AuditFailure(f"missing file: {path}") from exc
     proc = subprocess.run(
@@ -86,20 +85,8 @@ def stable_id(feature_id: str, kind: str, payload: Any) -> str:
 def parse_ref(value: str) -> tuple[str, str]:
     match = SHARED_REF_RE.fullmatch(value)
     if not match:
-        raise AuditFailure(f"invalid shared_contract_ref: {value!r}")
+        raise AuditFailure(f"invalid shared contract reference: {value!r}")
     return match.group(1), match.group(2)
-
-
-def iter_shared_refs(value: Any) -> Iterable[tuple[str, str]]:
-    if isinstance(value, dict):
-        ref = value.get("shared_contract_ref")
-        if isinstance(ref, str):
-            yield parse_ref(ref)
-        for child in value.values():
-            yield from iter_shared_refs(child)
-    elif isinstance(value, list):
-        for child in value:
-            yield from iter_shared_refs(child)
 
 
 def iter_dicts(value: Any) -> Iterable[dict[str, Any]]:
@@ -112,22 +99,38 @@ def iter_dicts(value: Any) -> Iterable[dict[str, Any]]:
             yield from iter_dicts(child)
 
 
-def manifest_dependencies(manifest: dict[str, Any]) -> set[tuple[str, str]]:
-    raw = manifest.get("shared_dependencies")
+def iter_shared_refs(value: Any) -> Iterable[tuple[str, str]]:
+    for row in iter_dicts(value):
+        ref = row.get("shared_contract_ref")
+        if isinstance(ref, str):
+            yield parse_ref(ref)
+
+
+def dependency_rows(raw: Any, *, label: str, require_purpose: bool = False) -> set[tuple[str, str]]:
     if not isinstance(raw, list):
-        raise AuditFailure("manifest shared_dependencies must be a list")
+        raise AuditFailure(f"{label} must be a list")
     result: set[tuple[str, str]] = set()
     for row in raw:
         if not isinstance(row, dict):
-            raise AuditFailure("manifest dependency must be an object")
+            raise AuditFailure(f"{label} entry must be an object")
         ident, version = row.get("shared_contract_id"), row.get("version")
         if not isinstance(ident, str) or not isinstance(version, str):
-            raise AuditFailure("manifest dependency identity/version must be strings")
+            raise AuditFailure(f"{label} identity/version must be strings")
+        if require_purpose and (not isinstance(row.get("purpose"), str) or not row["purpose"].strip()):
+            raise AuditFailure(f"{label} {ident}@{version} requires a non-empty purpose")
         pair = (ident, version)
         if pair in result:
-            raise AuditFailure(f"duplicate manifest dependency: {ident}@{version}")
+            raise AuditFailure(f"duplicate {label}: {ident}@{version}")
         result.add(pair)
     return result
+
+
+def manifest_dependencies(manifest: dict[str, Any]) -> set[tuple[str, str]]:
+    return dependency_rows(manifest.get("shared_dependencies"), label="manifest shared_dependencies")
+
+
+def contract_dependencies(contract: dict[str, Any]) -> set[tuple[str, str]]:
+    return dependency_rows(contract.get("dependencies"), label="contract dependencies", require_purpose=True)
 
 
 def package_docs(path: str, manifest: dict[str, Any], ref: str | None) -> list[dict[str, Any]]:
@@ -141,33 +144,19 @@ def package_docs(path: str, manifest: dict[str, Any], ref: str | None) -> list[d
     return docs
 
 
-def direct_refs(path: str, manifest: dict[str, Any], ref: str | None, self_id: str | None = None) -> set[tuple[str, str]]:
-    refs: set[tuple[str, str]] = set()
-    for doc in package_docs(path, manifest, ref):
-        refs.update(iter_shared_refs(doc))
-    if self_id is not None:
-        refs = {pair for pair in refs if pair[0] != self_id}
-    return refs
-
-
 def authority_paths(path: str, ref: str | None) -> list[str]:
     trace = load_json(pathlib.PurePosixPath(path, "traceability.json"), ref)
-    result: set[str] = set()
-    for key in ("scientific_sources", "scientific_decisions", "mathematical_contracts"):
-        rows = trace.get(key, [])
-        if isinstance(rows, list):
-            for row in rows:
-                if isinstance(row, dict) and isinstance(row.get("path"), str):
-                    result.add(row["path"])
-    return sorted(result) or [f"{path}/manifest.json"]
+    found = {
+        row["path"] for row in iter_dicts(trace)
+        if isinstance(row.get("path"), str) and row["path"]
+    }
+    return sorted(found) or [f"{path}/manifest.json"]
 
 
 def explicit_unresolved_values(contract: dict[str, Any]) -> set[str]:
     found: set[str] = set()
     for row in iter_dicts(contract):
-        context = " ".join(
-            str(row.get(key, "")) for key in ("name", "semantic_role", "purpose")
-        ).lower()
+        context = " ".join(str(row.get(key, "")) for key in ("name", "semantic_role", "purpose")).lower()
         values = row.get("allowed_values")
         if "unresolved" in context and isinstance(values, list):
             found.update(item for item in values if isinstance(item, str) and item)
@@ -181,23 +170,19 @@ def explicit_classifications(docs: Iterable[dict[str, Any]]) -> dict[str, str]:
     result: dict[str, str] = {}
     for doc in docs:
         for row in iter_dicts(doc):
-            classification = row.get("classification")
-            unresolved_id = row.get("unresolved_id")
+            classification, unresolved_id = row.get("classification"), row.get("unresolved_id")
             if classification in CLASSIFICATIONS and isinstance(unresolved_id, str) and unresolved_id:
                 result[unresolved_id] = classification
     return result
 
 
 def blocker_payloads(docs: Iterable[dict[str, Any]]) -> list[Any]:
-    result: list[Any] = []
+    unique: dict[str, Any] = {}
     for doc in docs:
         for row in iter_dicts(doc):
             for key, value in row.items():
-                if "blocker" not in str(key).lower():
-                    continue
-                if value not in (None, "", [], {}, False):
-                    result.append(value)
-    unique = {canonical(value): value for value in result}
+                if "blocker" in str(key).lower() and value not in (None, "", [], {}, False):
+                    unique[canonical(value)] = value
     return [unique[key] for key in sorted(unique)]
 
 
@@ -219,27 +204,25 @@ def semantic_inventory(catalog: dict[str, Any], ref: str | None) -> list[dict[st
             raise AuditFailure("catalog feature entry must be an object")
         feature_id, domain, path = feature.get("feature_id"), feature.get("domain"), feature.get("path")
         statuses = feature.get("statuses")
-        if not all(isinstance(value, str) for value in (feature_id, domain, path)) or not isinstance(statuses, dict):
+        if not all(isinstance(v, str) for v in (feature_id, domain, path)) or not isinstance(statuses, dict):
             raise AuditFailure("invalid catalog feature descriptor")
         scientific, execution = statuses.get("scientific"), statuses.get("execution")
         if not isinstance(scientific, str) or execution not in IMPLEMENTATION_IMPACT:
             raise AuditFailure(f"invalid statuses for {feature_id}")
         manifest = load_json(pathlib.PurePosixPath(path, "manifest.json"), ref)
         dependencies = manifest_dependencies(manifest)
-        authorities = authority_paths(path, ref)
-        docs = package_docs(path, manifest, ref)
         contract = load_json(pathlib.PurePosixPath(path, "contract.json"), ref)
+        docs = package_docs(path, manifest, ref)
         classifications = explicit_classifications(docs)
         common = {
             "domain": domain,
             "feature_id": feature_id,
-            "authority": authorities,
+            "authority": authority_paths(path, ref),
             "execution_status": execution,
             "implementation_impact": IMPLEMENTATION_IMPACT[execution],
             "source_package": path,
         }
         if scientific != "defined":
-            payload = {"kind": "scientific_status", "scientific_status": scientific}
             item_id = stable_id(feature_id, "scientific_status", scientific)
             inventory[item_id] = {
                 "item_id": item_id,
@@ -251,12 +234,11 @@ def semantic_inventory(catalog: dict[str, Any], ref: str | None) -> list[dict[st
             }
         for unresolved in sorted(explicit_unresolved_values(contract)):
             item_id = stable_id(feature_id, "unresolved_id", unresolved)
-            classification = classifications.get(unresolved, classify_feature(scientific, dependencies))
             inventory[item_id] = {
                 "item_id": item_id,
                 "kind": "unresolved_item",
                 "unresolved_id": unresolved,
-                "classification": classification,
+                "classification": classifications.get(unresolved, classify_feature(scientific, dependencies)),
                 "scientific_status": scientific,
                 "status": "active",
                 **common,
@@ -299,38 +281,61 @@ def validate_resolutions(current_ids: set[str], disappeared: set[str]) -> tuple[
         if not isinstance(row.get("resolution_ref"), str) or not row["resolution_ref"]:
             errors.append(f"resolution {item_id} requires resolution_ref")
         authority = row.get("authority")
-        if not ((isinstance(authority, str) and authority) or (isinstance(authority, list) and authority and all(isinstance(v, str) and v for v in authority))):
+        valid_authority = (
+            isinstance(authority, str) and bool(authority)
+        ) or (
+            isinstance(authority, list) and bool(authority)
+            and all(isinstance(value, str) and value for value in authority)
+        )
+        if not valid_authority:
             errors.append(f"resolution {item_id} requires explicit authority")
         if item_id in current_ids:
             errors.append(f"resolved semantic item is still active: {item_id}")
         normalized.append(row)
-    unresolved_disappearances = sorted(disappeared - seen)
-    if unresolved_disappearances:
-        errors.append("semantic items disappeared without explicit resolution: " + ", ".join(unresolved_disappearances))
+    unresolved = sorted(disappeared - seen)
+    if unresolved:
+        errors.append("semantic items disappeared without explicit resolution: " + ", ".join(unresolved))
     return normalized, errors
 
 
-def validate_cardinality_and_order(value: Any, label: str, errors: list[str], counters: Counter[str]) -> None:
+def validate_cardinality_order_errors(value: Any, label: str, errors: list[str], counters: Counter[str]) -> None:
+    error_codes: list[str] = []
     for row in iter_dicts(value):
         cardinality = row.get("cardinality")
         if isinstance(cardinality, dict):
             counters["cardinality"] += 1
             minimum, maximum = cardinality.get("minimum"), cardinality.get("maximum")
-            if isinstance(minimum, bool) or not isinstance(minimum, int) or minimum < 0:
+            if minimum is not None and (isinstance(minimum, bool) or not isinstance(minimum, int) or minimum < 0):
                 errors.append(f"invalid minimum cardinality in {label}")
-            if maximum is not None and (isinstance(maximum, bool) or not isinstance(maximum, int) or maximum < minimum):
+            if maximum is not None and (isinstance(maximum, bool) or not isinstance(maximum, int) or maximum < 0):
                 errors.append(f"invalid maximum cardinality in {label}")
+            if isinstance(minimum, int) and isinstance(maximum, int) and maximum < minimum:
+                errors.append(f"maximum cardinality below minimum in {label}")
         if "ordering" in row:
             counters["ordering"] += 1
             if not isinstance(row.get("ordering"), str) or not row["ordering"]:
                 errors.append(f"invalid ordering declaration in {label}")
+        error_contract = row.get("error_contract")
+        if isinstance(error_contract, list):
+            counters["error_contracts"] += len(error_contract)
+            for error in error_contract:
+                if not isinstance(error, dict):
+                    errors.append(f"invalid error contract in {label}")
+                    continue
+                code = error.get("code")
+                if not isinstance(code, str) or not code:
+                    errors.append(f"error contract without code in {label}")
+                else:
+                    error_codes.append(code)
+    if len(error_codes) != len(set(error_codes)):
+        errors.append(f"duplicate error code in {label}")
 
 
 def audit_contracts(catalog: dict[str, Any], errors: list[str]) -> dict[str, Any]:
-    shared_rows = catalog.get("shared_contracts")
-    feature_rows = catalog.get("features")
+    shared_rows, feature_rows = catalog.get("shared_contracts"), catalog.get("features")
     if not isinstance(shared_rows, list) or not isinstance(feature_rows, list):
         raise AuditFailure("catalog shared_contracts/features must be lists")
+
     shared: dict[str, dict[str, Any]] = {}
     graph: dict[str, set[str]] = {}
     counters: Counter[str] = Counter()
@@ -340,29 +345,30 @@ def audit_contracts(catalog: dict[str, Any], errors: list[str]) -> dict[str, Any
             errors.append("invalid shared contract catalog entry")
             continue
         ident, version, path = entry.get("shared_contract_id"), entry.get("version"), entry.get("path")
-        if not all(isinstance(value, str) for value in (ident, version, path)):
+        if not all(isinstance(v, str) for v in (ident, version, path)):
             errors.append("shared contract catalog identity/version/path is invalid")
             continue
         manifest = load_json(pathlib.PurePosixPath(path, "manifest.json"))
+        contract = load_json(pathlib.PurePosixPath(path, "contract.json"))
         if manifest.get("shared_contract_id") != ident or manifest.get("package_version") != version:
             errors.append(f"shared contract identity/version mismatch: {ident}")
-        statuses = manifest.get("statuses", {})
+        statuses = manifest.get("statuses")
         if not isinstance(statuses, dict) or statuses.get("execution") != "structural_only":
             errors.append(f"shared contract is not structural_only: {ident}")
         declared = manifest_dependencies(manifest)
-        refs = direct_refs(path, manifest, None, self_id=ident)
-        if declared != refs:
-            errors.append(f"shared direct dependency mismatch for {ident}: declared={sorted(declared)} refs={sorted(refs)}")
-        catalog_deps = {
-            (row.get("shared_contract_id"), row.get("version"))
-            for row in entry.get("dependencies", []) if isinstance(row, dict)
-        }
+        structural_refs = set(iter_shared_refs(contract))
+        structural_refs = {pair for pair in structural_refs if pair[0] != ident}
+        if declared != structural_refs:
+            errors.append(
+                f"shared direct dependency mismatch for {ident}: "
+                f"declared={sorted(declared)} refs={sorted(structural_refs)}"
+            )
+        catalog_deps = dependency_rows(entry.get("dependencies", []), label=f"catalog dependencies for {ident}")
         if declared != catalog_deps:
             errors.append(f"shared catalog dependency mismatch for {ident}")
-        contract = load_json(pathlib.PurePosixPath(path, "contract.json"))
         if SCIENTIFIC_ID_RE.search(canonical(contract)):
-            errors.append(f"shared contract contains feature/domain scientific identity: {ident}")
-        validate_cardinality_and_order(contract, ident, errors, counters)
+            errors.append(f"shared contract contains feature/object/relation scientific identity: {ident}")
+        validate_cardinality_order_errors(contract, ident, errors, counters)
         shared[ident] = {"version": version, "deps": declared, "path": path}
         graph[ident] = {dep for dep, _ in declared}
 
@@ -372,7 +378,10 @@ def audit_contracts(catalog: dict[str, Any], errors: list[str]) -> dict[str, Any
             if target is None:
                 errors.append(f"missing shared dependency target: {ident} -> {dep}@{version}")
             elif target["version"] != version:
-                errors.append(f"incompatible shared dependency version: {ident} -> {dep}@{version}, available={target['version']}")
+                errors.append(
+                    f"incompatible shared dependency version: {ident} -> {dep}@{version}, "
+                    f"available={target['version']}"
+                )
 
     closures: dict[str, list[str]] = {}
     def closure(start: str, stack: tuple[str, ...] = ()) -> set[str]:
@@ -384,11 +393,14 @@ def audit_contracts(catalog: dict[str, Any], errors: list[str]) -> dict[str, Any
             result.add(dep)
             result.update(closure(dep, (*stack, start)))
         return result
+
     for ident in sorted(shared):
         closures[ident] = sorted(closure(ident))
 
     feature_closure_sizes: Counter[int] = Counter()
     candidate_markers = 0
+    external_provider_features = 0
+
     for entry in feature_rows:
         if not isinstance(entry, dict):
             errors.append("invalid feature catalog entry")
@@ -398,16 +410,22 @@ def audit_contracts(catalog: dict[str, Any], errors: list[str]) -> dict[str, Any
             errors.append("invalid feature identity/path")
             continue
         manifest = load_json(pathlib.PurePosixPath(path, "manifest.json"))
+        contract = load_json(pathlib.PurePosixPath(path, "contract.json"))
         declared = manifest_dependencies(manifest)
-        refs = direct_refs(path, manifest, None)
-        if declared != refs:
-            errors.append(f"feature direct dependency mismatch for {feature_id}: declared={sorted(declared)} refs={sorted(refs)}")
-        catalog_deps = {
-            (row.get("shared_contract_id"), row.get("version"))
-            for row in entry.get("shared_dependencies", []) if isinstance(row, dict)
-        }
+        contract_declared = contract_dependencies(contract)
+        if declared != contract_declared:
+            errors.append(
+                f"feature dependency declaration mismatch for {feature_id}: "
+                f"manifest={sorted(declared)} contract={sorted(contract_declared)}"
+            )
+        catalog_deps = dependency_rows(entry.get("shared_dependencies", []), label=f"catalog dependencies for {feature_id}")
         if declared != catalog_deps:
             errors.append(f"feature catalog dependency mismatch for {feature_id}")
+        operational_refs = set(iter_shared_refs(contract))
+        undeclared_refs = operational_refs - declared
+        if undeclared_refs:
+            errors.append(f"undeclared shared references for {feature_id}: {sorted(undeclared_refs)}")
+
         closure_ids: set[str] = set()
         for dep, version in declared:
             target = shared.get(dep)
@@ -415,20 +433,34 @@ def audit_contracts(catalog: dict[str, Any], errors: list[str]) -> dict[str, Any
                 errors.append(f"missing feature dependency target: {feature_id} -> {dep}@{version}")
                 continue
             if target["version"] != version:
-                errors.append(f"incompatible feature dependency version: {feature_id} -> {dep}@{version}")
+                errors.append(
+                    f"incompatible feature dependency version: {feature_id} -> {dep}@{version}, "
+                    f"available={target['version']}"
+                )
             closure_ids.add(dep)
             closure_ids.update(closures.get(dep, []))
         feature_closure_sizes[len(closure_ids)] += 1
+
         docs = package_docs(path, manifest, None)
         for doc in docs:
-            validate_cardinality_and_order(doc, feature_id, errors, counters)
+            validate_cardinality_order_errors(doc, feature_id, errors, counters)
             for row in iter_dicts(doc):
                 marker = row.get("shared_contract_candidate")
                 if marker not in (None, False, "", [], {}):
                     candidate_markers += 1
-        refs_ids = {ident for ident, _ in refs}
-        counters["structured_error_boundaries"] += int("TLC-HC-STRUCTURED-ERROR" in refs_ids)
-        counters["opaque_provider_boundaries"] += int("TLC-HC-OPAQUE-VALUE" in refs_ids)
+
+        declared_ids = {ident for ident, _ in declared}
+        has_errors = any(
+            isinstance(row.get("error_contract"), list) and bool(row["error_contract"])
+            for row in iter_dicts(contract)
+        )
+        if has_errors and "TLC-HC-STRUCTURED-ERROR" not in declared_ids:
+            errors.append(f"feature error boundary lacks TLC-HC-STRUCTURED-ERROR: {feature_id}")
+        counters["structured_error_boundaries"] += int("TLC-HC-STRUCTURED-ERROR" in declared_ids)
+        counters["opaque_provider_boundaries"] += int("TLC-HC-OPAQUE-VALUE" in declared_ids)
+        statuses = entry.get("statuses")
+        if isinstance(statuses, dict) and statuses.get("scientific") == "external_provider_required":
+            external_provider_features += 1
 
     return {
         "shared_contract_count": len(shared),
@@ -437,9 +469,12 @@ def audit_contracts(catalog: dict[str, Any], errors: list[str]) -> dict[str, Any
         "feature_closure_size_distribution": {str(k): v for k, v in sorted(feature_closure_sizes.items())},
         "cardinality_declarations_audited": counters["cardinality"],
         "ordering_declarations_audited": counters["ordering"],
+        "error_contract_entries_audited": counters["error_contracts"],
         "structured_error_boundaries": counters["structured_error_boundaries"],
         "opaque_provider_boundaries": counters["opaque_provider_boundaries"],
+        "external_provider_features": external_provider_features,
         "explicit_shared_contract_candidate_markers": candidate_markers,
+        "dependency_exactness_rule": "feature manifest == feature contract dependency declaration; shared manifest == direct structural refs; catalog mirrors manifests",
         "scientific_neutrality_rule": "shared contracts are structural_only and contain no feature/object/relation scientific identities",
     }
 
@@ -457,8 +492,7 @@ def main() -> int:
     previous: list[dict[str, Any]] = []
     if parent:
         try:
-            previous_catalog = load_json(CATALOG, parent)
-            previous = semantic_inventory(previous_catalog, parent)
+            previous = semantic_inventory(load_json(CATALOG, parent), parent)
         except AuditFailure as exc:
             errors.append(f"cannot audit previous semantic inventory: {exc}")
     previous_ids = {row["item_id"] for row in previous}
@@ -467,12 +501,17 @@ def main() -> int:
     resolutions, resolution_errors = validate_resolutions(current_ids, disappeared)
     errors.extend(resolution_errors)
     contract_evidence = audit_contracts(catalog, errors)
-    summary = catalog.get("summary", {})
+
+    summary = catalog.get("summary")
     if not isinstance(summary, dict):
         errors.append("catalog summary must be an object")
         summary = {}
     class_counts = Counter(row["classification"] for row in current)
     execution_counts = Counter(row["execution_status"] for row in current)
+    unique_unresolved = sorted({
+        row["unresolved_id"] for row in current
+        if row.get("kind") == "unresolved_item" and isinstance(row.get("unresolved_id"), str)
+    })
     evidence = {
         "schema_version": "1.0",
         "status": "pass" if not errors else "fail",
@@ -485,6 +524,8 @@ def main() -> int:
         },
         "semantic_governance": {
             "inventory_count": len(current),
+            "unique_unresolved_identifier_count": len(unique_unresolved),
+            "unique_unresolved_identifiers": unique_unresolved,
             "classification_counts": dict(sorted(class_counts.items())),
             "execution_status_counts": dict(sorted(execution_counts.items())),
             "added_since_parent": sorted(added),
@@ -509,6 +550,7 @@ def main() -> int:
         "domains": evidence["population"]["domains"],
         "features": evidence["population"]["features"],
         "semantic_items": len(current),
+        "unique_unresolved_identifiers": len(unique_unresolved),
         "added": len(added),
         "disappeared": len(disappeared),
         "shared_contracts": contract_evidence["shared_contract_count"],
