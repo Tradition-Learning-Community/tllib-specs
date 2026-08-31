@@ -90,8 +90,20 @@ jobs:
         run: python tools/pipeline/catalog_snapshot.py --self-test
       - name: Validate domains 16-35 extension publication
         run: python tools/domain-progress/validate_extension_16_35.py
-      - name: Validate all standalone exports and determinism
-        run: python tools/handoff/export_bundle.py --all --check --verify-determinism
+      - name: Validate standalone consumer acceptance and determinism
+        shell: bash
+        run: |
+          python tools/pipeline/validate_consumer_acceptance.py --self-test
+          python tools/pipeline/validate_consumer_acceptance.py --evidence "$RUNNER_TEMP/wave-d-consumer.json"
+          python tools/pipeline/validate_consumer_acceptance.py --evidence "$RUNNER_TEMP/wave-d-consumer-repeat.json"
+          cmp "$RUNNER_TEMP/wave-d-consumer.json" "$RUNNER_TEMP/wave-d-consumer-repeat.json"
+      - name: Validate catalog compatibility and migration diff
+        shell: bash
+        run: |
+          python tools/pipeline/validate_catalog_compatibility.py --self-test
+          python tools/pipeline/validate_catalog_compatibility.py --evidence "$RUNNER_TEMP/wave-d-compatibility.json"
+          python tools/pipeline/validate_catalog_compatibility.py --evidence "$RUNNER_TEMP/wave-d-compatibility-repeat.json"
+          cmp "$RUNNER_TEMP/wave-d-compatibility.json" "$RUNNER_TEMP/wave-d-compatibility-repeat.json"
       - name: Reject committed bundle archives
         shell: bash
         run: |
@@ -113,6 +125,15 @@ jobs:
         with:
           name: wave-c-governance-${{ github.sha }}
           path: ${{ runner.temp }}/wave-c-evidence.json
+          if-no-files-found: ignore
+      - name: Upload Wave D consumer and compatibility evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wave-d-consumer-versioning-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/wave-d-consumer.json
+            ${{ runner.temp }}/wave-d-compatibility.json
           if-no-files-found: ignore
       - name: Upload validation diagnostics
         if: failure()
