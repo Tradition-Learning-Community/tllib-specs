@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "policy_version": "1.0.0",
+  "population_authority": "handoff/catalog.json",
+  "version_surfaces": {
+    "model": "catalog.model_version",
+    "catalog": "catalog.schema_version",
+    "domain": "domain catalog schema_version + package_model_version + catalog_sha256 + ordered feature package versions",
+    "feature": "feature package_version",
+    "shared_contract": "shared contract package_version",
+    "schema": "schema document properties.schema_version.const plus schema content fingerprint",
+    "validator": "catalog.validator.version",
+    "exporter": "catalog.exporter.version",
+    "generator": "catalog.generation.version"
+  },
+  "change_classes": {
+    "domain_added": "compatible",
+    "feature_added": "compatible",
+    "patch_version": "compatible",
+    "minor_version": "compatible",
+    "major_version": "incompatible",
+    "domain_removed": "incompatible",
+    "feature_removed": "incompatible",
+    "shared_contract_removed": "incompatible",
+    "schema_major_change": "incompatible",
+    "model_major_change": "incompatible",
+    "scientific_status_change": "scientific_review_required",
+    "unversioned_normative_change": "invalid"
+  },
+  "identity_rules": {
+    "feature_ids_reusable": false,
+    "shared_contract_ids_reusable": false,
+    "domain_indices_reusable": false,
+    "fingerprints_are_content_addresses": true
+  },
+  "deprecation": {
+    "implicit_deprecation_allowed": false,
+    "active_entry_must_be_machine_readable": true,
+    "required_fields": ["introduced_in", "supported_through", "reason"],
+    "support_window_rule": "Every deprecation states its own explicit supported_through version; there is no invented implicit date or duration."
+  },
+  "substitution": {
+    "implicit_substitution_allowed": false,
+    "required_fields": ["target_feature_id", "introduced_in", "relation"]
+  },
+  "consumer_rule": "A consumer must evaluate compatibility before attempting scientific execution and must not invent fallback scientific semantics for an incompatible, conditional, structural-only, or unsupported package."
+}
