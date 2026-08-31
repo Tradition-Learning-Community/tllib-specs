@@ -19,7 +19,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
 CATALOG = PurePosixPath("handoff/catalog.json")
-POLICY = PurePosixPath("handoff/compatibility_policy.json")
+POLICY = PurePosixPath("handoff/compatibility-policy.json")
 SEMVER = re.compile(r"^([0-9]+)\.([0-9]+)\.([0-9]+)$")
 SCHEMA_VERSION = re.compile(r"^([0-9]+)\.([0-9]+)$")
 
@@ -149,8 +149,6 @@ def read_versioned_tool(entry: Any, ref: str | None, label: str) -> dict[str, st
 
 def snapshot(ref: str | None) -> dict[str, Any]:
     catalog = load_json(CATALOG, ref)
-    policy = load_json(POLICY, ref)
-    require_semver(policy.get("policy_version"), "compatibility policy version")
     require_semver(catalog.get("model_version"), "catalog model_version")
     require_schema_version(catalog.get("schema_version"), "catalog schema_version")
 
@@ -247,7 +245,10 @@ def snapshot(ref: str | None) -> dict[str, Any]:
     schemas: dict[str, dict[str, str]] = {}
     for path in schema_paths(ref):
         text = read_text(path, ref)
-        doc = json.loads(text)
+        try:
+            doc = json.loads(text)
+        except json.JSONDecodeError as exc:
+            raise CompatibilityFailure(f"invalid schema JSON {path}: {exc}") from exc
         if not isinstance(doc, dict):
             raise CompatibilityFailure(f"schema is not an object: {path}")
         schemas[path.as_posix()] = {
@@ -257,7 +258,6 @@ def snapshot(ref: str | None) -> dict[str, Any]:
 
     return {
         "commit": ref_sha(ref),
-        "policy_version": policy["policy_version"],
         "model_version": catalog["model_version"],
         "catalog_schema_version": catalog["schema_version"],
         "tools": tools,
@@ -365,7 +365,6 @@ def compare(base: dict[str, Any], target: dict[str, Any], policy: dict[str, Any]
 
     base_domains, target_domains = base["domains"], target["domains"]
     base_indices = {row["domain_index"]: name for name, row in base_domains.items()}
-    target_indices = {row["domain_index"]: name for name, row in target_domains.items()}
     for domain in sorted(set(target_domains) - set(base_domains)):
         index = target_domains[domain]["domain_index"]
         if index in base_indices and base_indices[index] != domain:
@@ -441,6 +440,7 @@ def main() -> int:
         base_ref = args.base or current_parent()
         target_ref = args.target
         policy = load_json(POLICY, target_ref)
+        require_semver(policy.get("policy_version"), "compatibility policy version")
         base = snapshot(base_ref)
         target = snapshot(target_ref)
         result = compare(base, target, policy)
