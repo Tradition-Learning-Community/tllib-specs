@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[2]
 WORKFLOWS = (
     ROOT / ".github/workflows/global-finalization.yml",
     ROOT / ".github/workflows/handoff.yml",
+    ROOT / ".github/workflows/specification-release.yml",
 )
 EVENTS = ("pull_request", "push")
 REQUIRED_PATHS = {
@@ -20,7 +21,9 @@ REQUIRED_PATHS = {
     "reports/**",
     "execution-manifests/**",
     "tools/**",
+    "docs/**",
     ".github/workflows/**",
+    "README.md",
     "requirements.in",
     "requirements.lock",
     ".python-version",
@@ -87,7 +90,7 @@ def validate_workflow(path: Path) -> None:
         missing = sorted(REQUIRED_PATHS - paths)
         if missing:
             raise TriggerFailure(
-                f"{path.relative_to(ROOT)} {event}: normative path families missing: {missing}"
+                f"{path.relative_to(ROOT)} {event}: publication path families missing: {missing}"
             )
 
 
@@ -126,12 +129,30 @@ def validate_dynamic_matrix() -> None:
         raise TriggerFailure("global-finalization workflow contains a manually enumerated matrix")
 
 
+def validate_release_workflow() -> None:
+    path = ROOT / ".github/workflows/specification-release.yml"
+    text = path.read_text(encoding="utf-8")
+    required_fragments = (
+        "python tools/pipeline/validate_release_gate.py --self-test",
+        "python tools/pipeline/validate_release_gate.py",
+        "cmp \"$RUNNER_TEMP/specification-release-evidence.json\"",
+        "git merge-base --is-ancestor \"$TARGET_SHA\" origin/main",
+        "publish_release",
+        "gh release create \"$tag\"",
+        "--target \"$TARGET_SHA\"",
+    )
+    for fragment in required_fragments:
+        if fragment not in text:
+            raise TriggerFailure(f"specification release workflow missing {fragment!r}")
+
+
 def main() -> int:
     try:
         for workflow in WORKFLOWS:
             validate_workflow(workflow)
         validate_dynamic_matrix()
-        print("CI trigger and catalog-driven matrix validation: PASS")
+        validate_release_workflow()
+        print("CI trigger, catalog-driven matrix, and release-gate validation: PASS")
         return 0
     except (OSError, TriggerFailure) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
