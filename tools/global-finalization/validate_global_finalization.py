@@ -73,6 +73,7 @@ FORBIDDEN_SUFFIXES = (".cpp", ".cc", ".cxx", ".hpp", ".hxx", ".so", ".pyd")
 ALLOWED_VALIDATION_WORKFLOWS = {
     ".github/workflows/global-finalization.yml",
     ".github/workflows/handoff.yml",
+    ".github/workflows/specification-release.yml",
 }
 EXPECTED_MANIFEST_STATUS = "status: integrated_structural_specification_finalized"
 EXPECTED_LIBRARY_STATUS = "status: structurally_finalized_engineering_specification"

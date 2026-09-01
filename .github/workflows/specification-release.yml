@@ -1,0 +1,190 @@
+name: Specification release gate
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'maths/**'
+      - 'framework/**'
+      - 'registry/**'
+      - 'handoff/**'
+      - 'reports/**'
+      - 'execution-manifests/**'
+      - 'tools/**'
+      - 'docs/**'
+      - '.github/workflows/**'
+      - 'README.md'
+      - 'requirements.in'
+      - 'requirements.lock'
+      - '.python-version'
+      - '.gitignore'
+  push:
+    branches: [main]
+    paths:
+      - 'maths/**'
+      - 'framework/**'
+      - 'registry/**'
+      - 'handoff/**'
+      - 'reports/**'
+      - 'execution-manifests/**'
+      - 'tools/**'
+      - 'docs/**'
+      - '.github/workflows/**'
+      - 'README.md'
+      - 'requirements.in'
+      - 'requirements.lock'
+      - '.python-version'
+      - '.gitignore'
+  workflow_dispatch:
+    inputs:
+      release_version:
+        description: 'Semantic specification release version (MAJOR.MINOR.PATCH)'
+        required: true
+        type: string
+      target_sha:
+        description: 'Full immutable 40-character commit SHA to certify'
+        required: true
+        type: string
+      compatibility_base:
+        description: 'Optional full commit SHA used as compatibility baseline'
+        required: false
+        type: string
+      publish_release:
+        description: 'Create the immutable-discovery GitHub release after certification'
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+env:
+  PYTHONDONTWRITEBYTECODE: '1'
+
+jobs:
+  certify:
+    name: Certify exact specification snapshot
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      RELEASE_VERSION: ${{ github.event_name == 'workflow_dispatch' && inputs.release_version || '0.0.0' }}
+      TARGET_SHA: ${{ github.event_name == 'workflow_dispatch' && inputs.target_sha || github.sha }}
+      COMPATIBILITY_BASE: ${{ github.event_name == 'workflow_dispatch' && inputs.compatibility_base || '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.target_sha || github.sha }}
+          fetch-depth: 0
+          show-progress: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: '.python-version'
+      - name: Freeze and verify candidate commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          actual="$(git rev-parse HEAD)"
+          if [ "$actual" != "$TARGET_SHA" ]; then
+            echo "Candidate mismatch: requested=$TARGET_SHA observed=$actual" >&2
+            exit 1
+          fi
+          if [ "${{ github.event_name }}" != "pull_request" ]; then
+            git fetch --quiet origin main
+            if ! git merge-base --is-ancestor "$TARGET_SHA" origin/main; then
+              echo "Candidate $TARGET_SHA is not reachable from origin/main." >&2
+              exit 1
+            fi
+          fi
+          printf 'Candidate SHA: `%s`\n\n' "$TARGET_SHA" >> "$GITHUB_STEP_SUMMARY"
+          printf 'Release version: `%s`\n' "$RELEASE_VERSION" >> "$GITHUB_STEP_SUMMARY"
+      - name: Install locked validator dependencies
+        run: |
+          python -m pip install --disable-pip-version-check --quiet --no-deps -r requirements.lock
+          python -m pip check
+      - name: Run release gate logical scenarios
+        run: python tools/pipeline/validate_release_gate.py --self-test
+      - name: Certify candidate twice
+        shell: bash
+        run: |
+          set -euo pipefail
+          args=(
+            --release-version "$RELEASE_VERSION"
+            --target-sha "$TARGET_SHA"
+          )
+          if [ -n "$COMPATIBILITY_BASE" ]; then
+            args+=(--compatibility-base "$COMPATIBILITY_BASE")
+          fi
+          python tools/pipeline/validate_release_gate.py "${args[@]}" --evidence "$RUNNER_TEMP/specification-release-evidence.json"
+          python tools/pipeline/validate_release_gate.py "${args[@]}" --evidence "$RUNNER_TEMP/specification-release-evidence-repeat.json"
+          cmp "$RUNNER_TEMP/specification-release-evidence.json" "$RUNNER_TEMP/specification-release-evidence-repeat.json"
+          cat "$RUNNER_TEMP/specification-release-evidence.json" >> "$GITHUB_STEP_SUMMARY"
+      - name: Verify certification leaves checkout clean
+        shell: bash
+        run: |
+          if [ -n "$(git status --short)" ]; then
+            git status --short
+            echo 'Release certification dirtied the checkout.' >&2
+            exit 1
+          fi
+      - name: Upload exact-SHA release evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: specification-release-gate-${{ env.RELEASE_VERSION }}-${{ env.TARGET_SHA }}
+          path: ${{ runner.temp }}/specification-release-evidence.json
+          if-no-files-found: error
+
+  publish:
+    name: Publish immutable specification discovery tag
+    if: github.event_name == 'workflow_dispatch' && inputs.publish_release == true
+    needs: certify
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      RELEASE_VERSION: ${{ inputs.release_version }}
+      TARGET_SHA: ${{ inputs.target_sha }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.target_sha }}
+          fetch-depth: 0
+          show-progress: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: specification-release-gate-${{ inputs.release_version }}-${{ inputs.target_sha }}
+          path: release-evidence
+      - name: Refuse mutable or duplicate version publication
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="tllib-specs-v${RELEASE_VERSION}"
+          if git ls-remote --exit-code --tags origin "refs/tags/$tag" >/dev/null 2>&1; then
+            echo "Release tag already exists and will not be moved: $tag" >&2
+            exit 1
+          fi
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "GitHub release already exists and will not be replaced: $tag" >&2
+            exit 1
+          fi
+      - name: Publish release and commit-pinned evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="tllib-specs-v${RELEASE_VERSION}"
+          cat > release-notes.md <<EOF
+          # tllib-specs ${RELEASE_VERSION}
+
+          Certified specification snapshot.
+
+          - immutable consumer authority: \`${TARGET_SHA}\`
+          - discovery tag: \`${tag}\`
+          - population and validation evidence: attached \`specification-release-evidence.json\`
+
+          Consumers must pin the full commit SHA recorded in the evidence. The tag is a discovery alias and must never be moved to another commit.
+          EOF
+          gh release create "$tag" \
+            "release-evidence/specification-release-evidence.json#specification-release-evidence.json" \
+            --target "$TARGET_SHA" \
+            --title "tllib-specs ${RELEASE_VERSION}" \
+            --notes-file release-notes.md
