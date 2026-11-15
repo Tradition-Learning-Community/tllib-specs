@@ -1,8 +1,8 @@
 # 3/6 — Clustering : évolution des organisations acquises, sans TL
 
-**Statut : expérience synthétique exécutée ; originaux conservés.**  
-**Problème :** découvrir des regroupements dans un ensemble de parcelles fictives, sans étiquettes de groupe fournies aux algorithmes.  
-**Données :** 3 200 observations, 3 caractéristiques, 4 algorithmes, 10 checkpoints.  
+**Statut : expérience synthétique exécutée ; originaux conservés.**\
+**Problème :** découvrir des regroupements dans un ensemble de parcelles fictives, sans étiquettes de groupe fournies aux algorithmes.\
+**Données :** 3 200 observations, 3 caractéristiques, 4 algorithmes, 10 checkpoints.\
 **Objet :** comprendre tous les contenus organisationnels acquis aux différents instants, pas seulement les changements du nombre de groupes.
 
 ## 1. Différence essentielle avec la classification
