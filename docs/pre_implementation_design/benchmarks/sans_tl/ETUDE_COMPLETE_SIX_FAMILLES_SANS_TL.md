@@ -21,8 +21,8 @@ Les expériences et la théorie scientifique de TL doivent rester distinctes : *
 
 # 1/6 — Régression : observation prolongée des acquis internes, sans TL
 
-**Statut : expérience synthétique exécutée, fichiers originaux conservés.**  
-**Problème :** apprendre à estimer le prix fictif d'une parcelle.  
+**Statut : expérience synthétique exécutée, fichiers originaux conservés.**\
+**Problème :** apprendre à estimer le prix fictif d'une parcelle.\
 **Périmètre :** le fonctionnement de l'apprentissage et l'évolution des contenus représentationnels, pas la préparation métier des ressources, le déploiement, ni Tradition Learning.
 
 ## 1. Pourquoi cette expérience
@@ -704,8 +704,8 @@ Ce tableau présente chaque modèle à chaque instant. Les structures d’arbres
 
 # 2/6 — Classification : acquisition, coexistence et réorganisation des schèmes, sans TL
 
-**Statut : étude expérimentale exécutée ; fichiers originaux conservés.**  
-**Problème :** classer de petites images de 7 × 7 pixels représentant des traits horizontaux ou verticaux.  
+**Statut : étude expérimentale exécutée ; fichiers originaux conservés.**\
+**Problème :** classer de petites images de 7 × 7 pixels représentant des traits horizontaux ou verticaux.\
 **Périmètre :** apprentissage interne sur 3 200 observations, avec un indice trompeur et des sondes constantes. Aucune opération Tradition Learning.
 
 ## 1. Position du problème et définition opérationnelle
@@ -908,9 +908,9 @@ La totalité des états numériques et des observations est conservée dans les 
 
 # 3/6 — Clustering : évolution des organisations acquises, sans TL
 
-**Statut : expérience synthétique exécutée ; originaux conservés.**  
-**Problème :** découvrir des regroupements dans un ensemble de parcelles fictives, sans étiquettes de groupe fournies aux algorithmes.  
-**Données :** 3 200 observations, 3 caractéristiques, 4 algorithmes, 10 checkpoints.  
+**Statut : expérience synthétique exécutée ; originaux conservés.**\
+**Problème :** découvrir des regroupements dans un ensemble de parcelles fictives, sans étiquettes de groupe fournies aux algorithmes.\
+**Données :** 3 200 observations, 3 caractéristiques, 4 algorithmes, 10 checkpoints.\
 **Objet :** comprendre tous les contenus organisationnels acquis aux différents instants, pas seulement les changements du nombre de groupes.
 
 ## 1. Différence essentielle avec la classification
@@ -1150,9 +1150,9 @@ Les indicateurs de **tous les instants et de tous les algorithmes** figurent dan
 
 # 4/6 — Génération : acquisition de régularités de séquence, sans TL
 
-**Statut : expérience exécutée ; fichiers originaux et checkpoints conservés.**  
-**Problème :** apprendre à générer des séquences de quatre tokens dans un langage artificiel élémentaire.  
-**Données :** 3 200 séquences d'entraînement, 600 séquences distinctes de vérification ; 5 modèles ; 11 états.  
+**Statut : expérience exécutée ; fichiers originaux et checkpoints conservés.**\
+**Problème :** apprendre à générer des séquences de quatre tokens dans un langage artificiel élémentaire.\
+**Données :** 3 200 séquences d'entraînement, 600 séquences distinctes de vérification ; 5 modèles ; 11 états.\
 **Périmètre :** observer l'apprentissage interne, la formation des régularités de séquence et leurs combinaisons, sans introduire Tradition Learning.
 
 ## 1. Pourquoi le langage artificiel est un bon cas pédagogique
@@ -1427,9 +1427,9 @@ Le même jeu peut conduire à des contenus locaux, contextuels ou distribués, s
 
 # 5/6 — Apprentissage de représentations : évolution des espaces et contenus internes, sans TL
 
-**Statut : expérience exécutée, données et originaux conservés.**  
-**Problème :** apprendre des représentations de petites images, sans étiquettes de catégorie fournies aux algorithmes.  
-**Données :** exactement les 3 200 images 7×7 de l'expérience 2/6, mais sans exploiter leurs étiquettes ; 5 méthodes ; 10 checkpoints.  
+**Statut : expérience exécutée, données et originaux conservés.**\
+**Problème :** apprendre des représentations de petites images, sans étiquettes de catégorie fournies aux algorithmes.\
+**Données :** exactement les 3 200 images 7×7 de l'expérience 2/6, mais sans exploiter leurs étiquettes ; 5 méthodes ; 10 checkpoints.\
 **Périmètre :** processus d'acquisition des transformations internes et des contenus représentationnels, sans TL.
 
 ## 1. Une distinction décisive : représentation et schème
@@ -1682,9 +1682,9 @@ Il s'agit d'une seule expérience synthétique à graine fixe. Aucun opérateur 
 
 # 6/6 — Politique de décision : acquisition de relations entre situations, actions et conséquences, sans TL
 
-**Statut : expérience exécutée, plusieurs ressources de l'expérience conservées.**  
-**Problème :** apprendre à choisir des actions dans un minuscule environnement fictif d'irrigation et de récolte.  
-**Données :** 3 200 transitions d'expérience communes ; 4 algorithmes ; 10 checkpoints.  
+**Statut : expérience exécutée, plusieurs ressources de l'expérience conservées.**\
+**Problème :** apprendre à choisir des actions dans un minuscule environnement fictif d'irrigation et de récolte.\
+**Données :** 3 200 transitions d'expérience communes ; 4 algorithmes ; 10 checkpoints.\
 **Périmètre :** uniquement l'évolution de l'apprentissage interne, sans TL et sans valider une application agronomique.
 
 ## 1. Le sens de cette sixième famille
