@@ -1,8 +1,8 @@
 # 6/6 — Politique de décision : acquisition de relations entre situations, actions et conséquences, sans TL
 
-**Statut : expérience exécutée, plusieurs ressources de l'expérience conservées.**  
-**Problème :** apprendre à choisir des actions dans un minuscule environnement fictif d'irrigation et de récolte.  
-**Données :** 3 200 transitions d'expérience communes ; 4 algorithmes ; 10 checkpoints.  
+**Statut : expérience exécutée, plusieurs ressources de l'expérience conservées.**\
+**Problème :** apprendre à choisir des actions dans un minuscule environnement fictif d'irrigation et de récolte.\
+**Données :** 3 200 transitions d'expérience communes ; 4 algorithmes ; 10 checkpoints.\
 **Périmètre :** uniquement l'évolution de l'apprentissage interne, sans TL et sans valider une application agronomique.
 
 ## 1. Le sens de cette sixième famille
