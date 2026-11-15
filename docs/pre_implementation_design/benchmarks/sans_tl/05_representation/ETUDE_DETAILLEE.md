@@ -1,8 +1,8 @@
 # 5/6 — Apprentissage de représentations : évolution des espaces et contenus internes, sans TL
 
-**Statut : expérience exécutée, données et originaux conservés.**  
-**Problème :** apprendre des représentations de petites images, sans étiquettes de catégorie fournies aux algorithmes.  
-**Données :** exactement les 3 200 images 7×7 de l'expérience 2/6, mais sans exploiter leurs étiquettes ; 5 méthodes ; 10 checkpoints.  
+**Statut : expérience exécutée, données et originaux conservés.**\
+**Problème :** apprendre des représentations de petites images, sans étiquettes de catégorie fournies aux algorithmes.\
+**Données :** exactement les 3 200 images 7×7 de l'expérience 2/6, mais sans exploiter leurs étiquettes ; 5 méthodes ; 10 checkpoints.\
 **Périmètre :** processus d'acquisition des transformations internes et des contenus représentationnels, sans TL.
 
 ## 1. Une distinction décisive : représentation et schème
