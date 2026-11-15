@@ -1,7 +1,7 @@
 # 1/6 — Régression : observation prolongée des acquis internes, sans TL
 
-**Statut : expérience synthétique exécutée, fichiers originaux conservés.**  
-**Problème :** apprendre à estimer le prix fictif d'une parcelle.  
+**Statut : expérience synthétique exécutée, fichiers originaux conservés.**\
+**Problème :** apprendre à estimer le prix fictif d'une parcelle.\
 **Périmètre :** le fonctionnement de l'apprentissage et l'évolution des contenus représentationnels, pas la préparation métier des ressources, le déploiement, ni Tradition Learning.
 
 ## 1. Pourquoi cette expérience
