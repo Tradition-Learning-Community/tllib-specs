@@ -1,7 +1,7 @@
 # 2/6 — Classification : acquisition, coexistence et réorganisation des schèmes, sans TL
 
-**Statut : étude expérimentale exécutée ; fichiers originaux conservés.**  
-**Problème :** classer de petites images de 7 × 7 pixels représentant des traits horizontaux ou verticaux.  
+**Statut : étude expérimentale exécutée ; fichiers originaux conservés.**\
+**Problème :** classer de petites images de 7 × 7 pixels représentant des traits horizontaux ou verticaux.\
 **Périmètre :** apprentissage interne sur 3 200 observations, avec un indice trompeur et des sondes constantes. Aucune opération Tradition Learning.
 
 ## 1. Position du problème et définition opérationnelle
