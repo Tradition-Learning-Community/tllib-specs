@@ -1,6 +1,6 @@
 # Pré-implémentation — Conception et études expérimentales
 
-**Statut : documentation de travail non normative, en attente de revue et de décision de fusion.**  
+**Statut : documentation de travail non normative, en attente de revue et de décision de fusion.**\
 **Périmètre :** les études préparatoires liées à Tradition Learning (TL) et aux modèles d'intelligence artificielle, rassemblées le 15 novembre 2026.
 
 Ce répertoire conserve les idées, distinctions, hypothèses, questions ouvertes et **résultats expérimentaux sans TL** issus de nos travaux, afin de pouvoir les retrouver avant de décider ce qui mérite une formalisation scientifique ou une implémentation. Les textes de ce dossier ne changent ni la théorie, ni les contrats existants, ni les exigences de conformité.
