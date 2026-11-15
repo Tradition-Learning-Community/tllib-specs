@@ -1,8 +1,8 @@
 # 4/6 — Génération : acquisition de régularités de séquence, sans TL
 
-**Statut : expérience exécutée ; fichiers originaux et checkpoints conservés.**  
-**Problème :** apprendre à générer des séquences de quatre tokens dans un langage artificiel élémentaire.  
-**Données :** 3 200 séquences d'entraînement, 600 séquences distinctes de vérification ; 5 modèles ; 11 états.  
+**Statut : expérience exécutée ; fichiers originaux et checkpoints conservés.**\
+**Problème :** apprendre à générer des séquences de quatre tokens dans un langage artificiel élémentaire.\
+**Données :** 3 200 séquences d'entraînement, 600 séquences distinctes de vérification ; 5 modèles ; 11 états.\
 **Périmètre :** observer l'apprentissage interne, la formation des régularités de séquence et leurs combinaisons, sans introduire Tradition Learning.
 
 ## 1. Pourquoi le langage artificiel est un bon cas pédagogique
