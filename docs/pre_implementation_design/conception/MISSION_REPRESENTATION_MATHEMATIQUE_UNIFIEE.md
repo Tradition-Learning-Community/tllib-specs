@@ -30,7 +30,7 @@ Nous utilisons une théorie formelle typée, ouverte et orientée. À un état d
 \mathfrak m_{\tau}
 =
 \left\langle
-\mathscr L_{\tau},
+\Sigma_{\tau},
 \mathscr A_{\tau}^{P},
 \mathscr A_{\tau}^{E}
 \right\rangle
@@ -41,14 +41,14 @@ Nous utilisons une théorie formelle typée, ouverte et orientée. À un état d
 | Notation | Signification |
 |---|---|
 | \(\mathfrak m_{\tau}\) | Formulation mathématique de la Mission à l'état de compréhension \(\tau\) |
-| \(\mathscr L_{\tau}\) | Langage mathématique typé permettant de caractériser l'entreprise |
+| \(\Sigma_{\tau}\) | Langage mathématique typé permettant de caractériser l'entreprise |
 | \(\mathscr A_{\tau}^{P}\) | Propriétés connues du Périmètre |
 | \(\mathscr A_{\tau}^{E}\) | Propriétés connues de l'Horizon |
-| \(\operatorname{Cn}_{\mathscr L_{\tau}}\) | Fermeture par conséquence logique dans le langage et le système de déduction retenus |
+| \(\operatorname{Cn}_{\Sigma_{\tau}}\) | Fermeture par conséquence logique dans le langage et le système de déduction retenus |
 
 C'est une seule construction mathématique, et non deux objets indépendants simplement assemblés. La distinction entre \(\mathscr A_{\tau}^{P}\) et \(\mathscr A_{\tau}^{E}\) est conservée explicitement, tandis que leur réunion permet de les exploiter conjointement dans les déductions.
 
-Chaque énoncé garde ainsi sa signification, mais les conséquences mathématiques peuvent faire intervenir simultanément le Périmètre et l'Horizon. Lorsque le langage et le système de déduction sont fixés, cette opération s'écrit \\(\\operatorname{Cn}_{\\mathscr L_{\\tau}}(\\mathscr A_{\\tau}^{P}\\cup\\mathscr A_{\\tau}^{E})\\).
+Chaque énoncé garde ainsi sa signification, mais les conséquences mathématiques peuvent faire intervenir simultanément le Périmètre et l'Horizon. Lorsque le langage et le système de déduction sont fixés, cette opération s'écrit \(\\operatorname{Cn}_{\\Sigma_{\\tau}}(\\mathscr A_{\\tau}^{P}\\cup\\mathscr A_{\\tau}^{E})\).
 
 Cette construction utilise des outils de logique mathématique existants. Elle n'introduit ni un neuvième objet fondamental TL ni une nouvelle équation de téléologie. La fermeture par conséquence logique ne garantit pas que toutes les conséquences soient calculables par un algorithme effectif ; cela dépend du fragment logique et des méthodes disponibles.
 
@@ -208,7 +208,7 @@ Ces notations conservent leurs significations scientifiques. La présente repré
 
 \[
 \mathfrak m_{\tau},\qquad
-\mathscr L_{\tau},\qquad
+\Sigma_{\tau},\qquad
 \mathscr A_{\tau}^{P},\qquad
 \mathscr A_{\tau}^{E}.
 \]
@@ -226,12 +226,12 @@ Elle demeure conceptuellement première. Les mécanismes téléologiques existan
 \mathfrak m_{\tau}
 =
 \left\langle
-\mathscr L_{\tau},
+\Sigma_{\tau},
 \left(
 \mathscr A_{\tau}^{P},
 \mathscr A_{\tau}^{E}
 \right),
-\operatorname{Cn}_{\mathscr L_{\tau}}
+\operatorname{Cn}_{\Sigma_{\tau}}
 \left(
 \mathscr A_{\tau}^{P}
 \cup
