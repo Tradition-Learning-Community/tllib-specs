@@ -1,238 +1,275 @@
 # Mission TL — représentation mathématique unifiée, ouverte et évolutive
 
 **Statut : étude de conception mathématique, non normative.**  
-**Objet :** établir une représentation mathématique unique de la Mission, primaire et indépendante des participants, des ressources, des sources d'apprentissage, des modèles et des travaux particuliers.  
+**Objet :** présenter une représentation mathématique unique de la Mission, indépendante des participants, des ressources, des sources d'apprentissage, des modèles et des travaux particuliers.  
 **Autorité :** le manuscrit scientifique *Tradition Learning*, puis les mathématiques et les contrats publiés dans `tllib-specs`. Ce document ne modifie ni la théorie ni les contrats normatifs.
 
-## 1. Mission, Horizon et Périmètre
+## 1. Définition fondamentale
 
-La Mission est une **entreprise orientée sur une population de référence**. Elle comporte deux aspects indissociables :
+La Mission est une entreprise orientée sur une population de référence. Elle est indépendante des moyens employés pour la poursuivre et des réalisations particulières qui pourront en résulter.
 
-- **Entreprise orientée, ou Horizon (E)** : idéal poursuivi, éventuellement inaccessible ou encore partiellement compris ; ses propriétés et orientations peuvent être progressivement précisées ou corrigées.
-- **Portée, ou Périmètre (P)** : population de référence des situations concernées par cet idéal, au sens statistique étendu aux situations possibles, futures ou non observées.
+Elle possède deux constituants fondamentaux :
+
+- **E — Entreprise orientée ou Horizon :** l'idéal poursuivi, avec ses propriétés, orientations et conditions, éventuellement incomplètement connues.
+- **P — Portée ou Périmètre :** la population de référence sur laquelle porte cette entreprise, comprenant les situations pertinentes, y compris futures ou non encore observées.
 
 La définition conceptuelle demeure :
 
 \[
-\operatorname{Mission}=(E,P).
+\boxed{\operatorname{Mission}=(E,P)}
 \]
 
-La Mission ne se confond ni avec une solution, ni avec une famille particulière de fonctions, ni avec un ensemble exhaustif de réalisations. Une seule Mission peut admettre plusieurs formes et plusieurs réalisations différentes. Son existence n'exige pas qu'une solution soit connue.
+Cette définition n'impose ni une solution connue, ni une fonction particulière, ni un optimum unique. La Mission peut exister alors que ses réalisations demeurent inconnues.
 
-**Primauté et indépendance :** ni Maître, ni Disciple, ni Communauté, ni les huit objets fondamentaux, ni les onze éléments d'un travail d'apprentissage ne constituent la définition mathématique de la Mission. Ces éléments peuvent être orientés par elle sans être requis pour son existence.
+## 2. Représentation mathématique unique
 
-## 2. Objet mathématique unifié
-
-Nous utilisons les notions existantes de **langage formel typé**, de **théorie mathématique** et de **conséquence logique**. À un état de compréhension \(t\), la Mission dispose de la formulation :
+Nous utilisons une théorie formelle typée, ouverte et orientée. À un état de compréhension \(\tau\), sa représentation est :
 
 \[
 \boxed{
-\mathfrak m_t =
+\mathfrak m_{\tau}
+=
 \left\langle
-\mathscr L_t,\;
-\operatorname{Cn}_{\mathscr L_t}
-\bigl(\mathscr A_t^{P}\cup\mathscr A_t^{E}\bigr)
-\right\rangle.
+\mathscr L_{\tau},
+\left(
+\mathscr A_{\tau}^{P},
+\mathscr A_{\tau}^{E}
+\right),
+\operatorname{Cn}_{\mathscr L_{\tau}}
+\left(
+\mathscr A_{\tau}^{P}
+\cup
+\mathscr A_{\tau}^{E}
+\right)
+\right\rangle
 }
-\tag{M1}
+\tag{M}
 \]
 
-| Notation | Interprétation |
+| Notation | Signification |
 |---|---|
-| \(\mathfrak m_t\) | Formulation mathématique de la Mission à l'état de compréhension \(t\) |
-| \(\mathscr L_t\) | Langage typé : sortes, fonctions, relations, variables et constructions nécessaires au domaine |
-| \(\mathscr A_t^{P}\) | Énoncés caractérisant et délimitant la population de référence |
-| \(\mathscr A_t^{E}\) | Énoncés caractérisant les propriétés et orientations actuellement connues de l'idéal |
-| \(\operatorname{Cn}_{\mathscr L_t}\) | Fermeture par conséquence logique dans le système de déduction retenu |
+| \(\mathfrak m_{\tau}\) | Formulation mathématique de la Mission à l'état de compréhension \(\tau\) |
+| \(\mathscr L_{\tau}\) | Langage mathématique typé permettant de caractériser l'entreprise |
+| \(\mathscr A_{\tau}^{P}\) | Propriétés connues du Périmètre |
+| \(\mathscr A_{\tau}^{E}\) | Propriétés connues de l'Horizon |
+| \(\operatorname{Cn}_{\mathscr L_{\tau}}\) | Fermeture par conséquence logique dans le langage et le système de déduction retenus |
 
-Cette expression est **un seul objet mathématique** : les énoncés relatifs à P et à E appartiennent à une théorie commune et peuvent intervenir ensemble dans les déductions. Leur séparation d'origine conserve leur interprétation conceptuelle ; elle ne crée pas deux systèmes mathématiques indépendants.
+C'est une seule construction mathématique, et non deux objets indépendants simplement assemblés. La distinction entre \(\mathscr A_{\tau}^{P}\) et \(\mathscr A_{\tau}^{E}\) est conservée explicitement, tandis que leur réunion permet de les exploiter conjointement dans les déductions.
 
-L'opérateur \(\operatorname{Cn}\) définit un ensemble de conséquences. Il ne garantit pas que toutes ces conséquences soient calculables par un algorithme effectif. La calculabilité dépend du fragment logique et des méthodes disponibles.
+Chaque énoncé garde ainsi sa signification, mais les conséquences mathématiques peuvent faire intervenir simultanément le Périmètre et l'Horizon.
 
-La notation \(\mathfrak m_t\) représente **la formulation accessible de la Mission**, et non son identité intégrale. La Mission poursuivie peut dépasser ce qui est déjà explicité dans \(\mathscr A_t^{P}\) et \(\mathscr A_t^{E}\).
+Cette construction utilise des outils de logique mathématique existants. Elle n'introduit ni un neuvième objet fondamental TL ni une nouvelle équation de téléologie. La fermeture par conséquence logique ne garantit pas que toutes les conséquences soient calculables par un algorithme effectif ; cela dépend du fragment logique et des méthodes disponibles.
 
-### 2.1. Incomplétude et indétermination
+## 3. L'Horizon exprime ce qui est recherché, pas ce qui existe déjà
 
-Pour une proposition bien formée \(\varphi\), si la théorie est cohérente et que la conséquence est entendue au sens classique :
+Considérons l'exemple d'un maire qui cherche à combattre la criminalité. Il faut distinguer :
 
-\[
-\begin{aligned}
-\mathfrak m_t\models\varphi &\quad\text{: établie},\\
-\mathfrak m_t\models\neg\varphi &\quad\text{: réfutée},\\
-\mathfrak m_t\not\models\varphi\ \land\ \mathfrak m_t\not\models\neg\varphi
-&\quad\text{: indéterminée}.
-\end{aligned}
-\tag{M2}
-\]
+- **La criminalité actuelle :** un fait ou un ensemble de faits relevant de la situation observée.
+- **La réduction recherchée de la criminalité :** une propriété de l'Horizon.
+- **Une réduction effectivement obtenue :** un résultat constaté.
 
-Ce sont trois **statuts de connaissance**, et non l'adoption obligatoire d'une logique à trois valeurs. « Non établi » ne signifie pas « faux ». Si des axiomes contradictoires sont présents, la logique classique peut entraîner une déduction triviale de toute proposition : la cohérence doit donc être examinée.
+Dans \(\mathscr A_{\tau}^{E}\), les expressions de l'idéal doivent donc être formulées comme des propriétés de réalisations envisagées ou de trajectoires possibles, et non comme des affirmations selon lesquelles le monde possède déjà ces propriétés.
 
-Les propositions concernant **l'idéal** ne doivent pas être prises pour des faits déjà réalisés. Un langage adapté peut exprimer des propriétés recherchées, des relations d'admissibilité ou des orientations, sans affirmer leur satisfaction actuelle.
-
-### 2.2. Population de référence
-
-La population peut être exprimée par des énoncés de domaine, par exemple un prédicat \(P(s)\), avec des unités statistiques, variables, domaines de valeurs et relations pertinentes. Une énumération exhaustive n'est pas nécessaire. Les propriétés peuvent demeurer inconnues ou partiellement spécifiées.
-
-Une source d'apprentissage est un ensemble d'observations disponibles ; elle ne définit pas automatiquement P. Le dataset, ses variables effectivement mesurées et ses distributions empiriques ne font pas partie des constituants de (M1).
-
-## 3. Mission, modèles mathématiques et réalisations
-
-Lorsque sa sémantique est définie, la théorie admet un ensemble de modèles mathématiques :
+Par exemple, une condition portant sur deux trajectoires de sécurité publique peut s'écrire :
 
 \[
-\operatorname{Mod}(\mathfrak m_t).
-\tag{M3}
+C(\rho_2)\leq C(\rho_1)
 \]
 
-Un *modèle mathématique* est ici une interprétation satisfaisant les énoncés ; ce n'est pas automatiquement un modèle d'IA. Des modèles compatibles avec des propriétés encore incomplètes ne sont pas automatiquement des réalisations véritables ou suffisantes de l'entreprise.
+lorsque \(C\), \(\rho_1\), \(\rho_2\) et les conditions de comparaison sont définis. Cette relation exprime une comparaison mathématique entre deux trajectoires. Elle n'affirme pas que la ville a effectivement suivi \(\rho_2\).
 
-Nous distinguons strictement :
+Selon la Mission, on peut employer des relations d'admissibilité, des relations d'équivalence, des contraintes, des propriétés de fonctions ou des relations d'orientation.
+
+Aucune logique modale particulière n'est imposée à toutes les Missions. La distinction entre l'idéal et le réel est portée par la sémantique des énoncés et leur typage. Une propriété souhaitée ne doit donc pas être interprétée automatiquement comme une vérité déjà réalisée.
+
+## 4. La connaissance incomplète est normale
+
+La formulation de la Mission peut être partielle. Pour une proposition bien formée \(\varphi\), dans une théorie cohérente et avec une conséquence logique classique, trois situations sont possibles :
+
+\[
+\boxed{
+\begin{cases}
+\mathfrak m_{\tau}\models\varphi
+& \text{propriété établie},\\
+\mathfrak m_{\tau}\models\neg\varphi
+& \text{propriété réfutée},\\
+\mathfrak m_{\tau}\not\models\varphi
+\ \land\
+\mathfrak m_{\tau}\not\models\neg\varphi
+& \text{propriété indéterminée}.
+\end{cases}
+}
+\]
+
+Il ne s'agit pas d'une nouvelle logique à trois valeurs : ces expressions distinguent les conséquences établies, réfutées et non décidées dans une logique classique cohérente.
+
+Une caractéristique inconnue de la Mission n'est donc pas automatiquement considérée comme inexistante. Une Mission dont la formulation comporte des propriétés indéterminées n'est pas, pour cette seule raison, invalide.
+
+La cohérence doit néanmoins être examinée : dans une théorie classique contradictoire, toute proposition peut être déduite.
+
+## 5. La Mission ne se confond pas avec ses réalisations
+
+Nous conservons quatre notions distinctes :
 
 \[
 \boxed{
 \text{Mission}
-\ne \mathfrak m_t
-\ne \operatorname{Mod}(\mathfrak m_t)
-\ne \text{réalisation particulière}.
+\neq
+\text{Formulation de Mission}
+\neq
+\text{Modèles mathématiques compatibles}
+\neq
+\text{Réalisations effectives}
 }
-\tag{M4}
 \]
 
-La Mission est l'entreprise poursuivie ; \(\mathfrak m_t\) est sa formulation actuelle ; \(\operatorname{Mod}(\mathfrak m_t)\) représente ses interprétations mathématiques compatibles ; une réalisation particulière est un résultat effectivement déterminé ou accompli.
+Une formulation peut admettre plusieurs modèles mathématiques. Toutefois, un modèle qui satisfait les conditions actuellement connues ne satisfait pas nécessairement l'intégralité de l'idéal, car certaines propriétés peuvent encore être inconnues.
 
-L'idéal peut admettre plusieurs réalisations pertinentes, une solution inconnue ou un horizon que l'on poursuit sans état parfait atteignable. La Mission n'est donc pas définie comme \(\arg\min L\) ni comme l'ensemble supposé connu de ses solutions.
+### Exemple : relation affine
 
-## 4. Exemple : déterminer une relation affine
-
-Soit la population de référence :
+Nous voulons déterminer une relation de la forme :
 
 \[
-O=[0,100].
+f(x)=ax+b,\qquad x\in O.
 \]
 
-La structure recherchée est une relation affine :
+La Mission peut exprimer cette structure sans préciser les coefficients. Plusieurs fonctions sont alors compatibles avec cette connaissance.
+
+Si de nouvelles propriétés deviennent connues, certaines fonctions peuvent être écartées. Si une réalisation particulière est déterminée, elle ne remplace pas la Mission. Une autre réalisation peut également contribuer à l'entreprise sans créer automatiquement une nouvelle Mission.
+
+Cette distinction vaut aussi pour les organisations, les distributions, les trajectoires et les autres formes mathématiques.
+
+## 6. L'évolution de la Mission
+
+Il faut distinguer deux phénomènes :
+
+- **Évolution de la compréhension :** nous apprenons à mieux caractériser la même entreprise.
+- **Évolution de l'entreprise :** son idéal ou son périmètre change effectivement.
+
+Dans le premier cas, nous avons des formulations successives :
 
 \[
-\exists a,b\in\mathbb R,\qquad
-\forall x\in O,\ f(x)=ax+b,
-\quad f:O\to\mathbb R.
-\tag{M5}
+\mathfrak m_{\tau_0},
+\mathfrak m_{\tau_1},
+\mathfrak m_{\tau_2},\ldots
 \]
 
-La formule **exprime l'allure** de la relation sans déterminer les coefficients et sans dépendre d'un dataset ni d'un modèle particulier. Elle peut appartenir à l'Horizon lorsqu'elle constitue une propriété établie de l'entreprise ; si elle est seulement une hypothèse de recherche, ce statut doit être conservé.
+Une formulation peut être enrichie, précisée ou corrigée. Si les langages successifs diffèrent, leur comparaison exige une traduction ou une interprétation mathématique appropriée.
 
-Une conséquence déductible de (M5) est :
+Nous n'imposons pas une inclusion monotone telle que :
 
 \[
-\forall x,y\in O,\quad
-f\left(\frac{x+y}{2}\right)
-=\frac{f(x)+f(y)}2.
-\tag{M6}
+\mathscr A_{\tau_0}\subseteq\mathscr A_{\tau_1},
 \]
 
-Ainsi, **la Mission peut déjà intervenir dans des calculs sans solution connue**.
+car une compréhension nouvelle peut aussi invalider une interprétation antérieure.
 
-Une connaissance nouvelle établissant que la relation est strictement croissante peut conduire à préciser la théorie par \(a>0\). Si des valeurs vérifiées établissent \(f(0)=3\) et \(f(10)=23\), on obtient \(a=2\), \(b=3\) et la réalisation particulière \(f(x)=2x+3\). Cette fonction n'est pas la Mission initiale. Plusieurs fonctions peuvent satisfaire l'allure affine tout en n'étant pas toutes correctes pour le phénomène réel.
+La continuité de la Mission doit être préservée ou justifiée. Elle ne résulte pas de la seule ressemblance de deux formules. La Mission reste une entreprise identifiable dont la compréhension mathématique évolue, sans qu'il soit nécessaire de connaître à l'avance toutes ses formulations futures.
 
-## 5. Exemple : le maire et la criminalité
+## 7. Une Mission peut orienter plusieurs travaux, Finalités et Tâches
 
-**P — Portée :** situations de criminalité et de sécurité publique de la ville, avec leurs variations territoriales, sociales et temporelles.
+Les exercices sur les parcelles illustrent qu'une même entreprise peut être abordée par plusieurs travaux.
 
-**E — Horizon :** combattre durablement la criminalité et améliorer la sécurité des habitants, en tenant compte des autres exigences applicables, sans présupposer la politique efficace.
+Dans le cas des parcelles, l'entreprise considérée peut porter sur :
 
-Les réalisations pertinentes peuvent être des interventions, organisations ou **trajectoires** \(\rho\), dont plusieurs peuvent être compatibles avec la Mission. Si l'on dispose de grandeurs pertinentes et comparables — criminalité \(C(\rho)\), préjudices \(V(\rho)\), atteintes aux droits \(J(\rho)\) — on peut exprimer une relation partielle d'orientation :
+- l'estimation des prix ;
+- l'organisation territoriale ;
+- ou une entreprise plus large comprenant les deux.
 
-\[
-\rho_1\preceq_E\rho_2
-\quad\Longleftarrow\quad
-\begin{cases}
-C(\rho_2)\le C(\rho_1),\\
-V(\rho_2)\le V(\rho_1),\\
-J(\rho_2)\le J(\rho_1).
-\end{cases}
-\tag{M7}
-\]
+Dans ce dernier cas, une seule théorie de Mission peut contenir des propriétés relatives à la valeur et à l'organisation. Les travaux d'apprentissage peuvent ensuite avoir des Finalités et des Tâches différentes.
 
-(M7) n'est **ni une équation normative TL, ni une définition exhaustive de la sécurité** : elle illustre une relation d'orientation lorsque les trois mesures existent et que les trajectoires sont effectivement comparables. Certaines trajectoires restent incomparables. Plusieurs approches différentes peuvent contribuer à l'Horizon ; aucune solution unique n'est imposée.
+La représentation de la Mission n'impose donc pas qu'une entreprise corresponde nécessairement à un seul travail, à une seule Finalité ou à une seule Tâche. Inversement, deux Missions distinctes peuvent utiliser la même population ou les mêmes sources.
 
-## 6. Variabilité des formes mathématiques
+Le découpage en Missions dépend de l'entreprise et de sa portée, et non de la classification des méthodes d'apprentissage. Lorsque plusieurs travaux partagent une Mission, ils peuvent exploiter les fragments pertinents de sa théorie sans que ces fragments deviennent automatiquement de nouvelles Missions.
 
-La même construction (M1) peut exprimer des entreprises différentes :
+## 8. Conditions d'exploitabilité mathématique
 
-| Entreprise | Formes mathématiques adaptées |
+La formule (M) donne une représentation unique. Elle ne signifie toutefois pas que tous les calculs sont possibles pour toute Mission.
+
+| Opération | Condition mathématique |
 |---|---|
-| Estimation | Fonctions, relations quantitatives, équations et propriétés de variation |
-| Détection visuelle de pathologies | Situations, états et conclusions diagnostiques, relations cliniques, invariances justifiées |
-| Organisation territoriale | Graphes, partitions, voisinages et propriétés relationnelles |
-| Communication textuelle | Structures symboliques et relations de fidélité sémantique |
-| Irrigation | États, transitions, trajectoires, contraintes physiques et orientations temporelles |
+| Déterminer l'appartenance à \(P\) | Conditions d'appartenance suffisamment définies |
+| Déduire une propriété | Règles logiques et expressions interprétables |
+| Vérifier la cohérence | Fragment théorique disposant d'une procédure adaptée |
+| Examiner une réalisation | Propriétés de satisfaction définies |
+| Comparer deux réalisations | Relation de comparaison applicable |
+| Comparer deux formulations | Langages compatibles ou interprétation entre eux |
 
-Ces formes ne constituent pas des Missions différentes au sens de la définition mathématique ; elles sont des **langages appropriés pour caractériser des Horizons différents sur leurs populations**. Aucune fonction objectif scalaire, aucune métrique universelle, aucune modalité informatique et aucun optimum connu ne sont exigés.
+Une réponse peut rester indéterminée.
 
-## 7. Compréhension évolutive de la Mission
+Pour l'estimation immobilière, une invariance par rapport à un indice indirect peut être déduite si elle figure parmi les propriétés établies de l'entreprise. Pour l'irrigation, des relations entre situations et trajectoires peuvent être étudiées lorsque la dynamique pertinente est connue.
 
-Une Mission peut être formulée, puis comprise, précisée et corrigée progressivement. Les formulations connues peuvent être exprimées comme une famille :
+Aucune fonction de coût universelle n'est décrétée pour rendre artificiellement calculables toutes les Missions. La représentation mathématique peut donc être constituée alors que certaines propriétés ne disposent pas encore d'une procédure de décision ou de calcul.
+
+## 9. Compatibilité avec la théorie TL
+
+Le chapitre scientifique sur la finalité et la téléologie évolutive utilise notamment les notations :
 
 \[
-(\mathfrak m_t)_{t\in I}.
-\tag{M8}
+\mathcal F,\qquad
+\mathcal G,\qquad
+\mathcal{TLS},\qquad
+d_{\mathrm{réal}}.
 \]
 
-Cette expression concerne **les états de formulation de la même entreprise lorsque leur continuité est établie** ; elle n'exige pas que les états futurs soient connus. Une révision peut enrichir, préciser, remplacer ou retirer des énoncés. L'évolution n'est donc pas nécessairement monotone : \(\mathscr A_t\subseteq\mathscr A_{t+1}\) n'est pas une condition universelle.
+Ces notations conservent leurs significations scientifiques. La présente représentation utilise :
 
-Lorsque \(\mathscr L_t\) change, une comparaison rigoureuse entre formulations exige une interprétation ou une traduction explicite entre langages. La proximité syntaxique ne prouve pas, à elle seule, l'identité de l'entreprise.
+\[
+\mathfrak m_{\tau},\qquad
+\mathscr L_{\tau},\qquad
+\mathscr A_{\tau}^{P},\qquad
+\mathscr A_{\tau}^{E}.
+\]
 
-Distinguer :
+Nous évitons ainsi de réaffecter les symboles de l'espace des buts, de l'espace des états ou des mécanismes téléologiques. La Mission ne devient ni une région de buts, ni une distance de réalisation, ni une fonction d'optimisation.
 
-1. **Précision de la formulation** : évolution de ce que nous savons de la même Mission.
-2. **Transformation de la Mission** : changement substantiel de l'entreprise ou de sa Portée.
-3. **Réalisation ou découverte** : résultat obtenu dans la poursuite de l'entreprise.
+Elle demeure conceptuellement première. Les mécanismes téléologiques existants pourront être étudiés ultérieurement dans leur relation à la Mission, mais cette relation n'est pas décrétée automatiquement par la présente formalisation.
 
-La continuité de l'entreprise ne peut pas être définie arbitrairement par un identifiant, une similarité de formules ou la simple addition de contraintes.
+## 10. Résultat consolidé
 
-## 8. Calculs permis et limites
-
-La théorie ouverte (M1) sert de référence à des opérations mathématiques **lorsqu'une interprétation et une méthode adaptée existent** :
-
-- **Déduction** des propriétés découlant des énoncés de Portée et d'Horizon.
-- **Appartenance** d'une situation à la population, lorsque les conditions suffisent à la décider.
-- **Compatibilité** d'une proposition de réalisation avec les propriétés connues.
-- **Comparaison partielle** de réalisations si l'Horizon définit une relation appropriée.
-- **Examen de cohérence** des énoncés connus.
-- **Révision** et comparaison de formulations successives.
-
-Une formule non interprétée ou une propriété indécidable ne devient pas calculable par sa seule inscription dans la théorie. La fermeture déductive n'est pas nécessairement calculable exhaustivement. Les résultats peuvent rester indéterminés. Ces opérations sont des mathématiques générales, **pas de nouveaux opérateurs scientifiques TL**.
-
-## 9. Concordance avec les notations et frontières du manuscrit
-
-La théorie de référence présente une Mission pouvant dépasser les connaissances initiales du Maître et dont la solution n'est pas présupposée. Le chapitre de finalité évolutive traite de buts dynamiques, hiérarchisés et contextualisés. Notre représentation n'identifie **ni la Mission ni l'Horizon** aux régions de buts déjà notées \(\mathcal G\) dans les mathématiques téléologiques, ni aux distances de réalisation définies pour ces buts.
-
-| Notation | Réservation |
-|---|---|
-| \(\mathfrak m_t\) | Formulation mathématique de la Mission à l'état de compréhension \(t\) |
-| \(\mathscr L_t\), \(\mathscr A_t^P\), \(\mathscr A_t^E\) | Langage et énoncés de cette formulation |
-| \(\operatorname{Cn}\), \(\operatorname{Mod}\) | Constructions de logique mathématique, non opérateurs TL |
-| \(P\), \(E\) | Désignations conceptuelles locales : Portée et Horizon ; **pas** une réaffectation de \(\mathcal P\) ou \(\mathcal E\) |
-| \(\mathcal M\), \(\mathcal F\), \(\mathcal G\), \(\mathcal{TLS}\) | Notations présentes dans les sources théoriques ; aucune signification nouvelle ici |
-
-Les variables \(f,O,\rho,C,V,J\) sont locales aux exemples. Aucune nouvelle entité ni aucun neuvième objet fondamental TL n'est introduit.
-
-## 10. Expression consolidée
-
-**La Mission est une entreprise orientée sur une population de référence, dont la représentation mathématique est une théorie formelle ouverte et évolutive. Elle réunit les énoncés de Portée et d'Horizon dans un seul langage typé, sans présupposer la connaissance exhaustive de l'idéal, les réalisations qui le satisferont ni leur unicité.**
+### Mission — représentation mathématique
 
 \[
 \boxed{
-\mathfrak m_t =
+\mathfrak m_{\tau}
+=
 \left\langle
-\mathscr L_t,\;
-\operatorname{Cn}_{\mathscr L_t}
-\bigl(\mathscr A_t^P\cup\mathscr A_t^E\bigr)
-\right\rangle.
+\mathscr L_{\tau},
+\left(
+\mathscr A_{\tau}^{P},
+\mathscr A_{\tau}^{E}
+\right),
+\operatorname{Cn}_{\mathscr L_{\tau}}
+\left(
+\mathscr A_{\tau}^{P}
+\cup
+\mathscr A_{\tau}^{E}
+\right)
+\right\rangle
 }
 \]
 
-C'est une formalisation mathématique de la conception étudiée, **pas une équation déjà publiée ou démontrée par le manuscrit TL**. Elle ne modifie ni les mathématiques normatives existantes ni les conditions scientifiques d'exécution de TL.
+La Mission est une entreprise orientée sur une population, dont les propriétés connues constituent une théorie mathématique ouverte et évolutive.
+
+Les exigences de conception qui en résultent sont :
+
+- **Primauté :** la Mission existe indépendamment de ses participants et de leurs travaux.
+- **Unité :** E et P constituent une seule entreprise mathématiquement exprimée.
+- **Ouverture :** la solution et certaines propriétés de l'idéal peuvent demeurer inconnues.
+- **Pluralité :** plusieurs réalisations, Finalités et Tâches peuvent contribuer à une même Mission.
+- **Évolutivité :** la compréhension peut être enrichie ou corrigée.
+- **Exploitabilité :** les propriétés suffisamment définies peuvent intervenir dans des calculs mathématiques.
+- **Universalité :** aucune famille de modèles d'IA, modalité ou fonction objectif n'est imposée.
+
+### Décision de clôture
+
+La conception mathématique de la Mission est considérée comme suffisamment consolidée pour servir de fondation à la suite du travail.
+
+Cela signifie que la représentation proposée peut exprimer les six exercices et leurs différentes organisations en Missions et travaux. Cela ne signifie pas qu'un nouveau théorème de Tradition Learning a été démontré, ni que toutes les propriétés possibles de toute Mission ont été établies formellement.
+
+La construction relève de la conception mathématique. Elle est présentée comme compatible avec les distinctions vérifiées dans le manuscrit, mais elle ne constitue pas encore un résultat normatif de cette théorie.
+
+Cette étape peut donc être close. La suite du travail portera sur le **Problème**, étudié comme un concept computationnel distinct de la Mission, susceptible d'en dépendre sans se confondre avec elle.
 
 ## Références internes
 
