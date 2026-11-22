@@ -31,16 +31,8 @@ Nous utilisons une théorie formelle typée, ouverte et orientée. À un état d
 =
 \left\langle
 \mathscr L_{\tau},
-\left(
 \mathscr A_{\tau}^{P},
 \mathscr A_{\tau}^{E}
-\right),
-\operatorname{Cn}_{\mathscr L_{\tau}}
-\left(
-\mathscr A_{\tau}^{P}
-\cup
-\mathscr A_{\tau}^{E}
-\right)
 \right\rangle
 }
 \tag{M}
@@ -56,7 +48,7 @@ Nous utilisons une théorie formelle typée, ouverte et orientée. À un état d
 
 C'est une seule construction mathématique, et non deux objets indépendants simplement assemblés. La distinction entre \(\mathscr A_{\tau}^{P}\) et \(\mathscr A_{\tau}^{E}\) est conservée explicitement, tandis que leur réunion permet de les exploiter conjointement dans les déductions.
 
-Chaque énoncé garde ainsi sa signification, mais les conséquences mathématiques peuvent faire intervenir simultanément le Périmètre et l'Horizon.
+Chaque énoncé garde ainsi sa signification, mais les conséquences mathématiques peuvent faire intervenir simultanément le Périmètre et l'Horizon. Lorsque le langage et le système de déduction sont fixés, cette opération s'écrit \\(\\operatorname{Cn}_{\\mathscr L_{\\tau}}(\\mathscr A_{\\tau}^{P}\\cup\\mathscr A_{\\tau}^{E})\\).
 
 Cette construction utilise des outils de logique mathématique existants. Elle n'introduit ni un neuvième objet fondamental TL ni une nouvelle équation de téléologie. La fermeture par conséquence logique ne garantit pas que toutes les conséquences soient calculables par un algorithme effectif ; cela dépend du fragment logique et des méthodes disponibles.
 
