@@ -44,7 +44,7 @@ Nous utilisons une théorie formelle typée, ouverte et orientée. À un état d
 | \(\Sigma_{\tau}\) | Langage mathématique typé permettant de caractériser l'entreprise |
 | \(\Gamma_{\tau}^{P}\) | Propriétés connues du Périmètre |
 | \(\Gamma_{\tau}^{E}\) | Propriétés connues de l'Horizon |
-| \(\operatorname{Cn}_{\Sigma_{\tau}}\) | Fermeture par conséquence logique dans le langage et le système de déduction retenus |
+| Conséquence logique dérivée | Fermeture obtenue à partir de \(\\Gamma_{\\tau}^{P}\\cup\\Gamma_{\\tau}^{E}\) dans le langage et le système de déduction retenus ; elle n'est pas un constituant supplémentaire du triplet |
 
 C'est une seule construction mathématique, et non deux objets indépendants simplement assemblés. La distinction entre \(\Gamma_{\tau}^{P}\) et \(\Gamma_{\tau}^{E}\) est conservée explicitement, tandis que leur réunion permet de les exploiter conjointement dans les déductions.
 
