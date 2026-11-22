@@ -31,8 +31,8 @@ Nous utilisons une théorie formelle typée, ouverte et orientée. À un état d
 =
 \left\langle
 \Sigma_{\tau},
-\mathscr A_{\tau}^{P},
-\mathscr A_{\tau}^{E}
+\Gamma_{\tau}^{P},
+\Gamma_{\tau}^{E}
 \right\rangle
 }
 \tag{M}
@@ -42,13 +42,13 @@ Nous utilisons une théorie formelle typée, ouverte et orientée. À un état d
 |---|---|
 | \(\mathfrak m_{\tau}\) | Formulation mathématique de la Mission à l'état de compréhension \(\tau\) |
 | \(\Sigma_{\tau}\) | Langage mathématique typé permettant de caractériser l'entreprise |
-| \(\mathscr A_{\tau}^{P}\) | Propriétés connues du Périmètre |
-| \(\mathscr A_{\tau}^{E}\) | Propriétés connues de l'Horizon |
+| \(\Gamma_{\tau}^{P}\) | Propriétés connues du Périmètre |
+| \(\Gamma_{\tau}^{E}\) | Propriétés connues de l'Horizon |
 | \(\operatorname{Cn}_{\Sigma_{\tau}}\) | Fermeture par conséquence logique dans le langage et le système de déduction retenus |
 
-C'est une seule construction mathématique, et non deux objets indépendants simplement assemblés. La distinction entre \(\mathscr A_{\tau}^{P}\) et \(\mathscr A_{\tau}^{E}\) est conservée explicitement, tandis que leur réunion permet de les exploiter conjointement dans les déductions.
+C'est une seule construction mathématique, et non deux objets indépendants simplement assemblés. La distinction entre \(\Gamma_{\tau}^{P}\) et \(\Gamma_{\tau}^{E}\) est conservée explicitement, tandis que leur réunion permet de les exploiter conjointement dans les déductions.
 
-Chaque énoncé garde ainsi sa signification, mais les conséquences mathématiques peuvent faire intervenir simultanément le Périmètre et l'Horizon. Lorsque le langage et le système de déduction sont fixés, cette opération s'écrit \(\\operatorname{Cn}_{\\Sigma_{\\tau}}(\\mathscr A_{\\tau}^{P}\\cup\\mathscr A_{\\tau}^{E})\).
+Chaque énoncé garde ainsi sa signification, mais les conséquences mathématiques peuvent faire intervenir simultanément le Périmètre et l'Horizon. Lorsque le langage et le système de déduction sont fixés, cette opération s'écrit \(\\operatorname{Cn}_{\\Sigma_{\\tau}}(\\Gamma_{\\tau}^{P}\\cup\\Gamma_{\\tau}^{E})\).
 
 Cette construction utilise des outils de logique mathématique existants. Elle n'introduit ni un neuvième objet fondamental TL ni une nouvelle équation de téléologie. La fermeture par conséquence logique ne garantit pas que toutes les conséquences soient calculables par un algorithme effectif ; cela dépend du fragment logique et des méthodes disponibles.
 
@@ -60,7 +60,7 @@ Considérons l'exemple d'un maire qui cherche à combattre la criminalité. Il f
 - **La réduction recherchée de la criminalité :** une propriété de l'Horizon.
 - **Une réduction effectivement obtenue :** un résultat constaté.
 
-Dans \(\mathscr A_{\tau}^{E}\), les expressions de l'idéal doivent donc être formulées comme des propriétés de réalisations envisagées ou de trajectoires possibles, et non comme des affirmations selon lesquelles le monde possède déjà ces propriétés.
+Dans \(\Gamma_{\tau}^{E}\), les expressions de l'idéal doivent donc être formulées comme des propriétés de réalisations envisagées ou de trajectoires possibles, et non comme des affirmations selon lesquelles le monde possède déjà ces propriétés.
 
 Par exemple, une condition portant sur deux trajectoires de sécurité publique peut s'écrire :
 
@@ -151,7 +151,7 @@ Une formulation peut être enrichie, précisée ou corrigée. Si les langages su
 Nous n'imposons pas une inclusion monotone telle que :
 
 \[
-\mathscr A_{\tau_0}\subseteq\mathscr A_{\tau_1},
+\Gamma_{\tau_0}\subseteq\Gamma_{\tau_1},
 \]
 
 car une compréhension nouvelle peut aussi invalider une interprétation antérieure.
@@ -209,8 +209,8 @@ Ces notations conservent leurs significations scientifiques. La présente repré
 \[
 \mathfrak m_{\tau},\qquad
 \Sigma_{\tau},\qquad
-\mathscr A_{\tau}^{P},\qquad
-\mathscr A_{\tau}^{E}.
+\Gamma_{\tau}^{P},\qquad
+\Gamma_{\tau}^{E}.
 \]
 
 Nous évitons ainsi de réaffecter les symboles de l'espace des buts, de l'espace des états ou des mécanismes téléologiques. La Mission ne devient ni une région de buts, ni une distance de réalisation, ni une fonction d'optimisation.
@@ -228,14 +228,14 @@ Elle demeure conceptuellement première. Les mécanismes téléologiques existan
 \left\langle
 \Sigma_{\tau},
 \left(
-\mathscr A_{\tau}^{P},
-\mathscr A_{\tau}^{E}
+\Gamma_{\tau}^{P},
+\Gamma_{\tau}^{E}
 \right),
 \operatorname{Cn}_{\Sigma_{\tau}}
 \left(
-\mathscr A_{\tau}^{P}
+\Gamma_{\tau}^{P}
 \cup
-\mathscr A_{\tau}^{E}
+\Gamma_{\tau}^{E}
 \right)
 \right\rangle
 }
