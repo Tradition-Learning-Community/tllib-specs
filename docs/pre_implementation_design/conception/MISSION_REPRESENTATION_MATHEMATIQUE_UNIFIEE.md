@@ -44,11 +44,11 @@ Nous utilisons une théorie formelle typée, ouverte et orientée. À un état d
 | \(\Sigma_{\tau}\) | Langage mathématique typé permettant de caractériser l'entreprise |
 | \(\Gamma_{\tau}^{P}\) | Propriétés connues du Périmètre |
 | \(\Gamma_{\tau}^{E}\) | Propriétés connues de l'Horizon |
-| Conséquence logique dérivée | Fermeture obtenue à partir de \(\\Gamma_{\\tau}^{P}\\cup\\Gamma_{\\tau}^{E}\) dans le langage et le système de déduction retenus ; elle n'est pas un constituant supplémentaire du triplet |
+| Conséquence logique dérivée | Fermeture obtenue à partir de \(\Gamma_{\tau}^{P}\cup\Gamma_{\tau}^{E}\) dans le langage et le système de déduction retenus ; elle n'est pas un constituant supplémentaire du triplet |
 
 C'est une seule construction mathématique, et non deux objets indépendants simplement assemblés. La distinction entre \(\Gamma_{\tau}^{P}\) et \(\Gamma_{\tau}^{E}\) est conservée explicitement, tandis que leur réunion permet de les exploiter conjointement dans les déductions.
 
-Chaque énoncé garde ainsi sa signification, mais les conséquences mathématiques peuvent faire intervenir simultanément le Périmètre et l'Horizon. Lorsque le langage et le système de déduction sont fixés, cette opération s'écrit \(\\operatorname{Cn}_{\\Sigma_{\\tau}}(\\Gamma_{\\tau}^{P}\\cup\\Gamma_{\\tau}^{E})\).
+Chaque énoncé garde ainsi sa signification, mais les conséquences mathématiques peuvent faire intervenir simultanément le Périmètre et l'Horizon. Lorsque le langage et le système de déduction sont fixés, cette opération s'écrit \(\operatorname{Cn}_{\Sigma_{\tau}}(\Gamma_{\tau}^{P}\cup\Gamma_{\tau}^{E})\).
 
 Cette construction utilise des outils de logique mathématique existants. Elle n'introduit ni un neuvième objet fondamental TL ni une nouvelle équation de téléologie. La fermeture par conséquence logique ne garantit pas que toutes les conséquences soient calculables par un algorithme effectif ; cela dépend du fragment logique et des méthodes disponibles.
 
