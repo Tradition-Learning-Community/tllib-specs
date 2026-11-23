@@ -68,7 +68,29 @@ Les instances peuvent partager un critère d'apprentissage et un type d'algorith
 
 L'analogie humaine équivalente est une même Pratique de pompes adaptée à plusieurs Disciples (400 sur une main, 100 avec pauses, 10 ordinaires). Ce sont des variations de configuration et de réalisation d'un moyen d'apprentissage.
 
-### 2.5. Conséquences envisagées pour `tllib`
+### 2.5. Analogies de transmission et de configuration
+
+Les exemples humains ont servi à identifier l'invariant de la **Pratique** sans transposer littéralement à l'IA une intention humaine, une croyance, un corps ou un rapport moral. Ils montrent qu'un Maître peut communiquer une activité, qu'elle peut être reprise par plusieurs Disciples et que sa configuration effective varie.
+
+**Exercice de pompes.** Une même consigne générale (« pratiquer les pompes ») peut devenir trois instances : 400 pompes avec une main pour un Disciple, 100 pompes avec deux pauses pour un autre, 10 pompes ordinaires pour un troisième. L'activité est apparentée ; l'intensité, la manière de procéder, les pauses et les contraintes sont adaptées. Il serait faux d'en conclure que la simple prescription a déjà produit une transformation.
+
+**Enseignement par questionnement.** Dans l'analogie Socrate–Platon, le Maître peut provoquer une activité de réflexion par des questions successives. La Pratique n'est pas nécessairement une démonstration suivie d'une reproduction : elle peut organiser une exploration et laisser ouverte la réponse que le Disciple découvrira.
+
+**Entraînement Shaolin.** Dans l'analogie du Maître et de son Disciple Jackie, le Maître peut prescrire des exercices, observer leur exécution, corriger les gestes et adapter la difficulté. La définition de l'exercice, sa configuration et sa réalisation sont distinguables.
+
+**Récit religieux de Pierre marchant sur l'eau.** Employé exclusivement comme analogie de transmission, cet exemple illustre une consigne visant l'exercice et le développement d'une disposition du Disciple. Il ne signifie pas que l'IA doit reproduire la foi, une intention spirituelle ou un phénomène surnaturel.
+
+**Correspondance IA.** Deux Disciples peuvent recevoir une même Pratique de classification tout en utilisant des architectures à deux et sept couches, des réglages différents, des ensembles de données différents, des algorithmes ou critères adaptés. Des différences de paramètres, de ressources, de mécanismes et de conditions peuvent influer sur les acquisitions. Inversement, des configurations proches n'impliquent pas une expérience identique.
+
+Ces exemples justifient la possibilité de **définir une Pratique, en créer des instances et les associer à plusieurs Disciples**, sans imposer une configuration universelle ni inventer un objet scientifique « instance de Pratique » supplémentaire.
+
+### 2.6. Définition, exécution et résultat : trois faits distincts
+
+Une Pratique peut être **définie** sans être réalisée ; elle peut être **réalisée** sans apprentissage mesurable ; un apprentissage informatique peut être constaté sans que toutes les conditions d'une transformation scientifique TL soient satisfaites.
+
+L'algorithme, le critère, le mécanisme, la configuration et les ressources ne se confondent pas nécessairement. Selon le paradigme, certains éléments sont incorporés à un autre, ou dépendent des outils mis à disposition. Le cas d'un entraînement par gradient n'est pas une structure générale obligatoire pour toute Pratique TL.
+
+### 2.7. Conséquences envisagées pour `tllib`
 
 La conception peut prévoir des moyens de définir, configurer, instancier, associer, mobiliser et poursuivre une Pratique. L'API, le cycle de vie exact, le partage des ressources, les providers et les preuves d'exécution seront déterminés **à partir du code existant et des contrats applicables**, sans promesse d'une interface déjà implémentée.
 
@@ -122,6 +144,66 @@ La bibliothèque doit pouvoir **associer une Expérience vécue à une unité d'
 - la démonstration que chaque acquis sera réutilisé.
 
 Le mode concret d'accès, de conservation, d'extraction ou de référence aux supports dépendra des ressources, des providers et des contrats réellement disponibles. Une référence à des poids ou à un checkpoint **ne prouve pas à elle seule** qu'une Expérience vécue scientifiquement conforme a été établie.
+
+### 3.6. Analogie du foufou : des éléments et du processus à ce qui est retenu
+
+L'analogie du **foufou** a servi à déplacer l'attention des micro-événements vers le **résultat intégré** d'une transformation.
+
+- La farine et l'eau participent à la préparation ; le feu et la cuisson interviennent dans la transformation.
+- Les grains de farine, considérés dans l'analogie comme les « molécules » du contenu, ne restent pas nécessairement individuellement reconnaissables dans le résultat.
+- On ne décrit pas le foufou final en récitant chaque seconde de cuisson ni en faisant l'inventaire de tous les gestes et échanges thermiques.
+- Ce qui nous intéresse est **ce qui résulte de la préparation et demeure**.
+
+L'analogie n'identifie pas littéralement un schème à une molécule physique. Elle explique qu'une multitude de contenus et d'interactions peuvent contribuer à un acquis intégré sans qu'il soit possible ou nécessaire de séparer toutes leurs contributions.
+
+Dans une unité d'apprentissage IA, les schèmes sont des **contenus représentationnels internes** ; ils peuvent être acquis ou modifiés, se combiner et se distribuer dans les structures du système. L'Expérience vécue est l'ensemble intégré et conservé de ces contenus à travers un parcours effectif. Elle n'est **ni la farine initiale**, ni le récit exhaustif de la cuisson, ni seulement le nom du récipient qui la contient.
+
+Cette lecture n'interdit pas l'accès aux éléments informatiques qui portent les contenus : pour un réseau neuronal, cela peut inclure les poids, pour un autre système des observations mémorisées ou des structures persistantes.
+
+### 3.7. Analogie de la biographie : une expérience particulière ne raconte pas toute une vie
+
+Une biographie ou un film biographique d'une personnalité présente certains faits, transformations et aspects cohérents de son parcours. Il permet de comprendre cette personne sans prétendre reproduire chaque instant de sa vie.
+
+De même, **`e0` peut être une Expérience vécue de D0 sans représenter tout ce que D0 a vécu ni tous ses schèmes**. Une expérience peut porter sur une pratique, une période ou une partie de ses acquis. D'autres expériences peuvent rendre compte d'autres acquisitions, y compris avec des recouvrements.
+
+La non-exhaustivité ne dispense pas de fidélité : ce que l'expérience représente doit avoir été effectivement acquis ou modifié et conservé ; il ne suffit pas d'attribuer arbitrairement à D0 un contenu qu'il n'a pas appris.
+
+### 3.8. Exemple : reconnaître chien, tasse et intérieur de maison
+
+Considérons une photographie montrant simultanément **un chien, une tasse et l'intérieur d'une maison**. Ses pixels peuvent rester strictement identiques, tandis que les activités d'apprentissage et les schèmes sollicités ou développés changent :
+
+- reconnaître la présence du chien ;
+- reconnaître la tasse ;
+- reconnaître des caractéristiques de l'intérieur de la maison ;
+- apprendre plusieurs de ces reconnaissances ensemble.
+
+Selon le problème, les exemples, le modèle et la Pratique, l'unité peut acquérir des régularités, des corrélations, des relations spatiales et des abstractions différentes. Certains schèmes peuvent être partagés ; d'autres peuvent être propres à certaines reconnaissances. La photographie n'apporte pas à elle seule des schèmes déjà constitués.
+
+L'Expérience vécue de D0 peut intégrer une partie de ces acquisitions **sans être obligatoirement une liste de schèmes explicitement détectés**. Elle peut également comprendre des corrélations trompeuses, par exemple l'association erronée d'une classe avec un décor ou un appareil de prise de vue.
+
+### 3.9. Exemples mémorisés, états persistants et poids : pas trois catégories concurrentes des schèmes
+
+Lors de la discussion, une séparation initialement proposée entre schèmes, exemples mémorisés et états persistants a été rejetée comme trop rigide.
+
+Un exemple mémorisé, des paramètres appris, une structure d'arbre, une distribution estimée ou une mémoire persistante **peuvent porter des schèmes**, sans qu'il existe une correspondance universelle « un exemple = un schème » ou « un poids = un schème ». Les schèmes désignent le contenu représentationnel interne de l'apprentissage, quel que soit le support numérique concerné.
+
+Quelques cas :
+
+1. **Réseau neuronal profond :** les poids et structures apprises peuvent servir de support à un contenu représentationnel distribué. Ils ne doivent pas être exclus d'une représentation de l'Expérience vécue au seul motif qu'ils sont des paramètres.
+2. **Arbre de décision :** les règles, seuils et branchements peuvent porter des régularités acquises. L'Expérience vécue ne suppose pas un tenseur de poids.
+3. **k-NN ou mémoire d'exemples :** les exemples conservés peuvent soutenir le fonctionnement appris et porter des contenus représentationnels. La conservation des observations ne doit pas être assimilée automatiquement à la copie intégrale de l'expérience.
+4. **Agent apprenant :** une politique, une mémoire ou des valeurs apprises peuvent porter des schèmes relatifs à des situations et relations rencontrées.
+5. **Paramètres initialisés avant l'apprentissage :** leur existence seule ne démontre aucune acquisition issue d'un parcours effectif.
+
+Les supports changent selon les architectures ; **ce que désigne l'Expérience vécue reste l'acquis intégré et conservé**, éventuellement partiel. Aucun détecteur exhaustif de schèmes n'est présupposé.
+
+### 3.10. Plusieurs pratiques, plusieurs expériences, influence ultérieure facultative
+
+Deux Disciples peuvent exécuter une Pratique voisine avec des configurations différentes, puis conserver des expériences distinctes. Une même unité peut aussi intégrer des acquis provenant de plusieurs Pratiques, d'observations ou d'autres interactions. Inversement, un schème peut contribuer à plus d'une expérience représentée.
+
+Il faut distinguer **ce qui a été conservé** de **ce qui est ensuite utilisé**. Un schème conservé peut ne jamais être réactivé, peut être erroné ou n'avoir aucun effet constaté sur les activités ultérieures. Son éventuelle inutilisation ne l'exclut pas de l'Expérience vécue.
+
+Enfin, la modification de poids ou l'amélioration d'un score ne démontre pas automatiquement une transformation scientifique du Disciple selon les contrats TL. La représentation informatique de l'expérience et sa qualification scientifique restent deux opérations distinctes.
 
 ## 4. Articulation entre les objets
 
