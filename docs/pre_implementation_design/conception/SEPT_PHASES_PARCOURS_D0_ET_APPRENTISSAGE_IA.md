@@ -1,10 +1,10 @@
 # Tradition Learning — Parcours de D0 sur les sept phases et articulation avec l'apprentissage IA classique
 
-> **Statut :** note de conception pré-implémentation — proposition de design, non normative.  
-> **Produit :** `tllib` (Tradition Learning Library).  
-> **Périmètre :** un système TL minimal avec M0, D0, C0 et une expérience de régression numérique.  
-> **Date :** 23 novembre 2026.  
-> **Implémentation et tests :** aucun changement de code ni test de conformité exécuté dans le cadre de cette note.  
+> **Statut :** note de conception pré-implémentation — proposition de design, non normative.
+> **Produit :** `tllib` (Tradition Learning Library).
+> **Périmètre :** un système TL minimal avec M0, D0, C0 et une expérience de régression numérique.
+> **Date :** 23 novembre 2026.
+> **Implémentation et tests :** aucun changement de code ni test de conformité exécuté dans le cadre de cette note.
 > **Autorité :** manuscrit scientifique pour la théorie ; snapshot épinglé de `tllib-specs` pour les contrats ; code et documentation de `tllib` pour l'état du produit.
 
 ## Sommaire
@@ -179,8 +179,8 @@ La fonction de perte est **informatique**, pas la mesure universelle d'une phase
 
 ### 5.2. Données et trace entièrement reproductible
 
-**Apprentissage :** alternance de `(1,2)` et `(2,4)` pendant huit mises à jour.  
-**Observation de contrôle :** `(3,6)`, qui n'intervient pas dans les huit mises à jour.  
+**Apprentissage :** alternance de `(1,2)` et `(2,4)` pendant huit mises à jour.
+**Observation de contrôle :** `(3,6)`, qui n'intervient pas dans les huit mises à jour.
 **Observation additionnelle illustrative :** `(4,8)` lors de la réflexion sur l'Autonomisation.
 
 | n | Entrée | Résultat attendu | `w_n` après mise à jour | Placement illustratif dans le parcours |
@@ -216,7 +216,7 @@ Ces nombres **sont démontrables par l'algorithme SGD indiqué**. Ils ne démont
 
 ### 5.4. Deux chronologies reliées, mais non identiques
 
-**Chronologie informatique :** observations → prédiction → perte → gradient → mise à jour des paramètres → mesures ML.  
+**Chronologie informatique :** observations → prédiction → perte → gradient → mise à jour des paramètres → mesures ML.
 **Chronologie TL :** relations entre entités → mobilisation des objets → opérations scientifiques applicables → résultats et régulations → acquis et continuation.
 
 Un même événement informatique peut être une preuve ou une ressource pour plusieurs opérations scientifiques, mais **ne vaut pas leur exécution**.
