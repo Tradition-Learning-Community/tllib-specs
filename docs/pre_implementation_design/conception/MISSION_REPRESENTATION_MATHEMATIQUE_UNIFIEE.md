@@ -1,7 +1,7 @@
 # Mission TL — représentation mathématique unifiée, ouverte et évolutive
 
-**Statut : étude de conception mathématique, non normative.**  
-**Objet :** présenter une représentation mathématique unique de la Mission, indépendante des participants, des ressources, des sources d'apprentissage, des modèles et des travaux particuliers.  
+**Statut : étude de conception mathématique, non normative.**
+**Objet :** présenter une représentation mathématique unique de la Mission, indépendante des participants, des ressources, des sources d'apprentissage, des modèles et des travaux particuliers.
 **Autorité :** le manuscrit scientifique *Tradition Learning*, puis les mathématiques et les contrats publiés dans `tllib-specs`. Ce document ne modifie ni la théorie ni les contrats normatifs.
 
 ## 1. Définition fondamentale
