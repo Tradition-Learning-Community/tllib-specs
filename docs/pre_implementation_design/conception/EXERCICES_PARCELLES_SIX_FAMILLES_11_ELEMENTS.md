@@ -1,7 +1,7 @@
 # Parcelles immobilières — Six exercices IA et leurs onze éléments
 
-**Étude préparatoire sans Tradition Learning (TL) — non normative.**  
-**19 novembre 2026.**  
+**Étude préparatoire sans Tradition Learning (TL) — non normative.**
+**19 novembre 2026.**
 **Statut :** exercices proposés ; aucun modèle immobilier de ce document n'a été entraîné ni évalué ici.
 
 ## Objet et conventions
