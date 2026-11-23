@@ -1956,4 +1956,3 @@ L'étude est **sans TL** et ne prétend pas que les signaux de récompense équi
 
 
 <!-- FIN 06_politique_decision -->
-
