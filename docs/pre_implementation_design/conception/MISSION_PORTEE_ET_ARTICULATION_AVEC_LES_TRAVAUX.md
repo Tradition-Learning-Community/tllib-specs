@@ -1,6 +1,6 @@
 # Mission TL — portée et articulation avec les travaux
 
-**Synthèse de conception complémentaire — 22 novembre 2026**  
+**Synthèse de conception complémentaire — 22 novembre 2026**
 **Statut :** documentation préparatoire non normative. Cette note complète la [représentation mathématique unifiée de la Mission](MISSION_REPRESENTATION_MATHEMATIQUE_UNIFIEE.md) ; elle ne modifie ni le manuscrit théorique ni les contrats de `tllib-specs`.
 
 ## 1. Définition conceptuelle retenue
