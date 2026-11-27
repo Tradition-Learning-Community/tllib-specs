@@ -1,7 +1,7 @@
 # Pré-implémentation — Conception et études expérimentales
 
 **Statut : documentation de travail non normative, en attente de revue et de décision de fusion.**\
-**Périmètre :** les études préparatoires liées à Tradition Learning (TL) et aux modèles d'intelligence artificielle, rassemblées le 15 novembre 2026.
+**Périmètre :** les études préparatoires liées à Tradition Learning (TL) et aux modèles d'intelligence artificielle, rassemblées depuis le 15 novembre 2026.
 
 Ce répertoire conserve les idées, distinctions, hypothèses, questions ouvertes et **résultats expérimentaux sans TL** issus de nos travaux, afin de pouvoir les retrouver avant de décider ce qui mérite une formalisation scientifique ou une implémentation. Les textes de ce dossier ne changent ni la théorie, ni les contrats existants, ni les exigences de conformité.
 
@@ -9,8 +9,13 @@ Ce répertoire conserve les idées, distinctions, hypothèses, questions ouverte
 
 - [`fondements/SCHEMES_NOTES_DE_TRAVAIL.md`](fondements/SCHEMES_NOTES_DE_TRAVAIL.md) — définition de travail des schèmes, acquisition et exploitation, limites de l'observation interne.
 - [`fondements/SIX_FAMILLES_OPERATIONNELLES.md`](fondements/SIX_FAMILLES_OPERATIONNELLES.md) — classification opérationnelle des finalités des modèles IA, sans confondre architectures et paradigmes.
-- [`fondements/MISSION_ENTITES_HUIT_OBJETS_ET_TRADITION.md`](fondements/MISSION_ENTITES_HUIT_OBJETS_ET_TRADITION.md) — compréhension de travail des rôles, de la Mission, des huit objets et des contributions.\n- [`conception/MISSION_REPRESENTATION_MATHEMATIQUE_UNIFIEE.md`](conception/MISSION_REPRESENTATION_MATHEMATIQUE_UNIFIEE.md) — formalisation mathématique de conception de la Mission.\n- [`conception/MISSION_PORTEE_ET_ARTICULATION_AVEC_LES_TRAVAUX.md`](conception/MISSION_PORTEE_ET_ARTICULATION_AVEC_LES_TRAVAUX.md) — définition de la Portée comme population de référence et articulation de la Mission avec les travaux, les variables et les six exercices immobiliers.
+- [`fondements/MISSION_ENTITES_HUIT_OBJETS_ET_TRADITION.md`](fondements/MISSION_ENTITES_HUIT_OBJETS_ET_TRADITION.md) — compréhension de travail des rôles, de la Mission, des huit objets et des contributions.
+- [`conception/MISSION_REPRESENTATION_MATHEMATIQUE_UNIFIEE.md`](conception/MISSION_REPRESENTATION_MATHEMATIQUE_UNIFIEE.md) — formalisation mathématique de conception de la Mission.
+- [`conception/MISSION_PORTEE_ET_ARTICULATION_AVEC_LES_TRAVAUX.md`](conception/MISSION_PORTEE_ET_ARTICULATION_AVEC_LES_TRAVAUX.md) — définition de la Portée comme population de référence et articulation de la Mission avec les travaux, les variables et les six exercices immobiliers.
 - [`conception/CONSTITUTION_ET_FRONTIERES.md`](conception/CONSTITUTION_ET_FRONTIERES.md) — responsabilités de constitution et séparation entre ressources et fonctionnement scientifique.
+- [`conception/PRATIQUE_ET_EXPERIENCE_VECUE_FORMALISATION_COMPUTATIONNELLE.md`](conception/PRATIQUE_ET_EXPERIENCE_VECUE_FORMALISATION_COMPUTATIONNELLE.md) — étude de la Pratique et de l'Expérience vécue.
+- [`conception/CAPACITE_INDIVIDUELLE_FORMALISATION_MATHEMATIQUE_ET_COMPUTATIONNELLE.md`](conception/CAPACITE_INDIVIDUELLE_FORMALISATION_MATHEMATIQUE_ET_COMPUTATIONNELLE.md) — potentiel et réalisabilité d'une Capacité individuelle.
+- [`conception/COMPETENCE_INDIVIDUELLE_FORMALISATION_MATHEMATIQUE_ET_COMPUTATIONNELLE.md`](conception/COMPETENCE_INDIVIDUELLE_FORMALISATION_MATHEMATIQUE_ET_COMPUTATIONNELLE.md) — maîtrise actualisée et manifestations d'une Compétence individuelle.
 - [`conception/QUESTIONS_OUVERTES.md`](conception/QUESTIONS_OUVERTES.md) — points à approfondir avant toute proposition de contrat.
 - [`benchmarks/sans_tl/README.md`](benchmarks/sans_tl/README.md) — protocole et inventaire des six familles ; études intégrales et chronologies enregistrées.
 
