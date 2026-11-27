@@ -201,6 +201,6 @@ Si D0 reçoit **par prescription** Theil–Sen pour P4, nous observons le compor
 
 **Non conclu :** qu'une réussite isolée constitue une Compétence validée ; qu'une méthode externe donne automatiquement la Compétence à D0 ; que les cinq exemples établissent des compétences TL ; que le choix d'un algorithme ou une bonne prédiction prouve une maîtrise générale indépendante de la Pratique.
 
-**Avant l'implémentation :** vérifier les contraintes exactes de reconnaissance, d'actualisation, de domaine de validité et de conformité dans \`maths/\`, \`registry/\` et \`handoff/\`. Les espaces globaux \(\mathcal C_a\) et \(\mathcal C_p\) ont des représentations ambiantes différentes dans les sources ; **aucune application supplémentaire entre ces espaces n'est postulée ici**. Le statut des contrats peut être structurel ou conditionnellement exécutable : une déclaration ne vaut pas démonstration scientifique.
+**Avant l'implémentation :** vérifier les contraintes exactes de reconnaissance, d'actualisation, de domaine de validité et de conformité dans `maths/`, `registry/` et `handoff/`. Les espaces globaux \(\mathcal C_a\) et \(\mathcal C_p\) ont des représentations ambiantes différentes dans les sources ; **aucune application supplémentaire entre ces espaces n'est postulée ici**. Le statut des contrats peut être structurel ou conditionnellement exécutable : une déclaration ne vaut pas démonstration scientifique.
 
-Cette note ne modifie ni le manuscrit, ni les mathématiques publiées, ni les contrats, ni le code de \`tllib\`.
+Cette note ne modifie ni le manuscrit, ni les mathématiques publiées, ni les contrats, ni le code de `tllib`.
