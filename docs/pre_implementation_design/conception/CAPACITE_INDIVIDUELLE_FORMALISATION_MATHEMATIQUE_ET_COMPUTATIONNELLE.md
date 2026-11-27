@@ -14,7 +14,7 @@
 4. [Mathématiques des Compétences](../../../maths/12-competencies/competencies.md), pour la distinction entre potentiel et actualisation.
 5. [Pratique et Expérience vécue — formalisation computationnelle](PRATIQUE_ET_EXPERIENCE_VECUE_FORMALISATION_COMPUTATIONNELLE.md), pour les moyens d'apprentissage et les schèmes ; [Compétence individuelle](COMPETENCE_INDIVIDUELLE_FORMALISATION_MATHEMATIQUE_ET_COMPUTATIONNELLE.md), pour l'autre objet étudié ici.
 
-**Autorité :** le manuscrit gouverne la théorie ; les mathématiques et contrats publiés dans \`tllib-specs\` gouvernent leurs domaines ; cette note constitue une **extension descriptive de travail** et ne modifie aucun axiome, seuil, opérateur, contrat ou classification scientifique.
+**Autorité :** le manuscrit gouverne la théorie ; les mathématiques et contrats publiés dans `tllib-specs` gouvernent leurs domaines ; cette note constitue une **extension descriptive de travail** et ne modifie aucun axiome, seuil, opérateur, contrat ou classification scientifique.
 
 ## 2. Acquis scientifiques : nature de la Capacité
 
@@ -140,6 +140,6 @@ Un idéal de réalisation d'une capacité particulière peut guider la recherche
 
 **Non démontré :** que C1–C5 sont scientifiquement reconnues chez D0, que \(\mathcal R_D\) est exhaustivement calculable, qu'une méthode particulière produit une transformation scientifique TL, ou qu'un indice classique mesure toute la Capacité.
 
-**À vérifier avant implémentation :** contrats et conditions d'existence/actualisation dans \`maths/\`, \`registry/\` et \`handoff/\` ; modalités autorisées de constat et de reconnaissance ; statut exécutable, conditionnel ou seulement structurel. La relation entre les espaces théoriques \(\mathcal C_p\) et \(\mathcal C_a\), décrits dans des espaces ambiants différents, doit être laissée à la source scientifique pour toute identification formelle supplémentaire.
+**À vérifier avant implémentation :** contrats et conditions d'existence/actualisation dans `maths/`, `registry/` et `handoff/` ; modalités autorisées de constat et de reconnaissance ; statut exécutable, conditionnel ou seulement structurel. La relation entre les espaces théoriques \(\mathcal C_p\) et \(\mathcal C_a\), décrits dans des espaces ambiants différents, doit être laissée à la source scientifique pour toute identification formelle supplémentaire.
 
 **Aucun** fichier scientifique normatif, contrat, algorithme TL, seuil ou API n'est modifié par cette étude.
